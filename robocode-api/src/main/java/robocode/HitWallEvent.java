@@ -10,54 +10,54 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class HitWallEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 30;
 
-	private final double bearing;
+    private final static int DEFAULT_PRIORITY = 30;
 
-	/**
-	 * Called by the game to create a new HitWallEvent.
-	 *
-	 * @param bearing the bearing to the wall that your robot hit, in radians
-	 */
-	public HitWallEvent(double bearing) {
-		this.bearing = bearing;
-	}
+    private final double bearing;
 
-	/**
-	 * Returns the bearing to the wall you hit, relative to your robot's
-	 * heading, in degrees (-180 &lt;= getBearing() &lt; 180)
-	 *
-	 * @return the bearing to the wall you hit, in degrees
-	 */
-	public double getBearing() {
-		return bearing * 180.0 / Math.PI;
-	}
+    /**
+     * Called by the game to create a new HitWallEvent.
+     *
+     * @param bearing the bearing to the wall that your robot hit, in radians
+     */
+    public HitWallEvent(double bearing) {
+        this.bearing = bearing;
+    }
 
-	/**
-	 * @return the bearing to the wall you hit, in degrees
-	 * @deprecated Use {@link #getBearing()} instead.
-	 */
-	@Deprecated
-	public double getBearingDegrees() {
-		return getBearing();
-	}
+    /**
+     * Returns the bearing to the wall you hit, relative to your robot's
+     * heading, in degrees (-180 &lt;= getBearing() &lt; 180)
+     *
+     * @return the bearing to the wall you hit, in degrees
+     */
+    public double getBearing() {
+        return bearing * 180.0 / Math.PI;
+    }
 
-	/**
-	 * Returns the bearing to the wall you hit, relative to your robot's
-	 * heading, in radians (-PI &lt;= getBearingRadians() &lt; PI)
-	 *
-	 * @return the bearing to the wall you hit, in radians
-	 */
-	public double getBearingRadians() {
-		return bearing;
-	}
+    /**
+     * @return the bearing to the wall you hit, in degrees
+     * @deprecated Use {@link #getBearing()} instead.
+     */
+    @Deprecated
+    public double getBearingDegrees() {
+        return getBearing();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Returns the bearing to the wall you hit, relative to your robot's
+     * heading, in radians (-PI &lt;= getBearingRadians() &lt; PI)
+     *
+     * @return the bearing to the wall you hit, in radians
+     */
+    public double getBearingRadians() {
+        return bearing;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

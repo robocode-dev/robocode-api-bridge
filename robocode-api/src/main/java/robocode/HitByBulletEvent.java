@@ -10,132 +10,132 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class HitByBulletEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 20;
 
-	private final double bearing;
-	private final Bullet bullet;
+    private final static int DEFAULT_PRIORITY = 20;
 
-	/**
-	 * Called by the game to create a new HitByBulletEvent.
-	 *
-	 * @param bearing the bearing of the bullet that hit your robot, in radians
-	 * @param bullet  the bullet that has hit your robot
-	 */
-	public HitByBulletEvent(double bearing, Bullet bullet) {
-		super();
-		this.bearing = bearing;
-		this.bullet = bullet;
-	}
+    private final double bearing;
+    private final Bullet bullet;
 
-	/**
-	 * Returns the bearing to the bullet, relative to your robot's heading,
-	 * in degrees (-180 &lt; getBearing() &lt;= 180).
-	 * <p>
-	 * If you were to turnRight(event.getBearing()), you would be facing the
-	 * direction the bullet came from. The calculation used here is:
-	 * (bullet's heading in degrees + 180) - (your heading in degrees)
-	 *
-	 * @return the bearing to the bullet, in degrees
-	 */
-	public double getBearing() {
-		return bearing * 180.0 / Math.PI;
-	}
+    /**
+     * Called by the game to create a new HitByBulletEvent.
+     *
+     * @param bearing the bearing of the bullet that hit your robot, in radians
+     * @param bullet  the bullet that has hit your robot
+     */
+    public HitByBulletEvent(double bearing, Bullet bullet) {
+        super();
+        this.bearing = bearing;
+        this.bullet = bullet;
+    }
 
-	/**
-	 * Returns the bearing to the bullet, relative to your robot's heading,
-	 * in radians (-Math.PI &lt; getBearingRadians() &lt;= Math.PI).
-	 * <p>
-	 * If you were to turnRightRadians(event.getBearingRadians()), you would be
-	 * facing the direction the bullet came from. The calculation used here is:
-	 * (bullet's heading in radians + Math.PI) - (your heading in radians)
-	 *
-	 * @return the bearing to the bullet, in radians
-	 */
-	public double getBearingRadians() {
-		return bearing;
-	}
+    /**
+     * Returns the bearing to the bullet, relative to your robot's heading,
+     * in degrees (-180 &lt; getBearing() &lt;= 180).
+     * <p>
+     * If you were to turnRight(event.getBearing()), you would be facing the
+     * direction the bullet came from. The calculation used here is:
+     * (bullet's heading in degrees + 180) - (your heading in degrees)
+     *
+     * @return the bearing to the bullet, in degrees
+     */
+    public double getBearing() {
+        return bearing * 180.0 / Math.PI;
+    }
 
-	/**
-	 * Returns the bullet that hit your robot.
-	 *
-	 * @return the bullet that hit your robot
-	 */
-	public Bullet getBullet() {
-		return bullet;
-	}
+    /**
+     * Returns the bearing to the bullet, relative to your robot's heading,
+     * in radians (-Math.PI &lt; getBearingRadians() &lt;= Math.PI).
+     * <p>
+     * If you were to turnRightRadians(event.getBearingRadians()), you would be
+     * facing the direction the bullet came from. The calculation used here is:
+     * (bullet's heading in radians + Math.PI) - (your heading in radians)
+     *
+     * @return the bearing to the bullet, in radians
+     */
+    public double getBearingRadians() {
+        return bearing;
+    }
 
-	/**
-	 * Returns the heading of the bullet when it hit you, in degrees
-	 * (0 &lt;= getHeading() &lt; 360).
-	 * <p>
-	 * Note: This is not relative to the direction you are facing. The robot
-	 * that fired the bullet was in the opposite direction of getHeading() when
-	 * it fired the bullet.
-	 *
-	 * @return the heading of the bullet, in degrees
-	 */
-	public double getHeading() {
-		return bullet.getHeading();
-	}
+    /**
+     * Returns the bullet that hit your robot.
+     *
+     * @return the bullet that hit your robot
+     */
+    public Bullet getBullet() {
+        return bullet;
+    }
 
-	/**
-	 * @return the heading of the bullet, in degrees
-	 * @deprecated Use {@link #getHeading()} instead.
-	 */
-	@Deprecated
-	public double getHeadingDegrees() {
-		return getHeading();
-	}
+    /**
+     * Returns the heading of the bullet when it hit you, in degrees
+     * (0 &lt;= getHeading() &lt; 360).
+     * <p>
+     * Note: This is not relative to the direction you are facing. The robot
+     * that fired the bullet was in the opposite direction of getHeading() when
+     * it fired the bullet.
+     *
+     * @return the heading of the bullet, in degrees
+     */
+    public double getHeading() {
+        return bullet.getHeading();
+    }
 
-	/**
-	 * Returns the heading of the bullet when it hit you, in radians
-	 * (0 &lt;= getHeadingRadians() &lt; 2 * PI).
-	 * <p>
-	 * Note: This is not relative to the direction you are facing. The robot
-	 * that fired the bullet was in the opposite direction of
-	 * getHeadingRadians() when it fired the bullet.
-	 *
-	 * @return the heading of the bullet, in radians
-	 */
-	public double getHeadingRadians() {
-		return bullet.getHeadingRadians();
-	}
+    /**
+     * @return the heading of the bullet, in degrees
+     * @deprecated Use {@link #getHeading()} instead.
+     */
+    @Deprecated
+    public double getHeadingDegrees() {
+        return getHeading();
+    }
 
-	/**
-	 * Returns the name of the robot that fired the bullet.
-	 *
-	 * @return the name of the robot that fired the bullet
-	 */
-	public String getName() {
-		return bullet.getName();
-	}
+    /**
+     * Returns the heading of the bullet when it hit you, in radians
+     * (0 &lt;= getHeadingRadians() &lt; 2 * PI).
+     * <p>
+     * Note: This is not relative to the direction you are facing. The robot
+     * that fired the bullet was in the opposite direction of
+     * getHeadingRadians() when it fired the bullet.
+     *
+     * @return the heading of the bullet, in radians
+     */
+    public double getHeadingRadians() {
+        return bullet.getHeadingRadians();
+    }
 
-	/**
-	 * Returns the power of this bullet. The damage you take (in fact, already
-	 * took) is 4 * power, plus 2 * (power-1) if power &gt; 1. The robot that fired
-	 * the bullet receives 3 * power back.
-	 *
-	 * @return the power of the bullet
-	 */
-	public double getPower() {
-		return bullet.getPower();
-	}
+    /**
+     * Returns the name of the robot that fired the bullet.
+     *
+     * @return the name of the robot that fired the bullet
+     */
+    public String getName() {
+        return bullet.getName();
+    }
 
-	/**
-	 * Returns the velocity of this bullet.
-	 *
-	 * @return the velocity of the bullet
-	 */
-	public double getVelocity() {
-		return bullet.getVelocity();
-	}
+    /**
+     * Returns the power of this bullet. The damage you take (in fact, already
+     * took) is 4 * power, plus 2 * (power-1) if power &gt; 1. The robot that fired
+     * the bullet receives 3 * power back.
+     *
+     * @return the power of the bullet
+     */
+    public double getPower() {
+        return bullet.getPower();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Returns the velocity of this bullet.
+     *
+     * @return the velocity of the bullet
+     */
+    public double getVelocity() {
+        return bullet.getVelocity();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

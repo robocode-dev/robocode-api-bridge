@@ -10,34 +10,34 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class BulletMissedEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 60;
+    private static final long serialVersionUID = 1L;
+    private final static int DEFAULT_PRIORITY = 60;
 
-	private final Bullet bullet;
+    private final Bullet bullet;
 
-	/**
-	 * Called by the game to create a new {@code BulletMissedEvent}.
-	 *
-	 * @param bullet the bullet that missed
-	 */
-	public BulletMissedEvent(Bullet bullet) {
-		this.bullet = bullet;
-	}
+    /**
+     * Called by the game to create a new {@code BulletMissedEvent}.
+     *
+     * @param bullet the bullet that missed
+     */
+    public BulletMissedEvent(Bullet bullet) {
+        this.bullet = bullet;
+    }
 
-	/**
-	 * Returns the bullet that missed.
-	 *
-	 * @return the bullet that missed
-	 */
-	public Bullet getBullet() {
-		return bullet;
-	}
+    /**
+     * Returns the bullet that missed.
+     *
+     * @return the bullet that missed
+     */
+    public Bullet getBullet() {
+        return bullet;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

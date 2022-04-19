@@ -14,21 +14,21 @@ import java.awt.Graphics2D;
  */
 @SuppressWarnings("unused") // API
 public final class PaintEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 5;
 
-	/**
-	 * Called by the game to create a new PaintEvent.
-	 */
-	public PaintEvent() {
-		super();
-	}
+    private final static int DEFAULT_PRIORITY = 5;
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Called by the game to create a new PaintEvent.
+     */
+    public PaintEvent() {
+        super();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

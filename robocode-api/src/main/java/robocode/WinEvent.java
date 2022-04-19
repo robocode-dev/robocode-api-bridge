@@ -9,37 +9,37 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class WinEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!
 
-	/**
-	 * Called by the game to create a new WinEvent.
-	 */
-	public WinEvent() {
-		super();
-	}
+    private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Called by the game to create a new WinEvent.
+     */
+    public WinEvent() {
+        super();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int getPriority() {
+        return DEFAULT_PRIORITY;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	boolean isCriticalEvent() {
-		return true;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    boolean isCriticalEvent() {
+        return true;
+    }
 }

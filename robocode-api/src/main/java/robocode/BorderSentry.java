@@ -12,6 +12,7 @@ package robocode;
  * in order to prevent "wall crawlers".<br>
  * Border sentry robots does not get scores, and will not occur in the battle results or rankings.
  *
+ * @author Flemming N. Larsen (original)
  * @see BattleRules#getSentryBorderSize()
  * @see JuniorRobot
  * @see Robot
@@ -19,9 +20,7 @@ package robocode;
  * @see TeamRobot
  * @see RateControlRobot
  * @see Droid
- *
- * @author Flemming N. Larsen (original)
- * 
  * @since 1.9.0.0
  */
-public interface BorderSentry {}
+public interface BorderSentry {
+}

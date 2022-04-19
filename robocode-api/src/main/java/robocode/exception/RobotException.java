@@ -5,13 +5,12 @@ package robocode.exception;
  */
 @SuppressWarnings("unused") // API
 public class RobotException extends Error { // Must be an Error!
-	private static final long serialVersionUID = 1L;
 
-	public RobotException() {
-		super();
-	}
+    public RobotException() {
+        super();
+    }
 
-	public RobotException(String s) {
-		super(s);
-	}
+    public RobotException(String s) {
+        super(s);
+    }
 }

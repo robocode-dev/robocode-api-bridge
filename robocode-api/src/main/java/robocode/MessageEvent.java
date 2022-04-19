@@ -11,46 +11,46 @@ import java.io.Serializable;
  */
 @SuppressWarnings("unused") // API
 public final class MessageEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 75;
 
-	private final String sender;
-	private final Serializable message;
+    private final static int DEFAULT_PRIORITY = 75;
 
-	/**
-	 * Called by the game to create a new MessageEvent.
-	 *
-	 * @param sender  the name of the sending robot
-	 * @param message the message for your robot
-	 */
-	public MessageEvent(String sender, Serializable message) {
-		this.sender = sender;
-		this.message = message;
-	}
+    private final String sender;
+    private final Serializable message;
 
-	/**
-	 * Returns the name of the sending robot.
-	 *
-	 * @return the name of the sending robot
-	 */
-	public String getSender() {
-		return sender;
-	}
+    /**
+     * Called by the game to create a new MessageEvent.
+     *
+     * @param sender  the name of the sending robot
+     * @param message the message for your robot
+     */
+    public MessageEvent(String sender, Serializable message) {
+        this.sender = sender;
+        this.message = message;
+    }
 
-	/**
-	 * Returns the message itself.
-	 *
-	 * @return the message
-	 */
-	public Serializable getMessage() {
-		return message;
-	}
+    /**
+     * Returns the name of the sending robot.
+     *
+     * @return the name of the sending robot
+     */
+    public String getSender() {
+        return sender;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Returns the message itself.
+     *
+     * @return the message
+     */
+    public Serializable getMessage() {
+        return message;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 }

@@ -9,37 +9,36 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class DeathEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = -1; // System event -> cannot be changed!
+    private final static int DEFAULT_PRIORITY = -1; // System event -> cannot be changed!
 
-	/**
-	 * Called by the game to create a new DeathEvent.
-	 */
-	public DeathEvent() {
-		super();
-	}
+    /**
+     * Called by the game to create a new DeathEvent.
+     */
+    public DeathEvent() {
+        super();
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int getPriority() {
+        return DEFAULT_PRIORITY;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	boolean isCriticalEvent() {
-		return true;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    boolean isCriticalEvent() {
+        return true;
+    }
 }

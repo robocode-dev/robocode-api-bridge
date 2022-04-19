@@ -28,61 +28,59 @@ package robocode;
  * between actions, that is using too much processing power for the calculations
  * etc. in your robot.
  *
- * @see AdvancedRobot#onSkippedTurn(SkippedTurnEvent)
- * @see SkippedTurnEvent
- *
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
+ * @see AdvancedRobot#onSkippedTurn(SkippedTurnEvent)
+ * @see SkippedTurnEvent
  */
 @SuppressWarnings("unused") // API
 public final class SkippedTurnEvent extends Event {
-	private static final long serialVersionUID = 1L;
-	private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!;
 
-	private final long skippedTurn;
+    private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!;
 
-	/**
-	 * Called by the game to create a new SkippedTurnEvent.
-	 *
-	 * @param skippedTurn the skipped turn
-	 */
-	public SkippedTurnEvent(long skippedTurn) {
-		super();
-		this.skippedTurn = skippedTurn;
-	}
+    private final long skippedTurn;
 
-	/**
-	 * Returns the turn that was skipped.
-	 *
-	 * @return the turn that was skipped.
-	 *
-	 * @since 1.7.2.0
-	 */
-	public long getSkippedTurn() {
-		return skippedTurn;
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public int getPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Called by the game to create a new SkippedTurnEvent.
+     *
+     * @param skippedTurn the skipped turn
+     */
+    public SkippedTurnEvent(long skippedTurn) {
+        super();
+        this.skippedTurn = skippedTurn;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	int getDefaultPriority() {
-		return DEFAULT_PRIORITY;
-	}
+    /**
+     * Returns the turn that was skipped.
+     *
+     * @return the turn that was skipped.
+     * @since 1.7.2.0
+     */
+    public long getSkippedTurn() {
+        return skippedTurn;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	boolean isCriticalEvent() {
-		return true;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int getPriority() {
+        return DEFAULT_PRIORITY;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    int getDefaultPriority() {
+        return DEFAULT_PRIORITY;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    boolean isCriticalEvent() {
+        return true;
+    }
 }

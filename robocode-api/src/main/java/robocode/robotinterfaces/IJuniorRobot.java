@@ -18,15 +18,14 @@ package robocode.robotinterfaces;
  * before their action has been completed and will at least take one turn to
  * execute.
  *
+ * @author Pavel Savara (original)
+ * @author Flemming N. Larsen (contributor)
  * @see robocode.JuniorRobot
  * @see IBasicRobot
  * @see IAdvancedRobot
  * @see IInteractiveRobot
  * @see ITeamRobot
- *
- * @author Pavel Savara (original)
- * @author Flemming N. Larsen (contributor)
- *
  * @since 1.6
  */
-public interface IJuniorRobot extends IBasicRobot {}
+public interface IJuniorRobot extends IBasicRobot {
+}

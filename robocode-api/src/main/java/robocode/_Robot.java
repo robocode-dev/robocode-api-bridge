@@ -6,137 +6,138 @@ package robocode;
  * <p>
  * You should create a {@link Robot} instead.
  *
+ * @author Mathew A. Nelson (original)
+ * @author Flemming N. Larsen (contributor)
+ * @author Pavel Savara (contributor)
  * @see Robot
  * @see JuniorRobot
  * @see AdvancedRobot
  * @see TeamRobot
  * @see RateControlRobot
- *
- * @author Mathew A. Nelson (original)
- * @author Flemming N. Larsen (contributor)
- * @author Pavel Savara (contributor)
  */
 @SuppressWarnings("unused") // API
 public abstract class _Robot extends _RobotBase {
-	private String robotImageName;
-	private String gunImageName;
-	private String radarImageName;
+    private String robotImageName;
+    private String gunImageName;
+    private String radarImageName;
 
-	_Robot() {}
+    _Robot() {
+    }
 
-	/**
-	 * @return 5 - {@link Robot#getGunHeat() getGunHeat()}.
-	 * @deprecated Use {@link Robot#getGunHeat() getGunHeat()} instead.
-	 */
-	@Deprecated
-	public double getGunCharge() {
-		if (peer != null) {
-			return 5 - peer.getGunHeat();
-		}
-		uninitializedException();
-		return 0; // never called
-	}
+    /**
+     * @return 5 - {@link Robot#getGunHeat() getGunHeat()}.
+     * @deprecated Use {@link Robot#getGunHeat() getGunHeat()} instead.
+     */
+    @Deprecated
+    public double getGunCharge() {
+        if (peer != null) {
+            return 5 - peer.getGunHeat();
+        }
+        uninitializedException();
+        return 0; // never called
+    }
 
-	/**
-	 * @return the robot's current life/energy.
-	 * @deprecated Use {@link Robot#getEnergy() getEnergy()} instead.
-	 */
-	@Deprecated
-	public double getLife() {
-		if (peer != null) {
-			return peer.getEnergy();
-		}
-		uninitializedException();
-		return 0; // never called
-	}
+    /**
+     * @return the robot's current life/energy.
+     * @deprecated Use {@link Robot#getEnergy() getEnergy()} instead.
+     */
+    @Deprecated
+    public double getLife() {
+        if (peer != null) {
+            return peer.getEnergy();
+        }
+        uninitializedException();
+        return 0; // never called
+    }
 
-	/**
-	 * @return the number of rounds in the current battle
-	 * @deprecated Use {@link Robot#getNumRounds() getNumRounds()} instead.
-	 */
-	@Deprecated
-	public int getNumBattles() {
-		if (peer != null) {
-			return peer.getNumRounds();
-		}
-		uninitializedException();
-		return 0; // never called
-	}
+    /**
+     * @return the number of rounds in the current battle
+     * @deprecated Use {@link Robot#getNumRounds() getNumRounds()} instead.
+     */
+    @Deprecated
+    public int getNumBattles() {
+        if (peer != null) {
+            return peer.getNumRounds();
+        }
+        uninitializedException();
+        return 0; // never called
+    }
 
-	/**
-	 * @return the current round number of the battle (zero indexed).
-	 * @deprecated Use {@link Robot#getRoundNum() getRoundNum()} instead.
-	 */
-	@Deprecated
-	public int getBattleNum() {
-		if (peer != null) {
-			return peer.getRoundNum();
-		}
-		uninitializedException();
-		return 0; // never called
-	}
+    /**
+     * @return the current round number of the battle (zero indexed).
+     * @deprecated Use {@link Robot#getRoundNum() getRoundNum()} instead.
+     */
+    @Deprecated
+    public int getBattleNum() {
+        if (peer != null) {
+            return peer.getRoundNum();
+        }
+        uninitializedException();
+        return 0; // never called
+    }
 
-	/**
-	 * This call has moved to {@link AdvancedRobot}, and will no longer function in
-	 * the {@link Robot} class.
-	 *
-	 * @param interruptible {@code true} if the event handler should be
-	 *                      interrupted if new events of the same priority occurs; {@code false}
-	 *                      otherwise
-	 */
-	public void setInterruptible(boolean interruptible) {}
+    /**
+     * This call has moved to {@link AdvancedRobot}, and will no longer function in
+     * the {@link Robot} class.
+     *
+     * @param interruptible {@code true} if the event handler should be
+     *                      interrupted if new events of the same priority occurs; {@code false}
+     *                      otherwise
+     */
+    public void setInterruptible(boolean interruptible) {
+    }
 
-	/**
-	 * @return the name of the gun image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public String getGunImageName() {
-		return gunImageName;
-	}
+    /**
+     * @return the name of the gun image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public String getGunImageName() {
+        return gunImageName;
+    }
 
-	/**
-	 * @param newGunImageName the name of the new gun image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public void setGunImageName(String newGunImageName) {
-		gunImageName = newGunImageName;
-	}
+    /**
+     * @param newGunImageName the name of the new gun image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public void setGunImageName(String newGunImageName) {
+        gunImageName = newGunImageName;
+    }
 
-	/**
-	 * @param newRadarImageName the name of the new radar image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public void setRadarImageName(String newRadarImageName) {
-		radarImageName = newRadarImageName;
-	}
+    /**
+     * @param newRadarImageName the name of the new radar image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public void setRadarImageName(String newRadarImageName) {
+        radarImageName = newRadarImageName;
+    }
 
-	/**
-	 * @param newRobotImageName the name of the new robot body image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public void setRobotImageName(String newRobotImageName) {
-		robotImageName = newRobotImageName;
-	}
+    /**
+     * @param newRobotImageName the name of the new robot body image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public void setRobotImageName(String newRobotImageName) {
+        robotImageName = newRobotImageName;
+    }
 
-	/**
-	 * @return the name of the radar image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public String getRadarImageName() {
-		return radarImageName;
-	}
+    /**
+     * @return the name of the radar image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public String getRadarImageName() {
+        return radarImageName;
+    }
 
-	/**
-	 * @return the name of the robot image
-	 * @deprecated This call is not used.
-	 */
-	@Deprecated
-	public String getRobotImageName() {
-		return robotImageName;
-	}
+    /**
+     * @return the name of the robot image
+     * @deprecated This call is not used.
+     */
+    @Deprecated
+    public String getRobotImageName() {
+        return robotImageName;
+    }
 }

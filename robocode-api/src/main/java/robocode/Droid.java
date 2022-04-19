@@ -10,13 +10,13 @@ package robocode;
  * A team of droids plus at least one non-droid team robot can have a crucial edge over another
  * team without droids (and the same number of robots) due to the additional 20 energy points.
  *
+ * @author Mathew A. Nelson (original)
  * @see JuniorRobot
  * @see Robot
  * @see AdvancedRobot
  * @see TeamRobot
  * @see RateControlRobot
  * @see BorderSentry
- *
- * @author Mathew A. Nelson (original)
  */
-public interface Droid {}
+public interface Droid {
+}

@@ -5,9 +5,7 @@ package robocode.exception;
  */
 @SuppressWarnings("unused") // API
 public class EventInterruptedException extends Error { // Must be an Error!
-	private static final long serialVersionUID = 1L;
-
-	private int priority = Integer.MIN_VALUE;
+	private final int priority;
 
 	public EventInterruptedException(int priority) {
 		this.priority = priority;
