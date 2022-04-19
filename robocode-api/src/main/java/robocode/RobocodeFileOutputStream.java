@@ -22,7 +22,7 @@ import java.io.*;
  */
 @SuppressWarnings("unused") // API
 public class RobocodeFileOutputStream extends OutputStream {
-    private final FileOutputStream out;
+//    private final FileOutputStream out; // TODO
     private final String fileName;
 
     /**
@@ -43,7 +43,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      * See {@link java.io.FileOutputStream#FileOutputStream(FileDescriptor)}
      * for documentation about this constructor.
      *
-     * @param fdObj desciptor
+     * @param fdObj the file descriptor to be opened for writing
      * @see java.io.FileOutputStream#FileOutputStream(FileDescriptor)
      */
     @Deprecated
@@ -77,13 +77,15 @@ public class RobocodeFileOutputStream extends OutputStream {
     public RobocodeFileOutputStream(String fileName, boolean append) throws IOException {
         this.fileName = fileName;
 
+        // TODO: Implement
+/*
         final IThreadManagerBase threadManager = ContainerBase.getComponent(IThreadManagerBase.class);
 
         if (threadManager == null) {
             throw new RobotException("ThreadManager cannot be null!");
         }
 
-        out = threadManager.createRobotFileStream(fileName, append);
+        out = threadManager.createRobotFileStream(fileName, append);*/
     }
 
     /**
@@ -94,7 +96,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void close() throws IOException {
-        out.close();
+//        out.close(); // TODO
     }
 
     /**
@@ -105,7 +107,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void flush() throws IOException {
-        out.flush();
+//        out.flush(); // TODO
     }
 
     /**
@@ -126,7 +128,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(byte[] b) throws IOException {
-        out.write(b);
+//        out.write(b); // TODO
     }
 
     /**
@@ -138,7 +140,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(byte[] b, int off, int len) throws IOException {
-        out.write(b, off, len);
+//        out.write(b, off, len); // TODO
     }
 
     /**
@@ -150,6 +152,6 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(int b) throws IOException {
-        out.write(b);
+//        out.write(b); // TODO
     }
 }

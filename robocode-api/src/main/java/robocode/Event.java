@@ -13,11 +13,8 @@ public abstract class Event implements Comparable<Event>, Serializable {
 
     private static final int DEFAULT_PRIORITY = 80;
 
-    private long time;
-    private int priority;
-
-    // time is valid only after adding to event manager on proxy side, we do not update it on battle side
-    private transient boolean addedToQueue;
+    private Long time;
+    private Integer priority;
 
     /**
      * Default constructor used by the game to create a new event.
@@ -47,19 +44,13 @@ public abstract class Event implements Comparable<Event>, Serializable {
      */
     public int compareTo(Event event) {
         // Compare the time difference which has precedence over priority.
-        int timeDiff = (int) (time - event.time);
-
+        int timeDiff = (int) (getTime() - event.getTime());
         if (timeDiff != 0) {
-            return timeDiff; // Time differ
+            return timeDiff;
         }
 
         // Same time -> Compare the difference in priority
-        int priorityDiff = event.getPriority() - getPriority();
-
-        return priorityDiff; // Priority differ
-
-        // Same time and priority -> Compare specific event types
-        // look at overrides in ScannedRobotEvent and HitRobotEvent
+        return event.getPriority() - getPriority();
     }
 
     /**
@@ -71,8 +62,8 @@ public abstract class Event implements Comparable<Event>, Serializable {
      */
     // Note: We rolled back the use of 'final' here due to Bug [2928688], where some old robots do override getTime()
     // with their own events that inherits from robocode.Event.
-    public /* final*/long getTime() {
-        return time;
+    public long getTime() {
+        return (time == null) ? 0 : time;
     }
 
     /**
@@ -87,8 +78,8 @@ public abstract class Event implements Comparable<Event>, Serializable {
      * @param newTime the time this event occurred
      */
     public void setTime(long newTime) {
-        if (addedToQueue) {
-            Logger.printlnToRobotsConsole(
+        if (time != null) {
+            System.out.println(
                     "SYSTEM: The time of an event cannot be changed after it has been added the event queue.");
         } else {
             time = newTime;
@@ -105,7 +96,7 @@ public abstract class Event implements Comparable<Event>, Serializable {
      * @return the priority of this event.
      */
     public int getPriority() {
-        return priority;
+        return (priority == null) ? DEFAULT_PRIORITY : priority;
     }
 
     /**
@@ -122,50 +113,20 @@ public abstract class Event implements Comparable<Event>, Serializable {
      * @see AdvancedRobot#setEventPriority(String, int)
      */
     public final void setPriority(int newPriority) {
-        if (addedToQueue) {
-            Logger.printlnToRobotsConsole(
+        if (priority == null) {
+            System.out.println(
                     "SYSTEM: The priority of an event cannot be changed after it has been added the event queue.");
         } else {
-            setPriorityHidden(newPriority);
+            if (newPriority < 0) {
+                System.out.println("SYSTEM: Priority must be between 0 and 99");
+                System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 0");
+                priority = 0;
+            } else if (newPriority > 99) {
+                System.out.println("SYSTEM: Priority must be between 0 and 99");
+                System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 99");
+                priority = 99;
+            }
         }
-    }
-
-    /**
-     * Hidden method for setting the exact time when this event occurred.
-     * <p>
-     * <strong>Notice:</strong> This method is called by the game engine only.
-     *
-     * @param time the time when this event occurred.
-     */
-    // This method must be invisible on Robot API
-    private void setTimeHidden(long time) {
-        // we do not replace time which is set by robot to the future
-        if (this.time < time) {
-            this.time = time;
-        }
-        // when this flag is set, robots are not allowed to change the time or priority of the event anymore
-        addedToQueue = true;
-    }
-
-    /**
-     * Hidden method for setting the priority from the game engine without checking for the 'addedToQueue' flag.
-     * <p>
-     * <strong>Notice:</strong> This method is called by the game engine only.
-     *
-     * @param newPriority the new priority of this event.
-     */
-    // This method must be invisible on Robot API
-    private void setPriorityHidden(int newPriority) {
-        if (newPriority < 0) {
-            Logger.printlnToRobotsConsole("SYSTEM: Priority must be between 0 and 99");
-            Logger.printlnToRobotsConsole("SYSTEM: Priority for " + this.getClass().getName() + " will be 0");
-            newPriority = 0;
-        } else if (newPriority > 99) {
-            Logger.printlnToRobotsConsole("SYSTEM: Priority must be between 0 and 99");
-            Logger.printlnToRobotsConsole("SYSTEM: Priority for " + this.getClass().getName() + " will be 99");
-            newPriority = 99;
-        }
-        priority = newPriority;
     }
 
     /**

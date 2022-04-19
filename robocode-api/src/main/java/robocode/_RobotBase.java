@@ -5,6 +5,8 @@ import robocode.robotinterfaces.IBasicRobot;
 import robocode.robotinterfaces.peer.IBasicRobotPeer;
 import robocode.util.Utils;
 
+import java.io.PrintStream;
+
 /**
  * This is the base class of all robots used by the system.
  * You should not inherit your robot on this class.
@@ -44,7 +46,7 @@ public abstract class _RobotBase implements IBasicRobot, Runnable {
      *   }
      * </pre>
      */
-    public java.io.PrintStream out;
+    public PrintStream out;
 
     /**
      * Called by the system to 'clean up' after your robot.
@@ -58,7 +60,7 @@ public abstract class _RobotBase implements IBasicRobot, Runnable {
     /**
      * {@inheritDoc}
      */
-    public final void setOut(java.io.PrintStream out) {
+    public final void setOut(PrintStream out) {
         this.out = out;
     }
 

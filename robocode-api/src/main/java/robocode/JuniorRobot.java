@@ -5,6 +5,8 @@ import robocode.robotinterfaces.IJuniorRobot;
 import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 import robocode.util.Utils;
 
+import java.awt.*;
+
 import static java.lang.Math.toRadians;
 
 /**
