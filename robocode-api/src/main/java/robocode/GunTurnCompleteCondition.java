@@ -10,6 +10,7 @@ package robocode;
  * @author Flemming N. Larsen (contributor)
  * @author Nathaniel Troutman (contributor)
  */
+@SuppressWarnings("unused") // API
 public class GunTurnCompleteCondition extends Condition {
 	private AdvancedRobot robot = null;
 

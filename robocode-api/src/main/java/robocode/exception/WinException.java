@@ -3,6 +3,7 @@ package robocode.exception;
 /**
  * @author Mathew A. Nelson (original)
  */
+@SuppressWarnings("unused") // API
 public class WinException extends Error { // Must be an Error!
 	private static final long serialVersionUID = 1L;
 

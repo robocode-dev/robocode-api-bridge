@@ -34,6 +34,7 @@ package robocode;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public final class SkippedTurnEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!;
@@ -65,7 +66,7 @@ public final class SkippedTurnEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getPriority() {
+	public int getPriority() {
 		return DEFAULT_PRIORITY;
 	}
 

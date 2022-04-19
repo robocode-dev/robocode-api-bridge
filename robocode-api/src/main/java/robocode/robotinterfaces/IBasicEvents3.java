@@ -10,6 +10,7 @@ import robocode.RoundEndedEvent;
  *
  * @since 1.7.2
  */
+@SuppressWarnings("unused") // API
 public interface IBasicEvents3 extends IBasicEvents2 {
 
 	/**

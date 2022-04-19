@@ -10,6 +10,7 @@ package robocode;
  * @author Flemming N. Larsen (contributor)
  * @author Nathaniel Troutman (contributor)
  */
+@SuppressWarnings("unused") // API
 public class MoveCompleteCondition extends Condition {
 	private AdvancedRobot robot;
 

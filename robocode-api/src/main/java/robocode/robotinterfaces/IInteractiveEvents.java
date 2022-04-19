@@ -15,6 +15,7 @@ import java.awt.event.MouseWheelEvent;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IInteractiveEvents {
 
 	/**

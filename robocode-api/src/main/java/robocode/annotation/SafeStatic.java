@@ -17,4 +17,5 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
+@SuppressWarnings("unused") // API
 public @interface SafeStatic {}

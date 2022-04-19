@@ -19,9 +19,9 @@ import java.awt.*;
  * <br> Positive y is up.
  * </p>
  *
- * @see <a target="_top" href="https://robocode.sourceforge.io">
+ * See <a target="_top" href="https://robocode.sourceforge.io">
  *      robocode.sourceforge.net</a>
- * @see <a href="https://robocode.sourceforge.io/myfirstrobot/MyFirstRobot.html">
+ * See <a href="https://robocode.sourceforge.io/myfirstrobot/MyFirstRobot.html">
  *      Building your first robot</a>
  *
  * @see JuniorRobot
@@ -37,6 +37,7 @@ import java.awt.*;
  * @author Stefan Westen (contributor)
  * @author Pavel Savara (contributor)
  */
+@SuppressWarnings("unused") // API
 public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBasicEvents3, IInteractiveEvents, IPaintEvents {
 
 	private static final int

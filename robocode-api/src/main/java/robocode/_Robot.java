@@ -16,6 +16,7 @@ package robocode;
  * @author Flemming N. Larsen (contributor)
  * @author Pavel Savara (contributor)
  */
+@SuppressWarnings("unused") // API
 public abstract class _Robot extends _RobotBase {
 	private String robotImageName;
 	private String gunImageName;

@@ -9,6 +9,7 @@ import java.io.Serializable;
  *
  * @author Mathew A. Nelson (original)
  */
+@SuppressWarnings("unused") // API
 public final class MessageEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 75;

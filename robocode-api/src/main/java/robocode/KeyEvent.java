@@ -8,6 +8,7 @@ package robocode;
  *
  * @since 1.6.1
  */
+@SuppressWarnings("unused") // API
 public abstract class KeyEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final java.awt.event.KeyEvent source;
@@ -32,5 +33,4 @@ public abstract class KeyEvent extends Event {
 	public java.awt.event.KeyEvent getSourceEvent() {
 		return source;
 	}
-
 }

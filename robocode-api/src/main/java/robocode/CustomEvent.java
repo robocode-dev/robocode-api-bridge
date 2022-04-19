@@ -11,6 +11,7 @@ package robocode;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public class CustomEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULT_PRIORITY = 80;
@@ -101,13 +102,5 @@ public class CustomEvent extends Event {
 	// final to disable overrides
 	public final int getPriority() {
 		return super.getPriority();
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		throw new Error("Serialization not supported on this event type");
 	}
 }

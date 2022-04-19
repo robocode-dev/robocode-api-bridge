@@ -39,6 +39,7 @@ import static java.lang.Math.toRadians;
  *
  * @since 1.7.1.3
  */
+@SuppressWarnings("unused") // API
 public class RateControlRobot extends TeamRobot {
 
 	private double velocityRate; // Pixels per turn

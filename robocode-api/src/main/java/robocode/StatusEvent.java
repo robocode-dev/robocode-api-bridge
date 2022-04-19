@@ -8,6 +8,7 @@ package robocode;
  *
  * @since 1.5
  */
+@SuppressWarnings("unused") // API
 public final class StatusEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 99;

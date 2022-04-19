@@ -20,7 +20,7 @@ import java.io.IOException;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"}) // API
 public class RobocodeFileWriter extends java.io.OutputStreamWriter {
 
 	/**

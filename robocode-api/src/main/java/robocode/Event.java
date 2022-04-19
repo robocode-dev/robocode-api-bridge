@@ -8,6 +8,7 @@ import java.io.Serializable;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public abstract class Event implements Comparable<Event>, Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final int DEFAULT_PRIORITY = 80;

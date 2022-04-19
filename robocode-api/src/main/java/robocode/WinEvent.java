@@ -7,6 +7,7 @@ package robocode;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public final class WinEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 100; // System event -> cannot be changed!

@@ -36,6 +36,7 @@ import static java.lang.Math.toRadians;
  *
  * @since 1.4
  */
+@SuppressWarnings("unused") // API
 public class JuniorRobot extends _RobotBase implements IJuniorRobot {
 
 	/**

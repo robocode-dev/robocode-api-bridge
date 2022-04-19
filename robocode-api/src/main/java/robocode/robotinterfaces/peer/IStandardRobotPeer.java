@@ -17,6 +17,7 @@ package robocode.robotinterfaces.peer;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IStandardRobotPeer extends IBasicRobotPeer {
 
 	/**

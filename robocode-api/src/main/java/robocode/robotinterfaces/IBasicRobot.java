@@ -20,6 +20,7 @@ import robocode.robotinterfaces.peer.IBasicRobotPeer;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IBasicRobot {
 
 	/**

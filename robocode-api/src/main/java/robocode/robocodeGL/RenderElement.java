@@ -8,6 +8,7 @@ import gl4java.GLFunc;
  *
  * Original author is David Alves for RobocodeGL.
  */
+@SuppressWarnings("unused") // API
 public abstract class RenderElement {
 
 	public static void init(GLFont glf) {}

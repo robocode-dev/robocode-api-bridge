@@ -8,6 +8,7 @@ package robocode;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public final class HitRobotEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 40;
@@ -110,7 +111,7 @@ public final class HitRobotEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int compareTo(Event event) {
+	public int compareTo(Event event) {
 		final int res = super.compareTo(event);
 
 		if (res != 0) {

@@ -14,6 +14,7 @@ package robocode;
  *
  * @since 1.6.2
  */
+@SuppressWarnings("unused") // API
 public final class BattleRules implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 

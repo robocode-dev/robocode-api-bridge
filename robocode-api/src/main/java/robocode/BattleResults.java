@@ -12,6 +12,7 @@ package robocode;
  *
  * @since 1.6.1
  */
+@SuppressWarnings("unused") // API
 public class BattleResults implements java.io.Serializable, Comparable<BattleResults> {
 	protected static final long serialVersionUID = 1L;
 

@@ -8,6 +8,7 @@ import java.awt.Color;
  *
  * Original author is David Alves for RobocodeGL.
  */
+@SuppressWarnings("unused") // API
 public class RectangleGL extends RenderElement {
 	
 	public RectangleGL() {}

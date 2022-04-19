@@ -42,6 +42,7 @@ import java.util.Vector;
  * @author Flemming N. Larsen (contributor)
  * @author Pavel Savara (contributor)
  */
+@SuppressWarnings("unused") // API
 public class TeamRobot extends AdvancedRobot implements ITeamRobot, ITeamEvents {
 
 	/**

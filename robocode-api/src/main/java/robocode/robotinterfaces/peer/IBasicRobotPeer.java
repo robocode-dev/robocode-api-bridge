@@ -24,6 +24,7 @@ import java.awt.*;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IBasicRobotPeer {
 
 	/**

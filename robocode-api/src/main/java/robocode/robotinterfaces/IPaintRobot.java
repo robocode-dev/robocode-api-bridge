@@ -8,6 +8,7 @@ package robocode.robotinterfaces;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IPaintRobot extends IBasicRobot {
 
 	/**

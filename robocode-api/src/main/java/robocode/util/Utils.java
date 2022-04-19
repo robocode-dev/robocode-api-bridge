@@ -10,6 +10,7 @@ import static java.lang.Math.PI;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public class Utils {
 
 	private final static double TWO_PI = 2 * PI;

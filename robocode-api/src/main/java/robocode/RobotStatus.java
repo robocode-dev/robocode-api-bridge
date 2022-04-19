@@ -10,6 +10,7 @@ import java.io.Serializable;
  *
  * @since 1.5
  */
+@SuppressWarnings("unused") // API
 public final class RobotStatus implements Serializable {
 	private static final long serialVersionUID = 1L;
 

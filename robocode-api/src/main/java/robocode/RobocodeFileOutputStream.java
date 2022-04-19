@@ -21,6 +21,7 @@ import java.io.*;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public class RobocodeFileOutputStream extends OutputStream {
 	private final FileOutputStream out;
 	private final String fileName;

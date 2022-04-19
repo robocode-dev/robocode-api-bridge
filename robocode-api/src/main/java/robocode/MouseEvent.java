@@ -8,6 +8,7 @@ package robocode;
  *
  * @since 1.6.1
  */
+@SuppressWarnings("unused") // API
 public abstract class MouseEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final java.awt.event.MouseEvent source;

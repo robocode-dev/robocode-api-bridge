@@ -1,7 +1,5 @@
 package robocode;
 
-import net.sf.robocode.serialization.RbSerializer;
-
 /**
  * This event is sent to {@link Robot#onDeath(DeathEvent) onDeath()} when your
  * robot dies.
@@ -9,6 +7,7 @@ import net.sf.robocode.serialization.RbSerializer;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public final class DeathEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = -1; // System event -> cannot be changed!
@@ -42,13 +41,5 @@ public final class DeathEvent extends Event {
 	@Override
 	boolean isCriticalEvent() {
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.DeathEvent_TYPE;
 	}
 }

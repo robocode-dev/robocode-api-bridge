@@ -5,6 +5,7 @@ package robocode.robocodeGL;
  *
  * Original author is David Alves for RobocodeGL.
  */
+@SuppressWarnings("unused") // API
 public class LabelGL {
 
 	public LabelGL(String s) {}

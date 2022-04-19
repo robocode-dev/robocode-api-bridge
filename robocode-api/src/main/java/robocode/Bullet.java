@@ -16,6 +16,7 @@ import java.io.Serializable;
  * @author Mathew A. Nelson (original)
  * @author Flemming N. Larsen (contributor)
  */
+@SuppressWarnings("unused") // API
 public class Bullet implements Serializable {
 	private static final long serialVersionUID = 1L;
 

@@ -14,6 +14,7 @@ import static java.lang.Math.max;
  *
  * @since 1.1.4
  */
+@SuppressWarnings("unused") // API
 public final class Rules {
 
 	// Hide the constructor in the Javadocs as it should not be used

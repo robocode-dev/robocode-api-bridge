@@ -18,6 +18,7 @@ import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
  * @author Flemming N. Larsen (contributor)
  * @author Pavel Savara (contributor)
  */
+@SuppressWarnings("unused") // API
 public class _AdvancedRobot extends Robot {
 
 	_AdvancedRobot() {}

@@ -7,6 +7,7 @@ import robocode.robocodeGL.RenderElement;
  *
  * Original author is David Alves for RobocodeGL.
  */
+@SuppressWarnings("unused") // API
 public class GLRenderer {
 
 	public static GLRenderer getInstance() {

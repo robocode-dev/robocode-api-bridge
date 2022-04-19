@@ -14,6 +14,7 @@ import robocode.SkippedTurnEvent;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface IAdvancedEvents {
 
 	/**

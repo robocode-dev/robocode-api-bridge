@@ -27,6 +27,7 @@ package robocode;
  * @author Flemming N. Larsen (contributor)
  * @author Nathaniel Troutman (contributor)
  */
+@SuppressWarnings("unused") // API
 public abstract class Condition {
 
 	/**

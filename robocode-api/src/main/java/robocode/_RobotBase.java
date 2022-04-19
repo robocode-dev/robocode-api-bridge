@@ -23,6 +23,7 @@ import robocode.util.Utils;
  *
  * @since 1.4
  */
+@SuppressWarnings("unused") // API
 public abstract class _RobotBase implements IBasicRobot, Runnable {
 
 	// Internal for this package

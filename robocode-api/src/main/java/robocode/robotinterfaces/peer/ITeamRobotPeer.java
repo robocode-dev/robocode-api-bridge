@@ -22,6 +22,7 @@ import java.util.List;
  *
  * @since 1.6
  */
+@SuppressWarnings("unused") // API
 public interface ITeamRobotPeer extends IAdvancedRobotPeer {
 
 	/**

@@ -12,6 +12,7 @@ package robocode;
  *
  * @since 1.6.1
  */
+@SuppressWarnings("unused") // API
 public final class KeyTypedEvent extends KeyEvent {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 98;

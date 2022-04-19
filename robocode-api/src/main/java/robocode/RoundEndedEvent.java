@@ -11,6 +11,7 @@ package robocode;
  *
  * @since 1.7.2
  */
+@SuppressWarnings("unused") // API
 public final class RoundEndedEvent extends Event {
 	private static final long serialVersionUID = 1L;
 	private final static int DEFAULT_PRIORITY = 110; // System event -> cannot be changed!

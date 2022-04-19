@@ -30,6 +30,7 @@ import java.util.Vector;
  * @author Robert D. Maupin (contributor)
  * @author Pavel Savara (contributor)
  */
+@SuppressWarnings("unused") // API
 public class AdvancedRobot extends _AdvancedRadiansRobot implements IAdvancedRobot, IAdvancedEvents {
 
 	/**

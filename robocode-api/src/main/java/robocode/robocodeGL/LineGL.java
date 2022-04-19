@@ -9,6 +9,7 @@ import java.awt.*;
  *
  * Original author is David Alves for RobocodeGL.
  */
+@SuppressWarnings("unused") // API
 public class LineGL extends RenderElement {
 
 	public LineGL() {}
