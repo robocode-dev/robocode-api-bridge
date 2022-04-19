@@ -1,10 +1,5 @@
 package robocode;
 
-import net.sf.robocode.io.Logger;
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.security.IHiddenEventHelper;
-import robocode.robotinterfaces.IBasicRobot;
-
 import java.io.Serializable;
 
 /**
@@ -173,16 +168,6 @@ public abstract class Event implements Comparable<Event>, Serializable {
 	}
 
 	/**
-	 * Dispatch this event a the robot, it's statistics, and graphics context.
-	 *
-	 * @param robot the robot to dispatch to.
-	 * @param statics the statistics to dispatch to.
-	 * @param graphics the graphics to dispatch to.
-	 */
-	// This method must be invisible on Robot API
-	void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {}
-
-	/**
 	 * Returns the default priority of this event class.
 	 */
 	// This method must be invisible on Robot API
@@ -199,51 +184,5 @@ public abstract class Event implements Comparable<Event>, Serializable {
 	// This method must be invisible on Robot API
 	boolean isCriticalEvent() {
 		return false;
-	}
-
-	// This method must be invisible on Robot API
-	byte getSerializationType() {
-		throw new Error("Serialization not supported on this event type");
-	}
-
-	/**
-	 * Returns a hidden event helper for accessing hidden methods on this object.
-	 */
-	// This method must be invisible on Robot API
-	static IHiddenEventHelper createHiddenHelper() {
-		return new HiddenEventHelper();
-	}
-
-	/**
-	 * Hidden event helper implementation for accessing the internal methods of an event.
-	 * <p>
-	 * This class is used internally by the game engine.
-	 */
-	// This method must be invisible on Robot API
-	private static class HiddenEventHelper implements IHiddenEventHelper {
-
-		public void setTime(Event event, long newTime) {
-			event.setTimeHidden(newTime);
-		}
-
-		public void setDefaultPriority(Event event) {
-			event.setPriority(event.getDefaultPriority());
-		}
-
-		public void setPriority(Event event, int newPriority) {
-			event.setPriorityHidden(newPriority);
-		}
-
-		public boolean isCriticalEvent(Event event) {
-			return event.isCriticalEvent();
-		}
-
-		public void dispatch(Event event, IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-			event.dispatch(robot, statics, graphics);
-		}
-
-		public byte getSerializationType(Event event) {
-			return event.getSerializationType();
-		}
 	}
 }

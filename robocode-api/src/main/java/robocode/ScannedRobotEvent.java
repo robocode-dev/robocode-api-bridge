@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A ScannedRobotEvent is sent to {@link Robot#onScannedRobot(ScannedRobotEvent)
  * onScannedRobot()} when you scan a robot.
@@ -293,59 +285,5 @@ public class ScannedRobotEvent extends Event {
 	@Override
 	final int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-		if (listener != null) {
-			listener.onScannedRobot(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.ScannedRobotEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			ScannedRobotEvent obj = (ScannedRobotEvent) object;
-			return RbSerializer.SIZEOF_TYPEINFO + serializer.sizeOf(obj.name) + 5 * RbSerializer.SIZEOF_DOUBLE
-					+ RbSerializer.SIZEOF_BOOL;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			ScannedRobotEvent obj = (ScannedRobotEvent) object;
-			serializer.serialize(buffer, obj.name);
-			serializer.serialize(buffer, obj.energy);
-			serializer.serialize(buffer, obj.heading);
-			serializer.serialize(buffer, obj.bearing);
-			serializer.serialize(buffer, obj.distance);
-			serializer.serialize(buffer, obj.velocity);
-			serializer.serialize(buffer, obj.isSentryRobot);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			String name = serializer.deserializeString(buffer);
-			double energy = buffer.getDouble();
-			double heading = buffer.getDouble();
-			double bearing = buffer.getDouble();
-			double distance = buffer.getDouble();
-			double velocity = buffer.getDouble();
-			boolean isSentryRobot = serializer.deserializeBoolean(buffer);
-
-			return new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, isSentryRobot);
-		}
 	}
 }

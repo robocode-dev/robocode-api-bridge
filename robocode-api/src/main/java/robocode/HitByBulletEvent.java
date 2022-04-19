@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A HitByBulletEvent is sent to {@link Robot#onHitByBullet(HitByBulletEvent)
  * onHitByBullet()} when your robot has been hit by a bullet.
@@ -142,54 +134,7 @@ public final class HitByBulletEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onHitByBullet(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.HitByBulletEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			HitByBulletEvent obj = (HitByBulletEvent) object;
-
-			return RbSerializer.SIZEOF_TYPEINFO + serializer.sizeOf(RbSerializer.Bullet_TYPE, obj.bullet)
-					+ RbSerializer.SIZEOF_DOUBLE;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			HitByBulletEvent obj = (HitByBulletEvent) object;
-
-			serializer.serialize(buffer, RbSerializer.Bullet_TYPE, obj.bullet);
-			serializer.serialize(buffer, obj.bearing);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			Bullet bullet = (Bullet) serializer.deserializeAny(buffer);
-			double bearing = buffer.getDouble();
-
-			return new HitByBulletEvent(bearing, bullet);
-		}
 	}
 }

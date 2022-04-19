@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A HitWallEvent is sent to {@link Robot#onHitWall(HitWallEvent) onHitWall()}
  * when you collide a wall.
@@ -64,49 +56,7 @@ public final class HitWallEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onHitWall(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.HitWallEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			return RbSerializer.SIZEOF_TYPEINFO + RbSerializer.SIZEOF_DOUBLE;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			HitWallEvent obj = (HitWallEvent) object;
-
-			serializer.serialize(buffer, obj.bearing);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			double bearing = buffer.getDouble();
-
-			return new HitWallEvent(bearing);
-		}
 	}
 }

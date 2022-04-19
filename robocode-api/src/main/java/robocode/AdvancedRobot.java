@@ -13,9 +13,9 @@ import java.util.Vector;
  * <p>
  * If you have not already, you should create a {@link Robot} first.
  *
- * @see <a target="_top" href="https://robocode.sourceforge.io">
+ * See <a target="_top" href="https://robocode.sourceforge.io">
  *      robocode.sourceforge.net</a>
- * @see <a href="https://robocode.sourceforge.io/myfirstrobot/MyFirstRobot.html">
+ * See <a href="https://robocode.sourceforge.io/myfirstrobot/MyFirstRobot.html">
  *      Building your first robot</a>
  *
  * @see JuniorRobot

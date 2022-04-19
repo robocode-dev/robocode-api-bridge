@@ -1,12 +1,6 @@
 package robocode;
 
-import net.sf.robocode.security.IHiddenBulletHelper;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.util.Utils;
-
 import java.io.Serializable;
-import java.nio.ByteBuffer;
 
 /**
  * Represents a bullet. This is returned from {@link Robot#fireBullet(double)}
@@ -189,73 +183,5 @@ public class Bullet implements Serializable {
 	 */
 	int getBulletId() {
 		return bulletId;
-	}
-
-	/**
-	 * Creates a hidden bullet helper for accessing hidden methods on this object.
-	 * 
-	 * @return a hidden bullet helper.
-	 */
-	// this method is invisible on RobotAPI
-	static IHiddenBulletHelper createHiddenHelper() {
-		return new HiddenBulletHelper();
-	}
-
-	/**
-	 * Creates a hidden bullet helper for accessing hidden methods on this object.
-	 *
-	 * @return a hidden bullet helper.
-	 */
-	// this class is invisible on RobotAPI
-	static ISerializableHelper createHiddenSerializer() {
-		return new HiddenBulletHelper();
-	}
-
-	// this class is invisible on RobotAPI
-	private static class HiddenBulletHelper implements IHiddenBulletHelper, ISerializableHelper {
-
-		public void update(Bullet bullet, double x, double y, String victimName, boolean isActive) {
-			bullet.update(x, y, victimName, isActive);
-		}
-
-		public int sizeOf(RbSerializer serializer, Object object) {
-			Bullet obj = (Bullet) object;
-
-			return RbSerializer.SIZEOF_TYPEINFO + 4 * RbSerializer.SIZEOF_DOUBLE + serializer.sizeOf(obj.ownerName)
-					+ serializer.sizeOf(obj.victimName) + RbSerializer.SIZEOF_BOOL + RbSerializer.SIZEOF_INT;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			Bullet obj = (Bullet) object;
-
-			serializer.serialize(buffer, obj.headingRadians);
-			serializer.serialize(buffer, obj.x);
-			serializer.serialize(buffer, obj.y);
-			serializer.serialize(buffer, obj.power);
-			serializer.serialize(buffer, obj.ownerName);
-			serializer.serialize(buffer, obj.victimName);
-			serializer.serialize(buffer, obj.isActive);
-			serializer.serialize(buffer, obj.bulletId);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			double headingRadians = buffer.getDouble();
-			double x = buffer.getDouble();
-			double y = buffer.getDouble();
-			double power = buffer.getDouble();
-			String ownerName = serializer.deserializeString(buffer);
-			String victimName = serializer.deserializeString(buffer);
-			boolean isActive = serializer.deserializeBoolean(buffer);
-			int bulletId = serializer.deserializeInt(buffer);
-
-			return new Bullet(headingRadians, x, y, power, ownerName, victimName, isActive, bulletId);
-		}
-	}
-
-	@Override
-	public String toString() {
-		return ownerName + "-" + bulletId + " (" + (int) power + ") X" + (int) x + " Y" + (int) y
-				+ " ~" + Utils.angleToApproximateDirection(headingRadians)
-				+ " " + victimName;
 	}
 }

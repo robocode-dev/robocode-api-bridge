@@ -1,10 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import robocode.robotinterfaces.IBasicRobot;
-import robocode.robotinterfaces.ITeamEvents;
-import robocode.robotinterfaces.ITeamRobot;
-
 import java.io.Serializable;
 
 /**
@@ -54,29 +49,7 @@ public final class MessageEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		if (statics.isTeamRobot()) {
-			ITeamEvents listener = ((ITeamRobot) robot).getTeamEventListener();
-
-			if (listener != null) {
-				listener.onMessageReceived(this);
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		throw new Error("Serialization of event type not supported");
 	}
 }

@@ -1,7 +1,5 @@
 package robocode;
 
-import net.sf.robocode.security.IHiddenRulesHelper;
-
 /**
  * Contains the battle rules returned by {@link robocode.control.events.BattleStartedEvent#getBattleRules()
  * BattleStartedEvent.getBattleRules()} when a battle is started and
@@ -113,7 +111,7 @@ public final class BattleRules implements java.io.Serializable {
 	public int getSentryBorderSize() {
 		return sentryBorderSize;
 	}
-	
+
 	private BattleRules(int battlefieldWidth, int battlefieldHeight, int numRounds, double gunCoolingRate,
 			long inactivityTime, boolean hideEnemyNames, int sentryBorderSize) {
 		this.battlefieldWidth = battlefieldWidth;
@@ -123,17 +121,5 @@ public final class BattleRules implements java.io.Serializable {
 		this.inactivityTime = inactivityTime;
 		this.hideEnemyNames = hideEnemyNames;
 		this.sentryBorderSize = sentryBorderSize;
-	}
-
-	static IHiddenRulesHelper createHiddenHelper() {
-		return new HiddenHelper();
-	}
-
-	private static class HiddenHelper implements IHiddenRulesHelper {
-
-		public BattleRules createRules(int battlefieldWidth, int battlefieldHeight, int numRounds, double gunCoolingRate, long inactivityTime, boolean hideEnemyNames, int sentryBorderSize) {
-			return new BattleRules(battlefieldWidth, battlefieldHeight, numRounds, gunCoolingRate, inactivityTime,
-					hideEnemyNames, sentryBorderSize);
-		}
 	}
 }

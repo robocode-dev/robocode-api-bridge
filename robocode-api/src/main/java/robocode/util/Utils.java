@@ -1,7 +1,5 @@
 package robocode.util;
 
-import robocode.control.RandomFactory;
-
 import java.util.Random;
 
 import static java.lang.Math.PI;
@@ -176,7 +174,7 @@ public class Utils {
 	 * @return random number generator
 	 */
 	public static Random getRandom() {
-		return RandomFactory.getRandom();
+		return new Random();
 	}
 
 	/**

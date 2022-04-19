@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * This event is sent to {@link Robot#onBulletHit(BulletHitEvent) onBulletHit}
  * when one of your bullets has hit another robot.
@@ -96,56 +88,7 @@ public final class BulletHitEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onBulletHit(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.BulletHitEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			BulletHitEvent obj = (BulletHitEvent) object;
-
-			return RbSerializer.SIZEOF_TYPEINFO + RbSerializer.SIZEOF_INT + serializer.sizeOf(obj.name)
-					+ RbSerializer.SIZEOF_DOUBLE;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			BulletHitEvent obj = (BulletHitEvent) object;
-
-			serializer.serialize(buffer, obj.bullet.getBulletId());
-			serializer.serialize(buffer, obj.name);
-			serializer.serialize(buffer, obj.energy);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			Bullet bullet = new Bullet(0, 0, 0, 0, null, null, false, buffer.getInt());
-			String name = serializer.deserializeString(buffer);
-			double energy = buffer.getDouble();
-
-			return new BulletHitEvent(name, energy, bullet);
-		}
 	}
 }

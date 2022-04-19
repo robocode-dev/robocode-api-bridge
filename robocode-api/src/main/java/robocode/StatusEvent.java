@@ -1,9 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
 /**
  * This event is sent to {@link Robot#onStatus(StatusEvent) onStatus()} every
  * turn in a battle to provide the status of the robot.
@@ -44,27 +40,7 @@ public final class StatusEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onStatus(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		throw new Error("Serialization of this type is not supported");
 	}
 }

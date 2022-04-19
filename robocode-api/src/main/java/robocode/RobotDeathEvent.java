@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * This event is sent to {@link Robot#onRobotDeath(RobotDeathEvent) onRobotDeath()}
  * when another robot (not your robot) dies.
@@ -53,51 +45,7 @@ public final class RobotDeathEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onRobotDeath(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.RobotDeathEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			RobotDeathEvent obj = (RobotDeathEvent) object;
-
-			return RbSerializer.SIZEOF_TYPEINFO + serializer.sizeOf(obj.robotName);
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			RobotDeathEvent obj = (RobotDeathEvent) object;
-
-			serializer.serialize(buffer, obj.robotName);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			String name = serializer.deserializeString(buffer);
-
-			return new RobotDeathEvent(name);
-		}
 	}
 }

@@ -1,14 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicEvents3;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A RoundEndedEvent is sent to {@link Robot#onRoundEnded(RoundEndedEvent)
  * onRoundEnded()} when a round has ended.
@@ -72,7 +63,7 @@ public final class RoundEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -80,7 +71,7 @@ public final class RoundEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getPriority() {
+	public int getPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -88,55 +79,7 @@ public final class RoundEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		if (robot != null) {
-			IBasicEvents listener = robot.getBasicEventListener();
-
-			if (listener != null && IBasicEvents3.class.isAssignableFrom(listener.getClass())) {
-				((IBasicEvents3) listener).onRoundEnded(this);
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final boolean isCriticalEvent() {
+	boolean isCriticalEvent() {
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.RoundEndedEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			return RbSerializer.SIZEOF_TYPEINFO + 3 * RbSerializer.SIZEOF_INT;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			RoundEndedEvent event = (RoundEndedEvent) object;
-			
-			serializer.serialize(buffer, event.round);
-			serializer.serialize(buffer, event.turns);
-			serializer.serialize(buffer, event.totalTurns);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			int round = serializer.deserializeInt(buffer);
-			int turns = serializer.deserializeInt(buffer);
-			int totalTurns = serializer.deserializeInt(buffer);
-
-			return new RoundEndedEvent(round, turns, totalTurns);
-		}
 	}
 }

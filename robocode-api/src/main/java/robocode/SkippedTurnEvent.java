@@ -1,14 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IAdvancedEvents;
-import robocode.robotinterfaces.IAdvancedRobot;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A SkippedTurnEvent is sent to {@link AdvancedRobot#onSkippedTurn(SkippedTurnEvent)
  * onSkippedTurn()} when your robot is forced to skipping a turn.
@@ -82,7 +73,7 @@ public final class SkippedTurnEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -90,51 +81,7 @@ public final class SkippedTurnEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		if (statics.isAdvancedRobot()) {
-			IAdvancedEvents listener = ((IAdvancedRobot) robot).getAdvancedEventListener();
-
-			if (listener != null) {
-				listener.onSkippedTurn(this);
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final boolean isCriticalEvent() {
+	boolean isCriticalEvent() {
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.SkippedTurnEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			return RbSerializer.SIZEOF_TYPEINFO + RbSerializer.SIZEOF_LONG;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			SkippedTurnEvent obj = (SkippedTurnEvent) object;
-
-			serializer.serialize(buffer, obj.skippedTurn);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			long skippedTurn = buffer.getLong();
-
-			return new SkippedTurnEvent(skippedTurn);
-		}
 	}
 }

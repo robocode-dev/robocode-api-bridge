@@ -1,12 +1,6 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
 import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
 
 /**
  * This event is sent to {@link Robot#onDeath(DeathEvent) onDeath()} when your
@@ -30,7 +24,7 @@ public final class DeathEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getPriority() {
+	public int getPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -38,7 +32,7 @@ public final class DeathEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -46,19 +40,7 @@ public final class DeathEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onDeath(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final boolean isCriticalEvent() {
+	boolean isCriticalEvent() {
 		return true;
 	}
 
@@ -68,21 +50,5 @@ public final class DeathEvent extends Event {
 	@Override
 	byte getSerializationType() {
 		return RbSerializer.DeathEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			return RbSerializer.SIZEOF_TYPEINFO;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			return new DeathEvent();
-		}
 	}
 }

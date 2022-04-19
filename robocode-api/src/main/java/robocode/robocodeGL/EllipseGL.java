@@ -1,8 +1,7 @@
 package robocode.robocodeGL;
 
 import gl4java.GLFunc;
-
-import java.awt.*;
+import java.awt.Color;
 
 /**
  * Dummy class that stub out RobocodeGL 0.1.4 functionality.

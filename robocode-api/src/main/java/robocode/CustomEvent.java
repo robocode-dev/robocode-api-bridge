@@ -1,10 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import robocode.robotinterfaces.IAdvancedEvents;
-import robocode.robotinterfaces.IAdvancedRobot;
-import robocode.robotinterfaces.IBasicRobot;
-
 /**
  * This event is sent to {@link AdvancedRobot#onCustomEvent(CustomEvent)
  * onCustomEvent()} when a custom condition is met. Be sure to reset or remove
@@ -79,20 +74,6 @@ public class CustomEvent extends Event {
 	@Override
 	final int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		if (statics.isAdvancedRobot()) {
-			IAdvancedEvents listener = ((IAdvancedRobot) robot).getAdvancedEventListener();
-
-			if (listener != null) {
-				listener.onCustomEvent(this);
-			}
-		}
 	}
 
 	/**

@@ -1,13 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * This event is sent to {@link Robot#onWin(WinEvent) onWin()} when your robot
  * wins the round in a battle.
@@ -30,7 +22,7 @@ public final class WinEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getPriority() {
+	public int getPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -38,7 +30,7 @@ public final class WinEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -46,43 +38,7 @@ public final class WinEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		IBasicEvents listener = robot.getBasicEventListener();
-
-		if (listener != null) {
-			listener.onWin(this);
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final boolean isCriticalEvent() {
+	boolean isCriticalEvent() {
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.WinEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			return RbSerializer.SIZEOF_TYPEINFO;
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			return new WinEvent();
-		}
 	}
 }

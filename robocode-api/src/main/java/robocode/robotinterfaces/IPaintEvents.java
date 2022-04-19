@@ -1,5 +1,7 @@
 package robocode.robotinterfaces;
 
+import java.awt.*;
+
 /**
  * An event interface for receiving paint events with an
  * {@link robocode.robotinterfaces.IPaintRobot}.

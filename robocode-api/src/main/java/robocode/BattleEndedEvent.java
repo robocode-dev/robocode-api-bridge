@@ -1,14 +1,5 @@
 package robocode;
 
-import net.sf.robocode.peer.IRobotStatics;
-import net.sf.robocode.serialization.ISerializableHelper;
-import net.sf.robocode.serialization.RbSerializer;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicEvents2;
-import robocode.robotinterfaces.IBasicRobot;
-
-import java.nio.ByteBuffer;
-
 /**
  * A BattleEndedEvent is sent to {@link Robot#onBattleEnded(BattleEndedEvent)
  * onBattleEnded()} when the battle is ended.
@@ -63,7 +54,7 @@ public final class BattleEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final int getDefaultPriority() {
+	int getDefaultPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -71,7 +62,7 @@ public final class BattleEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final int getPriority() {
+	public int getPriority() {
 		return DEFAULT_PRIORITY;
 	}
 
@@ -79,56 +70,7 @@ public final class BattleEndedEvent extends Event {
 	 * {@inheritDoc}
 	 */
 	@Override
-	final void dispatch(IBasicRobot robot, IRobotStatics statics, Graphics2D graphics) {
-		if (robot != null) {
-			IBasicEvents listener = robot.getBasicEventListener();
-
-			if (listener != null && IBasicEvents2.class.isAssignableFrom(listener.getClass())) {
-				((IBasicEvents2) listener).onBattleEnded(this);
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	final boolean isCriticalEvent() {
+	boolean isCriticalEvent() {
 		return true;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	byte getSerializationType() {
-		return RbSerializer.BattleEndedEvent_TYPE;
-	}
-
-	static ISerializableHelper createHiddenSerializer() {
-		return new SerializableHelper();
-	}
-
-	private static class SerializableHelper implements ISerializableHelper {
-		public int sizeOf(RbSerializer serializer, Object object) {
-			BattleEndedEvent obj = (BattleEndedEvent) object;
-
-			return RbSerializer.SIZEOF_TYPEINFO + RbSerializer.SIZEOF_BOOL
-					+ serializer.sizeOf(RbSerializer.BattleResults_TYPE, obj.results);
-		}
-
-		public void serialize(RbSerializer serializer, ByteBuffer buffer, Object object) {
-			BattleEndedEvent obj = (BattleEndedEvent) object;
-
-			serializer.serialize(buffer, obj.aborted);
-			serializer.serialize(buffer, RbSerializer.BattleResults_TYPE, obj.results);
-		}
-
-		public Object deserialize(RbSerializer serializer, ByteBuffer buffer) {
-			boolean aborted = serializer.deserializeBoolean(buffer);
-			BattleResults results = (BattleResults) serializer.deserializeAny(buffer);
-
-			return new BattleEndedEvent(aborted, results);
-		}
 	}
 }
