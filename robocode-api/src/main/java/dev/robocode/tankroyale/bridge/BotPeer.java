@@ -2,15 +2,21 @@ package dev.robocode.tankroyale.bridge;
 
 import dev.robocode.tankroyale.botapi.Bot;
 import dev.robocode.tankroyale.botapi.IBot;
+import dev.robocode.tankroyale.botapi.events.*;
 import robocode.Bullet;
 import robocode.robotinterfaces.peer.IBasicRobotPeer;
 
 import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
-public final class TankRoyaleBotPeer implements IBasicRobotPeer {
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 
-    final IBot bot = new Bot() {
-    };
+public final class BotPeer implements IBasicRobotPeer {
+
+    final Set<BulletPeer> bulletPeers = new HashSet<>();
+
+    final IBot bot = new BotImpl();
 
     final Graphics2D graphics2D = new Graphics2DImpl();
 
@@ -46,21 +52,21 @@ public final class TankRoyaleBotPeer implements IBasicRobotPeer {
 
     @Override
     public double getBodyHeading() {
-        return Math.toRadians(bot.normalizeAbsoluteAngle(90.0 - bot.getDirection()));
+        return toRcRadians(bot.getDirection());
     }
 
     @Override
     public double getGunHeading() {
-        return Math.toRadians(bot.normalizeAbsoluteAngle(90.0 - bot.getGunDirection()));
+        return toRcRadians(bot.getGunDirection());
     }
 
     @Override
     public double getRadarHeading() {
-        return Math.toRadians(bot.normalizeAbsoluteAngle(90.0 - bot.getRadarDirection()));
+        return toRcRadians(bot.getRadarDirection());
     }
 
     @Override
-    public double getGunHeat() { // TODO
+    public double getGunHeat() {
         return bot.getGunHeat();
     }
 
@@ -145,14 +151,22 @@ public final class TankRoyaleBotPeer implements IBasicRobotPeer {
     }
 
     @Override
-    public Bullet fire(double power) { // TODO
-        return null;
-    } // TODO
+    public Bullet fire(double power) {
+        bot.fire(power);
+        BulletPeer bullet = new BulletPeer(bot, power);
+        bulletPeers.add(bullet);
+        return bullet;
+    }
 
     @Override
-    public Bullet setFire(double power) { // TODO
+    public Bullet setFire(double power) {
+        if (bot.setFire(power)) {
+            BulletPeer bullet = new BulletPeer(bot, power);
+            bulletPeers.add(bullet);
+            return bullet;
+        }
         return null;
-    } // TODO
+    }
 
     @Override
     public void setBodyColor(Color color) {
@@ -188,7 +202,7 @@ public final class TankRoyaleBotPeer implements IBasicRobotPeer {
     }
 
     @Override
-    public Graphics2D getGraphics() { // TODO
+    public Graphics2D getGraphics() {
         return graphics2D;
     }
 
@@ -200,4 +214,61 @@ public final class TankRoyaleBotPeer implements IBasicRobotPeer {
     public void rescan() {
         bot.scan();
     }
+
+    private class BotImpl extends Bot {
+
+        public void onGameStarted(GameStartedEvent gameStatedEvent) { // TODO
+        }
+
+        public void onGameEnded(GameEndedEvent gameEndedEvent) { // TODO
+        }
+
+        public void onRoundStarted(RoundStartedEvent roundStartedEvent) { // TODO
+        }
+
+        public void onRoundEnded(RoundEndedEvent roundEndedEvent) { // TODO
+        }
+
+        public void onTick(TickEvent tickEvent) { // TODO
+        }
+
+        public void onBotDeath(DeathEvent botDeathEvent) { // TODO
+        }
+
+        public void onDeath(DeathEvent botDeathEvent) { // TODO
+        }
+
+        public void onHitBot(HitBotEvent botHitBotEvent) { // TODO
+        }
+
+        public void onHitWall(HitWallEvent botHitWallEvent) { // TODO
+        }
+
+        public void onBulletFired(BulletFiredEvent bulletFiredEvent) { // TODO
+        }
+
+        public void onHitByBullet(BulletHitBotEvent bulletHitBotEvent) { // TODO
+        }
+
+        public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) { // TODO
+        }
+
+        public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) { // TODO
+        }
+
+        public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) { // TODO
+        }
+
+        public void onScannedBot(ScannedBotEvent scannedBotEvent) { // TODO
+        }
+
+        public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) { // TODO
+        }
+
+        public void onWonRound(WonRoundEvent wonRoundEvent) { // TODO
+        }
+
+        public void onCustomEvent(CustomEvent customEvent) { // TODO
+        }
+    };
 }
