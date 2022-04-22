@@ -18,14 +18,16 @@ import java.io.Serializable;
 @SuppressWarnings("unused") // API
 public class Bullet implements Serializable {
 
-    private final double headingRadians;
-    private double x;
-    private double y;
-    private final double power;
-    private final String ownerName;
-    private String victimName;
-    private boolean isActive;
-    private final int bulletId;
+    protected double headingRadians;
+    protected double x;
+    protected double y;
+    protected double power;
+    protected String ownerName;
+    protected String victimName;
+    protected boolean isActive;
+    protected int bulletId;
+
+    protected Bullet() {} // for inheritance
 
     /**
      * Called by the game to create a new {@code Bullet} object
