@@ -9,7 +9,6 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class BulletHitBulletEvent extends Event {
-    private static final long serialVersionUID = 1L;
     private final static int DEFAULT_PRIORITY = 55;
 
     private final Bullet bullet;

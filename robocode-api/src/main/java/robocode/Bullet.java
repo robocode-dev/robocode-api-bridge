@@ -17,7 +17,6 @@ import java.io.Serializable;
  */
 @SuppressWarnings("unused") // API
 public class Bullet implements Serializable {
-    private static final long serialVersionUID = 1L;
 
     private final double headingRadians;
     private double x;

@@ -9,7 +9,7 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class RobotDeathEvent extends Event {
-    private static final long serialVersionUID = 1L;
+
     private final static int DEFAULT_PRIORITY = 70;
 
     private final String robotName;

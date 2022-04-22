@@ -14,7 +14,6 @@ package robocode;
  */
 @SuppressWarnings("unused") // API
 public final class BattleRules implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
 
     private final int battlefieldWidth;
     private final int battlefieldHeight;

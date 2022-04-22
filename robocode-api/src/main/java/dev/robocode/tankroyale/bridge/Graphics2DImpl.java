@@ -567,7 +567,6 @@ public class Graphics2DImpl extends Graphics2D {
      * @author Flemming N. Larsen
      */
     private static class FontMetricsByFont extends FontMetrics {
-        static final long serialVersionUID = 1L;
 
         final FontRenderContext fontRenderContext;
 
