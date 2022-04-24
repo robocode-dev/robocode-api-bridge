@@ -1,9 +1,11 @@
 package dev.robocode.tankroyale.bridge;
 
+import static java.lang.Math.toRadians;
+
 public final class AngleConverter {
 
     public static double toRcRadians(double realDeg) {
-        return Math.toRadians(normalizeAbsoluteAngle(90.0 - realDeg));
+        return toRadians(normalizeAbsoluteAngle(90.0 - realDeg));
     }
 
     private static double normalizeAbsoluteAngle(double angle) {

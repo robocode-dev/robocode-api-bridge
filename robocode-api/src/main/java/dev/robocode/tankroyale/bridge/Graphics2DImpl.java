@@ -11,7 +11,7 @@ import java.util.Map;
 
 import javax.swing.UIManager;
 
-public class Graphics2DImpl extends Graphics2D {
+public final class Graphics2DImpl extends Graphics2D {
 
     // Needed for getTransform()
     private transient AffineTransform transform = new AffineTransform();

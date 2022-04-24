@@ -1,12 +1,11 @@
 package dev.robocode.tankroyale.bridge;
 
-import dev.robocode.tankroyale.botapi.Bot;
 import dev.robocode.tankroyale.botapi.IBot;
 import robocode.Bullet;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 
-public class BulletPeer extends Bullet {
+public final class BulletPeer extends Bullet {
 
     public BulletPeer(IBot bot, double power) {
         this.headingRadians = toRcRadians(bot.getGunDirection());

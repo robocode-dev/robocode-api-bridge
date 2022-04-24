@@ -1,9 +1,12 @@
 package dev.robocode.tankroyale.bridge;
 
 import dev.robocode.tankroyale.botapi.Bot;
+import dev.robocode.tankroyale.botapi.BulletState;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.*;
 import robocode.Bullet;
+import robocode.robotinterfaces.IAdvancedEvents;
+import robocode.robotinterfaces.IBasicEvents3;
 import robocode.robotinterfaces.peer.IBasicRobotPeer;
 
 import java.awt.*;
@@ -11,18 +14,30 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
+import static dev.robocode.tankroyale.bridge.BulletMapper.map;
+import static java.lang.Math.toRadians;
+import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements IBasicRobotPeer {
 
-    final Set<BulletPeer> bulletPeers = new HashSet<>();
+    final IBasicEvents3 basicEvents;
+    final IAdvancedEvents advancedEvents;
+
 
     final IBot bot = new BotImpl();
-
+    final Set<BulletPeer> firedBullets = new HashSet<>();
     final Graphics2D graphics2D = new Graphics2DImpl();
 
+
+    public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents) {
+        this.basicEvents = basicEvents;
+        this.advancedEvents = advancedEvents;
+    }
+
     @Override
-    public String getName() { // TODO
-        return null;
+    public String getName() {
+        return "" + bot.getMyId();
     }
 
     @Override
@@ -117,17 +132,17 @@ public final class BotPeer implements IBasicRobotPeer {
 
     @Override
     public double getBodyTurnRemaining() {
-        return Math.toRadians(bot.getTurnRemaining());
+        return toRadians(bot.getTurnRemaining());
     }
 
     @Override
     public double getGunTurnRemaining() {
-        return Math.toRadians(bot.getGunTurnRemaining());
+        return toRadians(bot.getGunTurnRemaining());
     }
 
     @Override
     public double getRadarTurnRemaining() {
-        return Math.toRadians(bot.getRadarTurnRemaining());
+        return toRadians(bot.getRadarTurnRemaining());
     }
 
     @Override
@@ -154,7 +169,7 @@ public final class BotPeer implements IBasicRobotPeer {
     public Bullet fire(double power) {
         bot.fire(power);
         BulletPeer bullet = new BulletPeer(bot, power);
-        bulletPeers.add(bullet);
+        firedBullets.add(bullet);
         return bullet;
     }
 
@@ -162,7 +177,7 @@ public final class BotPeer implements IBasicRobotPeer {
     public Bullet setFire(double power) {
         if (bot.setFire(power)) {
             BulletPeer bullet = new BulletPeer(bot, power);
-            bulletPeers.add(bullet);
+            firedBullets.add(bullet);
             return bullet;
         }
         return null;
@@ -217,58 +232,155 @@ public final class BotPeer implements IBasicRobotPeer {
 
     private class BotImpl extends Bot {
 
+        int totalTurns;
+
         public void onGameStarted(GameStartedEvent gameStatedEvent) { // TODO
+            totalTurns = 0;
         }
 
-        public void onGameEnded(GameEndedEvent gameEndedEvent) { // TODO
+        public void onGameEnded(GameEndedEvent gameEndedEvent) {
+            basicEvents.onBattleEnded(new robocode.BattleEndedEvent(
+                    false, map(gameEndedEvent.getResults(), "" + this.getMyId()))
+            );
         }
 
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) { // TODO
         }
 
-        public void onRoundEnded(RoundEndedEvent roundEndedEvent) { // TODO
+        public void onRoundEnded(RoundEndedEvent roundEndedEvent) {
+            int turnNumber = roundEndedEvent.getTurnNumber();
+            totalTurns += turnNumber;
+
+            basicEvents.onRoundEnded(
+                    new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
         }
 
         public void onTick(TickEvent tickEvent) { // TODO
+
+            // TODO: Update fired bullets
         }
 
-        public void onBotDeath(DeathEvent botDeathEvent) { // TODO
+        public void onBotDeath(DeathEvent botDeathEvent) {
+            basicEvents.onRobotDeath(
+                    new robocode.RobotDeathEvent("" + botDeathEvent.getVictimId()));
         }
 
-        public void onDeath(DeathEvent botDeathEvent) { // TODO
+        public void onDeath(DeathEvent botDeathEvent) {
+            basicEvents.onDeath(new robocode.DeathEvent());
         }
 
-        public void onHitBot(HitBotEvent botHitBotEvent) { // TODO
+        public void onHitBot(HitBotEvent botHitBotEvent) {
+            double bearing = toRcBearingToRadians(botHitBotEvent.getX(), botHitBotEvent.getY());
+            basicEvents.onHitRobot(new robocode.HitRobotEvent(
+                    "" + botHitBotEvent.getVictimId(), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
+            ));
         }
 
-        public void onHitWall(HitWallEvent botHitWallEvent) { // TODO
+        public void onHitWall(HitWallEvent botHitWallEvent) {
+            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(getDirection())));
         }
 
-        public void onBulletFired(BulletFiredEvent bulletFiredEvent) { // TODO
+        public void onBulletFired(BulletFiredEvent bulletFiredEvent) {
+            BulletState bulletState = bulletFiredEvent.getBullet();
+            BulletPeer bullet = findBulletByXAndY(bulletState);
+            if (bullet == null) {
+                throw new IllegalStateException("onBulletFired: Could not find bullet");
+            }
+            bullet.setBulletId(bulletState.getBulletId());
         }
 
-        public void onHitByBullet(BulletHitBotEvent bulletHitBotEvent) { // TODO
+        public void onHitByBullet(BulletHitBotEvent bulletHitBotEvent) {
+            BulletState bullet = bulletHitBotEvent.getBullet();
+            double bearing = toRcBearingToRadians(bullet.getX(), bullet.getY());
+            basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
+                    bearing, map(bullet, "" + bulletHitBotEvent.getVictimId())));
         }
 
-        public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) { // TODO
+        public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
+            BulletPeer bullet = findBulletById(bulletHitBotEvent.getBullet());
+            if (bullet == null) {
+                throw new IllegalStateException("onBulletHit: Could not find bullet");
+            }
+            basicEvents.onBulletHit(new robocode.BulletHitEvent(
+                    "" + bulletHitBotEvent.getVictimId(), bulletHitBotEvent.getEnergy(), bullet));
         }
 
-        public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) { // TODO
+        public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
+            BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
+            if (bullet == null) {
+                throw new IllegalStateException("onBulletHitBullet: Could not find bullet");
+            }
+            Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
+            basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
         }
 
-        public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) { // TODO
+        public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) {
+            double bulletDirection = bulletHitWallEvent.getBullet().getDirection();
+            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bulletDirection)));
         }
 
-        public void onScannedBot(ScannedBotEvent scannedBotEvent) { // TODO
+        public void onScannedBot(ScannedBotEvent scannedBotEvent) {
+            double bearing = toRcBearingToRadians(scannedBotEvent.getX(), scannedBotEvent.getY());
+            double distanceTo = distanceTo(scannedBotEvent.getX(), scannedBotEvent.getY());
+
+            basicEvents.onScannedRobot(new robocode.ScannedRobotEvent(
+                    "" + scannedBotEvent.getScannedBotId(),
+                    scannedBotEvent.getEnergy(),
+                    bearing,
+                    distanceTo,
+                    toRcRadians(scannedBotEvent.getDirection()),
+                    scannedBotEvent.getSpeed(),
+                    false
+            ));
         }
 
-        public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) { // TODO
+        public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) {
+            advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber()));
         }
 
-        public void onWonRound(WonRoundEvent wonRoundEvent) { // TODO
+        public void onWonRound(WonRoundEvent wonRoundEvent) {
+            basicEvents.onWin(new robocode.WinEvent());
         }
 
         public void onCustomEvent(CustomEvent customEvent) { // TODO
         }
-    };
+
+        BulletPeer findBulletByXAndY(BulletState bulletState) {
+            return firedBullets.stream().filter(
+                            bullet -> bulletState.getX() == bullet.getX() && bullet.getY() == bulletState.getY())
+                    .findFirst()
+                    .orElse(null);
+        }
+
+        BulletPeer findBulletById(BulletState bulletState) {
+            return firedBullets.stream().filter(
+                            bullet -> bulletState.getBulletId() == bullet.getBulletId())
+                    .findFirst()
+                    .orElse(null);
+        }
+
+        double calcBearingToWallRadians(double directionDeg) {
+            int minX = 18; // half bot size (36x36)
+            int minY = 18;
+            int maxX = getArenaWidth() - 18;
+            int maxY = getArenaHeight() - 18;
+
+            double angle = 0;
+            if (getX() < minX) {
+                angle = normalizeRelativeAngle(180 - directionDeg);
+            } else if (getX() > maxX) {
+                angle = normalizeRelativeAngle(360 - directionDeg);
+            }
+            if (getY() < minY) {
+                angle = normalRelativeAngle(90 - directionDeg);
+            } else if (getY() > maxY) {
+                angle = normalRelativeAngle(270 - directionDeg);
+            }
+            return toRcRadians(angle);
+        }
+
+        double toRcBearingToRadians(double x, double y) {
+            return toRcRadians(bearingTo(x, y));
+        }
+    }
 }
