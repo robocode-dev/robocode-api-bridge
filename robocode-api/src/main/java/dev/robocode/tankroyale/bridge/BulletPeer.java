@@ -24,4 +24,17 @@ public final class BulletPeer extends Bullet {
     public Integer getBulletId() {
         return bulletId;
     }
+
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void setVictimName(String victimName) {
+        this.victimName = victimName;
+    }
+
+    public void setInactive() {
+        this.isActive = false;
+    }
 }

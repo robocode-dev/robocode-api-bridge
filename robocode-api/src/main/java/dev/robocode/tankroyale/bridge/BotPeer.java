@@ -11,6 +11,7 @@ import robocode.robotinterfaces.peer.IBasicRobotPeer;
 
 import java.awt.*;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
@@ -257,7 +258,16 @@ public final class BotPeer implements IBasicRobotPeer {
 
         public void onTick(TickEvent tickEvent) { // TODO
 
-            // TODO: Update fired bullets
+            // Update fired bullets
+            firedBullets.forEach(bulletPeer -> {
+                Optional<BulletState> bulletStateOpt = tickEvent.getBulletStates().stream().filter(
+                        bulletState -> bulletPeer.getBulletId() == bulletState.getBulletId()).findFirst();
+
+                if (bulletStateOpt.isPresent()) {
+                    BulletState bulletState = bulletStateOpt.get();
+                    bulletPeer.setPosition(bulletState.getX(), bulletState.getY());
+                }
+            });
         }
 
         public void onBotDeath(DeathEvent botDeathEvent) {
@@ -301,8 +311,14 @@ public final class BotPeer implements IBasicRobotPeer {
             if (bullet == null) {
                 throw new IllegalStateException("onBulletHit: Could not find bullet");
             }
-            basicEvents.onBulletHit(new robocode.BulletHitEvent(
-                    "" + bulletHitBotEvent.getVictimId(), bulletHitBotEvent.getEnergy(), bullet));
+
+            String victimName = "" + bulletHitBotEvent.getVictimId();
+            bullet.setVictimName(victimName);
+            bullet.setInactive();
+
+            firedBullets.remove(bullet);
+
+            basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
         }
 
         public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
@@ -311,6 +327,10 @@ public final class BotPeer implements IBasicRobotPeer {
                 throw new IllegalStateException("onBulletHitBullet: Could not find bullet");
             }
             Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
+            bullet.setInactive();
+
+            firedBullets.remove(bullet);
+
             basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
         }
 

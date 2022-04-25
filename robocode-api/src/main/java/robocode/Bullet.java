@@ -161,28 +161,4 @@ public class Bullet implements Serializable {
     public boolean isActive() {
         return isActive;
     }
-
-    /**
-     * Updates this bullet based on the specified bullet status.
-     *
-     * @param x          the new X position of the bullet .
-     * @param y          the new Y position of the bullet.
-     * @param victimName the name if the victim that has been hit by this bullet.
-     * @param isActive   {@code true} if the bullet still moves; {@code false} otherwise.
-     */
-    // this method is invisible on RobotAPI
-    private void update(double x, double y, String victimName, boolean isActive) {
-        this.x = x;
-        this.y = y;
-        this.victimName = victimName;
-        this.isActive = isActive;
-    }
-
-    /**
-     * @return unique id of bullet for owner robot
-     */
-    // this method is invisible on RobotAPI
-    int getBulletId() {
-        return bulletId;
-    }
 }
