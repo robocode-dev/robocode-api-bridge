@@ -7,7 +7,7 @@ import dev.robocode.tankroyale.botapi.events.*;
 import robocode.Bullet;
 import robocode.robotinterfaces.IAdvancedEvents;
 import robocode.robotinterfaces.IBasicEvents3;
-import robocode.robotinterfaces.peer.IBasicRobotPeer;
+import robocode.robotinterfaces.peer.IStandardRobotPeer;
 
 import java.awt.*;
 import java.util.HashSet;
@@ -17,10 +17,11 @@ import java.util.Set;
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
 import static dev.robocode.tankroyale.bridge.BulletMapper.map;
+import static java.lang.Math.toDegrees;
 import static java.lang.Math.toRadians;
 import static robocode.util.Utils.normalRelativeAngle;
 
-public final class BotPeer implements IBasicRobotPeer {
+public final class BotPeer implements IStandardRobotPeer {
 
     final IBasicEvents3 basicEvents;
     final IAdvancedEvents advancedEvents;
@@ -35,6 +36,10 @@ public final class BotPeer implements IBasicRobotPeer {
         this.basicEvents = basicEvents;
         this.advancedEvents = advancedEvents;
     }
+
+    //-------------------------------------------------------------------------
+    // IBasicRobotPeer
+    //-------------------------------------------------------------------------
 
     @Override
     public String getName() {
@@ -158,12 +163,12 @@ public final class BotPeer implements IBasicRobotPeer {
 
     @Override
     public void turnBody(double radians) {
-        bot.turnLeft(Math.toDegrees(radians));
+        bot.turnLeft(toDegrees(radians));
     }
 
     @Override
     public void turnGun(double radians) {
-        bot.turnGunLeft(Math.toDegrees(radians));
+        bot.turnGunLeft(toDegrees(radians));
     }
 
     @Override
@@ -230,6 +235,44 @@ public final class BotPeer implements IBasicRobotPeer {
     public void rescan() {
         bot.scan();
     }
+
+    //-------------------------------------------------------------------------
+    // IStandardRobotPeer
+    //-------------------------------------------------------------------------
+
+    @Override
+    public void stop(boolean overwrite) {
+        bot.stop();
+    }
+
+    @Override
+    public void resume() {
+        bot.resume();
+    }
+
+    @Override
+    public void turnRadar(double radians) {
+        bot.turnRadarLeft(toDegrees(radians));
+    }
+
+    @Override
+    public void setAdjustGunForBodyTurn(boolean adjust) {
+        bot.setAdjustGunForBodyTurn(adjust);
+    }
+
+    @Override
+    public void setAdjustRadarForGunTurn(boolean adjust) {
+        bot.setAdjustRadarForGunTurn(adjust);
+    }
+
+    @Override
+    public void setAdjustRadarForBodyTurn(boolean adjust) {
+        bot.setAdjustRadarForBodyTurn(adjust);
+    }
+
+    //-------------------------------------------------------------------------
+    // IBasicEvents3 and IAdvancedEvents event triggers
+    //-------------------------------------------------------------------------
 
     private class BotImpl extends Bot {
 
