@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.12.1")
+    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.13.4")
 }
 
 java {

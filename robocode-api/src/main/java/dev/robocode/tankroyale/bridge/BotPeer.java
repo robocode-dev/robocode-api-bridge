@@ -4,15 +4,22 @@ import dev.robocode.tankroyale.botapi.Bot;
 import dev.robocode.tankroyale.botapi.BulletState;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.*;
-import robocode.Bullet;
+import dev.robocode.tankroyale.botapi.events.BulletHitBulletEvent;
+import dev.robocode.tankroyale.botapi.events.Condition;
+import dev.robocode.tankroyale.botapi.events.CustomEvent;
+import dev.robocode.tankroyale.botapi.events.DeathEvent;
+import dev.robocode.tankroyale.botapi.events.HitWallEvent;
+import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
+import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
+import robocode.*;
 import robocode.robotinterfaces.IAdvancedEvents;
 import robocode.robotinterfaces.IBasicEvents3;
-import robocode.robotinterfaces.peer.IStandardRobotPeer;
+import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 
 import java.awt.*;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.io.File;
+import java.util.*;
+import java.util.List;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
@@ -21,15 +28,16 @@ import static java.lang.Math.toDegrees;
 import static java.lang.Math.toRadians;
 import static robocode.util.Utils.normalRelativeAngle;
 
-public final class BotPeer implements IStandardRobotPeer {
+public final class BotPeer implements IAdvancedRobotPeer {
 
-    final IBasicEvents3 basicEvents;
-    final IAdvancedEvents advancedEvents;
+    private final IBasicEvents3 basicEvents;
+    private final IAdvancedEvents advancedEvents;
 
+    private final IBot bot = new BotImpl();
+    private final Set<BulletPeer> firedBullets = new HashSet<>();
+    private final Graphics2D graphics2D = new Graphics2DImpl();
 
-    final IBot bot = new BotImpl();
-    final Set<BulletPeer> firedBullets = new HashSet<>();
-    final Graphics2D graphics2D = new Graphics2DImpl();
+    private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
 
 
     public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents) {
@@ -233,7 +241,7 @@ public final class BotPeer implements IStandardRobotPeer {
 
     @Override
     public void rescan() {
-        bot.scan();
+        bot.rescan();
     }
 
     //-------------------------------------------------------------------------
@@ -242,6 +250,12 @@ public final class BotPeer implements IStandardRobotPeer {
 
     @Override
     public void stop(boolean overwrite) {
+        if (overwrite) {
+            // flemming-n-larsen: I don't expect any bots to use this functionality, and hence it is not supported (yet)
+            // in Robocode Tank Royale.
+            throw new UnsupportedOperationException(
+                    "stop(overwrite=true) is unsupported. Contact Robocode Tank Royale author for support");
+        }
         bot.stop();
     }
 
@@ -269,6 +283,188 @@ public final class BotPeer implements IStandardRobotPeer {
     public void setAdjustRadarForBodyTurn(boolean adjust) {
         bot.setAdjustRadarForBodyTurn(adjust);
     }
+
+    //-------------------------------------------------------------------------
+    // IAdvancedRobotPeer
+    //-------------------------------------------------------------------------
+
+    @Override
+    public boolean isAdjustGunForBodyTurn() {
+        return bot.isAdjustGunForBodyTurn();
+    }
+
+    @Override
+    public boolean isAdjustRadarForGunTurn() {
+        return bot.isAdjustRadarForGunTurn();
+    }
+
+    @Override
+    public boolean isAdjustRadarForBodyTurn() {
+        return bot.isAdjustRadarForBodyTurn();
+    }
+
+    @Override
+    public void setStop(boolean overwrite) {
+        if (overwrite) {
+            // flemming-n-larsen: I don't expect any bots to use this functionality, and hence it is not supported (yet)
+            // in Robocode Tank Royale.
+            throw new UnsupportedOperationException(
+                    "setStop(overwrite=true) is unsupported. Contact Robocode Tank Royale author for support");
+        }
+        bot.setStop();
+    }
+
+    @Override
+    public void setResume() {
+        bot.setResume();
+    }
+
+    @Override
+    public void setMove(double distance) {
+        bot.setForward(distance);
+    }
+
+    @Override
+    public void setTurnBody(double radians) {
+        bot.setTurnLeft(toDegrees(radians));
+    }
+
+    @Override
+    public void setTurnGun(double radians) {
+        bot.setTurnGunLeft(toDegrees(radians));
+    }
+
+    @Override
+    public void setTurnRadar(double radians) {
+        bot.setTurnRadarLeft(toDegrees(radians));
+    }
+
+    @Override
+    public void setMaxTurnRate(double newMaxTurnRate) {
+        bot.setMaxTurnRate(newMaxTurnRate);
+    }
+
+    @Override
+    public void setMaxVelocity(double newMaxVelocity) {
+        bot.setMaxSpeed(newMaxVelocity);
+    }
+
+    @Override
+    public void waitFor(robocode.Condition condition) {
+        bot.waitFor(new Condition(condition.getName()) {
+            @Override
+            public boolean test() {
+                return condition.test();
+            }
+        });
+    }
+
+    @Override
+    public void setInterruptible(boolean interruptible) {
+        bot.setInterruptible(interruptible);
+    }
+
+    @Override
+    public void setEventPriority(String eventClass, int priority) {
+        // TODO
+    }
+
+    @Override
+    public int getEventPriority(String eventClass) {
+        return 0; // TODO
+    }
+
+    @Override
+    public void addCustomEvent(robocode.Condition condition) {
+        Condition trCondition = new Condition() {
+            @Override
+            public boolean test() {
+                return condition.test();
+            }
+        };
+        conditions.put(condition, trCondition);
+
+        bot.addCustomEvent(trCondition);
+    }
+
+    @Override
+    public void removeCustomEvent(robocode.Condition condition) {
+        Condition trCondition = conditions.get(condition);
+        if (trCondition != null) {
+            bot.removeCustomEvent(trCondition);
+        }
+    }
+
+    @Override
+    public void clearAllEvents() {
+        // TODO
+    }
+
+    @Override
+    public List<robocode.Event> getAllEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<StatusEvent> getStatusEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<BulletMissedEvent> getBulletMissedEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<BulletHitEvent> getBulletHitEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<HitByBulletEvent> getHitByBulletEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<HitRobotEvent> getHitRobotEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<robocode.HitWallEvent> getHitWallEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<RobotDeathEvent> getRobotDeathEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public List<ScannedRobotEvent> getScannedRobotEvents() {
+        return null; // TODO
+    }
+
+    @Override
+    public File getDataDirectory() {
+        return null; // TODO
+    }
+
+    @Override
+    public File getDataFile(String filename) {
+        return null; // TODO
+    }
+
+    @Override
+    public long getDataQuotaAvailable() {
+        return 0; // TODO
+    }
+
 
     //-------------------------------------------------------------------------
     // IBasicEvents3 and IAdvancedEvents event triggers
