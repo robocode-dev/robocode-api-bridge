@@ -65,12 +65,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public double getX() { // TODO
+    public double getX() {
         return bot.getX();
     }
 
     @Override
-    public double getY() { // TODO
+    public double getY() { // TODO: Battlefield height - y?
         return bot.getY();
     }
 
@@ -115,7 +115,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public int getNumSentries() { // TODO
+    public int getNumSentries() { // TODO: If SentryRobot is ever implemented
+        return 0;
+    }
+
+    @Override
+    public int getSentryBorderSize() { // TODO: If SentryRobot is ever implemented
         return 0;
     }
 
@@ -127,11 +132,6 @@ public final class BotPeer implements IAdvancedRobotPeer {
     @Override
     public int getRoundNum() {
         return bot.getRoundNumber();
-    }
-
-    @Override
-    public int getSentryBorderSize() { // TODO
-        return 0;
     }
 
     @Override
@@ -397,7 +397,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public void clearAllEvents() {
-        // TODO
+        bot.clearEvents();
     }
 
     @Override
@@ -601,7 +601,16 @@ public final class BotPeer implements IAdvancedRobotPeer {
             basicEvents.onWin(new robocode.WinEvent());
         }
 
-        public void onCustomEvent(CustomEvent customEvent) { // TODO
+        public void onCustomEvent(CustomEvent customEvent) {
+            Condition trCondition = customEvent.getCondition();
+            if (trCondition == null) return;
+
+            Optional<Map.Entry<robocode.Condition, Condition>> optCondition = conditions.entrySet().stream()
+                    .filter(entry -> trCondition.equals(entry.getValue())).findFirst();
+            if (optCondition.isPresent()) {
+                robocode.Condition condition = optCondition.get().getKey();
+                advancedEvents.onCustomEvent(new robocode.CustomEvent(condition));
+            }
         }
 
         BulletPeer findBulletByXAndY(BulletState bulletState) {
