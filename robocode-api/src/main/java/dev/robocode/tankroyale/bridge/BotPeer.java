@@ -70,7 +70,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public double getY() { // TODO: Battlefield height - y?
+    public double getY() {
         return bot.getY();
     }
 

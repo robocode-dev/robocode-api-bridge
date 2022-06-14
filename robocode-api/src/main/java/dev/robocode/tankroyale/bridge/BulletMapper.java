@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.BulletState;
 import robocode.Bullet;
 
-public class BulletMapper {
+class BulletMapper {
 
     public static Bullet map(BulletState bullet, String victimName) {
         return new Bullet(

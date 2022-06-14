@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.BotResults;
 import robocode.BattleResults;
 
-public final class ResultsMapper {
+final class ResultsMapper {
 
     public static BattleResults map(BotResults botResults, String teamLeadName) {
         return new BattleResults(
