@@ -8,6 +8,7 @@ import dev.robocode.tankroyale.botapi.events.BulletHitBulletEvent;
 import dev.robocode.tankroyale.botapi.events.Condition;
 import dev.robocode.tankroyale.botapi.events.CustomEvent;
 import dev.robocode.tankroyale.botapi.events.DeathEvent;
+import dev.robocode.tankroyale.botapi.events.HitByBulletEvent;
 import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
@@ -43,6 +44,26 @@ public final class BotPeer implements IAdvancedRobotPeer {
     public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents) {
         this.basicEvents = basicEvents;
         this.advancedEvents = advancedEvents;
+    }
+
+    private void init() {
+        setupEventPriorities();
+    }
+
+    private void setupEventPriorities() {
+        setEventPriority("WinEvent", 100);
+        setEventPriority("SkippedTurnEvent", 100);
+        setEventPriority("StatusEvent", 99);
+        setEventPriority("CustomEvent", 80);
+//        setEventPriority("MessageEvent", 75); // not supported yet
+        setEventPriority("BulletMissedEvent", 60);
+        setEventPriority("BulletHitBulletEvent", 55);
+        setEventPriority("BulletHitEvent", 50);
+        setEventPriority("HitByBulletEvent", 40);
+        setEventPriority("HitWallEvent", 30);
+        setEventPriority("HitRobotEvent", 20);
+        setEventPriority("ScannedRobotEvent", 10);
+        setEventPriority("DeathEvent", -1);
     }
 
     //-------------------------------------------------------------------------
@@ -365,13 +386,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public void setEventPriority(String eventClass, int priority) {
-        // TODO
+        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEvent(eventClass);
+        bot.setEventPriority((Class<BotEvent>) botEvent, priority);
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public int getEventPriority(String eventClass) {
-        return 0; // TODO
+        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEvent(eventClass);
+        return bot.getEventPriority((Class<BotEvent>) botEvent);
     }
 
     @Override
@@ -406,12 +431,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public List<StatusEvent> getStatusEvents() {
+    public List<robocode.StatusEvent> getStatusEvents() {
         return null; // TODO
     }
 
     @Override
-    public List<BulletMissedEvent> getBulletMissedEvents() {
+    public List<robocode.BulletMissedEvent> getBulletMissedEvents() {
         return null; // TODO
     }
 
@@ -421,17 +446,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public List<BulletHitEvent> getBulletHitEvents() {
+    public List<robocode.BulletHitEvent> getBulletHitEvents() {
         return null; // TODO
     }
 
     @Override
-    public List<HitByBulletEvent> getHitByBulletEvents() {
+    public List<robocode.HitByBulletEvent> getHitByBulletEvents() {
         return null; // TODO
     }
 
     @Override
-    public List<HitRobotEvent> getHitRobotEvents() {
+    public List<robocode.HitRobotEvent> getHitRobotEvents() {
         return null; // TODO
     }
 
@@ -441,12 +466,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public List<RobotDeathEvent> getRobotDeathEvents() {
+    public List<robocode.RobotDeathEvent> getRobotDeathEvents() {
         return null; // TODO
     }
 
     @Override
-    public List<ScannedRobotEvent> getScannedRobotEvents() {
+    public List<robocode.ScannedRobotEvent> getScannedRobotEvents() {
         return null; // TODO
     }
 
@@ -509,15 +534,18 @@ public final class BotPeer implements IAdvancedRobotPeer {
             });
         }
 
-        public void onBotDeath(DeathEvent botDeathEvent) {
+        @Override
+        public void onBotDeath(BotDeathEvent botDeathEvent) {
             basicEvents.onRobotDeath(
                     new robocode.RobotDeathEvent("" + botDeathEvent.getVictimId()));
         }
 
+        @Override
         public void onDeath(DeathEvent botDeathEvent) {
             basicEvents.onDeath(new robocode.DeathEvent());
         }
 
+        @Override
         public void onHitBot(HitBotEvent botHitBotEvent) {
             double bearing = toRcBearingToRadians(botHitBotEvent.getX(), botHitBotEvent.getY());
             basicEvents.onHitRobot(new robocode.HitRobotEvent(
@@ -525,10 +553,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
             ));
         }
 
+        @Override
         public void onHitWall(HitWallEvent botHitWallEvent) {
             basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(getDirection())));
         }
 
+        @Override
         public void onBulletFired(BulletFiredEvent bulletFiredEvent) {
             BulletState bulletState = bulletFiredEvent.getBullet();
             BulletPeer bullet = findBulletByXAndY(bulletState);
@@ -538,13 +568,15 @@ public final class BotPeer implements IAdvancedRobotPeer {
             bullet.setBulletId(bulletState.getBulletId());
         }
 
-        public void onHitByBullet(BulletHitBotEvent bulletHitBotEvent) {
-            BulletState bullet = bulletHitBotEvent.getBullet();
+        @Override
+        public void onHitByBullet(HitByBulletEvent hitByBulletEvent) {
+            BulletState bullet = hitByBulletEvent.getBullet();
             double bearing = toRcBearingToRadians(bullet.getX(), bullet.getY());
             basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
-                    bearing, map(bullet, "" + bulletHitBotEvent.getVictimId())));
+                    bearing, map(bullet, "" + this.getMyId())));
         }
 
+        @Override
         public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
             BulletPeer bullet = findBulletById(bulletHitBotEvent.getBullet());
             if (bullet == null) {
@@ -560,6 +592,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
             basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
         }
 
+        @Override
         public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
             BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
             if (bullet == null) {
@@ -573,11 +606,13 @@ public final class BotPeer implements IAdvancedRobotPeer {
             basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
         }
 
+        @Override
         public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) {
             double bulletDirection = bulletHitWallEvent.getBullet().getDirection();
             basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bulletDirection)));
         }
 
+        @Override
         public void onScannedBot(ScannedBotEvent scannedBotEvent) {
             double bearing = toRcBearingToRadians(scannedBotEvent.getX(), scannedBotEvent.getY());
             double distanceTo = distanceTo(scannedBotEvent.getX(), scannedBotEvent.getY());
@@ -593,14 +628,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
             ));
         }
 
+        @Override
         public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) {
             advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber()));
         }
 
+        @Override
         public void onWonRound(WonRoundEvent wonRoundEvent) {
             basicEvents.onWin(new robocode.WinEvent());
         }
 
+        @Override
         public void onCustomEvent(CustomEvent customEvent) {
             Condition trCondition = customEvent.getCondition();
             if (trCondition == null) return;
