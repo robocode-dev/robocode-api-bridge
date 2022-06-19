@@ -437,29 +437,42 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public List<robocode.StatusEvent> getStatusEvents() {
-        List<TickEvent> tickEvents = bot.getEvents().stream().filter(event -> event instanceof TickEvent)
+        List<TickEvent> tickEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof TickEvent)
                 .map(TickEvent.class::cast).collect(Collectors.toList());
-        return TickToRobotStatusEventMapper.map(tickEvents, robotStatuses);
+        return StatusEventMapper.map(tickEvents, robotStatuses);
     }
 
     @Override
     public List<robocode.BulletMissedEvent> getBulletMissedEvents() {
-        return null; // TODO
+        List<BulletHitWallEvent> bulletHitWallEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof BulletHitWallEvent)
+                .map(BulletHitWallEvent.class::cast).collect(Collectors.toList());
+        return BulletMissedEventMapper.map(bulletHitWallEvents);
     }
 
     @Override
     public List<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
-        return null; // TODO
+        List<BulletHitBulletEvent> bulletHitBulletEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof BulletHitBulletEvent)
+                .map(BulletHitBulletEvent.class::cast).collect(Collectors.toList());
+        return BulletHitBulletEventMapper.map(bulletHitBulletEvents);
     }
 
     @Override
     public List<robocode.BulletHitEvent> getBulletHitEvents() {
-        return null; // TODO
+        List<BulletHitBotEvent> bulletHitBotEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof BulletHitBotEvent)
+                .map(BulletHitBotEvent.class::cast).collect(Collectors.toList());
+        return BulletHitMapper.map(bulletHitBotEvents);
     }
 
     @Override
     public List<robocode.HitByBulletEvent> getHitByBulletEvents() {
-        return null; // TODO
+        List<HitByBulletEvent> hitByBulletEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof HitByBulletEvent)
+                .map(HitByBulletEvent.class::cast).collect(Collectors.toList());
+        return HitByBulletEventMapper.map(hitByBulletEvents, bot);
     }
 
     @Override
