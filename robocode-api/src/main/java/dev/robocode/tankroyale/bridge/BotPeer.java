@@ -21,6 +21,7 @@ import java.awt.*;
 import java.io.File;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
@@ -39,6 +40,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
+    private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
 
     public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents) {
@@ -55,7 +57,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
         setEventPriority("SkippedTurnEvent", 100);
         setEventPriority("StatusEvent", 99);
         setEventPriority("CustomEvent", 80);
-//        setEventPriority("MessageEvent", 75); // not supported yet
+        setEventPriority("MessageEvent", 75);
         setEventPriority("BulletMissedEvent", 60);
         setEventPriority("BulletHitBulletEvent", 55);
         setEventPriority("BulletHitEvent", 50);
@@ -388,6 +390,9 @@ public final class BotPeer implements IAdvancedRobotPeer {
     @Override
     @SuppressWarnings("unchecked")
     public void setEventPriority(String eventClass, int priority) {
+        // not supported (yet) -> just ignore
+        if ("MessageEvent".equals(eventClass) || "PaintEvent".equals(eventClass)) return;
+
         Class<? extends BotEvent> botEvent = EventClassMapper.toBotEvent(eventClass);
         bot.setEventPriority((Class<BotEvent>) botEvent, priority);
     }
@@ -432,7 +437,9 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public List<robocode.StatusEvent> getStatusEvents() {
-        return null; // TODO
+        List<TickEvent> tickEvents = bot.getEvents().stream().filter(event -> event instanceof TickEvent)
+                .map(TickEvent.class::cast).collect(Collectors.toList());
+        return TickToRobotStatusEventMapper.map(tickEvents, robotStatuses);
     }
 
     @Override
@@ -520,7 +527,10 @@ public final class BotPeer implements IAdvancedRobotPeer {
                     new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
         }
 
-        public void onTick(TickEvent tickEvent) { // TODO
+        public void onTick(TickEvent tickEvent) {
+            // Save robot status snapshot for event handlers needing robot status
+            RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
+            robotStatuses.put(tickEvent.getTurnNumber(), robotStatus);
 
             // Update fired bullets
             firedBullets.forEach(bulletPeer -> {
@@ -532,12 +542,14 @@ public final class BotPeer implements IAdvancedRobotPeer {
                     bulletPeer.setPosition(bulletState.getX(), bulletState.getY());
                 }
             });
+
+            // Fire event
+            basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
         }
 
         @Override
         public void onBotDeath(BotDeathEvent botDeathEvent) {
-            basicEvents.onRobotDeath(
-                    new robocode.RobotDeathEvent("" + botDeathEvent.getVictimId()));
+            basicEvents.onRobotDeath(new robocode.RobotDeathEvent("" + botDeathEvent.getVictimId()));
         }
 
         @Override
