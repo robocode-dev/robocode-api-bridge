@@ -138,12 +138,12 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public int getNumSentries() { // TODO: If SentryRobot is ever implemented
+    public int getNumSentries() { // Not supported
         return 0;
     }
 
     @Override
-    public int getSentryBorderSize() { // TODO: If SentryRobot is ever implemented
+    public int getSentryBorderSize() { // Not supported
         return 0;
     }
 
@@ -477,12 +477,18 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public List<robocode.HitRobotEvent> getHitRobotEvents() {
-        return null; // TODO
+        List<HitBotEvent> hitBotEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof HitBotEvent)
+                .map(HitBotEvent.class::cast).collect(Collectors.toList());
+        return HitRobotEventMapper.map(hitBotEvents, bot);
     }
 
     @Override
     public List<robocode.HitWallEvent> getHitWallEvents() {
-        return null; // TODO
+        List<HitWallEvent> hitWallEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof HitWallEvent)
+                .map(HitWallEvent.class::cast).collect(Collectors.toList());
+        return HitWallEventMapper.map(hitWallEvents, bot);
     }
 
     @Override
