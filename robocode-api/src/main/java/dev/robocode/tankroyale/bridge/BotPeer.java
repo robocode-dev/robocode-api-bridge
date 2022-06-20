@@ -493,12 +493,18 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public List<robocode.RobotDeathEvent> getRobotDeathEvents() {
-        return null; // TODO
+        List<BotDeathEvent> botDeathEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof BotDeathEvent)
+                .map(BotDeathEvent.class::cast).collect(Collectors.toList());
+        return RobotDeathEventMapper.map(botDeathEvents);
     }
 
     @Override
     public List<robocode.ScannedRobotEvent> getScannedRobotEvents() {
-        return null; // TODO
+        List<ScannedBotEvent> scannedBotEvents = bot.getEvents().stream()
+                .filter(event -> event instanceof ScannedBotEvent)
+                .map(ScannedBotEvent.class::cast).collect(Collectors.toList());
+        return ScannedRobotEventMapper.map(scannedBotEvents, bot);
     }
 
     @Override
