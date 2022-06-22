@@ -19,6 +19,10 @@ import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -509,17 +513,23 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public File getDataDirectory() {
-        return null; // TODO
+        return Paths.get("").toFile(); // use current path (where the application was started from)
     }
 
     @Override
     public File getDataFile(String filename) {
-        return null; // TODO
+        Path dirPath = Paths.get("").resolve(getName());
+        try {
+            Files.createDirectories(dirPath);
+        } catch (IOException e) {
+            System.err.println("Could not create directories: " + dirPath);
+        }
+        return dirPath.resolve(filename).toFile();
     }
 
     @Override
     public long getDataQuotaAvailable() {
-        return 0; // TODO
+        return 300_000;
     }
 
 
