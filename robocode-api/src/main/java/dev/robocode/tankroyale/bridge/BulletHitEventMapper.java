@@ -9,7 +9,7 @@ import java.util.List;
 
 import static java.util.Collections.emptyList;
 
-final class BulletHitMapper {
+final class BulletHitEventMapper {
 
     public static List<BulletHitEvent> map(List<BulletHitBotEvent> bulletHitBotEvents) {
         if (bulletHitBotEvents == null) return emptyList();

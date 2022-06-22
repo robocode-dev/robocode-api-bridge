@@ -432,7 +432,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public List<robocode.Event> getAllEvents() {
-        return null; // TODO
+        return AllEventsMapper.map(bot.getEvents(), bot, robotStatuses);
     }
 
     @Override
@@ -464,7 +464,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
         List<BulletHitBotEvent> bulletHitBotEvents = bot.getEvents().stream()
                 .filter(event -> event instanceof BulletHitBotEvent)
                 .map(BulletHitBotEvent.class::cast).collect(Collectors.toList());
-        return BulletHitMapper.map(bulletHitBotEvents);
+        return BulletHitEventMapper.map(bulletHitBotEvents);
     }
 
     @Override
@@ -531,19 +531,26 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
         int totalTurns;
 
+        @Override
         public void onGameStarted(GameStartedEvent gameStatedEvent) { // TODO
             totalTurns = 0;
         }
 
+        @Override
         public void onGameEnded(GameEndedEvent gameEndedEvent) {
             basicEvents.onBattleEnded(new robocode.BattleEndedEvent(
                     false, map(gameEndedEvent.getResults(), "" + this.getMyId()))
             );
         }
 
-        public void onRoundStarted(RoundStartedEvent roundStartedEvent) { // TODO
+        @Override
+        public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
+            // no event handler for `round started` in orig. Robocode
+
+            robotStatuses.clear();
         }
 
+        @Override
         public void onRoundEnded(RoundEndedEvent roundEndedEvent) {
             int turnNumber = roundEndedEvent.getTurnNumber();
             totalTurns += turnNumber;
@@ -552,6 +559,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
                     new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
         }
 
+        @Override
         public void onTick(TickEvent tickEvent) {
             // Save robot status snapshot for event handlers needing robot status
             RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
