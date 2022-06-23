@@ -13,6 +13,7 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
+import robocode.Robot;
 import robocode.robotinterfaces.IAdvancedEvents;
 import robocode.robotinterfaces.IBasicEvents3;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
@@ -38,6 +39,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     private final IBasicEvents3 basicEvents;
     private final IAdvancedEvents advancedEvents;
+    private final Robot robot;
 
     private final IBot bot = new BotImpl();
     private final Set<BulletPeer> firedBullets = new HashSet<>();
@@ -47,9 +49,20 @@ public final class BotPeer implements IAdvancedRobotPeer {
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
 
-    public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents) {
+    public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents, Robot robot) {
+        if (advancedEvents == null) {
+            advancedEvents = new AdvancedEventAdaptor();
+        }
+
         this.basicEvents = basicEvents;
         this.advancedEvents = advancedEvents;
+        this.robot = robot;
+
+        init();
+    }
+
+    public void start() {
+        bot.start();
     }
 
     private void init() {
@@ -540,6 +553,11 @@ public final class BotPeer implements IAdvancedRobotPeer {
     private class BotImpl extends Bot {
 
         int totalTurns;
+
+        @Override
+        public void run() {
+            robot.run();
+        }
 
         @Override
         public void onGameStarted(GameStartedEvent gameStatedEvent) { // TODO
