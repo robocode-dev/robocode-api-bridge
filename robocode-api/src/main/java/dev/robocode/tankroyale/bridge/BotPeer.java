@@ -222,19 +222,21 @@ public final class BotPeer implements IAdvancedRobotPeer {
     @Override
     public Bullet fire(double power) {
         bot.fire(power);
-        BulletPeer bullet = new BulletPeer(bot, power);
-        firedBullets.add(bullet);
-        return bullet;
+        return createAndAddBullet(power);
     }
 
     @Override
     public Bullet setFire(double power) {
         if (bot.setFire(power)) {
-            BulletPeer bullet = new BulletPeer(bot, power);
-            firedBullets.add(bullet);
-            return bullet;
+            return createAndAddBullet(power);
         }
         return null;
+    }
+
+    private BulletPeer createAndAddBullet(double power) {
+        BulletPeer bullet = new BulletPeer(bot, power);
+        firedBullets.add(bullet);
+        return bullet;
     }
 
     @Override
@@ -575,6 +577,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
 
+            firedBullets.clear();
             robotStatuses.clear();
         }
 
@@ -636,7 +639,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
             BulletState bulletState = bulletFiredEvent.getBullet();
             BulletPeer bullet = findBulletByXAndY(bulletState);
             if (bullet == null) {
-                throw new IllegalStateException("onBulletFired: Could not find bullet");
+                throw new IllegalStateException("onBulletFired: Could not find bullet: " + bulletState.getX() + "," + bulletState.getY());
             }
             bullet.setBulletId(bulletState.getBulletId());
         }
@@ -652,10 +655,6 @@ public final class BotPeer implements IAdvancedRobotPeer {
         @Override
         public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
             BulletPeer bullet = findBulletById(bulletHitBotEvent.getBullet());
-            if (bullet == null) {
-                throw new IllegalStateException("onBulletHit: Could not find bullet");
-            }
-
             String victimName = "" + bulletHitBotEvent.getVictimId();
             bullet.setVictimName(victimName);
             bullet.setInactive();
@@ -668,9 +667,6 @@ public final class BotPeer implements IAdvancedRobotPeer {
         @Override
         public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
             BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
-            if (bullet == null) {
-                throw new IllegalStateException("onBulletHitBullet: Could not find bullet");
-            }
             Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
             bullet.setInactive();
 
@@ -732,10 +728,15 @@ public final class BotPeer implements IAdvancedRobotPeer {
         }
 
         BulletPeer findBulletById(BulletState bulletState) {
-            return firedBullets.stream().filter(
+            BulletPeer bulletPeer = firedBullets.stream().filter(
                             bullet -> bulletState.getBulletId() == bullet.getBulletId())
                     .findFirst()
                     .orElse(null);
+
+            if (bulletPeer == null) {
+                throw new IllegalStateException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
+            }
+            return bulletPeer;
         }
 
         double calcBearingToWallRadians(double directionDeg) {
