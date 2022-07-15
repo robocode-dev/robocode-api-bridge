@@ -583,11 +583,15 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
         @Override
         public void onRoundEnded(RoundEndedEvent roundEndedEvent) {
-            int turnNumber = roundEndedEvent.getTurnNumber();
-            totalTurns += turnNumber;
+            try {
+                int turnNumber = roundEndedEvent.getTurnNumber();
+                totalTurns += turnNumber;
 
-            basicEvents.onRoundEnded(
-                    new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
+                basicEvents.onRoundEnded(
+                        new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
+            } finally {
+                stop();
+            }
         }
 
         @Override
