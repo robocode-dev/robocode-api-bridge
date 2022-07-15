@@ -53,6 +53,7 @@ public abstract class _RobotBase implements IBasicRobot, Runnable {
      * You may not override this method.
      */
     @Override
+    @SuppressWarnings("deprecated")
     protected final void finalize() throws Throwable { // This method must be final so it cannot be overridden!
         super.finalize();
     }

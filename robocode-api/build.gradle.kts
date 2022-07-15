@@ -7,15 +7,15 @@ version = "0.0.2"
 
 repositories {
     mavenLocal()
-//    mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.14.0")
+    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.14.1")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = sourceCompatibility
 }
 
