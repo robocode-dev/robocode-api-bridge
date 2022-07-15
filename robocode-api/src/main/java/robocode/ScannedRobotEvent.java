@@ -35,6 +35,7 @@ public class ScannedRobotEvent extends Event {
      *
      * @deprecated Use {@link #ScannedRobotEvent(String, double, double, double, double, double, boolean)} instead.
      */
+    @Deprecated
     public ScannedRobotEvent() {
         this(null, 0, 0, 0, 0, 0, false);
     }
@@ -50,6 +51,7 @@ public class ScannedRobotEvent extends Event {
      * @param velocity the velocity of the scanned robot
      * @deprecated Use {@link #ScannedRobotEvent(String, double, double, double, double, double, boolean)} instead.
      */
+    @Deprecated
     public ScannedRobotEvent(String name, double energy, double bearing, double distance, double heading, double velocity) {
         this(name, energy, bearing, distance, heading, velocity, false);
     }

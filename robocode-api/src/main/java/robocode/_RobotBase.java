@@ -49,16 +49,6 @@ public abstract class _RobotBase implements IBasicRobot, Runnable {
     public PrintStream out;
 
     /**
-     * Called by the system to 'clean up' after your robot.
-     * You may not override this method.
-     */
-    @Override
-    @SuppressWarnings("deprecated")
-    protected final void finalize() throws Throwable { // This method must be final so it cannot be overridden!
-        super.finalize();
-    }
-
-    /**
      * {@inheritDoc}
      */
     public final void setOut(PrintStream out) {
