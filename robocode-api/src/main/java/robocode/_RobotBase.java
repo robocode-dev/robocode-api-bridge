@@ -46,7 +46,7 @@ public abstract class _RobotBase implements IBasicRobot, Runnable {
      *   }
      * </pre>
      */
-    public PrintStream out;
+    public PrintStream out = System.out;
 
     /**
      * {@inheritDoc}
