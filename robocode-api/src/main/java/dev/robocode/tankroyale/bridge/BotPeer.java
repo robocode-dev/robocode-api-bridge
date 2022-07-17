@@ -211,12 +211,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public void turnBody(double radians) {
-        bot.turnLeft(toDegrees(radians));
+        bot.turnRight(toDegrees(radians));
     }
 
     @Override
     public void turnGun(double radians) {
-        bot.turnGunLeft(toDegrees(radians));
+        bot.turnGunRight(toDegrees(radians));
+    }
+
+    @Override
+    public void turnRadar(double radians) {
+        bot.turnRadarRight(toDegrees(radians));
     }
 
     @Override
@@ -307,11 +312,6 @@ public final class BotPeer implements IAdvancedRobotPeer {
     }
 
     @Override
-    public void turnRadar(double radians) {
-        bot.turnRadarLeft(toDegrees(radians));
-    }
-
-    @Override
     public void setAdjustGunForBodyTurn(boolean adjust) {
         bot.setAdjustGunForBodyTurn(adjust);
     }
@@ -368,17 +368,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
     @Override
     public void setTurnBody(double radians) {
-        bot.setTurnLeft(toDegrees(radians));
+        bot.setTurnRight(toDegrees(radians));
     }
 
     @Override
     public void setTurnGun(double radians) {
-        bot.setTurnGunLeft(toDegrees(radians));
+        bot.setTurnGunRight(toDegrees(radians));
     }
 
     @Override
     public void setTurnRadar(double radians) {
-        bot.setTurnRadarLeft(toDegrees(radians));
+        bot.setTurnRadarRight(toDegrees(radians));
     }
 
     @Override
