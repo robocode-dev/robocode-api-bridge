@@ -26,6 +26,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
@@ -658,12 +659,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
         @Override
         public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
-            BulletPeer bullet = findBulletById(bulletHitBotEvent.getBullet());
-            String victimName = "" + bulletHitBotEvent.getVictimId();
-            bullet.setVictimName(victimName);
-            bullet.setInactive();
-
-            firedBullets.remove(bullet);
+            var bulletState = bulletHitBotEvent.getBullet();
+            var victimName = "" + bulletHitBotEvent.getVictimId();
+            var bullet = new Bullet(
+                    toRcRadians(bulletState.getDirection()), // heading
+                    bulletState.getX(),
+                    bulletState.getY(),
+                    bulletState.getPower(),
+                    "" + bulletState.getOwnerId(),
+                    victimName,
+                    false, // isActive
+                    bulletState.getBulletId());
 
             basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
         }
@@ -725,10 +731,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
         }
 
         BulletPeer findBulletByXAndY(BulletState bulletState) {
-            return firedBullets.stream().filter(
-                            bullet -> bulletState.getX() == bullet.getX() && bullet.getY() == bulletState.getY())
-                    .findFirst()
-                    .orElse(null);
+            var foundBullet = new AtomicReference<BulletPeer>();
+            var minDist = new AtomicReference<>(Double.MAX_VALUE);
+
+            firedBullets.forEach(bullet -> {
+                var dist = Math.pow(bullet.getX() - bulletState.getX(), 2) + Math.pow(bullet.getY() - bulletState.getY(), 2);
+                if (dist < minDist.get()) {
+                    foundBullet.set(bullet);
+                    minDist.set(dist);
+                }
+            });
+            return foundBullet.get();
         }
 
         BulletPeer findBulletById(BulletState bulletState) {
