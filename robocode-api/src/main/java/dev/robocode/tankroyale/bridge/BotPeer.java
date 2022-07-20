@@ -13,8 +13,9 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
-import robocode.Robot;
 import robocode.robotinterfaces.IAdvancedEvents;
+import robocode.robotinterfaces.IBasicEvents;
+import robocode.robotinterfaces.IBasicEvents2;
 import robocode.robotinterfaces.IBasicEvents3;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 
@@ -38,9 +39,9 @@ import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements IAdvancedRobotPeer {
 
-    private final IBasicEvents3 basicEvents;
+    private final _RobotBase robot;
+    private final IBasicEvents basicEvents;
     private final IAdvancedEvents advancedEvents;
-    private final Robot robot;
 
     private final IBot bot = new BotImpl();
     private final Set<BulletPeer> firedBullets = new HashSet<>();
@@ -50,14 +51,14 @@ public final class BotPeer implements IAdvancedRobotPeer {
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
 
-    public BotPeer(IBasicEvents3 basicEvents, IAdvancedEvents advancedEvents, Robot robot) {
+    public BotPeer(_RobotBase robot, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
         if (advancedEvents == null) {
             advancedEvents = new AdvancedEventAdaptor();
         }
 
+        this.robot = robot;
         this.basicEvents = basicEvents;
         this.advancedEvents = advancedEvents;
-        this.robot = robot;
 
         init();
     }
@@ -563,15 +564,17 @@ public final class BotPeer implements IAdvancedRobotPeer {
         }
 
         @Override
-        public void onGameStarted(GameStartedEvent gameStatedEvent) { // TODO
+        public void onGameStarted(GameStartedEvent gameStatedEvent) {
             totalTurns = 0;
         }
 
         @Override
         public void onGameEnded(GameEndedEvent gameEndedEvent) {
-            basicEvents.onBattleEnded(new robocode.BattleEndedEvent(
-                    false, map(gameEndedEvent.getResults(), "" + this.getMyId()))
-            );
+            if (basicEvents instanceof IBasicEvents2) {
+                ((IBasicEvents2) basicEvents).onBattleEnded(new robocode.BattleEndedEvent(
+                        false, map(gameEndedEvent.getResults(), "" + this.getMyId()))
+                );
+            }
         }
 
         @Override
@@ -588,8 +591,10 @@ public final class BotPeer implements IAdvancedRobotPeer {
                 int turnNumber = roundEndedEvent.getTurnNumber();
                 totalTurns += turnNumber;
 
-                basicEvents.onRoundEnded(
-                        new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
+                if (basicEvents instanceof IBasicEvents3) {
+                    ((IBasicEvents3) basicEvents).onRoundEnded(
+                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
+                }
             } finally {
                 stop();
             }
