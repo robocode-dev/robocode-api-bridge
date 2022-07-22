@@ -633,7 +633,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
         @Override
         public void onHitBot(HitBotEvent botHitBotEvent) {
-            double bearing = toRcBearingToRadians(botHitBotEvent.getX(), botHitBotEvent.getY());
+            double bearing = -toRadians(bearingTo(botHitBotEvent.getX(), botHitBotEvent.getY()));
             basicEvents.onHitRobot(new robocode.HitRobotEvent(
                     "" + botHitBotEvent.getVictimId(), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
             ));
@@ -657,7 +657,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
         @Override
         public void onHitByBullet(HitByBulletEvent hitByBulletEvent) {
             BulletState bullet = hitByBulletEvent.getBullet();
-            double bearing = toRcBearingToRadians(bullet.getX(), bullet.getY());
+            double bearing = -toRadians(bearingTo(bullet.getX(), bullet.getY()));
             basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
                     bearing, map(bullet, "" + this.getMyId())));
         }
@@ -698,7 +698,7 @@ public final class BotPeer implements IAdvancedRobotPeer {
 
         @Override
         public void onScannedBot(ScannedBotEvent scannedBotEvent) {
-            double bearing = toRcBearingToRadians(scannedBotEvent.getX(), scannedBotEvent.getY());
+            double bearing = -toRadians(bearingTo(scannedBotEvent.getX(), scannedBotEvent.getY()));
             double distanceTo = distanceTo(scannedBotEvent.getX(), scannedBotEvent.getY());
 
             basicEvents.onScannedRobot(new robocode.ScannedRobotEvent(
@@ -779,10 +779,6 @@ public final class BotPeer implements IAdvancedRobotPeer {
                 angle = normalRelativeAngle(270 - directionDeg);
             }
             return toRcRadians(angle);
-        }
-
-        double toRcBearingToRadians(double x, double y) {
-            return toRcRadians(bearingTo(x, y));
         }
     }
 }

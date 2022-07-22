@@ -8,7 +8,7 @@ import robocode.Bullet;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static java.lang.Math.toRadians;
 import static java.util.Collections.emptyList;
 
 final class HitByBulletEventMapper {
@@ -27,7 +27,7 @@ final class HitByBulletEventMapper {
         String victimName = "" + bot.getMyId();
         BulletState bulletState = hitByBulletEvent.getBullet();
 
-        double bearing = toRcRadians(bot.bearingTo(bulletState.getX(), bulletState.getY()));
+        double bearing = -toRadians(bot.bearingTo(bulletState.getX(), bulletState.getY()));
         Bullet bullet = BulletMapper.map(bulletState, victimName);
 
         return new robocode.HitByBulletEvent(bearing, bullet);
