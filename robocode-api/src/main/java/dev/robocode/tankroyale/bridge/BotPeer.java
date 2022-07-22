@@ -18,6 +18,7 @@ import robocode.robotinterfaces.IBasicEvents;
 import robocode.robotinterfaces.IBasicEvents2;
 import robocode.robotinterfaces.IBasicEvents3;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
+import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 
 import java.awt.*;
 import java.io.File;
@@ -37,7 +38,7 @@ import static java.lang.Math.toDegrees;
 import static java.lang.Math.toRadians;
 import static robocode.util.Utils.normalRelativeAngle;
 
-public final class BotPeer implements IAdvancedRobotPeer {
+public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     private final _RobotBase robot;
     private final IBasicEvents basicEvents;
@@ -547,6 +548,16 @@ public final class BotPeer implements IAdvancedRobotPeer {
     @Override
     public long getDataQuotaAvailable() {
         return 300_000;
+    }
+
+
+    //-------------------------------------------------------------------------
+    // IJuniorRobotPeer
+    //-------------------------------------------------------------------------
+
+    @Override
+    public void turnAndMove(double distance, double radians) {
+        JuniorRobotImpl.turnAndMove(bot, distance, radians);
     }
 
 
