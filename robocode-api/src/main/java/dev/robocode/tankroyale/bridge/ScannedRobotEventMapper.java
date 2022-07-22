@@ -7,7 +7,7 @@ import robocode.ScannedRobotEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.toRadians;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static java.util.Collections.emptyList;
 
 public class ScannedRobotEventMapper {
@@ -27,10 +27,10 @@ public class ScannedRobotEventMapper {
         double energy = scannedBotEvent.getEnergy();
         double x = scannedBotEvent.getX();
         double y = scannedBotEvent.getY();
-        double bearing = toRadians(bot.bearingTo(x, y));
+        double bearing = toRcRadians(bot.bearingTo(x, y));
         double distance = bot.distanceTo(x, y);
         double velocity = bot.getSpeed();
-        double heading = toRadians(bot.getDirection());
+        double heading = toRcRadians(bot.getDirection());
 
         // `isSentryRobot` is unsupported
         return new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);

@@ -6,8 +6,8 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static java.lang.Math.abs;
-import static java.lang.Math.toRadians;
 import static java.util.Collections.emptyList;
 
 public class HitWallEventMapper {
@@ -23,7 +23,7 @@ public class HitWallEventMapper {
     public static robocode.HitWallEvent map(HitWallEvent hitWallEvent, IBot bot) {
         if (hitWallEvent == null) return null;
 
-        double bearing = toRadians(bot.calcBearing(calcDirectionNearestToWall(bot)));
+        double bearing = toRcRadians(bot.calcBearing(calcDirectionNearestToWall(bot)));
         return new robocode.HitWallEvent(bearing);
     }
 
