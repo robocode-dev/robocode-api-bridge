@@ -32,7 +32,7 @@ public class ScannedRobotEventMapper {
         double velocity = bot.getSpeed();
         double heading = toRadians(bot.getDirection());
 
-        // isSentryRobot is unsupported
+        // `isSentryRobot` is unsupported
         return new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);
     }
 }
