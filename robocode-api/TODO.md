@@ -1,3 +1,1 @@
-
-- Restarting a robot causes trouble
-- `out` is null on Robot
+- JuniorRobot.run() must repeat itself infinitely

@@ -608,7 +608,7 @@ public class JuniorRobot extends _RobotBase implements IJuniorRobot {
      */
     public void turnAheadRight(int distance, int degrees) {
         if (peer != null) {
-            ((IJuniorRobotPeer) peer).turnAndMove(distance, toRadians(degrees));
+            ((IJuniorRobotPeer) peer).turnAndMove(distance, -toRadians(degrees));
         } else {
             uninitializedException();
         }

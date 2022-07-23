@@ -557,7 +557,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     @Override
     public void turnAndMove(double distance, double radians) {
-        JuniorRobotImpl.turnAndMove(bot, distance, radians);
+        JuniorRobotImpl.turnAndMove(bot, distance, toDegrees(radians));
     }
 
 

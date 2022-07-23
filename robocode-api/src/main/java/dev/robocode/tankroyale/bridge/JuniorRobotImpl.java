@@ -3,13 +3,11 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import robocode.Rules;
 
-import static java.lang.Math.toDegrees;
-
 public class JuniorRobotImpl {
 
-    public static void turnAndMove(IBot bot, double distance, double radians) {
+    public static void turnAndMove(IBot bot, double distance, double degrees) {
         if (distance == 0) {
-            bot.turnLeft(toDegrees(radians));
+            bot.turnRight(degrees);
             return;
         }
 
@@ -17,16 +15,16 @@ public class JuniorRobotImpl {
         final double savedMaxVelocity = bot.getMaxSpeed();
         final double savedMaxTurnRate = bot.getMaxTurnRate();
 
-        final double absDegrees = Math.abs(toDegrees(radians));
+        final double absDegrees = Math.abs(degrees);
         final double absDistance = Math.abs(distance);
 
-        // -- Calculate max. velocity for moving perfect in a circle --
-
-        // maxTurnRate = 10 * 0.75 * abs(velocity)  (Robocode rule), and
-        // maxTurnRate = velocity * degrees / distance  (curve turn rate)
-        //
-        // Hence, max. velocity = 10 / (degrees / distance + 0.75)
-
+        /* -- Calculate max. velocity for moving perfect in a circle --
+         *
+         * maxTurnRate = 10 * 0.75 * abs(velocity)  (Robocode rule), and
+         * maxTurnRate = velocity * degrees / distance  (curve turn rate)
+         *
+         * Hence, max. velocity = 10 / (degrees / distance + 0.75)
+         */
         final double maxVelocity = Math.min(Rules.MAX_VELOCITY, 10 / (absDegrees / absDistance + 0.75));
 
         // -- Calculate number of turns for acceleration + deceleration --
@@ -75,20 +73,26 @@ public class JuniorRobotImpl {
         bot.setMaxSpeed(maxVelocity);
 
         // Set the robot to move the specified distance
-        bot.forward(distance);
+        bot.setForward(distance);
 
         // Set the robot to turn its body to the specified amount of radians
-        bot.turnLeft(radians);
+        bot.setTurnRight(degrees);
 
         // Loop through the number of turns it will take to move the distance and adjust
         // the max. turn rate, so it fit the current velocity of the robot
         for (int t = turns; t >= 0; t--) {
-            bot.setMaxTurnRate(bot.getSpeed() * radians / absDistance);
+            bot.setMaxTurnRate(degrees * bot.getSpeed() / absDistance); // getSpeed() changes from turn to turn
             bot.go(); // Perform next turn
         }
+        // Stop movement
+        bot.setTurnRight(0);
+        bot.setForward(0);
 
         // Restore the saved max. velocity and max. turn rate
         bot.setMaxSpeed(savedMaxVelocity);
         bot.setMaxTurnRate(savedMaxTurnRate);
+
+        // Execute
+        bot.go();
     }
 }
