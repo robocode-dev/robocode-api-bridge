@@ -13,10 +13,7 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
-import robocode.robotinterfaces.IAdvancedEvents;
-import robocode.robotinterfaces.IBasicEvents;
-import robocode.robotinterfaces.IBasicEvents2;
-import robocode.robotinterfaces.IBasicEvents3;
+import robocode.robotinterfaces.*;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 
@@ -571,7 +568,13 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void run() {
-            robot.run();
+            if (robot instanceof IJuniorRobot) {
+                while (bot.isRunning()) {
+                    robot.run();
+                }
+            } else {
+                robot.run();
+            }
         }
 
         @Override

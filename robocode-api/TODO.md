@@ -1,1 +1,0 @@
-- JuniorRobot.run() must repeat itself infinitely

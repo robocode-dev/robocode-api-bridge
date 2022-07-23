@@ -80,7 +80,7 @@ public class JuniorRobotImpl {
 
         // Loop through the number of turns it will take to move the distance and adjust
         // the max. turn rate, so it fit the current velocity of the robot
-        for (int t = turns; t >= 0; t--) {
+        for (int t = turns; t >= 0 && bot.isRunning(); t--) {
             bot.setMaxTurnRate(degrees * bot.getSpeed() / absDistance); // getSpeed() changes from turn to turn
             bot.go(); // Perform next turn
         }
