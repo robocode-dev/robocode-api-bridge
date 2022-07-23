@@ -7,7 +7,6 @@ import robocode.HitRobotEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static java.lang.Math.toRadians;
 import static java.util.Collections.emptyList;
 

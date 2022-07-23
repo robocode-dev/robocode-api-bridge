@@ -11,7 +11,7 @@ import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
 import static java.lang.Math.toRadians;
 import static java.util.Collections.emptyList;
 
-public class ScannedRobotEventMapper {
+final class ScannedRobotEventMapper {
 
     public static List<ScannedRobotEvent> map(List<ScannedBotEvent> scannedBotEvents, IBot bot) {
         if (scannedBotEvents == null) return emptyList();

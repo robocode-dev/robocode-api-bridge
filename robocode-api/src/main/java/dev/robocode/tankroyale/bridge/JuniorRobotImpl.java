@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import robocode.Rules;
 
-public class JuniorRobotImpl {
+final class JuniorRobotImpl {
 
     public static void turnAndMove(IBot bot, double distance, double degrees) {
         if (distance == 0) {

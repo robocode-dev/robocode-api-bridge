@@ -10,7 +10,7 @@ import static java.lang.Math.abs;
 import static java.lang.Math.toRadians;
 import static java.util.Collections.emptyList;
 
-public class HitWallEventMapper {
+final class HitWallEventMapper {
 
     public static List<robocode.HitWallEvent> map(List<HitWallEvent> hitWallEvents, IBot bot) {
         if (hitWallEvents == null) return emptyList();

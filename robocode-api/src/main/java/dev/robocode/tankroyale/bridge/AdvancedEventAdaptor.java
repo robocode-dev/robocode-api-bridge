@@ -4,7 +4,7 @@ import robocode.CustomEvent;
 import robocode.SkippedTurnEvent;
 import robocode.robotinterfaces.IAdvancedEvents;
 
-public class AdvancedEventAdaptor implements IAdvancedEvents {
+final class AdvancedEventAdaptor implements IAdvancedEvents {
 
     @Override
     public void onSkippedTurn(SkippedTurnEvent event) {
