@@ -1,5 +1,6 @@
 package robocode;
 
+import dev.robocode.tankroyale.bridge.RobotData;
 import robocode.exception.RobotException;
 
 import java.io.*;
@@ -22,13 +23,12 @@ import java.io.*;
  */
 @SuppressWarnings("unused") // API
 public class RobocodeFileOutputStream extends OutputStream {
-//    private final FileOutputStream out; // TODO
+    private final FileOutputStream out;
     private final String fileName;
 
     /**
      * Constructs a new RobocodeFileOutputStream.
-     * See {@link java.io.FileOutputStream#FileOutputStream(File)}
-     * for documentation about this constructor.
+     * See {@link java.io.FileOutputStream#FileOutputStream(File)} for documentation about this constructor.
      *
      * @param file stream
      * @throws IOException when file could not be created
@@ -40,8 +40,7 @@ public class RobocodeFileOutputStream extends OutputStream {
 
     /**
      * Constructs a new RobocodeFileOutputStream.
-     * See {@link java.io.FileOutputStream#FileOutputStream(FileDescriptor)}
-     * for documentation about this constructor.
+     * See {@link java.io.FileOutputStream#FileOutputStream(FileDescriptor)} for documentation about this constructor.
      *
      * @param fdObj the file descriptor to be opened for writing
      * @see java.io.FileOutputStream#FileOutputStream(FileDescriptor)
@@ -53,8 +52,7 @@ public class RobocodeFileOutputStream extends OutputStream {
 
     /**
      * Constructs a new RobocodeFileOutputStream.
-     * See {@link java.io.FileOutputStream#FileOutputStream(String)}
-     * for documentation about this constructor.
+     * See {@link java.io.FileOutputStream#FileOutputStream(String)} for documentation about this constructor.
      *
      * @param fileName file name
      * @throws IOException when file could not be created
@@ -66,8 +64,7 @@ public class RobocodeFileOutputStream extends OutputStream {
 
     /**
      * Constructs a new RobocodeFileOutputStream.
-     * See {@link java.io.FileOutputStream#FileOutputStream(String, boolean)}
-     * for documentation about this constructor.
+     * See {@link java.io.FileOutputStream#FileOutputStream(String, boolean)} for documentation about this constructor.
      *
      * @param fileName file name
      * @param append   should append at the end of the file
@@ -76,16 +73,7 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     public RobocodeFileOutputStream(String fileName, boolean append) throws IOException {
         this.fileName = fileName;
-
-        // TODO: Implement
-/*
-        final IThreadManagerBase threadManager = ContainerBase.getComponent(IThreadManagerBase.class);
-
-        if (threadManager == null) {
-            throw new RobotException("ThreadManager cannot be null!");
-        }
-
-        out = threadManager.createRobotFileStream(fileName, append);*/
+        out = new FileOutputStream(RobotData.getDataFile(fileName), append);
     }
 
     /**
@@ -96,18 +84,17 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void close() throws IOException {
-//        out.close(); // TODO
+        out.close();
     }
 
     /**
-     * Flushes this output stream. See {@link java.io.FileOutputStream#flush()}
-     * for documentation about this method.
+     * Flushes this output stream. See {@link java.io.FileOutputStream#flush()} for documentation about this method.
      *
      * @see java.io.FileOutputStream#flush()
      */
     @Override
     public final void flush() throws IOException {
-//        out.flush(); // TODO
+        out.flush();
     }
 
     /**
@@ -121,37 +108,34 @@ public class RobocodeFileOutputStream extends OutputStream {
 
     /**
      * Writes a byte array to this output stream.
-     * See {@link java.io.FileOutputStream#write(byte[])} for documentation
-     * about this method.
+     * See {@link java.io.FileOutputStream#write(byte[])} for documentation about this method.
      *
      * @see java.io.FileOutputStream#write(byte[])
      */
     @Override
     public final void write(byte[] b) throws IOException {
-//        out.write(b); // TODO
+        out.write(b);
     }
 
     /**
      * Writes a byte array to this output stream.
-     * See {@link java.io.FileOutputStream#write(byte[], int, int)} for
-     * documentation about this method.
+     * See {@link java.io.FileOutputStream#write(byte[], int, int)} for documentation about this method.
      *
      * @see java.io.FileOutputStream#write(byte[], int, int)
      */
     @Override
     public final void write(byte[] b, int off, int len) throws IOException {
-//        out.write(b, off, len); // TODO
+        out.write(b, off, len);
     }
 
     /**
      * Writes a single byte to this output stream.
-     * See {@link java.io.FileOutputStream#write(int)} for documentation about
-     * this method.
+     * See {@link java.io.FileOutputStream#write(int)} for documentation about this method.
      *
      * @see java.io.FileOutputStream#write(int)
      */
     @Override
     public final void write(int b) throws IOException {
-//        out.write(b); // TODO
+        out.write(b);
     }
 }

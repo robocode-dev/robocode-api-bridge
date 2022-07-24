@@ -19,9 +19,6 @@ import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
@@ -66,6 +63,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     }
 
     private void init() {
+        RobotName.setName(robot.getClass().getSimpleName());
         setupEventPriorities();
     }
 
@@ -91,7 +89,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     @Override
     public String getName() {
-        return "" + bot.getMyId();
+        return RobotName.getName();
     }
 
     @Override
@@ -533,18 +531,12 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     @Override
     public File getDataFile(String filename) {
-        Path dirPath = Paths.get("").resolve(getName());
-        try {
-            Files.createDirectories(dirPath);
-        } catch (IOException e) {
-            System.err.println("Could not create directories: " + dirPath);
-        }
-        return dirPath.resolve(filename).toFile();
+        return RobotData.getDataFile(filename);
     }
 
     @Override
     public long getDataQuotaAvailable() {
-        return 300_000;
+        return 200_000;
     }
 
 
