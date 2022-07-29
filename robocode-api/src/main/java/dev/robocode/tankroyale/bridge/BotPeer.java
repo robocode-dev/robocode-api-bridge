@@ -1,6 +1,7 @@
 package dev.robocode.tankroyale.bridge;
 
 import dev.robocode.tankroyale.botapi.Bot;
+import dev.robocode.tankroyale.botapi.BotInfo;
 import dev.robocode.tankroyale.botapi.BulletState;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.*;
@@ -39,26 +40,28 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private final IBasicEvents basicEvents;
     private final IAdvancedEvents advancedEvents;
 
-    private final IBot bot = new BotImpl();
+    private final IBot bot;
     private final Set<BulletPeer> firedBullets = new HashSet<>();
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
-    public BotPeer(Robot robot) {
-        this(robot, robot, null);
+    public BotPeer(Robot robot, BotInfo botInfo) {
+        this(robot, botInfo, robot, null);
     }
 
-    public BotPeer(AdvancedRobot advancedRobot) {
-        this(advancedRobot, advancedRobot, advancedRobot);
+    public BotPeer(AdvancedRobot advancedRobot, BotInfo botInfo) {
+        this(advancedRobot, botInfo, advancedRobot, advancedRobot);
     }
 
-    public BotPeer(JuniorRobot juniorRobot) {
-        this(juniorRobot, juniorRobot.getBasicEventListener(), null);
+    public BotPeer(JuniorRobot juniorRobot, BotInfo botInfo) {
+        this(juniorRobot, botInfo, juniorRobot.getBasicEventListener(), null);
     }
 
-    private BotPeer(_RobotBase robot, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
+    private BotPeer(_RobotBase robot, BotInfo botInfo, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
+        bot = new BotImpl(botInfo);
+
         if (advancedEvents == null) {
             advancedEvents = new AdvancedEventAdaptor();
         }
@@ -569,6 +572,10 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private class BotImpl extends Bot {
 
         int totalTurns;
+
+        BotImpl(BotInfo botInfo) {
+            super(botInfo);
+        }
 
         @Override
         public void run() {
