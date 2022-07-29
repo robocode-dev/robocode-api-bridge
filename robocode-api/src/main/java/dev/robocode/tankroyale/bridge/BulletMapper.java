@@ -15,7 +15,7 @@ final class BulletMapper {
                 bullet.getPower(),
                 "" + bullet.getOwnerId(),
                 victimName,
-                true,
+                false,
                 bullet.getBulletId()
         );
     }
