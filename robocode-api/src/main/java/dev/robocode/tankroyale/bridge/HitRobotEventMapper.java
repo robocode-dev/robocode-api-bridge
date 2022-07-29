@@ -24,7 +24,7 @@ final class HitRobotEventMapper {
         if (hitBotEvent == null) return null;
 
         String name = "" + hitBotEvent.getVictimId();
-        double bearing = -toRadians(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
+        double bearing = toRadians(-bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
         return new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
     }

@@ -23,7 +23,7 @@ final class HitWallEventMapper {
     public static robocode.HitWallEvent map(HitWallEvent hitWallEvent, IBot bot) {
         if (hitWallEvent == null) return null;
 
-        double bearing = -toRadians(bot.calcBearing(calcDirectionNearestToWall(bot)));
+        double bearing = toRadians(-bot.calcBearing(calcDirectionNearestToWall(bot)));
         return new robocode.HitWallEvent(bearing);
     }
 
