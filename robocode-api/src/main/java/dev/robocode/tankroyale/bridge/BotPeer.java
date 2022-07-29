@@ -47,14 +47,17 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
+    @SuppressWarnings("unused")
     public BotPeer(Robot robot, BotInfo botInfo) {
         this(robot, botInfo, robot, null);
     }
 
+    @SuppressWarnings("unused")
     public BotPeer(AdvancedRobot advancedRobot, BotInfo botInfo) {
         this(advancedRobot, botInfo, advancedRobot, advancedRobot);
     }
 
+    @SuppressWarnings("unused")
     public BotPeer(JuniorRobot juniorRobot, BotInfo botInfo) {
         this(juniorRobot, botInfo, juniorRobot.getBasicEventListener(), null);
     }
@@ -73,6 +76,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
         init();
     }
 
+    @SuppressWarnings("unused")
     public void start() {
         bot.start();
     }
