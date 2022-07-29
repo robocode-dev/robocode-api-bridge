@@ -13,6 +13,7 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
+import robocode.Robot;
 import robocode.robotinterfaces.*;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 import robocode.robotinterfaces.peer.IJuniorRobotPeer;
@@ -45,8 +46,19 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
+    public BotPeer(Robot robot) {
+        this(robot, robot, null);
+    }
 
-    public BotPeer(_RobotBase robot, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
+    public BotPeer(AdvancedRobot advancedRobot) {
+        this(advancedRobot, advancedRobot, advancedRobot);
+    }
+
+    public BotPeer(JuniorRobot juniorRobot) {
+        this(juniorRobot, juniorRobot.getBasicEventListener(), null);
+    }
+
+    private BotPeer(_RobotBase robot, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
         if (advancedEvents == null) {
             advancedEvents = new AdvancedEventAdaptor();
         }

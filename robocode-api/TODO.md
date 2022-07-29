@@ -1,0 +1,2 @@
+- Target flytter sig ikke ved mindre end 80 energi
+- Når Target rammer væg, slider den hen ad væggen!?

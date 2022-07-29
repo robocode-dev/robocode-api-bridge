@@ -113,19 +113,14 @@ public abstract class Event implements Comparable<Event>, Serializable {
      * @see AdvancedRobot#setEventPriority(String, int)
      */
     public final void setPriority(int newPriority) {
-        if (priority == null) {
-            System.out.println(
-                    "SYSTEM: The priority of an event cannot be changed after it has been added the event queue.");
-        } else {
-            if (newPriority < 0) {
-                System.out.println("SYSTEM: Priority must be between 0 and 99");
-                System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 0");
-                priority = 0;
-            } else if (newPriority > 99) {
-                System.out.println("SYSTEM: Priority must be between 0 and 99");
-                System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 99");
-                priority = 99;
-            }
+        if (newPriority < 0) {
+            System.out.println("SYSTEM: Priority must be between 0 and 99");
+            System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 0");
+            priority = 0;
+        } else if (newPriority > 99) {
+            System.out.println("SYSTEM: Priority must be between 0 and 99");
+            System.out.println("SYSTEM: Priority for " + this.getClass().getName() + " will be 99");
+            priority = 99;
         }
     }
 
