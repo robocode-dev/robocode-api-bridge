@@ -721,8 +721,8 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) {
-            double bulletDirection = bulletHitWallEvent.getBullet().getDirection();
-            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bulletDirection)));
+            Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
+            basicEvents.onBulletMissed(new robocode.BulletMissedEvent(bullet));
         }
 
         @Override
