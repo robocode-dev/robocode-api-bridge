@@ -83,14 +83,19 @@ public class MakeWrappers {
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
         File file = createOrOverwriteFile(botDir, robotProps.classname + ".json");
 
+        String author = robotProps.author;
+        if (author == null || author.isBlank()) {
+            author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
+        }
+
         try (var writer = new FileWriter(file)) {
             writer.write(
             "{\n" +
                 "  \"name\": \"" + robotProps.name() + "\",\n" +
-                "  \"version\": \"" + escapeJsonStr(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
-                "  \"authors\": \"" + escapeJsonStr(replaceIfBlank(robotProps.author, "[n/a]")) + "\",\n" +
-                "  \"description\": \"" + escapeJsonStr(replaceIfBlank(robotProps.description, "")) + "\",\n" +
-                "  \"homepage\": \"" + escapeJsonStr(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
+                "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
+                "  \"authors\": \"" + escape(replaceIfBlank(author, "[n/a]")) + "\",\n" +
+                "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
+                "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
                 "  \"gameTypes\": \"classic, melee, 1v1\",\n" +
                 "  \"platform\": \"JVM\"\n" +
                 "}\n"
@@ -138,10 +143,15 @@ public class MakeWrappers {
         return (str == null || str.isBlank()) ? replacement : str;
     }
 
-    static String escapeJsonStr(String str) {
+    static String escape(String str) {
         return str
             .replace("\\", "\\\\")
-            .replace("\"", "\\\"");
+            .replace("\"", "\\\"")
+            .replace("\n", "\\n")
+            .replace("\r", "\\r")
+            .replace("\t", "\\t")
+            .replace("\f", "\\f")
+            .replace("\b", "\\b");
     }
 
     static class RobotProperties {
