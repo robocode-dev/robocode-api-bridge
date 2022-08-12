@@ -1,7 +1,6 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -14,15 +13,14 @@ public class MakeWrappers {
     static final String JAVA_WRAPPER = "Wrapper.java";
 
     public static void main(String[] args) throws IOException {
-        /*
         String dirName = "C:/Robots robocode";
 
         try (var files = Files.list(new File(dirName).toPath())) {
-            files.limit(1)
-                    .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
+            files   .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
                     .forEach(MakeWrappers::processJar);
-        }*/
-        processJar(Paths.get("C:/Robots robocode/acid.Bl4ck_1.0.jar"));
+        }
+
+//        processJar(Paths.get("C:/Robots robocode/acid.Bl4ck_1.0.jar")); // works
     }
 
     static void processJar(Path path) {
@@ -43,7 +41,7 @@ public class MakeWrappers {
                 }
             }
         } catch (Exception ex) {
-            System.out.println("IO exception occurred when processing: " + path);
+            System.out.println("IO exception occurred when processing " + path + ": " + ex.getMessage());
         }
     }
 
@@ -83,16 +81,16 @@ public class MakeWrappers {
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
-        Path path = Files.createFile(botDir.resolve(robotProps.classname + ".json"));
+        File file = createOrOverwriteFile(botDir, robotProps.classname + ".json");
 
-        try (var out = new OutputStreamWriter(new FileOutputStream(path.toFile()))) {
-            out.write(
+        try (var writer = new FileWriter(file)) {
+            writer.write(
             "{\n" +
                 "  \"name\": \"" + robotProps.name() + "\",\n" +
-                "  \"version\": \"" + replaceIfBlank(robotProps.version, "[n/a]") + "\",\n" +
-                "  \"authors\": \"" + replaceIfBlank(robotProps.author, "[n/a]") + "\",\n" +
-                "  \"description\": \"" + replaceIfBlank(robotProps.description, "") + "\",\n" +
-                "  \"webpage\": \"" + replaceIfBlank(robotProps.webpage, "") + "\",\n" +
+                "  \"version\": \"" + escapeJsonStr(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
+                "  \"authors\": \"" + escapeJsonStr(replaceIfBlank(robotProps.author, "[n/a]")) + "\",\n" +
+                "  \"description\": \"" + escapeJsonStr(replaceIfBlank(robotProps.description, "")) + "\",\n" +
+                "  \"homepage\": \"" + escapeJsonStr(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
                 "  \"gameTypes\": \"classic, melee, 1v1\",\n" +
                 "  \"platform\": \"JVM\"\n" +
                 "}\n"
@@ -101,10 +99,10 @@ public class MakeWrappers {
     }
 
     static void createJavaWrapper(Path botDir, String robotClass) throws IOException {
-        Path path = Files.createFile(botDir.resolve(JAVA_WRAPPER));
+        File file = createOrOverwriteFile(botDir, JAVA_WRAPPER);
 
-        try (var out = new OutputStreamWriter(new FileOutputStream(path.toFile()))) {
-            out.write(
+        try (var writer = new FileWriter(file)) {
+            writer.write(
             "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
                 "import dev.robocode.tankroyale.botapi.BotInfo;\n\n" +
                 "public class Wrapper {\n" +
@@ -120,17 +118,30 @@ public class MakeWrappers {
     }
 
     static void createScriptFile(Path botDir, String jarFilename, String robotClass, char separator, String fileExt) throws IOException {
-        Path path = Files.createFile(botDir.resolve(robotClass + fileExt));
-        File file = path.toFile();
+        File file = createOrOverwriteFile(botDir, robotClass + fileExt);
 
-        try (var out = new OutputStreamWriter(new FileOutputStream(file))) {
-            out.write("java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER);
+        try (var writer = new FileWriter(file)) {
+            writer.write("java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER);
         }
         file.setExecutable(true);
     }
 
+    static File createOrOverwriteFile(Path botDir, String filename) throws IOException {
+        var path = botDir.resolve(filename);
+        File file = path.toFile();
+        file.delete();
+        Files.createFile(path);
+        return file;
+    }
+
     static String replaceIfBlank(String str, String replacement) {
         return (str == null || str.isBlank()) ? replacement : str;
+    }
+
+    static String escapeJsonStr(String str) {
+        return str
+            .replace("\\", "\\\\")
+            .replace("\"", "\\\"");
     }
 
     static class RobotProperties {
