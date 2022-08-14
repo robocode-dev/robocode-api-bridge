@@ -19,8 +19,6 @@ public class MakeWrappers {
             files   .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
                     .forEach(MakeWrappers::processJar);
         }
-
-//        processJar(Paths.get("C:/Robots robocode/acid.Bl4ck_1.0.jar")); // works
     }
 
     static void processJar(Path path) {
@@ -69,15 +67,16 @@ public class MakeWrappers {
     }
 
     static void createBotDir(Path dir, String jarFilename, RobotProperties robotProps) throws IOException {
-        var botDir = dir.getParent().resolve(robotProps.classname);
+        var botDir = dir.getParent().resolve(robotProps.classname + "_" + robotProps.version);
         Files.createDirectories(botDir);
+        Files.createFile(botDir.resolve(jarFilename)); // create empty file with the jar name for info
 
         createJsonFile(botDir, robotProps);
         createJavaWrapper(botDir, robotProps.classname);
         createScriptFile(botDir, jarFilename, robotProps.classname, ':', ".sh");
         createScriptFile(botDir, jarFilename, robotProps.classname, ';', ".cmd");
 
-        System.out.println((robotProps.classname + " " + robotProps.version).trim());
+        System.out.println((robotProps.classname + " " + robotProps.version).trim() + " (" + jarFilename + ")");
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
