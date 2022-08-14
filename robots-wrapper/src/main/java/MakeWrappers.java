@@ -73,14 +73,14 @@ public class MakeWrappers {
 
         createJsonFile(botDir, robotProps);
         createJavaWrapper(botDir, robotProps.classname);
-        createScriptFile(botDir, jarFilename, robotProps.classname, ':', ".sh");
-        createScriptFile(botDir, jarFilename, robotProps.classname, ';', ".cmd");
+        createScriptFile(botDir, jarFilename, ':', ".sh");
+        createScriptFile(botDir, jarFilename, ';', ".cmd");
 
         System.out.println((robotProps.classname + " " + robotProps.version).trim() + " (" + jarFilename + ")");
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
-        File file = createOrOverwriteFile(botDir, robotProps.classname + ".json");
+        File file = createOrOverwriteFile(botDir, botDir.getFileName() + ".json");
 
         String author = robotProps.author;
         if (author == null || author.isBlank()) {
@@ -121,8 +121,8 @@ public class MakeWrappers {
         }
     }
 
-    static void createScriptFile(Path botDir, String jarFilename, String robotClass, char separator, String fileExt) throws IOException {
-        File file = createOrOverwriteFile(botDir, robotClass + fileExt);
+    static void createScriptFile(Path botDir, String jarFilename, char separator, String fileExt) throws IOException {
+        File file = createOrOverwriteFile(botDir, botDir.getFileName() + fileExt);
 
         try (var writer = new FileWriter(file)) {
             writer.write("java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER);
