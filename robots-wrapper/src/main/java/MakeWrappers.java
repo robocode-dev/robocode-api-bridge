@@ -13,7 +13,7 @@ public class MakeWrappers {
     static final String JAVA_WRAPPER = "Wrapper.java";
 
     public static void main(String[] args) throws IOException {
-        String dirName = "C:/Robots robocode";
+        String dirName = "C:/bots robocode";
 
         try (var files = Files.list(new File(dirName).toPath())) {
             files   .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
@@ -95,7 +95,6 @@ public class MakeWrappers {
                 "  \"authors\": \"" + escape(replaceIfBlank(author, "[n/a]")) + "\",\n" +
                 "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
                 "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
-                "  \"gameTypes\": \"classic, melee, 1v1\",\n" +
                 "  \"platform\": \"JVM\"\n" +
                 "}\n"
             );
@@ -166,4 +165,3 @@ public class MakeWrappers {
         }
     }
 }
-
