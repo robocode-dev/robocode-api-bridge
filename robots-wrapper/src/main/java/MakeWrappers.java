@@ -67,12 +67,14 @@ public class MakeWrappers {
     }
 
     static void createBotDir(Path dir, String jarFilename, RobotProperties robotProps) throws IOException {
-        var botDir = dir.getParent().resolve(robotProps.classname + "_" + robotProps.version);
+        var robotClassAndVersion = robotProps.classname + "_" + robotProps.version;
+        var botDir = dir.getParent().resolve(robotClassAndVersion);
         Files.createDirectories(botDir);
-        Files.createFile(botDir.resolve(jarFilename)); // create empty file with the jar name for info
+
+        createOrOverwriteFile(botDir, jarFilename); // create empty file with the jar name for info
 
         createJsonFile(botDir, robotProps);
-        createJavaWrapper(botDir, robotProps.classname);
+        createJavaWrapper(botDir, robotProps.classname, robotClassAndVersion);
         createScriptFile(botDir, jarFilename, ':', ".sh");
         createScriptFile(botDir, jarFilename, ';', ".cmd");
 
@@ -101,7 +103,7 @@ public class MakeWrappers {
         }
     }
 
-    static void createJavaWrapper(Path botDir, String robotClass) throws IOException {
+    static void createJavaWrapper(Path botDir, String robotClass, String robotClassAndVersion) throws IOException {
         File file = createOrOverwriteFile(botDir, JAVA_WRAPPER);
 
         try (var writer = new FileWriter(file)) {
@@ -111,7 +113,7 @@ public class MakeWrappers {
                 "public class Wrapper {\n" +
                 "\tpublic static void main(String[] args) {\n" +
                 "\t\tvar robot = new " + robotClass + "();\n" +
-                "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClass + ".json\"));\n" +
+                "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
                 "\t\trobot.setPeer(peer);\n" +
                 "\t\tpeer.start();\n" +
                 "\t}\n" +
@@ -124,7 +126,11 @@ public class MakeWrappers {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + fileExt);
 
         try (var writer = new FileWriter(file)) {
-            writer.write("java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER);
+            String javaCommand = "java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER;
+            if (fileExt.equalsIgnoreCase(".cmd")) {
+                javaCommand += " >nil";
+            }
+            writer.write(javaCommand);
         }
         file.setExecutable(true);
     }
