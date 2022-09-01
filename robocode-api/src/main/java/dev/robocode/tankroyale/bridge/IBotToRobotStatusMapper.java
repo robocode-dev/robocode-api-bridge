@@ -4,6 +4,7 @@ import dev.robocode.tankroyale.botapi.IBot;
 import robocode.RobotStatus;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static java.lang.Math.toRadians;
 
 final class IBotToRobotStatusMapper {
 
@@ -16,9 +17,9 @@ final class IBotToRobotStatusMapper {
                 toRcRadians(bot.getGunDirection()),
                 toRcRadians(bot.getRadarDirection()),
                 toRcRadians(bot.getSpeed()),
-                bot.getTurnRemaining(),
-                bot.getGunTurnRemaining(),
-                bot.getRadarTurnRemaining(),
+                toRadians(bot.getTurnRemaining()),
+                toRadians(bot.getGunTurnRemaining()),
+                toRadians(bot.getRadarTurnRemaining()),
                 bot.getDistanceRemaining(),
                 bot.getGunHeat(),
                 bot.getEnemyCount(),
