@@ -738,18 +738,8 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onScannedBot(ScannedBotEvent scannedBotEvent) {
-            double bearing = toRadians(-bearingTo(scannedBotEvent.getX(), scannedBotEvent.getY()));
-            double distanceTo = distanceTo(scannedBotEvent.getX(), scannedBotEvent.getY());
-
-            basicEvents.onScannedRobot(new robocode.ScannedRobotEvent(
-                    "" + scannedBotEvent.getScannedBotId(),
-                    scannedBotEvent.getEnergy(),
-                    bearing,
-                    distanceTo,
-                    toRcRadians(scannedBotEvent.getDirection()),
-                    scannedBotEvent.getSpeed(),
-                    false
-            ));
+            var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
+            basicEvents.onScannedRobot(scannedRobotEvent);
         }
 
         @Override
