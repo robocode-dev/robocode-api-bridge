@@ -24,7 +24,7 @@ final class IBotToRobotStatusMapper {
                 bot.getGunHeat(),
                 bot.getEnemyCount(),
                 0, // numSentries, not supported
-                bot.getRoundNumber(),
+                bot.getRoundNumber() - 1,
                 bot.getNumberOfRounds(),
                 bot.getTurnNumber()
         );

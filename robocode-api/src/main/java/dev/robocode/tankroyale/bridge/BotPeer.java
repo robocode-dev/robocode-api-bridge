@@ -188,7 +188,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     @Override
     public int getRoundNum() {
-        return bot.getRoundNumber();
+        return bot.getRoundNumber() - 1;
     }
 
     @Override
@@ -633,7 +633,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
                 if (basicEvents instanceof IBasicEvents3) {
                     ((IBasicEvents3) basicEvents).onRoundEnded(
-                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber(), turnNumber, totalTurns));
+                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber() - 1, turnNumber, totalTurns));
                 }
             } finally {
                 stop();
