@@ -583,12 +583,23 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void run() {
+            var robotStatus = IBotToRobotStatusMapper.map(bot);
+            basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
+
             if (robot instanceof IJuniorRobot) {
                 while (bot.isRunning()) {
-                    robot.run();
+                    runRobot();
                 }
             } else {
+                runRobot();
+            }
+        }
+
+        private void runRobot() {
+            try {
                 robot.run();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
