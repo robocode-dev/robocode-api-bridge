@@ -780,7 +780,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
         }
 
         BulletPeer findBulletById(BulletState bulletState) {
-            BulletPeer bulletPeer = firedBullets.stream().filter(
+            var bulletPeer = firedBullets.stream().filter(
                             bullet -> bulletState.getBulletId() == bullet.getBulletId())
                     .findFirst()
                     .orElse(null);
