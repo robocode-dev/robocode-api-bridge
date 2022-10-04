@@ -41,7 +41,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private final IAdvancedEvents advancedEvents;
 
     private final IBot bot;
-    private final Set<BulletPeer> firedBullets = new HashSet<>();
+    private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new HashMap<>());
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
@@ -257,7 +257,9 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
     private BulletPeer createAndAddBullet(double power) {
         BulletPeer bullet = new BulletPeer(bot, power);
-        firedBullets.add(bullet);
+        synchronized (firedBullets) {
+            firedBullets.add(bullet);
+        }
         return bullet;
     }
 
@@ -621,7 +623,9 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
 
-            firedBullets.clear();
+            synchronized (firedBullets) {
+                firedBullets.clear();
+            }
             robotStatuses.clear();
         }
 
@@ -725,7 +729,9 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
             Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
             bullet.setInactive();
 
-            firedBullets.remove(bullet);
+            synchronized (firedBullets) {
+                firedBullets.remove(bullet);
+            }
 
             basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
         }
@@ -785,6 +791,9 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
                     .findFirst()
                     .orElse(null);
 
+            if (bulletPeer == null) {
+                bulletPeer = findBulletByXAndY(bulletState);
+            }
             if (bulletPeer == null) {
                 throw new IllegalStateException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
             }
