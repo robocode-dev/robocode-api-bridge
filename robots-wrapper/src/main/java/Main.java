@@ -8,16 +8,21 @@ import java.util.zip.ZipInputStream;
 
 // TODO: Handle robot.properties field `includeData` (boolean)
 
-public class MakeWrappers {
+public class Main {
 
     static final String JAVA_WRAPPER = "Wrapper.java";
 
     public static void main(String[] args) throws IOException {
-        String dirName = "C:/bots robocode";
+        if (args.length == 0) {
+            System.out.println("Please provide directory path as first argument, e.g. C:/robots");
+            System.exit(-1);
+        }
+
+        String dirName = args[0];
 
         try (var files = Files.list(new File(dirName).toPath())) {
             files   .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
-                    .forEach(MakeWrappers::processJar);
+                    .forEach(Main::processJar);
         }
     }
 
