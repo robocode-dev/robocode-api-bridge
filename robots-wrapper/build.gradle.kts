@@ -9,3 +9,11 @@ java {
     sourceCompatibility = JavaVersion.VERSION_11
     targetCompatibility = sourceCompatibility
 }
+
+tasks {
+    jar {
+        manifest {
+            attributes["Main-Class"] = "Main"
+        }
+    }
+}
