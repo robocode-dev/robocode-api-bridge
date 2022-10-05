@@ -76,8 +76,6 @@ public class Main {
         var botDir = dir.getParent().resolve(robotClassAndVersion);
         Files.createDirectories(botDir);
 
-        createOrOverwriteFile(botDir, jarFilename); // create empty file with the jar name for info
-
         createJsonFile(botDir, robotProps);
         createJavaWrapper(botDir, robotProps.classname, robotClassAndVersion);
         createScriptFile(botDir, jarFilename, ':', ".sh");
