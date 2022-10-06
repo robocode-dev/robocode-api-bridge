@@ -79,12 +79,12 @@ Don't expect the bridge to provide a 100% backward compatible robot behaviors. A
 be a dream 💖 that is simply not possible or feasible to fulfill, and is not the primary focus of Tank Royale.
 
 Tank Royale was written from scratch with a clean sheet without backwards compatibility as end goal. And the intention
-is to keep the design of the new platform as simple and clean as possible. And the rules are really close, but there are
-differences.
+is to keep the design of the new platform as simple and clean as possible. And even though the rules are really close,
+there are differences that could potentially cause issues.
 
-Hence, we should avoid "polluting" the Tank Royale platform (Bot API and especially the Server) with quirks,
-workarounds, built-in Robocode bugs etc. in order to be as backwards compatible as possible with legacy robots. Instead,
-it is up to the bridge to fill the gap between the Robocode API and the Tank Royale platform.
+We should avoid "polluting" the Tank Royale platform (Bot API and especially the Server) with quirks, workarounds,
+built-in Robocode bugs etc. in order to be as backwards compatible as possible with legacy robots. Instead, it is up to
+the bridge to fill the gap between the Robocode API and the Tank Royale platform.
 
 That said, bugs in the Bot API and Server causing issues for legacy robots might be fixable without changing anything
 for Tank Royale bots, and we might be able to incorporate "orig. Robocode specific" modes in e.g. the Bot API that
