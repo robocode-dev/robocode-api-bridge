@@ -61,8 +61,8 @@ server via WebSockets.
 
 ### ❌ No support for the old .Net plugin
 
-Note that only java based Robocode robots are supported. Not .Net-based robots developed for the abandoned Net plugin
-for Robocode.
+Note that only java based Robocode robots are supported. There is no support for .Net-based robots developed for the
+now abandoned Net plugin for Robocode. (Note that .Net-based bots are first class citizens in Tank Royale)
 
 ### 🌅 Early days
 
