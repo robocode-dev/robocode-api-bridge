@@ -97,7 +97,7 @@ public class Main {
             "{\n" +
                 "  \"name\": \"" + robotProps.name() + "\",\n" +
                 "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
-                "  \"authors\": \"" + escape(replaceIfBlank(author, "[n/a]")) + "\",\n" +
+                "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                 "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
                 "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
                 "  \"platform\": \"JVM\"\n" +
