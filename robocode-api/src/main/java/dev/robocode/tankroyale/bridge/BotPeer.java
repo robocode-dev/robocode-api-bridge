@@ -14,13 +14,15 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
-import robocode.Robot;
 import robocode.robotinterfaces.*;
 import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 import robocode.robotinterfaces.peer.IJuniorRobotPeer;
+import robocode.robotinterfaces.peer.ITeamRobotPeer;
 
 import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
@@ -34,9 +36,9 @@ import static java.lang.Math.toDegrees;
 import static java.lang.Math.toRadians;
 import static robocode.util.Utils.normalRelativeAngle;
 
-public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
+public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer, ITeamRobotPeer {
 
-    private final _RobotBase robot;
+    private final IBasicRobot robot;
     private final IBasicEvents basicEvents;
     private final IAdvancedEvents advancedEvents;
 
@@ -48,30 +50,17 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
     private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
 
     @SuppressWarnings("unused")
-    public BotPeer(Robot robot, BotInfo botInfo) {
-        this(robot, botInfo, robot, null);
-    }
-
-    @SuppressWarnings("unused")
-    public BotPeer(AdvancedRobot advancedRobot, BotInfo botInfo) {
-        this(advancedRobot, botInfo, advancedRobot, advancedRobot);
-    }
-
-    @SuppressWarnings("unused")
-    public BotPeer(JuniorRobot juniorRobot, BotInfo botInfo) {
-        this(juniorRobot, botInfo, juniorRobot.getBasicEventListener(), null);
-    }
-
-    private BotPeer(_RobotBase robot, BotInfo botInfo, IBasicEvents basicEvents, IAdvancedEvents advancedEvents) {
+    public BotPeer(IBasicRobot robot, BotInfo botInfo) {
+        this.robot = robot;
         bot = new BotImpl(botInfo);
 
-        if (advancedEvents == null) {
+        basicEvents = robot.getBasicEventListener();
+
+        if (robot instanceof IAdvancedRobot) {
+            advancedEvents = ((IAdvancedRobot)robot).getAdvancedEventListener();
+        } else {
             advancedEvents = new AdvancedEventAdaptor();
         }
-
-        this.robot = robot;
-        this.basicEvents = basicEvents;
-        this.advancedEvents = advancedEvents;
 
         init();
     }
@@ -570,10 +559,43 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
         JuniorRobotImpl.turnAndMove(bot, distance, toDegrees(radians));
     }
 
+    //-------------------------------------------------------------------------
+    // ITeamRobotPeer
+    //-------------------------------------------------------------------------
+
+    @Override
+    public String[] getTeammates() {
+        throw new UnsupportedOperationException(
+            "getTeammates() is unsupported. Contact Robocode Tank Royale author for support");
+    }
+
+    @Override
+    public boolean isTeammate(String name) {
+        throw new UnsupportedOperationException(
+                "isTeammate() is unsupported. Contact Robocode Tank Royale author for support");
+    }
+
+    @Override
+    public void broadcastMessage(Serializable message) throws IOException {
+        throw new UnsupportedOperationException(
+                "broadcastMessage() is unsupported. Contact Robocode Tank Royale author for support");
+    }
+
+    @Override
+    public void sendMessage(String name, Serializable message) throws IOException {
+        throw new UnsupportedOperationException(
+                "sendMessage() is unsupported. Contact Robocode Tank Royale author for support");
+    }
+
+    @Override
+    public List<MessageEvent> getMessageEvents() {
+        throw new UnsupportedOperationException(
+                "sendMessage() is unsupported. Contact Robocode Tank Royale author for support");
+    }
 
     //-------------------------------------------------------------------------
     // IBasicEvents3 and IAdvancedEvents event triggers
-    //-------------------------------------------------------------------------
+    //-------------------------------------------------------------------------½
 
     private class BotImpl extends Bot {
 
@@ -599,7 +621,9 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
 
         private void runRobot() {
             try {
-                robot.run();
+                if (robot instanceof Runnable) {
+                    ((Runnable)robot).run();
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -771,7 +795,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
             }
         }
 
-        BulletPeer findBulletByXAndY(BulletState bulletState) {
+        private BulletPeer findBulletByXAndY(BulletState bulletState) {
             var foundBullet = new AtomicReference<BulletPeer>();
             var minDist = new AtomicReference<>(Double.MAX_VALUE);
 
@@ -785,7 +809,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
             return foundBullet.get();
         }
 
-        BulletPeer findBulletById(BulletState bulletState) {
+        private BulletPeer findBulletById(BulletState bulletState) {
             var bulletPeer = firedBullets.stream().filter(
                             bullet -> bulletState.getBulletId() == bullet.getBulletId())
                     .findFirst()
@@ -800,7 +824,7 @@ public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer {
             return bulletPeer;
         }
 
-        double calcBearingToWallRadians(double directionDeg) {
+        private double calcBearingToWallRadians(double directionDeg) {
             int minX = 18; // half bot size (36x36)
             int minY = 18;
             int maxX = getArenaWidth() - 18;

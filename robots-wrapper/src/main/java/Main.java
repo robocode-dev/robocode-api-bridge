@@ -111,11 +111,12 @@ public class Main {
 
         try (var writer = new FileWriter(file)) {
             writer.write(
-            "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
-                "import dev.robocode.tankroyale.botapi.BotInfo;\n\n" +
+                "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
+                "import dev.robocode.tankroyale.botapi.BotInfo;\n" +
+                "import robocode.robotinterfaces.IBasicRobot;\n\n" +
                 "public class Wrapper {\n" +
-                "\tpublic static void main(String[] args) {\n" +
-                "\t\tvar robot = new " + robotClass + "();\n" +
+                "\tpublic static void main(String[] args) throws Exception {\n" +
+                "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
                 "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
                 "\t\trobot.setPeer(peer);\n" +
                 "\t\tpeer.start();\n" +
