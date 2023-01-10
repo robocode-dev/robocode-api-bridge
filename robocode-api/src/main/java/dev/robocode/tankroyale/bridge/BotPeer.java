@@ -15,7 +15,6 @@ import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
 import robocode.robotinterfaces.*;
-import robocode.robotinterfaces.peer.IAdvancedRobotPeer;
 import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 import robocode.robotinterfaces.peer.ITeamRobotPeer;
 
@@ -36,7 +35,7 @@ import static java.lang.Math.toDegrees;
 import static java.lang.Math.toRadians;
 import static robocode.util.Utils.normalRelativeAngle;
 
-public final class BotPeer implements IAdvancedRobotPeer, IJuniorRobotPeer, ITeamRobotPeer {
+public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private final IBasicRobot robot;
     private final IBasicEvents basicEvents;
