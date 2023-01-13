@@ -13,7 +13,7 @@ final class RobotDeathEventMapper {
     public static List<RobotDeathEvent> map(List<BotDeathEvent> botDeathEvents) {
         if (botDeathEvents == null) return emptyList();
 
-        List<RobotDeathEvent> events = new ArrayList<>();
+        var events = new ArrayList<RobotDeathEvent>();
         botDeathEvents.forEach(event -> events.add(map(event)));
         return events;
     }

@@ -15,7 +15,7 @@ final class HitRobotEventMapper {
     public static List<HitRobotEvent> map(List<HitBotEvent> hitBotEvents, IBot bot) {
         if (hitBotEvents == null) return emptyList();
 
-        List<robocode.HitRobotEvent> events = new ArrayList<>();
+        var events = new ArrayList<robocode.HitRobotEvent>();
         hitBotEvents.forEach(event -> events.add(map(event, bot)));
         return events;
     }

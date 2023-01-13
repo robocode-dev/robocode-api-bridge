@@ -6,7 +6,7 @@ import robocode.Condition;
 final class CustomEventMapper {
 
     public static robocode.CustomEvent map(CustomEvent customEvent) {
-        robocode.Condition condition = new Condition() {
+        var condition = new Condition() {
             @Override
             public boolean test() {
                 return customEvent.getCondition().test();

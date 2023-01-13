@@ -15,7 +15,7 @@ final class StatusEventMapper {
     public static List<StatusEvent> map(List<TickEvent> tickEvents, Map<Integer, RobotStatus> robotStatusSnapshots) {
         if (tickEvents == null) return emptyList();
 
-        List<StatusEvent> events = new ArrayList<>();
+        var events = new ArrayList<StatusEvent>();
         tickEvents.forEach(event -> events.add(map(event, robotStatusSnapshots)));
         return events;
     }
@@ -23,7 +23,7 @@ final class StatusEventMapper {
     public static StatusEvent map(TickEvent tickEvent, Map<Integer, RobotStatus> robotStatusSnapshots) {
         if (tickEvent == null) return null;
 
-        RobotStatus robotStatus = robotStatusSnapshots.get(tickEvent.getTurnNumber());
+        var robotStatus = robotStatusSnapshots.get(tickEvent.getTurnNumber());
         return new StatusEvent(robotStatus);
     }
 }

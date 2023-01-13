@@ -14,7 +14,7 @@ final class BulletHitEventMapper {
     public static List<BulletHitEvent> map(List<BulletHitBotEvent> bulletHitBotEvents) {
         if (bulletHitBotEvents == null) return emptyList();
 
-        List<BulletHitEvent> events = new ArrayList<>();
+        var events = new ArrayList<BulletHitEvent>();
         bulletHitBotEvents.forEach(event -> events.add(map(event)));
         return events;
     }

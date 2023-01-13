@@ -13,7 +13,7 @@ final class BulletMissedEventMapper {
     public static List<BulletMissedEvent> map(List<BulletHitWallEvent> bulletHitWallEvents) {
         if (bulletHitWallEvents == null) return emptyList();
 
-        List<BulletMissedEvent> events = new ArrayList<>();
+        var events = new ArrayList<BulletMissedEvent>();
         bulletHitWallEvents.forEach(event -> events.add(map(event)));
         return events;
     }

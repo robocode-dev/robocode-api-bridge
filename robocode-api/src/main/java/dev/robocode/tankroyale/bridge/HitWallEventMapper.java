@@ -15,7 +15,7 @@ final class HitWallEventMapper {
     public static List<robocode.HitWallEvent> map(List<HitWallEvent> hitWallEvents, IBot bot) {
         if (hitWallEvents == null) return emptyList();
 
-        List<robocode.HitWallEvent> events = new ArrayList<>();
+        var events = new ArrayList<robocode.HitWallEvent>();
         hitWallEvents.forEach(event -> events.add(map(event, bot)));
         return events;
     }

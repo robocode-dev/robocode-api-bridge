@@ -16,7 +16,7 @@ final class ScannedRobotEventMapper {
     public static List<ScannedRobotEvent> map(List<ScannedBotEvent> scannedBotEvents, IBot bot) {
         if (scannedBotEvents == null) return emptyList();
 
-        List<ScannedRobotEvent> events = new ArrayList<>();
+        var events = new ArrayList<ScannedRobotEvent>();
         scannedBotEvents.forEach(event -> events.add(map(event, bot)));
         return events;
     }

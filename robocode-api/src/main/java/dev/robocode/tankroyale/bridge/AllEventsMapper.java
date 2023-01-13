@@ -16,7 +16,7 @@ final class AllEventsMapper {
     public static List<Event> map(List<BotEvent> botEvents, IBot bot, Map<Integer, RobotStatus> robotStatuses) {
         if (botEvents == null) return emptyList();
 
-        List<Event> events = new ArrayList<>();
+        var events = new ArrayList<Event>();
 
         botEvents.forEach(botEvent -> {
             Event event = null;
