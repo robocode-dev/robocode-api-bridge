@@ -4,7 +4,7 @@ import static java.lang.Math.toRadians;
 
 final class AngleConverter {
 
-    public static double toRcRadians(double realDeg) {
+    public static double toRcHeadingRad(double realDeg) {
         return toRadians(normalizeAbsoluteAngle(90.0 - realDeg));
     }
 

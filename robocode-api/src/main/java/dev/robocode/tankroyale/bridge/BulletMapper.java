@@ -3,13 +3,13 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.BulletState;
 import robocode.Bullet;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
 
 final class BulletMapper {
 
     public static Bullet map(BulletState bullet, String victimName) {
         return new Bullet(
-                toRcRadians(bullet.getDirection()),
+                toRcHeadingRad(bullet.getDirection()),
                 bullet.getX(),
                 bullet.getY(),
                 bullet.getPower(),

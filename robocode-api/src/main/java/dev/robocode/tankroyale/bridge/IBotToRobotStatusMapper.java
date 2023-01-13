@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import robocode.RobotStatus;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
 import static java.lang.Math.toRadians;
 
 final class IBotToRobotStatusMapper {
@@ -13,10 +13,10 @@ final class IBotToRobotStatusMapper {
                 bot.getEnergy(),
                 bot.getX(),
                 bot.getY(),
-                toRcRadians(bot.getDirection()),
-                toRcRadians(bot.getGunDirection()),
-                toRcRadians(bot.getRadarDirection()),
-                toRcRadians(bot.getSpeed()),
+                toRcHeadingRad(bot.getDirection()),
+                toRcHeadingRad(bot.getGunDirection()),
+                toRcHeadingRad(bot.getRadarDirection()),
+                bot.getSpeed(),
                 toRadians(bot.getTurnRemaining()),
                 toRadians(bot.getGunTurnRemaining()),
                 toRadians(bot.getRadarTurnRemaining()),

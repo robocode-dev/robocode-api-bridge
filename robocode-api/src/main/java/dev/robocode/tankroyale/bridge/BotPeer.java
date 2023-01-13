@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcRadians;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
 import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
 import static dev.robocode.tankroyale.bridge.BulletMapper.map;
 import static java.lang.Math.toDegrees;
@@ -137,19 +137,19 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public double getBodyHeading() {
         log("getBodyHeading()");
-        return toRcRadians(bot.getDirection());
+        return toRcHeadingRad(bot.getDirection());
     }
 
     @Override
     public double getGunHeading() {
         log("getGunHeading()");
-        return toRcRadians(bot.getGunDirection());
+        return toRcHeadingRad(bot.getGunDirection());
     }
 
     @Override
     public double getRadarHeading() {
         log("getRadarHeading()");
-        return toRcRadians(bot.getRadarDirection());
+        return toRcHeadingRad(bot.getRadarDirection());
     }
 
     @Override
@@ -831,7 +831,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             var bulletState = bulletHitBotEvent.getBullet();
             var victimName = "" + bulletHitBotEvent.getVictimId();
             var bullet = new Bullet(
-                    toRcRadians(bulletState.getDirection()), // heading
+                    toRcHeadingRad(bulletState.getDirection()),
                     bulletState.getX(),
                     bulletState.getY(),
                     bulletState.getPower(),
@@ -943,7 +943,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             } else if (getY() > maxY) {
                 angle = normalRelativeAngle(270 - directionDeg);
             }
-            return toRcRadians(angle);
+            return toRcHeadingRad(angle);
         }
     }
 
