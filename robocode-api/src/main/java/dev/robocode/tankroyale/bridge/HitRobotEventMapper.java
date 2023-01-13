@@ -7,7 +7,7 @@ import robocode.HitRobotEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.toRadians;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
 import static java.util.Collections.emptyList;
 
 final class HitRobotEventMapper {
@@ -24,7 +24,7 @@ final class HitRobotEventMapper {
         if (hitBotEvent == null) return null;
 
         String name = "" + hitBotEvent.getVictimId();
-        double bearing = toRadians(-bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
+        double bearing = toRcBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
         return new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
     }

@@ -8,6 +8,10 @@ final class AngleConverter {
         return toRadians(normalizeAbsoluteAngle(90.0 - realDeg));
     }
 
+    public static double toRcBearingRad(double realDeg) {
+        return toRadians(-realDeg);
+    }
+
     private static double normalizeAbsoluteAngle(double angle) {
         return (angle %= 360) >= 0 ? angle : (angle + 360);
     }
