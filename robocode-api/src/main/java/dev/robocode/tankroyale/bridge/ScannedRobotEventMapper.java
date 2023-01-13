@@ -30,8 +30,8 @@ final class ScannedRobotEventMapper {
         double y = scannedBotEvent.getY();
         double bearing = toRcBearingRad(bot.bearingTo(x, y));
         double distance = bot.distanceTo(x, y);
-        double velocity = bot.getSpeed();
-        double heading = toRcHeadingRad(bot.getDirection());
+        double velocity = scannedBotEvent.getSpeed();
+        double heading = toRcHeadingRad(scannedBotEvent.getDirection());
 
         // `isSentryRobot` is unsupported
         return new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);
