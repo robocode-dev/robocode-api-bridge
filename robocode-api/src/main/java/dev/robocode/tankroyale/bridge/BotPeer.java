@@ -430,18 +430,27 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setTurnBody(double radians) {
         log("setTurnBody()");
+        if (Double.isNaN(radians)) {
+            radians = 0; // orig. Robocode treats NaN as 0
+        }
         bot.setTurnRight(toDegrees(radians));
     }
 
     @Override
     public void setTurnGun(double radians) {
         log("setTurnGun()");
+        if (Double.isNaN(radians)) {
+            radians = 0; // orig. Robocode treats NaN as 0
+        }
         bot.setTurnGunRight(toDegrees(radians));
     }
 
     @Override
     public void setTurnRadar(double radians) {
         log("setTurnRadar()");
+        if (Double.isNaN(radians)) {
+            radians = 0; // orig. Robocode treats NaN as 0
+        }
         bot.setTurnRadarRight(toDegrees(radians));
     }
 
