@@ -215,19 +215,19 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public double getBodyTurnRemaining() {
         log("getBodyTurnRemaining()");
-        return toRadians(bot.getTurnRemaining());
+        return -toRadians(bot.getTurnRemaining());
     }
 
     @Override
     public double getGunTurnRemaining() {
         log("getGunTurnRemaining()");
-        return toRadians(bot.getGunTurnRemaining());
+        return -toRadians(bot.getGunTurnRemaining());
     }
 
     @Override
     public double getRadarTurnRemaining() {
         log("getRadarTurnRemaining()");
-        return toRadians(bot.getRadarTurnRemaining());
+        return -toRadians(bot.getRadarTurnRemaining());
     }
 
     @Override
@@ -957,6 +957,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private static void log(String message) {
-        System.out.println(message);
+//        System.out.println(message);
     }
 }
