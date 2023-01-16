@@ -22,12 +22,14 @@ final class HitByBulletEventMapper {
     public static robocode.HitByBulletEvent map(HitByBulletEvent hitByBulletEvent, IBot bot) {
         if (hitByBulletEvent == null) return null;
 
-        String victimName = "" + bot.getMyId();
+        var victimName = "" + bot.getMyId();
         var bulletState = hitByBulletEvent.getBullet();
 
-        double bearing = toRcBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));
+        var bearing = toRcBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));
         var bullet = BulletMapper.map(bulletState, victimName);
 
-        return new robocode.HitByBulletEvent(bearing, bullet);
+        var event = new robocode.HitByBulletEvent(bearing, bullet);
+        event.setTime(hitByBulletEvent.getTurnNumber());
+        return event;
     }
 }

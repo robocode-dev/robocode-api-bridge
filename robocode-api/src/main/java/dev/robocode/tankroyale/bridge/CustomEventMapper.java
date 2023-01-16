@@ -12,6 +12,9 @@ final class CustomEventMapper {
                 return customEvent.getCondition().test();
             }
         };
-        return new robocode.CustomEvent(condition);
+
+        var event = new robocode.CustomEvent(condition);
+        event.setTime(customEvent.getTurnNumber());
+        return event;
     }
 }

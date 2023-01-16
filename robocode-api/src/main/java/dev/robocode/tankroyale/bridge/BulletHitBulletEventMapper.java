@@ -22,6 +22,10 @@ final class BulletHitBulletEventMapper {
 
         var bullet = BulletMapper.map(bulletHitBulletEvent.getBullet(), null);
         var hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
-        return new robocode.BulletHitBulletEvent(bullet, hitBullet);
+
+        var event = new robocode.BulletHitBulletEvent(bullet, hitBullet);
+        event.setTime(bulletHitBulletEvent.getTurnNumber());
+
+        return event;
     }
 }

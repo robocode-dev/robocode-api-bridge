@@ -24,6 +24,9 @@ final class StatusEventMapper {
         if (tickEvent == null) return null;
 
         var robotStatus = robotStatusSnapshots.get(tickEvent.getTurnNumber());
-        return new StatusEvent(robotStatus);
+
+        var event = new StatusEvent(robotStatus);
+        event.setTime(tickEvent.getTurnNumber());
+        return event;
     }
 }

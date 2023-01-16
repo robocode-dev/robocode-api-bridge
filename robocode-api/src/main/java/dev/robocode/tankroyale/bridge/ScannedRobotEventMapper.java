@@ -24,16 +24,18 @@ final class ScannedRobotEventMapper {
     public static ScannedRobotEvent map(ScannedBotEvent scannedBotEvent, IBot bot) {
         if (scannedBotEvent == null) return null;
 
-        String name = "" + scannedBotEvent.getScannedBotId();
-        double energy = scannedBotEvent.getEnergy();
-        double x = scannedBotEvent.getX();
-        double y = scannedBotEvent.getY();
-        double bearing = toRcBearingRad(bot.bearingTo(x, y));
-        double distance = bot.distanceTo(x, y);
-        double velocity = scannedBotEvent.getSpeed();
-        double heading = toRcHeadingRad(scannedBotEvent.getDirection());
+        var name = "" + scannedBotEvent.getScannedBotId();
+        var energy = scannedBotEvent.getEnergy();
+        var x = scannedBotEvent.getX();
+        var y = scannedBotEvent.getY();
+        var bearing = toRcBearingRad(bot.bearingTo(x, y));
+        var distance = bot.distanceTo(x, y);
+        var velocity = scannedBotEvent.getSpeed();
+        var heading = toRcHeadingRad(scannedBotEvent.getDirection());
 
         // `isSentryRobot` is unsupported
-        return new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);
+        var event = new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);
+        event.setTime(scannedBotEvent.getTurnNumber());
+        return event;
     }
 }

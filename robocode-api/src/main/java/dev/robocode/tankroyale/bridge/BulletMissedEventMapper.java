@@ -1,7 +1,6 @@
 package dev.robocode.tankroyale.bridge;
 
 import dev.robocode.tankroyale.botapi.events.BulletHitWallEvent;
-import robocode.Bullet;
 import robocode.BulletMissedEvent;
 
 import java.util.ArrayList;
@@ -21,7 +20,10 @@ final class BulletMissedEventMapper {
     public static BulletMissedEvent map(BulletHitWallEvent bulletHitWallEvent) {
         if (bulletHitWallEvent == null) return null;
 
-        Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
-        return new BulletMissedEvent(bullet);
+        var bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
+
+        var event = new BulletMissedEvent(bullet);
+        event.setTime(bulletHitWallEvent.getTurnNumber());
+        return event;
     }
 }

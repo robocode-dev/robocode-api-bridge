@@ -23,9 +23,11 @@ final class HitRobotEventMapper {
     public static HitRobotEvent map(HitBotEvent hitBotEvent, IBot bot) {
         if (hitBotEvent == null) return null;
 
-        String name = "" + hitBotEvent.getVictimId();
-        double bearing = toRcBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
+        var name = "" + hitBotEvent.getVictimId();
+        var bearing = toRcBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
-        return new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
+        var event = new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
+        event.setTime(hitBotEvent.getTurnNumber());
+        return event;
     }
 }
