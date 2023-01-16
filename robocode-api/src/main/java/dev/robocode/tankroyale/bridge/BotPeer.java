@@ -487,10 +487,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @SuppressWarnings("unchecked")
     public void setEventPriority(String eventClass, int priority) {
         log("setEventPriority()");
-        // not supported (yet) -> just ignore
-        if ("MessageEvent".equals(eventClass) || "PaintEvent".equals(eventClass)) return;
 
-        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEvent(eventClass);
+        if ("MessageEvent".equals(eventClass) || "PaintEvent".equals(eventClass)) {
+            // MessageEvent and PaintEvent are not supported (yet) -> just ignore
+            return;
+        }
+
+        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEventClass(eventClass);
         bot.setEventPriority((Class<BotEvent>) botEvent, priority);
     }
 
@@ -498,7 +501,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @SuppressWarnings("unchecked")
     public int getEventPriority(String eventClass) {
         log("getEventPriority()");
-        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEvent(eventClass);
+        Class<? extends BotEvent> botEvent = EventClassMapper.toBotEventClass(eventClass);
         return bot.getEventPriority((Class<BotEvent>) botEvent);
     }
 

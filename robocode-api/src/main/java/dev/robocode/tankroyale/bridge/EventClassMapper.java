@@ -4,7 +4,7 @@ import dev.robocode.tankroyale.botapi.events.*;
 
 final class EventClassMapper {
 
-    public static Class<? extends BotEvent> toBotEvent(String eventClass) {
+    public static Class<? extends BotEvent> toBotEventClass(String eventClass) {
         if (robocode.StatusEvent.class.getSimpleName().equals(eventClass)) {
             return TickEvent.class;
         }
