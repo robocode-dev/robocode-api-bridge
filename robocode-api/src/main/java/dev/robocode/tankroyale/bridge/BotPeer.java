@@ -716,7 +716,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 } else {
                     runRobot();
                 }
-            } catch (Throwable e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
