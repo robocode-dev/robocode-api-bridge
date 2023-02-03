@@ -705,25 +705,27 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         public void run() {
             log("Bot.run()");
 
-            var robotStatus = IBotToRobotStatusMapper.map(bot);
-            basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
+            try {
+                var robotStatus = IBotToRobotStatusMapper.map(bot);
+                basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
 
-            if (robot instanceof IJuniorRobot) {
-                while (bot.isRunning()) {
+                if (robot instanceof IJuniorRobot) {
+                    while (bot.isRunning()) {
+                        runRobot();
+                    }
+                } else {
                     runRobot();
                 }
-            } else {
-                runRobot();
+            } catch (Throwable e) {
+                e.printStackTrace();
             }
+
+            log("Bot.run() -> exit");
         }
 
         private void runRobot() {
-            try {
-                if (robot instanceof Runnable) {
-                    ((Runnable)robot).run();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (robot instanceof Runnable) {
+                ((Runnable)robot).run();
             }
         }
 
@@ -960,6 +962,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private static void log(String message) {
-//        System.out.println(message);
+        // System.out.println(message);
     }
 }
