@@ -6,6 +6,7 @@ import robocode.ScannedRobotEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
@@ -16,9 +17,9 @@ final class ScannedRobotEventMapper {
     public static List<ScannedRobotEvent> map(List<ScannedBotEvent> scannedBotEvents, IBot bot) {
         if (scannedBotEvents == null) return emptyList();
 
-        var events = new ArrayList<ScannedRobotEvent>();
-        scannedBotEvents.forEach(event -> events.add(map(event, bot)));
-        return events;
+        return scannedBotEvents.stream()
+                .map(event -> map(event, bot))
+                .collect(Collectors.toList());
     }
 
     public static ScannedRobotEvent map(ScannedBotEvent scannedBotEvent, IBot bot) {

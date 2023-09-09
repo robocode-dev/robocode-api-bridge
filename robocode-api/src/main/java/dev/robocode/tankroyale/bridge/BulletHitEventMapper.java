@@ -5,6 +5,7 @@ import robocode.BulletHitEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.Collections.emptyList;
 
@@ -13,9 +14,9 @@ final class BulletHitEventMapper {
     public static List<BulletHitEvent> map(List<BulletHitBotEvent> bulletHitBotEvents) {
         if (bulletHitBotEvents == null) return emptyList();
 
-        var events = new ArrayList<BulletHitEvent>();
-        bulletHitBotEvents.forEach(event -> events.add(map(event)));
-        return events;
+        return bulletHitBotEvents.stream()
+                .map(BulletHitEventMapper::map)
+                .collect(Collectors.toList());
     }
 
     public static BulletHitEvent map(BulletHitBotEvent bulletHitBotEvent) {

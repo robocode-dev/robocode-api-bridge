@@ -5,6 +5,7 @@ import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
 import static java.lang.Math.abs;
@@ -15,9 +16,9 @@ final class HitWallEventMapper {
     public static List<robocode.HitWallEvent> map(List<HitWallEvent> hitWallEvents, IBot bot) {
         if (hitWallEvents == null) return emptyList();
 
-        var events = new ArrayList<robocode.HitWallEvent>();
-        hitWallEvents.forEach(event -> events.add(map(event, bot)));
-        return events;
+        return hitWallEvents.stream()
+                .map(event -> map(event, bot))
+                .collect(Collectors.toList());
     }
 
     public static robocode.HitWallEvent map(HitWallEvent hitWallEvent, IBot bot) {
