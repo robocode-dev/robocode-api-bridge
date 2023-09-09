@@ -13,7 +13,7 @@ final class BulletMapper {
                 bullet.getX(),
                 bullet.getY(),
                 bullet.getPower(),
-                "" + bullet.getOwnerId(),
+                String.valueOf(bullet.getOwnerId()),
                 victimName,
                 false,
                 bullet.getBulletId()

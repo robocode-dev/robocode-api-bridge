@@ -29,12 +29,4 @@ public class LineGL extends RenderElement {
 
     public void draw(GLFunc gl) {
     }
-
-    public float getStringX() {
-        return 0f;
-    }
-
-    public float getStringY() {
-        return 0f;
-    }
 }

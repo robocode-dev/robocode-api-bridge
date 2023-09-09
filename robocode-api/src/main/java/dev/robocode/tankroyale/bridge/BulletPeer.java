@@ -12,7 +12,7 @@ final class BulletPeer extends Bullet {
         this.power = power;
         this.x = bot.getX();
         this.y = bot.getY();
-        this.ownerName = "" + bot.getMyId();
+        this.ownerName = String.valueOf(bot.getMyId());
         this.isActive = true;
         this.bulletId = -1;
     }

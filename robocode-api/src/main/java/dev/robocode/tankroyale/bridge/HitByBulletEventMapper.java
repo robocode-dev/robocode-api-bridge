@@ -22,7 +22,7 @@ final class HitByBulletEventMapper {
     public static robocode.HitByBulletEvent map(HitByBulletEvent hitByBulletEvent, IBot bot) {
         if (hitByBulletEvent == null) return null;
 
-        var victimName = "" + bot.getMyId();
+        var victimName = String.valueOf(bot.getMyId());
         var bulletState = hitByBulletEvent.getBullet();
 
         var bearing = toRcBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));

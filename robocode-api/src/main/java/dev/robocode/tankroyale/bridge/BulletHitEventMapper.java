@@ -21,7 +21,7 @@ final class BulletHitEventMapper {
     public static BulletHitEvent map(BulletHitBotEvent bulletHitBotEvent) {
         if (bulletHitBotEvent == null) return null;
 
-        var victimName = "" + bulletHitBotEvent.getVictimId();
+        var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
         var bullet = BulletMapper.map(bulletHitBotEvent.getBullet(), victimName);
 
         var event = new BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);

@@ -24,7 +24,7 @@ final class ScannedRobotEventMapper {
     public static ScannedRobotEvent map(ScannedBotEvent scannedBotEvent, IBot bot) {
         if (scannedBotEvent == null) return null;
 
-        var name = "" + scannedBotEvent.getScannedBotId();
+        var name = String.valueOf(scannedBotEvent.getScannedBotId());
         var energy = scannedBotEvent.getEnergy();
         var x = scannedBotEvent.getX();
         var y = scannedBotEvent.getY();

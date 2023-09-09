@@ -739,7 +739,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             log("-> onBattleEnded");
             if (basicEvents instanceof IBasicEvents2) {
                 ((IBasicEvents2) basicEvents).onBattleEnded(new robocode.BattleEndedEvent(
-                        false, map(gameEndedEvent.getResults(), "" + this.getMyId()))
+                        false, map(gameEndedEvent.getResults(), String.valueOf(getMyId())))
                 );
             }
         }
@@ -796,7 +796,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onBotDeath(BotDeathEvent botDeathEvent) {
             log("-> onRobotDeath");
-            basicEvents.onRobotDeath(new robocode.RobotDeathEvent("" + botDeathEvent.getVictimId()));
+            basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId())));
         }
 
         @Override
@@ -810,7 +810,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             log("-> onHitRobot");
             double bearing = toRcBearingRad(bearingTo(botHitBotEvent.getX(), botHitBotEvent.getY()));
             basicEvents.onHitRobot(new robocode.HitRobotEvent(
-                    "" + botHitBotEvent.getVictimId(), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
+                    String.valueOf(botHitBotEvent.getVictimId()), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
             ));
         }
 
@@ -836,20 +836,20 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             BulletState bullet = hitByBulletEvent.getBullet();
             double bearing = toRcBearingRad(bearingTo(bullet.getX(), bullet.getY()));
             basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
-                    bearing, map(bullet, "" + this.getMyId())));
+                    bearing, map(bullet, String.valueOf(this.getMyId()))));
         }
 
         @Override
         public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
             log("-> onBulletHit");
             var bulletState = bulletHitBotEvent.getBullet();
-            var victimName = "" + bulletHitBotEvent.getVictimId();
+            var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
             var bullet = new Bullet(
                     toRcHeadingRad(bulletState.getDirection()),
                     bulletState.getX(),
                     bulletState.getY(),
                     bulletState.getPower(),
-                    "" + bulletState.getOwnerId(),
+                    String.valueOf(bulletState.getOwnerId()),
                     victimName,
                     false, // isActive
                     bulletState.getBulletId());

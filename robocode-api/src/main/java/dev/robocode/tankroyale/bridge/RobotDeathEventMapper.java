@@ -21,7 +21,7 @@ final class RobotDeathEventMapper {
     public static RobotDeathEvent map(BotDeathEvent botDeathEvent) {
         if (botDeathEvent == null) return null;
 
-        var name = "" + botDeathEvent.getVictimId();
+        var name = String.valueOf(botDeathEvent.getVictimId());
 
         var event = new RobotDeathEvent(name);
         event.setTime(botDeathEvent.getTurnNumber());

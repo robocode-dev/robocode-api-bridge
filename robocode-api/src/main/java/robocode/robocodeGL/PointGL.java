@@ -21,14 +21,6 @@ public class PointGL extends RenderElement {
     public void setColor(Color c) {
     }
 
-    public float getStringX() {
-        return 0f;
-    }
-
-    public float getStringY() {
-        return 0f;
-    }
-
     public void draw(GLFunc gl) {
     }
 }
