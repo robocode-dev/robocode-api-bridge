@@ -656,29 +656,36 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public String[] getTeammates() {
         log("getTeammates()");
-        throw new UnsupportedOperationException(
-            "getTeammates() is unsupported. Contact Robocode Tank Royale author for support");
+        var teammates = bot.getTeammateIds();
+        return (teammates != null) ? (String[]) teammates.stream().map(String::valueOf).toArray() : null;
     }
 
     @Override
     public boolean isTeammate(String name) {
         log("isTeammate()");
-        throw new UnsupportedOperationException(
-                "isTeammate() is unsupported. Contact Robocode Tank Royale author for support");
+        try {
+            var id = Integer.parseInt(name);
+            return bot.isTeammate(id);
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     @Override
-    public void broadcastMessage(Serializable message) throws IOException {
+    public void broadcastMessage(Serializable message) {
         log("broadcastMessage()");
-        throw new UnsupportedOperationException(
-                "broadcastMessage() is unsupported. Contact Robocode Tank Royale author for support");
+        bot.broadcastTeamMessage(message);
     }
 
     @Override
-    public void sendMessage(String name, Serializable message) throws IOException {
+    public void sendMessage(String name, Serializable message) {
         log("sendMessage()");
-        throw new UnsupportedOperationException(
-                "sendMessage() is unsupported. Contact Robocode Tank Royale author for support");
+        try {
+            var id = Integer.parseInt(name);
+            bot.sendTeamMessage(id, message);
+        } catch (NumberFormatException ignore) {
+            throw new IllegalStateException("Cannot find receiver of team message: " + name);
+        }
     }
 
     @Override

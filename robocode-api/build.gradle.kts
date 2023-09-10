@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "dev.robocode"
-version = "0.1.8"
+version = "0.1.9"
 
 repositories {
     mavenLocal()
@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.19.0")
+    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.20.0")
 }
 
 java {

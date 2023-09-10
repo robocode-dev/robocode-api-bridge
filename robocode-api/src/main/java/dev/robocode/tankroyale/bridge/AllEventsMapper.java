@@ -44,6 +44,8 @@ final class AllEventsMapper {
                 event = ScannedRobotEventMapper.map((ScannedBotEvent) botEvent, bot);
             } else if (botEvent instanceof BotDeathEvent) {
                 event = RobotDeathEventMapper.map((BotDeathEvent) botEvent);
+            } else if (botEvent instanceof TeamMessageEvent) {
+                event = MessageEventMapper.map((TeamMessageEvent)botEvent);
             }
             if (event != null) {
                 events.add(event);
