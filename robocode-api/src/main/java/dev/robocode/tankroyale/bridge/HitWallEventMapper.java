@@ -3,23 +3,10 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
 import static java.lang.Math.abs;
-import static java.util.Collections.emptyList;
 
 final class HitWallEventMapper {
-
-    public static List<robocode.HitWallEvent> map(List<HitWallEvent> hitWallEvents, IBot bot) {
-        if (hitWallEvents == null) return emptyList();
-
-        return hitWallEvents.stream()
-                .map(event -> map(event, bot))
-                .collect(Collectors.toList());
-    }
 
     public static robocode.HitWallEvent map(HitWallEvent hitWallEvent, IBot bot) {
         if (hitWallEvent == null) return null;

@@ -20,7 +20,6 @@ import robocode.robotinterfaces.peer.ITeamRobotPeer;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Paths;
 import java.util.*;
@@ -543,82 +542,82 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.StatusEvent> getStatusEvents() {
         log("getStatusEvents()");
-        List<TickEvent> tickEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof TickEvent)
-                .map(TickEvent.class::cast).collect(Collectors.toList());
-        return StatusEventMapper.map(tickEvents, robotStatuses);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof StatusEvent)
+                .map(e -> (StatusEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.BulletMissedEvent> getBulletMissedEvents() {
         log("getBulletMissedEvents()");
-        List<BulletHitWallEvent> bulletHitWallEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof BulletHitWallEvent)
-                .map(BulletHitWallEvent.class::cast).collect(Collectors.toList());
-        return BulletMissedEventMapper.map(bulletHitWallEvents);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof BulletMissedEvent)
+                .map(e -> (BulletMissedEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
         log("getBulletHitBulletEvents()");
-        List<BulletHitBulletEvent> bulletHitBulletEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof BulletHitBulletEvent)
-                .map(BulletHitBulletEvent.class::cast).collect(Collectors.toList());
-        return BulletHitBulletEventMapper.map(bulletHitBulletEvents);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof robocode.BulletHitBulletEvent)
+                .map(e -> (robocode.BulletHitBulletEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.BulletHitEvent> getBulletHitEvents() {
         log("getBulletHitEvents()");
-        List<BulletHitBotEvent> bulletHitBotEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof BulletHitBotEvent)
-                .map(BulletHitBotEvent.class::cast).collect(Collectors.toList());
-        return BulletHitEventMapper.map(bulletHitBotEvents);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof BulletHitEvent)
+                .map(e -> (BulletHitEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.HitByBulletEvent> getHitByBulletEvents() {
         log("getHitByBulletEvents()");
-        List<HitByBulletEvent> hitByBulletEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof HitByBulletEvent)
-                .map(HitByBulletEvent.class::cast).collect(Collectors.toList());
-        return HitByBulletEventMapper.map(hitByBulletEvents, bot);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof robocode.HitByBulletEvent)
+                .map(e -> (robocode.HitByBulletEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.HitRobotEvent> getHitRobotEvents() {
         log("getHitRobotEvents()");
-        List<HitBotEvent> hitBotEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof HitBotEvent)
-                .map(HitBotEvent.class::cast).collect(Collectors.toList());
-        return HitRobotEventMapper.map(hitBotEvents, bot);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof HitRobotEvent)
+                .map(e -> (HitRobotEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.HitWallEvent> getHitWallEvents() {
         log("getHitWallEvents()");
-        List<HitWallEvent> hitWallEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof HitWallEvent)
-                .map(HitWallEvent.class::cast).collect(Collectors.toList());
-        return HitWallEventMapper.map(hitWallEvents, bot);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof robocode.HitWallEvent)
+                .map(e -> (robocode.HitWallEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.RobotDeathEvent> getRobotDeathEvents() {
         log("getRobotDeathEvents()");
-        List<BotDeathEvent> botDeathEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof BotDeathEvent)
-                .map(BotDeathEvent.class::cast).collect(Collectors.toList());
-        return RobotDeathEventMapper.map(botDeathEvents);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof RobotDeathEvent)
+                .map(e -> (RobotDeathEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<robocode.ScannedRobotEvent> getScannedRobotEvents() {
         log("getScannedRobotEvents()");
-        List<ScannedBotEvent> scannedBotEvents = bot.getEvents().stream()
-                .filter(event -> event instanceof ScannedBotEvent)
-                .map(ScannedBotEvent.class::cast).collect(Collectors.toList());
-        return ScannedRobotEventMapper.map(scannedBotEvents, bot);
+        return getAllEvents().stream()
+                .filter(e -> e instanceof ScannedRobotEvent)
+                .map(e -> (ScannedRobotEvent) e)
+                .collect(Collectors.toList());
     }
 
     @Override
