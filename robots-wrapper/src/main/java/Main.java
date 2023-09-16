@@ -131,9 +131,6 @@ public class Main {
 
         try (var writer = new FileWriter(file)) {
             String javaCommand = "java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER;
-            if (fileExt.equalsIgnoreCase(".cmd")) {
-                javaCommand += " >nul";
-            }
             writer.write(javaCommand);
         }
         file.setExecutable(true);

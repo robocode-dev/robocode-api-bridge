@@ -44,6 +44,9 @@ final class EventClassMapper {
         if (robocode.WinEvent.class.getSimpleName().equals(eventClass)) {
             return WonRoundEvent.class;
         }
+        if (robocode.MessageEvent.class.getSimpleName().equals(eventClass)) {
+            return TeamMessageEvent.class;
+        }
         throw new UnsupportedOperationException("Unsupported event class: " + eventClass);
     }
 }
