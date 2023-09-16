@@ -691,8 +691,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<MessageEvent> getMessageEvents() {
         log("getMessageEvents()");
-        throw new UnsupportedOperationException(
-                "sendMessage() is unsupported. Contact Robocode Tank Royale author for support");
+        return getAllEvents().stream()
+                .filter(e -> e instanceof MessageEvent)
+                .map(e -> (MessageEvent) e)
+                .collect(Collectors.toList());
     }
 
     //-------------------------------------------------------------------------
