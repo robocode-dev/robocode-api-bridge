@@ -1,6 +1,6 @@
 package dev.robocode.tankroyale.bridge;
 
-public final class RobotName {
+final class RobotName {
 
     private static String name;
 

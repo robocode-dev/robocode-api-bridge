@@ -5,7 +5,7 @@ import robocode.MessageEvent;
 
 import java.io.Serializable;
 
-final public class MessageEventMapper {
+final class MessageEventMapper {
 
     public static MessageEvent map(TeamMessageEvent teamMessageEvent) {
         var sender = String.valueOf(teamMessageEvent.getSenderId());
