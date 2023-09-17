@@ -55,6 +55,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         this.robot = robot;
         bot = new BotImpl(botInfo);
 
+        robot.setOut(System.out); // Redirect output to "our" System.out, which Tank Royale is overriding
+
         basicEvents = robot.getBasicEventListener();
 
         if (robot instanceof IAdvancedRobot) {
