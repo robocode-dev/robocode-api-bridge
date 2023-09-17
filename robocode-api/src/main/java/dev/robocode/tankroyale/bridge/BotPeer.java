@@ -659,7 +659,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public String[] getTeammates() {
         log("getTeammates()");
         var teammates = bot.getTeammateIds();
-        return (teammates != null) ? (String[]) teammates.stream().map(String::valueOf).toArray() : null;
+        return (teammates != null) ? teammates.stream().map(String::valueOf).toArray(String[]::new) : null;
     }
 
     @Override
