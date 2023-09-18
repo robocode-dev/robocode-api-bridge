@@ -425,6 +425,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setMove(double distance) {
         log("setMove()");
+        if (Double.isNaN(distance)) {
+            distance = 0;
+        }
         bot.setForward(distance);
     }
 
