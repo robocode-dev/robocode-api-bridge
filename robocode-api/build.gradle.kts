@@ -1,5 +1,6 @@
 plugins {
     `java-library`
+    idea
 }
 
 group = "dev.robocode"
@@ -11,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.20.2")
+    implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.23.0")
 }
 
 java {
