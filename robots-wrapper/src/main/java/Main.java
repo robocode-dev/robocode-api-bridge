@@ -8,6 +8,8 @@ import java.util.zip.ZipInputStream;
 
 // TODO: Handle robot.properties field `includeData` (boolean)
 
+import org.apache.bcel.classfile.ClassParser;
+
 public class Main {
 
     static final String JAVA_WRAPPER = "Wrapper.java";
@@ -18,18 +20,23 @@ public class Main {
             System.exit(-1);
         }
 
-        String dirName = args[0];
+        Path dirPath = Path.of(args[0]);
 
-        try (var files = Files.list(new File(dirName).toPath())) {
-            files   .filter(path -> path.toString().toLowerCase().endsWith(".jar"))
+        try (var stream = Files.list(dirPath)) {
+            stream.filter(path -> path.toString().toLowerCase().endsWith(".jar"))
                     .forEach(Main::processJar);
+        }
+
+        try (var stream = Files.list(dirPath)) {
+            stream.filter(path -> path.toString().toLowerCase().endsWith(".class"))
+                    .forEach(Main::processClass);
         }
     }
 
-    static void processJar(Path path) {
+    static void processJar(Path jarPath) {
         ZipEntry zipEntry;
         try {
-            var jarFile = path.toFile();
+            var jarFile = jarPath.toFile();
 
             try (var zipFile = new ZipFile(jarFile)) {
                 var zipStream = new ZipInputStream(new FileInputStream(jarFile));
@@ -38,13 +45,38 @@ public class Main {
                     if (filename.toLowerCase().endsWith(".properties")) {
                         var robot = processProperties(zipFile.getInputStream(zipEntry));
                         if (robot != null) {
-                            createBotDir(path, jarFile.getName(), robot);
+                            createBotDir(jarPath, jarFile.getName(), robot);
                         }
                     }
                 }
             }
         } catch (Exception ex) {
-            System.out.println("IO exception occurred when processing " + path + ": " + ex.getMessage());
+            System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
+        }
+    }
+
+    static void processClass(Path classPath) {
+        try {
+            var baseFilename = toBaseFilename(classPath);
+            var propertiesPath = classPath.getParent().resolve(baseFilename + ".properties");
+
+            RobotProperties robot;
+
+            if (Files.exists(propertiesPath)) {
+                try (InputStream inputStream = Files.newInputStream(propertiesPath)) {
+                    robot = processProperties(inputStream);
+                }
+            } else {
+                robot = new RobotProperties();
+                robot.classname = toFullyQualifiedClassName(classPath);
+            }
+
+            if (robot != null) {
+                createBotDir(classPath, baseFilename, robot);
+            }
+
+        } catch (Exception ex) {
+            System.err.println("IO exception occurred when processing " + classPath + ": " + ex.getMessage());
         }
     }
 
@@ -71,17 +103,26 @@ public class Main {
         return robotProps;
     }
 
-    static void createBotDir(Path dir, String jarFilename, RobotProperties robotProps) throws IOException {
-        var robotClassAndVersion = robotProps.classname + "_" + robotProps.version;
-        var botDir = dir.getParent().resolve(robotClassAndVersion);
+    static void createBotDir(Path botDirPath, String filename, RobotProperties robotProps) throws IOException {
+        var className = robotProps.classname;
+
+        var robotClassAndVersion = className;
+        if (robotProps.version != null) {
+            robotClassAndVersion += "_" + robotProps.version;
+        }
+        var botDir = botDirPath.getParent().resolve(robotClassAndVersion);
         Files.createDirectories(botDir);
 
         createJsonFile(botDir, robotProps);
-        createJavaWrapper(botDir, robotProps.classname, robotClassAndVersion);
-        createScriptFile(botDir, jarFilename, ':', ".sh");
-        createScriptFile(botDir, jarFilename, ';', ".cmd");
+        createJavaWrapper(botDir, className, robotClassAndVersion);
+        createScriptFile(botDir, filename, ':', ".sh");
+        createScriptFile(botDir, filename, ';', ".cmd");
 
-        System.out.println((robotProps.classname + " " + robotProps.version).trim() + " (" + jarFilename + ")");
+        var version = robotProps.version;
+        if (version == null) {
+            version = "";
+        }
+        System.out.println((className + " " + version).trim() + " (" + filename + ")");
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
@@ -94,14 +135,14 @@ public class Main {
 
         try (var writer = new FileWriter(file)) {
             writer.write(
-            "{\n" +
-                "  \"name\": \"" + robotProps.name() + "\",\n" +
-                "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
-                "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
-                "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
-                "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
-                "  \"platform\": \"JVM\"\n" +
-                "}\n"
+                    "{\n" +
+                            "  \"name\": \"" + robotProps.name() + "\",\n" +
+                            "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
+                            "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
+                            "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
+                            "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
+                            "  \"platform\": \"JVM\"\n" +
+                            "}\n"
             );
         }
     }
@@ -111,26 +152,26 @@ public class Main {
 
         try (var writer = new FileWriter(file)) {
             writer.write(
-                "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
-                "import dev.robocode.tankroyale.botapi.BotInfo;\n" +
-                "import robocode.robotinterfaces.IBasicRobot;\n\n" +
-                "public class Wrapper {\n" +
-                "\tpublic static void main(String[] args) throws Exception {\n" +
-                "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
-                "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
-                "\t\trobot.setPeer(peer);\n" +
-                "\t\tpeer.start();\n" +
-                "\t}\n" +
-                "}"
+                    "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
+                            "import dev.robocode.tankroyale.botapi.BotInfo;\n" +
+                            "import robocode.robotinterfaces.IBasicRobot;\n\n" +
+                            "public class Wrapper {\n" +
+                            "\tpublic static void main(String[] args) throws Exception {\n" +
+                            "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
+                            "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
+                            "\t\trobot.setPeer(peer);\n" +
+                            "\t\tpeer.start();\n" +
+                            "\t}\n" +
+                            "}"
             );
         }
     }
 
-    static void createScriptFile(Path botDir, String jarFilename, char separator, String fileExt) throws IOException {
+    static void createScriptFile(Path botDir, String filename, char separator, String fileExt) throws IOException {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + fileExt);
 
         try (var writer = new FileWriter(file)) {
-            String javaCommand = "java -cp ../lib/*" + separator + "../" + jarFilename + " " + JAVA_WRAPPER;
+            String javaCommand = "java -cp ." + separator + ".." + separator + "../lib/*" + separator + "../" + filename + " " + JAVA_WRAPPER;
             writer.write(javaCommand);
         }
         file.setExecutable(true);
@@ -150,13 +191,23 @@ public class Main {
 
     static String escape(String str) {
         return str
-            .replace("\\", "\\\\")
-            .replace("\"", "\\\"")
-            .replace("\n", "\\n")
-            .replace("\r", "\\r")
-            .replace("\t", "\\t")
-            .replace("\f", "\\f")
-            .replace("\b", "\\b");
+                .replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "\\r")
+                .replace("\t", "\\t")
+                .replace("\f", "\\f")
+                .replace("\b", "\\b");
+    }
+
+    static String toBaseFilename(Path filePath) {
+        return filePath.getFileName().toString().split("\\.(?=[^.]+$)")[0];
+    }
+
+    static String toFullyQualifiedClassName(Path classPath) throws IOException {
+        var classParser = new ClassParser(classPath.getFileName().toString());
+        var javaClass = classParser.parse();
+        return javaClass.getClassName();
     }
 
     static class RobotProperties {
