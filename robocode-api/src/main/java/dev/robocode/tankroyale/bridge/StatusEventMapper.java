@@ -1,6 +1,6 @@
 package dev.robocode.tankroyale.bridge;
 
-import dev.robocode.tankroyale.botapi.events.TickEvent;
+import dev.robocode.tankroyale.botapi.BotException;
 import robocode.RobotStatus;
 import robocode.StatusEvent;
 
@@ -8,14 +8,17 @@ import java.util.Map;
 
 final class StatusEventMapper {
 
-    public static StatusEvent map(TickEvent tickEvent, Map<Integer, RobotStatus> robotStatusSnapshots) {
-        if (tickEvent == null) return null;
+    public static StatusEvent map(Map<Long, RobotStatus> robotStatusSnapshots, long turnNumber) {
+        RobotStatus robotStatus = robotStatusSnapshots.get(turnNumber);
+        if (robotStatus == null) {
+            throw new BotException("StatusEventMapper.map: Could not get robot status from map");
+        }
+        return map(robotStatus, turnNumber);
+    }
 
-        var robotStatus = robotStatusSnapshots.get(tickEvent.getTurnNumber());
-
+    public static StatusEvent map(RobotStatus robotStatus, long turnNumber) {
         var event = new StatusEvent(robotStatus);
-        event.setTime(tickEvent.getTurnNumber());
-
+        event.setTime(turnNumber);
         return event;
     }
 }

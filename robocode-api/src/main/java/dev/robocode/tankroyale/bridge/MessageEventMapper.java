@@ -1,5 +1,6 @@
 package dev.robocode.tankroyale.bridge;
 
+import dev.robocode.tankroyale.botapi.BotException;
 import dev.robocode.tankroyale.botapi.events.TeamMessageEvent;
 import robocode.MessageEvent;
 
@@ -12,7 +13,7 @@ final class MessageEventMapper {
 
         var message = teamMessageEvent.getMessage();
         if (!(message instanceof Serializable)) {
-            throw new IllegalStateException("Team messages in Robocode is expected to implement the Serializable interface");
+            throw new BotException("MessageEventMapper.map: Team messages in Robocode is expected to implement the Serializable interface");
         }
         return new MessageEvent(sender, (Serializable)message);
     }

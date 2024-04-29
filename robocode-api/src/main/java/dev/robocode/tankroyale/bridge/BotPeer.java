@@ -1,9 +1,6 @@
 package dev.robocode.tankroyale.bridge;
 
-import dev.robocode.tankroyale.botapi.Bot;
-import dev.robocode.tankroyale.botapi.BotInfo;
-import dev.robocode.tankroyale.botapi.BulletState;
-import dev.robocode.tankroyale.botapi.IBot;
+import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
 import dev.robocode.tankroyale.botapi.events.BulletHitBulletEvent;
 import dev.robocode.tankroyale.botapi.events.Condition;
@@ -19,6 +16,7 @@ import robocode.robotinterfaces.peer.IJuniorRobotPeer;
 import robocode.robotinterfaces.peer.ITeamRobotPeer;
 
 import java.awt.*;
+import java.awt.Color;
 import java.io.File;
 import java.io.Serializable;
 import java.nio.file.Paths;
@@ -46,7 +44,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
-    private final Map<Integer, RobotStatus> robotStatuses = new HashMap<>();
+    private final Map<Long, RobotStatus> robotStatuses = new HashMap<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -683,7 +681,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             var id = Integer.parseInt(name);
             bot.sendTeamMessage(id, message);
         } catch (NumberFormatException ignore) {
-            throw new IllegalStateException("Cannot find receiver of team message: " + name);
+            throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
         }
     }
 
@@ -714,7 +712,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
             try {
                 var robotStatus = IBotToRobotStatusMapper.map(bot);
-                basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
+                basicEvents.onStatus(StatusEventMapper.map(robotStatus, getTime()));
 
                 if (robot instanceof IJuniorRobot) {
                     while (bot.isRunning()) {
@@ -783,7 +781,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
             // Save robot status snapshot for event handlers needing robot status
             RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
-            robotStatuses.put(tickEvent.getTurnNumber(), robotStatus);
+            long time = tickEvent.getTurnNumber();
+            robotStatuses.put(time, robotStatus);
 
             // Update fired bullets
             firedBullets.forEach(bulletPeer -> {
@@ -797,7 +796,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             });
 
             // Fire event
-            basicEvents.onStatus(new robocode.StatusEvent(robotStatus));
+            basicEvents.onStatus(StatusEventMapper.map(robotStatus, time));
         }
 
         @Override
@@ -832,7 +831,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             BulletState bulletState = bulletFiredEvent.getBullet();
             BulletPeer bullet = findBulletByXAndY(bulletState);
             if (bullet == null) {
-                throw new IllegalStateException("onBulletFired: Could not find bullet: " + bulletState.getX() + "," + bulletState.getY());
+                throw new BotException("onBulletFired: Could not find bullet: " + bulletState.getX() + "," + bulletState.getY());
             }
             bullet.setBulletId(bulletState.getBulletId());
         }
@@ -942,7 +941,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 bulletPeer = findBulletByXAndY(bulletState);
             }
             if (bulletPeer == null) {
-                throw new IllegalStateException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
+                throw new BotException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
             }
             return bulletPeer;
         }

@@ -1,5 +1,7 @@
 package dev.robocode.tankroyale.bridge;
 
+import dev.robocode.tankroyale.botapi.BotException;
+
 final class RobotName {
 
     private static String name;
@@ -10,7 +12,7 @@ final class RobotName {
 
     public static String getName() {
         if (name == null || name.trim().isEmpty()) {
-            throw new IllegalStateException("Robot name is missing");
+            throw new BotException("getName: Robot name is missing");
         }
         return name;
     }

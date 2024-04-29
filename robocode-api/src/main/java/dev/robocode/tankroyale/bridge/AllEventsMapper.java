@@ -13,7 +13,7 @@ import static java.util.Collections.emptyList;
 
 final class AllEventsMapper {
 
-    public static List<Event> map(List<BotEvent> botEvents, IBot bot, Map<Integer, RobotStatus> robotStatuses) {
+    public static List<Event> map(List<BotEvent> botEvents, IBot bot, Map<Long, RobotStatus> robotStatuses) {
         if (botEvents == null) return emptyList();
 
         var events = new ArrayList<Event>();
@@ -25,7 +25,7 @@ final class AllEventsMapper {
             } else if (botEvent instanceof SkippedTurnEvent) {
                 event = new robocode.SkippedTurnEvent(botEvent.getTurnNumber());
             } else if (botEvent instanceof TickEvent) {
-                event = StatusEventMapper.map((TickEvent) botEvent, robotStatuses);
+                event = StatusEventMapper.map(robotStatuses, botEvent.getTurnNumber());
             } else if (botEvent instanceof CustomEvent) {
                 event = CustomEventMapper.map((CustomEvent) botEvent);
             } else if (botEvent instanceof BulletHitWallEvent) {
