@@ -24,6 +24,7 @@ final class ScannedRobotEventMapper {
         // `isSentryRobot` is unsupported
         var event = new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);
         event.setTime(scannedBotEvent.getTurnNumber());
+
         return event;
     }
 }

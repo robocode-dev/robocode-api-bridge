@@ -15,6 +15,7 @@ final class HitWallEventMapper {
 
         var event = new robocode.HitWallEvent(bearing);
         event.setTime(hitWallEvent.getTurnNumber());
+
         return event;
     }
 

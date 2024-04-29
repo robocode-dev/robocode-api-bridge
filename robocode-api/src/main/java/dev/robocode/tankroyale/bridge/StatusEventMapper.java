@@ -15,6 +15,7 @@ final class StatusEventMapper {
 
         var event = new StatusEvent(robotStatus);
         event.setTime(tickEvent.getTurnNumber());
+
         return event;
     }
 }

@@ -18,6 +18,7 @@ final class HitByBulletEventMapper {
 
         var event = new robocode.HitByBulletEvent(bearing, bullet);
         event.setTime(hitByBulletEvent.getTurnNumber());
+
         return event;
     }
 }

@@ -12,6 +12,7 @@ final class BulletMissedEventMapper {
 
         var event = new BulletMissedEvent(bullet);
         event.setTime(bulletHitWallEvent.getTurnNumber());
+
         return event;
     }
 }

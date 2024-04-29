@@ -13,6 +13,7 @@ final class BulletHitEventMapper {
 
         var event = new BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
         event.setTime(bulletHitBotEvent.getTurnNumber());
+
         return event;
     }
 }

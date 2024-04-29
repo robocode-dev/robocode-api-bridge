@@ -12,6 +12,7 @@ final class RobotDeathEventMapper {
 
         var event = new RobotDeathEvent(name);
         event.setTime(botDeathEvent.getTurnNumber());
+
         return event;
     }
 }

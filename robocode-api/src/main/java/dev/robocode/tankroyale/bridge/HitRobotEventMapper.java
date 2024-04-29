@@ -16,6 +16,7 @@ final class HitRobotEventMapper {
 
         var event = new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
         event.setTime(hitBotEvent.getTurnNumber());
+
         return event;
     }
 }
