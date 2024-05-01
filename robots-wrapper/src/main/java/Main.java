@@ -174,13 +174,17 @@ public class Main {
             String javaCommand = "java -cp ." + separator + ".." + separator + "../lib/*" + separator + "../" + filename + " " + JAVA_WRAPPER;
             writer.write(javaCommand);
         }
-        file.setExecutable(true);
+        if (!file.setExecutable(true)) {
+            System.err.println("Could not set the file " + filename + " as executable");
+        }
     }
 
     static File createOrOverwriteFile(Path botDir, String filename) throws IOException {
         var path = botDir.resolve(filename);
         File file = path.toFile();
-        file.delete();
+        if (!file.delete()) {
+            System.err.println("Could not delete the file " + filename);
+        }
         Files.createFile(path);
         return file;
     }
