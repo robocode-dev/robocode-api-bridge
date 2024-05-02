@@ -172,6 +172,9 @@ public class Main {
 
         try (var writer = new FileWriter(file)) {
             String javaCommand = "java -cp ." + separator + ".." + separator + "../lib/*" + separator + "../" + filename + " " + JAVA_WRAPPER;
+            if (fileExt.equalsIgnoreCase(".cmd")) {
+                javaCommand += " >nul"; // to avoid the process to become unresponsive
+            }
             writer.write(javaCommand);
         }
         if (!file.setExecutable(true)) {
