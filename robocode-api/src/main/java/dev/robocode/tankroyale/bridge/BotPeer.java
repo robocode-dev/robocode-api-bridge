@@ -46,9 +46,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
     private final Map<Long, RobotStatus> robotStatuses = new HashMap<>();
 
+    private boolean roundStarted;
+
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
         log("BotPeer");
+        check();
 
         this.robot = robot;
         bot = new BotImpl(botInfo);
@@ -69,6 +72,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @SuppressWarnings("unused")
     public void start() {
         log("start()");
+        check();
         bot.start();
     }
 
@@ -100,168 +104,196 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public String getName() {
         log("getName()");
+        check();
         return RobotName.getName();
     }
 
     @Override
     public long getTime() {
         log("getTime()");
+        check();
         return bot.getTurnNumber();
     }
 
     @Override
     public double getEnergy() {
         log("getEnergy()");
+        check();
         return bot.getEnergy();
     }
 
     @Override
     public double getX() {
         log("getX()");
+        check();
         return bot.getX();
     }
 
     @Override
     public double getY() {
         log("getY()");
+        check();
         return bot.getY();
     }
 
     @Override
     public double getVelocity() {
         log("getVelocity()");
+        check();
         return bot.getSpeed();
     }
 
     @Override
     public double getBodyHeading() {
         log("getBodyHeading()");
+        check();
         return toRcHeadingRad(bot.getDirection());
     }
 
     @Override
     public double getGunHeading() {
         log("getGunHeading()");
+        check();
         return toRcHeadingRad(bot.getGunDirection());
     }
 
     @Override
     public double getRadarHeading() {
         log("getRadarHeading()");
+        check();
         return toRcHeadingRad(bot.getRadarDirection());
     }
 
     @Override
     public double getGunHeat() {
         log("getGunHeat()");
+        check();
         return bot.getGunHeat();
     }
 
     @Override
     public double getBattleFieldWidth() {
         log("getBattleFieldWidth()");
+        check();
         return bot.getArenaWidth();
     }
 
     @Override
     public double getBattleFieldHeight() {
         log("getBattleFieldHeight()");
+        check();
         return bot.getArenaHeight();
     }
 
     @Override
     public int getOthers() {
         log("getOthers()");
+        check();
         return bot.getEnemyCount();
     }
 
     @Override
     public int getNumSentries() { // Not supported
         log("getNumSentries()");
+        check();
         return 0;
     }
 
     @Override
     public int getSentryBorderSize() { // Not supported
         log("getSentryBorderSize()");
+        check();
         return 0;
     }
 
     @Override
     public int getNumRounds() {
         log("getNumRounds()");
+        check();
         return bot.getNumberOfRounds();
     }
 
     @Override
     public int getRoundNum() {
         log("getRoundNum()");
+        check();
         return bot.getRoundNumber() - 1;
     }
 
     @Override
     public double getGunCoolingRate() {
         log("getGunCoolingRate()");
+        check();
         return bot.getGunCoolingRate();
     }
 
     @Override
     public double getDistanceRemaining() {
         log("getDistanceRemaining()");
+        check();
         return bot.getDistanceRemaining();
     }
 
     @Override
     public double getBodyTurnRemaining() {
         log("getBodyTurnRemaining()");
+        check();
         return -toRadians(bot.getTurnRemaining());
     }
 
     @Override
     public double getGunTurnRemaining() {
         log("getGunTurnRemaining()");
+        check();
         return -toRadians(bot.getGunTurnRemaining());
     }
 
     @Override
     public double getRadarTurnRemaining() {
         log("getRadarTurnRemaining()");
+        check();
         return -toRadians(bot.getRadarTurnRemaining());
     }
 
     @Override
     public void execute() {
         log("execute()");
+        check();
         bot.go();
     }
 
     @Override
     public void move(double distance) {
         log("move()");
+        check();
         bot.forward(distance);
     }
 
     @Override
     public void turnBody(double radians) {
         log("turnBody()");
+        check();
         bot.turnRight(toDegrees(radians));
     }
 
     @Override
     public void turnGun(double radians) {
         log("turnGun()");
+        check();
         bot.turnGunRight(toDegrees(radians));
     }
 
     @Override
     public void turnRadar(double radians) {
         log("turnRadar()");
+        check();
         bot.turnRadarRight(toDegrees(radians));
     }
 
     @Override
     public Bullet fire(double power) {
         log("fire()");
+        check();
         bot.fire(power);
         return createAndAddBullet(power);
     }
@@ -269,6 +301,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public Bullet setFire(double power) {
         log("setFire()");
+        check();
         if (bot.setFire(power)) {
             return createAndAddBullet(power);
         }
@@ -286,57 +319,67 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setBodyColor(Color color) {
         log("setBodyColor()");
+        check();
         bot.setBodyColor(ColorMapper.map(color));
     }
 
     @Override
     public void setGunColor(Color color) {
         log("setGunColor()");
+        check();
         bot.setTurretColor(ColorMapper.map(color)); // yes, turret!
     }
 
     @Override
     public void setRadarColor(Color color) {
         log("setRadarColor()");
+        check();
         bot.setRadarColor(ColorMapper.map(color));
     }
 
     @Override
     public void setBulletColor(Color color) {
         log("setBulletColor()");
+        check();
         bot.setBulletColor(ColorMapper.map(color));
     }
 
     @Override
     public void setScanColor(Color color) {
         log("setScanColor()");
+        check();
         bot.setScanColor(ColorMapper.map(color));
     }
 
     @Override
     public void getCall() { // ignore
         log("getCall()");
+        check();
     }
 
     @Override
     public void setCall() { // ignore
         log("setCall()");
+        check();
     }
 
     @Override
     public Graphics2D getGraphics() {
         log("getGraphics()");
+        check();
         return graphics2D;
     }
 
     @Override
     public void setDebugProperty(String key, String value) { // ignore for now
         log("setDebugProperty()");
+        check();
     }
 
     @Override
     public void rescan() {
         log("rescan()");
+        check();
         bot.rescan();
     }
 
@@ -347,6 +390,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void stop(boolean overwrite) {
         log("stop()");
+        check();
         if (overwrite) {
             // flemming-n-larsen: I don't expect any bots to use this functionality, and hence it is not supported (yet)
             // in Robocode Tank Royale.
@@ -359,24 +403,28 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void resume() {
         log("resume()");
+        check();
         bot.resume();
     }
 
     @Override
     public void setAdjustGunForBodyTurn(boolean adjust) {
         log("setAdjustGunForBodyTurn()");
+        check();
         bot.setAdjustGunForBodyTurn(adjust);
     }
 
     @Override
     public void setAdjustRadarForGunTurn(boolean adjust) {
         log("setAdjustRadarForGunTurn()");
+        check();
         bot.setAdjustRadarForGunTurn(adjust);
     }
 
     @Override
     public void setAdjustRadarForBodyTurn(boolean adjust) {
         log("setAdjustRadarForBodyTurn()");
+        check();
         bot.setAdjustRadarForBodyTurn(adjust);
     }
 
@@ -387,36 +435,42 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public boolean isAdjustGunForBodyTurn() {
         log("isAdjustGunForBodyTurn()");
+        check();
         return bot.isAdjustGunForBodyTurn();
     }
 
     @Override
     public boolean isAdjustRadarForGunTurn() {
         log("isAdjustRadarForGunTurn()");
+        check();
         return bot.isAdjustRadarForGunTurn();
     }
 
     @Override
     public boolean isAdjustRadarForBodyTurn() {
         log("isAdjustRadarForBodyTurn()");
+        check();
         return bot.isAdjustRadarForBodyTurn();
     }
 
     @Override
     public void setStop(boolean overwrite) {
         log("setStop()");
+        check();
         bot.setStop(overwrite);
     }
 
     @Override
     public void setResume() {
         log("setResume()");
+        check();
         bot.setResume();
     }
 
     @Override
     public void setMove(double distance) {
         log("setMove()");
+        check();
         if (Double.isNaN(distance)) {
             distance = 0;
         }
@@ -426,6 +480,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setTurnBody(double radians) {
         log("setTurnBody()");
+        check();
         if (Double.isNaN(radians)) {
             radians = 0; // orig. Robocode treats NaN as 0
         }
@@ -435,6 +490,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setTurnGun(double radians) {
         log("setTurnGun()");
+        check();
         if (Double.isNaN(radians)) {
             radians = 0; // orig. Robocode treats NaN as 0
         }
@@ -444,6 +500,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setTurnRadar(double radians) {
         log("setTurnRadar()");
+        check();
         if (Double.isNaN(radians)) {
             radians = 0; // orig. Robocode treats NaN as 0
         }
@@ -453,18 +510,21 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setMaxTurnRate(double newMaxTurnRate) {
         log("setMaxTurnRate()");
+        check();
         bot.setMaxTurnRate(newMaxTurnRate);
     }
 
     @Override
     public void setMaxVelocity(double newMaxVelocity) {
         log("setMaxVelocity()");
+        check();
         bot.setMaxSpeed(newMaxVelocity);
     }
 
     @Override
     public void waitFor(robocode.Condition condition) {
         log("waitFor()");
+        check();
         bot.waitFor(new Condition(condition.getName()) {
             @Override
             public boolean test() {
@@ -476,6 +536,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setInterruptible(boolean interruptible) {
         log("setInterruptible()");
+        check();
         bot.setInterruptible(interruptible);
     }
 
@@ -483,6 +544,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @SuppressWarnings("unchecked")
     public void setEventPriority(String eventClass, int priority) {
         log("setEventPriority()");
+        check();
 
         if ("PaintEvent".equals(eventClass)) {
             // PaintEvent is not supported (yet) -> just ignore it as it is not crucial for the bot to run
@@ -497,6 +559,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @SuppressWarnings("unchecked")
     public int getEventPriority(String eventClass) {
         log("getEventPriority()");
+        check();
         var botEvent = EventClassMapper.toBotEventClass(eventClass);
         return bot.getEventPriority((Class<BotEvent>) botEvent);
     }
@@ -504,6 +567,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void addCustomEvent(robocode.Condition condition) {
         log("addCustomEvent()");
+        check();
         Condition trCondition = new Condition() {
             @Override
             public boolean test() {
@@ -518,6 +582,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void removeCustomEvent(robocode.Condition condition) {
         log("removeCustomEvent()");
+        check();
         Condition trCondition = conditions.get(condition);
         if (trCondition != null) {
             bot.removeCustomEvent(trCondition);
@@ -527,18 +592,21 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void clearAllEvents() {
         log("clearAllEvents()");
+        check();
         bot.clearEvents();
     }
 
     @Override
     public List<robocode.Event> getAllEvents() {
         log("getAllEvents()");
+        check();
         return AllEventsMapper.map(bot.getEvents(), bot, robotStatuses);
     }
 
     @Override
     public List<robocode.StatusEvent> getStatusEvents() {
         log("getStatusEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof StatusEvent)
                 .map(e -> (StatusEvent) e)
@@ -548,6 +616,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.BulletMissedEvent> getBulletMissedEvents() {
         log("getBulletMissedEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof BulletMissedEvent)
                 .map(e -> (BulletMissedEvent) e)
@@ -557,6 +626,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
         log("getBulletHitBulletEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.BulletHitBulletEvent)
                 .map(e -> (robocode.BulletHitBulletEvent) e)
@@ -566,6 +636,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.BulletHitEvent> getBulletHitEvents() {
         log("getBulletHitEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof BulletHitEvent)
                 .map(e -> (BulletHitEvent) e)
@@ -575,6 +646,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.HitByBulletEvent> getHitByBulletEvents() {
         log("getHitByBulletEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.HitByBulletEvent)
                 .map(e -> (robocode.HitByBulletEvent) e)
@@ -584,6 +656,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.HitRobotEvent> getHitRobotEvents() {
         log("getHitRobotEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof HitRobotEvent)
                 .map(e -> (HitRobotEvent) e)
@@ -593,6 +666,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.HitWallEvent> getHitWallEvents() {
         log("getHitWallEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.HitWallEvent)
                 .map(e -> (robocode.HitWallEvent) e)
@@ -602,6 +676,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.RobotDeathEvent> getRobotDeathEvents() {
         log("getRobotDeathEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof RobotDeathEvent)
                 .map(e -> (RobotDeathEvent) e)
@@ -611,6 +686,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.ScannedRobotEvent> getScannedRobotEvents() {
         log("getScannedRobotEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof ScannedRobotEvent)
                 .map(e -> (ScannedRobotEvent) e)
@@ -620,18 +696,21 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public File getDataDirectory() {
         log("getDataDirectory()");
+        check();
         return Paths.get("").toFile(); // use current path (where the application was started from)
     }
 
     @Override
     public File getDataFile(String filename) {
         log("getDataFile()");
+        check();
         return RobotData.getDataFile(filename);
     }
 
     @Override
     public long getDataQuotaAvailable() {
         log("getDataQuotaAvailable()");
+        check();
         return 200_000;
     }
 
@@ -643,6 +722,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void turnAndMove(double distance, double radians) {
         log("turnAndMove()");
+        check();
         JuniorRobotImpl.turnAndMove(bot, distance, toDegrees(radians));
     }
 
@@ -653,6 +733,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public String[] getTeammates() {
         log("getTeammates()");
+        check();
         var teammates = bot.getTeammateIds();
         return (teammates != null) ? teammates.stream().map(String::valueOf).toArray(String[]::new) : null;
     }
@@ -660,6 +741,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public boolean isTeammate(String name) {
         log("isTeammate()");
+        check();
         try {
             var id = Integer.parseInt(name);
             return bot.isTeammate(id);
@@ -671,12 +753,14 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void broadcastMessage(Serializable message) {
         log("broadcastMessage()");
+        check();
         bot.broadcastTeamMessage(message);
     }
 
     @Override
     public void sendMessage(String name, Serializable message) {
         log("sendMessage()");
+        check();
         try {
             var id = Integer.parseInt(name);
             bot.sendTeamMessage(id, message);
@@ -688,10 +772,18 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<MessageEvent> getMessageEvents() {
         log("getMessageEvents()");
+        check();
         return getAllEvents().stream()
                 .filter(e -> e instanceof MessageEvent)
                 .map(e -> (MessageEvent) e)
                 .collect(Collectors.toList());
+    }
+
+    private void check() {
+        if (roundStarted && bot != null && !bot.isRunning()) {
+            System.out.println("## check ##");
+            throw new Error("Execution is stopped as the bot is not running");
+        }
     }
 
     //-------------------------------------------------------------------------
@@ -751,6 +843,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
+            log("-> onRoundStarted");
+
+            roundStarted = true;
+
             // no event handler for `round started` in orig. Robocode
 
             synchronized (firedBullets) {
@@ -762,6 +858,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onRoundEnded(RoundEndedEvent roundEndedEvent) {
             log("-> onRoundEnded");
+
+            roundStarted = false;
+
             try {
                 int turnNumber = roundEndedEvent.getTurnNumber();
                 totalTurns += turnNumber;
@@ -968,6 +1067,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private static void log(String message) {
-        // System.out.println(message);
+        System.out.println(message);
     }
 }
