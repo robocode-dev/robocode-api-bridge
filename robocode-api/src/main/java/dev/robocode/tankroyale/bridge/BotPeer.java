@@ -818,8 +818,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             } catch (StopRunningError ignored) {
                 // this error is called to stop executing, as we cannot kill the thread with Thread.kill()
             }
-
-            log("Bot.run() -> exit");
         }
 
         private void runRobot() {
