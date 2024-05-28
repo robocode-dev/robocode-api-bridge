@@ -782,7 +782,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void check() {
         if (roundStarted && bot != null && !bot.isRunning()) {
             System.out.println("## check ##");
-            throw new Error("Execution is stopped as the bot is not running");
+            throw new StopRunningError();
         }
     }
 
@@ -813,8 +813,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 } else {
                     runRobot();
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            } catch (StopRunningError ignored) {
+                // this error is called to stop executing, as we cannot kill the thread with Thread.kill()
             }
 
             log("Bot.run() -> exit");
