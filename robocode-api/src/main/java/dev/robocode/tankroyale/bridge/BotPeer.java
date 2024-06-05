@@ -40,7 +40,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final IAdvancedEvents advancedEvents;
 
     private final IBot bot;
-    private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new HashMap<>());
+    private final Set<BulletPeer> firedBullets = new HashSet<>();
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
