@@ -22,6 +22,7 @@ import java.io.Serializable;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
@@ -40,11 +41,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final IAdvancedEvents advancedEvents;
 
     private final IBot bot;
-    private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new HashMap<>());
+    private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
-    private final Map<robocode.Condition, Condition> conditions = new HashMap<>();
-    private final Map<Long, RobotStatus> robotStatuses = new HashMap<>();
+    private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
+    private final Map<Long, RobotStatus> robotStatuses = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -277,9 +278,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private BulletPeer createAndAddBullet(double power) {
         BulletPeer bullet = new BulletPeer(bot, power);
-        synchronized (firedBullets) {
-            firedBullets.add(bullet);
-        }
+        firedBullets.add(bullet);
         return bullet;
     }
 
@@ -752,10 +751,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
-
-            synchronized (firedBullets) {
-                firedBullets.clear();
-            }
+            firedBullets.clear();
             robotStatuses.clear();
         }
 
@@ -870,9 +866,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
             bullet.setInactive();
 
-            synchronized (firedBullets) {
-                firedBullets.remove(bullet);
-            }
+            firedBullets.remove(bullet);
 
             basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
         }
