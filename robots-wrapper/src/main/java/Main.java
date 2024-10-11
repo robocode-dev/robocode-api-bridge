@@ -185,9 +185,7 @@ public class Main {
     static File createOrOverwriteFile(Path botDir, String filename) throws IOException {
         var path = botDir.resolve(filename);
         File file = path.toFile();
-        if (!file.delete()) {
-            System.err.println("Could not delete the file " + filename);
-        }
+        file.delete();
         Files.createFile(path);
         return file;
     }
