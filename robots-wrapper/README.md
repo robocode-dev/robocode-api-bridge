@@ -26,7 +26,7 @@ java -jar robots-wrapper-x.y.z.jar <robots-dir>
 Example (for Windows):
 
 ```
-java -jar robots-wrapper-0.1.2.jar "C:\robocode\robots"
+java -jar robots-wrapper-0.2.0.jar "C:\robocode\robots"
 ```
 
 ### Important note

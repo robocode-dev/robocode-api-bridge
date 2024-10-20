@@ -20,6 +20,11 @@ java {
 }
 
 tasks {
+    // Remove the default jar task
+    named<Jar>("jar") {
+        enabled = false
+    }
+
     val fatJar = register<Jar>("fatJar") {
         dependsOn.addAll(
             listOf(
@@ -28,7 +33,6 @@ tasks {
             )
         )
         // We need this for Gradle optimization to work
-        archiveClassifier.set("standalone") // Naming the jar
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
         manifest {
             attributes["Main-Class"] = "Main"
