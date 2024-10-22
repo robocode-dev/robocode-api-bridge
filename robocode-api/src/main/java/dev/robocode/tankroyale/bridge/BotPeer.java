@@ -45,7 +45,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
-    private final Map<Long, RobotStatus> robotStatuses = new ConcurrentHashMap<>();
+    private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -532,7 +532,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.Event> getAllEvents() {
         log("getAllEvents()");
-        return AllEventsMapper.map(bot.getEvents(), bot, robotStatuses);
+        return AllEventsMapper.map(bot.getEvents(), bot, currentRobotStatus.get());
     }
 
     @Override
@@ -710,9 +710,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             log("Bot.run()");
 
             try {
-                var robotStatus = IBotToRobotStatusMapper.map(bot);
-                basicEvents.onStatus(StatusEventMapper.map(robotStatus, getTime()));
-
                 if (robot instanceof IJuniorRobot) {
                     while (bot.isRunning()) {
                         runRobot();
@@ -752,7 +749,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
             firedBullets.clear();
-            robotStatuses.clear();
         }
 
         @Override
@@ -777,8 +773,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
             // Save robot status snapshot for event handlers needing robot status
             RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
-            long time = tickEvent.getTurnNumber();
-            robotStatuses.put(time, robotStatus);
+            currentRobotStatus.set(robotStatus);
 
             // Update fired bullets
             firedBullets.forEach(bulletPeer -> {
@@ -792,7 +787,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             });
 
             // Fire event
-            basicEvents.onStatus(StatusEventMapper.map(robotStatus, time));
+            basicEvents.onStatus(StatusEventMapper.map(robotStatus));
         }
 
         @Override
