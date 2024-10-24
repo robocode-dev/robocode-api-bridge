@@ -709,25 +709,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         public void run() {
             log("Bot.run()");
 
-            try {
-                if (robot instanceof IJuniorRobot) {
-                    while (bot.isRunning()) {
-                        runRobot();
-                    }
-                } else {
-                    runRobot();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            while (bot.isRunning()) {
+                robot.getRobotRunnable().run();
             }
 
             log("Bot.run() -> exit");
-        }
-
-        private void runRobot() {
-            if (robot instanceof Runnable) {
-                ((Runnable)robot).run();
-            }
         }
 
         @Override
