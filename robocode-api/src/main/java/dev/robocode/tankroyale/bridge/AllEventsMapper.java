@@ -5,17 +5,15 @@ import dev.robocode.tankroyale.botapi.events.*;
 import robocode.Event;
 import robocode.RobotStatus;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Collections.emptyList;
+import java.util.Vector;
 
 final class AllEventsMapper {
 
-    public static List<Event> map(List<BotEvent> botEvents, IBot bot, RobotStatus robotStatus) {
-        if (botEvents == null) return emptyList();
+    public static Vector<Event> map(List<BotEvent> botEvents, IBot bot, RobotStatus robotStatus) {
+        if (botEvents == null) return new Vector<>();
 
-        var events = new ArrayList<Event>();
+        var events = new Vector<Event>();
 
         botEvents.forEach(botEvent -> {
             Event event = null;

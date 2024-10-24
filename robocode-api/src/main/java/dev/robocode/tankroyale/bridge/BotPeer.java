@@ -59,7 +59,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         basicEvents = robot.getBasicEventListener();
 
         if (robot instanceof IAdvancedRobot) {
-            advancedEvents = ((IAdvancedRobot)robot).getAdvancedEventListener();
+            advancedEvents = ((IAdvancedRobot) robot).getAdvancedEventListener();
         } else {
             advancedEvents = new AdvancedEventAdaptor();
         }
@@ -530,90 +530,81 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     @Override
-    public List<robocode.Event> getAllEvents() {
+    public Vector<robocode.Event> getAllEvents() {
         log("getAllEvents()");
         return AllEventsMapper.map(bot.getEvents(), bot, currentRobotStatus.get());
     }
 
     @Override
-    public List<robocode.StatusEvent> getStatusEvents() {
+    public Vector<robocode.StatusEvent> getStatusEvents() {
         log("getStatusEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof StatusEvent)
-                .map(e -> (StatusEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (StatusEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.BulletMissedEvent> getBulletMissedEvents() {
+    public Vector<robocode.BulletMissedEvent> getBulletMissedEvents() {
         log("getBulletMissedEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof BulletMissedEvent)
-                .map(e -> (BulletMissedEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (BulletMissedEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
+    public Vector<robocode.BulletHitBulletEvent> getBulletHitBulletEvents() {
         log("getBulletHitBulletEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.BulletHitBulletEvent)
-                .map(e -> (robocode.BulletHitBulletEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (robocode.BulletHitBulletEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.BulletHitEvent> getBulletHitEvents() {
+    public Vector<robocode.BulletHitEvent> getBulletHitEvents() {
         log("getBulletHitEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof BulletHitEvent)
-                .map(e -> (BulletHitEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (BulletHitEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.HitByBulletEvent> getHitByBulletEvents() {
+    public Vector<robocode.HitByBulletEvent> getHitByBulletEvents() {
         log("getHitByBulletEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.HitByBulletEvent)
-                .map(e -> (robocode.HitByBulletEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (robocode.HitByBulletEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.HitRobotEvent> getHitRobotEvents() {
+    public Vector<robocode.HitRobotEvent> getHitRobotEvents() {
         log("getHitRobotEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof HitRobotEvent)
-                .map(e -> (HitRobotEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (HitRobotEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.HitWallEvent> getHitWallEvents() {
+    public Vector<robocode.HitWallEvent> getHitWallEvents() {
         log("getHitWallEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof robocode.HitWallEvent)
-                .map(e -> (robocode.HitWallEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (robocode.HitWallEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.RobotDeathEvent> getRobotDeathEvents() {
+    public Vector<robocode.RobotDeathEvent> getRobotDeathEvents() {
         log("getRobotDeathEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof RobotDeathEvent)
-                .map(e -> (RobotDeathEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (RobotDeathEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
-    public List<robocode.ScannedRobotEvent> getScannedRobotEvents() {
+    public Vector<robocode.ScannedRobotEvent> getScannedRobotEvents() {
         log("getScannedRobotEvents()");
         return getAllEvents().stream()
                 .filter(e -> e instanceof ScannedRobotEvent)
-                .map(e -> (ScannedRobotEvent) e)
-                .collect(Collectors.toList());
+                .map(e -> (ScannedRobotEvent) e).collect(Collectors.toCollection(Vector::new));
     }
 
     @Override
