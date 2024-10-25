@@ -4,8 +4,8 @@ import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.ScannedBotEvent;
 import robocode.ScannedRobotEvent;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeBearingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeHeadingRad;
 
 final class ScannedRobotEventMapper {
 
@@ -16,10 +16,10 @@ final class ScannedRobotEventMapper {
         var energy = scannedBotEvent.getEnergy();
         var x = scannedBotEvent.getX();
         var y = scannedBotEvent.getY();
-        var bearing = toRcBearingRad(bot.bearingTo(x, y));
+        var bearing = toRobocodeBearingRad(bot.bearingTo(x, y));
         var distance = bot.distanceTo(x, y);
         var velocity = scannedBotEvent.getSpeed();
-        var heading = toRcHeadingRad(scannedBotEvent.getDirection());
+        var heading = toRobocodeHeadingRad(scannedBotEvent.getDirection());
 
         // `isSentryRobot` is unsupported
         var event = new ScannedRobotEvent(name, energy, bearing, distance, heading, velocity, false);

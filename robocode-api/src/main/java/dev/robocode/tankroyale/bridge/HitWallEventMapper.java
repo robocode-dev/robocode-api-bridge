@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeBearingRad;
 import static java.lang.Math.abs;
 
 final class HitWallEventMapper {
@@ -11,7 +11,7 @@ final class HitWallEventMapper {
     public static robocode.HitWallEvent map(HitWallEvent hitWallEvent, IBot bot) {
         if (hitWallEvent == null) return null;
 
-        var bearing = toRcBearingRad(bot.calcBearing(calcDirectionNearestToWall(bot)));
+        var bearing = toRobocodeBearingRad(bot.calcBearing(calcDirectionNearestToWall(bot)));
 
         var event = new robocode.HitWallEvent(bearing);
         event.setTime(hitWallEvent.getTurnNumber());

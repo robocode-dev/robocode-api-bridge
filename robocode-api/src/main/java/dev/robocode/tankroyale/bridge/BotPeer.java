@@ -26,8 +26,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcHeadingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeBearingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeHeadingRad;
 import static dev.robocode.tankroyale.bridge.ResultsMapper.map;
 import static dev.robocode.tankroyale.bridge.BulletMapper.map;
 import static java.lang.Math.toDegrees;
@@ -137,19 +137,19 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public double getBodyHeading() {
         log("getBodyHeading()");
-        return toRcHeadingRad(bot.getDirection());
+        return toRobocodeHeadingRad(bot.getDirection());
     }
 
     @Override
     public double getGunHeading() {
         log("getGunHeading()");
-        return toRcHeadingRad(bot.getGunDirection());
+        return toRobocodeHeadingRad(bot.getGunDirection());
     }
 
     @Override
     public double getRadarHeading() {
         log("getRadarHeading()");
-        return toRcHeadingRad(bot.getRadarDirection());
+        return toRobocodeHeadingRad(bot.getRadarDirection());
     }
 
     @Override
@@ -782,7 +782,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onHitBot(HitBotEvent botHitBotEvent) {
             log("-> onHitRobot");
-            double bearing = toRcBearingRad(bearingTo(botHitBotEvent.getX(), botHitBotEvent.getY()));
+            double bearing = toRobocodeBearingRad(bearingTo(botHitBotEvent.getX(), botHitBotEvent.getY()));
             basicEvents.onHitRobot(new robocode.HitRobotEvent(
                     String.valueOf(botHitBotEvent.getVictimId()), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
             ));
@@ -808,7 +808,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         public void onHitByBullet(HitByBulletEvent hitByBulletEvent) {
             log("-> onHitByBullet");
             BulletState bullet = hitByBulletEvent.getBullet();
-            double bearing = toRcBearingRad(bearingTo(bullet.getX(), bullet.getY()));
+            double bearing = toRobocodeBearingRad(bearingTo(bullet.getX(), bullet.getY()));
             basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
                     bearing, map(bullet, String.valueOf(this.getMyId()))));
         }
@@ -819,7 +819,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             var bulletState = bulletHitBotEvent.getBullet();
             var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
             var bullet = new Bullet(
-                    toRcHeadingRad(bulletState.getDirection()),
+                    toRobocodeHeadingRad(bulletState.getDirection()),
                     bulletState.getX(),
                     bulletState.getY(),
                     bulletState.getPower(),
@@ -929,7 +929,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             } else if (getY() > maxY) {
                 angle = normalRelativeAngle(270 - directionDeg);
             }
-            return toRcHeadingRad(angle);
+            return toRobocodeHeadingRad(angle);
         }
     }
 

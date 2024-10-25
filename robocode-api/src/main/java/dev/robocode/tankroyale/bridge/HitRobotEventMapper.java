@@ -4,7 +4,7 @@ import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.HitBotEvent;
 import robocode.HitRobotEvent;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeBearingRad;
 
 final class HitRobotEventMapper {
 
@@ -12,7 +12,7 @@ final class HitRobotEventMapper {
         if (hitBotEvent == null) return null;
 
         var name = String.valueOf(hitBotEvent.getVictimId());
-        var bearing = toRcBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
+        var bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
         var event = new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
         event.setTime(hitBotEvent.getTurnNumber());

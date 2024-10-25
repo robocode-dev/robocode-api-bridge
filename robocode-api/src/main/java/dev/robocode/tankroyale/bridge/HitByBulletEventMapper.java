@@ -3,7 +3,7 @@ package dev.robocode.tankroyale.bridge;
 import dev.robocode.tankroyale.botapi.IBot;
 import dev.robocode.tankroyale.botapi.events.HitByBulletEvent;
 
-import static dev.robocode.tankroyale.bridge.AngleConverter.toRcBearingRad;
+import static dev.robocode.tankroyale.bridge.AngleConverter.toRobocodeBearingRad;
 
 final class HitByBulletEventMapper {
 
@@ -13,7 +13,7 @@ final class HitByBulletEventMapper {
         var victimName = String.valueOf(bot.getMyId());
         var bulletState = hitByBulletEvent.getBullet();
 
-        var bearing = toRcBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));
+        var bearing = toRobocodeBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));
         var bullet = BulletMapper.map(bulletState, victimName);
 
         var event = new robocode.HitByBulletEvent(bearing, bullet);
