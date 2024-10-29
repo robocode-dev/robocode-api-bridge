@@ -697,7 +697,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     //-------------------------------------------------------------------------
     // IBasicEvents3 and IAdvancedEvents event triggers
-    //-------------------------------------------------------------------------½
+    //-------------------------------------------------------------------------
 
     private class BotImpl extends Bot {
 
