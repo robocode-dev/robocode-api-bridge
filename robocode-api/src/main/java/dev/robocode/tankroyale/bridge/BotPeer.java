@@ -23,6 +23,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
@@ -700,7 +701,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private class BotImpl extends Bot {
 
-        int totalTurns;
+        final AtomicInteger totalTurns = new AtomicInteger(0);
 
         BotImpl(BotInfo botInfo) {
             super(botInfo);
@@ -719,7 +720,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onGameStarted(GameStartedEvent gameStatedEvent) {
-            totalTurns = 0;
+            totalTurns.set(0);
         }
 
         @Override
@@ -743,11 +744,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             log("-> onRoundEnded");
             try {
                 int turnNumber = roundEndedEvent.getTurnNumber();
-                totalTurns += turnNumber;
+                int newTotalTurns = totalTurns.addAndGet(turnNumber);
 
                 if (basicEvents instanceof IBasicEvents3) {
                     ((IBasicEvents3) basicEvents).onRoundEnded(
-                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber() - 1, turnNumber, totalTurns));
+                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber() - 1, turnNumber, newTotalTurns));
                 }
             } finally {
                 stop();
