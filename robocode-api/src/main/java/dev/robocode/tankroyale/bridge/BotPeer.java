@@ -80,19 +80,20 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void setupEventPriorities() {
-        setEventPriority("WinEvent", 100);
-        setEventPriority("SkippedTurnEvent", 100);
-        setEventPriority("StatusEvent", 99);
-        setEventPriority("CustomEvent", 80);
-        setEventPriority("MessageEvent", 75);
-        setEventPriority("BulletMissedEvent", 60);
-        setEventPriority("BulletHitBulletEvent", 55);
-        setEventPriority("BulletHitEvent", 50);
-        setEventPriority("HitByBulletEvent", 40);
-        setEventPriority("HitWallEvent", 30);
-        setEventPriority("HitRobotEvent", 20);
-        setEventPriority("ScannedRobotEvent", 10);
-        setEventPriority("DeathEvent", -1);
+        setEventPriority(robocode.WinEvent.class.getSimpleName(), 100);
+        setEventPriority(robocode.SkippedTurnEvent.class.getSimpleName(), 100);
+        setEventPriority(robocode.StatusEvent.class.getSimpleName(), 99);
+        setEventPriority(robocode.CustomEvent.class.getSimpleName(), 80);
+        setEventPriority(robocode.MessageEvent.class.getSimpleName(), 75);
+        setEventPriority(robocode.RobotDeathEvent.class.getSimpleName(), 70);
+        setEventPriority(robocode.BulletMissedEvent.class.getSimpleName(), 60);
+        setEventPriority(robocode.BulletHitBulletEvent.class.getSimpleName(), 55);
+        setEventPriority(robocode.BulletHitEvent.class.getSimpleName(), 50);
+        setEventPriority(robocode.HitByBulletEvent.class.getSimpleName(), 40);
+        setEventPriority(robocode.HitWallEvent.class.getSimpleName(), 30);
+        setEventPriority(robocode.HitRobotEvent.class.getSimpleName(), 20);
+        setEventPriority(robocode.ScannedRobotEvent.class.getSimpleName(), 10);
+        setEventPriority(robocode.DeathEvent.class.getSimpleName(), -1);
     }
 
     //-------------------------------------------------------------------------
