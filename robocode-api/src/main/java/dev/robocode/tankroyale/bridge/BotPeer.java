@@ -236,6 +236,138 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public void execute() {
         log("execute()");
         bot.go();
+
+        dispatchBotEvents();
+    }
+
+    private void dispatchBotEvents() {
+        bot.getEvents().forEach(this::dispatch);
+    }
+
+    private void dispatch(BotEvent botEvent) {
+        switch (botEvent.getClass().getSimpleName()) {
+            case "StatusEvent":
+                dispatchStatusEvent();
+                break;
+            case "ScannedBotEvent":
+                dispatchScannedRobotEvent(botEvent);
+                break;
+            case "BulletMissedEvent":
+                dispatchBulletMissedEvent(botEvent);
+                break;
+            case "BulletHitEvent":
+                dispatchBulletHitEvent(botEvent);
+                break;
+            case "HitByBulletEvent":
+                dispatchHitByBulletEvent(botEvent);
+                break;
+            case "HitWallEvent":
+                dispatchHitWallEvent(botEvent);
+                break;
+            case "HitRobotEvent":
+                dispatchHitRobotEvent(botEvent);
+                break;
+            case "RobotDeathEvent":
+                dispatchRobotDeathEvent(botEvent);
+                break;
+            case "SkippedTurnEvent":
+                dispatchSkippedTurnEvent(botEvent);
+                break;
+            case "DeathEvent":
+                dispatchDeathEvent(botEvent);
+                break;
+            case "WinEvent":
+                dispatchWinEvent(botEvent);
+                break;
+            case "BulletHitBulletEvent":
+                dispatchBulletHitBulletEvent(botEvent);
+                break;
+            case "CustomEvent":
+                dispatchCustomEvent(botEvent);
+                break;
+            case "MessageEvent":
+                dispatchMessageEvent(botEvent);
+                break;
+            default:
+                throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
+                        " is unsupported. Contact Robocode Tank Royale author for support");
+        }
+    }
+
+    private void dispatchStatusEvent() {
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
+        var statusEvent = StatusEventMapper.map(robotStatus);
+        basicEvents.onStatus(statusEvent);
+    }
+
+    private void dispatchScannedRobotEvent(BotEvent botEvent) {
+        var scannedRobotEvent = ScannedRobotEventMapper.map((ScannedBotEvent) botEvent, bot);
+        basicEvents.onScannedRobot(scannedRobotEvent);
+    }
+
+    private void dispatchBulletMissedEvent(BotEvent botEvent) {
+        var bulletMissedEvent = BulletMissedEventMapper.map((BulletHitWallEvent) botEvent);
+        basicEvents.onBulletMissed(bulletMissedEvent);
+    }
+
+    private void dispatchBulletHitEvent(BotEvent botEvent) {
+        var bulletHitEvent = BulletHitEventMapper.map((BulletHitBotEvent) botEvent);
+        basicEvents.onBulletHit(bulletHitEvent);
+    }
+
+    private void dispatchHitByBulletEvent(BotEvent botEvent) {
+        var hitByBulletEvent = HitByBulletEventMapper.map((HitByBulletEvent) botEvent, bot);
+        basicEvents.onHitByBullet(hitByBulletEvent);
+    }
+
+    private void dispatchHitWallEvent(BotEvent botEvent) {
+        var hitWallEvent = HitWallEventMapper.map((HitWallEvent) botEvent, bot);
+        basicEvents.onHitWall(hitWallEvent);
+    }
+
+    private void dispatchHitRobotEvent(BotEvent botEvent) {
+        var hitRobotEvent = HitRobotEventMapper.map((HitBotEvent) botEvent, bot);
+        basicEvents.onHitRobot(hitRobotEvent);
+    }
+
+    private void dispatchRobotDeathEvent(BotEvent botEvent) {
+        var robotDeathEvent = RobotDeathEventMapper.map((BotDeathEvent) botEvent);
+        basicEvents.onRobotDeath(robotDeathEvent);
+    }
+
+    private void dispatchSkippedTurnEvent(BotEvent botEvent) {
+        var skippedTurnEvent = new robocode.SkippedTurnEvent(botEvent.getTurnNumber());
+        advancedEvents.onSkippedTurn(skippedTurnEvent);
+    }
+
+    private void dispatchDeathEvent(BotEvent botEvent) {
+        basicEvents.onDeath(new robocode.DeathEvent());
+    }
+
+    private void dispatchWinEvent(BotEvent botEvent) {
+        basicEvents.onWin(new WinEvent());
+    }
+
+    private void dispatchBulletHitBulletEvent(BotEvent botEvent) {
+        var bulletHitBulletEvent = BulletHitBulletEventMapper.map((BulletHitBulletEvent) botEvent);
+        basicEvents.onBulletHitBullet(bulletHitBulletEvent);
+    }
+
+    private void dispatchCustomEvent(BotEvent botEvent) {
+        Condition trCondition = ((CustomEvent) botEvent).getCondition();
+        if (trCondition == null) return;
+
+        Optional<Map.Entry<robocode.Condition, Condition>> optCondition = conditions.entrySet().stream()
+                .filter(entry -> trCondition.equals(entry.getValue())).findFirst();
+        if (optCondition.isPresent()) {
+            robocode.Condition condition = optCondition.get().getKey();
+            advancedEvents.onCustomEvent(new robocode.CustomEvent(condition));
+        }
+    }
+
+    private void dispatchMessageEvent(BotEvent botEvent) {
+        throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
+                " is unsupported. Contact Robocode Tank Royale author for support");
     }
 
     @Override
