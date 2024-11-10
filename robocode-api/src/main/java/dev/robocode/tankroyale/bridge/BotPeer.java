@@ -241,9 +241,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatch(BotEvent botEvent) {
-        if (!(botEvent.getClass().getSimpleName().equals("TickEvent"))) {
-            System.out.println((botEvent.getClass().getSimpleName() + ": " + botEvent.getTurnNumber()));
-        }
         switch (botEvent.getClass().getSimpleName()) {
             case "TickEvent":
                 dispatchStatusEvent(botEvent);
@@ -365,6 +362,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchHitWallEvent() {
         log("-> onHitWall");
+
+        System.out.println("#### HITWALL ####");
+
         basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
     }
 
@@ -892,10 +892,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private double calcBearingToWallRadians(double directionDeg) {
-        int minX = 18; // half bot size (36x36)
-        int minY = 18;
-        int maxX = bot.getArenaWidth() - 18;
-        int maxY = bot.getArenaHeight() - 18;
+        int minX = 40;
+        int minY = 40;
+        int maxX = bot.getArenaWidth() - 40;
+        int maxY = bot.getArenaHeight() - 40;
 
         double angle = 0;
         if (getX() < minX) {
@@ -908,7 +908,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         } else if (getY() > maxY) {
             angle = normalRelativeAngle(270 - directionDeg);
         }
-        return toRobocodeHeadingRad(angle);
+        return toRobocodeBearingRad(angle);
     }
 
     private BulletPeer findBulletById(BulletState bulletState) {
