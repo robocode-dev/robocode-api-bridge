@@ -925,23 +925,23 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         }
 
         private double calcBearingToWallRadians(double directionDeg) {
-            int minX = 18; // half bot size (36x36)
-            int minY = 18;
-            int maxX = getArenaWidth() - 18;
-            int maxY = getArenaHeight() - 18;
+            int minX = 40;
+            int minY = 40;
+            int maxX = bot.getArenaWidth() - 40;
+            int maxY = bot.getArenaHeight() - 40;
 
             double angle = 0;
             if (getX() < minX) {
-                angle = normalizeRelativeAngle(180 - directionDeg);
+                angle = bot.normalizeRelativeAngle(180 - directionDeg);
             } else if (getX() > maxX) {
-                angle = normalizeRelativeAngle(360 - directionDeg);
+                angle = bot.normalizeRelativeAngle(360 - directionDeg);
             }
             if (getY() < minY) {
                 angle = normalRelativeAngle(90 - directionDeg);
             } else if (getY() > maxY) {
                 angle = normalRelativeAngle(270 - directionDeg);
             }
-            return toRobocodeHeadingRad(angle);
+            return toRobocodeBearingRad(angle);
         }
     }
 
