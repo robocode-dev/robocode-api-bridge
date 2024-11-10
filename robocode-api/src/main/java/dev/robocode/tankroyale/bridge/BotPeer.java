@@ -941,7 +941,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             } else if (getY() > maxY) {
                 angle = normalRelativeAngle(270 - directionDeg);
             }
-            return toRobocodeHeadingRad(angle);
+            return toRobocodeBearingRad(angle);
         }
     }
 
