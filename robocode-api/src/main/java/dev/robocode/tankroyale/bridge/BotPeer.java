@@ -5,9 +5,7 @@ import dev.robocode.tankroyale.botapi.events.*;
 import dev.robocode.tankroyale.botapi.events.BulletHitBulletEvent;
 import dev.robocode.tankroyale.botapi.events.Condition;
 import dev.robocode.tankroyale.botapi.events.CustomEvent;
-import dev.robocode.tankroyale.botapi.events.DeathEvent;
 import dev.robocode.tankroyale.botapi.events.HitByBulletEvent;
-import dev.robocode.tankroyale.botapi.events.HitWallEvent;
 import dev.robocode.tankroyale.botapi.events.RoundEndedEvent;
 import dev.robocode.tankroyale.botapi.events.SkippedTurnEvent;
 import robocode.*;
@@ -236,6 +234,199 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public void execute() {
         log("execute()");
         bot.go();
+    }
+
+    private void dispatchBotEvents() {
+        bot.getEvents().forEach(this::dispatch);
+    }
+
+    private void dispatch(BotEvent botEvent) {
+        switch (botEvent.getClass().getSimpleName()) {
+            case "TickEvent":
+                dispatchStatusEvent(botEvent);
+                break;
+            case "BulletFiredEvent":
+                // Ignore, as this is not a Robocode Robot event
+                break;
+            case "ScannedBotEvent":
+                dispatchScannedRobotEvent(botEvent);
+                break;
+            case "BulletHitWallEvent":
+                dispatchBulletMissedEvent(botEvent);
+                break;
+            case "BulletHitBotEvent":
+                dispatchBulletHitEvent(botEvent);
+                break;
+            case "HitByBulletEvent":
+                dispatchHitByBulletEvent(botEvent);
+                break;
+            case "HitWallEvent":
+                dispatchHitWallEvent();
+                break;
+            case "HitBotEvent":
+                dispatchHitRobotEvent(botEvent);
+                break;
+            case "BotDeathEvent":
+                var botDeathEvent = (BotDeathEvent) botEvent;
+                if (botDeathEvent.getVictimId() == bot.getMyId()) {
+                    dispatchDeathEvent();
+                } else {
+                    dispatchRobotDeathEvent(botDeathEvent);
+                }
+                break;
+            case "SkippedTurnEvent":
+                dispatchSkippedTurnEvent(botEvent);
+                break;
+            case "WonRoundEvent":
+                dispatchWinEvent();
+                break;
+            case "BulletHitBulletEvent":
+                dispatchBulletHitBulletEvent(botEvent);
+                break;
+            case "CustomEvent":
+                dispatchCustomEvent(botEvent);
+                break;
+            case "MessageEvent":
+                dispatchMessageEvent(botEvent);
+                break;
+            default:
+                throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
+                        " is unsupported. Contact Robocode Tank Royale author for support");
+        }
+    }
+
+    private void dispatchStatusEvent(BotEvent botEvent) {
+        log("-> onStatus");
+
+        // Save robot status snapshot for event handlers needing robot status
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
+        currentRobotStatus.set(robotStatus);
+
+        TickEvent tickEvent = (TickEvent) botEvent;
+
+        // Update fired bullets
+        firedBullets.forEach(bulletPeer -> {
+            Optional<BulletState> bulletStateOpt = tickEvent.getBulletStates().stream().filter(
+                    bulletState -> bulletPeer.getBulletId() == bulletState.getBulletId()).findFirst();
+
+            if (bulletStateOpt.isPresent()) {
+                BulletState bulletState = bulletStateOpt.get();
+                bulletPeer.setPosition(bulletState.getX(), bulletState.getY());
+            }
+        });
+
+        // Fire event
+        basicEvents.onStatus(StatusEventMapper.map(robotStatus));
+    }
+
+    private void dispatchScannedRobotEvent(BotEvent botEvent) {
+        log("-> onScannedRobot");
+        var scannedBotEvent = (ScannedBotEvent) botEvent;
+        var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
+        basicEvents.onScannedRobot(scannedRobotEvent);
+    }
+
+    private void dispatchBulletMissedEvent(BotEvent botEvent) {
+        log("-> onBulletMissed");
+        var bulletHitWallEvent = (BulletHitWallEvent) botEvent;
+        Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
+        basicEvents.onBulletMissed(new robocode.BulletMissedEvent(bullet));
+    }
+
+    private void dispatchBulletHitEvent(BotEvent botEvent) {
+        log("-> onBulletHit");
+        var bulletHitBotEvent = (BulletHitBotEvent) botEvent;
+        var bulletState = bulletHitBotEvent.getBullet();
+        var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
+        var bullet = new Bullet(
+                toRobocodeHeadingRad(bulletState.getDirection()),
+                bulletState.getX(),
+                bulletState.getY(),
+                bulletState.getPower(),
+                String.valueOf(bulletState.getOwnerId()),
+                victimName,
+                false, // isActive
+                bulletState.getBulletId());
+
+        basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
+    }
+
+    private void dispatchHitByBulletEvent(BotEvent botEvent) {
+        log("-> onHitByBullet");
+        var hitByBulletEvent = (HitByBulletEvent) botEvent;
+        BulletState bullet = hitByBulletEvent.getBullet();
+        double bearing = toRobocodeBearingRad(bot.bearingTo(bullet.getX(), bullet.getY()));
+        basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
+                bearing, map(bullet, String.valueOf(bot.getMyId()))));
+    }
+
+    private void dispatchHitWallEvent() {
+        log("-> onHitWall");
+        basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
+    }
+
+    private void dispatchHitRobotEvent(BotEvent botEvent) {
+        log("-> onHitRobot");
+
+        var hitBotEvent = (HitBotEvent) botEvent;
+
+        double bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
+        basicEvents.onHitRobot(new robocode.HitRobotEvent(
+                String.valueOf(hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
+        ));
+    }
+
+    private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
+        log("-> onRobotDeath");
+        basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId())));
+    }
+
+    private void dispatchSkippedTurnEvent(BotEvent botEvent) {
+        log("-> onSkippedTurn");
+        var skippedTurnEvent = (SkippedTurnEvent) botEvent;
+        advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber()));
+    }
+
+    private void dispatchDeathEvent() {
+        log("-> onDeath");
+        basicEvents.onDeath(new robocode.DeathEvent());
+    }
+
+    private void dispatchWinEvent() {
+        log("-> onWin");
+        basicEvents.onWin(new robocode.WinEvent());
+    }
+
+    private void dispatchBulletHitBulletEvent(BotEvent botEvent) {
+        log("-> onBulletHitBullet");
+        var bulletHitBulletEvent = (BulletHitBulletEvent) botEvent;
+        BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
+        Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
+        bullet.setInactive();
+
+        firedBullets.remove(bullet);
+
+        basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
+    }
+
+    private void dispatchCustomEvent(BotEvent botEvent) {
+        log("-> onCustomEvent");
+
+        var customEvent = (CustomEvent) botEvent;
+        Condition trCondition = customEvent.getCondition();
+        if (trCondition == null) return;
+
+        Optional<Map.Entry<robocode.Condition, Condition>> optCondition = conditions.entrySet().stream()
+                .filter(entry -> trCondition.equals(entry.getValue())).findFirst();
+        if (optCondition.isPresent()) {
+            robocode.Condition condition = optCondition.get().getKey();
+            advancedEvents.onCustomEvent(new robocode.CustomEvent(condition));
+        }
+    }
+
+    private void dispatchMessageEvent(BotEvent botEvent) {
+        throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
+                " is unsupported. Contact Robocode Tank Royale author for support");
     }
 
     @Override
@@ -696,6 +887,55 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 .collect(Collectors.toList());
     }
 
+    private double calcBearingToWallRadians(double directionDeg) {
+        int minX = 40;
+        int minY = 40;
+        int maxX = bot.getArenaWidth() - 40;
+        int maxY = bot.getArenaHeight() - 40;
+
+        double angle = 0;
+        if (getX() < minX) {
+            angle = bot.normalizeRelativeAngle(180 - directionDeg);
+        } else if (getX() > maxX) {
+            angle = bot.normalizeRelativeAngle(360 - directionDeg);
+        }
+        if (getY() < minY) {
+            angle = normalRelativeAngle(90 - directionDeg);
+        } else if (getY() > maxY) {
+            angle = normalRelativeAngle(270 - directionDeg);
+        }
+        return toRobocodeBearingRad(angle);
+    }
+
+    private BulletPeer findBulletById(BulletState bulletState) {
+        var bulletPeer = firedBullets.stream().filter(
+                        bullet -> bulletState.getBulletId() == bullet.getBulletId())
+                .findFirst()
+                .orElse(null);
+
+        if (bulletPeer == null) {
+            bulletPeer = findBulletByXAndY(bulletState);
+        }
+        if (bulletPeer == null) {
+            throw new BotException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
+        }
+        return bulletPeer;
+    }
+
+    private BulletPeer findBulletByXAndY(BulletState bulletState) {
+        var foundBullet = new AtomicReference<BulletPeer>();
+        var minDist = new AtomicReference<>(Double.MAX_VALUE);
+
+        firedBullets.forEach(bullet -> {
+            var dist = Math.pow(bullet.getX() - bulletState.getX(), 2) + Math.pow(bullet.getY() - bulletState.getY(), 2);
+            if (dist < minDist.get()) {
+                foundBullet.set(bullet);
+                minDist.set(dist);
+            }
+        });
+        return foundBullet.get();
+    }
+
     //-------------------------------------------------------------------------
     // IBasicEvents3 and IAdvancedEvents event triggers
     //-------------------------------------------------------------------------
@@ -717,6 +957,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             }
 
             log("Bot.run() -> exit");
+        }
+
+        @Override
+        public void go() {
+            super.go();
+
+            dispatchBotEvents();
         }
 
         @Override
@@ -757,56 +1004,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         }
 
         @Override
-        public void onTick(TickEvent tickEvent) {
-            log("-> onStatus");
-
-            // Save robot status snapshot for event handlers needing robot status
-            RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
-            currentRobotStatus.set(robotStatus);
-
-            // Update fired bullets
-            firedBullets.forEach(bulletPeer -> {
-                Optional<BulletState> bulletStateOpt = tickEvent.getBulletStates().stream().filter(
-                        bulletState -> bulletPeer.getBulletId() == bulletState.getBulletId()).findFirst();
-
-                if (bulletStateOpt.isPresent()) {
-                    BulletState bulletState = bulletStateOpt.get();
-                    bulletPeer.setPosition(bulletState.getX(), bulletState.getY());
-                }
-            });
-
-            // Fire event
-            basicEvents.onStatus(StatusEventMapper.map(robotStatus));
-        }
-
-        @Override
-        public void onBotDeath(BotDeathEvent botDeathEvent) {
-            log("-> onRobotDeath");
-            basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId())));
-        }
-
-        @Override
-        public void onDeath(DeathEvent botDeathEvent) {
-            log("-> onDeath");
-            basicEvents.onDeath(new robocode.DeathEvent());
-        }
-
-        @Override
-        public void onHitBot(HitBotEvent botHitBotEvent) {
-            log("-> onHitRobot");
-            double bearing = toRobocodeBearingRad(bearingTo(botHitBotEvent.getX(), botHitBotEvent.getY()));
-            basicEvents.onHitRobot(new robocode.HitRobotEvent(
-                    String.valueOf(botHitBotEvent.getVictimId()), bearing, botHitBotEvent.getEnergy(), botHitBotEvent.isRammed()
-            ));
-        }
-
-        @Override
-        public void onHitWall(HitWallEvent botHitWallEvent) {
-            log("-> onHitWall");
-            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(getDirection())));
-        }
-
-        @Override
         public void onBulletFired(BulletFiredEvent bulletFiredEvent) {
             BulletState bulletState = bulletFiredEvent.getBullet();
             BulletPeer bullet = findBulletByXAndY(bulletState);
@@ -815,137 +1012,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             }
             bullet.setBulletId(bulletState.getBulletId());
         }
-
-        @Override
-        public void onHitByBullet(HitByBulletEvent hitByBulletEvent) {
-            log("-> onHitByBullet");
-            BulletState bullet = hitByBulletEvent.getBullet();
-            double bearing = toRobocodeBearingRad(bearingTo(bullet.getX(), bullet.getY()));
-            basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
-                    bearing, map(bullet, String.valueOf(this.getMyId()))));
-        }
-
-        @Override
-        public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
-            log("-> onBulletHit");
-            var bulletState = bulletHitBotEvent.getBullet();
-            var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
-            var bullet = new Bullet(
-                    toRobocodeHeadingRad(bulletState.getDirection()),
-                    bulletState.getX(),
-                    bulletState.getY(),
-                    bulletState.getPower(),
-                    String.valueOf(bulletState.getOwnerId()),
-                    victimName,
-                    false, // isActive
-                    bulletState.getBulletId());
-
-            basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
-        }
-
-        @Override
-        public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
-            log("-> onBulletHitBullet");
-            BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
-            Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
-            bullet.setInactive();
-
-            firedBullets.remove(bullet);
-
-            basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
-        }
-
-        @Override
-        public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) {
-            log("-> onBulletMissed");
-            Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
-            basicEvents.onBulletMissed(new robocode.BulletMissedEvent(bullet));
-        }
-
-        @Override
-        public void onScannedBot(ScannedBotEvent scannedBotEvent) {
-            log("-> onScannedRobot");
-            var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
-            basicEvents.onScannedRobot(scannedRobotEvent);
-        }
-
-        @Override
-        public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) {
-            log("-> onSkippedTurn");
-            advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber()));
-        }
-
-        @Override
-        public void onWonRound(WonRoundEvent wonRoundEvent) {
-            log("-> onWin");
-            basicEvents.onWin(new robocode.WinEvent());
-        }
-
-        @Override
-        public void onCustomEvent(CustomEvent customEvent) {
-            log("-> onCustomEvent");
-            Condition trCondition = customEvent.getCondition();
-            if (trCondition == null) return;
-
-            Optional<Map.Entry<robocode.Condition, Condition>> optCondition = conditions.entrySet().stream()
-                    .filter(entry -> trCondition.equals(entry.getValue())).findFirst();
-            if (optCondition.isPresent()) {
-                robocode.Condition condition = optCondition.get().getKey();
-                advancedEvents.onCustomEvent(new robocode.CustomEvent(condition));
-            }
-        }
-
-        private BulletPeer findBulletByXAndY(BulletState bulletState) {
-            var foundBullet = new AtomicReference<BulletPeer>();
-            var minDist = new AtomicReference<>(Double.MAX_VALUE);
-
-            firedBullets.forEach(bullet -> {
-                var dist = Math.pow(bullet.getX() - bulletState.getX(), 2) + Math.pow(bullet.getY() - bulletState.getY(), 2);
-                if (dist < minDist.get()) {
-                    foundBullet.set(bullet);
-                    minDist.set(dist);
-                }
-            });
-            return foundBullet.get();
-        }
-
-        private BulletPeer findBulletById(BulletState bulletState) {
-            var bulletPeer = firedBullets.stream().filter(
-                            bullet -> bulletState.getBulletId() == bullet.getBulletId())
-                    .findFirst()
-                    .orElse(null);
-
-            if (bulletPeer == null) {
-                bulletPeer = findBulletByXAndY(bulletState);
-            }
-            if (bulletPeer == null) {
-                throw new BotException("findBulletById: Could not find bullet: " + bulletState.getBulletId());
-            }
-            return bulletPeer;
-        }
-
-        private double calcBearingToWallRadians(double directionDeg) {
-            int minX = 40;
-            int minY = 40;
-            int maxX = bot.getArenaWidth() - 40;
-            int maxY = bot.getArenaHeight() - 40;
-
-            double angle = 0;
-            if (getX() < minX) {
-                angle = bot.normalizeRelativeAngle(180 - directionDeg);
-            } else if (getX() > maxX) {
-                angle = bot.normalizeRelativeAngle(360 - directionDeg);
-            }
-            if (getY() < minY) {
-                angle = normalRelativeAngle(90 - directionDeg);
-            } else if (getY() > maxY) {
-                angle = normalRelativeAngle(270 - directionDeg);
-            }
-            return toRobocodeBearingRad(angle);
-        }
     }
 
     private static void log(String message) {
-        // System.out.println(message);
+//        System.out.println(message);
     }
 }
