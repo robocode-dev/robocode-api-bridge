@@ -362,9 +362,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchHitWallEvent() {
         log("-> onHitWall");
-
-        System.out.println("#### HITWALL ####");
-
         basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
     }
 
@@ -381,7 +378,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
         log("-> onRobotDeath");
-
         basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId())));
     }
 
