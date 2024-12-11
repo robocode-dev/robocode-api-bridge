@@ -4,14 +4,14 @@ plugins {
 }
 
 group = "dev.robocode"
-version = "0.2.0"
+version = "0.2.1"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation("org.apache.bcel:bcel:6.8.2")
+    implementation("org.apache.bcel:bcel:6.10.0")
 }
 
 java {
