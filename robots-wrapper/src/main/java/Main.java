@@ -60,14 +60,14 @@ public class Main {
             var baseFilename = toBaseFilename(classPath);
             var propertiesPath = classPath.getParent().resolve(baseFilename + ".properties");
 
-            robotProps robotProps;
+            RobotProperties robotProps;
 
             if (Files.exists(propertiesPath)) {
                 try (InputStream inputStream = Files.newInputStream(propertiesPath)) {
                     robotProps = processProperties(inputStream);
                 }
             } else {
-                robotProps = new robotProps();
+                robotProps = new RobotProperties();
                 robotProps.classname = toFullyQualifiedClassName(classPath);
             }
 
@@ -80,11 +80,11 @@ public class Main {
         }
     }
 
-    static robotProps processProperties(InputStream is) throws IOException {
+    static RobotProperties processProperties(InputStream is) throws IOException {
         var props = new Properties();
         props.load(is);
 
-        var robotProps = new robotProps();
+        var robotProps = new RobotProperties();
         robotProps.classname = props.getProperty("robot.classname");
         if (robotProps.classname == null || robotProps.classname.isEmpty()) {
             return null;
@@ -103,7 +103,7 @@ public class Main {
         return robotProps;
     }
 
-    static void createBotDir(Path botDirPath, String filename, robotProps robotProps) throws IOException {
+    static void createBotDir(Path botDirPath, String filename, RobotProperties robotProps) throws IOException {
         var className = robotProps.classname;
 
         var robotClassAndVersion = className;
@@ -125,7 +125,7 @@ public class Main {
         System.out.println((className + " " + version).trim() + " (" + filename + ")");
     }
 
-    static void createJsonFile(Path botDir, robotProps robotProps) throws IOException {
+    static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + ".json");
 
         String author = robotProps.author;
@@ -214,7 +214,7 @@ public class Main {
         return javaClass.getClassName();
     }
 
-    static class robotProps {
+    static class RobotProperties {
         String classname;
         String version;
         String author;
