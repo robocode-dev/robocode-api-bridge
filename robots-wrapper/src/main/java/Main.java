@@ -43,9 +43,9 @@ public class Main {
                 while ((zipEntry = zipStream.getNextEntry()) != null) {
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".properties")) {
-                        var robot = processProperties(zipFile.getInputStream(zipEntry));
-                        if (robot != null) {
-                            createBotDir(jarPath, jarFile.getName(), robot);
+                        var robotProperties = processProperties(zipFile.getInputStream(zipEntry));
+                        if (robotProperties != null) {
+                            createBotDir(jarPath, jarFile.getName(), robotProperties);
                         }
                     }
                 }
@@ -60,19 +60,19 @@ public class Main {
             var baseFilename = toBaseFilename(classPath);
             var propertiesPath = classPath.getParent().resolve(baseFilename + ".properties");
 
-            RobotProperties robot;
+            RobotProperties robotProperties;
 
             if (Files.exists(propertiesPath)) {
                 try (InputStream inputStream = Files.newInputStream(propertiesPath)) {
-                    robot = processProperties(inputStream);
+                    robotProperties = processProperties(inputStream);
                 }
             } else {
-                robot = new RobotProperties();
-                robot.classname = toFullyQualifiedClassName(classPath);
+                robotProperties = new RobotProperties();
+                robotProperties.classname = toFullyQualifiedClassName(classPath);
             }
 
-            if (robot != null) {
-                createBotDir(classPath, baseFilename, robot);
+            if (robotProperties != null) {
+                createBotDir(classPath, baseFilename, robotProperties);
             }
 
         } catch (Exception ex) {
@@ -211,8 +211,6 @@ public class Main {
     static String toFullyQualifiedClassName(Path classPath) throws IOException {
         var classParser = new ClassParser(classPath.getFileName().toString());
         var javaClass = classParser.parse();
-        var major = javaClass.getMajor();
-        var minor = javaClass.getMinor();
         return javaClass.getClassName();
     }
 
