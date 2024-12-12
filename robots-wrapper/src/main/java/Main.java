@@ -134,15 +134,15 @@ public class Main {
         }
 
         try (var writer = new FileWriter(file)) {
-            writer.write(
-                    "{\n" +
-                            "  \"name\": \"" + robotProps.name() + "\",\n" +
-                            "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
-                            "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
-                            "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
-                            "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
-                            "  \"platform\": \"JVM\"\n" +
-                            "}\n"
+            writer.write("{\n" +
+                    "  \"name\": \"" + robotProps.name() + "\",\n" +
+                    "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
+                    "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
+                    "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
+                    "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
+                    "  \"platform\": \"JVM\"\n" +
+                    "  \"language\": \"Java\"\n" +
+                    "}\n"
             );
         }
     }
@@ -151,18 +151,17 @@ public class Main {
         File file = createOrOverwriteFile(botDir, JAVA_WRAPPER);
 
         try (var writer = new FileWriter(file)) {
-            writer.write(
-                    "import dev.robocode.tankroyale.bridge.BotPeer;\n" +
-                            "import dev.robocode.tankroyale.botapi.BotInfo;\n" +
-                            "import robocode.robotinterfaces.IBasicRobot;\n\n" +
-                            "public class Wrapper {\n" +
-                            "\tpublic static void main(String[] args) throws Exception {\n" +
-                            "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
-                            "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
-                            "\t\trobot.setPeer(peer);\n" +
-                            "\t\tpeer.start();\n" +
-                            "\t}\n" +
-                            "}"
+            writer.write("import dev.robocode.tankroyale.bridge.BotPeer;\n" +
+                    "import dev.robocode.tankroyale.botapi.BotInfo;\n" +
+                    "import robocode.robotinterfaces.IBasicRobot;\n\n" +
+                    "public class Wrapper {\n" +
+                    "\tpublic static void main(String[] args) throws Exception {\n" +
+                    "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
+                    "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
+                    "\t\trobot.setPeer(peer);\n" +
+                    "\t\tpeer.start();\n" +
+                    "\t}\n" +
+                    "}"
             );
         }
     }
@@ -212,6 +211,8 @@ public class Main {
     static String toFullyQualifiedClassName(Path classPath) throws IOException {
         var classParser = new ClassParser(classPath.getFileName().toString());
         var javaClass = classParser.parse();
+        var major = javaClass.getMajor();
+        var minor = javaClass.getMinor();
         return javaClass.getClassName();
     }
 
