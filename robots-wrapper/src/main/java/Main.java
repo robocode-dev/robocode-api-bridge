@@ -43,9 +43,9 @@ public class Main {
                 while ((zipEntry = zipStream.getNextEntry()) != null) {
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".properties")) {
-                        var robotProperties = processProperties(zipFile.getInputStream(zipEntry));
-                        if (robotProperties != null) {
-                            createBotDir(jarPath, jarFile.getName(), robotProperties);
+                        var robotProps = processProperties(zipFile.getInputStream(zipEntry));
+                        if (robotProps != null) {
+                            createBotDir(jarPath, jarFile.getName(), robotProps);
                         }
                     }
                 }
@@ -60,19 +60,19 @@ public class Main {
             var baseFilename = toBaseFilename(classPath);
             var propertiesPath = classPath.getParent().resolve(baseFilename + ".properties");
 
-            RobotProperties robotProperties;
+            robotProps robotProps;
 
             if (Files.exists(propertiesPath)) {
                 try (InputStream inputStream = Files.newInputStream(propertiesPath)) {
-                    robotProperties = processProperties(inputStream);
+                    robotProps = processProperties(inputStream);
                 }
             } else {
-                robotProperties = new RobotProperties();
-                robotProperties.classname = toFullyQualifiedClassName(classPath);
+                robotProps = new robotProps();
+                robotProps.classname = toFullyQualifiedClassName(classPath);
             }
 
-            if (robotProperties != null) {
-                createBotDir(classPath, baseFilename, robotProperties);
+            if (robotProps != null) {
+                createBotDir(classPath, baseFilename, robotProps);
             }
 
         } catch (Exception ex) {
@@ -80,11 +80,11 @@ public class Main {
         }
     }
 
-    static RobotProperties processProperties(InputStream is) throws IOException {
+    static robotProps processProperties(InputStream is) throws IOException {
         var props = new Properties();
         props.load(is);
 
-        var robotProps = new RobotProperties();
+        var robotProps = new robotProps();
         robotProps.classname = props.getProperty("robot.classname");
         if (robotProps.classname == null || robotProps.classname.isEmpty()) {
             return null;
@@ -103,7 +103,7 @@ public class Main {
         return robotProps;
     }
 
-    static void createBotDir(Path botDirPath, String filename, RobotProperties robotProps) throws IOException {
+    static void createBotDir(Path botDirPath, String filename, robotProps robotProps) throws IOException {
         var className = robotProps.classname;
 
         var robotClassAndVersion = className;
@@ -125,7 +125,7 @@ public class Main {
         System.out.println((className + " " + version).trim() + " (" + filename + ")");
     }
 
-    static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
+    static void createJsonFile(Path botDir, robotProps robotProps) throws IOException {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + ".json");
 
         String author = robotProps.author;
@@ -214,7 +214,7 @@ public class Main {
         return javaClass.getClassName();
     }
 
-    static class RobotProperties {
+    static class robotProps {
         String classname;
         String version;
         String author;
