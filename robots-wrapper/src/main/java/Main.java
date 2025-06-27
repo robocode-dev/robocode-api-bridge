@@ -43,9 +43,12 @@ public class Main {
                 while ((zipEntry = zipStream.getNextEntry()) != null) {
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".properties")) {
-                        var robotProps = processProperties(zipFile.getInputStream(zipEntry));
+                        var inputStream = zipFile.getInputStream(zipEntry);
+                        var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
-                            createBotDir(jarPath, jarFile.getName(), robotProps);
+                            Path botDir = createBotDir(jarPath, jarFile.getName(), robotProps);
+
+                            Files.copy(inputStream, botDir.resolve(robotProps.classname + ".properties"));
                         }
                     }
                 }
@@ -103,7 +106,7 @@ public class Main {
         return robotProps;
     }
 
-    static void createBotDir(Path botDirPath, String filename, RobotProperties robotProps) throws IOException {
+    static Path createBotDir(Path botDirPath, String filename, RobotProperties robotProps) throws IOException {
         var className = robotProps.classname;
 
         var robotClassAndVersion = className;
@@ -123,6 +126,8 @@ public class Main {
             version = "";
         }
         System.out.println((className + " " + version).trim() + " (" + filename + ")");
+
+        return botDir;
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {

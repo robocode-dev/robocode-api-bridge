@@ -1,10 +1,11 @@
 plugins {
     java
     idea
+    id("com.github.ben-manes.versions") version "0.52.0"  // ./gradlew dependencyUpdates
 }
 
 group = "dev.robocode"
-version = "0.2.1"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
