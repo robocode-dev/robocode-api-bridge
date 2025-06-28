@@ -309,10 +309,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             Optional<BulletState> bulletStateOpt = tickEvent.getBulletStates().stream().filter(
                     bulletState -> bulletPeer.getBulletId() == bulletState.getBulletId()).findFirst();
 
-            if (bulletStateOpt.isPresent()) {
-                BulletState bulletState = bulletStateOpt.get();
-                bulletPeer.setPosition(bulletState.getX(), bulletState.getY());
-            }
+            bulletStateOpt.ifPresent(bulletState ->
+                    bulletPeer.setPosition(bulletState.getX(), bulletState.getY()));
         });
 
         // Fire event
