@@ -145,7 +145,7 @@ public class Main {
                     "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
                     "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
-                    "  \"platform\": \"JVM\"\n" +
+                    "  \"platform\": \"JVM\",\n" +
                     "  \"language\": \"Java\"\n" +
                     "}\n"
             );
