@@ -161,7 +161,21 @@ public class Main {
                     "import robocode.robotinterfaces.IBasicRobot;\n\n" +
                     "public class Wrapper {\n" +
                     "\tpublic static void main(String[] args) throws Exception {\n" +
-                    "\t\tvar robot = (IBasicRobot)Class.forName(\"" + robotClass + "\").getDeclaredConstructor().newInstance();\n" +
+                    "\t\t// Load the robot class\n" +
+                    "\t\tClass<?> robotClass = Class.forName(\"" + robotClass + "\");\n" +
+                    "\t\t\n" +
+                    "\t\t// Try to transform the robot class to replace while(true) with while(getEnergy() >= 0)\n" +
+                    "\t\tClass<?> transformedClass = RobotMethodReplacer.transformRobotClass(robotClass);\n" +
+                    "\t\t\n" +
+                    "\t\t// Use the transformed class if available, otherwise use the original class\n" +
+                    "\t\tvar robot = (IBasicRobot) (transformedClass != null ? \n" +
+                    "\t\t\ttransformedClass.getDeclaredConstructor().newInstance() : \n" +
+                    "\t\t\trobotClass.getDeclaredConstructor().newInstance());\n" +
+                    "\t\t\n" +
+                    "\t\tif (transformedClass != null) {\n" +
+                    "\t\t\tSystem.out.println(\"Robot \" + robotClass.getName() + \" transformed: 'while(true)' replaced with 'while(getEnergy() >= 0)'\");\n" +
+                    "\t\t}\n" +
+                    "\t\t\n" +
                     "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
                     "\t\trobot.setPeer(peer);\n" +
                     "\t\tpeer.start();\n" +

@@ -46,6 +46,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
     private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
+    private boolean stopThread;
+
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
         log("BotPeer");
@@ -113,6 +115,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public double getEnergy() {
         log("getEnergy()");
+
+        if (stopThread) {
+            // Sets the energy to a negative value to break `while(getEnergy() >= 0)` in the run() method which
+            // that is substituting `while(true)` by modifying the bytecode of the run() method.
+            return -1;
+        }
         return bot.getEnergy();
     }
 
@@ -950,6 +958,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         public void run() {
             log("Bot.run()");
 
+            stopThread = false;
+
             while (bot.isRunning()) {
                 robot.getRobotRunnable().run();
             }
@@ -997,7 +1007,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                             new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber() - 1, turnNumber, newTotalTurns));
                 }
             } finally {
-                stop();
+                robot.stopThread();
             }
         }
 
@@ -1014,5 +1024,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private static void log(String message) {
 //        System.out.println(message);
+    }
+
+    @Override
+    public void stopThread() {
+        stopThread = true;
     }
 }

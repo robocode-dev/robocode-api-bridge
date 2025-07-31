@@ -774,6 +774,13 @@ public class JuniorRobot extends _RobotBase implements IJuniorRobot {
         }
     }
 
+    @Override
+    public void stopThread() {
+        // Sets the energy to a negative value to break `while(getEnergy() >= 0)` in the run() method which
+        // that is substituting `while(true)` by modifying the bytecode of the run() method.
+        energy = -1;
+    }
+
     /*
      * Returns the event handler of this robot.
      */

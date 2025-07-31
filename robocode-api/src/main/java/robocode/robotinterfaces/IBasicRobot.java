@@ -64,4 +64,12 @@ public interface IBasicRobot {
      * @since 1.6
      */
     void setOut(java.io.PrintStream out);
+
+    /**
+     * This method is not a part of the original Robocode API, but a part of the
+     * Robocode bridge for Robocode Tank Royale.
+     * <p>
+     * Stops the robot thread.
+     */
+    void stopThread();
 }

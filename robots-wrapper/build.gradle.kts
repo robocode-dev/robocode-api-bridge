@@ -12,12 +12,14 @@ repositories {
 }
 
 dependencies {
+    implementation(project(":robocode-api"))
     implementation("org.apache.bcel:bcel:6.10.0")
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = sourceCompatibility
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 tasks {

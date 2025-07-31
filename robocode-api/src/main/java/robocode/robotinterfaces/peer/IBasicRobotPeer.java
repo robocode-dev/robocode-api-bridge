@@ -723,4 +723,12 @@ public interface IBasicRobotPeer {
      * @since 1.7.2
      */
     void rescan();
+
+    /**
+     * This method is not a part of the original Robocode API, but a part of the
+     * Robocode bridge for Robocode Tank Royale.
+     * <p>
+     * Stops the robot thread.
+     */
+    void stopThread();
 }

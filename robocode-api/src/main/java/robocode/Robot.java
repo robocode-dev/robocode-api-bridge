@@ -1571,4 +1571,11 @@ public class Robot extends _Robot implements IInteractiveRobot, IPaintRobot, IBa
      */
     public void onStatus(StatusEvent e) {
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public void stopThread() {
+        peer.stopThread();
+    }
 }
