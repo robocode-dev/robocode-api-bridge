@@ -62,35 +62,63 @@ public class RobotMethodReplacer {
                     // Create a method generator for the run method
                     MethodGen methodGen = new MethodGen(method, className, cpg);
                     InstructionList instructionList = methodGen.getInstructionList();
+
+                    if (instructionList == null) {
+                        continue; // Skip if no instructions in method
+                    }
+
                     InstructionHandle[] handles = instructionList.getInstructionHandles();
 
                     // Look for while(true) pattern: ICONST_1 (true) followed by IF_ICMPEQ or IF_ICMPNE
                     for (int i = 0; i < handles.length - 1; i++) {
-                        Instruction inst = handles[i].getInstruction();
+                        InstructionHandle ih = handles[i];
+                        Instruction inst = ih.getInstruction();
+
+                        if (inst == null) {
+                            continue; // Skip null instructions
+                        }
 
                         if (inst instanceof ICONST && ((ICONST) inst).getValue().intValue() == 1) {
                             Instruction nextInst = handles[i + 1].getInstruction();
                             if (nextInst instanceof IfInstruction) {
                                 // Replace ICONST_1 (true) with a call to getEnergy() >= 0
-                                InstructionHandle ih = handles[i];
                                 InstructionList newInstructions = new InstructionList();
 
                                 // this.getEnergy()
                                 newInstructions.append(new ALOAD(0)); // load 'this'
                                 newInstructions.append(new INVOKEVIRTUAL(cpg.addMethodref(
-                                        className, 
-                                        "getEnergy", 
+                                        className,
+                                        "getEnergy",
                                         "()D")));
 
                                 // Compare with 0.0
                                 newInstructions.append(new DCONST(0.0));
                                 newInstructions.append(new DCMPG());
-                                newInstructions.append(new IFLT(((BranchInstruction) nextInst).getTarget()));
+
+                                InstructionHandle newInsStart = newInstructions.getStart();
+                                InstructionHandle ifTarget = ((BranchInstruction) nextInst).getTarget();
+                                newInstructions.append(new IFLT(ifTarget));
 
                                 // Replace the original instructions
                                 try {
                                     instructionList.delete(ih, handles[i + 1]);
                                     instructionList.insert(ih, newInstructions);
+
+                                    // Update all branch targets
+                                    for (InstructionHandle handle : instructionList.getInstructionHandles()) {
+                                        if (handle.hasTargeters()) {
+                                            InstructionTargeter[] targeters = handle.getTargeters();
+                                            for (InstructionTargeter targeter : targeters) {
+                                                if (targeter instanceof BranchInstruction) {
+                                                    BranchInstruction branch = (BranchInstruction) targeter;
+                                                    if (branch.getTarget() == null) {
+                                                        branch.setTarget(newInsStart);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
                                     modified = true;
                                     break;
                                 } catch (TargetLostException e) {
@@ -99,7 +127,7 @@ public class RobotMethodReplacer {
                                     for (InstructionHandle target : targets) {
                                         InstructionTargeter[] targeters = target.getTargeters();
                                         for (InstructionTargeter targeter : targeters) {
-                                            targeter.updateTarget(target, ih);
+                                            targeter.updateTarget(target, newInsStart);
                                         }
                                     }
                                 }
@@ -108,10 +136,21 @@ public class RobotMethodReplacer {
                     }
 
                     if (modified) {
+                        // Dispose of the instruction list to make sure all handles are properly updated
+                        instructionList.dispose();
+
                         // Update the method with the modified instruction list
-                        methodGen.setMaxStack();
-                        methodGen.setMaxLocals();
-                        classGen.replaceMethod(method, methodGen.getMethod());
+                        try {
+                            methodGen.setMaxStack(); // This line was causing the NullPointerException
+                            methodGen.setMaxLocals();
+                            classGen.replaceMethod(method, methodGen.getMethod());
+                        } catch (Exception e) {
+                            // If setMaxStack fails, manually set reasonable stack and locals sizes
+                            System.err.println("Warning: Could not automatically calculate stack size: " + e.getMessage());
+                            methodGen.setMaxStack(4); // Set a reasonable size for the operations we're using
+                            methodGen.setMaxLocals();
+                            classGen.replaceMethod(method, methodGen.getMethod());
+                        }
                         break;
                     }
                 }
