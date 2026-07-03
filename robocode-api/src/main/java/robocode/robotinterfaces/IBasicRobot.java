@@ -70,6 +70,11 @@ public interface IBasicRobot {
      * Robocode bridge for Robocode Tank Royale.
      * <p>
      * Stops the robot thread.
+     * <p>
+     * This method is a default method, as robots compiled against the original
+     * Robocode API implement this interface without it and would otherwise crash
+     * with an {@link AbstractMethodError} when the bridge invokes it.
      */
-    void stopThread();
+    default void stopThread() {
+    }
 }
