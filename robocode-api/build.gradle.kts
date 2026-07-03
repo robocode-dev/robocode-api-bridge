@@ -8,12 +8,12 @@ group = "dev.robocode"
 version = "0.5.0"
 
 repositories {
-    mavenLocal()
+    mavenLocal() // bot-api 0.33.1 is not published on Maven Central
     mavenCentral()
 }
 
 dependencies {
-   implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.32.1")
+   implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:0.33.1")
 }
 
 java {

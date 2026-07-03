@@ -8,6 +8,7 @@ group = "dev.robocode"
 version = "0.3.1"
 
 repositories {
+    mavenLocal() // bot-api 0.33.1 is not published on Maven Central
     mavenCentral()
 }
 
