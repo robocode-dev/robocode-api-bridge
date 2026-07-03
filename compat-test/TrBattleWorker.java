@@ -42,6 +42,7 @@ public class TrBattleWorker {
         int rounds = Integer.parseInt(opt.getOrDefault("rounds", "10"));
         Path outFile = Path.of(require(opt, "out"));
         int timeoutSecs = Integer.parseInt(opt.getOrDefault("timeout", "0"));
+        int turnTimeoutMicros = Integer.parseInt(opt.getOrDefault("turn-timeout", "0")); // 0 = preset default
 
         List<String> capturedLog = Collections.synchronizedList(new ArrayList<>());
         installLogCapture(capturedLog);
@@ -53,7 +54,7 @@ public class TrBattleWorker {
         Map<String, Object> result = new HashMap<>();
         int exitCode;
         try {
-            runBattle(bot1, bot2, rounds, result);
+            runBattle(bot1, bot2, rounds, turnTimeoutMicros, result);
             exitCode = Boolean.TRUE.equals(result.get("ok")) ? 0 : 1;
         } catch (Throwable t) {
             result.put("ok", false);
@@ -63,13 +64,31 @@ public class TrBattleWorker {
         result.put("runnerLog", tail(capturedLog, 300));
         Files.writeString(outFile, Json.write(result), StandardCharsets.UTF_8);
         // BattleRunner registers a shutdown hook that stops server/booter/bot processes;
-        // System.exit runs it (unlike halt).
+        // System.exit runs it (unlike halt). The hook can hang if a bot process refuses to
+        // die, so force the JVM down if the hook has not finished within 30 seconds.
+        final int finalExitCode = exitCode;
+        Thread exitWatchdog = new Thread(() -> {
+            try {
+                Thread.sleep(30_000);
+            } catch (InterruptedException e) {
+                return;
+            }
+            Runtime.getRuntime().halt(finalExitCode);
+        }, "exit-watchdog");
+        exitWatchdog.setDaemon(true);
+        exitWatchdog.start();
         System.exit(exitCode);
     }
 
-    private static void runBattle(Path bot1, Path bot2, int rounds, Map<String, Object> result) {
+    private static void runBattle(Path bot1, Path bot2, int rounds, int turnTimeoutMicros,
+                                  Map<String, Object> result) {
         try (BattleRunner runner = BattleRunner.create(b -> b.embeddedServer())) {
-            BattleSetup setup = BattleSetup.classic(s -> s.setNumberOfRounds(rounds));
+            BattleSetup setup = BattleSetup.classic(s -> {
+                s.setNumberOfRounds(rounds);
+                if (turnTimeoutMicros > 0) {
+                    s.setTurnTimeoutMicros(turnTimeoutMicros);
+                }
+            });
             List<BotEntry> bots = List.of(BotEntry.of(bot1), BotEntry.of(bot2));
 
             BattleResults results = runner.runBattle(setup, bots);
