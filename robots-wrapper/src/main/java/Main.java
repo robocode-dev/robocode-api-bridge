@@ -120,6 +120,7 @@ public class Main {
         createJavaWrapper(botDir, className, robotClassAndVersion);
         createScriptFile(botDir, filename, ':', ".sh");
         createScriptFile(botDir, filename, ';', ".cmd");
+        createTransformedClassFile(botDirPath, botDir, className);
 
         var version = robotProps.version;
         if (version == null) {
@@ -161,20 +162,12 @@ public class Main {
                     "import robocode.robotinterfaces.IBasicRobot;\n\n" +
                     "public class Wrapper {\n" +
                     "\tpublic static void main(String[] args) throws Exception {\n" +
-                    "\t\t// Load the robot class\n" +
+                    "\t\t// Load the robot class. If the wrapper transformed the class (replacing `while(true)`\n" +
+                    "\t\t// with `while(getEnergy() >= 0)` in run()), the transformed class file in this bot\n" +
+                    "\t\t// directory shadows the one in the robot jar, as it comes first on the classpath.\n" +
                     "\t\tClass<?> robotClass = Class.forName(\"" + robotClass + "\");\n" +
                     "\t\t\n" +
-                    "\t\t// Try to transform the robot class to replace while(true) with while(getEnergy() >= 0)\n" +
-                    "\t\tClass<?> transformedClass = RobotMethodReplacer.transformRobotClass(robotClass);\n" +
-                    "\t\t\n" +
-                    "\t\t// Use the transformed class if available, otherwise use the original class\n" +
-                    "\t\tvar robot = (IBasicRobot) (transformedClass != null ? \n" +
-                    "\t\t\ttransformedClass.getDeclaredConstructor().newInstance() : \n" +
-                    "\t\t\trobotClass.getDeclaredConstructor().newInstance());\n" +
-                    "\t\t\n" +
-                    "\t\tif (transformedClass != null) {\n" +
-                    "\t\t\tSystem.out.println(\"Robot \" + robotClass.getName() + \" transformed: 'while(true)' replaced with 'while(getEnergy() >= 0)'\");\n" +
-                    "\t\t}\n" +
+                    "\t\tvar robot = (IBasicRobot) robotClass.getDeclaredConstructor().newInstance();\n" +
                     "\t\t\n" +
                     "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
                     "\t\trobot.setPeer(peer);\n" +
@@ -183,6 +176,50 @@ public class Main {
                     "}"
             );
         }
+    }
+
+    /**
+     * Transforms the robot class to replace `while(true)` with `while(getEnergy() >= 0)` in the
+     * run() method, and writes the transformed class file into the bot directory, where it shadows
+     * the original class by preceding it on the classpath in the boot script.
+     */
+    static void createTransformedClassFile(Path robotPath, Path botDir, String className) {
+        try {
+            byte[] classBytes = readRobotClassBytes(robotPath, className);
+            if (classBytes == null) {
+                return;
+            }
+            byte[] transformedBytes = RobotMethodReplacer.transformClassBytes(classBytes, className);
+            if (transformedBytes == null) {
+                return;
+            }
+            Path classFile = botDir.resolve(className.replace('.', '/') + ".class");
+            if (classFile.getParent() != null) {
+                Files.createDirectories(classFile.getParent());
+            }
+            Files.write(classFile, transformedBytes);
+            System.out.println("  transformed run(): 'while(true)' replaced with 'while(getEnergy() >= 0)'");
+        } catch (Exception ex) {
+            System.err.println("Could not transform robot class " + className + ": " + ex.getMessage());
+        }
+    }
+
+    static byte[] readRobotClassBytes(Path robotPath, String className) throws IOException {
+        if (robotPath.toString().toLowerCase().endsWith(".jar")) {
+            try (var zipFile = new ZipFile(robotPath.toFile())) {
+                ZipEntry entry = zipFile.getEntry(className.replace('.', '/') + ".class");
+                if (entry == null) {
+                    return null;
+                }
+                try (var inputStream = zipFile.getInputStream(entry)) {
+                    return inputStream.readAllBytes();
+                }
+            }
+        }
+        if (robotPath.toString().toLowerCase().endsWith(".class")) {
+            return Files.readAllBytes(robotPath);
+        }
+        return null;
     }
 
     static void createScriptFile(Path botDir, String filename, char separator, String fileExt) throws IOException {

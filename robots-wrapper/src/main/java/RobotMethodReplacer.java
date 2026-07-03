@@ -4,80 +4,17 @@ import org.apache.bcel.classfile.Method;
 import org.apache.bcel.generic.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Utility class for bytecode transformation of robot classes to ensure proper termination.
  * Replaces infinite loops (while(true)) with condition-based loops (while(getEnergy() >= 0)).
+ * <p>
+ * The transformation is applied at wrap time (when the bot directory is generated), and the
+ * transformed class file is written into the bot directory, where it shadows the original class
+ * in the robot jar by preceding it on the classpath. Redefining an already loaded class at
+ * runtime is not possible on modern JVMs without an instrumentation agent.
  */
 public class RobotMethodReplacer {
-
-    private static final Logger LOGGER = Logger.getLogger(RobotMethodReplacer.class.getName());
-
-    /**
-     * Transforms a robot class to replace "while(true)" with "while(getEnergy() >= 0)"
-     * in the run() method.
-     *
-     * @param robotClass The loaded robot class to modify
-     * @return The transformed class or null if no transformation was performed
-     */
-    public static Class<?> transformRobotClass(Class<?> robotClass) {
-        if (robotClass == null) {
-            LOGGER.warning("Cannot transform null robot class");
-            return null;
-        }
-
-        try {
-            String className = robotClass.getName();
-            byte[] classBytes = extractClassBytes(robotClass);
-            byte[] transformedBytes = transformClassBytes(classBytes, className);
-
-            if (transformedBytes == null) {
-                // No transformation needed or possible
-                return null;
-            }
-
-            return defineTransformedClass(className, transformedBytes, robotClass.getClassLoader());
-        } catch (ClassBytecodeException e) {
-            LOGGER.log(Level.WARNING, "Failed to extract bytecode for class: " + robotClass.getName(), e);
-            return null;
-        } catch (BytecodeTransformException e) {
-            LOGGER.log(Level.WARNING, "Failed to transform class: " + robotClass.getName(), e);
-            return null;
-        } catch (ClassDefinitionException e) {
-            LOGGER.log(Level.WARNING, "Failed to define transformed class: " + robotClass.getName(), e);
-            return null;
-        }
-    }
-
-    /**
-     * Extracts the bytecode of a class.
-     *
-     * @param clazz The class to extract bytecode from
-     * @return The bytecode as a byte array
-     * @throws ClassBytecodeException If the bytecode cannot be extracted
-     */
-    private static byte[] extractClassBytes(Class<?> clazz) throws ClassBytecodeException {
-        String resourceName = clazz.getName().replace('.', '/') + ".class";
-        var classLoader = clazz.getClassLoader();
-
-        try (var inputStream = classLoader.getResourceAsStream(resourceName)) {
-            if (inputStream == null) {
-                throw new ClassBytecodeException(
-                        "Could not find class resource: " + resourceName,
-                        null);
-            }
-
-            return inputStream.readAllBytes();
-        } catch (IOException e) {
-            throw new ClassBytecodeException(
-                    "Failed to read bytecode for class: " + clazz.getName(),
-                    e);
-        }
-    }
 
     /**
      * Transforms class bytecode to replace infinite loops with energy-based loops.
@@ -87,7 +24,7 @@ public class RobotMethodReplacer {
      * @return The transformed bytecode or null if no transformation was performed
      * @throws BytecodeTransformException If an error occurs during transformation
      */
-    private static byte[] transformClassBytes(byte[] classBytes, String className) throws BytecodeTransformException {
+    public static byte[] transformClassBytes(byte[] classBytes, String className) throws BytecodeTransformException {
         try {
             JavaClass javaClass = parseClass(classBytes, className);
             ClassGen classGen = new ClassGen(javaClass);
@@ -163,6 +100,9 @@ public class RobotMethodReplacer {
      */
     private static boolean replaceInfiniteLoops(MethodGen methodGen, ConstantPoolGen cpg, String className) {
         InstructionList instructionList = methodGen.getInstructionList();
+        if (instructionList == null) {
+            return false; // abstract or native method that has no code
+        }
         InstructionHandle[] handles = instructionList.getInstructionHandles();
 
         for (int i = 0; i < handles.length - 1; i++) {
@@ -185,9 +125,12 @@ public class RobotMethodReplacer {
         Instruction currentInst = currentHandle.getInstruction();
         Instruction nextInst = nextHandle.getInstruction();
 
+        // `while(true)` compiled with an explicit condition check is either
+        // `iconst_1; ifeq <exit>` (branch out of the loop when the condition is false) or
+        // `iconst_1; ifne <loop start>` (branch back when the condition is true).
         return currentInst instanceof ICONST &&
                 ((ICONST) currentInst).getValue().intValue() == 1 &&
-                nextInst instanceof IfInstruction;
+                (nextInst instanceof IFEQ || nextInst instanceof IFNE);
     }
 
     /**
@@ -207,26 +150,29 @@ public class RobotMethodReplacer {
             String className) {
 
         InstructionList newInstructions = createEnergyCheckInstructions(
-                cpg, className, ((BranchInstruction) nextHandle.getInstruction()).getTarget());
+                cpg, className, (IfInstruction) nextHandle.getInstruction());
 
+        // Insert the replacement before deleting the old instructions, so that branch
+        // instructions targeting the old instructions (the loop back edge) can be
+        // redirected to the start of the replacement.
+        InstructionHandle newStart = instructionList.insert(currentHandle, newInstructions);
         try {
             instructionList.delete(currentHandle, nextHandle);
-            instructionList.insert(currentHandle, newInstructions);
         } catch (TargetLostException e) {
-            handleLostTargets(e, currentHandle);
+            handleLostTargets(e, newStart);
         }
     }
 
     /**
      * Creates instructions for checking if energy is greater than or equal to zero.
      *
-     * @param cpg       The ConstantPoolGen for the class
-     * @param className The name of the class
-     * @param target    The branch target
+     * @param cpg           The ConstantPoolGen for the class
+     * @param className     The name of the class
+     * @param ifInstruction The condition branch being replaced
      * @return A new instruction list with the energy check
      */
     private static InstructionList createEnergyCheckInstructions(
-            ConstantPoolGen cpg, String className, InstructionHandle target) {
+            ConstantPoolGen cpg, String className, IfInstruction ifInstruction) {
 
         InstructionList newInstructions = new InstructionList();
 
@@ -240,7 +186,16 @@ public class RobotMethodReplacer {
         // Compare with 0.0
         newInstructions.append(new DCONST(0.0));
         newInstructions.append(new DCMPG());
-        newInstructions.append(new IFLT(target));
+
+        // Preserve the branch semantics of the replaced check: `iconst_1; ifeq <exit>` branches
+        // out of the loop when the condition is false, so the replacement branches out when
+        // energy < 0. `iconst_1; ifne <loop start>` branches back when the condition is true,
+        // so the replacement branches back when energy >= 0.
+        if (ifInstruction instanceof IFEQ) {
+            newInstructions.append(new IFLT(ifInstruction.getTarget()));
+        } else {
+            newInstructions.append(new IFGE(ifInstruction.getTarget()));
+        }
 
         return newInstructions;
     }
@@ -262,62 +217,11 @@ public class RobotMethodReplacer {
     }
 
     /**
-     * Exception thrown when there's an issue extracting bytecode from a class.
-     */
-    private static class ClassBytecodeException extends Exception {
-        public ClassBytecodeException(String message, Throwable cause) {
-            super(message, cause);
-        }
-    }
-
-    /**
      * Exception thrown when there's an issue transforming bytecode.
      */
-    private static class BytecodeTransformException extends Exception {
+    public static class BytecodeTransformException extends Exception {
         public BytecodeTransformException(String message, Throwable cause) {
             super(message, cause);
-        }
-    }
-
-    /**
-     * Exception thrown when there's an issue defining a transformed class.
-     */
-    private static class ClassDefinitionException extends Exception {
-        public ClassDefinitionException(String message, Throwable cause) {
-            super(message, cause);
-        }
-    }
-
-    /**
-     * Defines a new class with the transformed bytecode.
-     *
-     * @param className   The name of the class
-     * @param classBytes  The transformed bytecode
-     * @param classLoader The class loader to use
-     * @return The defined class
-     * @throws ClassDefinitionException If the class cannot be defined
-     */
-    private static Class<?> defineTransformedClass(String className, byte[] classBytes, ClassLoader classLoader)
-            throws ClassDefinitionException {
-        if (classLoader == null) {
-            throw new ClassDefinitionException("ClassLoader cannot be null", null);
-        }
-
-        try {
-            // Use reflection to access the defineClass method of ClassLoader
-            java.lang.reflect.Method defineClassMethod = ClassLoader.class.getDeclaredMethod(
-                    "defineClass", String.class, byte[].class, int.class, int.class);
-            defineClassMethod.setAccessible(true);
-
-            // Define the new class with the transformed bytecode
-            return (Class<?>) defineClassMethod.invoke(
-                    classLoader, className, classBytes, 0, classBytes.length);
-        } catch (NoSuchMethodException | SecurityException e) {
-            throw new ClassDefinitionException("Could not access defineClass method", e);
-        } catch (IllegalAccessException | IllegalArgumentException e) {
-            throw new ClassDefinitionException("Could not invoke defineClass method", e);
-        } catch (InvocationTargetException e) {
-            throw new ClassDefinitionException("Exception thrown by defineClass method", e.getCause());
         }
     }
 }
