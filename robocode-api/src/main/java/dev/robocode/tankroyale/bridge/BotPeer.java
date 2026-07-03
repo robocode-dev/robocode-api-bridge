@@ -35,9 +35,10 @@ import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
-    private final IBasicRobot robot;
-    private final IBasicEvents basicEvents;
-    private final IAdvancedEvents advancedEvents;
+    private volatile IBasicRobot robot;
+    private volatile IBasicEvents basicEvents;
+    private volatile IAdvancedEvents advancedEvents;
+    private boolean firstRobotInstanceUsed;
 
     private final IBot bot;
     private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new ConcurrentHashMap<>());
@@ -60,6 +61,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         robot.setOut(System.out); // Redirect output to "our" System.out, which Tank Royale is overriding
 
+        resolveEventListeners();
+
+        init();
+    }
+
+    private void resolveEventListeners() {
         basicEvents = robot.getBasicEventListener();
 
         if (robot instanceof IAdvancedRobot) {
@@ -67,8 +74,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         } else {
             advancedEvents = new AdvancedEventAdaptor();
         }
-
-        init();
     }
 
     @SuppressWarnings("unused")
@@ -979,16 +984,59 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         }
 
         @Override
-        public void run() {
+        public void run() { // Called by the Bot API on a new thread at the start of each round
             log("Bot.run()");
 
             stopThread = false;
 
-            while (bot.isRunning()) {
-                robot.getRobotRunnable().run();
+            prepareRobotForRound();
+
+            Runnable runnable = robot.getRobotRunnable();
+            if (runnable != null) {
+                runnable.run();
+            }
+
+            // Like in classic Robocode, a robot whose run() method returns must keep executing
+            // turns so that its event handlers keep firing. Restarting run() instead would rerun
+            // setup code endlessly, and without go() no intent is ever sent to the server, making
+            // every turn last the full turn timeout with the robot unable to act.
+            while (bot.isRunning() && !stopThread) {
+                bot.go();
             }
 
             log("Bot.run() -> exit");
+        }
+
+        /**
+         * Classic Robocode creates a fresh robot instance every round (only static fields
+         * survive). Reusing the same instance makes robots with per-round instance state
+         * misbehave from round 2 onwards, e.g. a `won` flag checked in the run() loop.
+         * The instance created by the wrapper has not run yet, so it is used for the first
+         * round; every following round gets a new instance.
+         */
+        private void prepareRobotForRound() {
+            if (!firstRobotInstanceUsed) {
+                firstRobotInstanceUsed = true;
+                // Conditions registered before the battle started (e.g. in setPeer) were cleared
+                // by the Bot API at round start; re-register them for the first round.
+                conditions.values().forEach(bot::addCustomEvent);
+                return;
+            }
+            try {
+                IBasicRobot newRobot = robot.getClass().getDeclaredConstructor().newInstance();
+
+                // Classic Robocode also drops all custom events between rounds; the new robot
+                // instance re-registers its own conditions (via setPeer or run()). The Bot API
+                // has already cleared its own conditions at round start.
+                conditions.clear();
+
+                robot = newRobot;
+                robot.setOut(System.out);
+                robot.setPeer(BotPeer.this);
+                resolveEventListeners();
+            } catch (Exception e) {
+                System.err.println("Could not create a new robot instance for this round; reusing the previous instance: " + e);
+            }
         }
 
         @Override
