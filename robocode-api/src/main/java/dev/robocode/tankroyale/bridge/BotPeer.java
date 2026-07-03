@@ -48,6 +48,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private boolean stopThread;
 
+    private final Set<BotEvent> dispatchedEvents = Collections.newSetFromMap(new IdentityHashMap<>());
+    private boolean dispatchingEvents;
+
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
         log("BotPeer");
@@ -245,7 +248,28 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchBotEvents() {
-        bot.getEvents().forEach(this::dispatch);
+        // Guard against re-entrant dispatching: a blocking call (e.g. turnRadarRight) inside an event
+        // handler calls go(), which must not dispatch the same events again into the same handler
+        // (infinite recursion ending in a StackOverflowError). Events arriving meanwhile are
+        // dispatched when the stack has unwound to the next top-level go().
+        if (dispatchingEvents) {
+            return;
+        }
+        dispatchingEvents = true;
+        try {
+            // The Bot API keeps events in its queue for up to 2 extra turns (critical events like
+            // WonRoundEvent even longer), and getEvents() does not remove them. Each event must be
+            // dispatched exactly once, so track the ones already dispatched.
+            List<BotEvent> events = bot.getEvents();
+            dispatchedEvents.retainAll(events);
+            for (BotEvent event : events) {
+                if (dispatchedEvents.add(event)) {
+                    dispatch(event);
+                }
+            }
+        } finally {
+            dispatchingEvents = false;
+        }
     }
 
     private void dispatch(BotEvent botEvent) {
