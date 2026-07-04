@@ -17,7 +17,6 @@ import java.awt.*;
 import java.awt.Color;
 import java.io.File;
 import java.io.Serializable;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
@@ -48,9 +47,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
     private boolean stopThread;
-
-    private final Set<BotEvent> dispatchedEvents = Collections.newSetFromMap(new IdentityHashMap<>());
-    private boolean dispatchingEvents;
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -250,86 +246,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public void execute() {
         log("execute()");
         bot.go();
-    }
-
-    private void dispatchBotEvents() {
-        // Guard against re-entrant dispatching: a blocking call (e.g. turnRadarRight) inside an event
-        // handler calls go(), which must not dispatch the same events again into the same handler
-        // (infinite recursion ending in a StackOverflowError). Events arriving meanwhile are
-        // dispatched when the stack has unwound to the next top-level go().
-        if (dispatchingEvents) {
-            return;
-        }
-        dispatchingEvents = true;
-        try {
-            // The Bot API keeps events in its queue for up to 2 extra turns (critical events like
-            // WonRoundEvent even longer), and getEvents() does not remove them. Each event must be
-            // dispatched exactly once, so track the ones already dispatched.
-            List<BotEvent> events = bot.getEvents();
-            dispatchedEvents.retainAll(events);
-            for (BotEvent event : events) {
-                if (dispatchedEvents.add(event)) {
-                    dispatch(event);
-                }
-            }
-        } finally {
-            dispatchingEvents = false;
-        }
-    }
-
-    private void dispatch(BotEvent botEvent) {
-        switch (botEvent.getClass().getSimpleName()) {
-            case "TickEvent":
-                dispatchStatusEvent(botEvent);
-                break;
-            case "BulletFiredEvent":
-                // Ignore, as this is not a Robocode Robot event
-                break;
-            case "ScannedBotEvent":
-                dispatchScannedRobotEvent(botEvent);
-                break;
-            case "BulletHitWallEvent":
-                dispatchBulletMissedEvent(botEvent);
-                break;
-            case "BulletHitBotEvent":
-                dispatchBulletHitEvent(botEvent);
-                break;
-            case "HitByBulletEvent":
-                dispatchHitByBulletEvent(botEvent);
-                break;
-            case "HitWallEvent":
-                dispatchHitWallEvent();
-                break;
-            case "HitBotEvent":
-                dispatchHitRobotEvent(botEvent);
-                break;
-            case "BotDeathEvent":
-                var botDeathEvent = (BotDeathEvent) botEvent;
-                if (botDeathEvent.getVictimId() == bot.getMyId()) {
-                    dispatchDeathEvent();
-                } else {
-                    dispatchRobotDeathEvent(botDeathEvent);
-                }
-                break;
-            case "SkippedTurnEvent":
-                dispatchSkippedTurnEvent(botEvent);
-                break;
-            case "WonRoundEvent":
-                dispatchWinEvent();
-                break;
-            case "BulletHitBulletEvent":
-                dispatchBulletHitBulletEvent(botEvent);
-                break;
-            case "CustomEvent":
-                dispatchCustomEvent(botEvent);
-                break;
-            case "MessageEvent":
-                dispatchMessageEvent(botEvent);
-                break;
-            default:
-                throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
-                        " is unsupported. Contact Robocode Tank Royale author for support");
-        }
     }
 
     private void dispatchStatusEvent(BotEvent botEvent) {
@@ -703,7 +619,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void setInterruptible(boolean interruptible) {
         log("setInterruptible()");
-        bot.setInterruptible(interruptible);
+        try {
+            bot.setInterruptible(interruptible);
+        } catch (NullPointerException ignore) {
+            // Bot API 0.33.1 throws an NPE when there is no current event, i.e. when called outside
+            // an event handler; classic Robocode just ignores the call in that situation
+        }
     }
 
     @Override
@@ -848,7 +769,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public File getDataDirectory() {
         log("getDataDirectory()");
-        return Paths.get("").toFile(); // use current path (where the application was started from)
+        // Must be the same directory that getDataFile() resolves against, like in classic Robocode
+        return RobotData.getDataDirectory();
     }
 
     @Override
@@ -1039,11 +961,79 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             }
         }
 
-        @Override
-        public void go() {
-            super.go();
+        //---------------------------------------------------------------------
+        // Bot API event handlers dispatched via the Bot API event queue, which
+        // handles event priorities and interruptible events like classic Robocode
+        //---------------------------------------------------------------------
 
-            dispatchBotEvents();
+        @Override
+        public void onTick(TickEvent tickEvent) {
+            dispatchStatusEvent(tickEvent);
+        }
+
+        @Override
+        public void onScannedBot(ScannedBotEvent scannedBotEvent) {
+            dispatchScannedRobotEvent(scannedBotEvent);
+        }
+
+        @Override
+        public void onBulletHitWall(BulletHitWallEvent bulletHitWallEvent) {
+            dispatchBulletMissedEvent(bulletHitWallEvent);
+        }
+
+        @Override
+        public void onBulletHit(BulletHitBotEvent bulletHitBotEvent) {
+            dispatchBulletHitEvent(bulletHitBotEvent);
+        }
+
+        @Override
+        public void onHitByBullet(HitByBulletEvent hitByBulletEvent) {
+            dispatchHitByBulletEvent(hitByBulletEvent);
+        }
+
+        @Override
+        public void onHitWall(dev.robocode.tankroyale.botapi.events.HitWallEvent hitWallEvent) {
+            dispatchHitWallEvent();
+        }
+
+        @Override
+        public void onHitBot(HitBotEvent hitBotEvent) {
+            dispatchHitRobotEvent(hitBotEvent);
+        }
+
+        @Override
+        public void onDeath(dev.robocode.tankroyale.botapi.events.DeathEvent deathEvent) {
+            dispatchDeathEvent();
+        }
+
+        @Override
+        public void onBotDeath(BotDeathEvent botDeathEvent) {
+            dispatchRobotDeathEvent(botDeathEvent);
+        }
+
+        @Override
+        public void onSkippedTurn(SkippedTurnEvent skippedTurnEvent) {
+            dispatchSkippedTurnEvent(skippedTurnEvent);
+        }
+
+        @Override
+        public void onWonRound(WonRoundEvent wonRoundEvent) {
+            dispatchWinEvent();
+        }
+
+        @Override
+        public void onBulletHitBullet(BulletHitBulletEvent bulletHitBulletEvent) {
+            dispatchBulletHitBulletEvent(bulletHitBulletEvent);
+        }
+
+        @Override
+        public void onCustomEvent(CustomEvent customEvent) {
+            dispatchCustomEvent(customEvent);
+        }
+
+        @Override
+        public void onTeamMessage(TeamMessageEvent teamMessageEvent) {
+            dispatchMessageEvent(teamMessageEvent);
         }
 
         @Override

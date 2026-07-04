@@ -56,13 +56,15 @@ DEFAULTS = {
         "COMPAT_WRAPPER_JAR",
         r"C:\Code\robocode-api-bridge\robots-wrapper\build\libs\robots-wrapper-0.3.1.jar"),
     # NOTE: must be protocol/API compatible with what the bridge's robocode-api jar was
-    # compiled against (0.32/0.33) AND with the server embedded in the runner jar.
-    # bot-api 1.0.2 connects but robots stay idle; 0.33.1 works.
+    # compiled against AND with the server embedded in the runner jar. Publish it with
+    # `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository.
+    # (0.33.1 had an event-queue bug dropping deferred same-priority events, e.g. every
+    # other scan event for bots that call blocking methods inside onScannedRobot.)
     "bot_api_jar": os.environ.get(
         "COMPAT_BOT_API_JAR",
         os.path.expanduser(r"~\.m2\repository\dev\robocode\tankroyale"
-                           r"\robocode-tankroyale-bot-api\0.33.1"
-                           r"\robocode-tankroyale-bot-api-0.33.1.jar")),
+                           r"\robocode-tankroyale-bot-api\1.0.2"
+                           r"\robocode-tankroyale-bot-api-1.0.2.jar")),
 }
 
 STATE_FILE = BASE_DIR / "test_progress.json"

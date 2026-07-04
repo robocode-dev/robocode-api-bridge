@@ -8,7 +8,8 @@ group = "dev.robocode"
 version = "0.3.1"
 
 repositories {
-    mavenLocal() // bot-api 0.33.1 is not published on Maven Central
+    mavenLocal() // bot-api 1.0.2 is not published on Maven Central (yet); publish it with
+                 // `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository
     mavenCentral()
 }
 

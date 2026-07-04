@@ -21,6 +21,10 @@ public final class RobotData {
         }
     }
 
+    public static File getDataDirectory() {
+        return dataDirPath.toAbsolutePath().toFile();
+    }
+
     public static File getDataFile(String filename) {
         return dataDirPath.resolve(filename).toAbsolutePath().toFile();
     }

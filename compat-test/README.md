@@ -27,11 +27,14 @@ the failure.
   - Tank Royale runner fat jar: `C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar`
   - Bridge adapter: `robocode-api\build\libs\robocode-api-0.5.0.jar` (this repo, `gradlew :robocode-api:build`)
   - Robots wrapper: `robots-wrapper\build\libs\robots-wrapper-0.3.1.jar` (this repo, `gradlew :robots-wrapper:build`)
-  - Tank Royale Bot API **0.33.1** from `~\.m2\repository\...\robocode-tankroyale-bot-api-0.33.1.jar`
+  - Tank Royale Bot API **1.0.2** from `~\.m2\repository\...\robocode-tankroyale-bot-api-1.0.2.jar`
+    (publish it with `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository)
 
-  > ⚠️ The bot-api version matters: the bridge jar is compiled against bot-api 0.32/0.33.
-  > With bot-api 1.0.2 the wrapped robots connect and the battle "runs", but the robots
-  > stay idle and score 0. 0.33.1 works against the server embedded in the runner jar.
+  > ⚠️ The bot-api version matters: it must be protocol-compatible with the server embedded
+  > in the runner jar (an incompatible pairing leaves the robots idle, scoring 0 — newer
+  > Bot APIs fail loudly on this). Do not fall back to 0.33.1: its event queue drops
+  > deferred same-priority events, e.g. every other scan event for robots that call a
+  > blocking method such as `fire()` inside `onScannedRobot`.
 
 All paths are defaults only — override with CLI flags (`--collection-dir`,
 `--robocode-home`, `--runner-jar`, `--bridge-api-jar`, `--wrapper-jar`, `--bot-api-jar`)
