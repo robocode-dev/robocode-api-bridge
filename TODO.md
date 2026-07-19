@@ -27,7 +27,7 @@ mirror-match scores are tiny and wildly noisy on the classic side too (RC swung 
 between runs), so single-battle percentage deltas are meaningless for this bot — needs
 multi-run averaging before drawing conclusions.
 
-## 1. Commit pending bridge changes
+## 1. Commit pending bridge changes (done)
 
 Uncommitted: the event-dispatch redesign + bot-api 1.0.2 upgrade (BotPeer.java, both
 build.gradle.kts files, compat_test.py/README defaults), and `BotPeer.getDataDirectory()`
