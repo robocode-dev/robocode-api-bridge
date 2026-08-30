@@ -4,7 +4,7 @@ type: goal
 status: accepted
 links: []
 title: Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 

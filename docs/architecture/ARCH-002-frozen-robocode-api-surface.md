@@ -4,7 +4,7 @@ type: architecture
 status: active
 links: [G-001, ARCH-001, CAP-003]
 title: The frozen Robocode API surface — robocode.* is reproduced, not designed
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 

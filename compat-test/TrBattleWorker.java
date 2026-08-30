@@ -37,9 +37,14 @@ public class TrBattleWorker {
 
     public static void main(String[] args) throws Exception {
         Map<String, String> opt = parseArgs(args);
-        Path bot1 = Path.of(require(opt, "bot"));
-        Path bot2 = Path.of(opt.getOrDefault("bot2", opt.get("bot")));
+        // Bot directories: --bots takes a File.pathSeparator-joined list (melee needs more
+        // than two); --bot/--bot2 remain for the 1-vs-1 case.
+        List<Path> botDirs = botDirs(opt);
         int rounds = Integer.parseInt(opt.getOrDefault("rounds", "10"));
+        // Arena and participant count come from the caller so each rumble division runs at
+        // its own official parameters (C-003); the defaults are the 1-vs-1 ones.
+        int width = Integer.parseInt(opt.getOrDefault("width", "800"));
+        int height = Integer.parseInt(opt.getOrDefault("height", "600"));
         Path outFile = Path.of(require(opt, "out"));
         int timeoutSecs = Integer.parseInt(opt.getOrDefault("timeout", "0"));
         int turnTimeoutMicros = Integer.parseInt(opt.getOrDefault("turn-timeout", "0")); // 0 = preset default
@@ -54,7 +59,7 @@ public class TrBattleWorker {
         Map<String, Object> result = new HashMap<>();
         int exitCode;
         try {
-            runBattle(bot1, bot2, rounds, turnTimeoutMicros, result);
+            runBattle(botDirs, rounds, width, height, turnTimeoutMicros, result);
             exitCode = Boolean.TRUE.equals(result.get("ok")) ? 0 : 1;
         } catch (Throwable t) {
             result.put("ok", false);
@@ -80,16 +85,45 @@ public class TrBattleWorker {
         System.exit(exitCode);
     }
 
-    private static void runBattle(Path bot1, Path bot2, int rounds, int turnTimeoutMicros,
+    /**
+     * Resolves the bot directories to run. Prefers --bots (a path-separator-joined list, which
+     * is how melee gets more than two participants), and falls back to --bot/--bot2.
+     */
+    private static List<Path> botDirs(Map<String, String> opt) {
+        List<Path> dirs = new ArrayList<>();
+        String joined = opt.get("bots");
+        if (joined != null && !joined.isBlank()) {
+            for (String part : joined.split(java.util.regex.Pattern.quote(java.io.File.pathSeparator))) {
+                if (!part.isBlank()) {
+                    dirs.add(Path.of(part.trim()));
+                }
+            }
+        }
+        if (dirs.isEmpty()) {
+            dirs.add(Path.of(require(opt, "bot")));
+            dirs.add(Path.of(opt.getOrDefault("bot2", opt.get("bot"))));
+        }
+        return dirs;
+    }
+
+    private static void runBattle(List<Path> botDirs, int rounds, int width, int height, int turnTimeoutMicros,
                                   Map<String, Object> result) {
         try (BattleRunner runner = BattleRunner.create(b -> b.embeddedServer())) {
             BattleSetup setup = BattleSetup.classic(s -> {
                 s.setNumberOfRounds(rounds);
+                s.setArenaWidth(width);
+                s.setArenaHeight(height);
+                // The preset caps participants for its own game type; melee runs more bots
+                // than the classic preset expects, so raise the ceiling to what was staged.
+                s.setMaxNumberOfParticipants(botDirs.size());
                 if (turnTimeoutMicros > 0) {
                     s.setTurnTimeoutMicros(turnTimeoutMicros);
                 }
             });
-            List<BotEntry> bots = List.of(BotEntry.of(bot1), BotEntry.of(bot2));
+            List<BotEntry> bots = new ArrayList<>();
+            for (Path dir : botDirs) {
+                bots.add(BotEntry.of(dir));
+            }
 
             BattleResults results = runner.runBattle(setup, bots);
 

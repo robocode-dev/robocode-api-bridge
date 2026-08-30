@@ -65,7 +65,21 @@ DEFAULTS = {
         os.path.expanduser(r"~\.m2\repository\dev\robocode\tankroyale"
                            r"\robocode-tankroyale-bot-api\1.0.2"
                            r"\robocode-tankroyale-bot-api-1.0.2.jar")),
+    # Classic Robocode installs a SecurityManager to sandbox robots. JDK 24 removed
+    # SecurityManager support outright, so -Djava.security.manager=allow is no longer a
+    # deprecation warning but a fatal VM error, and the classic side cannot start at all.
+    # The classic worker therefore runs on its own JDK; the Tank Royale side does not care.
+    "rc_java": os.environ.get("COMPAT_RC_JAVA", ""),
 }
+
+# JDKs new enough for the bridge and old enough to still support a SecurityManager.
+RC_JAVA_SEARCH_GLOBS = (
+    r"C:\Program Files\Eclipse Adoptium\jdk-17*\bin\java.exe",
+    r"C:\Program Files\Eclipse Adoptium\jdk-21*\bin\java.exe",
+    r"C:\Program Files\Java\jdk-17*\bin\java.exe",
+    r"C:\Program Files\Java\jdk-21*\bin\java.exe",
+)
+RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManager
 
 STATE_FILE = BASE_DIR / "test_progress.json"
 REPORT_FILE = BASE_DIR / "compatibility_report.md"
@@ -76,6 +90,28 @@ RC_WORKER = BASE_DIR / "RcBattleWorker.java"
 TR_WORKER = BASE_DIR / "TrBattleWorker.java"
 
 ALL_COLLECTIONS = ["roborumble", "meleerumble", "teamrumble"]
+
+# Official rumble parameters per division, read from the classic installation's rumble
+# configuration (roborumble.txt, meleerumble.txt, teamrumble.txt). Constraint C-003: these
+# are not ours to choose. A robot is tuned to its division and its ranking was earned at
+# these settings, so measuring it at anything else produces a number that describes
+# behaviour the robot was never ranked on.
+#
+# `participants` is how many copies of the robot share the field. Melee robots behave
+# differently against nine opponents than against one, which is the whole point of the
+# division and the reason a single setup cannot stand in for all three.
+DIVISIONS = {
+    "roborumble":  {"width": 800,  "height": 600,  "rounds": 35, "participants": 2},
+    "meleerumble": {"width": 1000, "height": 1000, "rounds": 35, "participants": 10},
+    "teamrumble":  {"width": 1200, "height": 1200, "rounds": 10, "participants": 2},
+}
+
+# Regression gate (C-004). Scores are averaged over repeats before being judged, and the
+# verdict is stated as movement from a recorded baseline rather than as an absolute delta:
+# a bot that has always differed by a given margin and still does has not regressed.
+REGRESSION_SET_FILE = BASE_DIR / "regression-set.json"
+REGRESSION_REPEATS = 5
+REGRESSION_BAND_POINTS = 15.0
 
 # Matches stack-trace-style error lines, e.g. "java.lang.NullPointerException: ..."
 EXCEPTION_RE = re.compile(
@@ -149,6 +185,39 @@ def extract_errors(text):
     return found
 
 
+def java_feature_version(java_exe):
+    """Returns the feature version of a java executable, or None if it cannot be read."""
+    try:
+        out = subprocess.run([java_exe, "-version"], capture_output=True, text=True,
+                             timeout=30).stderr
+    except (OSError, subprocess.SubprocessError):
+        return None
+    match = re.search(r'version "(\d+)', out or "")
+    return int(match.group(1)) if match else None
+
+
+def resolve_rc_java(opts):
+    """Finds a java for the classic side that still supports a SecurityManager.
+
+    Classic Robocode sandboxes robots with a SecurityManager. JDK 24 removed the
+    mechanism, so `-Djava.security.manager=allow` became a fatal VM error rather than a
+    warning: on a JDK 24+ default the classic side does not merely warn, it never starts."""
+    if opts.rc_java:
+        return opts.rc_java
+
+    if java_feature_version("java") not in (None,) and \
+            (java_feature_version("java") or 99) <= RC_JAVA_MAX_FEATURE:
+        return "java"
+
+    import glob
+    for pattern in RC_JAVA_SEARCH_GLOBS:
+        for candidate in sorted(glob.glob(pattern), reverse=True):
+            feature = java_feature_version(candidate)
+            if feature is not None and feature <= RC_JAVA_MAX_FEATURE:
+                return candidate
+    return None
+
+
 def kill_process_tree(proc: subprocess.Popen):
     """Kills a process and all of its children (bot JVMs, embedded server, booter)."""
     if proc.poll() is not None:
@@ -164,13 +233,32 @@ def kill_process_tree(proc: subprocess.Popen):
         proc.kill()
 
 
-def run_java(cmd, cwd, timeout):
-    """Runs a java command; returns (returncode, stdout+stderr, timed_out)."""
+def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
+    """Runs a java command; returns (returncode, stdout+stderr, timed_out).
+
+    `abort_when` is an optional callable polled while the battle runs. When it returns
+    true the whole process tree is killed immediately -- the fail-fast half of C-004."""
     proc = subprocess.Popen(
         cmd, cwd=str(cwd), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, encoding="utf-8", errors="replace")
+
+    if abort_when is not None:
+        deadline = time.time() + timeout
+        while proc.poll() is None:
+            if time.time() > deadline:
+                break
+            if abort_when():
+                kill_process_tree(proc)
+                try:
+                    output, _ = proc.communicate(timeout=10)
+                except Exception:
+                    output = ""
+                return -1, (output or "") + "\n<stopped: exception with no classic counterpart>", False
+            time.sleep(poll_seconds)
+
     try:
-        output, _ = proc.communicate(timeout=timeout)
+        remaining = timeout if abort_when is None else max(5, deadline - time.time())
+        output, _ = proc.communicate(timeout=remaining)
         return proc.returncode, output or "", False
     except subprocess.TimeoutExpired:
         kill_process_tree(proc)
@@ -179,6 +267,38 @@ def run_java(cmd, cwd, timeout):
         except Exception:
             output = ""
         return -1, (output or "") + "\n<killed: orchestrator timeout>", True
+
+
+class BridgeOnlyErrorWatcher:
+    """Watches the staged bots' log files for an exception signature the classic side did
+    not produce.
+
+    This is the asymmetry C-004 describes. A score difference is a quantity that noise can
+    explain and repeats can resolve; the same bot throwing only under the bridge is a
+    categorical fact about the bridge that no amount of repetition improves. The classic
+    side always runs first, so its signatures are already available to compare against."""
+
+    def __init__(self, bot_dirs, rc_signatures):
+        self.bot_dirs = list(bot_dirs)
+        self.rc_signatures = {signature_key(s) for s in (rc_signatures or [])}
+        self.found = set()
+        self.triggered = False
+
+    def __call__(self):
+        for d in self.bot_dirs:
+            for log_name in ("stderr.log", "stdout.log"):
+                for line in extract_errors(read_capped(d / log_name)):
+                    if signature_key(line) not in self.rc_signatures:
+                        self.found.add(line)
+        self.triggered = bool(self.found)
+        return self.triggered
+
+
+def signature_key(error_line):
+    """Reduces an error line to the exception type it names, so two occurrences of the same
+    fault compare equal despite differing messages, line numbers, or robot names."""
+    match = EXCEPTION_RE.search(error_line or "")
+    return match.group(1) if match else (error_line or "").strip()[:120]
 
 
 # ----------------------------------------------------------------------------------
@@ -209,21 +329,28 @@ def save_state(state):
 # Classic Robocode side
 # ----------------------------------------------------------------------------------
 
-def run_rc_battle(jar_path: Path, classname, version, opts):
-    """Runs one classic Robocode battle for the jar; returns a result summary dict."""
-    robots_dir = WORK_DIR / "rc-robots"
+def run_rc_battle(jar_path: Path, classname, version, opts, setup):
+    """Runs one classic Robocode battle for the jar at the division setup; returns a summary."""
     home_dir = WORK_DIR / "rc-home"
-    clean_dir(robots_dir)
     (home_dir / "config").mkdir(parents=True, exist_ok=True)
     (home_dir / "battles").mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(jar_path, robots_dir / jar_path.name)
+
+    if jar_path.is_dir():
+        # A directory of compiled robot classes, which is how classic's own test suite
+        # presents its test robots -- the repository rejects them packaged as a plain jar.
+        # Used as-is: it belongs to another repository and is never written to (C-007).
+        robots_dir = jar_path
+    else:
+        robots_dir = WORK_DIR / "rc-robots"
+        clean_dir(robots_dir)
+        shutil.copyfile(jar_path, robots_dir / jar_path.name)
 
     out_file = WORK_DIR / "rc-result.json"
     out_file.unlink(missing_ok=True)
 
     select = classname if version is None else f"{classname} {version}"
     cmd = [
-        "java",
+        opts.rc_java_exe,
         "-Xmx1024M",
         "-XX:+IgnoreUnrecognizedVMOptions",
         "-Djava.security.manager=allow",  # required by classic Robocode on Java 12-23
@@ -236,7 +363,10 @@ def run_rc_battle(jar_path: Path, classname, version, opts):
         str(RC_WORKER),
         "--home", str(home_dir),
         "--select", select,
-        "--rounds", str(opts.rounds),
+        "--rounds", str(setup["rounds"]),
+        "--width", str(setup["width"]),
+        "--height", str(setup["height"]),
+        "--participants", str(setup["participants"]),
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
@@ -325,12 +455,15 @@ def patch_boot_scripts(bot_dir: Path):
         script.write_text(content, encoding="utf-8")
 
 
-def duplicate_bot_dir(bot_dir: Path):
-    """Creates a sibling copy of the bot dir so two independent processes never share
+def duplicate_bot_dir(bot_dir: Path, index=2):
+    """Creates a sibling copy of the bot dir so independent processes never share
     stdout/stderr log files. The copy keeps the original .json (read by Wrapper.java)
-    and gains <copyname>.json/.cmd/.sh (read by the booter)."""
+    and gains <copyname>.json/.cmd/.sh (read by the booter).
+
+    Separate log files are not tidiness: C-004's fail-fast rule needs an exception
+    attributed to a participant, and interleaved logs make attribution impossible."""
     name = bot_dir.name
-    copy_dir = bot_dir.parent / (name + "-2")
+    copy_dir = bot_dir.parent / f"{name}-{index}"
     if copy_dir.exists():
         shutil.rmtree(copy_dir, ignore_errors=True)
     shutil.copytree(bot_dir, copy_dir)
@@ -342,6 +475,15 @@ def duplicate_bot_dir(bot_dir: Path):
             else:
                 src.rename(copy_dir / (copy_dir.name + ext))
     return copy_dir
+
+
+def stage_bot_dirs(bot_dir: Path, participants):
+    """Returns the list of bot directories for a battle: the original plus enough copies
+    to reach the division's participant count."""
+    dirs = [bot_dir]
+    for index in range(2, max(2, participants) + 1):
+        dirs.append(duplicate_bot_dir(bot_dir, index))
+    return dirs
 
 
 def wrap_jar_for_tr(jar_path: Path, classname, version, opts):
@@ -380,8 +522,13 @@ def wrap_jar_for_tr(jar_path: Path, classname, version, opts):
     return chosen, None
 
 
-def run_tr_battle(jar_path: Path, classname, version, opts):
-    """Wraps the jar and runs one Tank Royale battle; returns a result summary dict."""
+def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures=None):
+    """Wraps the jar and runs one Tank Royale battle at the division setup.
+
+    `rc_signatures` is the set of exception signatures the classic side produced for this
+    robot. When the Tank Royale side emits one that is not in it, C-004 says to stop: the
+    same bot misbehaving only under the bridge is a categorical fact, and finishing the
+    battle to produce a score for it spends minutes to learn nothing further."""
     bot_dir, wrap_error = wrap_jar_for_tr(jar_path, classname, version, opts)
     if wrap_error:
         return {
@@ -390,7 +537,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts):
             "error_count": 1, "log_text": "=== Wrapping failed ===\n" + wrap_error,
         }
 
-    bot_dir2 = duplicate_bot_dir(bot_dir)
+    bot_dirs = stage_bot_dirs(bot_dir, setup["participants"])
     out_file = WORK_DIR / "tr-result.json"
     out_file.unlink(missing_ok=True)
 
@@ -398,14 +545,19 @@ def run_tr_battle(jar_path: Path, classname, version, opts):
         "java",
         "-cp", opts.runner_jar,
         str(TR_WORKER),
-        "--bot", str(bot_dir),
-        "--bot2", str(bot_dir2),
-        "--rounds", str(opts.rounds),
+        "--bots", os.pathsep.join(str(d) for d in bot_dirs),
+        "--rounds", str(setup["rounds"]),
+        "--width", str(setup["width"]),
+        "--height", str(setup["height"]),
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
     started = time.time()
-    returncode, output, timed_out = run_java(cmd, cwd=WORK_DIR, timeout=opts.timeout)
+    watcher = None
+    if rc_signatures is not None:
+        watcher = BridgeOnlyErrorWatcher(bot_dirs, rc_signatures)
+    returncode, output, timed_out = run_java(
+        cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher)
     elapsed = time.time() - started
 
     result = summarize_worker_result(
@@ -413,7 +565,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts):
 
     # Bot processes write stdout/stderr into their bot dirs; scan them for errors.
     bot_logs = []
-    for d in (bot_dir, bot_dir2):
+    for d in bot_dirs:
         for log_name in ("stderr.log", "stdout.log"):
             text = read_capped(d / log_name)
             if not text.strip():
@@ -427,6 +579,15 @@ def run_tr_battle(jar_path: Path, classname, version, opts):
         result["log_text"] = (result["log_text"] + "\n\n" if result["log_text"] else "") \
             + "\n\n".join(bot_logs)
     result["errors"] = result["errors"][:100]
+
+    if watcher is not None and watcher.triggered:
+        # The battle was stopped rather than finishing. Say so plainly: the result is a
+        # verdict about the bridge, not a score that happens to be missing.
+        result["ok"] = False
+        result["aborted_on_bridge_only_error"] = True
+        result["bridge_only_signatures"] = sorted(watcher.found)
+        result["score"] = None
+        result["scores"] = []
     return result
 
 
@@ -571,6 +732,17 @@ def check_prerequisites(opts):
             problems.append(f"  - {label} not found: {path}")
     if shutil.which("java") is None:
         problems.append("  - 'java' not found on PATH (JDK 17+ required)")
+
+    # Resolved once and reused: the classic side needs a JDK that still has a
+    # SecurityManager, and failing here beats failing as a worker that never starts.
+    opts.rc_java_exe = resolve_rc_java(opts)
+    if opts.rc_java_exe is None:
+        problems.append(
+            f"  - no JDK {RC_JAVA_MAX_FEATURE} or older found for the classic side. Classic "
+            f"Robocode installs a SecurityManager, which JDK 24 removed entirely, so "
+            f"-Djava.security.manager=allow is now a fatal VM error rather than a warning. "
+            f"Point --rc-java (or COMPAT_RC_JAVA) at an older JDK.")
+
     if problems:
         print("Missing prerequisites:\n" + "\n".join(problems), file=sys.stderr)
         sys.exit(2)
@@ -582,7 +754,9 @@ def parse_args():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     p.add_argument("--collections", default=",".join(ALL_COLLECTIONS),
                    help="comma-separated collection subdirectories to test")
-    p.add_argument("--rounds", type=int, default=10, help="rounds per battle")
+    p.add_argument("--rounds", type=int, default=None,
+                   help="override the division's official round count (makes results "
+                        "incomparable with the rumble; for quick local runs)")
     p.add_argument("--timeout", type=int, default=600,
                    help="max seconds per engine run (battle + JVM startup)")
     p.add_argument("--threshold", type=float, default=25.0,
@@ -601,15 +775,293 @@ def parse_args():
     p.add_argument("--bridge-api-jar", default=DEFAULTS["bridge_api_jar"])
     p.add_argument("--wrapper-jar", default=DEFAULTS["wrapper_jar"])
     p.add_argument("--bot-api-jar", default=DEFAULTS["bot_api_jar"])
+    p.add_argument("--rc-java", default=DEFAULTS["rc_java"],
+                   help="java executable for the classic side; must be JDK 23 or older, "
+                        "since newer releases removed the SecurityManager classic needs "
+                        "(auto-detected when not given)")
+
+    gate = p.add_argument_group("regression gate (C-004)")
+    gate.add_argument("--regression", action="store_true",
+                      help="re-measure the pinned watch list and report movement from "
+                           "each recorded baseline; exits non-zero on a regression")
+    gate.add_argument("--repeats", type=int, default=None,
+                      help=f"battles per side to average (default {REGRESSION_REPEATS})")
+    gate.add_argument("--band", type=float, default=None,
+                      help="percentage points of movement from baseline that counts as a "
+                           f"regression (default {REGRESSION_BAND_POINTS})")
+
+    conf = p.add_argument_group("conformance mode (tier 2)")
+    conf.add_argument("--conformance", metavar="JAR",
+                      help="run one robot jar on one engine and print the result, "
+                           "including each participant's console output, as JSON")
+    conf.add_argument("--engine", choices=("rc", "tr"), default="rc",
+                      help="which engine --conformance drives")
+    conf.add_argument("--robot-class",
+                      help="robot class to select, when it cannot be derived from the "
+                           "jar name (classic's test robot jars hold many robots)")
+    conf.add_argument("--participants", type=int, default=None,
+                      help="participant count for --conformance")
+
     opts = p.parse_args()
     opts.collections = [c.strip() for c in opts.collections.split(",") if c.strip()]
     return opts
 
 
+# ----------------------------------------------------------------------------------
+# Regression gate (C-004)
+# ----------------------------------------------------------------------------------
+
+def load_regression_set():
+    if not REGRESSION_SET_FILE.exists():
+        return None
+    with open(REGRESSION_SET_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def mean(values):
+    values = [v for v in values if v is not None]
+    return sum(values) / len(values) if values else None
+
+
+def measure_repeatedly(jar, classname, version, opts, setup, repeats):
+    """Runs the pair of battles `repeats` times and returns the averaged delta.
+
+    Averaging is what makes the comparison mean anything: one watched bot has swung by a
+    factor of forty between runs on the classic engine alone (AN-001)."""
+    rc_scores, tr_scores, deltas = [], [], []
+    bridge_only = []
+    for attempt in range(repeats):
+        rc = run_rc_battle(jar, classname, version, opts, setup)
+        tr = run_tr_battle(jar, classname, version, opts, setup,
+                           rc_signatures=rc.get("errors", []))
+        if tr.get("aborted_on_bridge_only_error"):
+            bridge_only = tr.get("bridge_only_signatures", [])
+            break
+        rc_scores.append(rc.get("score"))
+        tr_scores.append(tr.get("score"))
+        _, delta = evaluate(rc, tr, opts.threshold, False)
+        deltas.append(delta)
+        print(f"      repeat {attempt + 1}/{repeats}: RC={fmt_score(rc.get('score'))} "
+              f"TR={fmt_score(tr.get('score'))} "
+              f"delta={'-' if delta is None else f'{delta:+.1f}%'}", flush=True)
+    return {
+        "rc_mean": mean(rc_scores), "tr_mean": mean(tr_scores),
+        "delta_mean": mean(deltas), "samples": len(deltas),
+        "bridge_only_signatures": bridge_only,
+    }
+
+
+def run_regression(opts):
+    """Re-measures the pinned watch list and reports movement from each baseline."""
+    watch = load_regression_set()
+    if watch is None:
+        print(f"No regression set at {REGRESSION_SET_FILE}.", file=sys.stderr)
+        return 2
+
+    check_prerequisites(opts)
+    WORK_DIR.mkdir(parents=True, exist_ok=True)
+    repeats = opts.repeats or REGRESSION_REPEATS
+    band = opts.band if opts.band is not None else REGRESSION_BAND_POINTS
+
+    regressions, reported = [], []
+    for entry in watch["bots"]:
+        collection, jar_name = entry["jar"].split("/", 1)
+        jar = Path(opts.collection_dir) / collection / jar_name
+        if not jar.exists():
+            print(f"  MISSING {entry['jar']}", file=sys.stderr)
+            continue
+
+        classname, version = split_jar_name(jar_name)
+        setup = division_setup(collection, opts)
+        print(f"  {entry['jar']} [{entry['state']}] ...", flush=True)
+        measured = measure_repeatedly(jar, classname, version, opts, setup, repeats)
+
+        if measured["bridge_only_signatures"]:
+            verdict = "BRIDGE-ONLY ERROR"
+            regressions.append((entry, measured, verdict))
+        elif entry["state"] == "noise":
+            # Reported, never fails the run. A gate that fires on the same bot every time
+            # is a gate people learn to ignore (C-004).
+            verdict = "noise (reported, not gated)"
+        elif measured["delta_mean"] is None or entry.get("baseline_delta_pct") is None:
+            verdict = "NO BASELINE"
+        else:
+            movement = abs(measured["delta_mean"] - entry["baseline_delta_pct"])
+            if movement > band:
+                verdict = f"REGRESSED (moved {movement:.1f} points)"
+                regressions.append((entry, measured, verdict))
+            else:
+                verdict = f"ok (moved {movement:.1f} points)"
+        reported.append((entry, measured, verdict))
+        print(f"    -> {verdict}", flush=True)
+
+    print("\nRegression summary:")
+    for entry, measured, verdict in reported:
+        mean_str = "-" if measured["delta_mean"] is None else f"{measured['delta_mean']:+.1f}%"
+        print(f"  {entry['jar']:<50} {mean_str:>8}  {verdict}")
+
+    if regressions:
+        print(f"\n{len(regressions)} regression(s).", file=sys.stderr)
+        return 1
+    print("\nNo regressions.")
+    return 0
+
+
+# ----------------------------------------------------------------------------------
+# Conformance mode (tier 2 of PDR-001)
+# ----------------------------------------------------------------------------------
+
+def package_test_robot_jar(class_dir: Path, robot_class, out_dir: Path):
+    """Packages one robot from a directory of compiled classes into a valid Robocode
+    robot jar.
+
+    Classic reads a directory of classes directly, but the robots-wrapper needs a real
+    robot jar: it locates robots by their `.properties` descriptor, and a plain classes
+    jar has none. Classic's test robots ship as compiled classes without descriptors, so
+    the descriptor is generated here rather than expected in the source tree -- which
+    also keeps the other repository untouched (C-007).
+
+    Only the selected robot's own classes are included, so one battle cannot accidentally
+    pick up a sibling test robot."""
+    package, _, simple_name = robot_class.rpartition(".")
+    package_path = package.replace(".", "/")
+    source_pkg_dir = class_dir / package_path
+    if not source_pkg_dir.is_dir():
+        return None, f"no package directory for {robot_class} under {class_dir}"
+
+    # The robot class plus its inner classes (Robot$1.class and friends).
+    members = sorted(p for p in source_pkg_dir.iterdir()
+                     if p.is_file() and p.suffix == ".class"
+                     and (p.stem == simple_name or p.stem.startswith(simple_name + "$")))
+    if not members:
+        return None, f"no compiled classes for {robot_class} in {source_pkg_dir}"
+
+    staging = out_dir / "robot-src"
+    clean_dir(staging)
+    target_pkg_dir = staging / package_path
+    target_pkg_dir.mkdir(parents=True, exist_ok=True)
+    for member in members:
+        shutil.copyfile(member, target_pkg_dir / member.name)
+
+    (target_pkg_dir / f"{simple_name}.properties").write_text(
+        "#Robocode Robot\n"
+        f"robot.classname={robot_class}\n"
+        "robot.version=1.0\n"
+        f"robot.description=Conformance test robot {robot_class}\n"
+        "robot.author.name=Robocode\n"
+        "robocode.version=1.8.3.0\n",
+        encoding="utf-8")
+
+    jar_path = out_dir / f"{robot_class}_1.0.jar"
+    if jar_path.exists():
+        jar_path.unlink()
+    shutil.make_archive(str(jar_path.with_suffix("")), "zip", root_dir=str(staging))
+    Path(str(jar_path.with_suffix("")) + ".zip").rename(jar_path)
+    return jar_path, None
+
+
+def run_conformance(opts):
+    """Runs one robot on one engine and prints the result, including each participant's
+    console output, as JSON on stdout.
+
+    This is what the conformance test beds drive. They need the same staging the sweep
+    uses -- wrapper invocation, boot-script patching, per-instance log files -- and a
+    second implementation of that in Java would be the duplication most likely to drift,
+    so the beds call this instead of reimplementing it."""
+    jar = Path(opts.conformance)
+    if not jar.exists():
+        print(json.dumps({"ok": False, "fatal": f"robot source not found: {jar}"}))
+        return 2
+
+    check_prerequisites(opts)
+    WORK_DIR.mkdir(parents=True, exist_ok=True)
+
+    classname, version = split_jar_name(jar.name)
+    if opts.robot_class:
+        classname, version = opts.robot_class, None
+    setup = dict(DIVISIONS["roborumble"])
+    if opts.rounds is not None:
+        setup["rounds"] = opts.rounds
+    if opts.participants is not None:
+        setup["participants"] = opts.participants
+
+    if jar.is_dir():
+        # Package the one robot under test, for both engines.
+        #
+        # The bridge side needs a real robot jar because the wrapper finds robots by their
+        # .properties descriptor. The classic side would read the class directory directly,
+        # but that directory holds classic's whole test-robot suite -- including robots that
+        # are deliberately invalid, to test the repository's own error handling. Scanning
+        # them reports errors that have nothing to do with the robot under test, and a
+        # conformance run cannot tell those apart from a real fault.
+        #
+        # Packaging one robot means the repository contains exactly what is being tested.
+        packaged, error = package_test_robot_jar(jar, classname, WORK_DIR / "conformance")
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        jar, version = packaged, "1.0"
+
+    if opts.engine == "rc":
+        result = run_rc_battle(jar, classname, version, opts, setup)
+        consoles = result.pop("consoles", None)
+        if consoles is None:
+            consoles = read_worker_consoles(WORK_DIR / "rc-result.json")
+        result["consoles"] = consoles
+    else:
+        result = run_tr_battle(jar, classname, version, opts, setup)
+        # The bridge side's console output is whatever the bot processes wrote.
+        result["consoles"] = collect_bot_consoles()
+    result.pop("log_text", None)
+    result["setup"] = setup
+    print(json.dumps(result))
+    return 0 if result.get("ok") else 1
+
+
+def read_worker_consoles(out_file: Path):
+    try:
+        with open(out_file, encoding="utf-8") as f:
+            return json.load(f).get("consoles", [])
+    except (OSError, ValueError):
+        return []
+
+
+def collect_bot_consoles():
+    """Each staged bot instance writes its own stdout/stderr; return them per instance."""
+    consoles = []
+    staging = WORK_DIR / "tr-bots"
+    if not staging.exists():
+        return consoles
+    for d in sorted(staging.iterdir()):
+        if not d.is_dir() or d.name == "lib":
+            continue
+        text = read_capped(d / "stdout.log") + read_capped(d / "stderr.log")
+        if text.strip():
+            consoles.append(text)
+    return consoles
+
+
+def division_setup(collection, opts):
+    """The official parameters for a division (C-003), with --rounds as a deliberate
+    override for quick local runs. Overriding makes the result incomparable with the
+    rumble, so the report records the setup each row was measured at."""
+    setup = dict(DIVISIONS.get(collection, DIVISIONS["roborumble"]))
+    if opts.rounds is not None:
+        setup["rounds"] = opts.rounds
+    return setup
+
+
 def main():
     opts = parse_args()
+
+    if opts.conformance:
+        return run_conformance(opts)
+    if opts.regression:
+        return run_regression(opts)
+
     state = load_state()
-    state["settings"] = {"rounds": opts.rounds, "threshold": opts.threshold}
+    state["settings"] = {"rounds": opts.rounds, "threshold": opts.threshold,
+                         "divisions": DIVISIONS}
 
     if opts.report_only:
         regenerate_report(state)
@@ -637,7 +1089,8 @@ def main():
             index = f"[{tested + 1}/{min(len(todo), opts.limit or len(todo))}]"
             print(f"{index} {key} ...", flush=True)
 
-            rc = run_rc_battle(jar, classname, version, opts)
+            setup = division_setup(collection, opts)
+            rc = run_rc_battle(jar, classname, version, opts, setup)
             rc["has_log"] = write_error_log("robocode", robot_name, rc.pop("log_text", ""))
 
             tr_skipped = (collection == "teamrumble")
@@ -646,7 +1099,10 @@ def main():
                       "error_count": 0, "elapsed": 0.0, "skipped": True,
                       "has_log": False}
             else:
-                tr = run_tr_battle(jar, classname, version, opts)
+                # The classic side has already run, so its signatures are the baseline the
+                # bridge side is judged against (C-004).
+                tr = run_tr_battle(jar, classname, version, opts, setup,
+                                   rc_signatures=rc.get("errors", []))
                 tr["has_log"] = write_error_log("tank-royale", robot_name,
                                                 tr.pop("log_text", ""))
 
@@ -654,6 +1110,8 @@ def main():
             state["robots"][key] = {
                 "status": status,
                 "delta_pct": delta,
+                "division": collection,
+                "setup": setup,
                 "rc": {k: rc.get(k) for k in
                        ("ok", "score", "scores", "error_count", "elapsed",
                         "errors", "has_log", "selected")},
