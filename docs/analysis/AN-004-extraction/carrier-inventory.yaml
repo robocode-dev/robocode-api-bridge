@@ -1,0 +1,94 @@
+# Pinned operational-carrier inventory for CH-001, written by the rehearsal pass.
+#
+# Note on deleted-paths: this extraction deletes nothing. The source corpus is the
+# repository's own working documentation rather than a parallel specification tree, and
+# every source file is either retained as a reader's entry point or reduced to a pointer.
+# TODO.md is the only file whose role the corpus takes over, and it survives as a pointer
+# because it is also where a contributor looks first.
+source-revision: 16980d442629e0bd1d3524a65b5407d59aade5fa
+source-location: .
+deleted-paths: []
+entries:
+  - id: readme-project
+    kind: instruction
+    source-path: README.md
+    target-path: README.md
+    fingerprint: c9ecc1001358ad72435f5e22e1bbb2f74e76a15a80df1987869e520f2569f274
+
+  - id: claude-entry
+    kind: instruction
+    source-path: CLAUDE.md
+    target-path: CLAUDE.md
+    fingerprint: 6b07a97d3c2b0728b31492df7b10b3d41767a41df2ef412a60db7b7aa29dbe53
+
+  - id: pr-template
+    kind: instruction
+    source-path: .github/pull_request_template.md
+    target-path: .github/pull_request_template.md
+    fingerprint: 8f76451124ff73ec4e332b33688c2c47d587e328e8763e3cce24b5a38349aa0b
+
+  - id: agents-hub
+    kind: instruction
+    source-path: AGENTS.md
+    blocked: true
+    reason: The routing hub gains this repository's repo-local conventions during the mutate phase, so its final content does not exist yet and cannot be fingerprinted at rehearsal.
+
+  - id: clue-workflow
+    kind: workflow
+    source-path: .github/workflows/clue.yml
+    blocked: true
+    reason: The generated workflow gains the tier-one Gradle test job during the mutate phase. The repository has no pre-existing CI workflow, so nothing is being displaced.
+
+  - id: todo-registry
+    kind: registry
+    source-path: TODO.md
+    blocked: true
+    reason: TODO.md is the repository's hand-maintained index of work and the file the plan replaces. Its target is P-001, which the mutate phase writes; the file itself is reduced to a pointer rather than deleted, because it is a contributor's first stop.
+
+  - id: harness-methodology
+    kind: instruction
+    source-path: compat-test/README.md
+    blocked: true
+    reason: The harness README's methodology and status-vocabulary sections become CAP-007's design and criteria. The README is retained as operational documentation, but its target artifact does not exist yet.
+
+  - id: architecture-diagram
+    kind: diagram-asset
+    source-path: README.md
+    blocked: true
+    reason: README.md carries the bridge's component diagram as embedded Mermaid. It is retained where it is and also becomes the architecture artifact's diagram; that artifact does not exist yet. Embedded Mermaid is the preferred carrier, so no conversion is needed once the target exists.
+
+  - id: link-robocode-api-docs
+    kind: link
+    source-path: README.md
+    target-path: README.md
+    fingerprint: c9ecc1001358ad72435f5e22e1bbb2f74e76a15a80df1987869e520f2569f274
+
+  - id: link-tank-royale-bot-api-docs
+    kind: link
+    source-path: README.md
+    target-path: README.md
+    fingerprint: c9ecc1001358ad72435f5e22e1bbb2f74e76a15a80df1987869e520f2569f274
+
+  - id: link-robocode-api-module
+    kind: link
+    source-path: README.md
+    target-path: README.md
+    fingerprint: c9ecc1001358ad72435f5e22e1bbb2f74e76a15a80df1987869e520f2569f274
+
+  - id: link-robots-wrapper-module
+    kind: link
+    source-path: README.md
+    target-path: README.md
+    fingerprint: c9ecc1001358ad72435f5e22e1bbb2f74e76a15a80df1987869e520f2569f274
+
+  - id: compatibility-report
+    kind: freshness-input
+    source-path: compat-test/compatibility_report.md
+    blocked: true
+    reason: "The generated compatibility report is the evidence SCORE-001 and SCORE-003 are judged against, but it is untracked by compat-test/.gitignore, so it has no committed revision to pin. Its target is the regression watch list the mutate phase writes; until that list exists there is nothing stable to fingerprint. This is a genuine gap, not a formality: the corpus will name evidence that lives only in a maintainer's working tree."
+
+  - id: bot-api-version-pin
+    kind: freshness-input
+    source-path: compat-test/README.md
+    blocked: true
+    reason: The Bot API version must stay protocol-compatible with the server embedded in the Tank Royale runner jar. Today that pairing is asserted in prose in two build files and the harness README, and nothing checks it. Its target is the constraint the mutate phase writes; enforcement remains human until something can compare the two.

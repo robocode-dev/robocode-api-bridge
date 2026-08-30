@@ -1,0 +1,59 @@
+# The caller is deliberately small. The validation logic lives in Cliewen's
+# reusable workflow, so an adopter changes only this reference and the local
+# runner or binary-source choices when its repository policy requires it.
+# The reference is replaced with the binary's source commit when build VCS
+# metadata is available; a released module build falls back to its protected
+# release tag.
+name: clue
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate
+    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@a153664af64b3736b55f5ed10a95ad2f206730da
+    with:
+      runner: '["ubuntu-latest"]'
+      clue-version: 0.20.0
+      # release rather than vendored: the binary is downloaded and its checksum
+      # verified per run, so a multi-megabyte executable stays out of a repository
+      # whose whole purpose is comparing robot behaviour. The version is pinned
+      # exactly as generated and is never `latest`.
+      clue-source: release
+      clue-install-directory: ''
+      # Safe only because the trigger list above includes ready_for_review:
+      # that is what guarantees a strict run when a draft becomes a candidate.
+      draft-aware: true
+
+  # Tier 1 of the evidence strategy (PDR-001). The only tier that runs here: the other two
+  # need a classic Robocode installation, the Tank Royale runner, and the rumble collection,
+  # none of which exist on a GitHub runner. See docs/architecture/README.md.
+  unit-tests:
+    name: unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Run the adapter's unit tests
+        run: ./gradlew :robocode-api:test --no-daemon
+
+      - name: Publish the test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: robocode-api/build/reports/tests/test/
+          if-no-files-found: ignore

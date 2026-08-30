@@ -45,6 +45,11 @@ public class RcBattleWorker {
         Map<String, String> opt = parseArgs(args);
         File home = new File(require(opt, "home"));
         int rounds = Integer.parseInt(opt.getOrDefault("rounds", "10"));
+        // Battlefield and participant count come from the caller so each rumble division
+        // runs at its own official parameters (C-003); the defaults are the 1-vs-1 ones.
+        int width = Integer.parseInt(opt.getOrDefault("width", "800"));
+        int height = Integer.parseInt(opt.getOrDefault("height", "600"));
+        int participants = Integer.parseInt(opt.getOrDefault("participants", "2"));
         String select = opt.get("select");
         Path outFile = Path.of(require(opt, "out"));
         int timeoutSecs = Integer.parseInt(opt.getOrDefault("timeout", "0"));
@@ -56,7 +61,7 @@ public class RcBattleWorker {
         Map<String, Object> result = new HashMap<>();
         int exitCode;
         try {
-            runBattle(home, rounds, select, result);
+            runBattle(home, rounds, width, height, participants, select, result);
             exitCode = Boolean.TRUE.equals(result.get("ok")) ? 0 : 1;
         } catch (Throwable t) {
             result.put("ok", false);
@@ -68,14 +73,15 @@ public class RcBattleWorker {
         Runtime.getRuntime().halt(exitCode);
     }
 
-    private static void runBattle(File home, int rounds, String select, Map<String, Object> result) {
+    private static void runBattle(File home, int rounds, int width, int height, int participantCount,
+                                  String select, Map<String, Object> result) {
         Collector collector = new Collector();
         RobocodeEngine engine = new RobocodeEngine(home);
         try {
             engine.addBattleListener(collector);
             engine.setVisible(false);
 
-            RobotSpecification[] participants = selectParticipants(engine, select);
+            RobotSpecification[] participants = selectParticipants(engine, select, participantCount);
             if (participants == null || participants.length == 0) {
                 result.put("ok", false);
                 result.put("fatal", "No robot found in repository matching: " + select);
@@ -85,7 +91,7 @@ public class RcBattleWorker {
 
             BattleSpecification battle = new BattleSpecification(
                     rounds,
-                    new BattlefieldSpecification(800, 600),
+                    new BattlefieldSpecification(width, height),
                     participants);
 
             engine.runBattle(battle, true); // blocks until the battle is over
@@ -135,14 +141,18 @@ public class RcBattleWorker {
     }
 
     /**
-     * Builds the participant array for a "robot (or team) vs. itself" battle.
-     * Selecting "X, X" makes the repository return two independent entries; for a team
-     * this expands into all member robots per team instance, which is required for the
-     * battle to actually contain two teams.
+     * Builds the participant array for a "robot (or team) vs. copies of itself" battle.
+     * Selecting "X, X, ..." makes the repository return that many independent entries; for a
+     * team this expands into all member robots per team instance, which is required for the
+     * battle to actually contain several teams.
+     *
+     * The count is the division's official participant count: two for 1-vs-1, ten for melee.
      */
-    private static RobotSpecification[] selectParticipants(RobocodeEngine engine, String select) {
+    private static RobotSpecification[] selectParticipants(RobocodeEngine engine, String select, int count) {
+        int wanted = Math.max(2, count);
         if (select != null && !select.isBlank()) {
-            RobotSpecification[] specs = engine.getLocalRepository(select + ", " + select);
+            String selection = String.join(", ", java.util.Collections.nCopies(wanted, select));
+            RobotSpecification[] specs = engine.getLocalRepository(selection);
             if (specs != null && specs.length > 0) {
                 return specs;
             }
@@ -161,7 +171,9 @@ public class RcBattleWorker {
                 }
             }
         }
-        return new RobotSpecification[] { chosen, chosen };
+        RobotSpecification[] participants = new RobotSpecification[wanted];
+        java.util.Arrays.fill(participants, chosen);
+        return participants;
     }
 
     /** Collects results, errors and per-robot console output from battle events. */

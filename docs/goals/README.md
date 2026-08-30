@@ -1,0 +1,9 @@
+# Goals
+
+G-xxx: who wants the system and why — the reason anything else in this corpus exists.
+
+A goal artifact answers three questions: who wants it, what they want, and why it matters. New wishes enter as `status: proposed` — the proposed goals **are** the inbox; a human promotes a goal to `accepted` when the project commits to it. Retiring a goal means deleting its file and naming its ID in a successor's `supersedes:` field. Plans link the goals they serve, so every milestone traces back to someone who wanted it.
+
+<!-- clue:index:start -->
+- [G-001 — Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode](G-001-legacy-robots-behave-the-same-on-tank-royale.md) · `accepted` — Why the bridge exists: robots that can never be recompiled must keep the behaviour their rankings were earned with, which makes classic the specification.
+<!-- clue:index:end -->
