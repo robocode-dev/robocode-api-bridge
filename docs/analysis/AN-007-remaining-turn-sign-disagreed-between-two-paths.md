@@ -72,4 +72,3 @@ The probe is kept rather than discarded. It answers a question no score can, and
 Which robots were affected. Any robot reading remaining-turn values from its status event was steering on an inverted quantity, and no flagged bot has been traced to it.
 
 Nor does it establish that the two paths agree on anything not now compared. The cross-path guard added alongside this finding checks the state a robot reads — position, energy, speed, the three headings, the three signed remainders — field by field with distinct values. Everything outside that set is still two implementations with no test that they agree.
-
