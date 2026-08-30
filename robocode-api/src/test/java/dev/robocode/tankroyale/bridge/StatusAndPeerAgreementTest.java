@@ -46,7 +46,10 @@ class StatusAndPeerAgreementTest {
                 .returning("getTurnRemaining", 21.0)
                 .returning("getGunTurnRemaining", 43.0)
                 .returning("getRadarTurnRemaining", 65.0)
-                .returning("getEnemyCount", 5);
+                .returning("getEnemyCount", 5)
+                .returning("getTurnNumber", 97)
+                .returning("getRoundNumber", 8)
+                .returning("getNumberOfRounds", 13);
         peer = new BotPeer(new StubRobot(), bot.asBot());
     }
 
@@ -63,6 +66,17 @@ class StatusAndPeerAgreementTest {
         assertEquals(peer.getDistanceRemaining(), status.getDistanceRemaining(), EPSILON,
                 "distance remaining");
         assertEquals(peer.getOthers(), status.getOthers(), "others");
+    }
+
+    @Test
+    @DisplayName("ROUTE-012 positive: time, round and sentry state agree across both paths")
+    void testROUTE012_UnitPositive_TimeRoundAndSentryStateAgreesAcrossBothPaths() {
+        RobotStatus status = IBotToRobotStatusMapper.map(bot.asBot());
+
+        assertEquals(peer.getTime(), status.getTime(), "time");
+        assertEquals(peer.getRoundNum(), status.getRoundNum(), "round number");
+        assertEquals(peer.getNumRounds(), status.getNumRounds(), "number of rounds");
+        assertEquals(peer.getNumSentries(), status.getNumSentries(), "number of sentries");
     }
 
     @Test

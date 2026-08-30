@@ -31,8 +31,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class TeamAndJuniorPeerRoutingTest {
 
-    private static final double EPSILON = 1e-9;
-
     private RecordingBot bot;
     private BotPeer peer;
 
@@ -129,9 +127,16 @@ class TeamAndJuniorPeerRoutingTest {
     void testROUTE010_UnitPositive_RoutesTheJuniorTurnAndMove() {
         peer.turnAndMove(80, toRadians(45));
 
-        // Junior robots combine a turn and a move in one call, so it must reach the Bot API
-        // as something rather than being swallowed.
-        assertTrue(bot.calls().size() > 0, "the junior call must reach the Bot API: " + bot.names());
+        assertTrue(bot.calls().stream()
+                        .anyMatch(call -> call.name.equals("setForward")
+                                && call.args.length == 1
+                                && call.doubleArg(0) == 80),
+                "the junior move must pass its distance through unchanged: " + bot.calls());
+        assertTrue(bot.calls().stream()
+                        .anyMatch(call -> call.name.equals("setTurnRight")
+                                && call.args.length == 1
+                                && call.doubleArg(0) == 45),
+                "the junior turn must reach the Bot API as 45 degrees: " + bot.calls());
     }
 
     @Test
@@ -142,10 +147,10 @@ class TeamAndJuniorPeerRoutingTest {
         // A distance is a distance and an angle is an angle: only one of them converts. Passing
         // 0.785 into a degrees parameter turns the robot by about three quarters of a degree
         // where it asked for forty-five, every time, with nothing to show why.
-        assertFalse(bot.calls().stream()
-                        .anyMatch(c -> c.args.length > 0
-                                && c.args[0] instanceof Number
-                                && Math.abs(((Number) c.args[0]).doubleValue() - toRadians(45)) < EPSILON),
-                "no call may carry the raw radian value: " + bot.calls());
+        assertTrue(bot.calls().stream()
+                        .anyMatch(call -> call.name.equals("setTurnRight")
+                                && call.args.length == 1
+                                && call.doubleArg(0) == 45),
+                "the turn must receive 45 degrees, not the raw radian value: " + bot.calls());
     }
 }
