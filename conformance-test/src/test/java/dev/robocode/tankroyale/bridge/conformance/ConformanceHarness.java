@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Runs one robot on one engine by driving the compatibility harness, and parses what comes
@@ -99,12 +100,27 @@ final class ConformanceHarness {
                     .redirectErrorStream(false)
                     .start();
 
-            String stdout = read(process.getInputStream());
-            String stderr = read(process.getErrorStream());
+            // Both pipes are drained concurrently, and the wait comes before either is
+            // read. Draining one to EOF first deadlocks as soon as the harness writes more
+            // to the other than the OS pipe buffer holds -- a bot's stack trace is enough --
+            // and a wait placed after the reads can never bound a hang it is already stuck
+            // behind.
+            AtomicReference<String> out = new AtomicReference<>("");
+            AtomicReference<String> err = new AtomicReference<>("");
+            Thread pumpOut = pump(process.getInputStream(), out);
+            Thread pumpErr = pump(process.getErrorStream(), err);
+
             if (!process.waitFor(20, TimeUnit.MINUTES)) {
                 process.destroyForcibly();
-                return failed("the harness did not finish within 20 minutes");
+                join(pumpOut);
+                join(pumpErr);
+                return failed("the harness did not finish within 20 minutes. stderr: "
+                        + trim(err.get()));
             }
+            join(pumpOut);
+            join(pumpErr);
+            String stdout = out.get();
+            String stderr = err.get();
             String json = lastJsonLine(stdout);
             if (json == null) {
                 return failed("the harness printed no result. stderr: " + trim(stderr));
@@ -160,8 +176,24 @@ final class ConformanceHarness {
                 Json.scalar(json, "fatal"));
     }
 
-    private static String read(java.io.InputStream stream) throws IOException {
-        return new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+    /** Starts a daemon thread that drains a pipe to EOF into {@code sink}. */
+    private static Thread pump(java.io.InputStream stream, AtomicReference<String> sink) {
+        Thread thread = new Thread(() -> {
+            try (java.io.InputStream open = stream) {
+                sink.set(new String(open.readAllBytes(), StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                // The process was killed, or the pipe broke. Whatever arrived before that
+                // is still the most useful thing to report, so leave the sink alone.
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
+        return thread;
+    }
+
+    /** Waits briefly for a pump to finish; its result is read only after this returns. */
+    private static void join(Thread pump) throws InterruptedException {
+        pump.join(TimeUnit.SECONDS.toMillis(30));
     }
 
     private static String trim(String text) {

@@ -2,10 +2,9 @@ package dev.robocode.tankroyale.bridge.conformance;
 
 import org.junit.jupiter.api.BeforeAll;
 
-import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
@@ -23,7 +22,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 abstract class ConformanceTestBase {
 
     private static ConformanceHarness harness;
-    private final Map<Engine, BattleOutcome> ran = new EnumMap<>(Engine.class);
+    private final Map<String, BattleOutcome> ran = new HashMap<>();
 
     @BeforeAll
     static void resolveEnvironment() {
@@ -53,23 +52,14 @@ abstract class ConformanceTestBase {
     }
 
     /**
-     * Asserts that both engines produced the marker the same number of times.
+     * Runs a robot on one engine, reusing the result within a single test.
      *
-     * Use only where the count is genuinely determined by the robot's own logic. Battle
-     * length is not comparable between the engines -- Tank Royale has no seed (AN-002) --
-     * so a count that depends on how long the robot survived will differ for reasons that
-     * say nothing about the bridge.
+     * Keyed by engine and robot together: a test that touches two robots would otherwise
+     * get the first robot's battle back for the second assertion, and pass or fail for a
+     * reason that has nothing to do with what it claims to check.
      */
-    void assertSameCountOnBothEngines(String robotClass, String marker) {
-        int classic = outcomeFor(Engine.CLASSIC, robotClass).countOf(marker);
-        int bridge = outcomeFor(Engine.BRIDGE, robotClass).countOf(marker);
-        assertEquals(classic, bridge,
-                () -> "'" + marker + "' appeared " + classic + " time(s) on classic Robocode and "
-                        + bridge + " time(s) through the bridge");
-    }
-
-    /** Runs a robot on one engine, reusing the result within a single test. */
     BattleOutcome outcomeFor(Engine engine, String robotClass) {
-        return ran.computeIfAbsent(engine, e -> harness.run(e, robotClass));
+        return ran.computeIfAbsent(engine.name() + " " + robotClass,
+                key -> harness.run(engine, robotClass));
     }
 }

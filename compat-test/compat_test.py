@@ -33,6 +33,7 @@ import re
 import shutil
 import subprocess
 import sys
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -72,12 +73,17 @@ DEFAULTS = {
     "rc_java": os.environ.get("COMPAT_RC_JAVA", ""),
 }
 
-# JDKs new enough for the bridge and old enough to still support a SecurityManager.
+# Where a JDK old enough to still support a SecurityManager is likely to be installed.
+# Every match is probed and the newest usable one wins, so the order here decides nothing:
+# add a location without worrying about where it goes.
 RC_JAVA_SEARCH_GLOBS = (
-    r"C:\Program Files\Eclipse Adoptium\jdk-17*\bin\java.exe",
-    r"C:\Program Files\Eclipse Adoptium\jdk-21*\bin\java.exe",
-    r"C:\Program Files\Java\jdk-17*\bin\java.exe",
-    r"C:\Program Files\Java\jdk-21*\bin\java.exe",
+    r"C:\Program Files\Eclipse Adoptium\jdk-*\bin\java.exe",
+    r"C:\Program Files\Java\jdk-*\bin\java.exe",
+    r"C:\Program Files\Microsoft\jdk-*\bin\java.exe",
+    r"C:\Program Files\Zulu\zulu-*\bin\java.exe",
+    "/usr/lib/jvm/*/bin/java",
+    "/Library/Java/JavaVirtualMachines/*/Contents/Home/bin/java",
+    os.path.expanduser("~/.sdkman/candidates/java/*/bin/java"),
 )
 RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManager
 
@@ -205,17 +211,22 @@ def resolve_rc_java(opts):
     if opts.rc_java:
         return opts.rc_java
 
-    if java_feature_version("java") not in (None,) and \
-            (java_feature_version("java") or 99) <= RC_JAVA_MAX_FEATURE:
+    feature = java_feature_version("java")
+    if feature is not None and feature <= RC_JAVA_MAX_FEATURE:
         return "java"
 
     import glob
+    # Every candidate is probed and the newest usable one wins. Ranking within one glob
+    # pattern at a time would let the pattern order decide instead, so a machine with both
+    # 17 and 21 installed would silently be measured on whichever pattern was written first.
+    best = None
     for pattern in RC_JAVA_SEARCH_GLOBS:
-        for candidate in sorted(glob.glob(pattern), reverse=True):
+        for candidate in sorted(set(glob.glob(pattern))):
             feature = java_feature_version(candidate)
             if feature is not None and feature <= RC_JAVA_MAX_FEATURE:
-                return candidate
-    return None
+                if best is None or feature > best[0]:
+                    best = (feature, candidate)
+    return best[1] if best else None
 
 
 def kill_process_tree(proc: subprocess.Popen):
@@ -237,36 +248,56 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
     """Runs a java command; returns (returncode, stdout+stderr, timed_out).
 
     `abort_when` is an optional callable polled while the battle runs. When it returns
-    true the whole process tree is killed immediately -- the fail-fast half of C-004."""
+    true the whole process tree is killed immediately -- the fail-fast half of C-004.
+
+    The child's output is drained by a thread for as long as it runs. Polling `abort_when`
+    while nobody reads the pipe would let a chatty battle fill the OS buffer, block the
+    worker on its own write, and produce an orchestrator timeout that describes the
+    harness rather than the battle."""
     proc = subprocess.Popen(
         cmd, cwd=str(cwd), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, encoding="utf-8", errors="replace")
 
-    if abort_when is not None:
-        deadline = time.time() + timeout
-        while proc.poll() is None:
-            if time.time() > deadline:
-                break
-            if abort_when():
-                kill_process_tree(proc)
-                try:
-                    output, _ = proc.communicate(timeout=10)
-                except Exception:
-                    output = ""
-                return -1, (output or "") + "\n<stopped: exception with no classic counterpart>", False
-            time.sleep(poll_seconds)
+    chunks = []
+    reader = threading.Thread(target=_drain, args=(proc.stdout, chunks), daemon=True)
+    reader.start()
 
-    try:
-        remaining = timeout if abort_when is None else max(5, deadline - time.time())
-        output, _ = proc.communicate(timeout=remaining)
-        return proc.returncode, output or "", False
-    except subprocess.TimeoutExpired:
-        kill_process_tree(proc)
+    def collected():
+        reader.join(timeout=15)
+        return "".join(chunks)
+
+    if abort_when is None:
         try:
-            output, _ = proc.communicate(timeout=10)
-        except Exception:
-            output = ""
-        return -1, (output or "") + "\n<killed: orchestrator timeout>", True
+            proc.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            kill_process_tree(proc)
+            return -1, collected() + "\n<killed: orchestrator timeout>", True
+        return proc.returncode, collected(), False
+
+    deadline = time.time() + timeout
+    while proc.poll() is None:
+        if time.time() > deadline:
+            kill_process_tree(proc)
+            return -1, collected() + "\n<killed: orchestrator timeout>", True
+        if abort_when():
+            kill_process_tree(proc)
+            return -1, collected() + "\n<stopped: exception with no classic counterpart>", False
+        time.sleep(poll_seconds)
+    return proc.returncode, collected(), False
+
+
+def _drain(stream, sink):
+    """Reads a pipe to EOF so the child never blocks writing to it."""
+    try:
+        for line in iter(stream.readline, ""):
+            sink.append(line)
+    except (ValueError, OSError):
+        pass  # the pipe was closed under us by a kill; keep whatever arrived
+    finally:
+        try:
+            stream.close()
+        except OSError:
+            pass
 
 
 class BridgeOnlyErrorWatcher:
@@ -292,6 +323,16 @@ class BridgeOnlyErrorWatcher:
                         self.found.add(line)
         self.triggered = bool(self.found)
         return self.triggered
+
+
+def classic_signatures(rc):
+    """The classic side's error signatures, or None when there is nothing to compare with.
+
+    A classic run that never produced a result carries one synthetic "HARNESS: ..." line
+    that names no exception, so it matches nothing. Handing that to the watcher as a
+    baseline makes every exception on the bridge side look bridge-only, and the gate then
+    fails a bot whose classic side simply did not start."""
+    return rc.get("errors", []) if rc.get("ok") else None
 
 
 def signature_key(error_line):
@@ -655,9 +696,18 @@ def regenerate_report(state):
     lines.append("")
     lines.append(f"Generated: {now_iso()}  ")
     settings = state.get("settings", {})
-    lines.append(f"Battle: robot vs. itself, {settings.get('rounds', '?')} rounds, "
-                 f"800×600 arena. Score delta threshold: "
+    divisions = settings.get("divisions") or DIVISIONS
+    setup_text = "; ".join(
+        f"{name} {d['participants']}× robot, {d['rounds']} rounds, "
+        f"{d['width']}×{d['height']}"
+        for name, d in sorted(divisions.items()))
+    lines.append(f"Battle: robot against itself at the official division parameters "
+                 f"({setup_text}). Score delta threshold: "
                  f"±{settings.get('threshold', '?')}%.")
+    if settings.get("rounds") is not None:
+        lines.append("")
+        lines.append(f"Round count overridden to {settings['rounds']} for this run, so these "
+                     f"results are not comparable with the rumble (C-003).")
     lines.append("")
     lines.append(f"**Tested: {len(robots)}** — " + ", ".join(
         f"{k}: {v}" for k, v in sorted(counts.items())))
@@ -741,7 +791,9 @@ def check_prerequisites(opts):
             f"  - no JDK {RC_JAVA_MAX_FEATURE} or older found for the classic side. Classic "
             f"Robocode installs a SecurityManager, which JDK 24 removed entirely, so "
             f"-Djava.security.manager=allow is now a fatal VM error rather than a warning. "
-            f"Point --rc-java (or COMPAT_RC_JAVA) at an older JDK.")
+            f"Auto-detection only looks on PATH and in the usual install locations, so an "
+            f"installed JDK elsewhere will not be found: point --rc-java (or COMPAT_RC_JAVA) "
+            f"at it.")
 
     if problems:
         print("Missing prerequisites:\n" + "\n".join(problems), file=sys.stderr)
@@ -837,23 +889,28 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats):
     factor of forty between runs on the classic engine alone (AN-001)."""
     rc_scores, tr_scores, deltas = [], [], []
     bridge_only = []
+    attempts = 0
     for attempt in range(repeats):
+        attempts += 1
         rc = run_rc_battle(jar, classname, version, opts, setup)
         tr = run_tr_battle(jar, classname, version, opts, setup,
-                           rc_signatures=rc.get("errors", []))
+                           rc_signatures=classic_signatures(rc))
         if tr.get("aborted_on_bridge_only_error"):
             bridge_only = tr.get("bridge_only_signatures", [])
             break
         rc_scores.append(rc.get("score"))
         tr_scores.append(tr.get("score"))
         _, delta = evaluate(rc, tr, opts.threshold, False)
-        deltas.append(delta)
+        # A repeat where either side failed yields no delta. Counting it as a sample would
+        # claim a measurement that was never taken.
+        if delta is not None:
+            deltas.append(delta)
         print(f"      repeat {attempt + 1}/{repeats}: RC={fmt_score(rc.get('score'))} "
               f"TR={fmt_score(tr.get('score'))} "
               f"delta={'-' if delta is None else f'{delta:+.1f}%'}", flush=True)
     return {
         "rc_mean": mean(rc_scores), "tr_mean": mean(tr_scores),
-        "delta_mean": mean(deltas), "samples": len(deltas),
+        "delta_mean": mean(deltas), "samples": len(deltas), "attempts": attempts,
         "bridge_only_signatures": bridge_only,
     }
 
@@ -885,6 +942,12 @@ def run_regression(opts):
 
         if measured["bridge_only_signatures"]:
             verdict = "BRIDGE-ONLY ERROR"
+            regressions.append((entry, measured, verdict))
+        elif measured["samples"] == 0:
+            # Not the same as "no baseline". Nothing was measured at all, and a gate that
+            # reports green for a bot it could not run is worse than no gate (C-004).
+            verdict = (f"NOT MEASURED ({measured['attempts']} attempt(s), "
+                       f"no comparable score)")
             regressions.append((entry, measured, verdict))
         elif entry["state"] == "noise":
             # Reported, never fails the run. A gate that fires on the same bot every time
@@ -936,8 +999,7 @@ def compile_trace_robot(opts):
         return None, f"trace robot source not found: {source}"
 
     classpath = str(Path(opts.robocode_home) / "libs" / "*")
-    cmd = [opts.rc_java_exe.replace("java.exe", "javac.exe").replace("/java", "/javac")
-           if opts.rc_java_exe != "java" else "javac",
+    cmd = [javac_beside(opts.rc_java_exe),
            "-cp", classpath, "-d", str(out_dir), str(source)]
     try:
         completed = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
@@ -946,6 +1008,18 @@ def compile_trace_robot(opts):
     if completed.returncode != 0:
         return None, f"trace robot did not compile:\n{completed.stdout}\n{completed.stderr}"
     return out_dir, None
+
+
+def javac_beside(java_exe):
+    """The javac that ships next to a given java executable.
+
+    Derived from the path rather than substituted into it: `str.replace` rewrites every
+    occurrence, so a JDK installed under a directory whose own name contains "java" would
+    yield a javac path that does not exist."""
+    if java_exe == "java":
+        return "javac"
+    exe = Path(java_exe)
+    return str(exe.with_name("javac" + exe.suffix))
 
 
 def trace_lines(consoles):
@@ -1215,7 +1289,7 @@ def main():
                 # The classic side has already run, so its signatures are the baseline the
                 # bridge side is judged against (C-004).
                 tr = run_tr_battle(jar, classname, version, opts, setup,
-                                   rc_signatures=rc.get("errors", []))
+                                   rc_signatures=classic_signatures(rc))
                 tr["has_log"] = write_error_log("tank-royale", robot_name,
                                                 tr.pop("log_text", ""))
 

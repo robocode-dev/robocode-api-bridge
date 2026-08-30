@@ -52,8 +52,19 @@ final class Json {
         if (at < 0) {
             return values;
         }
-        int cursor = json.indexOf('[', at);
-        if (cursor < 0) {
+        // The array has to be this field's own value. Scanning forward for the next '['
+        // would silently return a later field's array whenever this one is present but not
+        // an array -- "consoles": null, which an aborted battle can produce -- and a
+        // wrong-but-plausible list is worse than an empty one.
+        int cursor = at;
+        while (cursor < json.length() && json.charAt(cursor) != ':') {
+            cursor++;
+        }
+        cursor++;
+        while (cursor < json.length() && Character.isWhitespace(json.charAt(cursor))) {
+            cursor++;
+        }
+        if (cursor >= json.length() || json.charAt(cursor) != '[') {
             return values;
         }
         cursor++;
