@@ -12,5 +12,4 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-003 — The harness is Python, which is not a supported evidence carrier](AN-003-python-is-not-a-supported-evidence-carrier.md) · `active` — Why the harness's working behaviour stays draft rather than being badged Human, and the three routes out.
 - [AN-005 — Gun and radar turn-remaining were swapped in the robot status](AN-005-gun-and-radar-turn-remaining-were-swapped.md) · `active` — A silent defect in a positional constructor call, found by the first unit test this repository ever ran.
 - [AN-006 — A robot's own death still does not reach onDeath under the bridge](AN-006-own-death-still-does-not-reach-on-death.md) · `active` — Whether `EVT-004` holds: a robot's own death reaches its death handler.
-- [AN-006 — A robot's own death still does not reach onDeath under the bridge](AN-006-own-death-still-does-not-reach-on-death.md) · `active` — The conformance tier's second robot found a handler that is never called, invisible to every score-based measurement.
 <!-- clue:index:end -->

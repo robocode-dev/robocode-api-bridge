@@ -51,6 +51,7 @@ Each folder below holds one kind of record. A full change (the `clue-delta` loop
 - [plans/](plans/README.md) — P-xxx: campaigns and milestones
 - [capabilities/](capabilities/README.md) — CAP-xxx: one folder per capability (README / criteria / design)
 - [architecture/](architecture/README.md) — the whole, the expensive-to-change
+- [design/](design/README.md) — how each capability works, and the shape they share
 - [decisions/](decisions/README.md) — ADR-xxx, PDR-xxx, and IDR-xxx future-shaping choices
 - [constraints/](constraints/README.md) — C-xxx: laws, licenses, policies, and verifiable quality bars you must not break
 - [analysis/](analysis/README.md) — spike findings, extraction reports
