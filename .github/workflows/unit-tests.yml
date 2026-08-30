@@ -1,0 +1,37 @@
+name: unit tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# Tier 1 of the evidence strategy (PDR-001). The only tier that runs here: the other two
+# need a classic Robocode installation, the Tank Royale runner, and the rumble collection,
+# none of which exist on a GitHub runner. See docs/architecture/README.md.
+jobs:
+  unit-tests:
+    name: unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Run the adapter's unit tests
+        run: ./gradlew :robocode-api:test --no-daemon
+
+      - name: Publish the test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-results
+          path: robocode-api/build/reports/tests/test/
+          if-no-files-found: ignore
