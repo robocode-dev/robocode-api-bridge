@@ -3,39 +3,52 @@ id: CH-003-findings
 type: findings
 status: open
 links: [CH-003, AN-006]
-title: CH-003 measurement log — where the death event actually stops
+title: CH-003 measurement log — where the death event stops, and what the fix does
 ---
 
 # CH-003 — what the measurement established
 
-Measured 2026-08-30 against the Tank Royale runner jar at `C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar` and Bot API 1.0.2, using `tested.robots.BattleWin` through the conformance harness.
+All measurements ran `tested.robots.BattleWin` through the conformance harness at the roborumble division, five rounds per battle, on 2026-08-30. Classic Robocode is the reference.
 
-## The result
+## The cause
 
 **No death message of any kind reaches any bot.** Not the dying bot, not the survivors.
 
-The probe sat in `WebSocketHandler.onText`, before any parsing, printing the raw payload of every message whose text contained `death` in any casing. Across a two-participant battle and a four-participant battle, over two rounds each, that probe fired zero times in every bot's log — while the same logs show `ScannedBotEvent`, `HitWallEvent`, `HitByBulletEvent`, `BulletHitBotEvent`, and `WonRoundEvent` arriving and dispatching normally.
+A probe in `WebSocketHandler.onText`, ahead of any parsing, printed the raw payload of every message whose text contained `death` in any casing. Across a two-participant battle and a four-participant battle it fired zero times in every bot's log, while the same logs show `ScannedBotEvent`, `HitWallEvent`, `HitByBulletEvent`, `BulletHitBotEvent` and `WonRoundEvent` arriving and dispatching normally. The four-participant run is the one that settles it: three bots die there while the round continues, so the survivors should receive `BotDeathEvent` for each.
 
-The four-participant run matters: there, three bots die while the round continues, so the survivors should receive `BotDeathEvent` for each. None did.
+The cause is in the Tank Royale server, in `TurnProcessor.processTurn`. A death is emitted with `addPublicBotEvent`, which fans out over the turn's own bots; every turn is constructed empty and only filled from the bots map at the end of the pipeline, and the emission ran before that snapshot. The event was therefore delivered to nobody. A unit test against the server's own `TurnProcessor` reproduces it with no engine, no network and no bots: a defeated bot yields an empty event map.
 
 ## What this refutes
 
-Two hypotheses, both now dead.
+**`AN-006`'s suspect — the Bot API event queue's age and criticality filter — is refuted twice.** By reading: `DeathEvent.isCritical()` returns true, and the queue exempts critical events from the age filter. By measurement: a probe printed the queue's full contents at every dispatch and no `DeathEvent` was ever in it. Nothing was dropped, because nothing arrived.
 
-**`AN-006`'s suspect — the Bot API event queue's age and criticality filter — is refuted twice over.** By reading: `DeathEvent.isCritical()` returns true, and both `isOldAndNonCriticalEvent` and `isNotOldOrIsCriticalEvent` exempt critical events from the age filter. By measurement: the queue probe printed the queue's full contents at every dispatch, and no `DeathEvent` was ever in it. Nothing was dropped, because nothing arrived.
+**The instant-handler hypothesis this change was opened on is also refuted.** `BotInternals` does subscribe an instant handler to `DeathEvent` whose body stops the bot thread, and the bridge's bot inherits it, so the ordering concern was real in principle. The probe on that handler never fired either.
 
-**The instant-handler hypothesis this change was opened on is also refuted.** `BotInternals` does subscribe an instant handler to `DeathEvent` whose body is `baseBotInternals.stopThread()`, and the bridge's bot does inherit it, so the ordering concern was real in principle. It is not what happens: the probe on that handler never fired either, for the same reason.
+The bridge is correct throughout. It overrides the Bot API's `onDeath`, maps it, and calls the robot's handler; a probe in that override never fires because it is never called.
 
-## Where the cause is
+## What the fix does
 
-Above the Bot API entirely, at or below the server-to-bot protocol boundary. The bridge is correct: it overrides the Bot API's `onDeath`, maps it, and calls the robot's handler, and a probe placed directly in that override never fires because it is never called.
+The repair moves the emission after the turn's snapshot, where the bots are present — and the snapshot still holds the dead bots, so a bot receives its own death. It is committed upstream on the branch `fix-death-events-never-reach-bots` in the Tank Royale repository, with a positive and a negative test in the server's own `TurnProcessorTest`. The positive test fails without the change and passes with it; the server suite passes in full.
 
-A lead for the upstream investigation, not a conclusion — the runner jar in use and the server source read here are not known to be the same build. In `TurnProcessor.applyDefeatedBots`, the death event is added to the turn with `addPublicBotEvent`, which fans out over `turn.bots`; `TurnToTickEventForBotMapper.map` returns null for a bot no longer in the turn, and `GameServer.sendTickToParticipants` skips a participant that is neither alive nor carrying events. Whether the death event is added before or after that turn's ticks are built and sent is the question to answer upstream, and `MutableTurn.resetEvents()` clears the map between turns.
+## The controlled comparison
 
-## The consequence nobody had written down
+Three server builds, six battles each, against nine classic battles. Every Tank Royale build was rebuilt from clean and identified by the runner jar's checksum, because Gradle's up-to-date check silently reused a stale server jar and made the first comparison meaningless.
 
-`EVT-004` is not the only criterion this blocks. `EVT-007` — the death of another robot reaches the survivors — is unprovable for the same reason and by the same measurement, and it was recorded as merely unported. Any classic robot that tracks enemies through `onRobotDeath` is running blind under the bridge, and that is a much wider fidelity gap than one handler on one robot.
+| Build | wins per battle | deaths per battle |
+|---|---|---|
+| The runner jar the bridge ships against | 4, 5, 5 | 0 every battle |
+| Current Tank Royale `main` | 5, 5, 5, 6, 7, 7 | 0 every battle |
+| Current `main` + the fix | 4, 4, 5, 5, 6, 7 | equal to wins, every battle |
+| Classic Robocode (reference) | 5, 5, 5, 5, 5, 4, and 5, 5, 4 | 5, 7, 6, 5, 5, 6, and 6, 6, 6 |
+
+Deaths appear only with the fix. Wins are unchanged by it: totals above five occur on the unfixed build too, so the fix does not touch round outcomes.
+
+## A second divergence, separate from this one
+
+Classic never reported more wins than rounds in any battle measured; Tank Royale reported seven wins in a five-round battle, on both the fixed and the unfixed build. A robot can win a round only once, so a total above the round count means both robots were declared winners of the same round — consistent with a mutual kill in which classic declares one winner and Tank Royale declares two. With the fix, the bridge's win and death totals are equal in every battle, while classic's deaths exceed its wins.
+
+This is pre-existing, unrelated to the death delivery, and invisible before it: with no deaths arriving there was nothing to pair the wins against. It needs its own analysis record.
 
 ## What did not reproduce
 
-`AN-006` recorded a second divergence alongside the death finding: classic split `BattleWin`'s five rounds between the two instances while the bridge gave one instance all five. It does not reproduce. Across the runs made here the wins split 2/3 and 3/2, as classic's do. The record notes it was measured before the event-dispatch redesign and the Bot API upgrade; nothing here re-establishes it, so it is not carried forward as a live finding.
+`AN-006` recorded a second divergence alongside the death finding: classic split `BattleWin`'s five rounds between the two instances while the bridge gave one instance all five. It does not reproduce — wins split across the instances in every battle measured here. The record notes it was measured before the event-dispatch redesign and the Bot API upgrade, so it is not carried forward as a live finding.
