@@ -29,7 +29,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | M-003 | score gaps where Tank Royale scores higher | The same, for bots scoring materially higher. A bot scoring *better* under the bridge is as much a fidelity defect as one scoring worse, and is easier to overlook. | todo |
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | todo |
 | M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | todo |
-| M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | doing |
+| M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | done |
 | M-006 | full sweep across all three divisions | A sweep at official parameters has run across the one-versus-one, melee, and team collections, and its report is the baseline the regression watch list is measured against. | todo |
 
 ## Evidence doors
