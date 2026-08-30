@@ -14,4 +14,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-005 — Gun and radar turn-remaining were swapped in the robot status](AN-005-gun-and-radar-turn-remaining-were-swapped.md) · `active` — A silent defect in a positional constructor call, found by the first unit test this repository ever ran.
 - [AN-006 — A robot's own death still does not reach onDeath under the bridge](AN-006-own-death-still-does-not-reach-on-death.md) · `active` — Whether `EVT-004` holds: a robot's own death reaches its death handler.
 - [AN-004-extraction/](AN-004-extraction/README.md)
+- [AN-007 — Remaining turn had opposite signs depending on which path a robot read it through](AN-007-remaining-turn-sign-disagreed-between-two-paths.md) · `active` — Two conversion paths for one quantity disagreed, and the test written alongside AN-005 had certified the wrong one.
 <!-- clue:index:end -->

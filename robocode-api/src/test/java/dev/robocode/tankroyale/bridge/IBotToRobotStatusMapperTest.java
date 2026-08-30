@@ -75,11 +75,14 @@ class IBotToRobotStatusMapperTest {
             b.put("getRadarTurnRemaining", 120.0);
         }));
 
-        // These are signed amounts still to turn, not absolute directions, so they convert by
-        // unit alone. Passing one through the heading conversion would flip its sign.
-        assertEquals(toRadians(30), status.getTurnRemainingRadians(), EPSILON);
-        assertEquals(toRadians(60), status.getGunTurnRemainingRadians(), EPSILON);
-        assertEquals(toRadians(120), status.getRadarTurnRemainingRadians(), EPSILON);
+        // Signed amounts still to turn, not absolute directions -- but the sign still crosses
+        // frames. Tank Royale reports a positive remaining turn when turning left; Robocode
+        // when turning right. This assertion asserted the un-negated values until AN-007, and
+        // in doing so certified a defect: the same quantity had opposite signs depending on
+        // whether a robot read it here or from BotPeer directly.
+        assertEquals(toRadians(-30), status.getTurnRemainingRadians(), EPSILON);
+        assertEquals(toRadians(-60), status.getGunTurnRemainingRadians(), EPSILON);
+        assertEquals(toRadians(-120), status.getRadarTurnRemainingRadians(), EPSILON);
     }
 
     @Test
@@ -101,9 +104,10 @@ class IBotToRobotStatusMapperTest {
     void testAPI005_UnitNegative_KeepsTheSignOfANegativeRemainingTurn() {
         RobotStatus status = IBotToRobotStatusMapper.map(bot(b -> b.put("getTurnRemaining", -45.0)));
 
-        // The sign is the direction of the turn. Losing it would make a robot turn the wrong
-        // way, and only when it happened to be turning the other way.
-        assertEquals(toRadians(-45), status.getTurnRemainingRadians(), EPSILON);
+        // The sign is the direction of the turn, and it is flipped on the way across: a bot
+        // turning right in Tank Royale reports a negative remainder, which is a positive one
+        // to a Robocode robot.
+        assertEquals(toRadians(45), status.getTurnRemainingRadians(), EPSILON);
     }
 
     /** An IBot answering a small table of canned values; anything unasked-for returns a zero. */

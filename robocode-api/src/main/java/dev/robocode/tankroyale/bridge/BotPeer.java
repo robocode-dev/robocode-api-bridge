@@ -50,10 +50,30 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
+        this(robot, null, botInfo);
+    }
+
+    /**
+     * Test seam: drives the peer against a supplied {@link IBot} instead of one that connects
+     * to a server.
+     * <p>
+     * Almost everything this class does is route a robot's call to a Bot API call, and that
+     * routing is only observable at the boundary between the two. Without a seam it can be
+     * checked solely by running a battle, which reports a score minutes later and cannot say
+     * which of eighty-odd call sites was wrong.
+     * <p>
+     * The field was already an interface, so nothing about the production path changes: the
+     * public constructor still builds its own {@link BotImpl}.
+     */
+    BotPeer(IBasicRobot robot, IBot bot) {
+        this(robot, bot, null);
+    }
+
+    private BotPeer(IBasicRobot robot, IBot suppliedBot, BotInfo botInfo) {
         log("BotPeer");
 
         this.robot = robot;
-        bot = new BotImpl(botInfo);
+        bot = suppliedBot != null ? suppliedBot : new BotImpl(botInfo);
 
         robot.setOut(System.out); // Redirect output to "our" System.out, which Tank Royale is overriding
 
