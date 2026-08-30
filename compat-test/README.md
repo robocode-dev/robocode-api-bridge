@@ -165,6 +165,14 @@ untested robot. Completed robots are never re-run unless `--force` (everything) 
 Full error details land in `errors/robocode/<robot>.log` and
 `errors/tank-royale/<robot>.log`; the master table is `compatibility_report.md`.
 
+**Every row states the setup it was measured at.** The report is regenerated from the state
+file long after the battles ran, so a single header describing the current configuration
+would restate every stored row as though it had been measured under today's settings --
+which is how a stale result stops looking stale. A row measured at its division's official
+parameters reads `official`; one measured at anything else says what it was measured at; one
+stored before the harness recorded per-row setups reads `unrecorded`. `--report-only` is
+therefore safe to run over a state file holding results from several eras.
+
 ### Status values
 
 | Status | Meaning |

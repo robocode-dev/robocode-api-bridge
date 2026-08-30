@@ -684,6 +684,32 @@ def fmt_errors(count, engine_dir_name, robot_name, has_log):
     return str(count)
 
 
+def describe_setup(entry):
+    """How a stored row was actually measured.
+
+    Returns "official" when the row matches its division's official parameters, a compact
+    description of the difference when it does not, and "unrecorded" for a row stored before
+    the harness recorded per-row setups.
+
+    This exists because the report is regenerated from the state file long after the battles
+    ran. A single header describing the current configuration would silently restate every
+    stored row as though it had been measured under today's settings -- which is how a stale
+    result stops looking stale. The state file holds the truth per row, so the report says it
+    per row.
+    """
+    setup = entry.get("setup")
+    division = entry.get("division")
+    if not setup:
+        return "unrecorded"
+    official = DIVISIONS.get(division)
+    if official and all(setup.get(k) == official.get(k) for k in
+                        ("width", "height", "rounds", "participants")):
+        return "official"
+    return (f"{setup.get('rounds', '?')} rounds, "
+            f"{setup.get('width', '?')}×{setup.get('height', '?')}, "
+            f"{setup.get('participants', '?')} bots")
+
+
 def regenerate_report(state):
     robots = state.get("robots", {})
     counts = {}
@@ -701,20 +727,27 @@ def regenerate_report(state):
         f"{name} {d['participants']}× robot, {d['rounds']} rounds, "
         f"{d['width']}×{d['height']}"
         for name, d in sorted(divisions.items()))
-    lines.append(f"Battle: robot against itself at the official division parameters "
-                 f"({setup_text}). Score delta threshold: "
+    lines.append(f"Battle: robot against itself. Score delta threshold: "
                  f"±{settings.get('threshold', '?')}%.")
-    if settings.get("rounds") is not None:
+    lines.append("")
+    lines.append(f"Official division parameters are {setup_text}. **Each row states the setup "
+                 f"it was actually measured at**, because a report regenerated after the "
+                 f"parameters changed would otherwise describe every stored result as though "
+                 f"it had been measured under today's settings (C-003).")
+    stale = sorted({describe_setup(e) for e in robots.values()
+                    if describe_setup(e) != "official"})
+    if stale:
         lines.append("")
-        lines.append(f"Round count overridden to {settings['rounds']} for this run, so these "
-                     f"results are not comparable with the rumble (C-003).")
+        lines.append("Rows not measured at official parameters are not comparable with the "
+                     "rumble and must be re-measured before anything is concluded from them: "
+                     + ", ".join(f"`{d}`" for d in stale) + ".")
     lines.append("")
     lines.append(f"**Tested: {len(robots)}** — " + ", ".join(
         f"{k}: {v}" for k, v in sorted(counts.items())))
     lines.append("")
-    lines.append("| Robot (JAR) | RC Score | TR Score | Score Delta (%) "
+    lines.append("| Robot (JAR) | Measured at | RC Score | TR Score | Score Delta (%) "
                  "| RC Errors | TR Errors | Status |")
-    lines.append("|---|---:|---:|---:|---:|---:|---|")
+    lines.append("|---|---|---:|---:|---:|---:|---:|---|")
 
     for key in sorted(robots):
         entry = robots[key]
@@ -729,8 +762,9 @@ def regenerate_report(state):
             fmt_errors(tr.get("error_count", 0), "tank-royale", robot_name,
                        tr.get("has_log", False))
         tr_score = "-" if entry.get("status") == "SKIPPED-TR" else fmt_score(tr.get("score"))
-        lines.append(f"| {key} | {fmt_score(rc.get('score'))} | {tr_score} "
-                     f"| {delta_str} | {rc_err} | {tr_err} | {entry.get('status', '?')} |")
+        lines.append(f"| {key} | {describe_setup(entry)} | {fmt_score(rc.get('score'))} "
+                     f"| {tr_score} | {delta_str} | {rc_err} | {tr_err} "
+                     f"| {entry.get('status', '?')} |")
 
     lines.append("")
     lines.append("Legend: **RC** = classic Robocode, **TR** = Tank Royale (via bridge). "
