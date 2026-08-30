@@ -18,4 +18,5 @@ A whole capability whose extracted criteria are not ready may stay `status: draf
 - [CAP-005 — Score parity across the rumble collections](CAP-005-score-parity/README.md) · `draft` — The end-to-end claim, and the only thing that exercises the parts of the surface nobody modelled.
 - [CAP-006 — Team robot support](CAP-006-team-robot-support/README.md) · `draft` — Teams, teammate messaging, and droids. Absent from the wrapper entirely.
 - [CAP-007 — The compatibility harness](CAP-007-compatibility-harness/README.md) · `draft` — The instrument itself, which has been wrong in ways mistaken for the bridge being wrong.
+- [CAP-008-call-routing-fidelity/](CAP-008-call-routing-fidelity/README.md)
 <!-- clue:index:end -->

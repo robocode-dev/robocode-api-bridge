@@ -70,7 +70,8 @@ The corpus splits the goal into promises. They are not arbitrary; each sits at a
 
 | Capability | Where in the system |
 |---|---|
-| `CAP-003` API surface fidelity | Inside the adapter: the value conversions. The only layer testable with no engine, and the only one currently `active`. |
+| `CAP-003` API surface fidelity | Inside the adapter: the value conversions — what happens to a *value* crossing the boundary. |
+| `CAP-008` call-routing fidelity | The same boundary, the other axis: what happens to a *call*. Every peer method proven to reach the right Bot API call, with completeness enforced. |
 | `CAP-001` event dispatch parity | The path from server to robot: which events arrive, in what order, interruptible where. |
 | `CAP-002` physics and state parity | The same path, but about the values the events and status carry. |
 | `CAP-004` file I/O sandboxing | Inside the adapter, at the file wrappers. Specified, not implemented. |
@@ -78,7 +79,9 @@ The corpus splits the goal into promises. They are not arbitrary; each sits at a
 | `CAP-005` score parity | The whole picture, end to end. Detects; does not localise. |
 | `CAP-007` the harness | The apparatus itself, which has been wrong in ways mistaken for the bridge being wrong. |
 
-The relationship between `CAP-005` and the rest is the useful one to hold onto: **the sweep detects, the others localise.** A score gap with no failing conformance test means something is unmodelled, and that is a finding in itself.
+`CAP-003` and `CAP-008` are the two halves of one boundary and are worth holding apart: a value can convert correctly and arrive at the wrong call, which is `AN-005`, and a call can route correctly while the value it carries has the wrong handedness, which is `AN-007`.
+
+The relationship between `CAP-005` and the rest is the other one to hold onto: **the sweep detects, the others localise.** A score gap with no failing conformance test means something is unmodelled, and that is a finding in itself.
 
 ### Why the evidence is layered the way it is
 

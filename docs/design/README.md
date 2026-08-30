@@ -23,6 +23,7 @@ The bridge is a translator sitting between two engines that disagree about almos
 | `CAP-001` event dispatch parity | [design](../capabilities/CAP-001-event-dispatch-parity/design.md) | Delegating to the Bot API's queue instead of dispatching, and what that makes the bridge depend on |
 | `CAP-002` physics and state parity | [design](../capabilities/CAP-002-physics-and-state-parity/design.md) | Why the criteria compare the engines rather than assert rates, and where a unit or frame error enters |
 | `CAP-003` API surface fidelity | [design](../capabilities/CAP-003-robocode-api-surface-fidelity/design.md) | The mappers, why they stay dependency-free, and why that is the natural test seam |
+| `CAP-008` call-routing fidelity | [design](../capabilities/CAP-008-call-routing-fidelity/design.md) | The test seam and recording fake, and why completeness is enforced by reflection rather than reviewed |
 | `CAP-004` file I/O sandboxing | [design](../capabilities/CAP-004-robot-file-io-sandboxing/design.md) | One resolution point used by every wrapper, and why the robot is never told it was redirected |
 | `CAP-005` score parity | [design](../capabilities/CAP-005-score-parity/design.md) | Self-play, the three shapes a finding takes, and what makes a baseline honest |
 | `CAP-006` team robot support | [design](../capabilities/CAP-006-team-robot-support/design.md) | An open decision: map onto Tank Royale teams, or reconstruct above individual bots |

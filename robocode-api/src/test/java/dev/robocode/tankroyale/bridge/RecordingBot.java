@@ -72,6 +72,12 @@ final class RecordingBot {
         return this;
     }
 
+    /** Makes a getter answer null, which is distinct from never having been set. */
+    RecordingBot returningNull(String method) {
+        canned.put(method, null);
+        return this;
+    }
+
     IBot asBot() {
         return proxy;
     }
@@ -121,9 +127,11 @@ final class RecordingBot {
     }
 
     private Object answer(Method method) {
-        Object value = canned.get(method.getName());
-        if (value != null) {
-            return value;
+        // containsKey rather than a null check: null is a value the real Bot API can return
+        // -- getTeammateIds does, for a bot with no team -- and a fake that cannot express it
+        // would quietly test its own default instead of the peer.
+        if (canned.containsKey(method.getName())) {
+            return canned.get(method.getName());
         }
         Class<?> type = method.getReturnType();
         if (type == double.class) return 0.0;

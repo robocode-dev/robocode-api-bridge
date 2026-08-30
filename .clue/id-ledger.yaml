@@ -4,16 +4,17 @@ counters:
     API: "6"
     ARCH: "3"
     C: "7"
-    CAP: "7"
+    CAP: "8"
     CH: "2"
-    CRIT: "7"
-    DES: "7"
+    CRIT: "8"
+    DES: "8"
     G: "1"
     IDR: "2"
     OQ: "2"
     P: "1"
     PDR: "1"
     REH: "1"
+    ROUTE: "12"
     TASKS: "2"
 entries:
     - id: ADR-001
@@ -171,6 +172,11 @@ entries:
       state: live
       prefix: CAP
       component: "7"
+    - id: CAP-008
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "8"
     - id: CH-001
       kind: numeric
       state: live
@@ -216,6 +222,11 @@ entries:
       state: live
       prefix: CRIT
       component: "7"
+    - id: CRIT-008
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "8"
     - id: DES-001
       kind: numeric
       state: live
@@ -251,6 +262,11 @@ entries:
       state: live
       prefix: DES
       component: "7"
+    - id: DES-008
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "8"
     - id: G-001
       kind: numeric
       state: live
@@ -291,6 +307,66 @@ entries:
       state: live
       prefix: REH
       component: "1"
+    - id: ROUTE-001
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "1"
+    - id: ROUTE-002
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "2"
+    - id: ROUTE-003
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "3"
+    - id: ROUTE-004
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "4"
+    - id: ROUTE-005
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "5"
+    - id: ROUTE-006
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "6"
+    - id: ROUTE-007
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "7"
+    - id: ROUTE-008
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "8"
+    - id: ROUTE-009
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "9"
+    - id: ROUTE-010
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "10"
+    - id: ROUTE-011
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "11"
+    - id: ROUTE-012
+      kind: numeric
+      state: live
+      prefix: ROUTE
+      component: "12"
     - id: TASKS-001
       kind: numeric
       state: live
