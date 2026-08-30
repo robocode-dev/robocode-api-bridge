@@ -5,7 +5,7 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "2"
+    CH: "3"
     CRIT: "8"
     DES: "8"
     G: "1"
@@ -15,7 +15,7 @@ counters:
     PDR: "1"
     REH: "1"
     ROUTE: "12"
-    TASKS: "2"
+    TASKS: "3"
 entries:
     - id: ADR-001
       kind: numeric
@@ -187,6 +187,11 @@ entries:
       state: live
       prefix: CH
       component: "2"
+    - id: CH-003
+      kind: numeric
+      state: live
+      prefix: CH
+      component: "3"
     - id: CRIT-001
       kind: numeric
       state: live
@@ -377,3 +382,8 @@ entries:
       state: live
       prefix: TASKS
       component: "2"
+    - id: TASKS-003
+      kind: numeric
+      state: live
+      prefix: TASKS
+      component: "3"
