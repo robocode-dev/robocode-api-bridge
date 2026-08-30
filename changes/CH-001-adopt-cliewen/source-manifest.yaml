@@ -1,0 +1,217 @@
+# Pinned source manifest for CH-001, written by the rehearsal pass.
+# The source corpus is ad-hoc markdown (see the clue-extract adhoc-markdown mapping),
+# so no criterion ID is preserved: every ID below is minted, and the corpus is its registry.
+source-revision: 16980d442629e0bd1d3524a65b5407d59aade5fa
+source-location: TODO.md
+entries:
+  # CAP-001 — event dispatch and timing parity. Source: TODO.md "DONE: Event-dispatch redesign".
+  # Tier 2 conformance evidence is blocked on OQ-001 Q1 (test-robot licensing), so every one
+  # of these resolves draft against M-001 rather than naming a test file that may not be built.
+  - id: EVT-001
+    disposition: draft
+    justification: Events are stated to flow through the Bot API EventQueue with classic priorities, but the claim was verified by re-running battles and reading scores; no attributable test exists.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-002
+    disposition: draft
+    justification: The 0.33.1 dropped-deferred-event bug is described in the source as fixed by the upgrade, and its absence is exactly what has no regression test today.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-003
+    disposition: draft
+    justification: setInterruptible is stated to be NPE-guarded and scan-interrupt semantics to work again, evidenced only by ad.last.Bottom's inversion disappearing.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-004
+    disposition: draft
+    justification: Own-death reaching onDeath is stated as newly working; the source records that no DeathEvent case existed before, so this promise has never been tested.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-005
+    disposition: draft
+    justification: Classic new-turn timing at the end of execute() is stated as a property of bot-api 1.0.2 rather than as something this bridge checks.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-006
+    disposition: draft
+    justification: Custom event registration is implemented in the bridge's mapping helpers and exercised only incidentally by rumble bots.
+    disposition-source-location: robocode-api/src/main/java/dev/robocode/tankroyale/bridge/CustomEventMapper.java
+    plan-door: M-001
+  - id: EVT-007
+    disposition: draft
+    justification: Other-robot death events are mapped but unverified independently of aggregate scores.
+    disposition-source-location: robocode-api/src/main/java/dev/robocode/tankroyale/bridge/RobotDeathEventMapper.java
+    plan-door: M-001
+  - id: EVT-008
+    disposition: draft
+    justification: Skipped-turn reporting has no stated verification anywhere in the source corpus.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: EVT-009
+    disposition: draft
+    justification: Robot-thrown exception handling is observed through harness error counts, which cannot attribute a failure to this promise.
+    disposition-source-location: compat-test/README.md "Test methodology (per jar)"
+    plan-door: M-001
+
+  # CAP-002 — robot physics and state parity. Source: README.md's compatibility claim.
+  - id: PHY-001
+    disposition: draft
+    justification: Gun heat and cooling are part of the compatibility claim the README makes; nothing in the repository checks the rate.
+    disposition-source-location: README.md "Robocode API adapter library"
+    plan-door: M-001
+  - id: PHY-002
+    disposition: draft
+    justification: Velocity cap and acceleration curve are unverified; a divergence here would surface only as a score delta.
+    disposition-source-location: README.md "Robocode API adapter library"
+    plan-door: M-001
+  - id: PHY-003
+    disposition: draft
+    justification: Velocity-dependent body turn rate is unverified.
+    disposition-source-location: README.md "Robocode API adapter library"
+    plan-door: M-001
+  - id: PHY-004
+    disposition: draft
+    justification: Gun turn rate and setAdjustGunForRobotTurn are unverified.
+    disposition-source-location: README.md "Robocode API adapter library"
+    plan-door: M-001
+  - id: PHY-005
+    disposition: draft
+    justification: Radar turn rate and setAdjustRadarForGunTurn are unverified; the source records radar locks breaking under 0.33.1, so this promise has a known failure history and no test.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: PHY-006
+    disposition: draft
+    justification: Direction reversal follows a specific classic deceleration path that nothing checks.
+    disposition-source-location: README.md "Robocode API adapter library"
+    plan-door: M-001
+  - id: PHY-007
+    disposition: draft
+    justification: RateControlRobot's rate semantics are unverified.
+    disposition-source-location: robocode-api/src/main/java/robocode/RateControlRobot.java
+    plan-door: M-001
+  - id: PHY-008
+    disposition: draft
+    justification: Bullet state tracking is unverified independently of scores.
+    disposition-source-location: robocode-api/src/main/java/dev/robocode/tankroyale/bridge/BulletPeer.java
+    plan-door: M-001
+
+  # CAP-003 — Robocode API surface fidelity. The one group with no external dependency,
+  # so the extraction commits to building its evidence rather than deferring it.
+  - id: API-001
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java
+  - id: API-002
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java
+  - id: API-003
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java
+  - id: API-004
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java
+  - id: API-005
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java
+  - id: API-006
+    proof-class: Unit
+    direction: both
+    evidence-location: robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java
+
+  # CAP-004 — robot file I/O sandboxing. Source: TODO.md item 4. Not implemented at all.
+  - id: FIO-001
+    disposition: draft
+    justification: The bridge performs no path redirection; dz.Gir writing root paths produces roughly ten thousand access-denied errors under Tank Royale. The promise is stated and known to be unmet.
+    disposition-source-location: TODO.md "4. File I/O sandboxing (RobocodeFileOutputStream emulation)"
+    plan-door: M-004
+  - id: FIO-002
+    disposition: draft
+    justification: getDataDirectory() was changed to match what getDataFile() resolves against, and the source states it has not been re-tested against the bot that surfaced the inconsistency.
+    disposition-source-location: TODO.md "1. Commit pending bridge changes (done)"
+    plan-door: M-004
+  - id: FIO-003
+    disposition: draft
+    justification: RobocodeFileOutputStream's documentation states a 200000-byte cap that the implementation does not enforce.
+    disposition-source-location: robocode-api/src/main/java/robocode/RobocodeFileOutputStream.java
+    plan-door: M-004
+  - id: FIO-004
+    disposition: draft
+    justification: Classic sandboxes all robot file I/O into the data directory; the bridge does not, and the source says so plainly.
+    disposition-source-location: TODO.md "4. File I/O sandboxing (RobocodeFileOutputStream emulation)"
+    plan-door: M-004
+
+  # CAP-005 — score parity across the rumble collection.
+  - id: SCORE-001
+    disposition: human
+    justification: "A maintainer reads the generated compatibility report and judges whether the population's parity is acceptable. That judgment is the instrument, not a stand-in for a missing test: the comparison is statistical, the run takes a night, and the threshold is a matter of interpretation rather than a machine verdict."
+    disposition-source-location: compat-test/compatibility_report.md
+    plan-door: M-006
+  - id: SCORE-002
+    disposition: draft
+    justification: The regression watch list and its averaging gate do not exist yet; this change builds them.
+    disposition-source-location: TODO.md "6. Full compat sweep"
+    plan-door: M-001
+  - id: SCORE-003
+    disposition: human
+    justification: Tank-Royale-only errors are read from the report's error columns and their linked logs by a maintainer, who decides whether a signature is a bridge defect or engine noise. The harness already filters one known false positive, which is itself a judgment call.
+    disposition-source-location: compat-test/compatibility_report.md
+    plan-door: M-006
+  - id: SCORE-004
+    disposition: draft
+    justification: CodaFirst, Bl4ck, and Aetos score materially lower under Tank Royale with no errors logged; the source says these numbers predate the event-dispatch fix and must be re-tested before anything is concluded.
+    disposition-source-location: TODO.md "2. Score-gap bots (TR lower, no errors)"
+    plan-door: M-002
+  - id: SCORE-005
+    disposition: draft
+    justification: ScalarR, Ar1, and BasicSurfer score materially higher under Tank Royale; the same re-test-first caveat applies.
+    disposition-source-location: TODO.md "3. Score-gap bots (TR higher)"
+    plan-door: M-003
+
+  # CAP-006 — team robot support. Source: TODO.md item 5. Greenfield: the wrapper has no team code.
+  - id: TEAM-001
+    disposition: draft
+    justification: The robots wrapper contains no team handling; team jars are recorded SKIPPED-TR by the harness.
+    disposition-source-location: TODO.md "5. Team support in the robots wrapper"
+    plan-door: M-005
+  - id: TEAM-002
+    disposition: draft
+    justification: TeamRobot messaging is unimplemented in the wrapper path.
+    disposition-source-location: TODO.md "5. Team support in the robots wrapper"
+    plan-door: M-005
+  - id: TEAM-003
+    disposition: draft
+    justification: Droid semantics are unimplemented in the wrapper path.
+    disposition-source-location: TODO.md "5. Team support in the robots wrapper"
+    plan-door: M-005
+
+  # CAP-007 — the compatibility harness. Its behavior is documented and real, but its
+  # implementation is Python, which is not a supported evidence carrier (see A-003).
+  - id: HARN-001
+    disposition: draft
+    justification: Checkpoint-and-resume is a mechanical property that deserves a machine check, and Python is not a supported evidence carrier, so badging it Human would launder a missing test as a judgment call.
+    disposition-source-location: compat-test/README.md "Checkpointing / resume"
+    plan-door: M-001
+  - id: HARN-002
+    disposition: draft
+    justification: Process-tree termination on timeout is mechanical for the same reason as HARN-001.
+    disposition-source-location: compat-test/README.md "Prerequisites"
+    plan-door: M-001
+  - id: HARN-003
+    disposition: draft
+    justification: Status classification is a pure function of scores and error counts and should be machine-checked once a carrier exists.
+    disposition-source-location: compat-test/README.md "Status values"
+    plan-door: M-001
+  - id: HARN-004
+    disposition: draft
+    justification: The averaging regression mode does not exist yet; this change builds it.
+    disposition-source-location: "TODO.md \"DONE: Event-dispatch redesign\""
+    plan-door: M-001
+  - id: HARN-005
+    disposition: draft
+    justification: The per-turn trace mode does not exist yet; the source asks for behavioral comparison without naming a tool for it.
+    disposition-source-location: TODO.md "2. Score-gap bots (TR lower, no errors)"
+    plan-door: M-001

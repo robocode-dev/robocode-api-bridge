@@ -1,0 +1,29 @@
+# The caller is deliberately small. The validation logic lives in Cliewen's
+# reusable workflow, so an adopter changes only this reference and the local
+# runner or binary-source choices when its repository policy requires it.
+# The reference is replaced with the binary's source commit when build VCS
+# metadata is available; a released module build falls back to its protected
+# release tag.
+name: clue
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate
+    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@a153664af64b3736b55f5ed10a95ad2f206730da
+    with:
+      runner: '["ubuntu-latest"]'
+      clue-version: 0.20.0
+      clue-source: vendored
+      clue-install-directory: ''
+      # Safe only because the trigger list above includes ready_for_review:
+      # that is what guarantees a strict run when a draft becomes a candidate.
+      draft-aware: true
