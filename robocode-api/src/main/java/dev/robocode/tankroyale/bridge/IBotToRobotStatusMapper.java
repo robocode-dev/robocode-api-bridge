@@ -18,8 +18,11 @@ final class IBotToRobotStatusMapper {
                 toRobocodeHeadingRad(bot.getRadarDirection()),
                 bot.getSpeed(),
                 toRadians(bot.getTurnRemaining()),
-                toRadians(bot.getGunTurnRemaining()),
+                // RobotStatus takes radar before gun here, unlike the body/gun/radar order it
+                // uses for the headings above. Classic's constructor is the same shape, and
+                // ARCH-002 fixes the signature, so the argument order is what has to bend.
                 toRadians(bot.getRadarTurnRemaining()),
+                toRadians(bot.getGunTurnRemaining()),
                 bot.getDistanceRemaining(),
                 bot.getGunHeat(),
                 bot.getEnemyCount(),

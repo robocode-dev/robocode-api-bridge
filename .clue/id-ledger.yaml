@@ -1,24 +1,270 @@
 counters:
-    C: "1"
+    ADR: "1"
+    AN: "5"
+    API: "6"
+    ARCH: "3"
+    C: "7"
+    CAP: "7"
     CH: "1"
+    CRIT: "7"
+    DES: "7"
+    G: "1"
+    IDR: "2"
     OQ: "1"
+    P: "1"
+    PDR: "1"
     REH: "1"
     TASKS: "1"
 entries:
+    - id: ADR-001
+      kind: numeric
+      state: live
+      prefix: ADR
+      component: "1"
+    - id: AN-001
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "1"
+    - id: AN-002
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "2"
+    - id: AN-003
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "3"
+    - id: AN-004
+      kind: numeric
+      state: reserved
+      prefix: AN
+      component: "4"
+    - id: AN-005
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "5"
+    - id: API-001
+      kind: numeric
+      state: live
+      prefix: API
+      component: "1"
+    - id: API-002
+      kind: numeric
+      state: live
+      prefix: API
+      component: "2"
+    - id: API-003
+      kind: numeric
+      state: live
+      prefix: API
+      component: "3"
+    - id: API-004
+      kind: numeric
+      state: live
+      prefix: API
+      component: "4"
+    - id: API-005
+      kind: numeric
+      state: live
+      prefix: API
+      component: "5"
+    - id: API-006
+      kind: numeric
+      state: live
+      prefix: API
+      component: "6"
+    - id: ARCH-001
+      kind: numeric
+      state: live
+      prefix: ARCH
+      component: "1"
+    - id: ARCH-002
+      kind: numeric
+      state: live
+      prefix: ARCH
+      component: "2"
+    - id: ARCH-003
+      kind: numeric
+      state: live
+      prefix: ARCH
+      component: "3"
     - id: C-001
       kind: numeric
       state: live
       prefix: C
       component: "1"
+    - id: C-002
+      kind: numeric
+      state: live
+      prefix: C
+      component: "2"
+    - id: C-003
+      kind: numeric
+      state: live
+      prefix: C
+      component: "3"
+    - id: C-004
+      kind: numeric
+      state: live
+      prefix: C
+      component: "4"
+    - id: C-005
+      kind: numeric
+      state: live
+      prefix: C
+      component: "5"
+    - id: C-006
+      kind: numeric
+      state: live
+      prefix: C
+      component: "6"
+    - id: C-007
+      kind: numeric
+      state: live
+      prefix: C
+      component: "7"
+    - id: CAP-001
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "1"
+    - id: CAP-002
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "2"
+    - id: CAP-003
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "3"
+    - id: CAP-004
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "4"
+    - id: CAP-005
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "5"
+    - id: CAP-006
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "6"
+    - id: CAP-007
+      kind: numeric
+      state: live
+      prefix: CAP
+      component: "7"
     - id: CH-001
       kind: numeric
       state: live
       prefix: CH
       component: "1"
+    - id: CRIT-001
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "1"
+    - id: CRIT-002
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "2"
+    - id: CRIT-003
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "3"
+    - id: CRIT-004
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "4"
+    - id: CRIT-005
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "5"
+    - id: CRIT-006
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "6"
+    - id: CRIT-007
+      kind: numeric
+      state: live
+      prefix: CRIT
+      component: "7"
+    - id: DES-001
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "1"
+    - id: DES-002
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "2"
+    - id: DES-003
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "3"
+    - id: DES-004
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "4"
+    - id: DES-005
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "5"
+    - id: DES-006
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "6"
+    - id: DES-007
+      kind: numeric
+      state: live
+      prefix: DES
+      component: "7"
+    - id: G-001
+      kind: numeric
+      state: live
+      prefix: G
+      component: "1"
+    - id: IDR-001
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "1"
+    - id: IDR-002
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "2"
     - id: OQ-001
       kind: numeric
       state: live
       prefix: OQ
+      component: "1"
+    - id: P-001
+      kind: numeric
+      state: live
+      prefix: P
+      component: "1"
+    - id: PDR-001
+      kind: numeric
+      state: live
+      prefix: PDR
       component: "1"
     - id: REH-001
       kind: numeric

@@ -11,4 +11,11 @@ Each capability folder holds three files, updated together in the same change th
 A whole capability whose extracted criteria are not ready may stay `status: draft` with the gap stated, but a single unfinished criterion uses `@draft` without deactivating proven siblings — honesty at the narrowest level over artificial green.
 
 <!-- clue:index:start -->
+- [CAP-001 — Event dispatch and timing parity](CAP-001-event-dispatch-parity/README.md) · `draft` — Events reach the robot in the order, at the moments, and with the interruptibility classic gives them.
+- [CAP-002 — Robot physics and state parity](CAP-002-physics-and-state-parity/README.md) · `draft` — Movement, turn rates, and gun heat behave as classic's arithmetic dictates.
+- [CAP-003 — Robocode API surface fidelity](CAP-003-robocode-api-surface-fidelity/README.md) · `active` — The adapter's value conversions are correct; the only capability with machine evidence.
+- [CAP-004 — Robot file I/O sandboxing](CAP-004-robot-file-io-sandboxing/README.md) · `draft` — Robot writes are confined to the robot's data directory, as classic confines them. Not yet implemented.
+- [CAP-005 — Score parity across the rumble collections](CAP-005-score-parity/README.md) · `draft` — The end-to-end claim, and the only thing that exercises the parts of the surface nobody modelled.
+- [CAP-006 — Team robot support](CAP-006-team-robot-support/README.md) · `draft` — Teams, teammate messaging, and droids. Absent from the wrapper entirely.
+- [CAP-007 — The compatibility harness](CAP-007-compatibility-harness/README.md) · `draft` — The instrument itself, which has been wrong in ways mistaken for the bridge being wrong.
 <!-- clue:index:end -->

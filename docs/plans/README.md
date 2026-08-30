@@ -9,4 +9,5 @@ Closing the plan is that same bookkeeping: the change completing the last milest
 Every full change proposal names the plan item it serves, or explicitly declares itself plan-less — silence is not an option.
 
 <!-- clue:index:start -->
+- [P-001 — Make the bridge's parity claims measurable, then close the gaps it measures](P-001-bridge-parity-campaign.md) · `active` — The campaign, sequenced so the instrument is built before the gaps it finds are closed.
 <!-- clue:index:end -->

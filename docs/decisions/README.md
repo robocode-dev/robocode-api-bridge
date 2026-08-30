@@ -21,4 +21,8 @@ Decision records are timeless: state what is decided and only the enduring conte
 A decision that changes a methodology contract inventories every live carrier that states the affected contract and updates that complete inventory in the same change. Live carriers include current corpus truth, canonical and generated skills, templates, public or contributor guidance, implementation explanations, CLI text, and distribution metadata. Historical analyses, completed plans, and changelog entries remain pinned history. Focused guards hold stable repaired claims, but no current mechanism derives an arbitrary contract's complete carrier set, so the general obligation remains agent-enforced.
 
 <!-- clue:index:start -->
+- [ADR-001 — Link a Bot API whose event queue preserves deferred same-priority events](ADR-001-upgrade-to-bot-api-1-0-2.md) · `inferred` — Why 0.33.1 is forbidden: it discarded deferred events, and produced plausible scores for battles that were not Robocode.
+- [IDR-001 — Route robot events through the Bot API's event queue](IDR-001-route-events-through-the-bot-api-event-queue.md) · `inferred` — Why the bridge delegates dispatch instead of holding a second implementation of the engine's event semantics.
+- [IDR-002 — getDataDirectory resolves through the same robot data lookup getDataFile uses](IDR-002-data-directory-resolves-through-robot-data.md) · `inferred` — One question about where a robot's data lives should have one answer. Alignment, not confinement.
+- [PDR-001 — Evidence comes in three tiers, separated by cost and by what each can prove](PDR-001-three-tier-evidence-strategy.md) · `inferred` — Unit, conformance, and sweep: what each tier can establish, and what is rejected because Tank Royale has no seed.
 <!-- clue:index:end -->
