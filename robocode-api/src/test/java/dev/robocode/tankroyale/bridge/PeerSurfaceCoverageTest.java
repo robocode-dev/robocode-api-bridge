@@ -17,7 +17,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -170,16 +169,7 @@ class PeerSurfaceCoverageTest {
                 return inModule;
             }
         }
-        return fail("could not locate the routing test sources from " + here);
+        throw new AssertionError("could not locate the routing test sources from " + here);
     }
 
-    private static Path fail(String message) {
-        throw new AssertionError(message);
-    }
-
-    static {
-        // Keeps Stream imported for the collector above without an unused-import warning in
-        // toolchains that flag it.
-        Stream.empty().close();
-    }
 }
