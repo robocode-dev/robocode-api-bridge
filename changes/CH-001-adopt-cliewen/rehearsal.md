@@ -21,14 +21,34 @@ The repository has no structured specification corpus. There is no OpenSpec tree
 | `README.md` | descriptive prose | The purpose statement, the two-component breakdown, and a Mermaid component diagram |
 | `TODO.md` | intent prose | A "DONE" narrative of the event-dispatch redesign, then six numbered remaining items in priority order, plus a Tank Royale-side section |
 | `compat-test/README.md` | operational prose | The harness's prerequisites, per-jar methodology, status vocabulary, and caveats |
-| `compat-test/compatibility_report.md` | generated output | Sixteen tested jars with scores, deltas, error counts, and statuses |
-| `C:\Code\robocode` at `1e70188f3` | external evidence source | 48 JUnit tests over `RobotTestBed` driving 46 purpose-built test robots |
+| `compat-test/compatibility_report.md` | generated output | Tested jars with scores, deltas, error counts, and statuses |
+| `C:\Code\robocode` at `1e70188f3` | external evidence source | A JUnit conformance suite over `RobotTestBed`, driving purpose-built test robots in `robocode.tests.robots` |
 
 Two observations about the source that shape everything below.
 
 **`compatibility_report.md` is untracked.** `compat-test/.gitignore` excludes it along with `errors/`, `work/`, and `test_progress.json`. The repository's only body of compatibility evidence therefore has no committed revision, exists solely in whoever last ran the sweep's working tree, and cannot be pinned. It is recorded as a blocked carrier for that reason, and the gap is real rather than procedural: the corpus is about to name evidence that no reviewer can open.
 
-**The TODO's two halves disagree.** Its "DONE" section reports the event-dispatch redesign as landed and lists the score results that followed, while items 2 and 3 list score gaps and instruct the reader to re-test first because those numbers predate the redesign. Both are true and the disagreement is the finding: eight flagged bots currently have no interpretable status. Per the mapping's guidance, both are extracted and the disagreement becomes an analysis record rather than being resolved by picking whichever reads more recent.
+**The TODO's two halves disagree.** Its "DONE" section reports the event-dispatch redesign as landed and lists the score results that followed, while items 2 and 3 list score gaps and instruct the reader to re-test first because those numbers predate the redesign. Both are true and the disagreement is the finding: every bot the report flags currently has no interpretable status. Per the mapping's guidance, both are extracted and the disagreement becomes an analysis record rather than being resolved by picking whichever reads more recent.
+
+## The divisions the harness does not run
+
+Surfaced while resolving `OQ-001`, and large enough to change what `CAP-005` and `CAP-007` promise.
+
+The official rumble parameters live in the classic installation at `C:/robocode/roborumble/`, one configuration file per division:
+
+| Division | Battlefield | Rounds | Bots per battle | Collection directory |
+|---|---|---:|---:|---|
+| RoboRumble (1v1) | 800×600 | 35 | 2 | `roborumble/` |
+| MeleeRumble | 1000×1000 | 35 | 10 | `meleerumble/` |
+| TeamRumble | 1200×1200 | 10 | teams | `teamrumble/` |
+
+The harness runs one setup for everything: 800×600, 10 rounds, a robot against a copy of itself. That approximates the 1v1 division at under a third of its rounds and matches neither of the others. Two consequences follow.
+
+The **round count is part of why the numbers move.** The harness README already says a healthy robot can swing ±20–30% at ten rounds and advises `--rounds 35` for stability — which is the official 1v1 figure. The instrument has been running below the setting its own documentation recommends, and `A-001`'s noise finding is partly a description of that rather than of the bots.
+
+**Melee has never been run at all**, and it is the division most likely to expose the bug class this bridge has already been bitten by. Ten bots on a field means a turn carries many scan events at a single priority, which is exactly the shape 0.33.1's queue dropped. The `meleerumble/` collection has no Tank Royale result of any kind. `EVT-010` and `SCORE-006` are minted for it.
+
+Team jars are recorded `SKIPPED-TR` today because the wrapper has no team support, so the `teamrumble/` collection becomes `CAP-006`'s corpus once `M-005` lands rather than a gap to close now.
 
 ## Proposed mapping
 
@@ -44,7 +64,10 @@ Two observations about the source that shape everything below.
 | `TODO.md` noise observations | `A-001` |
 | `README.md` compatibility claim | `CAP-001`, `CAP-002`, `CAP-003` |
 | `compat-test/README.md` methodology and status vocabulary | `CAP-007` README, criteria, and design |
-| `compat-test/README.md` bot-api pairing warning and score threshold | `C-002`, `C-003` |
+| `compat-test/README.md` bot-api pairing warning | `C-002` |
+| `C:/robocode/roborumble/*.txt` official division parameters | `C-003` |
+| `OQ-001` Q2 resolution — five repeats, fifteen-point band, abort on a Tank-Royale-only exception | `C-004` |
+| `C:\Code\LiteRumble robots` as a read-only input behind a named constant | `C-007` |
 | `compat-test/compatibility_report.md` flagged rows | the regression watch list plus `SCORE-004` and `SCORE-005` |
 | Tank Royale's absent RNG seed | `A-002` |
 | Python's absence from the supported carriers | `A-003` |
@@ -53,27 +76,29 @@ Two observations about the source that shape everything below.
 
 ## Minted IDs
 
-Forty criteria across seven namespaces. **No ID is preserved, because the source has none.** Every one is minted, each namespace starts at one, and the corpus becomes the registry. The per-criterion detail lives in `source-manifest.yaml`; it is not duplicated here or in any second committed registry.
+Seven namespaces. **No ID is preserved, because the source has none.** Every one is minted, each namespace starts at one, and the corpus becomes the registry. The per-criterion detail lives in `source-manifest.yaml`, and the population figures belong to the extraction report's derived region where `clue report` renders them from that manifest; they are not typed here or in any second committed registry.
 
-| Capability | Prefix | Count | Source |
-|---|---|---:|---|
-| `CAP-001` event dispatch and timing parity | `EVT` | 9 | `TODO.md` DONE section |
-| `CAP-002` robot physics and state parity | `PHY` | 8 | `README.md` compatibility claim |
-| `CAP-003` Robocode API surface fidelity | `API` | 6 | the bridge's mapper classes |
-| `CAP-004` robot file I/O sandboxing | `FIO` | 4 | `TODO.md` item 4 |
-| `CAP-005` score parity across the rumble collection | `SCORE` | 5 | `TODO.md` items 2, 3, 6 |
-| `CAP-006` team robot support | `TEAM` | 3 | `TODO.md` item 5 |
-| `CAP-007` the compatibility harness | `HARN` | 5 | `compat-test/README.md` |
+| Capability | Prefix | Source |
+|---|---|---|
+| `CAP-001` event dispatch and timing parity | `EVT` | `TODO.md` DONE section, plus the melee division |
+| `CAP-002` robot physics and state parity | `PHY` | `README.md` compatibility claim |
+| `CAP-003` Robocode API surface fidelity | `API` | the bridge's mapper classes |
+| `CAP-004` robot file I/O sandboxing | `FIO` | `TODO.md` item 4 |
+| `CAP-005` score parity across the rumble collection | `SCORE` | `TODO.md` items 2, 3, 6, plus the melee division |
+| `CAP-006` team robot support | `TEAM` | `TODO.md` item 5 |
+| `CAP-007` the compatibility harness | `HARN` | `compat-test/README.md` and the `OQ-001` Q2 resolution |
 
 One promise the source does not make is deliberately not minted: exact per-turn position parity with classic. Classic can assert it because `-DRANDOMSEED` makes a battle reproducible; Tank Royale exposes no seed, so the promise is unmeetable and inventing a criterion for it would manufacture a permanent draft. `A-002` records the gap instead.
 
 ## Dispositions
 
-Thirty-four of forty criteria resolve `@draft`. That is the honest reading of a repository that documented its intent carefully and verified it by running battles and reading scores, and it is the single most useful thing this extraction produces: it converts "the bridge is broadly compatible" into forty named promises of which six currently have any attributable proof.
+Most criteria resolve `@draft`. That is the honest reading of a repository that documented its intent carefully and verified it by running battles and reading scores, and it is the single most useful thing this extraction produces: it converts "the bridge is broadly compatible" into named promises, only a handful of which currently have any attributable proof.
 
-- **Six become machine-proven** — the `API` namespace, `Test-type: Unit`, both directions. These are pure functions over value objects with no engine dependency, so the extraction commits to building their evidence rather than deferring it.
-- **Two become `Test-type: Human`** — `SCORE-001` and `SCORE-003`. A maintainer reads the sweep report and judges population parity and whether an error signature is a bridge defect. That is genuine human judgment on a statistical instrument, not a placeholder.
-- **Thirty-two become `@draft`**, each naming its plan door. The `HARN` five are worth singling out: they describe mechanical properties that deserve machine checks, and they are draft only because the harness is Python and Cliewen supports Go, JVM, and Cucumber carriers. Badging them Human would launder a missing test as a judgment call, so they stay draft and `A-003` records why.
+- **The `API` namespace becomes machine-proven** — `Test-type: Unit`, both directions. These are pure functions over value objects with no engine dependency, so the extraction commits to building their evidence rather than deferring it.
+- **`SCORE-001` becomes `Test-type: Human`**, and is the only criterion that does. A maintainer reads the sweep report and judges whether the population's parity is acceptable. That is genuine human judgment on a statistical instrument, not a placeholder.
+- **Everything else becomes `@draft`**, each naming its plan door. The `HARN` namespace is worth singling out: it describes mechanical properties that deserve machine checks, and it is draft only because the harness is Python and Cliewen supports Go, JVM, and Cucumber carriers. Badging those Human would launder a missing test as a judgment call, so they stay draft and `A-003` records why.
+
+`SCORE-003` was drafted as a second `Human` criterion and is no longer one. The reasoning is in `OQ-001` Q2: once the classic side's exception signatures are a baseline the Tank Royale side is compared against, "did this bot misbehave only under the bridge" stops being a judgment and becomes a verdict. The criterion is `@draft` for the Python carrier reason, not for a judgment reason, and that distinction is worth preserving rather than collapsing.
 
 ## Confidence and reversal cost
 
@@ -89,7 +114,7 @@ No active capability depends by a single `links:` edge on high-cost inferred mea
 
 There is no existing test to normalize. The repository contains no `src/test` anywhere and no JUnit dependency in either build script, so there are no tags to preserve, no multi-criterion executables to split, and no class-level identities to relocate. Every test this change writes is new and carries exactly one purpose from the start.
 
-The external evidence source at `C:\Code\robocode` is **not** a source corpus and is not edited. Its 46 test robots are read and, subject to Q1, built and consumed. Its own JUnit tests stay where they are; what ports is the expectation each one encodes, restated against both engines.
+The external evidence source at `C:\Code\robocode` is **not** a source corpus and is not edited. Its test robots are read and, subject to Q1, built and consumed. Its own JUnit tests stay where they are; what ports is the expectation each one encodes, restated against both engines.
 
 ## Instruction conflicts
 
@@ -109,12 +134,12 @@ Every deferred criterion names one. No gap is silent.
 
 | Door | Milestone | Criteria waiting on it |
 |---|---|---|
-| `M-001` | test foundation | all 9 `EVT`, all 8 `PHY`, `SCORE-002`, all 5 `HARN` |
+| `M-001` | test foundation | the whole `EVT`, `PHY`, and `HARN` namespaces, plus `SCORE-002` and `SCORE-003` |
 | `M-002` | score gaps where Tank Royale scores lower | `SCORE-004` |
 | `M-003` | score gaps where Tank Royale scores higher | `SCORE-005` |
-| `M-004` | file I/O sandboxing | all 4 `FIO` |
-| `M-005` | team robot support | all 3 `TEAM` |
-| `M-006` | full compatibility sweep | `SCORE-001`, `SCORE-003` |
+| `M-004` | file I/O sandboxing | the whole `FIO` namespace |
+| `M-005` | team robot support | the whole `TEAM` namespace |
+| `M-006` | full sweep across all three divisions | `SCORE-001`, `SCORE-006` |
 
 ## Verification run during rehearsal
 
@@ -122,8 +147,14 @@ Every deferred criterion names one. No gap is silent.
 - `clue parity changes/CH-001-adopt-cliewen/source-manifest.yaml` — 40 findings, 34 deferred. Every finding is `missing-criterion`, which is correct at rehearsal: the target corpus does not exist yet. Parity must be clean before the extraction is proposed for acceptance.
 - `clue carriers changes/CH-001-adopt-cliewen/carrier-inventory.yaml` — OK, 14 entries.
 
-## What stops here
+## What stopped here, and what released it
 
-`OQ-001` holds two blocking questions. Q1 decides whether tier two builds classic's test robots from source or vendors them, which changes what the conformance module looks like and whether it can ever run in CI. Q2 decides the regression gate's numbers, which the rehearsal can only guess at. Neither blocks the corpus, and both block the test tiers that give the corpus its evidence.
+The rehearsal held on `OQ-001`'s two blocking questions and reported. Both are now answered, and the answers are recorded in `OQ-001` for the digest to turn into decision records.
 
-The mutate phase begins on explicit human authorization and not before.
+Q1 dissolved rather than resolved: the maintainer develops both engines, so the licensing concern the rehearsal raised did not exist. The same answer directed the tiers at `C:\Code\LiteRumble robots` behind a named constant, with its jars read-only.
+
+Q2 was answered and extended. Official per-division parameters, five repeats averaged, a fifteen-point band — and a rule the rehearsal had not thought to ask about: abort the Tank Royale battle when a bot throws an exception classic did not. That converted `SCORE-003` from a judgment into a verdict and added `HARN-006`.
+
+This report was revised once after those answers. The revision is recorded here rather than silently folded in, because a rehearsal that quietly matches whatever was decided afterwards is not evidence of anything.
+
+The mutate phase is authorized and begins now.
