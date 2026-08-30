@@ -11,7 +11,7 @@ bridge), then compares scores and errors.
 |---|---|
 | `compat_test.py` | Orchestrator: staging, checkpointing, error logs, report generation |
 | `regression-set.json` | The pinned watch list the regression gate measures against |
-| `trace-robot/` | A robot that reports its own state each turn, for `--trace` |
+| `trace-robot/` | Robots that report their own state: `TraceRobot` for `--trace`, `TurnSignProbe` for settling a convention question by measurement |
 | `RcBattleWorker.java` | Single-file worker (run uncompiled) driving the classic Robocode Control API |
 | `TrBattleWorker.java` | Single-file worker (run uncompiled) driving the Tank Royale Battle Runner API |
 
@@ -106,6 +106,34 @@ signatures are the baseline. When the Tank Royale side throws a signature classi
 produce, the battle is stopped there and the signature recorded -- no score, no averaging.
 A score difference is a quantity that repetition can resolve; the same bot throwing only
 under the bridge is a categorical fact that repetition cannot improve.
+
+### Probe robots
+
+`trace-robot/tracing/` holds robots that exist to answer a question the engines will not
+answer directly. They are not part of any sweep; each is run by hand, on both engines, when a
+disagreement needs settling.
+
+`TurnSignProbe` is the worked example. It commands a known right turn, then prints the
+remaining turn from **both** paths a robot can read it through -- the peer's getter and the
+`RobotStatus` handed to `onStatus` -- so the two can be compared against each other and
+against classic.
+
+```bash
+# compile against the classic API, then run on each engine
+javac -cp "$COMPAT_ROBOCODE_HOME/libs/*" -d work/probe-classes trace-robot/tracing/TurnSignProbe.java
+python compat_test.py --conformance work/probe-classes --robot-class tracing.TurnSignProbe --engine rc --rounds 1
+python compat_test.py --conformance work/probe-classes --robot-class tracing.TurnSignProbe --engine tr --rounds 1
+```
+
+It settled `AN-007`. Classic reported `+80` on both paths after a commanded right turn; the
+bridge reported `−80` on the status path and `+80` on the peer path, contradicting classic
+and itself. Reverting the fix reproduced the inversion and restoring it removed it, which is
+what turned an argument from documentation into a measurement.
+
+The pattern generalises: when the two engines' conventions are in question, a robot compiled
+once against the classic API and run on both engines reports what each actually does. That is
+cheaper than reading two codebases and it cannot be wrong about the engines in the way a
+careful reading can.
 
 ### Trace mode
 
