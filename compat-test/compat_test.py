@@ -802,6 +802,13 @@ def parse_args():
     conf.add_argument("--participants", type=int, default=None,
                       help="participant count for --conformance")
 
+    trace = p.add_argument_group("trace mode (HARN-005)")
+    trace.add_argument("--trace", action="store_true",
+                       help="run a state-reporting robot on both engines and print the two "
+                            "per-turn streams side by side")
+    trace.add_argument("--trace-turns", type=int, default=40,
+                       help="how many traced turns to print")
+
     opts = p.parse_args()
     opts.collections = [c.strip() for c in opts.collections.split(",") if c.strip()]
     return opts
@@ -904,6 +911,110 @@ def run_regression(opts):
         print(f"\n{len(regressions)} regression(s).", file=sys.stderr)
         return 1
     print("\nNo regressions.")
+    return 0
+
+
+# ----------------------------------------------------------------------------------
+# Trace mode (HARN-005)
+# ----------------------------------------------------------------------------------
+
+TRACE_ROBOT_DIR = BASE_DIR / "trace-robot"
+TRACE_ROBOT_CLASS = "tracing.TraceRobot"
+TRACE_PREFIX = "TRACE "
+
+
+def compile_trace_robot(opts):
+    """Compiles the trace robot against the classic API. Returns (class_dir, error).
+
+    Compiled once against classic's `robocode.jar` and then run on both engines: the bridge
+    reproduces that same API, so one class file is a valid robot for either. That is the
+    same property the rumble jars rely on, applied deliberately."""
+    out_dir = WORK_DIR / "trace-classes"
+    clean_dir(out_dir)
+    source = TRACE_ROBOT_DIR / "tracing" / "TraceRobot.java"
+    if not source.exists():
+        return None, f"trace robot source not found: {source}"
+
+    classpath = str(Path(opts.robocode_home) / "libs" / "*")
+    cmd = [opts.rc_java_exe.replace("java.exe", "javac.exe").replace("/java", "/javac")
+           if opts.rc_java_exe != "java" else "javac",
+           "-cp", classpath, "-d", str(out_dir), str(source)]
+    try:
+        completed = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    except (OSError, subprocess.SubprocessError) as e:
+        return None, f"could not run javac: {e}"
+    if completed.returncode != 0:
+        return None, f"trace robot did not compile:\n{completed.stdout}\n{completed.stderr}"
+    return out_dir, None
+
+
+def trace_lines(consoles):
+    """The trace lines one participant printed, in order."""
+    for console in consoles:
+        lines = [ln.strip() for ln in console.splitlines() if ln.strip().startswith(TRACE_PREFIX.strip())]
+        if lines:
+            return lines
+    return []
+
+
+def run_trace(opts):
+    """Runs the trace robot on both engines and prints the two per-turn streams side by side.
+
+    This is the diagnostic M-002 and M-003 ask for. Those milestones say to compare
+    behaviour for bots that score differently with no errors, and until now there was no
+    tool that could show behaviour at all -- only the score at the end."""
+    check_prerequisites(opts)
+    WORK_DIR.mkdir(parents=True, exist_ok=True)
+
+    class_dir, error = compile_trace_robot(opts)
+    if error:
+        print(error, file=sys.stderr)
+        return 2
+
+    setup = dict(DIVISIONS["roborumble"])
+    setup["rounds"] = opts.rounds or 1
+
+    streams = {}
+    for engine in ("rc", "tr"):
+        print(f"  tracing on {engine} ...", flush=True)
+        jar = class_dir
+        version = None
+        if engine == "tr":
+            packaged, pack_error = package_test_robot_jar(
+                class_dir, TRACE_ROBOT_CLASS, WORK_DIR / "conformance")
+            if pack_error:
+                print(pack_error, file=sys.stderr)
+                return 2
+            jar, version = packaged, "1.0"
+        if engine == "rc":
+            result = run_rc_battle(jar, TRACE_ROBOT_CLASS, version, opts, setup)
+            consoles = result.get("consoles") or read_worker_consoles(WORK_DIR / "rc-result.json")
+        else:
+            result = run_tr_battle(jar, TRACE_ROBOT_CLASS, version, opts, setup)
+            consoles = collect_bot_consoles()
+        streams[engine] = trace_lines(consoles)
+
+    limit = opts.trace_turns
+    rc_lines, tr_lines = streams["rc"][:limit], streams["tr"][:limit]
+    if not rc_lines or not tr_lines:
+        print("No trace output captured. classic lines: "
+              f"{len(streams['rc'])}, bridge lines: {len(streams['tr'])}", file=sys.stderr)
+        return 1
+
+    print(f"\nFirst {min(len(rc_lines), len(tr_lines))} traced turns. "
+          f"'|' marks a line where the two engines disagree.\n")
+    print(f"{'':2} {'classic Robocode':<95} bridge")
+    for index in range(max(len(rc_lines), len(tr_lines))):
+        rc = rc_lines[index] if index < len(rc_lines) else ""
+        tr = tr_lines[index] if index < len(tr_lines) else ""
+        mark = " " if rc == tr else "|"
+        print(f"{mark:2} {rc:<95} {tr}")
+
+    differing = sum(1 for a, b in zip(rc_lines, tr_lines) if a != b)
+    print(f"\n{differing} of {min(len(rc_lines), len(tr_lines))} compared lines differ.")
+    print("A divergence is expected to grow once the robots interact -- Tank Royale has no "
+          "seed, so the battles are not the same battle (AN-002). The early turns, before "
+          "anything is scanned, are where a real mapping fault shows.")
     return 0
 
 
@@ -1058,6 +1169,8 @@ def main():
         return run_conformance(opts)
     if opts.regression:
         return run_regression(opts)
+    if opts.trace:
+        return run_trace(opts)
 
     state = load_state()
     state["settings"] = {"rounds": opts.rounds, "threshold": opts.threshold,

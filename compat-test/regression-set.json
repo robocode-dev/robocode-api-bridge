@@ -1,0 +1,84 @@
+{
+  "_comment": [
+    "The pinned watch list for the regression gate (C-004). Every bot that has ever shown a",
+    "divergence stays here, including ones whose cause was found and fixed -- a defect removed",
+    "from the watch list is a defect free to return unnoticed.",
+    "",
+    "Note that every baseline_delta_pct is null, and that is the point. The observed_delta_pct",
+    "figures below were measured at ten rounds in a setup matching no division exactly, and",
+    "before both the event-dispatch redesign and the Bot API upgrade that AN-001 and ADR-001",
+    "describe. They record why each bot is being watched; they are not something to measure",
+    "against, and treating them as baselines would gate on numbers that describe a bridge that",
+    "no longer exists.",
+    "",
+    "M-006 produces the first real baselines, at official division parameters over averaged",
+    "repeats. Until then --regression reports NO BASELINE for these rows rather than a verdict."
+  ],
+  "baseline_source": null,
+  "baseline_recorded_at": null,
+  "bots": [
+    {
+      "jar": "roborumble/AD.CodaFirst_1.1.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": -43.4,
+      "note": "Scores much lower under the bridge with no errors on either side. AN-005 and AN-006 are the first named candidates to check against."
+    },
+    {
+      "jar": "roborumble/acid.Bl4ck_1.0.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": -85.6,
+      "note": "The largest unexplained drop in the collection, and no errors logged on either side."
+    },
+    {
+      "jar": "roborumble/aetos.AetosFirstBot_1.0.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": -37.5,
+      "note": "Scores lower under the bridge with no errors."
+    },
+    {
+      "jar": "roborumble/aaa.r.ScalarR_0.005h.053.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": 37.9,
+      "note": "Scores higher under the bridge. A robot that improves is as much a fidelity defect as one that degrades, and is easier to leave unexamined."
+    },
+    {
+      "jar": "roborumble/adt.Ar1_2.1.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": 64.2,
+      "note": "Scores higher under the bridge."
+    },
+    {
+      "jar": "roborumble/And.BasicSurfer_FF1.6.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": 79.2,
+      "note": "Scores higher under the bridge. A bullet-surfing robot depends on precise radar and bullet state, so PHY-005 and PHY-008 are worth checking here."
+    },
+    {
+      "jar": "roborumble/ag.Gir_0.99.jar",
+      "state": "open",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": -35.5,
+      "note": "The bot that surfaced the missing file sandbox: writes root paths and produces access-denied errors in the thousands under the bridge. Expected to resolve at M-004; the fail-fast rule will stop its battle before then."
+    },
+    {
+      "jar": "roborumble/acid.Syzygy_1.0.4.jar",
+      "state": "fixed",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": -18.5,
+      "note": "Was a total failure -- zero score across every round -- caused by the Bot API event queue dropping deferred same-priority events (ADR-001). Fixed and within threshold. Kept on the list so it stays fixed."
+    },
+    {
+      "jar": "roborumble/ad.last.Bottom_1.0.jar",
+      "state": "noise",
+      "baseline_delta_pct": null,
+      "observed_delta_pct": 2000.0,
+      "note": "Reported, never gated. Its classic-side score swung between 6 and 274 across runs with no bridge involved, so a percentage delta on it is arithmetic rather than measurement (AN-001). The +621.9% inversion once attributed to the bridge disappeared with the event-dispatch redesign."
+    }
+  ]
+}

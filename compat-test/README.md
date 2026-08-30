@@ -10,6 +10,8 @@ bridge), then compares scores and errors.
 | File | Purpose |
 |---|---|
 | `compat_test.py` | Orchestrator: staging, checkpointing, error logs, report generation |
+| `regression-set.json` | The pinned watch list the regression gate measures against |
+| `trace-robot/` | A robot that reports its own state each turn, for `--trace` |
 | `RcBattleWorker.java` | Single-file worker (run uncompiled) driving the classic Robocode Control API |
 | `TrBattleWorker.java` | Single-file worker (run uncompiled) driving the Tank Royale Battle Runner API |
 
@@ -20,6 +22,11 @@ the failure.
 ## Prerequisites
 
 - **JDK 17+** on `PATH` (`java`), **Python 3.9+** (stdlib only).
+- **A JDK 23 or older for the classic side.** Classic Robocode installs a `SecurityManager`
+  to sandbox robots, and JDK 24 removed `SecurityManager` support outright -- so
+  `-Djava.security.manager=allow` is no longer a deprecation warning but a fatal VM error,
+  and classic cannot start at all on a JDK 24+ default. The harness auto-detects a suitable
+  JDK; override with `--rc-java` or `COMPAT_RC_JAVA`. The Tank Royale side is unaffected.
 - Robot collection at `C:\Code\LiteRumble robots` with `roborumble`, `meleerumble`,
   `teamrumble` subdirectories of `.jar` files.
 - Classic Robocode installation at `C:\robocode` (1.10.3 tested).
@@ -27,8 +34,10 @@ the failure.
   - Tank Royale runner fat jar: `C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar`
   - Bridge adapter: `robocode-api\build\libs\robocode-api-0.5.0.jar` (this repo, `gradlew :robocode-api:build`)
   - Robots wrapper: `robots-wrapper\build\libs\robots-wrapper-0.3.1.jar` (this repo, `gradlew :robots-wrapper:build`)
-  - Tank Royale Bot API **1.0.2** from `~\.m2\repository\...\robocode-tankroyale-bot-api-1.0.2.jar`
-    (publish it with `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository)
+  - Tank Royale Bot API **1.0.2**, resolved from Maven Central by the Gradle build. The
+    harness reads the jar from `~\.m2\repository\...\robocode-tankroyale-bot-api-1.0.2.jar`,
+    where building the bridge once puts it. To try an unreleased Bot API, publish it with
+    `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository.
 
   > ⚠️ The bot-api version matters: it must be protocol-compatible with the server embedded
   > in the runner jar (an incompatible pairing leaves the robots idle, scoring 0 — newer
@@ -40,6 +49,23 @@ All paths are defaults only — override with CLI flags (`--collection-dir`,
 `--robocode-home`, `--runner-jar`, `--bridge-api-jar`, `--wrapper-jar`, `--bot-api-jar`)
 or the corresponding `COMPAT_*` environment variables.
 
+## Division setups
+
+Each division runs at its **official rumble parameters**, read from the classic
+installation's `roborumble/` configuration. Constraint `C-003` in the corpus: these are not
+ours to choose. A robot is tuned to its division and its ranking was earned at these
+settings, so measuring it at anything else produces a number describing behaviour the
+robot was never ranked on.
+
+| Division | Battlefield | Rounds | Bots per battle |
+|---|---|---:|---:|
+| `roborumble` | 800x600 | 35 | 2 |
+| `meleerumble` | 1000x1000 | 35 | 10 |
+| `teamrumble` | 1200x1200 | 10 | teams |
+
+`--rounds` overrides the round count for quick local runs and makes the result
+incomparable with the rumble, so the report records the setup each row was measured at.
+
 ## Usage
 
 ```bash
@@ -47,11 +73,73 @@ cd compat-test
 python compat_test.py                          # test all collections, resume-aware
 python compat_test.py --collections roborumble --limit 50
 python compat_test.py --only Waylander         # substring filter on jar name
-python compat_test.py --rounds 20              # more rounds = less score variance
+python compat_test.py --rounds 5               # override the official round count
 python compat_test.py --retry-failed           # re-run only FAIL/ERROR robots
 python compat_test.py --force                  # re-run everything
 python compat_test.py --report-only            # just regenerate the report
 ```
+
+### Regression gate
+
+```bash
+python compat_test.py --regression             # re-measure the pinned watch list
+python compat_test.py --regression --repeats 3 --band 20
+```
+
+Re-measures every bot in `regression-set.json` over averaged repeats and reports movement
+from its recorded baseline. A single battle is not evidence about a bot -- one watched bot
+swings by a factor of forty between runs on classic alone -- so scores are averaged before
+they are judged, and the verdict is stated as movement from a baseline rather than as an
+absolute delta.
+
+Every baseline in the shipped watch list is `null`, deliberately. The deltas recorded there
+were measured before the event-dispatch redesign and the Bot API upgrade, at ten rounds, in
+a setup matching no division exactly. They say why a bot is watched; they are not something
+to measure against. The gate reports `NO BASELINE` until a sweep at official parameters
+records real ones.
+
+A bot marked `noise` is always reported and never fails the run. A gate that fires on the
+same bot every time is a gate people learn to ignore.
+
+**Fail-fast on a bridge-only exception.** The classic side runs first, so its exception
+signatures are the baseline. When the Tank Royale side throws a signature classic did not
+produce, the battle is stopped there and the signature recorded -- no score, no averaging.
+A score difference is a quantity that repetition can resolve; the same bot throwing only
+under the bridge is a categorical fact that repetition cannot improve.
+
+### Trace mode
+
+```bash
+python compat_test.py --trace                  # per-turn state from both engines
+python compat_test.py --trace --trace-turns 80
+```
+
+Compiles `trace-robot/tracing/TraceRobot.java` against the classic API, runs it on both
+engines, and prints the two per-turn streams side by side with the differing lines marked.
+This is the behavioural comparison the score-gap work needs; until now nothing could show
+behaviour at all, only the score at the end.
+
+The robot reports from *inside*: neither engine will hand a per-turn view to the harness
+from outside, and instrumenting an engine would mean measuring a build no robot will ever
+run against. Reporting from inside measures what the robot perceives, which is the parity
+question exactly, and one class compiled against the classic API runs on both engines
+because reproducing that API is what the bridge is for.
+
+Its movement is a fixed command sequence rather than a strategy, so that what differs
+between the two traces is the engine rather than the robot.
+
+Expect divergence to grow once the robots interact -- Tank Royale has no seed, so the two
+battles are not the same battle. **The early turns, before anything is scanned, are where a
+real mapping fault shows.**
+
+> First observation from this tool, recorded and not yet explained: classic's first traced
+> turn is `turn=0` and the bridge's is `turn=1`, and the bridge's state at its turn N
+> matches classic's at turn N. So the robot's first execution appears to happen a turn later
+> under the bridge rather than the turn number being offset. Worth noting alongside it that
+> `BotPeer.getTime()` returns the Tank Royale turn number unchanged while the status mapper
+> rebases the round number by one -- the codebase already treats the two engines' counting
+> conventions as differing, in one place and not the other. Needs investigation before
+> anything is concluded; it belongs to the score-gap milestones.
 
 ### Checkpointing / resume
 

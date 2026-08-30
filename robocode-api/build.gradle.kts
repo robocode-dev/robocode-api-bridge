@@ -8,8 +8,11 @@ group = "dev.robocode"
 version = "0.5.0"
 
 repositories {
-    mavenLocal() // bot-api 1.0.2 is not published on Maven Central (yet); publish it with
-                 // `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository
+    // bot-api 1.0.2 is on Maven Central. mavenLocal stays first so an unreleased build can
+    // be tried against the bridge by publishing it with `gradlew :bot-api:java:publishToMavenLocal`
+    // in the tank-royale repository -- but C-002 applies: the version must stay protocol
+    // compatible with the server embedded in the runner jar, and nothing checks that.
+    mavenLocal()
     mavenCentral()
 }
 

@@ -38,4 +38,26 @@ For a full change, read [`docs/README.md`](docs/README.md) only when the request
 
 ## Repo-local conventions
 
-<!-- Add your project's own layer here: tech stack, build commands, code style, review conventions. A convention that binds every change also registers as a constraint artifact in docs/constraints/ (enforcement: agent until a machine holds it, partial once one holds part of it, human when none ever can) — prose here is the readable carrier, the register is the inventory. Repo-local conventions extend the methodology, never override it — when a rule here would contradict a skill, that conflict is an open question for a human, not a silent choice. -->
+Start with [`docs/architecture/README.md`](docs/architecture/README.md). It has the whole system on one page and says where every capability sits in it. Then read [`ARCH-002`](docs/architecture/ARCH-002-frozen-robocode-api-surface.md) before changing anything under `robocode-api/src/main/java/robocode/`.
+
+**What this repository is.** A bridge that runs compiled legacy Robocode robots on Tank Royale. Classic Robocode is the specification: where the two engines disagree, classic is right by definition, because the robots were written against it and can never be recompiled.
+
+**Build and test.**
+
+```bash
+./gradlew :robocode-api:test                                  # tier 1: unit, no engine, seconds
+./gradlew :conformance-test:test                              # tier 2: both engines, minutes
+./gradlew :robocode-api:jar :robots-wrapper:jar               # what the harness needs
+cd compat-test && python compat_test.py --regression          # tier 3: the watch list
+cd compat-test && python compat_test.py --trace               # per-turn behavioural diff
+```
+
+Tier 2 **skips** rather than fails when the environment is absent, so a clean checkout still builds. It needs a classic Robocode installation, the classic source repository's compiled test robots, and the Tank Royale runner jar; point it with `-Probocode.home=` and `-Probocode.source=`.
+
+**The classic side needs its own JDK.** Classic installs a `SecurityManager`, which JDK 24 removed outright, so `-Djava.security.manager=allow` is a fatal VM error there and classic cannot start at all. The harness auto-detects a JDK 23 or older; override with `COMPAT_RC_JAVA`.
+
+**Evidence conventions.** A test carries its criterion, proof type, and direction in its own name — `testAPI001_UnitPositive_...`. Give each field of a wide positional constructor a distinct value in tests: two defects found so far were positional or dispatch faults that placeholder data would have passed. `PDR-001` explains why evidence is layered in three tiers and what each can prove.
+
+**The rumble collection is read-only** (`C-007`). Jars are staged and run, never rewritten; their bytecode and bundled sources may be read for debugging. A modified jar produces results indistinguishable from real ones, which is worse than a missing one.
+
+<!-- A convention that binds every change also registers as a constraint artifact in docs/constraints/ (enforcement: agent until a machine holds it, partial once one holds part of it, human when none ever can) — prose here is the readable carrier, the register is the inventory. Repo-local conventions extend the methodology, never override it — when a rule here would contradict a skill, that conflict is an open question for a human, not a silent choice. -->
