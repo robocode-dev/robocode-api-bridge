@@ -1,9 +1,9 @@
 ---
 id: PDR-001
 type: decision
-status: inferred
+status: verified
 author: agent
-accepted-by: []
+accepted-by: [Flemming N. Larsen]
 links: [ARCH-003, CAP-003, CAP-007, C-003, C-004, C-007, AN-002, AN-003]
 title: Evidence comes in three tiers, separated by cost and by what each can prove
 ---

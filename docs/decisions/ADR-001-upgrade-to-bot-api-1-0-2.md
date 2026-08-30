@@ -1,9 +1,9 @@
 ---
 id: ADR-001
 type: decision
-status: inferred
+status: verified
 author: agent
-accepted-by: []
+accepted-by: [Flemming N. Larsen]
 links: [CAP-001, IDR-001, C-002, AN-001]
 title: Link a Bot API whose event queue preserves deferred same-priority events
 ---

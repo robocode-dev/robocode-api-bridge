@@ -1,9 +1,9 @@
 ---
 id: IDR-002
 type: decision
-status: inferred
+status: verified
 author: agent
-accepted-by: []
+accepted-by: [Flemming N. Larsen]
 links: [CAP-004, C-005]
 title: getDataDirectory resolves through the same robot data lookup getDataFile uses
 ---

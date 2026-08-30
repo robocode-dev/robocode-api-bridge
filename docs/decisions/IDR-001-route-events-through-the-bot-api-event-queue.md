@@ -1,9 +1,9 @@
 ---
 id: IDR-001
 type: decision
-status: inferred
+status: verified
 author: agent
-accepted-by: []
+accepted-by: [Flemming N. Larsen]
 links: [CAP-001, ADR-001]
 title: Route robot events through the Bot API's event queue rather than dispatching them in the bridge
 ---
