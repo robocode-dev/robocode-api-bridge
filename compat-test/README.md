@@ -224,3 +224,10 @@ therefore safe to run over a state file holding results from several eras.
   chunk it; checkpointing makes chunking free.
 - Per-side timeout (`--timeout`, default 600 s) kills the entire worker process tree
   (server/booter/bot JVMs included) and records the robot as failed.
+- **Comparing two Tank Royale server builds**: the runner jar carries an embedded server
+  jar, and rebuilding it does not reliably pick up a change to the server's sources —
+  Gradle's up-to-date check reused a stale shrunk server jar and produced byte-identical
+  runner jars for two different source trees, which silently made a whole comparison
+  meaningless. Clean the modules first (`gradlew :server:clean :runner:clean`) and check
+  the runner jar's checksum between builds; if the checksum did not change, neither did
+  the server.

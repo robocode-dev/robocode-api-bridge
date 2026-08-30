@@ -31,7 +31,7 @@ Two things follow from the shape of that table.
 
 **The death handler is the only one missing.** `onWin`, `onRoundEnded`, and `onBattleEnded` all fire under the bridge, so the robot's output is being captured, the process is alive at the end of each round, and outcome events reach it in general. The instance that lost every round printed `RoundEnded!` five times and `Death!` never.
 
-**There is a second, separate divergence.** Classic splits the rounds 3–2 between the two instances; the bridge gives one instance all five. Identical robots should not split that way, and `BattleWin`'s handlers are independent — `onDeath` only prints — so the missing handler does not cause the lopsided outcome. These are two findings, and this record does not claim one explains the other.
+**A lopsided round split was recorded alongside it and did not survive re-measurement.** Classic split the rounds 3–2 between the two instances while the bridge gave one instance all five. Re-measured after the event-dispatch redesign and the Bot API upgrade, wins split across the instances in every battle, so it is not carried forward. A different round-outcome divergence did survive, and has its own record in [`AN-008`](AN-008-tank-royale-declares-more-round-winners-than-rounds.md).
 
 ## Why this was believed fixed
 
@@ -39,24 +39,34 @@ Two things follow from the shape of that table.
 
 The claim was never tested. It was inferred from the shape of the change, and the evidence offered for it was a score report — which cannot show that a handler was not called. `EVT-004`'s justification in the extraction manifest already said this promise had never been tested; this is what that meant in practice.
 
-## Where the cause is likely to be, and where it is not
+## Where the cause is
 
-Not a negative priority. The bridge registers `DeathEvent` at priority -1, matching classic, where the value is a fixed system-event priority. The Bot API's event queue does not filter on priority sign — it filters on event age and criticality, dispatching an event only when it is recent or marked critical.
+In the Tank Royale server, before the Bot API ever sees anything.
 
-That filter is the place to look. A death arrives at the very end of a round, and the queue is also cleared between rounds. An event that is judged old, or that is still queued when the round-boundary clear happens, is dropped without a trace — which matches the observation exactly: everything that fires mid-round or at round end fires, and only the one event that arrives at the moment the robot stops existing does not.
+**No death message of any kind reaches any bot.** A probe in the Bot API's `WebSocketHandler.onText`, ahead of any parsing, printed the raw payload of every message whose text contained `death` in any casing. It fired zero times in every bot's log, in a two-participant battle and in a four-participant battle where the round continues past three deaths and the survivors should be told about each. The same logs show scan, wall-hit, bullet-hit and won-round events arriving and dispatching normally.
 
-Confirming that requires instrumenting the Bot API's queue rather than reading it, and the fix may belong upstream under `C-006` rather than in this repository. That is `M-001` work.
+The server emits a death with `addPublicBotEvent`, which fans out over the turn's own bots. Every turn is constructed empty and only filled from the bots map at the end of `TurnProcessor.processTurn`, and the emission ran before that snapshot, so the event was delivered to nobody. The server's own unit test for the turn pipeline reproduces it with no engine, no network and no bots: a defeated bot yields an empty event map.
+
+The repair moves the emission after the snapshot, which also still holds the dead bots, so a bot receives its own death. It is committed upstream on the branch `fix-death-events-never-reach-bots` in the Tank Royale repository, with a positive and a negative test in the server's own suite; the positive test fails without the change. `C-006` does not apply — this is server code, not the four-language Bot API.
+
+## What was ruled out
+
+**The Bot API's event queue.** `AN-006` named the queue's age and criticality filter as the suspect. It is refuted twice: `DeathEvent.isCritical()` returns true and the queue exempts critical events from the age filter, and a probe printing the queue's full contents at every dispatch never saw a `DeathEvent` in it. Nothing was dropped, because nothing arrived.
+
+**A negative priority.** The bridge registers `DeathEvent` at priority -1, matching classic. The queue does not filter on priority sign.
+
+**The Bot API's instant death handler.** `BotInternals` subscribes a handler to `DeathEvent` whose body stops the bot thread, and the bridge's bot inherits it, so it could in principle stop the thread before the queued dispatch ran. A probe on that handler never fired.
+
+**The bridge.** It overrides the Bot API's `onDeath`, maps it, and calls the robot's handler. A probe inside that override never fires, because it is never called.
 
 ## What it means
 
 **The conformance tier paid for itself on its second robot.** This defect is invisible to the score-based instrument: the battle completes, both robots score, and the report shows a percentage. It took a test that asserts on what the robot reported.
 
-**`EVT-004` stays `@draft`, and now has a reason rather than an absence.** The criterion was drafted because nothing tested it. It remains drafted because something now does, and the behaviour is missing.
+**`EVT-004` stays `@draft` until a Tank Royale release carries the repair.** The criterion was drafted because nothing tested it. It stays drafted because the repair exists upstream and unreleased, and the bridge builds against released Bot API and runner artifacts rather than local ones. The reason is now a named cause with a named fix, not an absence.
 
 **The test is present and disabled, naming this record.** Leaving it failing would make the build permanently red; deleting it would lose the only thing that detects the defect; asserting the current behaviour would certify it. Disabled with a reason is the one option that keeps the defect visible and the build honest.
 
 ## What this does not establish
-
-The cause. The queue's age filter is where the evidence points, not something that has been demonstrated.
 
 Whether robots in the collection are affected in ways that matter. A robot that cleans up or persists learned data in `onDeath` would silently stop doing so under the bridge, which is the profile of a bot that scores worse for no visible reason — but no flagged bot has been traced to this. `M-002` has a second named candidate to check, alongside `AN-005`.

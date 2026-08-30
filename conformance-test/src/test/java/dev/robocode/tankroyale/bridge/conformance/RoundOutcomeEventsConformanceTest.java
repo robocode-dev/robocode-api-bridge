@@ -19,18 +19,24 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * routed through the Bot API's event queue, the bridge dispatched them from a hand-written
  * switch that had no case for the robot's own death, so {@code onDeath} was never called for
  * any robot. A manual switch fails silently on the branch nobody wrote, and nothing in a
- * score report shows it.
+ * score report shows it. Routing through the queue did not fix it either, and AN-006 now has
+ * the reason: the death never reaches the bot, so there is nothing for any dispatcher to route.
+ *
+ * Two of the tests here are tagged for criteria they do not prove -- the win-handler test and
+ * both round-completion tests assert behaviour no criterion in CAP-001 covers. G-002 carries
+ * that; do not read a passing test in this class as evidence for the criterion in its name.
  */
 class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
 
     private static final String ROBOT = "tested.robots.BattleWin";
 
     @Test
-    @Disabled("Fails against the bridge: onDeath is never called. Confirmed and recorded in "
-            + "AN-006, which has the measured marker counts for both engines. Kept rather than "
-            + "deleted because it is the only thing that detects the defect, and disabled rather "
-            + "than left failing so the build stays honest. Re-enable in M-001, which owns the "
-            + "root cause in the Bot API's event queue.")
+    @Disabled("Fails against the bridge: onDeath is never called, because no death event reaches "
+            + "any bot at all. AN-006 has the cause -- the Tank Royale server emits a death before "
+            + "the turn's bot snapshot exists, so it fans out over nobody -- and the repair is "
+            + "committed upstream and unreleased. Kept rather than deleted because it is the only "
+            + "thing that detects the defect, and disabled rather than left failing so the build "
+            + "stays honest. Re-enable when a Tank Royale release carries the repair.")
     @DisplayName("EVT-004: a robot's own death reaches onDeath on both engines")
     void testEVT004_IntegrationPositive_OwnDeathReachesTheDeathHandler() {
         assertOnBothEngines(ROBOT, (outcome, engine) ->

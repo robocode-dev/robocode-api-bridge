@@ -6,4 +6,5 @@ A goal artifact answers three questions: who wants it, what they want, and why i
 
 <!-- clue:index:start -->
 - [G-001 — Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode](G-001-legacy-robots-behave-the-same-on-tank-royale.md) · `accepted` — Why the bridge exists: robots that can never be recompiled must keep the behaviour their rankings were earned with, which makes classic the specification.
+- [G-002 — Every conformance test proves the criterion its name claims](G-002-conformance-evidence-proves-the-criterion-it-names.md) · `proposed` — Anyone reading the corpus to find out what is proven — a maintainer deciding whether a milestone can close, a reviewer deciding whether a criterion may leave `@draft`, the next agent picking up the…
 <!-- clue:index:end -->

@@ -15,4 +15,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-006 — A robot's own death still does not reach onDeath under the bridge](AN-006-own-death-still-does-not-reach-on-death.md) · `active` — Whether `EVT-004` holds: a robot's own death reaches its death handler.
 - [AN-004-extraction/](AN-004-extraction/README.md)
 - [AN-007 — Remaining turn had opposite signs depending on which path a robot read it through](AN-007-remaining-turn-sign-disagreed-between-two-paths.md) · `active` — Two conversion paths for one quantity disagreed, and the test written alongside AN-005 had certified the wrong one.
+- [AN-008 — Tank Royale declares more round winners than the battle has rounds](AN-008-tank-royale-declares-more-round-winners-than-rounds.md) · `active` — Round outcomes, noticed while measuring `AN-006`.
 <!-- clue:index:end -->
