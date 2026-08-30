@@ -55,7 +55,9 @@ Team jars are recorded `SKIPPED-TR` today because the wrapper has no team suppor
 | Source | Target |
 |---|---|
 | `README.md` purpose statement | `G-001`, `status: accepted` |
-| `README.md` component breakdown and Mermaid diagram | `docs/architecture/`, diagram carried across unchanged |
+| `README.md` component breakdown and Mermaid diagram | `ARCH-001` bridge runtime topology, diagram carried across unchanged |
+| The reproduced `robocode.*` package tree under `robocode-api/src/main/java` | `ARCH-002` the frozen API surface |
+| `compat-test/README.md` process and isolation model, extended to the new tiers | `ARCH-003` the two-engine evidence topology |
 | `TODO.md` six numbered items, in their own order | `P-001` with milestones `M-001` through `M-006` |
 | `TODO.md` "DONE" section | `IDR-001` (EventQueue routing), `ADR-001` (0.33.1 to 1.0.2), and the EVT criteria the redesign touched |
 | `TODO.md` item 1's `getDataDirectory()` note | `IDR-002` |

@@ -25,6 +25,9 @@ Ordered; dependencies first. The rehearsal pass is mandatory and blocks every mu
 - [ ] Write `G-001` — legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode
 - [ ] Write `P-001` with milestones M-001 test foundation, M-002 score gaps where Tank Royale scores lower, M-003 score gaps where it scores higher, M-004 file I/O sandboxing, M-005 team support, M-006 full sweep
 - [ ] Write the constraints: `C-002` bot-api protocol compatibility with the runner's embedded server, `C-003` official per-division rumble parameters used unmodified, `C-004` the regression gate (five repeats averaged, fifteen-point band, abort on a Tank-Royale-only exception), `C-005` robot writes confined to the data directory, `C-006` Tank Royale Bot API changes spanning all four languages, `C-007` rumble jars never modified and read only for debugging
+- [ ] Write `ARCH-001` the bridge runtime topology — the wrapper-to-server hand-off chain and its process boundaries, carrying `README.md`'s Mermaid diagram across
+- [ ] Write `ARCH-002` the frozen Robocode API surface — why `robocode.*` is reproduced source-compatibly and what that permanently forbids
+- [ ] Write `ARCH-003` the two-engine evidence topology — which engine runs in which process across the three test tiers, and the isolation model that keeps a hanging robot from taking the harness down
 - [ ] Write `CAP-001` event dispatch and timing parity (`ac-prefix: EVT`) — README, criteria, design
 - [ ] Write `CAP-002` robot physics and state parity (`ac-prefix: PHY`) — README, criteria, design
 - [ ] Write `CAP-003` Robocode API surface fidelity (`ac-prefix: API`) — README, criteria, design
