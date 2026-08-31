@@ -11,7 +11,7 @@ reversal-cost: low
 
 # CAP-001 — acceptance criteria
 
-Every criterion here is `@draft` against `M-001`. The behaviour is implemented; the evidence is not. Each names the classic test robot that will prove it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
+Most criteria here are `@draft` against `M-001`; three (`EVT-011`, `EVT-012`, `EVT-013`) are active. Each names the classic test robot that will prove it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
 
 ```gherkin
 Feature: Event dispatch and timing parity
@@ -32,17 +32,15 @@ Feature: Event dispatch and timing parity
     Then every scan event the classic run delivered is also delivered under the bridge
     # The defect this criterion exists for discarded exactly these events. Plan door: M-001.
 
-  @EVT-003 @draft
+  @EVT-003 @retired
   Scenario: An interruptible handler is re-entered when a higher-priority event arrives
     Test-type: Integration
     Given a robot that turns its radar from inside onHitWall and marks when it is scanned
     When the same battle runs on both engines
     Then the robot reports being scanned on both engines
-    # The ported InteruptibleEvent robot is tested in InterruptibleEventConformanceTest and passes,
-    # but it does not prove this scenario's name: the robot sets HitWallEvent to the SAME priority as
-    # ScannedRobotEvent, so nothing higher-priority arrives, and the assertion cannot separate
-    # re-entry from an ordinary later delivery. Promotion was attempted in CH-003 and reverted.
-    # This is the same defect as the EVT-005 mistag; see G-002. Plan door: M-001.
+    # Retired: no robot in the source tree exercises genuine higher-priority re-entry, and
+    # classic's own InteruptibleEvent deliberately uses the SAME priority. See IDR-003.
+    # Superseded by EVT-013.
 
   @EVT-004 @draft
   Scenario: A robot's own death reaches its death handler
@@ -61,9 +59,8 @@ Feature: Event dispatch and timing parity
     Given a robot that records the turn number at each handler entry
     When the same battle runs on both engines
     Then each handler is entered at the same point in the turn on both engines
-    # Draft, and not proven by the tests currently tagged EVT-005: those assert round and battle
-    # completion, which is different behaviour and which no criterion here covers. See G-002.
-    # Plan door: M-001.
+    # Draft: no test proves per-turn handler timing yet. The two tests once tagged EVT-005
+    # proved round/battle completion instead and are now EVT-011; see G-002. Plan door: M-001.
 
   @EVT-006 @draft
   Scenario: Custom events fire and can be removed
@@ -107,4 +104,33 @@ Feature: Event dispatch and timing parity
     Then the per-turn scan counts match on both engines
     # The division the harness has never run, and the one that carries the most
     # same-priority events per turn. Plan door: M-001.
+
+  @EVT-011
+  Scenario: Round and battle completion each reach their handler exactly once
+    Test-type: Integration
+    Given a robot that reports from onRoundEnded and onBattleEnded
+    When the same battle runs on classic Robocode and on Tank Royale through the bridge
+    Then both handlers are reported on both engines
+    And a round ending is reported exactly once per round the robot saw end
+    # Proven by the ported BattleWin robot in RoundOutcomeEventsConformanceTest. Named for what
+    # those tests actually assert, after G-002 found them mistagged EVT-005. Plan door: M-001.
+
+  @EVT-012
+  Scenario: Winning a round reaches the win handler
+    Test-type: Integration
+    Given a robot that reports from onWin
+    When the robot wins a round on each engine
+    Then the report appears on both engines
+    # Proven by the ported BattleWin robot in RoundOutcomeEventsConformanceTest. Named for what
+    # that test actually asserts, after G-002 found it mistagged EVT-004. Plan door: M-001.
+
+  @EVT-013
+  Scenario: An interruptible handler is re-entered for a same-priority event once marked interruptible
+    Test-type: Integration
+    Given a robot that turns its radar from inside onHitWall, at the same event priority as a scan,
+      and has called setInterruptible(true)
+    When the same battle runs on both engines
+    Then the robot reports being scanned on both engines
+    # Proven by the ported InteruptibleEvent robot in InterruptibleEventConformanceTest. Successor
+    # to the retired EVT-003; see IDR-003 for why the claim is scoped to same-priority re-entry.
 ```

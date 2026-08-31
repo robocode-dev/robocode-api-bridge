@@ -25,4 +25,5 @@ A decision that changes a methodology contract inventories every live carrier th
 - [IDR-001 — Route robot events through the Bot API's event queue](IDR-001-route-events-through-the-bot-api-event-queue.md) · `verified` — Why the bridge delegates dispatch instead of holding a second implementation of the engine's event semantics.
 - [IDR-002 — getDataDirectory resolves through the same robot data lookup getDataFile uses](IDR-002-data-directory-resolves-through-robot-data.md) · `verified` — One question about where a robot's data lives should have one answer. Alignment, not confinement.
 - [PDR-001 — Evidence comes in three tiers, separated by cost and by what each can prove](PDR-001-three-tier-evidence-strategy.md) · `verified` — Unit, conformance, and sweep: what each tier can establish, and what is rejected because Tank Royale has no seed.
+- [IDR-003 — EVT-003's higher-priority claim is retired; interruptible re-entry evidence is scoped to what classic's own robot proves](IDR-003-evt-003-scoped-to-what-classic-actually-proves.md) · `inferred` — `EVT-003` retires.
 <!-- clue:index:end -->

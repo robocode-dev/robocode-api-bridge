@@ -8,7 +8,7 @@ counters:
     CH: "4"
     CRIT: "8"
     DES: "8"
-    EVT: "1"
+    EVT: "13"
     G: "2"
     IDR: "3"
     OQ: "2"
@@ -298,6 +298,11 @@ entries:
       state: reserved
       prefix: EVT
       component: "1"
+    - id: EVT-003
+      kind: numeric
+      state: retired
+      prefix: EVT
+      component: "3"
     - id: G-001
       kind: numeric
       state: live
@@ -320,7 +325,7 @@ entries:
       component: "2"
     - id: IDR-003
       kind: numeric
-      state: reserved
+      state: live
       prefix: IDR
       component: "3"
     - id: OQ-001

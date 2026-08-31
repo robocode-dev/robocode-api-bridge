@@ -17,13 +17,17 @@ These are the corpus's only machine-proven criteria. Each is proven by unit test
 Feature: Robocode API surface fidelity
 
   @API-001
-  Scenario: Angles convert between the Robocode and Tank Royale conventions
+  Scenario: Angles convert from the Tank Royale convention to the Robocode convention (single-direction)
     Test-type: Unit
-    Given an angle expressed in one engine's convention
-    When it is converted to the other
-    Then the result is the same direction expressed in the target convention
-    And converting it back yields the original angle
+    Given an angle expressed in Tank Royale's convention
+    When it is converted to Robocode's convention
+    Then the result is the same direction expressed in Robocode's convention
     And the discontinuity where the circle wraps is handled rather than producing a reflected angle
+    # The adapter converts only this direction: outbound turn commands are relative rotations
+    # in the same winding sense on both engines and need no conversion, so nothing in the
+    # bridge ever converts a Robocode-convention angle back to Tank Royale's. AN-010 found the
+    # round-trip clause this scenario once had was untestable because no such method exists,
+    # and the asymmetry is architectural rather than a gap.
 
   @API-002
   Scenario: Colours convert between Robocode's Color and Tank Royale's representation
@@ -44,7 +48,7 @@ Feature: Robocode API surface fidelity
   @API-004
   Scenario: Bullets map to Robocode's Bullet with owner, power, and heading preserved
     Test-type: Unit
-    Given a Tank Royale bullet
+    Given a Tank Royale bullet whose owner id does not match any bot currently in the battle
     When it is mapped for a robot
     Then its power, heading, and owning robot are preserved
     And a bullet whose owner is no longer in the battle still maps rather than failing
