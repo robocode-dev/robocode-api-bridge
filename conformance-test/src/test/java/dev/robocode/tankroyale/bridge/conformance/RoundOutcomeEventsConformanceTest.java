@@ -1,6 +1,5 @@
 package dev.robocode.tankroyale.bridge.conformance;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -33,12 +32,6 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     private static final String ROBOT = "tested.robots.BattleWin";
 
     @Test
-    @Disabled("Fails against the bridge: onDeath is never called, because no death event reaches "
-            + "any bot at all. AN-009 has the cause -- the Tank Royale server emits a death before "
-            + "the turn's bot snapshot exists, so it fans out over nobody -- and the repair is "
-            + "committed upstream and unreleased. Kept rather than deleted because it is the only "
-            + "thing that detects the defect, and disabled rather than left failing so the build "
-            + "stays honest. Re-enable when a Tank Royale release carries the repair.")
     @DisplayName("EVT-004: a robot's own death reaches onDeath on both engines")
     void testEVT004_IntegrationPositive_OwnDeathReachesTheDeathHandler() {
         assertOnBothEngines(ROBOT, (outcome, engine) ->

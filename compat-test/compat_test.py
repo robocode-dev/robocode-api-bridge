@@ -43,29 +43,38 @@ from pathlib import Path
 # ----------------------------------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent
+TANK_ROYALE_HOME = Path(os.environ.get("COMPAT_TANK_ROYALE_HOME", r"C:\Code\tank-royale"))
+
+
+def local_bot_api_jar():
+    """Returns the locally built Bot API jar, or the expected path when it has not been built."""
+    libs = TANK_ROYALE_HOME / "bot-api" / "java" / "build" / "libs"
+    jars = [path for path in libs.glob("robocode-tankroyale-bot-api-*.jar")
+            if not path.name.endswith(("-javadoc.jar", "-sources.jar"))]
+    if jars:
+        return str(max(jars, key=lambda path: path.stat().st_mtime))
+    return str(libs / "robocode-tankroyale-bot-api-local.jar")
 
 DEFAULTS = {
     "collection_dir": os.environ.get("COMPAT_COLLECTION_DIR", r"C:\Code\LiteRumble robots"),
     "robocode_home": os.environ.get("COMPAT_ROBOCODE_HOME", r"C:\robocode"),
     "runner_jar": os.environ.get(
         "COMPAT_RUNNER_JAR",
-        r"C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar"),
+        str(TANK_ROYALE_HOME / "runner" / "examples" / "lib" / "robocode-tankroyale-runner.jar")),
     "bridge_api_jar": os.environ.get(
         "COMPAT_BRIDGE_API_JAR",
         r"C:\Code\robocode-api-bridge\robocode-api\build\libs\robocode-api-0.5.0.jar"),
     "wrapper_jar": os.environ.get(
         "COMPAT_WRAPPER_JAR",
         r"C:\Code\robocode-api-bridge\robots-wrapper\build\libs\robots-wrapper-0.3.1.jar"),
-    # NOTE: must be protocol/API compatible with what the bridge's robocode-api jar was
-    # compiled against AND with the server embedded in the runner jar. Publish it with
-    # `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository.
+    # The bridge uses a locally built Bot API and runner from the same Tank Royale revision;
+    # override only with another matched local pair. Build the API with
+    # `gradlew :bot-api:java:publishToMavenLocal` and runner with `:runner:copyRunnerJar`.
     # (0.33.1 had an event-queue bug dropping deferred same-priority events, e.g. every
     # other scan event for bots that call blocking methods inside onScannedRobot.)
     "bot_api_jar": os.environ.get(
         "COMPAT_BOT_API_JAR",
-        os.path.expanduser(r"~\.m2\repository\dev\robocode\tankroyale"
-                           r"\robocode-tankroyale-bot-api\1.0.2"
-                           r"\robocode-tankroyale-bot-api-1.0.2.jar")),
+        local_bot_api_jar()),
     # Classic Robocode installs a SecurityManager to sandbox robots. JDK 24 removed
     # SecurityManager support outright, so -Djava.security.manager=allow is no longer a
     # deprecation warning but a fatal VM error, and the classic side cannot start at all.

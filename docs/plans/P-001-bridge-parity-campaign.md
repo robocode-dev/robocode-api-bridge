@@ -43,7 +43,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | M-101 | `EVT-001` | `EVT-001` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-102 | `EVT-002` | `EVT-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-103 | `EVT-003` | Dropped: `EVT-003` retired (`IDR-003`); see `M-141` for its successor `EVT-013`. | dropped |
-| M-104 | `EVT-004` | `EVT-004` is active, with evidence attributable to it. Work lands under M-001. | todo |
+| M-104 | `EVT-004` | `EVT-004` is active, with evidence attributable to it. Work lands under M-001. | done |
 | M-105 | `EVT-005` | `EVT-005` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-106 | `EVT-006` | `EVT-006` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-107 | `EVT-007` | `EVT-007` is active, with evidence attributable to it. Work lands under M-001. | todo |

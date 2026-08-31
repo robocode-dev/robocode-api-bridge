@@ -42,16 +42,15 @@ Feature: Event dispatch and timing parity
     # classic's own InteruptibleEvent deliberately uses the SAME priority. See IDR-003.
     # Superseded by EVT-013.
 
-  @EVT-004 @draft
+  @EVT-004
   Scenario: A robot's own death reaches its death handler
     Test-type: Integration
     Given a robot that reports from onDeath
     When the robot is destroyed on each engine
     Then the report appears on both engines
-    # Draft because the behaviour is missing, not because nothing tests it: the test exists and
-    # is disabled. AN-009 establishes the cause -- the Tank Royale server emits a death before the
-    # turn's bot snapshot exists, so it reaches no bot at all -- and the repair is committed
-    # upstream and unreleased. Promote when a release carries it. Plan door: M-001.
+    # Proven by the ported BattleWin robot in RoundOutcomeEventsConformanceTest against a locally
+    # built matched Tank Royale Bot API and runner pair. AN-009 establishes the original server
+    # cause; PDR-002 records why bridge evidence uses this local upstream build. Plan door: M-001.
 
   @EVT-005 @draft
   Scenario: New-turn events arrive at the classic point in the turn
