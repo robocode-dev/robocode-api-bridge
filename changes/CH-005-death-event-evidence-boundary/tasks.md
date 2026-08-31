@@ -1,0 +1,3 @@
+- [ ] Resolve `Q-001` and record the resulting decision before selecting an implementation or evidence path.
+- [ ] If the decision permits a reproducible compatible upstream pair, add conformance evidence for `EVT-004` and `EVT-007` and promote only the criteria the evidence proves.
+- [ ] If the decision requires a published release, record the dependency gate in the permanent corpus and leave both criteria `@draft` until that release is available.

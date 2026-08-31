@@ -5,7 +5,7 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "4"
+    CH: "5"
     CRIT: "8"
     DES: "8"
     EVT: "13"
@@ -213,6 +213,11 @@ entries:
       state: live
       prefix: CH
       component: "4"
+    - id: CH-005
+      kind: numeric
+      state: reserved
+      prefix: CH
+      component: "5"
     - id: CRIT-001
       kind: numeric
       state: live
