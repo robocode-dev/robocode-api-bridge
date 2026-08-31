@@ -5,11 +5,12 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "3"
+    CH: "4"
     CRIT: "8"
     DES: "8"
+    EVT: "1"
     G: "2"
-    IDR: "2"
+    IDR: "3"
     OQ: "2"
     P: "1"
     PDR: "1"
@@ -207,6 +208,11 @@ entries:
       state: live
       prefix: CH
       component: "3"
+    - id: CH-004
+      kind: numeric
+      state: reserved
+      prefix: CH
+      component: "4"
     - id: CRIT-001
       kind: numeric
       state: live
@@ -287,6 +293,11 @@ entries:
       state: live
       prefix: DES
       component: "8"
+    - id: EVT-001
+      kind: numeric
+      state: reserved
+      prefix: EVT
+      component: "1"
     - id: G-001
       kind: numeric
       state: live
@@ -307,6 +318,11 @@ entries:
       state: live
       prefix: IDR
       component: "2"
+    - id: IDR-003
+      kind: numeric
+      state: reserved
+      prefix: IDR
+      component: "3"
     - id: OQ-001
       kind: numeric
       state: live

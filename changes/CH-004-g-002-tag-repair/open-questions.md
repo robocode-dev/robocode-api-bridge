@@ -1,0 +1,1 @@
+No blocking questions. `IDR-003` records the one choice that could have gone either way (retire-and-mint `EVT-003` vs. strengthen its assertion) and why retire-and-mint is the honest option given the fixed classic robot available.
