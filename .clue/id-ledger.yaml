@@ -5,18 +5,18 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "4"
+    CH: "5"
     CRIT: "8"
     DES: "8"
-    EVT: "13"
+    EVT: "14"
     G: "2"
-    IDR: "3"
+    IDR: "4"
     OQ: "2"
     P: "1"
-    PDR: "1"
+    PDR: "2"
     REH: "1"
     ROUTE: "12"
-    TASKS: "3"
+    TASKS: "4"
 entries:
     - id: ADR-001
       kind: numeric
@@ -213,6 +213,11 @@ entries:
       state: live
       prefix: CH
       component: "4"
+    - id: CH-005
+      kind: numeric
+      state: live
+      prefix: CH
+      component: "5"
     - id: CRIT-001
       kind: numeric
       state: live
@@ -325,7 +330,7 @@ entries:
       component: "6"
     - id: EVT-007
       kind: numeric
-      state: live
+      state: retired
       prefix: EVT
       component: "7"
     - id: EVT-008
@@ -358,6 +363,11 @@ entries:
       state: live
       prefix: EVT
       component: "13"
+    - id: EVT-014
+      kind: numeric
+      state: live
+      prefix: EVT
+      component: "14"
     - id: G-001
       kind: numeric
       state: live
@@ -383,6 +393,11 @@ entries:
       state: live
       prefix: IDR
       component: "3"
+    - id: IDR-004
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "4"
     - id: OQ-001
       kind: numeric
       state: live
@@ -390,7 +405,7 @@ entries:
       component: "1"
     - id: OQ-002
       kind: numeric
-      state: reserved
+      state: live
       prefix: OQ
       component: "2"
     - id: P-001
@@ -403,6 +418,11 @@ entries:
       state: live
       prefix: PDR
       component: "1"
+    - id: PDR-002
+      kind: numeric
+      state: live
+      prefix: PDR
+      component: "2"
     - id: REH-001
       kind: numeric
       state: live
@@ -483,3 +503,8 @@ entries:
       state: live
       prefix: TASKS
       component: "3"
+    - id: TASKS-004
+      kind: numeric
+      state: live
+      prefix: TASKS
+      component: "4"

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.nio.file.Path;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -43,8 +44,13 @@ abstract class ConformanceTestBase {
      * Runs the robot on both engines and applies the same expectation to each.
      */
     void assertOnBothEngines(String robotClass, Expectation expectation) {
+        assertOnBothEngines(robotClass, null, expectation);
+    }
+
+    /** Runs a locally held probe source on both engines after compiling it against classic. */
+    void assertOnBothEngines(String robotClass, Path source, Expectation expectation) {
         for (Engine engine : Engine.values()) {
-            BattleOutcome outcome = outcomeFor(engine, robotClass);
+            BattleOutcome outcome = outcomeFor(engine, robotClass, source);
             assertTrue(outcome.completed(),
                     () -> "the battle did not complete on " + engine + " (" + outcome.summary() + ")");
             expectation.check(outcome, engine);
@@ -59,8 +65,12 @@ abstract class ConformanceTestBase {
      * reason that has nothing to do with what it claims to check.
      */
     BattleOutcome outcomeFor(Engine engine, String robotClass) {
+        return outcomeFor(engine, robotClass, null);
+    }
+
+    private BattleOutcome outcomeFor(Engine engine, String robotClass, Path source) {
         return ran.computeIfAbsent(engine.name() + " " + robotClass,
-                key -> harness.run(engine, robotClass));
+                key -> harness.run(engine, robotClass, source));
     }
 
     /** The number of rounds every battle in this run is configured for. */
