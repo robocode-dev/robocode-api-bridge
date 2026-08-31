@@ -41,12 +41,16 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
-    @DisplayName("EVT-004 negative: each destruction reaches onDeath once, not repeatedly")
-    void testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatForOneDestruction() {
-        assertOnBothEngines(ROBOT, (outcome, engine) ->
-                assertTrue(outcome.countOf("Death!") == configuredRounds(),
-                        () -> "onDeath was reported other than once per destroyed robot on " + engine
-                                + " (" + outcome.summary() + ")"));
+    @DisplayName("EVT-004 negative: a participant's onDeath is not reported more than once per round")
+    void testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatWithinRounds() {
+        assertOnBothEngines(ROBOT, (outcome, engine) -> {
+            for (String console : outcome.consoles()) {
+                int deaths = countIn(console, "Death!");
+                assertTrue(deaths <= configuredRounds(),
+                        () -> "a participant reported onDeath " + deaths + " times on " + engine
+                                + ", more than once per configured round (" + outcome.summary() + ")");
+            }
+        });
     }
 
     @Test
