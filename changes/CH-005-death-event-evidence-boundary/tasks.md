@@ -1,3 +1,4 @@
-- [ ] Resolve `Q-001` and record the resulting decision before selecting an implementation or evidence path.
-- [ ] If the decision permits a reproducible compatible upstream pair, add conformance evidence for `EVT-004` and `EVT-007` and promote only the criteria the evidence proves.
-- [ ] If the decision requires a published release, record the dependency gate in the permanent corpus and leave both criteria `@draft` until that release is available.
+- [x] Resolve `Q-001` in `PDR-002`: use locally built Tank Royale artifacts from one upstream revision; releases are outside bridge evidence work.
+- [ ] Build a matched local Bot API and runner pair from Tank Royale and confirm the pair runs an acting battle under `C-002`.
+- [ ] Add conformance evidence for a robot's own death and another robot's death — serves `EVT-004`, `EVT-007`.
+- [ ] Promote only the criteria the resulting evidence proves, then update `P-001` doors and digest the durable corpus.

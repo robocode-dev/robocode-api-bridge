@@ -8,4 +8,4 @@ The bridge's `robocode-api` module declares Bot API `1.0.2`; its conformance tie
 
 Should this change consume a locally built, pinned Tank Royale `main` server and Bot API pair to establish conformance evidence, wait for a compatible released pair, or defer these two criteria and take the next unblocked M-001 door instead?
 
-This blocks implementation. A human answer will be recorded as a decision before work resumes.
+Resolved by the human in `PDR-002`: build and use a locally matched Bot API and runner pair. A Tank Royale release is outside bridge evidence work.

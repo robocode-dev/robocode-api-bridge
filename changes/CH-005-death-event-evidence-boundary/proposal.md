@@ -12,11 +12,11 @@ title: Establish the dependency boundary for death-event conformance evidence
 
 `AN-009` established that the released Tank Royale server failed to deliver death events to every bot, leaving both `EVT-004` (a robot's own death reaches `onDeath`) and `EVT-007` (a survivor receives another robot's death) correctly marked `@draft`. The upstream server repair is now present on Tank Royale `main`, but no released tag contains it.
 
-This change will establish whether the bridge may consume that unreleased upstream repair for conformance evidence, or must wait for a compatible released server and Bot API pair. Until that decision, it will not promote either criterion or alter the bridge's declared dependency version.
+This change records the approved local-build policy, then uses a locally built Bot API and runner from the same Tank Royale revision to add conformance evidence for `EVT-004` and `EVT-007`. It will promote only the criteria that evidence proves.
 
 ## Why
 
-The bridge currently compiles against Bot API `1.0.2`, while its conformance tier launches a separate Tank Royale runner. `C-002` requires those two sides to stay protocol compatible, and the repository has no check that proves a locally built Bot API and runner pair meet that boundary. Treating an upstream-main build as accepted evidence without a decision would make `EVT-004` and `EVT-007` look reproducible when the project cannot yet guarantee that.
+The bridge currently compiles against Bot API `1.0.2`, while its conformance tier launches a separate Tank Royale runner. `C-002` requires those two sides to stay protocol compatible, so the local-build setup must use a matched pair and confirm that bots act before treating the results as evidence. A Tank Royale release is not needed for that work.
 
 ## Route
 

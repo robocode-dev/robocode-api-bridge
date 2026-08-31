@@ -4,7 +4,7 @@ type: constraint
 status: active
 links: [CAP-001, ARCH-001]
 title: The Bot API must be protocol-compatible with the server embedded in the runner
-source: compat-test/README.md prerequisites, and the incident recorded in AN-001
+source: PDR-002, compat-test/README.md prerequisites, and the incident recorded in AN-001
 enforcement: human
 provenance: inferred
 reversal-cost: high
@@ -13,6 +13,8 @@ reversal-cost: high
 # C-002 — The Bot API must be protocol-compatible with the server embedded in the runner
 
 The bridge links one version of the Tank Royale Bot API; battles run against a server embedded in the Tank Royale runner jar. The two speak a versioned protocol, and a mismatched pairing is not a build error — it is a battle in which the bots never act.
+
+Conformance may use unreleased Tank Royale repairs, but it builds the Bot API and runner locally from the same upstream revision rather than requiring a Tank Royale release. `PDR-002` records that boundary.
 
 ## Why this is a constraint rather than a build detail
 

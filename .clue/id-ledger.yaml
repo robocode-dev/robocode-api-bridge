@@ -13,7 +13,7 @@ counters:
     IDR: "3"
     OQ: "2"
     P: "1"
-    PDR: "1"
+    PDR: "2"
     REH: "1"
     ROUTE: "12"
     TASKS: "3"
@@ -408,6 +408,11 @@ entries:
       state: live
       prefix: PDR
       component: "1"
+    - id: PDR-002
+      kind: numeric
+      state: reserved
+      prefix: PDR
+      component: "2"
     - id: REH-001
       kind: numeric
       state: live

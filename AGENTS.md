@@ -54,6 +54,8 @@ cd compat-test && python compat_test.py --trace               # per-turn behavio
 
 Tier 2 **skips** rather than fails when the environment is absent, so a clean checkout still builds. It needs a classic Robocode installation, the classic source repository's compiled test robots, and the Tank Royale runner jar; point it with `-Probocode.home=` and `-Probocode.source=`.
 
+**Tank Royale conformance artifacts are local builds.** When a conformance check needs an unreleased upstream repair, build the Bot API and runner from the same Tank Royale revision and use that pair. Do not wait for, request, or create a Tank Royale release merely to run bridge evidence; `PDR-002` records the policy and `C-002` still requires a compatible pair.
+
 **The classic side needs its own JDK.** Classic installs a `SecurityManager`, which JDK 24 removed outright, so `-Djava.security.manager=allow` is a fatal VM error there and classic cannot start at all. The harness auto-detects a JDK 23 or older; override with `COMPAT_RC_JAVA`.
 
 **Evidence conventions.** A test carries its criterion, proof type, and direction in its own name — `testAPI001_UnitPositive_...`. Give each field of a wide positional constructor a distinct value in tests: two defects found so far were positional or dispatch faults that placeholder data would have passed. `PDR-001` explains why evidence is layered in three tiers and what each can prove.
