@@ -8,9 +8,9 @@ counters:
     CH: "5"
     CRIT: "8"
     DES: "8"
-    EVT: "13"
+    EVT: "14"
     G: "2"
-    IDR: "3"
+    IDR: "4"
     OQ: "2"
     P: "1"
     PDR: "2"
@@ -330,7 +330,7 @@ entries:
       component: "6"
     - id: EVT-007
       kind: numeric
-      state: live
+      state: retired
       prefix: EVT
       component: "7"
     - id: EVT-008
@@ -363,6 +363,11 @@ entries:
       state: live
       prefix: EVT
       component: "13"
+    - id: EVT-014
+      kind: numeric
+      state: live
+      prefix: EVT
+      component: "14"
     - id: G-001
       kind: numeric
       state: live
@@ -388,6 +393,11 @@ entries:
       state: live
       prefix: IDR
       component: "3"
+    - id: IDR-004
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "4"
     - id: OQ-001
       kind: numeric
       state: live

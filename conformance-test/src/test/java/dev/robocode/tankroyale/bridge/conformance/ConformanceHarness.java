@@ -39,6 +39,11 @@ final class ConformanceHarness {
         this.rounds = rounds;
     }
 
+    /** Repository root, for bridge-owned probe sources passed to the Python harness. */
+    static Path repoRoot() {
+        return REPO_ROOT;
+    }
+
     /** The number of rounds every battle this harness runs is configured for. */
     int rounds() {
         return rounds;
@@ -89,7 +94,7 @@ final class ConformanceHarness {
      *
      * @param robotClass fully qualified, e.g. {@code tested.robots.InteruptibleEvent}
      */
-    BattleOutcome run(Engine engine, String robotClass) {
+    BattleOutcome run(Engine engine, String robotClass, Path source) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
@@ -98,6 +103,10 @@ final class ConformanceHarness {
                 "--engine", engine.harnessName(),
                 "--rounds", String.valueOf(rounds),
                 "--robocode-home", robocodeHome.toString()));
+        if (source != null) {
+            command.add("--conformance-source");
+            command.add(source.toString());
+        }
 
         try {
             Process process = new ProcessBuilder(command)

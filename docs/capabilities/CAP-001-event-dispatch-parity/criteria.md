@@ -69,14 +69,24 @@ Feature: Event dispatch and timing parity
     Then the firing and the silence after removal match on both engines
     # Proven by the ported CustomEvents robot. Plan door: M-001.
 
-  @EVT-007 @draft
+  @EVT-007 @retired
   Scenario: The death of another robot reaches the survivors
     Test-type: Integration
     Given a robot that reports each robot death it observes
     When the same battle runs on both engines
     Then the same deaths are reported in the same order on both engines
-    # Proven by the ported RobotDeathEvents robot. Blocked by the same cause as EVT-004: no death
-    # event reaches any bot, so the survivors are not told either. See AN-009. Plan door: M-001.
+    # Retired: Tank Royale has no deterministic seed, so cross-engine death ordering cannot be
+    # compared honestly. Superseded by EVT-014; see IDR-004.
+
+  @EVT-014
+  Scenario: A survivor receives another robot's death event
+    Test-type: Integration
+    Given two robots that report from onRobotDeath
+    When one robot is destroyed on each engine
+    Then a surviving robot reports the other robot's death on both engines
+    # Proven by the bridge-owned DeathEventProbe in RobotDeathEventsConformanceTest. Successor
+    # to EVT-007; see IDR-004. (single-direction): a battle with a death necessarily has a
+    # survivor, so the missing marker is the behavior this criterion detects.
 
   @EVT-008 @draft
   Scenario: Skipped turns are reported to the robot

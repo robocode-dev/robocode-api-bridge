@@ -889,6 +889,8 @@ def parse_args():
     conf.add_argument("--conformance", metavar="JAR",
                       help="run one robot jar on one engine and print the result, "
                            "including each participant's console output, as JSON")
+    conf.add_argument("--conformance-source", type=Path,
+                      help="compile this bridge-owned robot source against classic before running it")
     conf.add_argument("--engine", choices=("rc", "tr"), default="rc",
                       help="which engine --conformance drives")
     conf.add_argument("--robot-class",
@@ -1053,6 +1055,24 @@ def compile_trace_robot(opts):
     return out_dir, None
 
 
+def compile_conformance_robot(opts, source: Path):
+    """Compiles a bridge-owned conformance probe against the classic API."""
+    out_dir = WORK_DIR / "conformance-probe-classes"
+    clean_dir(out_dir)
+    if not source.exists():
+        return None, f"conformance probe source not found: {source}"
+
+    classpath = str(Path(opts.robocode_home) / "libs" / "*")
+    cmd = [javac_beside(opts.rc_java_exe), "-cp", classpath, "-d", str(out_dir), str(source)]
+    try:
+        completed = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    except (OSError, subprocess.SubprocessError) as e:
+        return None, f"could not compile conformance probe: {e}"
+    if completed.returncode != 0:
+        return None, f"conformance probe did not compile:\n{completed.stdout}\n{completed.stderr}"
+    return out_dir, None
+
+
 def javac_beside(java_exe):
     """The javac that ships next to a given java executable.
 
@@ -1213,7 +1233,17 @@ def run_conformance(opts):
     if opts.participants is not None:
         setup["participants"] = opts.participants
 
-    if jar.is_dir():
+    if opts.conformance_source:
+        class_dir, error = compile_conformance_robot(opts, opts.conformance_source)
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        packaged, error = package_test_robot_jar(class_dir, classname, WORK_DIR / "conformance")
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        jar, version = packaged, "1.0"
+    elif jar.is_dir():
         # Package the one robot under test, for both engines.
         #
         # The bridge side needs a real robot jar because the wrapper finds robots by their
