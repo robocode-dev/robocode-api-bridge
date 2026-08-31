@@ -41,6 +41,15 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
+    @DisplayName("EVT-004 negative: each destruction reaches onDeath once, not repeatedly")
+    void testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatForOneDestruction() {
+        assertOnBothEngines(ROBOT, (outcome, engine) ->
+                assertTrue(outcome.countOf("Death!") == configuredRounds(),
+                        () -> "onDeath was reported other than once per destroyed robot on " + engine
+                                + " (" + outcome.summary() + ")"));
+    }
+
+    @Test
     @DisplayName("EVT-012: winning a round reaches onWin on both engines")
     void testEVT012_IntegrationPositive_WinningARoundReachesTheWinHandler() {
         assertOnBothEngines(ROBOT, (outcome, engine) ->
