@@ -7,16 +7,17 @@ plugins {
 group = "dev.robocode"
 version = "0.5.0"
 
+val tankRoyaleBotApiVersion = providers.gradleProperty("tankRoyaleBotApiVersion").orElse("1.0.2")
+
 repositories {
-    // Conformance uses a locally built Bot API. Publish the Tank Royale checkout's matching
-    // API with `gradlew :bot-api:java:publishToMavenLocal` before building this module. C-002
-    // still applies: the API must come from the same revision as the runner's embedded server.
+    // CI resolves the published default. A live conformance run overrides its version with a
+    // locally published Tank Royale Bot API from the same revision as the runner (C-002).
     mavenLocal()
     mavenCentral()
 }
 
 dependencies {
-   implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:1.2.0")
+   implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:${tankRoyaleBotApiVersion.get()}")
 
    // Tier 1 of the evidence strategy (PDR-001): unit tests over the adapter's value
    // conversions. No engine, so this is the only tier that runs in CI.

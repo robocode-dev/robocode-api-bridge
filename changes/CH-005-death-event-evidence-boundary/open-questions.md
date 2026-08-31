@@ -1,3 +1,11 @@
+---
+id: OQ-002
+type: question
+status: active
+links: [CH-005, PDR-002]
+title: Whether bridge evidence may use unreleased Tank Royale artifacts
+---
+
 # Open questions
 
 ## Q-001 — May bridge conformance evidence consume the unreleased Tank Royale death-event repair?

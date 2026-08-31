@@ -1,7 +1,7 @@
 ---
 id: CH-005
 type: change
-status: proposed
+status: open
 links: [P-001, CAP-001, AN-009, C-002]
 title: Establish the dependency boundary for death-event conformance evidence
 ---

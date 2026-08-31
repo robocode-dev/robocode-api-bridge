@@ -20,4 +20,4 @@ Tank Royale releases are a separate, consequential product operation. They are n
 
 ## Consequences
 
-The conformance setup identifies the Tank Royale source revision and builds both artifacts from it. `C-002` remains in force: a local pair must still be protocol-compatible and a battle must show that bots act before its results are trusted. A Tank Royale release may later consume the same repair, but that release is outside the bridge change.
+The conformance setup identifies the Tank Royale source revision and builds both artifacts from it. The bridge is rebuilt with that local Bot API version before the comparison, while the CI-only unit tier retains its published dependency default. `C-002` remains in force: a local pair must still be protocol-compatible and a battle must show that bots act before its results are trusted. A Tank Royale release may later consume the same repair, but that release is outside the bridge change.
