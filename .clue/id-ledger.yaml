@@ -1,6 +1,6 @@
 counters:
     ADR: "1"
-    AN: "9"
+    AN: "10"
     API: "6"
     ARCH: "3"
     C: "7"
@@ -67,6 +67,11 @@ entries:
       state: live
       prefix: AN
       component: "9"
+    - id: AN-010
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "10"
     - id: API-001
       kind: numeric
       state: live
