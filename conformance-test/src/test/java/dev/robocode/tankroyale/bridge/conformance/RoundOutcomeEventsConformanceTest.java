@@ -7,8 +7,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Acceptance evidence for EVT-004 — a robot's own death reaches its death handler — and for
- * the round and battle completion events alongside it.
+ * Acceptance evidence for EVT-004 (own death reaches the death handler), EVT-012 (winning a
+ * round reaches the win handler), and EVT-011 (round and battle completion each reach their
+ * handler exactly once).
  *
  * Classic's {@code BattleWin} robot prints a marker from each of {@code onWin},
  * {@code onDeath}, {@code onRoundEnded}, and {@code onBattleEnded}. In a robot-against-itself
@@ -22,9 +23,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * score report shows it. Routing through the queue did not fix it either, and AN-009 now has
  * the reason: the death never reaches the bot, so there is nothing for any dispatcher to route.
  *
- * Every passing test in this class is tagged for a criterion it does not prove -- the win-handler
- * test and both round-completion tests assert behaviour no criterion in CAP-001 covers. G-002
- * carries that; do not read a passing test here as evidence for the criterion in its name.
+ * The win-handler and round-completion tests were originally tagged EVT-004 and EVT-005; G-002
+ * found neither tag matched what the test asserted, since no criterion in CAP-001 covered
+ * round or battle completion at all. EVT-012 and EVT-011 were minted for what these tests
+ * actually prove, and the tests below are retagged and renamed accordingly.
  */
 class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
 
@@ -46,16 +48,16 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
-    @DisplayName("EVT-004: winning a round reaches onWin on both engines")
-    void testEVT004_IntegrationPositive_WinningARoundReachesTheWinHandler() {
+    @DisplayName("EVT-012: winning a round reaches onWin on both engines")
+    void testEVT012_IntegrationPositive_WinningARoundReachesTheWinHandler() {
         assertOnBothEngines(ROBOT, (outcome, engine) ->
                 assertTrue(outcome.anyConsoleContains("Win!"),
                         () -> "no robot reported winning on " + engine + " (" + outcome.summary() + ")"));
     }
 
     @Test
-    @DisplayName("EVT-005: round and battle completion reach their handlers on both engines")
-    void testEVT005_IntegrationPositive_RoundAndBattleCompletionReachTheirHandlers() {
+    @DisplayName("EVT-011: round and battle completion reach their handlers on both engines")
+    void testEVT011_IntegrationPositive_RoundAndBattleCompletionReachTheirHandlers() {
         assertOnBothEngines(ROBOT, (outcome, engine) -> {
             assertTrue(outcome.anyConsoleContains("RoundEnded!"),
                     () -> "onRoundEnded was not reported on " + engine + " (" + outcome.summary() + ")");
@@ -65,21 +67,23 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
-    @DisplayName("EVT-005 negative: round completion is reported once per round, not once per participant")
-    void testEVT005_IntegrationNegative_RoundCompletionIsNotReportedMoreThanOncePerRound() {
+    @DisplayName("EVT-011 negative: round completion is reported once per round, not once per participant")
+    void testEVT011_IntegrationNegative_RoundCompletionIsNotReportedMoreThanOncePerRound() {
+        int expectedRounds = configuredRounds();
         assertOnBothEngines(ROBOT, (outcome, engine) -> {
             // Each participant sees each round end exactly once. A dispatcher that delivered
             // the event once per participant to every participant would satisfy the positive
-            // test above and fail here.
+            // test above and fail here, because it would double (or worse) the count below
+            // rather than merely clear a lower bound.
             for (String console : outcome.consoles()) {
                 int rounds = countIn(console, "RoundEnded!");
                 int battles = countIn(console, "BattleEnded!");
                 assertTrue(battles == 1,
                         () -> "a participant reported the battle ending " + battles
                                 + " times on " + engine);
-                assertTrue(rounds >= battles,
+                assertTrue(rounds == expectedRounds,
                         () -> "a participant reported " + rounds + " round endings on " + engine
-                                + ", fewer than the battles it saw end");
+                                + ", expected exactly " + expectedRounds);
             }
         });
     }

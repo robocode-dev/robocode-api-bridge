@@ -37,14 +37,12 @@ It also costs evidence in the other direction: the round-outcome behaviour these
 
 `AN-010` found the unit tier does not have this problem at the same severity — every `API` and `ROUTE` criterion has a test, no test carries a nonexistent ID, and assertions name the specific call and argument rather than a loose marker, which is the vocabulary that let the conformance-tier mismatches through unnoticed. It still has two narrow gaps: `API-001`'s round-trip clause is untested because the adapter has no reverse angle conversion to test it against, and `API-004`'s owner-departed case has no test — the test carrying its tag proves a null-victim case instead, a different field. Neither is the promote-on-false-evidence failure the conformance tier produced; both are gaps in an otherwise-tight net.
 
-## What it would take
+## What was done
 
-Mint criteria for what the tests actually assert — round and battle completion reaching their handlers, and the once-per-round shape — and retag the tests to them. `EVT-004` and `EVT-005` keep their meaning and stay `@draft`; nothing is retired, because neither criterion's meaning changes.
+`CH-004` closed every instance this goal named. `EVT-011` and `EVT-012` were minted for what the round-completion and win-handler tests actually assert, and the tests retagged to them. `EVT-003` was retired rather than repaired — no robot in the source tree exercises genuine higher-priority re-entry, so its successor `EVT-013` claims only the same-priority re-entry the evidence can actually show (`IDR-003`). `API-001` was narrowed to the one direction the adapter implements; `API-004` gained the owner-departed test it was missing.
 
-`EVT-003` needs a decision rather than a retag: either its name comes down to what the robot does, which changes the criterion's meaning and therefore retires it and mints a successor, or the assertion grows teeth that separate re-entry from ordinary later delivery. The second keeps the promise and costs a test; the first keeps the test and costs the promise.
+## What remains
 
-The unit tier's two gaps are smaller repairs and do not need a criterion-meaning decision: either add the `API-001` round-trip test or narrow the scenario to the one direction the adapter implements, and either add the `API-004` owner-departed case or narrow the scenario to what `testAPI004_UnitNegative_MapsABulletThatHasNotHitAnything` already proves and rename it.
+Only `InterruptibleEventConformanceTest`, `RoundOutcomeEventsConformanceTest`, and the unit tier's thirteen test classes under `robocode-api/src/test/java/.../bridge/` have been read against their criteria. Nothing else in the corpus has been — the conformance classes that will be added for `CAP-002`'s physics criteria (`M-111`–`M-118`) carry the same risk this goal exists to catch, and each should be checked as it lands rather than assumed clean by analogy.
 
-The conformance tier's `InterruptibleEventConformanceTest` and `RoundOutcomeEventsConformanceTest` and the unit tier's thirteen test classes under `robocode-api/src/test/java/.../bridge/` are now read against their criteria; nothing else in the corpus has been.
-
-`M-001` should not close before this is done, because its fourth clause is about criteria being active rather than `@draft`, and a mistag is the one thing that makes that clause easy to satisfy dishonestly.
+`M-001` should not close while any capability's criteria have not been checked this way, because its fourth clause is about criteria being active rather than `@draft`, and a mistag is the one thing that makes that clause easy to satisfy dishonestly.

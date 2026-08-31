@@ -62,4 +62,9 @@ abstract class ConformanceTestBase {
         return ran.computeIfAbsent(engine.name() + " " + robotClass,
                 key -> harness.run(engine, robotClass));
     }
+
+    /** The number of rounds every battle in this run is configured for. */
+    static int configuredRounds() {
+        return harness.rounds();
+    }
 }

@@ -62,6 +62,17 @@ class BulletMapperTest {
     }
 
     @Test
+    @DisplayName("API-004 negative: a bullet whose owner has left the battle still maps")
+    void testAPI004_UnitNegative_MapsABulletWhoseOwnerHasLeftTheBattle() {
+        // BulletMapper.map has no roster to check the owner id against, so a departed
+        // owner's id is indistinguishable from any other -- it is carried across as-is.
+        Bullet mapped = BulletMapper.map(bullet(11, 999, 3.0, 5.0, 6.0, 0), "Target");
+
+        assertNotNull(mapped, "a bullet whose owner has left the battle must still map");
+        assertEquals("999", mapped.getName(), "the departed owner's id is carried across unchanged");
+    }
+
+    @Test
     @DisplayName("API-004 negative: an out-of-range direction is normalised rather than carried through")
     void testAPI004_UnitNegative_NormalisesAnOutOfRangeDirection() {
         double wrapped = BulletMapper.map(bullet(1, 1, 1, 0, 0, 450), "V").getHeadingRadians();

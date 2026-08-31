@@ -9,14 +9,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Acceptance evidence for API-001 — angles convert between the Robocode and Tank Royale
- * conventions.
+ * Acceptance evidence for API-001 — angles convert from the Tank Royale convention to the
+ * Robocode convention (single-direction).
  * <p>
  * The two engines disagree about where zero is and which way is positive. Tank Royale
  * measures direction counter-clockwise from east; Robocode measures clockwise from north.
  * A conversion that is right in the middle of the range and wrong at the wrap is the
  * failure this class is written to catch, which is why the negative direction concentrates
  * on the discontinuity rather than on rejected input.
+ * <p>
+ * There is no reverse conversion to test: outbound turn commands are relative rotations in
+ * the same winding sense on both engines, so nothing in the bridge ever converts a
+ * Robocode-convention angle back to Tank Royale's.
  */
 class AngleConverterTest {
 
