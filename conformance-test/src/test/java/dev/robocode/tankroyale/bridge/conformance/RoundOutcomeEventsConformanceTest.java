@@ -69,19 +69,21 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     @Test
     @DisplayName("EVT-011 negative: round completion is reported once per round, not once per participant")
     void testEVT011_IntegrationNegative_RoundCompletionIsNotReportedMoreThanOncePerRound() {
+        int expectedRounds = configuredRounds();
         assertOnBothEngines(ROBOT, (outcome, engine) -> {
             // Each participant sees each round end exactly once. A dispatcher that delivered
             // the event once per participant to every participant would satisfy the positive
-            // test above and fail here.
+            // test above and fail here, because it would double (or worse) the count below
+            // rather than merely clear a lower bound.
             for (String console : outcome.consoles()) {
                 int rounds = countIn(console, "RoundEnded!");
                 int battles = countIn(console, "BattleEnded!");
                 assertTrue(battles == 1,
                         () -> "a participant reported the battle ending " + battles
                                 + " times on " + engine);
-                assertTrue(rounds >= battles,
+                assertTrue(rounds == expectedRounds,
                         () -> "a participant reported " + rounds + " round endings on " + engine
-                                + ", fewer than the battles it saw end");
+                                + ", expected exactly " + expectedRounds);
             }
         });
     }

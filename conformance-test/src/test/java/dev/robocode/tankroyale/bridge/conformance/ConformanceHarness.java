@@ -39,6 +39,11 @@ final class ConformanceHarness {
         this.rounds = rounds;
     }
 
+    /** The number of rounds every battle this harness runs is configured for. */
+    int rounds() {
+        return rounds;
+    }
+
     /** Resolves the environment, or returns null when this machine cannot run the tier. */
     static ConformanceHarness resolveOrNull() {
         if (!Files.isRegularFile(HARNESS)) {
