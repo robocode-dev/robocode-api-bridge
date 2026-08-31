@@ -1,21 +1,21 @@
 counters:
     ADR: "1"
-    AN: "7"
+    AN: "9"
     API: "6"
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "2"
+    CH: "3"
     CRIT: "8"
     DES: "8"
-    G: "1"
+    G: "2"
     IDR: "2"
     OQ: "2"
     P: "1"
     PDR: "1"
     REH: "1"
     ROUTE: "12"
-    TASKS: "2"
+    TASKS: "3"
 entries:
     - id: ADR-001
       kind: numeric
@@ -57,6 +57,16 @@ entries:
       state: live
       prefix: AN
       component: "7"
+    - id: AN-008
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "8"
+    - id: AN-009
+      kind: numeric
+      state: live
+      prefix: AN
+      component: "9"
     - id: API-001
       kind: numeric
       state: live
@@ -187,6 +197,11 @@ entries:
       state: live
       prefix: CH
       component: "2"
+    - id: CH-003
+      kind: numeric
+      state: live
+      prefix: CH
+      component: "3"
     - id: CRIT-001
       kind: numeric
       state: live
@@ -272,6 +287,11 @@ entries:
       state: live
       prefix: G
       component: "1"
+    - id: G-002
+      kind: numeric
+      state: live
+      prefix: G
+      component: "2"
     - id: IDR-001
       kind: numeric
       state: live
@@ -377,3 +397,8 @@ entries:
       state: live
       prefix: TASKS
       component: "2"
+    - id: TASKS-003
+      kind: numeric
+      state: live
+      prefix: TASKS
+      component: "3"

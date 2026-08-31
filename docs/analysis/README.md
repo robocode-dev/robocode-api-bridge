@@ -15,4 +15,6 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-006 — A robot's own death still does not reach onDeath under the bridge](AN-006-own-death-still-does-not-reach-on-death.md) · `active` — Whether `EVT-004` holds: a robot's own death reaches its death handler.
 - [AN-004-extraction/](AN-004-extraction/README.md)
 - [AN-007 — Remaining turn had opposite signs depending on which path a robot read it through](AN-007-remaining-turn-sign-disagreed-between-two-paths.md) · `active` — Two conversion paths for one quantity disagreed, and the test written alongside AN-005 had certified the wrong one.
+- [AN-008 — Tank Royale declares more round winners than the battle has rounds](AN-008-tank-royale-declares-more-round-winners-than-rounds.md) · `active` — Round outcomes, noticed while measuring `AN-006`.
+- [AN-009 — The Tank Royale server never sends a death event to any bot, which is why onDeath never fires](AN-009-the-server-never-sends-a-death-to-any-bot.md) · `active` — The cause of `AN-006`, which measured that `onDeath` is never called under the bridge and named a suspect it could not confirm: the Bot API event queue's age and criticality filter.
 <!-- clue:index:end -->

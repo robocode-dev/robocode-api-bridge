@@ -34,3 +34,5 @@ The physics the events describe. That a `ScannedRobotEvent` arrives at the right
 ## Status
 
 `draft`. The redesign that routed events through the Bot API's own event queue is implemented and believed correct, but it was verified by running battles and reading scores. Every criterion here is unproven in the sense that matters: nothing would tell us if it broke again. `M-001` is the plan door.
+
+The conformance tier now reaches some of them, and the capability still holds at `draft` for two separate reasons. `EVT-004` and `EVT-007` have an established cause and an unreleased repair — [`AN-009`](../../analysis/AN-009-the-server-never-sends-a-death-to-any-bot.md): the Tank Royale server sends no death to any bot, so neither the dying robot nor the survivors are told. And the tests that do pass here are not all tagged for what they prove; [`G-002`](../../goals/G-002-conformance-evidence-proves-the-criterion-it-names.md) carries that, and until it is repaired a passing test in this capability is not on its own grounds for promoting the criterion it names.

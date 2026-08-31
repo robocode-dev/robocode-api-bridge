@@ -38,7 +38,11 @@ Feature: Event dispatch and timing parity
     Given a robot that turns its radar from inside onHitWall and marks when it is scanned
     When the same battle runs on both engines
     Then the robot reports being scanned on both engines
-    # Proven by the ported InteruptibleEvent robot. Plan door: M-001.
+    # The ported InteruptibleEvent robot is tested in InterruptibleEventConformanceTest and passes,
+    # but it does not prove this scenario's name: the robot sets HitWallEvent to the SAME priority as
+    # ScannedRobotEvent, so nothing higher-priority arrives, and the assertion cannot separate
+    # re-entry from an ordinary later delivery. Promotion was attempted in CH-003 and reverted.
+    # This is the same defect as the EVT-005 mistag; see G-002. Plan door: M-001.
 
   @EVT-004 @draft
   Scenario: A robot's own death reaches its death handler
@@ -46,7 +50,10 @@ Feature: Event dispatch and timing parity
     Given a robot that reports from onDeath
     When the robot is destroyed on each engine
     Then the report appears on both engines
-    # This dispatched nowhere at all before the redesign: no death case existed. Plan door: M-001.
+    # Draft because the behaviour is missing, not because nothing tests it: the test exists and
+    # is disabled. AN-009 establishes the cause -- the Tank Royale server emits a death before the
+    # turn's bot snapshot exists, so it reaches no bot at all -- and the repair is committed
+    # upstream and unreleased. Promote when a release carries it. Plan door: M-001.
 
   @EVT-005 @draft
   Scenario: New-turn events arrive at the classic point in the turn
@@ -54,6 +61,8 @@ Feature: Event dispatch and timing parity
     Given a robot that records the turn number at each handler entry
     When the same battle runs on both engines
     Then each handler is entered at the same point in the turn on both engines
+    # Draft, and not proven by the tests currently tagged EVT-005: those assert round and battle
+    # completion, which is different behaviour and which no criterion here covers. See G-002.
     # Plan door: M-001.
 
   @EVT-006 @draft
@@ -70,7 +79,8 @@ Feature: Event dispatch and timing parity
     Given a robot that reports each robot death it observes
     When the same battle runs on both engines
     Then the same deaths are reported in the same order on both engines
-    # Proven by the ported RobotDeathEvents robot. Plan door: M-001.
+    # Proven by the ported RobotDeathEvents robot. Blocked by the same cause as EVT-004: no death
+    # event reaches any bot, so the survivors are not told either. See AN-009. Plan door: M-001.
 
   @EVT-008 @draft
   Scenario: Skipped turns are reported to the robot
