@@ -61,6 +61,18 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
+    @DisplayName("EVT-012 negative: a participant's win handler is not reported more than once per round")
+    void testEVT012_IntegrationNegative_WinHandlerDoesNotRepeatWithinRounds() {
+        assertOnBothEngines(ROBOT, (outcome, engine) -> {
+            for (int wins : outcome.countsOf("Win!")) {
+                assertTrue(wins <= configuredRounds(),
+                        () -> "a participant reported onWin " + wins + " times on " + engine
+                                + ", more than once per configured round (" + outcome.summary() + ")");
+            }
+        });
+    }
+
+    @Test
     @DisplayName("EVT-011: round and battle completion reach their handlers on both engines")
     void testEVT011_IntegrationPositive_RoundAndBattleCompletionReachTheirHandlers() {
         assertOnBothEngines(ROBOT, (outcome, engine) -> {
