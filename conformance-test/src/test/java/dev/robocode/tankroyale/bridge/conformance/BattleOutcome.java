@@ -63,15 +63,24 @@ final class BattleOutcome {
     int countOf(String marker) {
         int total = 0;
         for (String console : consoles) {
-            int from = 0;
-            while (true) {
-                int at = console.indexOf(marker, from);
-                if (at < 0) {
-                    break;
-                }
-                total++;
-                from = at + marker.length();
-            }
+            total += countIn(console, marker);
+        }
+        return total;
+    }
+
+    /** How many times the marker appears in each participant's console. */
+    List<Integer> countsOf(String marker) {
+        List<Integer> counts = new ArrayList<>(consoles.size());
+        for (String console : consoles) {
+            counts.add(countIn(console, marker));
+        }
+        return counts;
+    }
+
+    private static int countIn(String text, String marker) {
+        int total = 0;
+        for (int from = 0; (from = text.indexOf(marker, from)) >= 0; from += marker.length()) {
+            total++;
         }
         return total;
     }
