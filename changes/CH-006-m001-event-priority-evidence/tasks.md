@@ -1,0 +1,7 @@
+- [ ] Write `IDR-005`: retire the unproven handler-order wording of `EVT-001` and replace it with the classic-observable priority-filter criterion `EVT-015`.
+- [ ] Update `CAP-001/criteria.md`: keep the `EVT-001` tombstone, mint `EVT-015`, and make the new scenario's evidence requirements explicit — serves `EVT-015`.
+- [ ] Add `EventPriorityConformanceTest.java` with positive and negative integration evidence named `EVT-015` — serves `EVT-015`.
+- [ ] Repair the bridge event-dispatch path so `EventPriorityFilter` suppresses the lower-priority scan while its wall handler is blocked — serves `EVT-015`.
+- [ ] Update the CAP-001 overview and `P-001` bookkeeping to name the retired and replacement doors — serves `EVT-015`.
+- [ ] Run the tier-1 unit suite and the focused tier-2 conformance test with the matched local Tank Royale API/runner pair; retain any environment limitation in the handoff.
+- [ ] Digest: regenerate indexes, run `clue validate`, commit the final state, and delete this change workspace.
