@@ -4,16 +4,17 @@ import robocode.AdvancedRobot;
 import robocode.HitWallEvent;
 import robocode.ScannedRobotEvent;
 
-/** Records only a scan handler entered while the higher-priority wall handler is blocked. */
+/** Controls scan dispatch inside and outside a higher-priority wall handler. */
 public class EventPriorityProbe extends AdvancedRobot {
 
     private boolean wallHandlerActive;
+    private boolean controlWindow = true;
 
     @Override
     public void run() {
-        // Establish a scan control before the wall-handler window; the full sweep reaches the
-        // stationary sample.Target regardless of the engines' unseeded starting positions.
-        turnRadarRight(360);
+        // First make scans higher priority than HitWallEvent. A radar sweep in that handler
+        // must enter onScannedRobot, proving the same window can generate a scan on both engines.
+        setEventPriority("ScannedRobotEvent", 40);
         while (true) {
             ahead(10);
         }
@@ -23,7 +24,15 @@ public class EventPriorityProbe extends AdvancedRobot {
     public void onHitWall(HitWallEvent event) {
         wallHandlerActive = true;
         try {
+            if (!controlWindow) {
+                out.println("SuppressionWindowEntered!!!");
+            }
             turnRadarRight(360);
+            if (controlWindow) {
+                // Subsequent wall handlers exercise the classic lower-priority expiry rule.
+                setEventPriority("ScannedRobotEvent", 10);
+                controlWindow = false;
+            }
         } finally {
             wallHandlerActive = false;
         }
@@ -33,7 +42,11 @@ public class EventPriorityProbe extends AdvancedRobot {
     public void onScannedRobot(ScannedRobotEvent event) {
         out.println("ScanObserved!!!");
         if (wallHandlerActive) {
-            out.println("ScannedDuringWallHandler!!!");
+            if (controlWindow) {
+                out.println("ScanControlDuringWallHandler!!!");
+            } else {
+                out.println("ScannedDuringWallHandler!!!");
+            }
         }
     }
 }

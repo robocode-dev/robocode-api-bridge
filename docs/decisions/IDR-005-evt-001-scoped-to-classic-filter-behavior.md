@@ -16,7 +16,7 @@ Retire `EVT-001` and mint `EVT-015`: a lower-priority scan handler is not entere
 
 ## Context
 
-The named classic robot prints a scan marker and its authoritative test asserts that the marker is absent while running against `sample.Target`; it does not record a handler order. A criterion about recorded order therefore claims behavior that its source evidence cannot observe. The conformance harness stages that opponent fixture for both engines and resets classic's deterministic test seed for this fixture. Because Tank Royale has no battle seed, the conformance test uses a bridge-owned probe that records only a scan entered during the blocked wall-handler window, avoiding unrelated scans before that window.
+The named classic robot prints a scan marker and its authoritative test asserts that the marker is absent while running against `sample.Target`; it does not record a handler order. A criterion about recorded order therefore claims behavior that its source evidence cannot observe. The conformance harness stages that opponent fixture for both engines and resets classic's deterministic test seed for this fixture. Because Tank Royale has no battle seed, the conformance test uses a bridge-owned two-phase probe: it first raises scan priority and requires a scan callback inside the blocked wall-handler window, then lowers scan priority and requires that callback to be absent.
 
 ## Consequences
 

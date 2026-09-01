@@ -94,7 +94,7 @@ Feature: Event dispatch and timing parity
     Given a priority probe runs against sample.Target, moves to a wall, and turns its radar from onHitWall
     When the same battle runs on classic Robocode and on Tank Royale through the bridge
     Then neither engine's robot output contains the scan marker
-    # Proven by EventPriorityConformanceTest with a bridge-owned probe and sample.Target fixture. The probe observes the same handler boundary as classic's EventPriorityFilter test without depending on an unseeded pre-handler scan. Successor to EVT-001; see IDR-005. Plan door: M-001.
+    # Proven by EventPriorityConformanceTest with a bridge-owned probe and sample.Target fixture. The probe first raises scan priority and requires a scan callback inside onHitWall, then lowers scan priority and requires that callback to be absent. Successor to EVT-001; see IDR-005. Plan door: M-001.
 
   @EVT-008 @draft
   Scenario: Skipped turns are reported to the robot
