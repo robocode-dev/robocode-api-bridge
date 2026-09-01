@@ -44,13 +44,29 @@ abstract class ConformanceTestBase {
      * Runs the robot on both engines and applies the same expectation to each.
      */
     void assertOnBothEngines(String robotClass, Expectation expectation) {
-        assertOnBothEngines(robotClass, null, expectation);
+        assertOnBothEngines(robotClass, (Path) null, expectation);
     }
 
     /** Runs a locally held probe source on both engines after compiling it against classic. */
     void assertOnBothEngines(String robotClass, Path source, Expectation expectation) {
+        assertOnBothEngines(robotClass, source, null, expectation);
+    }
+
+    /** Runs a robot against the same named opponent fixture on both engines. */
+    void assertOnBothEngines(String robotClass, String enemyClass, Expectation expectation) {
+        assertOnBothEngines(robotClass, null, enemyClass, expectation);
+    }
+
+    /** Runs a locally held probe against the same named opponent fixture on both engines. */
+    void assertOnBothEngines(String robotClass, Path source, String enemyClass,
+                             Expectation expectation) {
+        assertOnBothEnginesFixture(robotClass, source, enemyClass, expectation);
+    }
+
+    private void assertOnBothEnginesFixture(String robotClass, Path source, String enemyClass,
+                                            Expectation expectation) {
         for (Engine engine : Engine.values()) {
-            BattleOutcome outcome = outcomeFor(engine, robotClass, source);
+            BattleOutcome outcome = outcomeFor(engine, robotClass, source, enemyClass);
             assertTrue(outcome.completed(),
                     () -> "the battle did not complete on " + engine + " (" + outcome.summary() + ")");
             expectation.check(outcome, engine);
@@ -65,12 +81,27 @@ abstract class ConformanceTestBase {
      * reason that has nothing to do with what it claims to check.
      */
     BattleOutcome outcomeFor(Engine engine, String robotClass) {
-        return outcomeFor(engine, robotClass, null);
+        return outcomeForFixture(engine, robotClass, null, null);
     }
 
     private BattleOutcome outcomeFor(Engine engine, String robotClass, Path source) {
-        return ran.computeIfAbsent(engine.name() + " " + robotClass,
-                key -> harness.run(engine, robotClass, source));
+        return outcomeForFixture(engine, robotClass, source, null);
+    }
+
+    /** Runs a robot against an opponent fixture, reusing that exact battle within this test. */
+    BattleOutcome outcomeFor(Engine engine, String robotClass, String enemyClass) {
+        return outcomeForFixture(engine, robotClass, null, enemyClass);
+    }
+
+    /** Runs a probe against an opponent fixture, reusing that exact battle within this test. */
+    BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, String enemyClass) {
+        return outcomeForFixture(engine, robotClass, source, enemyClass);
+    }
+
+    private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,
+                                            String enemyClass) {
+        String key = engine.name() + " " + robotClass + " vs " + enemyClass;
+        return ran.computeIfAbsent(key, ignored -> harness.run(engine, robotClass, source, enemyClass));
     }
 
     /** The number of rounds every battle in this run is configured for. */

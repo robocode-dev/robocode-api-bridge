@@ -47,6 +47,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
     private boolean stopThread;
+    private volatile int suppressScansThroughTurn = -1;
+    private boolean hitWallHandlerActive;
+    private boolean hitWallHandlerBlocked;
+    private boolean suppressScansForBlockedWallHandler;
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -293,8 +297,32 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchScannedRobotEvent(BotEvent botEvent) {
         log("-> onScannedRobot");
         var scannedBotEvent = (ScannedBotEvent) botEvent;
+        if (shouldSuppressScannedEvent(scannedBotEvent)) {
+            return;
+        }
         var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
         basicEvents.onScannedRobot(scannedRobotEvent);
+    }
+
+    /**
+     * Classic expires lower-priority scan events while a higher-priority wall handler is
+     * blocked on a radar turn. The Bot API queue can retain those events until the handler
+     * returns, so the bridge must discard only events from that blocked interval rather than
+     * allowing them to cross the classic API boundary afterwards.
+     */
+    private boolean shouldSuppressScannedEvent(ScannedBotEvent scannedBotEvent) {
+        if (hitWallHandlerActive && hitWallHandlerBlocked && suppressScansForBlockedWallHandler) {
+            return true;
+        }
+        int throughTurn = suppressScansThroughTurn;
+        if (throughTurn < 0) {
+            return false;
+        }
+        if (scannedBotEvent.getTurnNumber() <= throughTurn) {
+            return true;
+        }
+        suppressScansThroughTurn = -1;
+        return false;
     }
 
     private void dispatchBulletMissedEvent(BotEvent botEvent) {
@@ -333,7 +361,25 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchHitWallEvent() {
         log("-> onHitWall");
-        basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
+        hitWallHandlerActive = true;
+        hitWallHandlerBlocked = false;
+        suppressScansForBlockedWallHandler = scansHaveLowerPriorityThanWall();
+        try {
+            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
+        } finally {
+            if (hitWallHandlerBlocked && suppressScansForBlockedWallHandler) {
+                suppressScansThroughTurn = bot.getTurnNumber();
+            }
+            hitWallHandlerActive = false;
+            hitWallHandlerBlocked = false;
+            suppressScansForBlockedWallHandler = false;
+        }
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private boolean scansHaveLowerPriorityThanWall() {
+        return bot.getEventPriority((Class) ScannedBotEvent.class)
+                < bot.getEventPriority((Class) dev.robocode.tankroyale.botapi.events.HitWallEvent.class);
     }
 
     private void dispatchHitRobotEvent(BotEvent botEvent) {
@@ -421,6 +467,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void turnRadar(double radians) {
         log("turnRadar()");
+        if (hitWallHandlerActive) {
+            hitWallHandlerBlocked = true;
+        }
         bot.turnRadarRight(toDegrees(radians));
     }
 
@@ -1074,6 +1123,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
+            suppressScansThroughTurn = -1;
             firedBullets.clear();
         }
 

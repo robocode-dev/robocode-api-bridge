@@ -2,7 +2,7 @@
 id: DES-001
 type: design
 status: active
-links: [CAP-001, IDR-001, ADR-001, ARCH-002]
+links: [CAP-001, IDR-001, IDR-005, ADR-001, ARCH-002]
 title: Event dispatch and timing parity — design
 provenance: inferred
 reversal-cost: low
@@ -15,6 +15,8 @@ reversal-cost: low
 The Bot API owns an event queue with priorities, interruptible events, and a thread-interruption mechanism for pre-empting a running handler. The bridge does not reimplement any of that. `BotPeer`'s inner bot implementation overrides the Bot API's own handler methods — `onScannedBot`, `onTick`, and the rest — and each override delegates to the mapping helper that converts the Tank Royale event into its Robocode counterpart and hands it to the robot.
 
 The consequence is that priority ordering and interruptibility are the Bot API's behaviour, not the bridge's. `IDR-001` records why that delegation replaced the alternative.
+
+One compatibility edge remains at the boundary: classic expires lower-priority scan events while a higher-priority `onHitWall` handler is blocked by a radar turn, while the Bot API can retain those events until the handler returns. `BotPeer` observes the configured priorities and suppresses only those lower-priority scans during the blocked interval and its current-turn remainder; same-priority re-entry remains delegated to the Bot API. `IDR-005` records why this narrow boundary rule is needed.
 
 ## What this replaced, and why the shape matters
 

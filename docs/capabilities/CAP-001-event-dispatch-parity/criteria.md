@@ -11,18 +11,18 @@ reversal-cost: low
 
 # CAP-001 — acceptance criteria
 
-Most criteria here are `@draft` against `M-001`; three (`EVT-011`, `EVT-012`, `EVT-013`) are active. Each names the classic test robot that will prove it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
+Most criteria here are `@draft` against `M-001`; `EVT-004`, `EVT-011`, `EVT-012`, `EVT-013`, `EVT-014`, and `EVT-015` are active. Each names the classic test robot or bridge-owned probe that will prove it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
 
 ```gherkin
 Feature: Event dispatch and timing parity
 
-  @EVT-001 @draft
+  @EVT-001 @retired
   Scenario: Events dispatch in classic priority order
     Test-type: Integration
     Given a robot that records the order in which its handlers are entered
     When the same battle runs on classic Robocode and on Tank Royale through the bridge
     Then the recorded order is the same on both engines
-    # Proven by the ported EventPriorityFilter robot. Plan door: M-001.
+    # Retired: the named EventPriorityFilter robot does not record handler order. See IDR-005; successor EVT-015.
 
   @EVT-002 @draft
   Scenario: A blocking call inside a handler does not discard pending same-priority events
@@ -87,6 +87,14 @@ Feature: Event dispatch and timing parity
     # Proven by the bridge-owned DeathEventProbe in RobotDeathEventsConformanceTest. Successor
     # to EVT-007; see IDR-004. (single-direction): a battle with a death necessarily has a
     # survivor, so the missing marker is the behavior this criterion detects.
+
+  @EVT-015
+  Scenario: A lower-priority scan is suppressed while a higher-priority wall handler is blocked
+    Test-type: Integration
+    Given a priority probe runs against sample.Target, moves to a wall, and turns its radar from onHitWall
+    When the same battle runs on classic Robocode and on Tank Royale through the bridge
+    Then neither engine's robot output contains the scan marker
+    # Proven by EventPriorityConformanceTest with a bridge-owned probe and sample.Target fixture. The probe first raises scan priority and requires a scan callback inside onHitWall, then lowers scan priority and requires that callback to be absent. Successor to EVT-001; see IDR-005. Plan door: M-001.
 
   @EVT-008 @draft
   Scenario: Skipped turns are reported to the robot
