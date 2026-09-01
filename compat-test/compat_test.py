@@ -493,6 +493,13 @@ def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, en
 def ensure_tr_lib(opts, staging):
     lib_dir = staging / "lib"
     lib_dir.mkdir(parents=True, exist_ok=True)
+    # A previous run may have staged a different Bot API version. The generated boot scripts
+    # use a wildcard classpath, so retaining both versions silently selects the wrong one.
+    for entry in list(lib_dir.iterdir()):
+        if entry.is_dir():
+            shutil.rmtree(entry, ignore_errors=True)
+        else:
+            entry.unlink(missing_ok=True)
     for jar in (opts.bridge_api_jar, opts.bot_api_jar, opts.wrapper_jar):
         src = Path(jar)
         dst = lib_dir / src.name

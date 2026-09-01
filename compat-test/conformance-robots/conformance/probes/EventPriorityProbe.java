@@ -11,6 +11,9 @@ public class EventPriorityProbe extends AdvancedRobot {
 
     @Override
     public void run() {
+        // Establish a scan control before the wall-handler window; the full sweep reaches the
+        // stationary sample.Target regardless of the engines' unseeded starting positions.
+        turnRadarRight(360);
         while (true) {
             ahead(10);
         }
@@ -28,6 +31,7 @@ public class EventPriorityProbe extends AdvancedRobot {
 
     @Override
     public void onScannedRobot(ScannedRobotEvent event) {
+        out.println("ScanObserved!!!");
         if (wallHandlerActive) {
             out.println("ScannedDuringWallHandler!!!");
         }
