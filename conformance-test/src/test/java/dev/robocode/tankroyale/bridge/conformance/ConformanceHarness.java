@@ -95,6 +95,11 @@ final class ConformanceHarness {
      * @param robotClass fully qualified, e.g. {@code tested.robots.InteruptibleEvent}
      */
     BattleOutcome run(Engine engine, String robotClass, Path source) {
+        return run(engine, robotClass, source, null);
+    }
+
+    /** Runs a robot against a named opponent fixture when the source test requires one. */
+    BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
@@ -106,6 +111,10 @@ final class ConformanceHarness {
         if (source != null) {
             command.add("--conformance-source");
             command.add(source.toString());
+        }
+        if (enemyClass != null) {
+            command.add("--enemy-class");
+            command.add(enemyClass);
         }
 
         try {

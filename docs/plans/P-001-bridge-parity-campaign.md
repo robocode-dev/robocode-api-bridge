@@ -40,7 +40,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 
 | ID | Proves | Exit criterion | Status |
 |---|---|---|---|
-| M-101 | `EVT-001` | `EVT-001` is active, with evidence attributable to it. Work lands under M-001. | todo |
+| M-101 | `EVT-001` | Dropped: `EVT-001` retired (`IDR-005`); see `M-143` for its successor `EVT-015`. | dropped |
 | M-102 | `EVT-002` | `EVT-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-103 | `EVT-003` | Dropped: `EVT-003` retired (`IDR-003`); see `M-141` for its successor `EVT-013`. | dropped |
 | M-104 | `EVT-004` | `EVT-004` is active, with evidence attributable to it. Work lands under M-001. | done |
@@ -82,6 +82,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | M-140 | `EVT-012` | `EVT-012` is active, with evidence attributable to it. Work lands under M-001. | done |
 | M-141 | `EVT-013` | `EVT-013` is active, with evidence attributable to it. Successor to `EVT-003` (`M-103`). Work lands under M-001. | done |
 | M-142 | `EVT-014` | `EVT-014` is active, with evidence attributable to it. Successor to `EVT-007` (`M-107`). Work lands under M-001. | done |
+| M-143 | `EVT-015` | `EVT-015` is active, with evidence attributable to it. Successor to `EVT-001` (`M-101`). Work lands under M-001. | done |
 
 ## Why this order
 

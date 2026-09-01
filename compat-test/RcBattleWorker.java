@@ -2,6 +2,7 @@ import robocode.BattleResults;
 import robocode.control.BattlefieldSpecification;
 import robocode.control.BattleSpecification;
 import robocode.control.RobocodeEngine;
+import robocode.control.RandomFactory;
 import robocode.control.RobotSpecification;
 import robocode.control.events.BattleAdaptor;
 import robocode.control.events.BattleCompletedEvent;
@@ -51,6 +52,7 @@ public class RcBattleWorker {
         int height = Integer.parseInt(opt.getOrDefault("height", "600"));
         int participants = Integer.parseInt(opt.getOrDefault("participants", "2"));
         String select = opt.get("select");
+        String enemySelect = opt.get("enemy-select");
         Path outFile = Path.of(require(opt, "out"));
         int timeoutSecs = Integer.parseInt(opt.getOrDefault("timeout", "0"));
 
@@ -61,7 +63,11 @@ public class RcBattleWorker {
         Map<String, Object> result = new HashMap<>();
         int exitCode;
         try {
-            runBattle(home, rounds, width, height, participants, select, result);
+            if (Boolean.parseBoolean(opt.getOrDefault("deterministic", "false"))) {
+                // Match RobocodeTestBed's deterministic setup used by the authoritative source test.
+                RandomFactory.resetDeterministic(0);
+            }
+            runBattle(home, rounds, width, height, participants, select, enemySelect, result);
             exitCode = Boolean.TRUE.equals(result.get("ok")) ? 0 : 1;
         } catch (Throwable t) {
             result.put("ok", false);
@@ -74,14 +80,15 @@ public class RcBattleWorker {
     }
 
     private static void runBattle(File home, int rounds, int width, int height, int participantCount,
-                                  String select, Map<String, Object> result) {
+                                  String select, String enemySelect, Map<String, Object> result) {
         Collector collector = new Collector();
         RobocodeEngine engine = new RobocodeEngine(home);
         try {
             engine.addBattleListener(collector);
             engine.setVisible(false);
 
-            RobotSpecification[] participants = selectParticipants(engine, select, participantCount);
+            RobotSpecification[] participants = selectParticipants(
+                    engine, select, participantCount, enemySelect);
             if (participants == null || participants.length == 0) {
                 result.put("ok", false);
                 result.put("fatal", "No robot found in repository matching: " + select);
@@ -148,7 +155,16 @@ public class RcBattleWorker {
      *
      * The count is the division's official participant count: two for 1-vs-1, ten for melee.
      */
-    private static RobotSpecification[] selectParticipants(RobocodeEngine engine, String select, int count) {
+    private static RobotSpecification[] selectParticipants(RobocodeEngine engine, String select, int count,
+                                                           String enemySelect) {
+        if (enemySelect != null && !enemySelect.isBlank()) {
+            RobotSpecification chosen = selectOne(engine, select);
+            RobotSpecification enemy = selectOne(engine, enemySelect);
+            if (chosen == null || enemy == null) {
+                return null;
+            }
+            return new RobotSpecification[]{chosen, enemy};
+        }
         int wanted = Math.max(2, count);
         if (select != null && !select.isBlank()) {
             String selection = String.join(", ", java.util.Collections.nCopies(wanted, select));
@@ -174,6 +190,29 @@ public class RcBattleWorker {
         RobotSpecification[] participants = new RobotSpecification[wanted];
         java.util.Arrays.fill(participants, chosen);
         return participants;
+    }
+
+    private static RobotSpecification selectOne(RobocodeEngine engine, String select) {
+        if (select != null && !select.isBlank()) {
+            RobotSpecification[] specs = engine.getLocalRepository(select);
+            if (specs != null && specs.length > 0) {
+                return specs[0];
+            }
+        }
+        RobotSpecification[] all = engine.getLocalRepository();
+        if (all == null || all.length == 0) {
+            return null;
+        }
+        if (select != null && !select.isBlank()) {
+            String className = select.split(" ")[0];
+            for (RobotSpecification spec : all) {
+                if (className.equals(spec.getClassName())) {
+                    return spec;
+                }
+            }
+            return null;
+        }
+        return all[0];
     }
 
     /** Collects results, errors and per-robot console output from battle events. */

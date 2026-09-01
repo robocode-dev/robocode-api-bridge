@@ -379,7 +379,8 @@ def save_state(state):
 # Classic Robocode side
 # ----------------------------------------------------------------------------------
 
-def run_rc_battle(jar_path: Path, classname, version, opts, setup):
+def run_rc_battle(jar_path: Path, classname, version, opts, setup,
+                   enemy_jar_path=None, enemy_class=None):
     """Runs one classic Robocode battle for the jar at the division setup; returns a summary."""
     home_dir = WORK_DIR / "rc-home"
     (home_dir / "config").mkdir(parents=True, exist_ok=True)
@@ -394,6 +395,8 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup):
         robots_dir = WORK_DIR / "rc-robots"
         clean_dir(robots_dir)
         shutil.copyfile(jar_path, robots_dir / jar_path.name)
+    if enemy_jar_path is not None:
+        shutil.copyfile(enemy_jar_path, robots_dir / Path(enemy_jar_path).name)
 
     out_file = WORK_DIR / "rc-result.json"
     out_file.unlink(missing_ok=True)
@@ -420,6 +423,8 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup):
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
+    if enemy_class:
+        cmd.extend(["--enemy-select", enemy_class, "--deterministic", "true"])
     started = time.time()
     returncode, output, timed_out = run_java(cmd, cwd=home_dir, timeout=opts.timeout)
     elapsed = time.time() - started
@@ -485,8 +490,8 @@ def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, en
 # Tank Royale side
 # ----------------------------------------------------------------------------------
 
-def ensure_tr_lib(opts):
-    lib_dir = WORK_DIR / "tr-bots" / "lib"
+def ensure_tr_lib(opts, staging):
+    lib_dir = staging / "lib"
     lib_dir.mkdir(parents=True, exist_ok=True)
     for jar in (opts.bridge_api_jar, opts.bot_api_jar, opts.wrapper_jar):
         src = Path(jar)
@@ -536,11 +541,11 @@ def stage_bot_dirs(bot_dir: Path, participants):
     return dirs
 
 
-def wrap_jar_for_tr(jar_path: Path, classname, version, opts):
+def wrap_jar_for_tr(jar_path: Path, classname, version, opts, staging_name="tr-bots"):
     """Stages the jar, runs the robots-wrapper, returns (bot_dir, error_message)."""
-    staging = WORK_DIR / "tr-bots"
+    staging = WORK_DIR / staging_name
     staging.mkdir(parents=True, exist_ok=True)
-    ensure_tr_lib(opts)
+    ensure_tr_lib(opts, staging)
 
     # Remove artifacts from the previous robot (keep lib/)
     for entry in staging.iterdir():
@@ -572,7 +577,8 @@ def wrap_jar_for_tr(jar_path: Path, classname, version, opts):
     return chosen, None
 
 
-def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures=None):
+def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures=None,
+                  enemy_jar_path=None, enemy_class=None):
     """Wraps the jar and runs one Tank Royale battle at the division setup.
 
     `rc_signatures` is the set of exception signatures the classic side produced for this
@@ -587,7 +593,18 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
             "error_count": 1, "log_text": "=== Wrapping failed ===\n" + wrap_error,
         }
 
-    bot_dirs = stage_bot_dirs(bot_dir, setup["participants"])
+    bot_dirs = [bot_dir] if enemy_jar_path is not None else stage_bot_dirs(
+        bot_dir, setup["participants"])
+    if enemy_jar_path is not None:
+        enemy_dir, enemy_error = wrap_jar_for_tr(
+            enemy_jar_path, enemy_class, None, opts, staging_name="tr-bots-enemy")
+        if enemy_error:
+            return {
+                "ok": False, "score": None, "scores": [], "elapsed": 0.0,
+                "errors": ["HARNESS: " + enemy_error.splitlines()[0]],
+                "error_count": 1, "log_text": "=== Wrapping opponent failed ===\n" + enemy_error,
+            }
+        bot_dirs.append(enemy_dir)
     out_file = WORK_DIR / "tr-result.json"
     out_file.unlink(missing_ok=True)
 
@@ -896,6 +913,8 @@ def parse_args():
     conf.add_argument("--robot-class",
                       help="robot class to select, when it cannot be derived from the "
                            "jar name (classic's test robot jars hold many robots)")
+    conf.add_argument("--enemy-class",
+                      help="run the selected robot against this opponent fixture instead of copies")
     conf.add_argument("--participants", type=int, default=None,
                       help="participant count for --conformance")
 
@@ -1232,6 +1251,11 @@ def run_conformance(opts):
         setup["rounds"] = opts.rounds
     if opts.participants is not None:
         setup["participants"] = opts.participants
+    if opts.enemy_class:
+        # An explicit opponent is a 1-vs-1 fixture, matching classic Robocode's test bed.
+        setup["participants"] = 2
+
+    enemy_jar = None
 
     if opts.conformance_source:
         class_dir, error = compile_conformance_robot(opts, opts.conformance_source)
@@ -1260,16 +1284,33 @@ def run_conformance(opts):
             return 2
         jar, version = packaged, "1.0"
 
+    if opts.enemy_class:
+        # The installed classic robots are an external, read-only fixture (C-007). Package
+        # only the requested opponent into a temporary jar so both engines receive the same
+        # class and descriptor without modifying the installation.
+        enemy_classes = Path(opts.robocode_home) / "robots"
+        packaged, error = package_test_robot_jar(
+            enemy_classes, opts.enemy_class, WORK_DIR / "conformance-enemy")
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        enemy_jar = packaged
+
     if opts.engine == "rc":
-        result = run_rc_battle(jar, classname, version, opts, setup)
+        result = run_rc_battle(jar, classname, version, opts, setup,
+                               enemy_jar, opts.enemy_class)
         consoles = result.pop("consoles", None)
         if consoles is None:
             consoles = read_worker_consoles(WORK_DIR / "rc-result.json")
         result["consoles"] = consoles
     else:
-        result = run_tr_battle(jar, classname, version, opts, setup)
+        result = run_tr_battle(jar, classname, version, opts, setup,
+                               enemy_jar_path=enemy_jar, enemy_class=opts.enemy_class)
         # The bridge side's console output is whatever the bot processes wrote.
-        result["consoles"] = collect_bot_consoles()
+        staging_dirs = [WORK_DIR / "tr-bots"]
+        if opts.enemy_class:
+            staging_dirs.append(WORK_DIR / "tr-bots-enemy")
+        result["consoles"] = collect_bot_consoles(staging_dirs)
     result.pop("log_text", None)
     result["setup"] = setup
     print(json.dumps(result))
@@ -1284,18 +1325,18 @@ def read_worker_consoles(out_file: Path):
         return []
 
 
-def collect_bot_consoles():
+def collect_bot_consoles(staging_dirs=None):
     """Each staged bot instance writes its own stdout/stderr; return them per instance."""
     consoles = []
-    staging = WORK_DIR / "tr-bots"
-    if not staging.exists():
-        return consoles
-    for d in sorted(staging.iterdir()):
-        if not d.is_dir() or d.name == "lib":
+    for staging in staging_dirs or [WORK_DIR / "tr-bots"]:
+        if not staging.exists():
             continue
-        text = read_capped(d / "stdout.log") + read_capped(d / "stderr.log")
-        if text.strip():
-            consoles.append(text)
+        for d in sorted(staging.iterdir()):
+            if not d.is_dir() or d.name == "lib":
+                continue
+            text = read_capped(d / "stdout.log") + read_capped(d / "stderr.log")
+            if text.strip():
+                consoles.append(text)
     return consoles
 
 
