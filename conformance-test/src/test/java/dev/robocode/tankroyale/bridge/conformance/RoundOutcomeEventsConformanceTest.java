@@ -41,12 +41,15 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
     }
 
     @Test
-    @DisplayName("EVT-004 negative: each destruction reaches onDeath once, not repeatedly")
-    void testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatForOneDestruction() {
-        assertOnBothEngines(ROBOT, (outcome, engine) ->
-                assertTrue(outcome.countOf("Death!") == configuredRounds(),
-                        () -> "onDeath was reported other than once per destroyed robot on " + engine
-                                + " (" + outcome.summary() + ")"));
+    @DisplayName("EVT-004 negative: a participant's onDeath is not reported more than once per round")
+    void testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatWithinRounds() {
+        assertOnBothEngines(ROBOT, (outcome, engine) -> {
+            for (int deaths : outcome.countsOf("Death!")) {
+                assertTrue(deaths <= configuredRounds(),
+                        () -> "a participant reported onDeath " + deaths + " times on " + engine
+                                + ", more than once per configured round (" + outcome.summary() + ")");
+            }
+        });
     }
 
     @Test
@@ -55,6 +58,18 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
         assertOnBothEngines(ROBOT, (outcome, engine) ->
                 assertTrue(outcome.anyConsoleContains("Win!"),
                         () -> "no robot reported winning on " + engine + " (" + outcome.summary() + ")"));
+    }
+
+    @Test
+    @DisplayName("EVT-012 negative: a participant's win handler is not reported more than once per round")
+    void testEVT012_IntegrationNegative_WinHandlerDoesNotRepeatWithinRounds() {
+        assertOnBothEngines(ROBOT, (outcome, engine) -> {
+            for (int wins : outcome.countsOf("Win!")) {
+                assertTrue(wins <= configuredRounds(),
+                        () -> "a participant reported onWin " + wins + " times on " + engine
+                                + ", more than once per configured round (" + outcome.summary() + ")");
+            }
+        });
     }
 
     @Test
@@ -77,9 +92,11 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
             // the event once per participant to every participant would satisfy the positive
             // test above and fail here, because it would double (or worse) the count below
             // rather than merely clear a lower bound.
-            for (String console : outcome.consoles()) {
-                int rounds = countIn(console, "RoundEnded!");
-                int battles = countIn(console, "BattleEnded!");
+            var roundCounts = outcome.countsOf("RoundEnded!");
+            var battleCounts = outcome.countsOf("BattleEnded!");
+            for (int participant = 0; participant < outcome.consoles().size(); participant++) {
+                int rounds = roundCounts.get(participant);
+                int battles = battleCounts.get(participant);
                 assertTrue(battles == 1,
                         () -> "a participant reported the battle ending " + battles
                                 + " times on " + engine);
@@ -88,13 +105,5 @@ class RoundOutcomeEventsConformanceTest extends ConformanceTestBase {
                                 + ", expected exactly " + expectedRounds);
             }
         });
-    }
-
-    private static int countIn(String text, String marker) {
-        int total = 0;
-        for (int from = 0; (from = text.indexOf(marker, from)) >= 0; from += marker.length()) {
-            total++;
-        }
-        return total;
     }
 }

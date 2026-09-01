@@ -23,4 +23,17 @@ class RobotDeathEventsConformanceTest extends ConformanceTestBase {
                         () -> "no survivor reported another robot's death on " + engine + " ("
                                 + outcome.summary() + ")"));
     }
+
+    @Test
+    @DisplayName("EVT-014 negative: a survivor does not receive duplicate death notifications per round")
+    void testEVT014_IntegrationNegative_SurvivorDoesNotReceiveDuplicateDeathNotifications() {
+        assertOnBothEngines(ROBOT, SOURCE, (outcome, engine) -> {
+            for (int deaths : outcome.countsOf(OTHER_DEATH)) {
+                assertTrue(deaths <= configuredRounds(),
+                        () -> "a participant received " + deaths + " other-robot death notifications on "
+                                + engine + ", more than once per configured round ("
+                                + outcome.summary() + ")");
+            }
+        });
+    }
 }
