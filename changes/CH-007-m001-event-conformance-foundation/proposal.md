@@ -1,8 +1,8 @@
 ---
 id: CH-007
 type: change
-status: proposed
-links: [P-001, M-001, CAP-001, EVT-002, EVT-005, EVT-006, EVT-008, EVT-009, EVT-010]
+status: open
+links: [P-001, CAP-001]
 title: Establish the remaining event conformance foundation
 ---
 

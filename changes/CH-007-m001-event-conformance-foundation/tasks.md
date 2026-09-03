@@ -1,3 +1,11 @@
+---
+id: TASKS-006
+type: tasks
+status: open
+links: [CH-007, P-001, CAP-001]
+title: CH-007 implementation tasks
+---
+
 - [ ] Inspect classic's authoritative test robots and source assertions for EVT-002, EVT-005, EVT-006, EVT-008, EVT-009, and EVT-010, and choose stable evidence markers or probes.
 - [ ] Extend the conformance harness adapter to pass the requested participant count and preserve one shared expectation across classic and Tank Royale, serving EVT-010.
 - [ ] Add focused positive and negative integration evidence for EVT-002, serving EVT-002.
