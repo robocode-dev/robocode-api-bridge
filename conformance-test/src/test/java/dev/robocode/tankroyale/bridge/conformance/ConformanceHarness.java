@@ -100,6 +100,16 @@ final class ConformanceHarness {
 
     /** Runs a robot against a named opponent fixture when the source test requires one. */
     BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass) {
+        return run(engine, robotClass, source, enemyClass, null);
+    }
+
+    /** Runs a robot with an explicit participant count, such as the official melee setup. */
+    BattleOutcome run(Engine engine, String robotClass, Path source, int participants) {
+        return run(engine, robotClass, source, null, participants);
+    }
+
+    private BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass,
+                              Integer participants) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
@@ -115,6 +125,10 @@ final class ConformanceHarness {
         if (enemyClass != null) {
             command.add("--enemy-class");
             command.add(enemyClass);
+        }
+        if (participants != null) {
+            command.add("--participants");
+            command.add(String.valueOf(participants));
         }
 
         try {

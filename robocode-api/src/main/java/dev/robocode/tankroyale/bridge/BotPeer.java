@@ -291,7 +291,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         });
 
         // Fire event
-        basicEvents.onStatus(StatusEventMapper.map(robotStatus));
+        dispatchRobotCallback(() -> basicEvents.onStatus(StatusEventMapper.map(robotStatus)));
     }
 
     private void dispatchScannedRobotEvent(BotEvent botEvent) {
@@ -301,7 +301,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             return;
         }
         var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
-        basicEvents.onScannedRobot(scannedRobotEvent);
+        dispatchRobotCallback(() -> basicEvents.onScannedRobot(scannedRobotEvent));
     }
 
     /**
@@ -329,7 +329,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("-> onBulletMissed");
         var bulletHitWallEvent = (BulletHitWallEvent) botEvent;
         Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
-        basicEvents.onBulletMissed(new robocode.BulletMissedEvent(bullet));
+        dispatchRobotCallback(() -> basicEvents.onBulletMissed(new robocode.BulletMissedEvent(bullet)));
     }
 
     private void dispatchBulletHitEvent(BotEvent botEvent) {
@@ -347,7 +347,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 false, // isActive
                 bulletState.getBulletId());
 
-        basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet));
+        dispatchRobotCallback(() ->
+                basicEvents.onBulletHit(new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet)));
     }
 
     private void dispatchHitByBulletEvent(BotEvent botEvent) {
@@ -355,8 +356,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var hitByBulletEvent = (HitByBulletEvent) botEvent;
         BulletState bullet = hitByBulletEvent.getBullet();
         double bearing = toRobocodeBearingRad(bot.bearingTo(bullet.getX(), bullet.getY()));
-        basicEvents.onHitByBullet(new robocode.HitByBulletEvent(
-                bearing, map(bullet, String.valueOf(bot.getMyId()))));
+        var robocodeEvent = new robocode.HitByBulletEvent(
+                bearing, map(bullet, String.valueOf(bot.getMyId())));
+        dispatchRobotCallback(() -> basicEvents.onHitByBullet(robocodeEvent));
     }
 
     private void dispatchHitWallEvent() {
@@ -365,7 +367,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         hitWallHandlerBlocked = false;
         suppressScansForBlockedWallHandler = scansHaveLowerPriorityThanWall();
         try {
-            basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection())));
+            dispatchRobotCallback(() ->
+                    basicEvents.onHitWall(new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection()))));
         } finally {
             if (hitWallHandlerBlocked && suppressScansForBlockedWallHandler) {
                 suppressScansThroughTurn = bot.getTurnNumber();
@@ -388,30 +391,32 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var hitBotEvent = (HitBotEvent) botEvent;
 
         double bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
-        basicEvents.onHitRobot(new robocode.HitRobotEvent(
+        dispatchRobotCallback(() -> basicEvents.onHitRobot(new robocode.HitRobotEvent(
                 String.valueOf(hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
-        ));
+        )));
     }
 
     private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
         log("-> onRobotDeath");
-        basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId())));
+        dispatchRobotCallback(() ->
+                basicEvents.onRobotDeath(new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId()))));
     }
 
     private void dispatchSkippedTurnEvent(BotEvent botEvent) {
         log("-> onSkippedTurn");
         var skippedTurnEvent = (SkippedTurnEvent) botEvent;
-        advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber()));
+        dispatchRobotCallback(() ->
+                advancedEvents.onSkippedTurn(new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber())));
     }
 
     private void dispatchDeathEvent() {
         log("-> onDeath");
-        basicEvents.onDeath(new robocode.DeathEvent());
+        dispatchRobotCallback(() -> basicEvents.onDeath(new robocode.DeathEvent()));
     }
 
     private void dispatchWinEvent() {
         log("-> onWin");
-        basicEvents.onWin(new robocode.WinEvent());
+        dispatchRobotCallback(() -> basicEvents.onWin(new robocode.WinEvent()));
     }
 
     private void dispatchBulletHitBulletEvent(BotEvent botEvent) {
@@ -423,7 +428,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         firedBullets.remove(bullet);
 
-        basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet));
+        dispatchRobotCallback(() -> basicEvents.onBulletHitBullet(new robocode.BulletHitBulletEvent(bullet, hitBullet)));
     }
 
     private void dispatchCustomEvent(BotEvent botEvent) {
@@ -437,7 +442,20 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 .filter(entry -> trCondition.equals(entry.getValue())).findFirst();
         if (optCondition.isPresent()) {
             robocode.Condition condition = optCondition.get().getKey();
-            advancedEvents.onCustomEvent(new robocode.CustomEvent(condition));
+            dispatchRobotCallback(() -> advancedEvents.onCustomEvent(new robocode.CustomEvent(condition)));
+        }
+    }
+
+    /**
+     * Classic Robocode reports exceptions thrown by robot event handlers to the battle while
+     * allowing event processing to continue. Tank Royale's event dispatcher swallows those
+     * exceptions, so this boundary restores the observable classic behavior for the bridge.
+     */
+    private void dispatchRobotCallback(Runnable callback) {
+        try {
+            callback.run();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
         }
     }
 
