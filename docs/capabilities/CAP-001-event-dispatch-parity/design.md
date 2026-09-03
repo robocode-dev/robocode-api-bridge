@@ -44,4 +44,4 @@ The Bot API's event publisher catches subscriber runtime exceptions so one callb
 
 ## Where this design is most likely to be wrong
 
-Melee. Everything above was reasoned about, and verified against, one-versus-one battles. A melee turn carries many same-priority scan events, and both the queue behaviour and the interaction between dispatch and blocking calls have more room to differ there. `EVT-010` now exercises the official ten-participant setup with a per-turn scan-count probe; the harness passes the participant count through to both engine runners.
+Melee. Everything above was reasoned about, and verified against, one-versus-one battles. A melee turn carries many same-priority scan events, and both the queue behaviour and the interaction between dispatch and blocking calls have more room to differ there. `EVT-010` now exercises the official melee participant count with a per-turn scan-count probe; the harness passes the participant count through to both engine runners.

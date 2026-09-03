@@ -118,7 +118,7 @@ Feature: Event dispatch and timing parity
     And a melee battle at the official melee parameters
     When the same battle runs on both engines
     Then the per-turn scan counts match on both engines
-    # Proven by MeleeScanConformanceTest with the bridge-owned MeleeScanProbe at the official ten-participant melee setup. Both engines emit per-turn counts, and every count is bounded by the nine opponents in the staged battle. Plan door: M-001.
+    # Proven by MeleeScanConformanceTest with the bridge-owned MeleeScanProbe at the official melee participant count. Both engines emit per-turn counts, and every count is bounded by the number of opponents in the staged battle. Plan door: M-001.
 
   @EVT-011
   Scenario: Round and battle completion each reach their handler exactly once
