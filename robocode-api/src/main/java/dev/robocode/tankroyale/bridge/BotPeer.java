@@ -454,8 +454,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchRobotCallback(Runnable callback) {
         try {
             callback.run();
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
+        } catch (RuntimeException exception) {
+            exception.printStackTrace();
         }
     }
 

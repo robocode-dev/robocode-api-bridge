@@ -12,7 +12,7 @@ title: Report legacy handler exceptions at the bridge callback boundary
 
 ## Decision
 
-`BotPeer` invokes every legacy robot event callback inside a bridge-owned boundary. If the callback throws, the boundary prints the throwable to the bot process's standard error and returns so the surrounding event queue can continue dispatching.
+`BotPeer` invokes every legacy robot event callback inside a bridge-owned boundary. If the callback throws a runtime exception, the boundary prints it to the bot process's standard error and returns so the surrounding event queue can continue dispatching. Errors used by the Bot API for control flow, such as interrupting an event handler, are not caught.
 
 ## Context
 
@@ -20,7 +20,7 @@ The matched Tank Royale Bot API catches subscriber exceptions during event publi
 
 ## Why this way
 
-The boundary is the narrowest place that sees the legacy callback before the Bot API swallows its exception. Reporting there preserves the Bot API's priority and queue implementation, keeps the robot lifecycle unchanged, and gives the harness the same error signature that classic exposes. Replacing the upstream dispatcher or stopping the bot would alter unrelated event and lifecycle behavior.
+The boundary is the narrowest place that sees the legacy callback before the Bot API swallows its runtime exception. Reporting there preserves the Bot API's priority and queue implementation, keeps the robot lifecycle unchanged, and gives the harness the same error signature that classic exposes. Leaving control-flow errors untouched preserves interruptible-handler semantics. Replacing the upstream dispatcher or stopping the bot would alter unrelated event and lifecycle behavior.
 
 ## Consequences
 

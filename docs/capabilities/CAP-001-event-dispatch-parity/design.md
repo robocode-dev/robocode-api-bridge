@@ -36,7 +36,7 @@ Since Bot API 1.0.2, new-turn events dispatch at the end of `execute()`, which i
 
 ## Handler exceptions
 
-The Bot API's event publisher catches subscriber exceptions so one callback cannot prevent other subscribers from receiving the event. That is compatible with classic's continued battle processing, but it hides the failure from the process logs that form conformance evidence. `BotPeer` therefore reports throwables at the legacy callback boundary and then returns to the Bot API queue; `IDR-006` records this narrow exception-reporting rule.
+The Bot API's event publisher catches subscriber runtime exceptions so one callback cannot prevent other subscribers from receiving the event. That is compatible with classic's continued battle processing, but it hides the failure from the process logs that form conformance evidence. `BotPeer` therefore reports runtime exceptions at the legacy callback boundary and then returns to the Bot API queue; control-flow errors used by the Bot API for interruptible handlers pass through unchanged. `IDR-006` records this narrow exception-reporting rule.
 
 ## The guard
 
