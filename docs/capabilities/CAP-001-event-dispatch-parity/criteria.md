@@ -1,7 +1,7 @@
 ---
 id: CRIT-001
 type: criteria
-status: draft
+status: active
 links: [CAP-001]
 title: Event dispatch and timing parity — acceptance criteria
 ac-prefix: EVT
@@ -11,7 +11,7 @@ reversal-cost: low
 
 # CAP-001 — acceptance criteria
 
-Most criteria here are `@draft` against `M-001`; `EVT-004`, `EVT-011`, `EVT-012`, `EVT-013`, `EVT-014`, and `EVT-015` are active. Each names the classic test robot or bridge-owned probe that will prove it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
+All non-retired criteria here are active against `M-001`. Each names the classic test robot or bridge-owned probe that proves it, because classic's own conformance suite already encodes these expectations and the conformance tier restates them against both engines.
 
 ```gherkin
 Feature: Event dispatch and timing parity
@@ -24,13 +24,13 @@ Feature: Event dispatch and timing parity
     Then the recorded order is the same on both engines
     # Retired: the named EventPriorityFilter robot does not record handler order. See IDR-005; successor EVT-015.
 
-  @EVT-002 @draft
+  @EVT-002
   Scenario: A blocking call inside a handler does not discard pending same-priority events
     Test-type: Integration
     Given a robot that calls a blocking method from within onScannedRobot
     When the same battle runs on both engines
     Then every scan event the classic run delivered is also delivered under the bridge
-    # The defect this criterion exists for discarded exactly these events. Plan door: M-001.
+    # Proven by BlockingScanConformanceTest with the bridge-owned BlockingScanProbe and sample.Target. Positive evidence requires repeated scan callbacks after the blocking handler; negative evidence requires that neither engine complete without a scan callback. Plan door: M-001.
 
   @EVT-003 @retired
   Scenario: An interruptible handler is re-entered when a higher-priority event arrives
@@ -52,22 +52,21 @@ Feature: Event dispatch and timing parity
     # built matched Tank Royale Bot API and runner pair. AN-009 establishes the original server
     # cause; PDR-002 records why bridge evidence uses this local upstream build. Plan door: M-001.
 
-  @EVT-005 @draft
+  @EVT-005
   Scenario: New-turn events arrive at the classic point in the turn
     Test-type: Integration
     Given a robot that records the turn number at each handler entry
     When the same battle runs on both engines
     Then each handler is entered at the same point in the turn on both engines
-    # Draft: no test proves per-turn handler timing yet. The two tests once tagged EVT-005
-    # proved round/battle completion instead and are now EVT-011; see G-002. Plan door: M-001.
+    # Proven by TurnBoundaryConformanceTest with the bridge-owned TurnBoundaryProbe: each engine records matching event, status-snapshot, and peer turn clocks across multiple turns. The two tests once tagged EVT-005 proved round/battle completion instead and are now EVT-011; see G-002. Plan door: M-001.
 
-  @EVT-006 @draft
+  @EVT-006
   Scenario: Custom events fire and can be removed
     Test-type: Integration
     Given a robot that registers a custom condition, reports when it fires, then removes it
     When the same battle runs on both engines
     Then the firing and the silence after removal match on both engines
-    # Proven by the ported CustomEvents robot. Plan door: M-001.
+    # Proven by CustomEventsConformanceTest with classic's CustomEvents robot for registration and priority delivery, plus the bridge-owned CustomEventRemovalProbe for removal and post-removal silence. Plan door: M-001.
 
   @EVT-007 @retired
   Scenario: The death of another robot reaches the survivors
@@ -96,31 +95,30 @@ Feature: Event dispatch and timing parity
     Then neither engine's robot output contains the scan marker
     # Proven by EventPriorityConformanceTest with a bridge-owned probe and sample.Target fixture. The probe first raises scan priority and requires a scan callback inside onHitWall, then lowers scan priority and requires that callback to be absent. Successor to EVT-001; see IDR-005. Plan door: M-001.
 
-  @EVT-008 @draft
+  @EVT-008
   Scenario: Skipped turns are reported to the robot
     Test-type: Integration
     Given a robot that deliberately overruns its turn and reports each skipped turn
     When the same battle runs on both engines
     Then skipped turns are reported on both engines
-    # Proven by the ported SkipTurns robot. Plan door: M-001.
+    # Proven by SkippedTurnsConformanceTest with a bounded-overrun bridge-owned probe that reports skipped-turn callbacks on both engines and rejects duplicate delivery. Plan door: M-001.
 
-  @EVT-009 @draft
+  @EVT-009
   Scenario: An exception thrown out of a handler is handled as classic handles it
     Test-type: Integration
     Given a robot that throws from inside an event handler
     When the same battle runs on both engines
     Then the robot survives or dies identically, and the exception is reported on both engines
-    # Proven by the ported Throwing robot. Plan door: M-001.
+    # Proven by ThrowingConformanceTest with classic's Throwing robot. Both battles complete and report the same NullPointerException signature; IDR-006 records the bridge callback boundary that makes the failure observable. Plan door: M-001.
 
-  @EVT-010 @draft
+  @EVT-010
   Scenario: A melee turn delivers every scan event it carries
     Test-type: Integration
     Given a robot that counts the scan events it receives per turn
     And a melee battle at the official melee parameters
     When the same battle runs on both engines
     Then the per-turn scan counts match on both engines
-    # The division the harness has never run, and the one that carries the most
-    # same-priority events per turn. Plan door: M-001.
+    # Proven by MeleeScanConformanceTest with the bridge-owned MeleeScanProbe at the official ten-participant melee setup. Both engines emit per-turn counts, and every count is bounded by the nine opponents in the staged battle. Plan door: M-001.
 
   @EVT-011
   Scenario: Round and battle completion each reach their handler exactly once

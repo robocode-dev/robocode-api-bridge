@@ -2,7 +2,7 @@
 id: DES-001
 type: design
 status: active
-links: [CAP-001, IDR-001, IDR-005, ADR-001, ARCH-002]
+links: [CAP-001, IDR-001, IDR-005, IDR-006, ADR-001, ARCH-002]
 title: Event dispatch and timing parity — design
 provenance: inferred
 reversal-cost: low
@@ -32,7 +32,11 @@ Delegating leaves one implementation to be correct. `ADR-001` covers the version
 
 ## Timing
 
-Since Bot API 1.0.2, new-turn events dispatch at the end of `execute()`, which is classic Robocode's timing. The bridge previously needed a hook into the turn loop to force dispatch at the right moment; it no longer does, and that hook is gone.
+Since Bot API 1.0.2, new-turn events dispatch at the end of `execute()`, which is classic Robocode's timing. The bridge previously needed a hook into the turn loop to force dispatch at the right moment; it no longer does, and that hook is gone. `TurnBoundaryProbe` records the event time, the status snapshot time, and the peer clock on both engines across multiple turns so a dispatch at the wrong boundary is observable.
+
+## Handler exceptions
+
+The Bot API's event publisher catches subscriber exceptions so one callback cannot prevent other subscribers from receiving the event. That is compatible with classic's continued battle processing, but it hides the failure from the process logs that form conformance evidence. `BotPeer` therefore reports throwables at the legacy callback boundary and then returns to the Bot API queue; `IDR-006` records this narrow exception-reporting rule.
 
 ## The guard
 
@@ -40,4 +44,4 @@ Since Bot API 1.0.2, new-turn events dispatch at the end of `execute()`, which i
 
 ## Where this design is most likely to be wrong
 
-Melee. Everything above was reasoned about, and verified against, one-versus-one battles. A melee turn carries many same-priority scan events, and both the queue behaviour and the interaction between dispatch and blocking calls have more room to differ there. `EVT-010` exists because that case is unmeasured rather than because it is suspected.
+Melee. Everything above was reasoned about, and verified against, one-versus-one battles. A melee turn carries many same-priority scan events, and both the queue behaviour and the interaction between dispatch and blocking calls have more room to differ there. `EVT-010` now exercises the official ten-participant setup with a per-turn scan-count probe; the harness passes the participant count through to both engine runners.

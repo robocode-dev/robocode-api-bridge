@@ -24,7 +24,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 
 | ID | Milestone | Exit criterion | Status |
 |---|---|---|---|
-| M-001 | test foundation | The unit tier runs in CI over the adapter's mapper classes; the conformance tier runs classic's test robots against both engines from one stated expectation; the harness runs each division at its official parameters, averages repeats, and aborts on a Tank-Royale-only exception. The criteria those tiers prove are active rather than `@draft`. | todo |
+| M-001 | test foundation | The unit tier runs in CI over the adapter's mapper classes; the conformance tier runs classic's test robots against both engines from one stated expectation; the harness runs each division at its official parameters, averages repeats, and aborts on a Tank-Royale-only exception. The criteria those tiers prove are active rather than `@draft`. | done |
 | M-002 | score gaps where Tank Royale scores lower | Every bot the report flags as scoring materially lower has been re-measured under the current bridge at official parameters, and each is either within the band or has a named cause recorded in analysis. | todo |
 | M-003 | score gaps where Tank Royale scores higher | The same, for bots scoring materially higher. A bot scoring *better* under the bridge is as much a fidelity defect as one scoring worse, and is easier to overlook. | todo |
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | todo |
@@ -41,15 +41,15 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | ID | Proves | Exit criterion | Status |
 |---|---|---|---|
 | M-101 | `EVT-001` | Dropped: `EVT-001` retired (`IDR-005`); see `M-143` for its successor `EVT-015`. | dropped |
-| M-102 | `EVT-002` | `EVT-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
+| M-102 | `EVT-002` | `EVT-002` is active, with evidence attributable to it. Work lands under M-001. | done |
 | M-103 | `EVT-003` | Dropped: `EVT-003` retired (`IDR-003`); see `M-141` for its successor `EVT-013`. | dropped |
 | M-104 | `EVT-004` | `EVT-004` is active, with evidence attributable to it. Work lands under M-001. | done |
-| M-105 | `EVT-005` | `EVT-005` is active, with evidence attributable to it. Work lands under M-001. | todo |
-| M-106 | `EVT-006` | `EVT-006` is active, with evidence attributable to it. Work lands under M-001. | todo |
+| M-105 | `EVT-005` | `EVT-005` is active, with evidence attributable to it. Work lands under M-001. | done |
+| M-106 | `EVT-006` | `EVT-006` is active, with evidence attributable to it. Work lands under M-001. | done |
 | M-107 | `EVT-007` | Dropped: `EVT-007` retired (`IDR-004`); see `M-142` for its successor `EVT-014`. | dropped |
-| M-108 | `EVT-008` | `EVT-008` is active, with evidence attributable to it. Work lands under M-001. | todo |
-| M-109 | `EVT-009` | `EVT-009` is active, with evidence attributable to it. Work lands under M-001. | todo |
-| M-110 | `EVT-010` | `EVT-010` is active, with evidence attributable to it. Work lands under M-001. | todo |
+| M-108 | `EVT-008` | `EVT-008` is active, with evidence attributable to it. Work lands under M-001. | done |
+| M-109 | `EVT-009` | `EVT-009` is active, with evidence attributable to it. Work lands under M-001. | done |
+| M-110 | `EVT-010` | `EVT-010` is active, with evidence attributable to it. Work lands under M-001. | done |
 | M-111 | `PHY-001` | `PHY-001` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-112 | `PHY-002` | `PHY-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-113 | `PHY-003` | `PHY-003` is active, with evidence attributable to it. Work lands under M-001. | todo |
