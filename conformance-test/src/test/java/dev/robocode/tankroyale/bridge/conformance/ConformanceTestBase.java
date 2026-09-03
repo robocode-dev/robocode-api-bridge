@@ -52,6 +52,12 @@ abstract class ConformanceTestBase {
         assertOnBothEngines(robotClass, source, null, expectation);
     }
 
+    /** Runs a locally held probe with an explicit participant count on both engines. */
+    void assertOnBothEngines(String robotClass, Path source, int participants,
+                             Expectation expectation) {
+        assertOnBothEnginesFixture(robotClass, source, null, participants, expectation);
+    }
+
     /** Runs a robot against the same named opponent fixture on both engines. */
     void assertOnBothEngines(String robotClass, String enemyClass, Expectation expectation) {
         assertOnBothEngines(robotClass, null, enemyClass, expectation);
@@ -60,13 +66,19 @@ abstract class ConformanceTestBase {
     /** Runs a locally held probe against the same named opponent fixture on both engines. */
     void assertOnBothEngines(String robotClass, Path source, String enemyClass,
                              Expectation expectation) {
-        assertOnBothEnginesFixture(robotClass, source, enemyClass, expectation);
+        assertOnBothEnginesFixture(robotClass, source, enemyClass, null, expectation);
     }
 
     private void assertOnBothEnginesFixture(String robotClass, Path source, String enemyClass,
                                             Expectation expectation) {
+        assertOnBothEnginesFixture(robotClass, source, enemyClass, null, expectation);
+    }
+
+    private void assertOnBothEnginesFixture(String robotClass, Path source, String enemyClass,
+                                            Integer participants, Expectation expectation) {
         for (Engine engine : Engine.values()) {
-            BattleOutcome outcome = outcomeFor(engine, robotClass, source, enemyClass);
+            BattleOutcome outcome = outcomeForFixture(engine, robotClass, source, enemyClass,
+                    participants);
             assertTrue(outcome.completed(),
                     () -> "the battle did not complete on " + engine + " (" + outcome.summary() + ")");
             expectation.check(outcome, engine);
@@ -95,13 +107,29 @@ abstract class ConformanceTestBase {
 
     /** Runs a probe against an opponent fixture, reusing that exact battle within this test. */
     BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, String enemyClass) {
-        return outcomeForFixture(engine, robotClass, source, enemyClass);
+        return outcomeForFixture(engine, robotClass, source, enemyClass, null);
+    }
+
+    /** Runs a probe with an explicit participant count, reusing the result within this test. */
+    BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, int participants) {
+        return outcomeForFixture(engine, robotClass, source, null, participants);
     }
 
     private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,
                                             String enemyClass) {
+        return outcomeForFixture(engine, robotClass, source, enemyClass, null);
+    }
+
+    private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,
+                                            String enemyClass, Integer participants) {
         String key = engine.name() + " " + robotClass + " vs " + enemyClass;
-        return ran.computeIfAbsent(key, ignored -> harness.run(engine, robotClass, source, enemyClass));
+        if (participants != null) {
+            key += " with " + participants + " participants";
+        }
+        Integer requestedParticipants = participants;
+        return ran.computeIfAbsent(key, ignored -> requestedParticipants == null
+                ? harness.run(engine, robotClass, source, enemyClass)
+                : harness.run(engine, robotClass, source, requestedParticipants));
     }
 
     /** The number of rounds every battle in this run is configured for. */

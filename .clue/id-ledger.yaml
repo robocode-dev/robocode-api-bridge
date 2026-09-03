@@ -5,18 +5,18 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "6"
+    CH: "8"
     CRIT: "8"
     DES: "8"
     EVT: "15"
     G: "2"
-    IDR: "5"
-    OQ: "3"
+    IDR: "6"
+    OQ: "4"
     P: "1"
     PDR: "2"
     REH: "1"
     ROUTE: "12"
-    TASKS: "5"
+    TASKS: "6"
 entries:
     - id: ADR-001
       kind: numeric
@@ -223,6 +223,16 @@ entries:
       state: live
       prefix: CH
       component: "6"
+    - id: CH-007
+      kind: numeric
+      state: live
+      prefix: CH
+      component: "7"
+    - id: CH-008
+      kind: numeric
+      state: reserved
+      prefix: CH
+      component: "8"
     - id: CRIT-001
       kind: numeric
       state: live
@@ -413,6 +423,11 @@ entries:
       state: live
       prefix: IDR
       component: "5"
+    - id: IDR-006
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "6"
     - id: OQ-001
       kind: numeric
       state: live
@@ -428,6 +443,11 @@ entries:
       state: live
       prefix: OQ
       component: "3"
+    - id: OQ-004
+      kind: numeric
+      state: live
+      prefix: OQ
+      component: "4"
     - id: P-001
       kind: numeric
       state: live
@@ -533,3 +553,8 @@ entries:
       state: live
       prefix: TASKS
       component: "5"
+    - id: TASKS-006
+      kind: numeric
+      state: live
+      prefix: TASKS
+      component: "6"
