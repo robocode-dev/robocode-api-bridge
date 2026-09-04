@@ -25,7 +25,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | ID | Milestone | Exit criterion | Status |
 |---|---|---|---|
 | M-001 | test foundation | The unit tier runs in CI over the adapter's mapper classes; the conformance tier runs classic's test robots against both engines from one stated expectation; the harness runs each division at its official parameters, averages repeats, and aborts on a Tank-Royale-only exception. The criteria those tiers prove are active rather than `@draft`. | done |
-| M-002 | score gaps where Tank Royale scores lower | Every bot the report flags as scoring materially lower has been re-measured under the current bridge at official parameters, and each is either within the band or has a named cause recorded in analysis. | todo |
+| M-002 | score gaps where Tank Royale scores lower | Every bot the report flags as scoring materially lower has been re-measured under the current bridge at official parameters, and each is either within the band or has a named cause recorded in analysis. | done |
 | M-003 | score gaps where Tank Royale scores higher | The same, for bots scoring materially higher. A bot scoring *better* under the bridge is as much a fidelity defect as one scoring worse, and is easier to overlook. | todo |
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | todo |
 | M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | todo |
