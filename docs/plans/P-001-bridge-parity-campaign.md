@@ -28,7 +28,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | M-002 | score gaps where Tank Royale scores lower | Every bot the report flags as scoring materially lower has been re-measured under the current bridge at official parameters, and each is either within the band or has a named cause recorded in analysis. | done |
 | M-003 | score gaps where Tank Royale scores higher | The same, for bots scoring materially higher. A bot scoring *better* under the bridge is as much a fidelity defect as one scoring worse, and is easier to overlook. | done |
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | done |
-| M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | todo |
+| M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | done |
 | M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | done |
 | M-006 | full sweep across all three divisions | A sweep at official parameters has run across the one-versus-one, melee, and team collections, and its report is the baseline the regression watch list is measured against. | todo |
 
@@ -68,9 +68,9 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | M-126 | `SCORE-004` | `SCORE-004` is active, with evidence attributable to it. Work lands under M-002. | todo |
 | M-127 | `SCORE-005` | `SCORE-005` is active, with evidence attributable to it. Work lands under M-003. | todo |
 | M-128 | `SCORE-006` | `SCORE-006` is active, with evidence attributable to it. Work lands under M-006. | todo |
-| M-129 | `TEAM-001` | `TEAM-001` is active, with evidence attributable to it. Work lands under M-005. | todo |
+| M-129 | `TEAM-001` | `TEAM-001` is active, with evidence attributable to it. Work lands under M-005. | done |
 | M-130 | `TEAM-002` | `TEAM-002` is active, with evidence attributable to it. Work lands under M-005. | todo |
-| M-131 | `TEAM-003` | `TEAM-003` is active, with evidence attributable to it. Work lands under M-005. | todo |
+| M-131 | `TEAM-003` | `TEAM-003` is active, with evidence attributable to it. Work lands under M-005. | done |
 | M-132 | `HARN-001` | `HARN-001` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-133 | `HARN-002` | `HARN-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-134 | `HARN-003` | `HARN-003` is active, with evidence attributable to it. Work lands under M-001. | todo |
@@ -90,7 +90,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 
 `M-004` follows because it is a known, located, unambiguous defect — the bridge does not sandbox robot file I/O at all — rather than an unexplained divergence. It is deferred behind the score gaps only because a robot writing outside its data directory produces loud errors that are already visible, while a robot turning at the wrong rate does not. It closed on the `getDataFile`/`getDataDirectory` redirection and quota rules (`FIO-001`–`FIO-003`); `FIO-004`'s broader raw-`java.io` confinement turned out to depend on a JVM `SecurityManager` classic has and this bridge cannot reproduce, so `M-122` dropped as a closeable door and `FIO-004` stays `@draft` (`IDR-007`).
 
-`M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest. Its mapping decision is resolved (`AN-013`, `ADR-002`) and the wrapper/peer groundwork landed (`CH-010`), but the milestone stays `todo`: its exit criterion needs the team division actually running, which needs team-battle-staging plumbing in the harness that `CH-010` scoped out as a separate, larger piece.
+`M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest. Its mapping decision is resolved (`AN-013`, `ADR-002`), the wrapper/peer groundwork landed in `CH-010`, and `CH-011` closes the exit criterion by running grouped team entries through both engines. `TEAM-002` remains an evidence door for the protocol's unresolved classic-name versus Tank-Royale-id identity difference; that does not reopen the milestone's narrower runnable-team criterion.
 
 `M-006` closes the campaign by producing the baseline everything afterwards is measured against. It is deliberately not first: sweeping at official parameters before the foundation exists would produce another set of numbers nobody can act on.
 

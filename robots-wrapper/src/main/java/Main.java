@@ -3,9 +3,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
@@ -79,9 +81,9 @@ public class Main {
      * Reads a classic .team descriptor (team.members: a comma-separated list of
      * "classname" or "classname version-tag" entries, duplicates allowed for repeated
      * members of the same class) and emits a Tank Royale team boot entry directory: a
-     * <name>.json carrying "teamMembers", naming each member's bot directory (produced by
-     * the .properties pass above) once per occurrence. The booter (not this wrapper) assigns
-     * the shared TEAM_ID/TEAM_NAME/TEAM_VERSION when it boots the named member directories.
+     * <name>.json carrying "teamMembers", naming each member's independent bot directory
+     * once per occurrence. The booter (not this wrapper) assigns the shared
+     * TEAM_ID/TEAM_NAME/TEAM_VERSION when it boots the named member directories.
      */
     static void processTeam(Path jarPath, String teamEntryName, InputStream is, Map<String, Path> classToBotDir) throws IOException {
         var props = new Properties();
@@ -92,12 +94,16 @@ public class Main {
             return;
         }
 
+        var teamBaseName = toBaseFilename(Path.of(teamEntryName));
         List<String> memberDirNames = new ArrayList<>();
+        Set<String> usedMemberDirs = new HashSet<>();
+        int occurrence = 0;
         for (String token : membersProp.split(",")) {
             token = token.trim();
             if (token.isEmpty()) {
                 continue;
             }
+            occurrence++;
             int spaceIndex = token.indexOf(' ');
             String className = spaceIndex < 0 ? token : token.substring(0, spaceIndex);
 
@@ -106,7 +112,13 @@ public class Main {
                 System.err.println("Team member has no bot directory (no matching .properties entry): " + className);
                 continue;
             }
-            memberDirNames.add(memberDir.getFileName().toString());
+            String memberDirName = memberDir.getFileName().toString();
+            if (!usedMemberDirs.add(memberDirName)) {
+                memberDir = copyBotDir(memberDir,
+                        memberDirName + "-" + teamBaseName + "-member-" + occurrence);
+                memberDirName = memberDir.getFileName().toString();
+            }
+            memberDirNames.add(memberDirName);
         }
 
         if (memberDirNames.isEmpty()) {
@@ -114,7 +126,6 @@ public class Main {
             return;
         }
 
-        var teamBaseName = toBaseFilename(Path.of(teamEntryName));
         var teamName = props.getProperty("team.description");
         var teamVersion = props.getProperty("team.version");
         var teamAuthor = props.getProperty("team.author.name");
@@ -124,6 +135,56 @@ public class Main {
         createTeamJsonFile(teamDir, teamBaseName, teamName, teamVersion, teamAuthor, memberDirNames);
 
         System.out.println(teamBaseName + " (team of " + memberDirNames.size() + ")");
+    }
+
+    /** Copies a generated member directory so repeated team entries have independent files. */
+    static Path copyBotDir(Path source, String copyName) throws IOException {
+        Path copy = source.getParent().resolve(copyName);
+        if (Files.exists(copy)) {
+            try (var paths = Files.walk(copy)) {
+                paths.sorted(java.util.Comparator.reverseOrder()).forEach(path -> {
+                    try {
+                        Files.delete(path);
+                    } catch (IOException ex) {
+                        throw new UncheckedIOException(ex);
+                    }
+                });
+            } catch (UncheckedIOException ex) {
+                throw ex.getCause();
+            }
+        }
+
+        try (var paths = Files.walk(source)) {
+            paths.forEach(path -> {
+                try {
+                    Path target = copy.resolve(source.relativize(path));
+                    if (Files.isDirectory(path)) {
+                        Files.createDirectories(target);
+                    } else {
+                        Files.copy(path, target);
+                    }
+                } catch (IOException ex) {
+                    throw new UncheckedIOException(ex);
+                }
+            });
+        } catch (UncheckedIOException ex) {
+            throw ex.getCause();
+        }
+
+        String sourceName = source.getFileName().toString();
+        Path sourceJson = copy.resolve(sourceName + ".json");
+        if (Files.exists(sourceJson)) {
+            Files.copy(sourceJson, copy.resolve(copyName + ".json"));
+        }
+        for (String extension : List.of(".cmd", ".sh")) {
+            Path sourceScript = copy.resolve(sourceName + extension);
+            if (Files.exists(sourceScript)) {
+                Path copiedScript = copy.resolve(copyName + extension);
+                Files.move(sourceScript, copiedScript);
+                copiedScript.toFile().setExecutable(true);
+            }
+        }
+        return copy;
     }
 
     static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
