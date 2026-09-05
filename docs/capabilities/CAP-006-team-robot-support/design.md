@@ -2,7 +2,7 @@
 id: DES-006
 type: design
 status: active
-links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002]
+links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002, IDR-008]
 title: Team robot support — design
 provenance: verified
 reversal-cost: high
@@ -10,13 +10,15 @@ reversal-cost: high
 
 # CAP-006 — design
 
-`status: active`: the mapping decision is implemented (`ADR-002`), the harness stages team rosters on both engines, and the conformance tier carries integration evidence for all three criteria.
+`status: active`: the mapping decision is implemented and the team division now runs through both engines. `TEAM-002` remains draft because literal classic sender-name parity is not observable through the Tank Royale protocol; the delivery and recipient-isolation behavior is still exercised by the focused probe.
 
 ## What exists
 
-`robots-wrapper`'s `Main.java` reads a jar's `.team` descriptor (`team.members=`, comma-separated, duplicates allowed) alongside its `.properties` entries, and emits a team boot-entry directory whose `<name>.json` carries `teamMembers`, naming each member's ordinary bot directory once per occurrence — the shape the Tank Royale booter's own `BootEntry`/`BotBooter` reads to group processes into a team and assign them `TEAM_ID`/`TEAM_NAME`/`TEAM_VERSION` at launch. `BotPeer.createBotImpl` constructs a `Bot` subclass that also implements Tank Royale's `Droid` marker when the wrapped robot implements `robocode.Droid`, since Tank Royale's own droid detection (`WebSocketHandler`) keys on that marker rather than any bot-info field. `BotPeer.onTeamMessage` maps Tank Royale's `TeamMessageEvent` to classic `MessageEvent` and invokes `ITeamEvents.onMessageReceived` through the bridge's callback boundary.
+`robots-wrapper`'s `Main.java` reads a jar's `.team` descriptor (`team.members=`, comma-separated, duplicates allowed) alongside its `.properties` entries, and emits a team boot-entry directory whose `<name>.json` carries `teamMembers`, naming each member's independent bot directory once per occurrence — the shape the Tank Royale booter's own `BootEntry`/`BotBooter` reads to group processes into a team and assign them `TEAM_ID`/`TEAM_NAME`/`TEAM_VERSION` at launch. Repeated occurrences are copied under unique generated names so the booter never starts two processes against one script or log file. `BotPeer.createBotImpl` constructs a `Bot` subclass that also implements Tank Royale's `Droid` marker when the wrapped robot implements `robocode.Droid`, since Tank Royale's own droid detection (`WebSocketHandler`) keys on that marker rather than any bot-info field.
 
-`compat-test` now discovers team manifests, duplicates member directories when a second team is needed, rewrites the copied roster, and collects logs from each member. The classic worker expands the selected `.team` descriptor through its Control API; the Tank Royale worker raises its participant ceiling to the expanded member count.
+`compat-test` marks `teamrumble` as a grouped division. Classic receives the selected team jar through its normal repository expansion. Tank Royale receives one generated team entry per team instance; the harness duplicates each member directory under an independent name, rewrites the copied entry's `teamMembers`, patches every member boot script, and raises the runner's participant ceiling to the expanded member count. Log collection expands the team entry back to its member directories so errors and console evidence remain attributable to individual processes.
+
+`BotPeer` dispatches Tank Royale `TeamMessageEvent` values through `MessageEventMapper` to the frozen `TeamRobot` callback, so both callback delivery and the existing polling surface expose the same classic `MessageEvent` shape. Simple messages use the Bot API directly; other `Serializable` messages travel in a bridge-owned Java-serialization envelope because the Bot API's Gson cannot reflect into some JDK-owned classes under strong module encapsulation. The conformance harness packages a bridge-owned team fixture against classic's API, runs it on each engine, and returns per-member consoles for one shared expectation.
 
 ## The mapping decision
 
@@ -26,10 +28,10 @@ One difference survives the mapping and does not need reconstruction to handle: 
 
 ## What is already known to be in the way
 
-Droids are the sharpest fidelity requirement here. A droid has no radar and receives no scan events, and getting that wrong makes the robot *better*: it gains information it should not have, wins more, and produces a battle in which nothing looks wrong. `TEAM-003` exists because that failure is silent in the direction the score-based instrument is least likely to question.
+Droids are the sharpest fidelity requirement here. A droid has no radar and receives no scan events, and getting that wrong makes the robot *better*: it gains information it should not have, wins more, and produces a battle in which nothing looks wrong. `TEAM-003` checks the negative scan case and the positive teammate-information case on both engines.
 
-The collection sweep still needs a broader baseline under `M-006`, but team-battle staging is no longer a capability gap. The focused conformance fixtures and the read-only `Polylunar_1.6.jar` smoke run both engines without a team skip.
+Classic name-based teammate addressing remains the known fidelity boundary. The bridge follows `ADR-002` and passes Tank Royale's numeric teammate ids through the frozen string-based methods; a future protocol-supported name mapping would need a separate change and evidence decision.
 
 ## Evidence plan
 
-Classic's own test suite is thinner on teams than on events and physics, so the conformance tier uses purpose-written test robots rather than ported ones. The focused probes cover team startup, direct versus broadcast delivery, and droid message/no-scan semantics; the read-only collection jar supplies an independent wrapper and harness smoke check.
+Classic's own test suite is thinner on teams than on events and physics, so the conformance tier uses purpose-written test robots. `TeamSupportConformanceTest` runs the same roster and expectation on both engines: six member processes across two team entries, broadcast/direct message markers with sender data, and a droid scan-negative marker. The team collection provides the population for `M-006`; `CH-011` does not rewrite its read-only jars.

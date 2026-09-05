@@ -18,6 +18,8 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Runs a single Robocode Tank Royale battle (bot vs. itself, wrapped legacy robot) via the
@@ -34,6 +36,10 @@ import java.util.logging.Logger;
 public class TrBattleWorker {
 
     private static final int LOG_CAP = 2000; // max captured runner/booter/server log lines
+    private static final Pattern TEAM_MEMBERS = Pattern.compile(
+            "\\\"teamMembers\\\"\\s*:\\s*\\[((?:\\s*\\\"(?:\\\\.|[^\\\"\\\\])*\\\"\\s*,?)*)\\]",
+            Pattern.DOTALL);
+    private static final Pattern JSON_STRING = Pattern.compile("\\\"(?:\\\\.|[^\\\"\\\\])*\\\"");
 
     public static void main(String[] args) throws Exception {
         Map<String, String> opt = parseArgs(args);
@@ -115,8 +121,8 @@ public class TrBattleWorker {
                 s.setArenaHeight(height);
                 // The preset caps participants for its own game type; melee runs more bots
                 // than the classic preset expects, and a team entry expands into several
-                // member identities, so raise the ceiling to what was staged.
-                s.setMaxNumberOfParticipants(expectedParticipantCount(botDirs));
+                // member identities, so raise the ceiling to the number actually staged.
+                s.setMaxNumberOfParticipants(expandedParticipantCount(botDirs));
                 if (turnTimeoutMicros > 0) {
                     s.setTurnTimeoutMicros(turnTimeoutMicros);
                 }
@@ -153,49 +159,27 @@ public class TrBattleWorker {
         }
     }
 
-    private static int expectedParticipantCount(List<Path> botDirs) {
+    /** Counts team members after the runner expands each team entry into bot identities. */
+    private static int expandedParticipantCount(List<Path> botDirs) {
         int count = 0;
         for (Path botDir : botDirs) {
-            count += teamMemberCount(botDir);
-        }
-        return Math.max(2, count);
-    }
-
-    private static int teamMemberCount(Path botDir) {
-        Path config = botDir.resolve(botDir.getFileName() + ".json");
-        if (!Files.isRegularFile(config)) {
-            return 1;
-        }
-        try {
-            String json = Files.readString(config, StandardCharsets.UTF_8);
-            int key = json.indexOf("\"teamMembers\"");
-            int start = key < 0 ? -1 : json.indexOf('[', key);
-            // Member directory names can contain version brackets, for example
-            // `Robot_[1.6]`; the final bracket closes the JSON array.
-            int end = start < 0 ? -1 : json.lastIndexOf(']');
-            if (start < 0 || end < 0) {
-                return 1;
-            }
             int members = 0;
-            boolean quoted = false;
-            boolean escaped = false;
-            for (int i = start + 1; i < end; i++) {
-                char c = json.charAt(i);
-                if (escaped) {
-                    escaped = false;
-                } else if (c == '\\') {
-                    escaped = true;
-                } else if (c == '"') {
-                    if (!quoted) {
+            Path config = botDir.resolve(botDir.getFileName() + ".json");
+            try {
+                String json = Files.readString(config, StandardCharsets.UTF_8);
+                Matcher team = TEAM_MEMBERS.matcher(json);
+                if (team.find()) {
+                    Matcher member = JSON_STRING.matcher(team.group(1));
+                    while (member.find()) {
                         members++;
                     }
-                    quoted = !quoted;
                 }
+            } catch (Exception ignored) {
+                // A config-less entry still counts as one, matching the runner's validation.
             }
-            return Math.max(1, members);
-        } catch (Exception ignored) {
-            return 1;
+            count += Math.max(1, members);
         }
+        return Math.max(1, count);
     }
 
     /** Captures runner/booter/server log output (JUL) in memory instead of the console. */

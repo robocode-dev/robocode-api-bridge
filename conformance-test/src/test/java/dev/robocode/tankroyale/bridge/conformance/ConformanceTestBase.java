@@ -3,7 +3,6 @@ package dev.robocode.tankroyale.bridge.conformance;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.nio.file.Path;
 
@@ -59,18 +58,6 @@ abstract class ConformanceTestBase {
         assertOnBothEnginesFixture(robotClass, source, null, participants, expectation);
     }
 
-    /** Runs a locally held native team probe on both engines. */
-    void assertOnBothEnginesTeam(String teamClass, Path source, List<String> members,
-                                 Expectation expectation) {
-        for (Engine engine : Engine.values()) {
-            BattleOutcome outcome = outcomeForTeam(engine, teamClass, source, members);
-            assertTrue(outcome.completed(),
-                    () -> "the team battle did not complete on " + engine
-                            + " (" + outcome.summary() + ")");
-            expectation.check(outcome, engine);
-        }
-    }
-
     /** Runs a robot against the same named opponent fixture on both engines. */
     void assertOnBothEngines(String robotClass, String enemyClass, Expectation expectation) {
         assertOnBothEngines(robotClass, null, enemyClass, expectation);
@@ -80,6 +67,17 @@ abstract class ConformanceTestBase {
     void assertOnBothEngines(String robotClass, Path source, String enemyClass,
                              Expectation expectation) {
         assertOnBothEnginesFixture(robotClass, source, enemyClass, null, expectation);
+    }
+
+    /** Runs a bridge-owned team fixture on both engines with one shared expectation. */
+    void assertOnBothEnginesTeam(String teamClass, Path source, Expectation expectation) {
+        for (Engine engine : Engine.values()) {
+            BattleOutcome outcome = outcomeForTeam(engine, teamClass, source);
+            assertTrue(outcome.completed(),
+                    () -> "the team battle did not complete on " + engine + " ("
+                            + outcome.summary() + ")");
+            expectation.check(outcome, engine);
+        }
     }
 
     private void assertOnBothEnginesFixture(String robotClass, Path source, String enemyClass,
@@ -123,16 +121,14 @@ abstract class ConformanceTestBase {
         return outcomeForFixture(engine, robotClass, source, enemyClass, null);
     }
 
+    private BattleOutcome outcomeForTeam(Engine engine, String teamClass, Path source) {
+        String key = engine.name() + " team " + teamClass;
+        return ran.computeIfAbsent(key, ignored -> harness.runTeam(engine, teamClass, source));
+    }
+
     /** Runs a probe with an explicit participant count, reusing the result within this test. */
     BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, int participants) {
         return outcomeForFixture(engine, robotClass, source, null, participants);
-    }
-
-    /** Runs a team probe, reusing the same battle within this test. */
-    BattleOutcome outcomeForTeam(Engine engine, String teamClass, Path source,
-                                 List<String> members) {
-        String key = engine.name() + " " + teamClass + " as a team";
-        return ran.computeIfAbsent(key, ignored -> harness.runTeam(engine, teamClass, source, members));
     }
 
     private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,

@@ -2,7 +2,7 @@
 id: CAP-006
 type: capability
 status: draft
-links: [G-001, ARCH-001, AN-013, ADR-002]
+links: [G-001, ARCH-001, AN-013, ADR-002, IDR-008]
 goal: G-001
 title: Team robot support
 provenance: inferred
@@ -13,17 +13,17 @@ reversal-cost: high
 
 Robocode's team division runs teams rather than individual robots: a `.team` descriptor naming several robots that start together, message each other, and win or lose as a unit. Droids are part of the same feature — robots with no radar that depend entirely on teammates for targeting.
 
-The wrapper produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. The compatibility harness stages team entries with independent member directories on both engines, and purpose-written conformance probes cover startup, teammate messaging, and droid semantics.
+The wrapper produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. The compatibility harness now stages the grouped entry on both engines, and the team division is no longer recorded as skipped.
 
 ## Why it exists as its own capability
 
-It is the only part of this corpus that was greenfield rather than repair, and the only one where the original failure was a clean absence rather than a subtle difference. The capability now has direct two-engine evidence, while the broader collection sweep remains a separate baseline task.
+It is the only part of this corpus that is greenfield rather than repair, and the only one where the original failure was a clean absence rather than a subtle difference. The wrapper and harness now make the missing behavior observable in focused integration evidence instead of silently skipping it.
 
 That makes it lower-risk than the score gaps and higher-effort than any of them, which is why `P-001` places it late.
 
 ## What it covers
 
-The wrapper producing runnable Tank Royale bot directories from a team jar, teammate messaging arriving as classic delivers it, and droid semantics — a robot that receives no scan events of its own and acts on what its teammates tell it.
+The wrapper producing runnable Tank Royale bot directories from a team jar, grouped team staging on both engines, teammate messaging and directed-recipient isolation, and droid semantics — a robot that receives no scan events of its own and acts on what its teammates tell it. The bridge keeps Tank Royale's numeric sender and teammate-id representation because the protocol exposes no classic robot-name mapping; `ADR-002` records that boundary.
 
 ## What it does not cover
 
@@ -37,4 +37,4 @@ The interesting question was where a team becomes several Tank Royale bots. `AN-
 
 ## Status
 
-`draft`. `CH-010` landed the wrapper and peer groundwork, and `CH-011` added team-battle staging plus purpose-written conformance probes. `TEAM-001` through `TEAM-003` now have two-engine integration evidence; `M-005` is complete. The capability remains draft until its high-cost inferred meaning is explicitly verified. The team collection remains useful for the broader `M-006` baseline rather than as a prerequisite for these criteria.
+`draft`. `CH-011` adds team-aware staging and purpose-written two-engine evidence. `TEAM-001` and `TEAM-003` are active with passing integration evidence; `TEAM-002` remains `@draft` because the bridge can prove message delivery and directed-recipient isolation, but not literal classic sender names across the two engines under the protocol boundary recorded in `ADR-002`. `M-005` is complete; the full team collection remains available for the later `M-006` sweep.

@@ -468,11 +468,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchMessageEvent(BotEvent botEvent) {
         log("-> onMessageReceived");
-        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent);
-        if (robot instanceof ITeamEvents) {
-            var teamEvents = (ITeamEvents) robot;
-            dispatchRobotCallback(() -> teamEvents.onMessageReceived(robocodeEvent));
+        if (!(robot instanceof ITeamEvents)) {
+            return;
         }
+        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent);
+        dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
     }
 
     @Override
@@ -919,7 +919,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void broadcastMessage(Serializable message) {
         log("broadcastMessage()");
-        bot.broadcastTeamMessage(message);
+        bot.broadcastTeamMessage(BridgeTeamMessage.forTransport(message));
     }
 
     @Override
@@ -927,7 +927,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("sendMessage()");
         try {
             var id = Integer.parseInt(name);
-            bot.sendTeamMessage(id, message);
+            bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
         } catch (NumberFormatException ignore) {
             throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
         }

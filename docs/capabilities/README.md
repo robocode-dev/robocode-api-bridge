@@ -16,7 +16,7 @@ A whole capability whose extracted criteria are not ready may stay `status: draf
 - [CAP-003 — Robocode API surface fidelity](CAP-003-robocode-api-surface-fidelity/README.md) · `active` — The adapter's value conversions are correct; the only capability with machine evidence.
 - [CAP-004 — Robot file I/O sandboxing](CAP-004-robot-file-io-sandboxing/README.md) · `active` — Robot writes reached through `getDataFile`/`getDataDirectory` are confined to the robot's data directory, as classic confines them; the raw-`java.io` case remains agent-held (`IDR-007`).
 - [CAP-005 — Score parity across the rumble collections](CAP-005-score-parity/README.md) · `draft` — The end-to-end claim, and the only thing that exercises the parts of the surface nobody modelled.
-- [CAP-006 — Team robot support](CAP-006-team-robot-support/README.md) · `draft` — Team staging, teammate messaging, and droid semantics across the wrapper and compatibility harness.
+- [CAP-006 — Team robot support](CAP-006-team-robot-support/README.md) · `draft` — Grouped team staging, teammate messaging, and droid behavior; literal sender-name parity remains draft.
 - [CAP-007 — The compatibility harness](CAP-007-compatibility-harness/README.md) · `draft` — The instrument itself, which has been wrong in ways mistaken for the bridge being wrong.
 - [CAP-008-call-routing-fidelity/](CAP-008-call-routing-fidelity/README.md)
 <!-- clue:index:end -->

@@ -75,7 +75,7 @@ The corpus splits the goal into promises. They are not arbitrary; each sits at a
 | `CAP-001` event dispatch parity | The path from server to robot: which events arrive, in what order, interruptible where. |
 | `CAP-002` physics and state parity | The same path, but about the values the events and status carry. |
 | `CAP-004` file I/O sandboxing | Inside the adapter, at the file wrappers. Implemented for the `getDataFile`-reached surface; the raw-`java.io` case is agent-held (`IDR-007`). |
-| `CAP-006` team robot support | Inside the wrapper: the one-jar-to-one-bot-directory assumption gave. Wrapper, peer, and team-battle staging are implemented; the wider collection baseline remains part of `M-006`. |
+| `CAP-006` team robot support | Inside the wrapper and harness: one team jar becomes grouped per-member processes; wrapper, peer, and team-battle-staging are implemented. |
 | `CAP-005` score parity | The whole picture, end to end. Detects; does not localise. |
 | `CAP-007` the harness | The apparatus itself, which has been wrong in ways mistaken for the bridge being wrong. |
 

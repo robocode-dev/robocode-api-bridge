@@ -108,22 +108,51 @@ final class ConformanceHarness {
         return run(engine, robotClass, source, null, participants);
     }
 
-    /** Runs a generated team probe with one native team entry per requested battle team. */
-    BattleOutcome runTeam(Engine engine, String teamClass, Path source, List<String> members) {
+    /** Runs a bridge-owned team fixture on one engine. */
+    BattleOutcome runTeam(Engine engine, String teamClass, Path source) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
                 "--conformance", testRobotClasses.toString(),
-                "--robot-class", teamClass,
+                "--conformance-team-source", source.toString(),
+                "--team-class", teamClass,
                 "--engine", engine.harnessName(),
                 "--rounds", String.valueOf(rounds),
-                "--robocode-home", robocodeHome.toString(),
-                "--conformance-team-source", source.toString()));
-        for (String member : members) {
-            command.add("--team-member");
-            command.add(member);
+                "--robocode-home", robocodeHome.toString()));
+
+        try {
+            Process process = new ProcessBuilder(command)
+                    .directory(HARNESS.getParent().toFile())
+                    .redirectErrorStream(false)
+                    .start();
+
+            AtomicReference<String> out = new AtomicReference<>("");
+            AtomicReference<String> err = new AtomicReference<>("");
+            Thread pumpOut = pump(process.getInputStream(), out);
+            Thread pumpErr = pump(process.getErrorStream(), err);
+
+            if (!process.waitFor(20, TimeUnit.MINUTES)) {
+                process.destroyForcibly();
+                join(pumpOut);
+                join(pumpErr);
+                return failed("the team harness did not finish within 20 minutes. stderr: "
+                        + trim(err.get()));
+            }
+            join(pumpOut);
+            join(pumpErr);
+            String stdout = out.get();
+            String stderr = err.get();
+            String json = lastJsonLine(stdout);
+            if (json == null) {
+                return failed("the team harness printed no result. stderr: " + trim(stderr));
+            }
+            return parse(json);
+        } catch (IOException e) {
+            return failed("could not start the team harness: " + e.getMessage());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return failed("interrupted while waiting for the team harness");
         }
-        return runCommand(command);
     }
 
     private BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass,
@@ -149,10 +178,6 @@ final class ConformanceHarness {
             command.add(String.valueOf(participants));
         }
 
-        return runCommand(command);
-    }
-
-    private BattleOutcome runCommand(List<String> command) {
         try {
             Process process = new ProcessBuilder(command)
                     .directory(HARNESS.getParent().toFile())
