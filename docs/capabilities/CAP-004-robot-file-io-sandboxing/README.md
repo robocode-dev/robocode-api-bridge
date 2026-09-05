@@ -5,13 +5,13 @@ status: active
 links: [G-001, C-005, IDR-007]
 goal: G-001
 title: Robot file I/O sandboxing
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 
 # CAP-004 — Robot file I/O sandboxing
 
-Classic Robocode confines everything a robot writes, through its own data-file API, to that robot's own data directory. A robot that opens an absolute path gets a file inside its data directory instead, and never learns the difference. This capability is that redirection, implemented at the one point the bridge controls: `RobotData.getDataFile`/`getDataDirectory`.
+Classic Robocode confines everything a robot writes, through its own data-file API, to that robot's own data directory. A robot that opens a root-relative path gets a file inside its data directory instead, and never learns the difference. This capability is that redirection, implemented at the one point the bridge controls: `RobotData.getDataFile`/`getDataDirectory`.
 
 ## Why it exists as its own capability
 
@@ -19,7 +19,7 @@ Robots depend on the redirection, and the dependency is invisible in their sourc
 
 ## What it covers
 
-Path confinement inside `getDataFile`/`getDataDirectory` — asterisks stripped and a `java.io.File` merge used so an absolute or root-relative name is re-rooted inside the directory rather than overriding it, `..` rejected exactly as classic rejects it — plus the 200000-byte quota classic enforces on a robot's data directory.
+Path confinement inside `getDataFile`/`getDataDirectory` — asterisks stripped, `..` rejected in the stripped name (stricter than classic's own check order, for safety — see `design.md`), and a `java.io.File` merge used so a root-relative name is re-rooted inside the directory rather than overriding it (a true drive-letter-absolute name fails the write on both engines instead) — plus the 200000-byte quota classic enforces on a robot's data directory.
 
 ## What it does not cover
 

@@ -6,7 +6,7 @@ links: [CAP-004]
 title: A robot reads and writes only inside its own data directory
 source: Classic Robocode's robot sandbox, which every rumble robot was written against
 enforcement: partial
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 

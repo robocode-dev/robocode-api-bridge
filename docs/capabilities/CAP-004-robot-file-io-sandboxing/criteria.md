@@ -5,7 +5,7 @@ status: active
 links: [CAP-004]
 title: Robot file I/O sandboxing — acceptance criteria
 ac-prefix: FIO
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 

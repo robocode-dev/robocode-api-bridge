@@ -4,7 +4,7 @@ type: design
 status: active
 links: [CAP-004, IDR-002, IDR-007, ARCH-002, C-005]
 title: Robot file I/O sandboxing — design
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 

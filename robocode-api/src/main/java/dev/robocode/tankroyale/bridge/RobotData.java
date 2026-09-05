@@ -45,10 +45,12 @@ public final class RobotData {
     /**
      * Resolves a robot-supplied filename against the data directory, matching classic's
      * {@code RobotFileSystemManager.getDataFile}: asterisks are stripped, and a {@code java.io.File}
-     * merge is used rather than {@code java.nio.file.Path#resolve} so an absolute or root-relative
-     * name is re-rooted inside the directory instead of overriding it outright.
+     * merge is used rather than {@code java.nio.file.Path#resolve} so a root-relative name is
+     * re-rooted inside the directory instead of overriding it outright. A true drive-letter-absolute
+     * name (e.g. {@code C:\...} on Windows) is not re-rooted by this merge, matching classic; the
+     * write then fails rather than escaping the directory.
      *
-     * @throws AccessControlException if filename contains "..", matching classic's
+     * @throws AccessControlException if the name contains "..", matching classic's
      *                                 {@code AdvancedRobotProxy.getDataFile}.
      */
     public static File getDataFile(String filename) {
