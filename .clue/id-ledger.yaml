@@ -10,7 +10,7 @@ counters:
     DES: "8"
     EVT: "15"
     G: "2"
-    IDR: "6"
+    IDR: "7"
     OQ: "4"
     P: "1"
     PDR: "2"
@@ -443,6 +443,11 @@ entries:
       state: live
       prefix: IDR
       component: "6"
+    - id: IDR-007
+      kind: numeric
+      state: reserved
+      prefix: IDR
+      component: "7"
     - id: OQ-001
       kind: numeric
       state: live

@@ -2,7 +2,7 @@
 id: CH-009
 type: change
 status: proposed
-links: [P-001, M-004, CAP-004, C-005, FIO-001, FIO-002, FIO-003, FIO-004, IDR-002]
+links: [P-001, M-004, CAP-004, C-005, FIO-001, FIO-002, FIO-003, FIO-004, IDR-002, IDR-007]
 title: Confine robot file I/O to the robot's data directory
 ---
 
@@ -10,9 +10,9 @@ title: Confine robot file I/O to the robot's data directory
 
 ## What
 
-Give `RobotData.getDataFile`/`getDataDirectory` — the one resolution point `robocode.RobocodeFileOutputStream` and `robocode.RobocodeFileWriter` already route through — the confinement classic Robocode has and the bridge does not: an absolute or traversing path a robot names is re-rooted inside the robot's data directory rather than passed through, and the directory's total size is capped at the documented 200000-byte quota. Move `FIO-001`, `FIO-002`, `FIO-003` out of `@draft` with integration evidence, and give `C-005` machine enforcement in place of the agent-judgment note it currently carries.
+Give `RobotData.getDataFile`/`getDataDirectory` — the one resolution point `robocode.RobocodeFileOutputStream` and `robocode.RobocodeFileWriter` already route through — the confinement classic Robocode has and the bridge does not: an absolute or traversing path a robot names is re-rooted inside the robot's data directory rather than passed through, and the directory's total size is capped at the documented 200000-byte quota. Move `FIO-001`, `FIO-002`, `FIO-003`, `FIO-004` out of `@draft` with integration evidence, and give `C-005` machine enforcement in place of the agent-judgment note it currently carries.
 
-`FIO-004`'s scope is a blocking open question (see `open-questions.md`) and is not committed to by this proposal until it is answered.
+`FIO-004`'s scope was a blocking open question, resolved as `IDR-007`: confinement covers the `getDataFile`/`getDataDirectory` surface, not raw `java.io` calls that bypass it entirely (classic blocks those with a JVM `SecurityManager` this bridge does not have and the architecture record already scopes out, alongside threads/reflection/sockets).
 
 ## Why
 

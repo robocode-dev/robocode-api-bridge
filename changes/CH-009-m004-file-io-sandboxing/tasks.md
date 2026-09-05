@@ -1,10 +1,10 @@
-- [ ] Resolve the blocking open question on `FIO-004`'s scope before starting its task below.
+- [x] Resolve the blocking open question on `FIO-004`'s scope — decided as `IDR-007`: resolver-surface confinement only.
 - [ ] Implement the single resolution point in `RobotData`: re-root an absolute or drive-rooted `filename` argument inside the data directory, resolve `..` traversal inside the directory rather than escaping it, and keep `getDataDirectory`/`getDataFile` agreeing as `IDR-002` already requires — serves `FIO-001`, `FIO-002`.
 - [ ] Add the 200000-byte data-directory quota at the same resolution point (tracking bytes written across the directory's lifetime, refusing further writes with the same `IOException` classic raises) — serves `FIO-003`.
 - [ ] Port classic's `TestFileWriteSize` conformance robot/test (`C:/Code/robocode/robocode.tests.robots/.../FileWriteSize.java` and its test) for `FIO-003`'s quota-exceeded evidence, and a companion positive case that stays under quota.
-- [ ] Port `FileOutputStreamAttack` (and, depending on the open question's answer, `FileAttack` or a retargeted equivalent) as conformance evidence for `FIO-001`/`FIO-004` under `ARCH-003`'s tier.
+- [ ] Port `FileOutputStreamAttack` as conformance evidence for `FIO-001`/`FIO-004` under `ARCH-003`'s tier (`FileAttack` is not ported, per `IDR-007`).
 - [ ] Add a focused unit case for `FIO-002`: writing through `getDataFile(name)` and listing `getDataDirectory()` see the same file, for both a plain name and a re-rooted absolute/traversing one.
-- [ ] Remove `@draft` from `FIO-001`, `FIO-002`, `FIO-003` in `CAP-004/criteria.md`; leave `FIO-004` `@draft` if its scope is narrowed to a criterion this change does not fully close, or resolve it if the answer lets it close here.
+- [ ] Remove `@draft` from `FIO-001`, `FIO-002`, `FIO-003`, and `FIO-004` in `CAP-004/criteria.md`, narrowing `FIO-004`'s scenario text to the `getDataFile`-reached surface per `IDR-007`.
 - [ ] Update `CAP-004/design.md` and `CAP-004/README.md` to describe the resolver as implemented rather than intended, and update `C-005` from `enforcement: agent` to its machine-enforced state (or promote-with-residual note if `FIO-004` stays partly open).
 - [ ] Update `P-001`'s evidence-door table (`M-119`–`M-122` equivalents don't exist for `FIO-00x`; confirm the milestone-status row for `M-004` and any doors naming `FIO-001`..`FIO-004`) to reflect what closed.
 - [ ] Run the tier-1 unit suite and the focused tier-2 conformance tests with the matched local Tank Royale API/runner pair; retain any environment limitation in the handoff.
