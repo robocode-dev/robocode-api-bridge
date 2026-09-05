@@ -52,11 +52,21 @@ public final class RobotData {
      *                                 {@code AdvancedRobotProxy.getDataFile}.
      */
     public static File getDataFile(String filename) {
-        if (filename.contains("..")) {
+        return resolve(getDataDirectory(), filename);
+    }
+
+    /**
+     * The resolver itself, independent of the singleton data directory, so it can be exercised
+     * directly against an arbitrary directory in a unit test.
+     */
+    static File resolve(File directory, String filename) {
+        // Strip first, then check: a name like ".*." contains no literal ".." until the asterisk is
+        // gone, and checking before stripping would let it collapse into ".." after the check passed.
+        String sanitized = filename.replace("*", "");
+        if (sanitized.contains("..")) {
             throw new AccessControlException("no relative path allowed");
         }
-        String sanitized = filename.replace("*", "");
-        return new File(getDataDirectory(), sanitized);
+        return new File(directory, sanitized);
     }
 
     public static long getMaxQuota() {

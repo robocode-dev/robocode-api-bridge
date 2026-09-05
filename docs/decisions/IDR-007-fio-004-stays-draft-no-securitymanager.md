@@ -12,7 +12,7 @@ title: FIO-004 stays @draft; classic's own evidence for it depends on a Security
 
 ## Decision
 
-`CH-009` closes `FIO-001`, `FIO-002`, and `FIO-003` but leaves `FIO-004` `@draft`. Confinement is implemented at the one point this bridge controls — `RobotData.getDataFile`/`getDataDirectory`, matching classic's `RobotFileSystemManager.getDataFile` byte-for-byte in its re-rooting and traversal rules — but that is not what classic's own `FIO-004` evidence tests. Neither of classic's conformance robots named in `CAP-004`'s original evidence plan can be ported as positive evidence under this bridge.
+`CH-009` closes `FIO-001`, `FIO-002`, and `FIO-003` but leaves `FIO-004` `@draft`. Confinement is implemented at the one point this bridge controls — `RobotData.getDataFile`/`getDataDirectory`, matching classic's `RobotFileSystemManager.getDataFile` in its re-rooting (deliberately deviating from classic's own asterisk/`..` check order, per `CAP-004/design.md`, because classic's order lets a name like `".*."` collapse into a traversal after its own check passes) — but that is not what classic's own `FIO-004` evidence tests. Neither of classic's conformance robots named in `CAP-004`'s original evidence plan can be ported as positive evidence under this bridge.
 
 ## Context
 

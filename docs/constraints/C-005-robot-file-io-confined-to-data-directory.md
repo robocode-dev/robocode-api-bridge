@@ -12,7 +12,7 @@ reversal-cost: high
 
 # C-005 — A robot reads and writes only inside its own data directory
 
-Classic Robocode confines all robot file I/O reached through `getDataFile`/`getDataDirectory` to the robot's own data directory. A robot that opens an absolute path through that surface does not fail; the engine resolves that path inside the robot's data directory and the write lands there. Classic separately blocks a raw `java.io` call that bypasses that surface entirely, confined path or not, through a JVM `SecurityManager`.
+Classic Robocode confines all robot file I/O reached through `getDataFile`/`getDataDirectory` to the robot's own data directory. A robot that names a root-relative path through that surface does not fail; the engine re-roots that path inside the robot's data directory and the write lands there. A true drive-letter-absolute name (`C:\...` on Windows) is a narrower case: neither classic's own merge nor this bridge's re-roots it, and both fail the write rather than redirecting or escaping (`CAP-004/design.md` has the detail). Classic separately blocks a raw `java.io` call that bypasses the `getDataFile` surface entirely, confined path or not, through a JVM `SecurityManager`.
 
 ## Why this binds rather than merely being desirable
 

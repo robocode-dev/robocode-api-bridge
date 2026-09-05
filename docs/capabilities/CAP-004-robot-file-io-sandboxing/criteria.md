@@ -17,15 +17,16 @@ reversal-cost: high
 Feature: Robot file I/O sandboxing
 
   @FIO-001
-  Scenario: An absolute path a robot writes to is redirected into its data directory
+  Scenario: A root-relative path a robot writes to is redirected into its data directory
     Test-type: Integration
-    Given a robot that opens a file at an absolute path outside its data directory
+    Given a robot that opens a file at a root-relative path outside its data directory
     When it writes and the battle completes
     Then the write succeeded
     And the file exists inside the robot's data directory
     And nothing was written at the path the robot named
-    # Classic redirects silently; the robot never learns the difference.
-    # Evidence: FileRedirectionConformanceTest.
+    # Classic redirects silently; the robot never learns the difference. A true drive-letter-
+    # absolute name (Windows) is a narrower case neither engine redirects; both fail the write
+    # instead (CAP-004/design.md). Evidence: FileRedirectionConformanceTest.
 
   @FIO-002
   Scenario: The data file and the data directory resolve against the same place
