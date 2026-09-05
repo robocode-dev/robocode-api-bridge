@@ -999,7 +999,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
      * that onto which {@code BotImpl} it constructs.
      */
     private IBot createBotImpl(IBasicRobot robot, BotInfo botInfo) {
-        return (robot instanceof robocode.Droid) ? new DroidBotImpl(botInfo) : new BotImpl(botInfo);
+        return isDroidRobot(robot) ? new DroidBotImpl(botInfo) : new BotImpl(botInfo);
+    }
+
+    /** Package-private test seam: the connecting-class decision without constructing a {@code Bot}. */
+    static boolean isDroidRobot(IBasicRobot robot) {
+        return robot instanceof robocode.Droid;
     }
 
     private class BotImpl extends Bot {

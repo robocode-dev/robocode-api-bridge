@@ -2,7 +2,7 @@
 id: CAP-006
 type: capability
 status: draft
-links: [G-001, ARCH-001]
+links: [G-001, ARCH-001, AN-013, ADR-002]
 goal: G-001
 title: Team robot support
 provenance: inferred

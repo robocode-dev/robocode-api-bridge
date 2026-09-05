@@ -4,7 +4,7 @@ type: design
 status: draft
 links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002]
 title: Team robot support — design
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 
