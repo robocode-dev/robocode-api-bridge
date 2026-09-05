@@ -12,6 +12,9 @@ final class MessageEventMapper {
         var sender = String.valueOf(teamMessageEvent.getSenderId());
 
         var message = teamMessageEvent.getMessage();
+        if (message instanceof BridgeTeamMessage) {
+            message = ((BridgeTeamMessage) message).decode();
+        }
         if (!(message instanceof Serializable)) {
             throw new BotException("MessageEventMapper.map: Team messages in Robocode is expected to implement the Serializable interface");
         }

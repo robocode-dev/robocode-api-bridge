@@ -1,8 +1,8 @@
 ---
 id: CH-011
 type: change
-status: proposed
-links: [P-001, CAP-006, M-005, TEAM-001, TEAM-002, TEAM-003]
+status: open
+links: [P-001, CAP-006, M-005, TEAM-001, TEAM-002, TEAM-003, IDR-008]
 title: Run team robots through the compatibility harness
 ---
 
@@ -22,7 +22,7 @@ This is a full change. It enables a previously skipped division and changes `TEA
 
 ## Scope
 
-The change will update the Python orchestration and its classic/Tank Royale worker inputs to preserve team membership and roster identity across staging, add team-focused conformance robots and evidence, keep the rumble collection read-only, and update the capability, plan, indexes, changelog, and acceptance brief during digest. The TwinDuel division remains out of scope.
+The change will update the Python orchestration and its classic/Tank Royale worker inputs to preserve team membership and roster identity across staging, preserve arbitrary classic Serializable team messages through the bridge, add team-focused conformance robots and evidence, keep the rumble collection read-only, and update the capability, plan, indexes, changelog, and acceptance brief during digest. The TwinDuel division remains out of scope.
 
 ## Non-goals
 

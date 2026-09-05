@@ -11,13 +11,14 @@ counters:
     EVT: "15"
     FIO: "4"
     G: "2"
-    IDR: "7"
+    IDR: "8"
     OQ: "4"
     P: "1"
     PDR: "2"
     REH: "1"
     ROUTE: "12"
     TASKS: "6"
+    TEAM: "3"
 entries:
     - id: ADR-001
       kind: numeric
@@ -489,6 +490,11 @@ entries:
       state: live
       prefix: IDR
       component: "7"
+    - id: IDR-008
+      kind: numeric
+      state: live
+      prefix: IDR
+      component: "8"
     - id: OQ-001
       kind: numeric
       state: live
@@ -619,3 +625,18 @@ entries:
       state: live
       prefix: TASKS
       component: "6"
+    - id: TEAM-001
+      kind: numeric
+      state: live
+      prefix: TEAM
+      component: "1"
+    - id: TEAM-002
+      kind: numeric
+      state: live
+      prefix: TEAM
+      component: "2"
+    - id: TEAM-003
+      kind: numeric
+      state: live
+      prefix: TEAM
+      component: "3"

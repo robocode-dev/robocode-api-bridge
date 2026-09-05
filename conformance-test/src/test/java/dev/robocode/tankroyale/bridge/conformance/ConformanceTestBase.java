@@ -69,6 +69,17 @@ abstract class ConformanceTestBase {
         assertOnBothEnginesFixture(robotClass, source, enemyClass, null, expectation);
     }
 
+    /** Runs a bridge-owned team fixture on both engines with one shared expectation. */
+    void assertOnBothEnginesTeam(String teamClass, Path source, Expectation expectation) {
+        for (Engine engine : Engine.values()) {
+            BattleOutcome outcome = outcomeForTeam(engine, teamClass, source);
+            assertTrue(outcome.completed(),
+                    () -> "the team battle did not complete on " + engine + " ("
+                            + outcome.summary() + ")");
+            expectation.check(outcome, engine);
+        }
+    }
+
     private void assertOnBothEnginesFixture(String robotClass, Path source, String enemyClass,
                                             Expectation expectation) {
         assertOnBothEnginesFixture(robotClass, source, enemyClass, null, expectation);
@@ -108,6 +119,11 @@ abstract class ConformanceTestBase {
     /** Runs a probe against an opponent fixture, reusing that exact battle within this test. */
     BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, String enemyClass) {
         return outcomeForFixture(engine, robotClass, source, enemyClass, null);
+    }
+
+    private BattleOutcome outcomeForTeam(Engine engine, String teamClass, Path source) {
+        String key = engine.name() + " team " + teamClass;
+        return ran.computeIfAbsent(key, ignored -> harness.runTeam(engine, teamClass, source));
     }
 
     /** Runs a probe with an explicit participant count, reusing the result within this test. */
