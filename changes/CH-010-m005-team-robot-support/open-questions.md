@@ -1,1 +1,25 @@
-No blocking questions. `AN-013` already resolved the design-level unknown (map onto Tank Royale's native team model). The remaining unknowns — how the Tank Royale booter groups launched bot processes into a team, and the exact structure of a rumble `teamrumble` jar — are investigable directly from vendored sources and the local rumble collection, so they are tasks below rather than questions for a human.
+## Resolved during Implement
+
+How the booter groups launched processes into a team, and the exact structure of a rumble `teamrumble` jar, were both investigable directly from vendored/local sources without a human decision:
+
+- The local Tank Royale checkout (`C:/Code/tank-royale`) shows the booter (`booter/src/main/kotlin/dev/robocode/tankroyale/booter/`) reads each bot directory's `<dir>.json` as a `BootEntry`; a non-null, non-empty `teamMembers: string[]` field marks it a **team boot entry**. `BotBooter.bootTeam` resolves each name in `teamMembers` as a sibling directory of the team boot entry, assigns a fresh `TeamId` (`BotBooter.kt:30`, `AtomicLong`, per-boot, not baked into any file), and launches each member process with `TEAM_ID`/`TEAM_NAME`/`TEAM_VERSION` set from that (`BotEnvironment.setup`). So the wrapper's job for `.team` descriptors is to emit one ordinary bot directory per member (as it already does per `.properties` entry) plus one additional small boot-entry directory whose JSON carries `teamMembers` naming the member directories, repeated per duplicate — no env-var or script work needed in the wrapper itself.
+- A real rumble team jar (`teamrumble/amz.TeamDeathTeam_1.jar`) confirms `team.members` entries are `<FQCN> [<version>]` or `<FQCN> <version>` (format varies by jar), comma-separated, with duplicates for repeated team members of the same class — matching classic's own parser (`RepositoryManager.getRobotItems`, which takes the substring before the first space as the class name and ignores the rest for lookup purposes).
+
+## Blocking
+
+### Can a droid team member resolve a classic teammate name to a Tank Royale id at all, without ever having received a message from that teammate?
+
+`TEAM-002` requires directed messaging (`sendMessage(name, ...)`) to work with real classic names, not the numeric-string placeholder `ROUTE-009` currently tests. Building the name-to-id table needs a source of `(name, id)` pairs. Checked what Tank Royale's bot-side wire protocol actually exposes to a connected bot (`dev.robocode.tankroyale.botapi`, local `.m2` sources for `1.0.2`):
+
+- `getTeammateIds()` — a `Set<Integer>`, ids only, no names.
+- `ScannedBotEvent` — carries a name, but only for a bot this robot's own radar has scanned, and only after that scan occurs.
+- No `onGameStarted`/`GameStartedEvent` participant roster, and no other bot-side call, exposes a full list of `(name, id)` pairs for teammates. The `Participant` schema class that carries name+id+teamId together (`dev.robocode.tankroyale.schema.Participant`) is server/observer-facing (used in results and observer events) and is never delivered to a connected bot.
+
+Classic resolves this for free: `sendMessage("sample.MyFirstDroid", msg)` works immediately because the battle holds a static, name-keyed registry of every robot from before round one, and a droid's total absence of scanning does not block name-based addressing at all. Tank Royale's protocol gives a bot no equivalent: a droid, which by definition is scanned by nothing and scans nothing, has no channel at all to learn which numeric id corresponds to a teammate's name until that teammate messages it first (`TeamMessageEvent.getSenderId()`).
+
+Two ways to resolve this, neither of which this change should choose on its own:
+
+1. **Scope the name-to-id table to what the wire protocol actually supports.** Build it from `ScannedBotEvent` as teammates are scanned (works for any non-droid team member scanning teammates, which is the common real-robot pattern — `TeamRobot` examples check `isTeammate` inside `onScannedRobot`). A droid, or a non-droid addressing a teammate it has not yet scanned or heard from, gets `sendMessage`'s existing refusal (`BotException`) rather than silent delivery. This is evidence-honest — `TEAM-002` would be proven for the reachable case and the droid-addressing gap recorded explicitly, the same way `FIO-004` was scoped down and left partly open (`IDR-007`) rather than silently claimed.
+2. **Accept the current numeric-id-as-name behavior as permanent** (what `ROUTE-009` already tests), i.e. `getTeammates()`/`sendMessage` operate on Tank Royale's own ids stringified, not on classic's declared names at all. This is simpler and has zero protocol gap, but is not classic-faithful: a real ported team robot that hardcodes `sendMessage("sample.MyFirstDroid", ...)` would throw under the bridge every time, which is a correctness regression `TEAM-002` is specifically meant to close.
+
+This change proceeds on option 1 unless directed otherwise — it keeps faith with real robots' addressing where the protocol allows it and is honest about where it does not, rather than silently accepting option 2's regression. Flagging here rather than deciding silently, per the scope-change rule in `AGENTS.md`.
