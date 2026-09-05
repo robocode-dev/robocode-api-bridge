@@ -73,7 +73,11 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     public RobocodeFileOutputStream(String fileName, boolean append) throws IOException {
         this.fileName = fileName;
-        out = new FileOutputStream(RobotData.getDataFile(fileName), append);
+        // fileName is opened verbatim, matching classic's ThreadManager.createRobotFileStream: the
+        // redirecting resolution happens once, in AdvancedRobot#getDataFile, and a File obtained from
+        // there must not be resolved a second time here or an absolute, already-resolved path would be
+        // re-rooted under itself.
+        out = new FileOutputStream(fileName, append);
     }
 
     /**
@@ -114,7 +118,13 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(byte[] b) throws IOException {
-        out.write(b);
+        try {
+            RobotData.checkQuota(b.length);
+            out.write(b);
+        } catch (IOException e) {
+            close();
+            throw e;
+        }
     }
 
     /**
@@ -125,7 +135,13 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(byte[] b, int off, int len) throws IOException {
-        out.write(b, off, len);
+        try {
+            RobotData.checkQuota(len);
+            out.write(b, off, len);
+        } catch (IOException e) {
+            close();
+            throw e;
+        }
     }
 
     /**
@@ -136,6 +152,12 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void write(int b) throws IOException {
-        out.write(b);
+        try {
+            RobotData.checkQuota(1);
+            out.write(b);
+        } catch (IOException e) {
+            close();
+            throw e;
+        }
     }
 }

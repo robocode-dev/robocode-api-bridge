@@ -74,7 +74,7 @@ The corpus splits the goal into promises. They are not arbitrary; each sits at a
 | `CAP-008` call-routing fidelity | The same boundary, the other axis: what happens to a *call*. Every peer method proven to reach the right Bot API call, with completeness enforced. |
 | `CAP-001` event dispatch parity | The path from server to robot: which events arrive, in what order, interruptible where. |
 | `CAP-002` physics and state parity | The same path, but about the values the events and status carry. |
-| `CAP-004` file I/O sandboxing | Inside the adapter, at the file wrappers. Specified, not implemented. |
+| `CAP-004` file I/O sandboxing | Inside the adapter, at the file wrappers. Implemented for the `getDataFile`-reached surface; the raw-`java.io` case is agent-held (`IDR-007`). |
 | `CAP-006` team robot support | Inside the wrapper: the one-jar-to-one-bot-directory assumption has to give. Not implemented. |
 | `CAP-005` score parity | The whole picture, end to end. Detects; does not localise. |
 | `CAP-007` the harness | The apparatus itself, which has been wrong in ways mistaken for the bridge being wrong. |
@@ -101,7 +101,7 @@ It also has a practical consequence for anyone writing a conformance test: an ex
 
 Classic Robocode's internals. The bridge reproduces observable behaviour and the API surface, not the implementation, and is free to reach the same behaviour by other means.
 
-The rest of classic's sandbox. `CAP-004` covers file I/O because that has an observed defect; threads, reflection, and sockets are real gaps that are scoped out rather than forgotten.
+The rest of classic's sandbox. `CAP-004` covers file I/O reached through `getDataFile`/`getDataDirectory` because that had an observed defect; a raw `java.io` call that bypasses that surface, along with threads, reflection, and sockets, are real gaps that are scoped out rather than forgotten (`IDR-007`).
 
 ## The documents
 
