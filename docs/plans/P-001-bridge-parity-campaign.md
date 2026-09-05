@@ -90,7 +90,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 
 `M-004` follows because it is a known, located, unambiguous defect — the bridge does not sandbox robot file I/O at all — rather than an unexplained divergence. It is deferred behind the score gaps only because a robot writing outside its data directory produces loud errors that are already visible, while a robot turning at the wrong rate does not. It closed on the `getDataFile`/`getDataDirectory` redirection and quota rules (`FIO-001`–`FIO-003`); `FIO-004`'s broader raw-`java.io` confinement turned out to depend on a JVM `SecurityManager` classic has and this bridge cannot reproduce, so `M-122` dropped as a closeable door and `FIO-004` stays `@draft` (`IDR-007`).
 
-`M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest.
+`M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest. Its mapping decision is resolved (`AN-013`, `ADR-002`) and the wrapper/peer groundwork landed (`CH-010`), but the milestone stays `todo`: its exit criterion needs the team division actually running, which needs team-battle-staging plumbing in the harness that `CH-010` scoped out as a separate, larger piece.
 
 `M-006` closes the campaign by producing the baseline everything afterwards is measured against. It is deliberately not first: sweeping at official parameters before the foundation exists would produce another set of numbers nobody can act on.
 
