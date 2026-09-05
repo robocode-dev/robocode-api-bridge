@@ -1,6 +1,10 @@
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -34,27 +38,116 @@ public class Main {
     }
 
     static void processJar(Path jarPath) {
-        ZipEntry zipEntry;
         try {
             var jarFile = jarPath.toFile();
+            // classname -> its bot directory, so a .team entry (processed after every .properties
+            // entry) can name each member's already-created directory.
+            Map<String, Path> classToBotDir = new HashMap<>();
 
             try (var zipFile = new ZipFile(jarFile)) {
-                var zipStream = new ZipInputStream(new FileInputStream(jarFile));
-                while ((zipEntry = zipStream.getNextEntry()) != null) {
+                var entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    var zipEntry = entries.nextElement();
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".properties")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
                             Path botDir = createBotDir(jarPath, jarFile.getName(), robotProps);
+                            classToBotDir.put(robotProps.classname, botDir);
 
-                            Files.copy(inputStream, botDir.resolve(robotProps.classname + ".properties"));
+                            Files.copy(zipFile.getInputStream(zipEntry), botDir.resolve(robotProps.classname + ".properties"));
                         }
+                    }
+                }
+                entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    var zipEntry = entries.nextElement();
+                    var filename = zipEntry.getName();
+                    if (filename.toLowerCase().endsWith(".team")) {
+                        var inputStream = zipFile.getInputStream(zipEntry);
+                        processTeam(jarPath, filename, inputStream, classToBotDir);
                     }
                 }
             }
         } catch (Exception ex) {
             System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
+        }
+    }
+
+    /**
+     * Reads a classic .team descriptor (team.members: a comma-separated list of
+     * "classname" or "classname version-tag" entries, duplicates allowed for repeated
+     * members of the same class) and emits a Tank Royale team boot entry directory: a
+     * <name>.json carrying "teamMembers", naming each member's bot directory (produced by
+     * the .properties pass above) once per occurrence. The booter (not this wrapper) assigns
+     * the shared TEAM_ID/TEAM_NAME/TEAM_VERSION when it boots the named member directories.
+     */
+    static void processTeam(Path jarPath, String teamEntryName, InputStream is, Map<String, Path> classToBotDir) throws IOException {
+        var props = new Properties();
+        props.load(is);
+
+        var membersProp = props.getProperty("team.members");
+        if (membersProp == null || membersProp.isBlank()) {
+            return;
+        }
+
+        List<String> memberDirNames = new ArrayList<>();
+        for (String token : membersProp.split(",")) {
+            token = token.trim();
+            if (token.isEmpty()) {
+                continue;
+            }
+            int spaceIndex = token.indexOf(' ');
+            String className = spaceIndex < 0 ? token : token.substring(0, spaceIndex);
+
+            Path memberDir = classToBotDir.get(className);
+            if (memberDir == null) {
+                System.err.println("Team member has no bot directory (no matching .properties entry): " + className);
+                continue;
+            }
+            memberDirNames.add(memberDir.getFileName().toString());
+        }
+
+        if (memberDirNames.isEmpty()) {
+            System.err.println("Team has no resolvable members: " + teamEntryName);
+            return;
+        }
+
+        var teamBaseName = toBaseFilename(Path.of(teamEntryName));
+        var teamName = props.getProperty("team.description");
+        var teamVersion = props.getProperty("team.version");
+        var teamAuthor = props.getProperty("team.author.name");
+
+        var teamDir = jarPath.getParent().resolve(teamBaseName);
+        Files.createDirectories(teamDir);
+        createTeamJsonFile(teamDir, teamBaseName, teamName, teamVersion, teamAuthor, memberDirNames);
+
+        System.out.println(teamBaseName + " (team of " + memberDirNames.size() + ")");
+    }
+
+    static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
+                                    String teamAuthor, List<String> memberDirNames) throws IOException {
+        File file = createOrOverwriteFile(teamDir, teamBaseName + ".json");
+
+        var membersJson = new StringBuilder();
+        for (int i = 0; i < memberDirNames.size(); i++) {
+            if (i > 0) {
+                membersJson.append(", ");
+            }
+            membersJson.append('"').append(escape(memberDirNames.get(i))).append('"');
+        }
+
+        try (var writer = new FileWriter(file)) {
+            writer.write("{\n" +
+                    "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
+                    "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
+                    "  \"authors\": [\"" + escape(replaceIfBlank(teamAuthor, "[n/a]")) + "\"],\n" +
+                    "  \"platform\": \"JVM\",\n" +
+                    "  \"language\": \"Java\",\n" +
+                    "  \"teamMembers\": [" + membersJson + "]\n" +
+                    "}\n"
+            );
         }
     }
 

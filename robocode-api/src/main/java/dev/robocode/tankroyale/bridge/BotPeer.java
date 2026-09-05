@@ -77,7 +77,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("BotPeer");
 
         this.robot = robot;
-        bot = suppliedBot != null ? suppliedBot : new BotImpl(botInfo);
+        bot = suppliedBot != null ? suppliedBot : createBotImpl(robot, botInfo);
 
         robot.setOut(System.out); // Redirect output to "our" System.out, which Tank Royale is overriding
 
@@ -991,6 +991,22 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     // IBasicEvents3 and IAdvancedEvents event triggers
     //-------------------------------------------------------------------------
 
+    /**
+     * Tank Royale reads droid status from the connecting {@code Bot} instance's own type
+     * ({@code WebSocketHandler}: {@code isDroid = baseBot instanceof Droid}), not from bot-info
+     * or a handshake flag the wrapper can set independently. A classic robot declares itself a
+     * droid by implementing {@link robocode.Droid} on the robot class itself, so the peer mirrors
+     * that onto which {@code BotImpl} it constructs.
+     */
+    private IBot createBotImpl(IBasicRobot robot, BotInfo botInfo) {
+        return isDroidRobot(robot) ? new DroidBotImpl(botInfo) : new BotImpl(botInfo);
+    }
+
+    /** Package-private test seam: the connecting-class decision without constructing a {@code Bot}. */
+    static boolean isDroidRobot(IBasicRobot robot) {
+        return robot instanceof robocode.Droid;
+    }
+
     private class BotImpl extends Bot {
 
         final AtomicInteger totalTurns = new AtomicInteger(0);
@@ -1176,6 +1192,16 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 throw new BotException("onBulletFired: Could not find bullet: " + bulletState.getX() + "," + bulletState.getY());
             }
             bullet.setBulletId(bulletState.getBulletId());
+        }
+    }
+
+    /**
+     * Identical to {@link BotImpl}; the {@code dev.robocode.tankroyale.botapi.Droid} marker is
+     * all {@code WebSocketHandler} checks.
+     */
+    private class DroidBotImpl extends BotImpl implements dev.robocode.tankroyale.botapi.Droid {
+        DroidBotImpl(BotInfo botInfo) {
+            super(botInfo);
         }
     }
 

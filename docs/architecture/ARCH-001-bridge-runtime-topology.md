@@ -59,4 +59,4 @@ This is the joint most likely to break silently, because a mismatch produces idl
 
 The wrapper's generation step. Bot directories are generated ahead of time and then executed by a booter that knows nothing about Robocode, which is what allows unmodified robots to run under an engine that has never heard of them. Replacing generation with a runtime shim would remove a build step and give up that separation — every Tank Royale component downstream of the boot script would need to learn something about legacy robots.
 
-Team support (`CAP-006`) is the first real test of this shape. A team jar is several robots plus a `.team` descriptor, so the wrapper's one-jar-to-one-bot-directory assumption is the thing that has to give.
+Team support (`CAP-006`) is the first real test of this shape. A team jar is several robots plus a `.team` descriptor, so the wrapper's one-jar-to-one-bot-directory assumption had to give: it now also emits a team boot-entry directory alongside each member's, naming them for the Tank Royale booter's own team-grouping mechanism.

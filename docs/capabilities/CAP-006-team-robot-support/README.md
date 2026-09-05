@@ -2,7 +2,7 @@
 id: CAP-006
 type: capability
 status: draft
-links: [G-001, ARCH-001]
+links: [G-001, ARCH-001, AN-013, ADR-002]
 goal: G-001
 title: Team robot support
 provenance: inferred
@@ -13,7 +13,7 @@ reversal-cost: high
 
 Robocode's team division runs teams rather than individual robots: a `.team` descriptor naming several robots that start together, message each other, and win or lose as a unit. Droids are part of the same feature — robots with no radar that depend entirely on teammates for targeting.
 
-The wrapper has no concept of any of it. Team jars are recorded as skipped.
+The wrapper now produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. Team jars are still recorded as skipped: nothing yet runs those directories through a battle on either engine.
 
 ## Why it exists as its own capability
 
@@ -33,8 +33,8 @@ The TwinDuel division. It is a team division with its own official parameters an
 
 `ARCH-001` describes a wrapper that turns one jar into one bot directory. A team jar is several robots plus a descriptor, so that assumption is what has to give — this capability is the first real test of the wrapper's shape rather than an addition to it.
 
-The interesting question is where a team becomes several Tank Royale bots. Tank Royale has its own notion of teams, so the choice is between mapping a Robocode team onto it or reconstructing team behaviour above individual bots. That decision is not made, and it will need an ADR when it is.
+The interesting question was where a team becomes several Tank Royale bots. `AN-013` found Tank Royale's own team model corresponds closely to classic's at every point checked, and `ADR-002` records the resulting choice: map onto it directly (one Tank Royale bot process per member, grouped by the booter's own team mechanism) rather than reconstructing team behaviour above individual bots.
 
 ## Status
 
-`draft`. Every criterion describes behaviour that does not exist. `M-005` is the plan door, and the team collection becomes this capability's corpus once it lands.
+`draft`. Every criterion still describes behaviour the harness cannot yet exercise: `CH-010` landed the wrapper and peer groundwork (team bot directories, droid detection), but the team division still reports as skipped because `compat-test` has no team-battle-staging path on either engine yet. `M-005` is the plan door, and the team collection becomes this capability's corpus once that harness work and purpose-written conformance test robots land.
