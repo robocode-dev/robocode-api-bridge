@@ -1,7 +1,7 @@
 ---
 id: CRIT-004
 type: criteria
-status: draft
+status: active
 links: [CAP-004]
 title: Robot file I/O sandboxing — acceptance criteria
 ac-prefix: FIO
@@ -11,12 +11,12 @@ reversal-cost: high
 
 # CAP-004 — acceptance criteria
 
-Every criterion is `@draft` against `M-004`, and every one describes behaviour the bridge does not have. These are a specification, not a description.
+`FIO-001`–`FIO-003` are proven by `M-004`'s resolver work in `RobotData`. `FIO-004` stays `@draft`: `IDR-007` records why classic's own evidence for it depends on a `SecurityManager` this bridge does not have.
 
 ```gherkin
 Feature: Robot file I/O sandboxing
 
-  @FIO-001 @draft
+  @FIO-001
   Scenario: An absolute path a robot writes to is redirected into its data directory
     Test-type: Integration
     Given a robot that opens a file at an absolute path outside its data directory
@@ -24,24 +24,25 @@ Feature: Robot file I/O sandboxing
     Then the write succeeded
     And the file exists inside the robot's data directory
     And nothing was written at the path the robot named
-    # Classic redirects silently; the robot never learns the difference. Plan door: M-004.
+    # Classic redirects silently; the robot never learns the difference.
+    # Evidence: FileRedirectionConformanceTest.
 
-  @FIO-002 @draft
+  @FIO-002
   Scenario: The data file and the data directory resolve against the same place
     Test-type: Integration
     Given a robot that asks for its data directory and separately asks for a data file by name
     When it writes through the file and lists the directory
     Then the file it wrote appears in the directory it was given
-    # These two calls have disagreed. The resolution was aligned but never re-tested
-    # against the bot that surfaced it. Plan door: M-004.
+    # These two calls had disagreed (IDR-002); confinement now makes the agreement checkable.
+    # Evidence: FileRedirectionConformanceTest.
 
-  @FIO-003 @draft
+  @FIO-003
   Scenario: A robot's data directory is capped at the classic size limit
     Test-type: Integration
     Given a robot that writes past the documented data directory size limit
     When the battle runs
     Then the write is refused at the same point classic refuses it
-    # The documented cap is stated in the API and enforced nowhere. Plan door: M-004.
+    # Evidence: FileQuotaConformanceTest, porting classic's FileWriteSize probe.
 
   @FIO-004 @draft
   Scenario: A robot cannot read or write outside its data directory
@@ -49,6 +50,7 @@ Feature: Robot file I/O sandboxing
     Given a robot that attempts to reach a file belonging to another robot or to the system
     When the battle runs
     Then the attempt is confined exactly as classic confines it
-    # Proven by the ported FileAttack and FileOutputStreamAttack robots, which exist
-    # precisely to try to escape. Plan door: M-004.
+    # Classic's own evidence (FileAttack, FileOutputStreamAttack) blocks both robots via a
+    # java.security.SecurityManager, unconditionally on path, that JDK 24 removed and this
+    # bridge cannot reproduce. See IDR-007.
 ```

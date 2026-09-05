@@ -876,7 +876,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public long getDataQuotaAvailable() {
         log("getDataQuotaAvailable()");
-        return 200_000;
+        return RobotData.getMaxQuota() - RobotData.getQuotaUsed();
     }
 
 

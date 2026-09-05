@@ -1,7 +1,7 @@
 ---
 id: CH-009
 type: change
-status: proposed
+status: open
 links: [P-001, M-004, CAP-004, C-005, FIO-001, FIO-002, FIO-003, FIO-004, IDR-002, IDR-007]
 title: Confine robot file I/O to the robot's data directory
 ---
@@ -10,9 +10,9 @@ title: Confine robot file I/O to the robot's data directory
 
 ## What
 
-Give `RobotData.getDataFile`/`getDataDirectory` — the one resolution point `robocode.RobocodeFileOutputStream` and `robocode.RobocodeFileWriter` already route through — the confinement classic Robocode has and the bridge does not: an absolute or traversing path a robot names is re-rooted inside the robot's data directory rather than passed through, and the directory's total size is capped at the documented 200000-byte quota. Move `FIO-001`, `FIO-002`, `FIO-003`, `FIO-004` out of `@draft` with integration evidence, and give `C-005` machine enforcement in place of the agent-judgment note it currently carries.
+Give `RobotData.getDataFile`/`getDataDirectory` the confinement classic Robocode has and the bridge does not: an absolute or root-relative path a robot names is re-rooted inside the robot's data directory rather than passed through, matching classic's `RobotFileSystemManager.getDataFile` exactly (asterisks stripped, `..` rejected, `java.io.File` merge semantics rather than `Path#resolve`), and the directory's total size is capped at the documented 200000-byte quota. Move `FIO-001`, `FIO-002`, `FIO-003` out of `@draft` with integration evidence, and give `C-005` machine enforcement for those rules.
 
-`FIO-004`'s scope was a blocking open question, resolved as `IDR-007`: confinement covers the `getDataFile`/`getDataDirectory` surface, not raw `java.io` calls that bypass it entirely (classic blocks those with a JVM `SecurityManager` this bridge does not have and the architecture record already scopes out, alongside threads/reflection/sockets).
+`FIO-004` stays `@draft`. This was a blocking open question at proposal time; building and running the evidence probe on both engines during implementation showed the narrowed reading originally proposed does not hold. `IDR-007` has the finding: both of classic's own `FIO-004` test robots (`FileAttack`, `FileOutputStreamAttack`) are attacks classic *blocks*, one of them even when the path is already confined through `getDataFile`, because classic's confinement here is a JVM `SecurityManager` gate that is unconditional on path, not a redirection this bridge's resolver can reproduce. JDK 24 removed `SecurityManager` outright, and the architecture record already scopes this class of gap out (alongside threads/reflection/sockets). No criterion closes on evidence a bridge probe cannot honestly produce, so `FIO-004` remains open, its residual named in `C-005`.
 
 ## Why
 
@@ -22,4 +22,4 @@ The quota (`FIO-003`) is documented in three Javadoc comments (`RobocodeFileOutp
 
 ## Route
 
-Full. This closes acceptance criteria that are currently `@draft` (`FIO-001`, `FIO-002`, `FIO-003`) and promotes `C-005` from `enforcement: agent` to machine-enforced — both are contract changes, not refactors of unchanged behaviour.
+Full. This closes acceptance criteria that were `@draft` (`FIO-001`, `FIO-002`, `FIO-003`), leaves `FIO-004` `@draft` with a corrected, evidence-backed reason recorded as `IDR-007`, and promotes `C-005` to partial enforcement — all are contract changes, not refactors of unchanged behaviour.

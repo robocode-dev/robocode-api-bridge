@@ -27,7 +27,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | M-001 | test foundation | The unit tier runs in CI over the adapter's mapper classes; the conformance tier runs classic's test robots against both engines from one stated expectation; the harness runs each division at its official parameters, averages repeats, and aborts on a Tank-Royale-only exception. The criteria those tiers prove are active rather than `@draft`. | done |
 | M-002 | score gaps where Tank Royale scores lower | Every bot the report flags as scoring materially lower has been re-measured under the current bridge at official parameters, and each is either within the band or has a named cause recorded in analysis. | done |
 | M-003 | score gaps where Tank Royale scores higher | The same, for bots scoring materially higher. A bot scoring *better* under the bridge is as much a fidelity defect as one scoring worse, and is easier to overlook. | done |
-| M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | todo |
+| M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | done |
 | M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | todo |
 | M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | done |
 | M-006 | full sweep across all three divisions | A sweep at official parameters has run across the one-versus-one, melee, and team collections, and its report is the baseline the regression watch list is measured against. | todo |
@@ -58,10 +58,10 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | M-116 | `PHY-006` | `PHY-006` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-117 | `PHY-007` | `PHY-007` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-118 | `PHY-008` | `PHY-008` is active, with evidence attributable to it. Work lands under M-001. | todo |
-| M-119 | `FIO-001` | `FIO-001` is active, with evidence attributable to it. Work lands under M-004. | todo |
-| M-120 | `FIO-002` | `FIO-002` is active, with evidence attributable to it. Work lands under M-004. | todo |
-| M-121 | `FIO-003` | `FIO-003` is active, with evidence attributable to it. Work lands under M-004. | todo |
-| M-122 | `FIO-004` | `FIO-004` is active, with evidence attributable to it. Work lands under M-004. | todo |
+| M-119 | `FIO-001` | `FIO-001` is active, with evidence attributable to it. Work lands under M-004. | done |
+| M-120 | `FIO-002` | `FIO-002` is active, with evidence attributable to it. Work lands under M-004. | done |
+| M-121 | `FIO-003` | `FIO-003` is active, with evidence attributable to it. Work lands under M-004. | done |
+| M-122 | `FIO-004` | Dropped as a closeable door under `M-004`: `IDR-007` found that classic's own evidence for `FIO-004` depends on a `SecurityManager` this bridge cannot reproduce, so no evidence this door could gain would prove the criterion. `FIO-004` stays `@draft`. | dropped |
 | M-123 | `SCORE-001` | `SCORE-001` is active, with evidence attributable to it. Work lands under M-006. | todo |
 | M-124 | `SCORE-002` | `SCORE-002` is active, with evidence attributable to it. Work lands under M-001. | todo |
 | M-125 | `SCORE-003` | `SCORE-003` is active, with evidence attributable to it. Work lands under M-001. | todo |
@@ -88,7 +88,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 
 `M-002` and `M-003` sit immediately after the foundation because their bots are the only concrete evidence of divergence the project has, and because their current numbers are uninterpretable: they were measured before the event-dispatch redesign and the Bot API upgrade, and the project's own note on them is to re-test before concluding anything. They are cheap to re-measure once `M-001` lands and expensive to reason about before then.
 
-`M-004` follows because it is a known, located, unambiguous defect — the bridge does not sandbox robot file I/O at all — rather than an unexplained divergence. It is deferred behind the score gaps only because a robot writing outside its data directory produces loud errors that are already visible, while a robot turning at the wrong rate does not.
+`M-004` follows because it is a known, located, unambiguous defect — the bridge does not sandbox robot file I/O at all — rather than an unexplained divergence. It is deferred behind the score gaps only because a robot writing outside its data directory produces loud errors that are already visible, while a robot turning at the wrong rate does not. It closed on the `getDataFile`/`getDataDirectory` redirection and quota rules (`FIO-001`–`FIO-003`); `FIO-004`'s broader raw-`java.io` confinement turned out to depend on a JVM `SecurityManager` classic has and this bridge cannot reproduce, so `M-122` dropped as a closeable door and `FIO-004` stays `@draft` (`IDR-007`).
 
 `M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest.
 

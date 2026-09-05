@@ -9,6 +9,7 @@ counters:
     CRIT: "8"
     DES: "8"
     EVT: "15"
+    FIO: "4"
     G: "2"
     IDR: "7"
     OQ: "4"
@@ -245,7 +246,7 @@ entries:
       component: "8"
     - id: CH-009
       kind: numeric
-      state: reserved
+      state: live
       prefix: CH
       component: "9"
     - id: CRIT-001
@@ -403,6 +404,26 @@ entries:
       state: live
       prefix: EVT
       component: "15"
+    - id: FIO-001
+      kind: numeric
+      state: live
+      prefix: FIO
+      component: "1"
+    - id: FIO-002
+      kind: numeric
+      state: live
+      prefix: FIO
+      component: "2"
+    - id: FIO-003
+      kind: numeric
+      state: live
+      prefix: FIO
+      component: "3"
+    - id: FIO-004
+      kind: numeric
+      state: live
+      prefix: FIO
+      component: "4"
     - id: G-001
       kind: numeric
       state: live
@@ -445,7 +466,7 @@ entries:
       component: "6"
     - id: IDR-007
       kind: numeric
-      state: reserved
+      state: live
       prefix: IDR
       component: "7"
     - id: OQ-001

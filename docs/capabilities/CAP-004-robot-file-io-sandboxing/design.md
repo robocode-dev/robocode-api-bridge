@@ -1,41 +1,38 @@
 ---
 id: DES-004
 type: design
-status: draft
-links: [CAP-004, IDR-002, ARCH-002, C-005]
+status: active
+links: [CAP-004, IDR-002, IDR-007, ARCH-002, C-005]
 title: Robot file I/O sandboxing — design
-provenance: inferred
+provenance: verified
 reversal-cost: high
 ---
 
 # CAP-004 — design
 
-`status: draft` because this describes an intended design rather than an implemented one.
+## What existed before this capability
 
-## What exists today
+`RobocodeFileOutputStream` and `RobocodeFileWriter` are reproduced in the frozen `robocode.*` surface with their classic signatures. Before `CH-009`, `RobotData.getDataFile` resolved a robot-supplied name with `java.nio.file.Path#resolve`, which returns an absolute argument unchanged rather than re-rooting it — the opposite of classic's redirection. The documented 200000-byte data directory size cap was documented only.
 
-`RobocodeFileOutputStream` and `RobocodeFileWriter` are reproduced in the frozen `robocode.*` surface with their classic signatures, and each wraps a plain file stream directly. A path a robot passes in is the path that reaches the filesystem. There is no redirection layer, and the documented data directory size cap is documented only.
+`getDataDirectory` was already changed, ahead of this capability, to resolve through the same robot data lookup `getDataFile` uses, so the two agree about where the robot's directory is (`IDR-002`). That removed a disagreement; it did not add confinement.
 
-`getDataDirectory` was changed to resolve through the same robot data lookup that `getDataFile` uses, so the two agree about where the robot's directory is. `IDR-002` records that. It removed a disagreement; it did not add confinement.
+## The design that is implemented
 
-## The intended design
+One resolution point, used by everything that reaches the filesystem through it: `RobotData.getDataFile`, matching classic's `RobotFileSystemManager.getDataFile` rather than inventing a new scheme.
 
-One resolution point, used by everything.
+- Asterisks are stripped from the supplied name.
+- `..` anywhere in the name is rejected with a `java.security.AccessControlException` ("no relative path allowed") — classic's own `AdvancedRobotProxy.getDataFile` throws the same exception for the same reason, so a robot that already handles it on classic behaves the same way here.
+- The remaining name is merged against the data directory with `new File(directory, name)` — `java.io.File`'s merge, not `java.nio.file.Path#resolve` — because `File`'s system-dependent handling of a root-relative or drive-relative child is what re-roots it inside the parent instead of overriding it. A true drive-letter-absolute name (`C:\...` on Windows) is not re-rooted by this merge in classic either; matching classic's own mechanism exactly, warts included, is the fidelity-correct choice over inventing a stronger guarantee classic does not make.
+- `RobocodeFileOutputStream`'s `String` constructor opens whatever path it is given verbatim (`new FileOutputStream(fileName, append)`), matching classic's `ThreadManager.createRobotFileStream`. It does **not** call `getDataFile` again: a `File` obtained from `getDataFile` is already resolved, and re-resolving an already-absolute path through the same `File`-merge logic re-roots it under itself, corrupting the path. This was the first shape this change's implementation took, and the conformance run against both engines is what surfaced it (see `FileRedirectionConformanceTest`'s history in `CH-009`).
 
-Every path a robot supplies passes through a single function that maps it into the robot's data directory: absolute paths are re-rooted, relative paths are resolved against the directory rather than against the process working directory, and traversal that would climb out is resolved inside. The file wrappers call it, and no wrapper opens a path the resolver has not returned.
+The quota is enforced at the same layer regardless of how a stream's path was obtained: `RobotData` tracks bytes charged against the 200000-byte cap (seeded from the existing data directory's contents at startup, matching classic's `initializeQuota`), and `RobocodeFileOutputStream.write` charges each write before performing it, closing the stream and raising the same `IOException` message classic raises when the charge would exceed the cap.
 
-Two properties matter more than the mechanism:
+**The robot is not told about redirection.** Classic redirects silently, and a robot that discovers it has been redirected — by an exception, or by reading back a path — behaves differently from the robot that ran on classic.
 
-**The robot is not told.** Classic redirects silently, and a robot that discovers it has been redirected — by an exception, or by reading back a path — behaves differently from the robot that ran on classic. Silent redirection is the fidelity-preserving choice even though it is the less honest-looking one.
+## What this design does not cover, and why
 
-**One resolver, not one per wrapper.** The failure mode of per-wrapper redirection is a wrapper someone forgets, which reintroduces the whole defect through a path nobody tests. A single resolver makes the confinement claim checkable by inspection.
+Classic also blocks a raw `java.io.FileOutputStream`/`FileInputStream` unconditionally on path — even one already confined to the robot's own data directory — through a JVM `SecurityManager` that JDK 24 removed. `IDR-007` records this in detail: both of classic's own `FIO-004` evidence robots (`FileAttack`, `FileOutputStreamAttack`) depend on that mechanism, not on path resolution, so neither can be ported as evidence that this design's resolver satisfies `FIO-004`. That criterion stays `@draft`.
 
-The size cap belongs at the same point, since it is a property of the directory rather than of any one file.
+## Evidence
 
-## Why the deleted-path case is the interesting one
-
-The bot that surfaced this writes to a root path on a Windows machine, and the errors it produces are permission failures rather than missing-file failures. That distinction matters for `M-004`'s verification: after the fix, the correct outcome is not fewer errors but zero, and a data directory containing the file the robot thought it wrote elsewhere.
-
-## Evidence plan
-
-Classic's test suite already contains robots built to escape the sandbox and assert that they could not. Porting them under `ARCH-003`'s conformance tier gives `FIO-001` and `FIO-004` machine evidence at the moment the behaviour lands, and the same run gives `C-005` its promotion out of agent enforcement.
+`FileRedirectionConformanceTest` (`FIO-001`, `FIO-002`) and `FileQuotaConformanceTest` (`FIO-003`) run a probe on both engines under `ARCH-003`'s conformance tier, giving `C-005` machine enforcement for the redirection and quota rules. The raw-`java.io` case `FIO-004` names remains agent-judgment-held, as it was before this change.
