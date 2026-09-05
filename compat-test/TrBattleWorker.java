@@ -37,7 +37,8 @@ public class TrBattleWorker {
 
     private static final int LOG_CAP = 2000; // max captured runner/booter/server log lines
     private static final Pattern TEAM_MEMBERS = Pattern.compile(
-            "\\\"teamMembers\\\"\\s*:\\s*\\[(.*?)\\]", Pattern.DOTALL);
+            "\\\"teamMembers\\\"\\s*:\\s*\\[((?:\\s*\\\"(?:\\\\.|[^\\\"\\\\])*\\\"\\s*,?)*)\\]",
+            Pattern.DOTALL);
     private static final Pattern JSON_STRING = Pattern.compile("\\\"(?:\\\\.|[^\\\"\\\\])*\\\"");
 
     public static void main(String[] args) throws Exception {
