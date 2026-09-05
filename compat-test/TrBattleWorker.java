@@ -114,8 +114,9 @@ public class TrBattleWorker {
                 s.setArenaWidth(width);
                 s.setArenaHeight(height);
                 // The preset caps participants for its own game type; melee runs more bots
-                // than the classic preset expects, so raise the ceiling to what was staged.
-                s.setMaxNumberOfParticipants(botDirs.size());
+                // than the classic preset expects, and a team entry expands into several
+                // member identities, so raise the ceiling to what was staged.
+                s.setMaxNumberOfParticipants(expectedParticipantCount(botDirs));
                 if (turnTimeoutMicros > 0) {
                     s.setTurnTimeoutMicros(turnTimeoutMicros);
                 }
@@ -149,6 +150,49 @@ public class TrBattleWorker {
                 participants.add(p);
             }
             result.put("participants", participants);
+        }
+    }
+
+    private static int expectedParticipantCount(List<Path> botDirs) {
+        int count = 0;
+        for (Path botDir : botDirs) {
+            count += teamMemberCount(botDir);
+        }
+        return Math.max(2, count);
+    }
+
+    private static int teamMemberCount(Path botDir) {
+        Path config = botDir.resolve(botDir.getFileName() + ".json");
+        if (!Files.isRegularFile(config)) {
+            return 1;
+        }
+        try {
+            String json = Files.readString(config, StandardCharsets.UTF_8);
+            int key = json.indexOf("\"teamMembers\"");
+            int start = key < 0 ? -1 : json.indexOf('[', key);
+            int end = start < 0 ? -1 : json.indexOf(']', start);
+            if (start < 0 || end < 0) {
+                return 1;
+            }
+            int members = 0;
+            boolean quoted = false;
+            boolean escaped = false;
+            for (int i = start + 1; i < end; i++) {
+                char c = json.charAt(i);
+                if (escaped) {
+                    escaped = false;
+                } else if (c == '\\') {
+                    escaped = true;
+                } else if (c == '"') {
+                    if (!quoted) {
+                        members++;
+                    }
+                    quoted = !quoted;
+                }
+            }
+            return Math.max(1, members);
+        } catch (Exception ignored) {
+            return 1;
         }
     }
 

@@ -16,8 +16,8 @@ Progress is checkpointed to test_progress.json after every robot; re-running the
 script resumes from the first untested robot. Use --force to re-test everything,
 or --retry-failed to re-test only robots that previously failed/errored.
 
-Team jars (teamrumble) are run on classic Robocode only; the robots-wrapper does not
-generate Tank Royale team configs yet, so the TR side is reported as skipped.
+Team jars are staged as native team entries on both engines. Each generated team entry is
+duplicated with independent member directories so process logs remain attributable.
 
 Usage examples:
   python compat_test.py                                # test everything, resume-aware
@@ -27,6 +27,7 @@ Usage examples:
 """
 
 import argparse
+from collections import OrderedDict
 import json
 import os
 import re
@@ -539,6 +540,76 @@ def duplicate_bot_dir(bot_dir: Path, index=2):
     return copy_dir
 
 
+def team_members(team_dir: Path):
+    """Returns the member directory names from a generated team entry, or None for a bot."""
+    config = team_dir / f"{team_dir.name}.json"
+    if not config.is_file():
+        return None
+    try:
+        with open(config, encoding="utf-8") as stream:
+            members = json.load(stream).get("teamMembers")
+    except (OSError, ValueError, AttributeError):
+        return None
+    if not isinstance(members, list) or not members or not all(isinstance(m, str) for m in members):
+        return None
+    return members
+
+
+def team_member_dirs(team_dir: Path):
+    """Returns the member directories referenced by a generated team entry."""
+    members = team_members(team_dir)
+    if members is None:
+        return [team_dir]
+    return list(OrderedDict.fromkeys(team_dir.parent / member for member in members))
+
+
+def patch_staged_entry(entry_dir: Path):
+    """Patches every process script belonging to a bot or team entry."""
+    for process_dir in team_member_dirs(entry_dir):
+        patch_boot_scripts(process_dir)
+
+
+def duplicate_team_dir(team_dir: Path, index=2):
+    """Copies a team entry and all referenced member directories as one independent team."""
+    members = team_members(team_dir)
+    if not members:
+        raise ValueError(f"not a team entry: {team_dir}")
+
+    copied_members = {}
+    for member in OrderedDict.fromkeys(members):
+        source = team_dir.parent / member
+        if not source.is_dir():
+            raise ValueError(f"team member directory not found: {source}")
+        copied = duplicate_bot_dir(source, index)
+        patch_boot_scripts(copied)
+        copied_members[member] = copied.name
+
+    copy_dir = team_dir.parent / f"{team_dir.name}-{index}"
+    if copy_dir.exists():
+        shutil.rmtree(copy_dir, ignore_errors=True)
+    shutil.copytree(team_dir, copy_dir)
+
+    original_config = copy_dir / f"{team_dir.name}.json"
+    copied_config = copy_dir / f"{copy_dir.name}.json"
+    if original_config.exists():
+        original_config.rename(copied_config)
+        with open(copied_config, encoding="utf-8") as stream:
+            config = json.load(stream)
+        config["teamMembers"] = [copied_members[member] for member in members]
+        copied_config.write_text(json.dumps(config, indent=2) + "\n", encoding="utf-8")
+    patch_staged_entry(copy_dir)
+    return copy_dir
+
+
+def stage_team_dirs(team_dir: Path, teams):
+    """Returns native team-entry directories for the requested number of team instances."""
+    patch_staged_entry(team_dir)
+    dirs = [team_dir]
+    for index in range(2, max(2, teams) + 1):
+        dirs.append(duplicate_team_dir(team_dir, index))
+    return dirs
+
+
 def stage_bot_dirs(bot_dir: Path, participants):
     """Returns the list of bot directories for a battle: the original plus enough copies
     to reach the division's participant count."""
@@ -575,12 +646,17 @@ def wrap_jar_for_tr(jar_path: Path, classname, version, opts, staging_name="tr-b
         return None, ("robots-wrapper produced no bot directory "
                       "(no robot .properties in jar?):\n" + output)
 
-    expected = f"{classname}_{version}" if version else classname
-    chosen = next((d for d in bot_dirs if d.name == expected), None)
-    if chosen is None:
-        chosen = next((d for d in bot_dirs if d.name.startswith(classname)), bot_dirs[0])
+    team_dirs = [d for d in bot_dirs if team_members(d) is not None]
+    if team_dirs:
+        team_base_name = classname.rsplit(".", 1)[-1]
+        chosen = next((d for d in team_dirs if d.name == team_base_name), team_dirs[0])
+    else:
+        expected = f"{classname}_{version}" if version else classname
+        chosen = next((d for d in bot_dirs if d.name == expected), None)
+        if chosen is None:
+            chosen = next((d for d in bot_dirs if d.name.startswith(classname)), bot_dirs[0])
 
-    patch_boot_scripts(chosen)
+    patch_staged_entry(chosen)
     return chosen, None
 
 
@@ -600,8 +676,12 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
             "error_count": 1, "log_text": "=== Wrapping failed ===\n" + wrap_error,
         }
 
-    bot_dirs = [bot_dir] if enemy_jar_path is not None else stage_bot_dirs(
-        bot_dir, setup["participants"])
+    if enemy_jar_path is not None:
+        bot_dirs = [bot_dir]
+    elif team_members(bot_dir) is not None:
+        bot_dirs = stage_team_dirs(bot_dir, setup["participants"])
+    else:
+        bot_dirs = stage_bot_dirs(bot_dir, setup["participants"])
     if enemy_jar_path is not None:
         enemy_dir, enemy_error = wrap_jar_for_tr(
             enemy_jar_path, enemy_class, None, opts, staging_name="tr-bots-enemy")
@@ -627,9 +707,13 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
     started = time.time()
+    log_dirs = []
+    for entry_dir in bot_dirs:
+        log_dirs.extend(team_member_dirs(entry_dir))
+
     watcher = None
     if rc_signatures is not None:
-        watcher = BridgeOnlyErrorWatcher(bot_dirs, rc_signatures)
+        watcher = BridgeOnlyErrorWatcher(log_dirs, rc_signatures)
     returncode, output, timed_out = run_java(
         cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher)
     elapsed = time.time() - started
@@ -639,7 +723,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
 
     # Bot processes write stdout/stderr into their bot dirs; scan them for errors.
     bot_logs = []
-    for d in bot_dirs:
+    for d in log_dirs:
         for log_name in ("stderr.log", "stdout.log"):
             text = read_capped(d / log_name)
             if not text.strip():
@@ -669,9 +753,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
 # Evaluation & reporting
 # ----------------------------------------------------------------------------------
 
-def evaluate(rc, tr, threshold, tr_skipped):
-    if tr_skipped:
-        return "SKIPPED-TR", None
+def evaluate(rc, tr, threshold):
     rc_ok, tr_ok = rc["ok"], tr["ok"]
     if not rc_ok and not tr_ok:
         return "FAIL (both)", None
@@ -791,19 +873,17 @@ def regenerate_report(state):
         delta_str = "-" if delta is None else f"{delta:+.1f}"
         rc_err = fmt_errors(rc.get("error_count", 0), "robocode", robot_name,
                             rc.get("has_log", False))
-        tr_err = "-" if entry.get("status") == "SKIPPED-TR" else \
-            fmt_errors(tr.get("error_count", 0), "tank-royale", robot_name,
-                       tr.get("has_log", False))
-        tr_score = "-" if entry.get("status") == "SKIPPED-TR" else fmt_score(tr.get("score"))
+        tr_err = fmt_errors(tr.get("error_count", 0), "tank-royale", robot_name,
+                            tr.get("has_log", False))
+        tr_score = fmt_score(tr.get("score"))
         lines.append(f"| {key} | {describe_setup(entry)} | {fmt_score(rc.get('score'))} "
                      f"| {tr_score} | {delta_str} | {rc_err} | {tr_err} "
                      f"| {entry.get('status', '?')} |")
 
     lines.append("")
     lines.append("Legend: **RC** = classic Robocode, **TR** = Tank Royale (via bridge). "
-                 "Scores are the sum of both participants' total scores. "
-                 "SKIPPED-TR = team jars; the robots-wrapper does not support "
-                 "Tank Royale teams yet.")
+                 "Scores are the sum of all participating bots' total scores. "
+                 "A team entry is expanded into its member bots by the runner.")
     lines.append("")
     REPORT_FILE.write_text("\n".join(lines), encoding="utf-8")
 
@@ -829,6 +909,10 @@ def discover_jars(opts):
 
 def should_run(entry, opts):
     if entry is None or opts.force:
+        return True
+    if entry.get("status") == "SKIPPED-TR":
+        # Results recorded before team staging existed are not evidence that the team
+        # passed; the next run must replace the historical skip with a real bridge result.
         return True
     if opts.retry_failed:
         return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS"))
@@ -915,6 +999,10 @@ def parse_args():
                            "including each participant's console output, as JSON")
     conf.add_argument("--conformance-source", type=Path,
                       help="compile this bridge-owned robot source against classic before running it")
+    conf.add_argument("--conformance-team-source", type=Path,
+                      help="compile all bridge-owned team probe sources in this directory")
+    conf.add_argument("--team-member", dest="team_members", action="append", default=[],
+                      help="fully qualified team member class; repeat for a team probe")
     conf.add_argument("--engine", choices=("rc", "tr"), default="rc",
                       help="which engine --conformance drives")
     conf.add_argument("--robot-class",
@@ -971,7 +1059,7 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats):
             break
         rc_scores.append(rc.get("score"))
         tr_scores.append(tr.get("score"))
-        _, delta = evaluate(rc, tr, opts.threshold, False)
+        _, delta = evaluate(rc, tr, opts.threshold)
         # A repeat where either side failed yields no delta. Counting it as a sample would
         # claim a measurement that was never taken.
         if delta is not None:
@@ -1234,6 +1322,73 @@ def package_test_robot_jar(class_dir: Path, robot_class, out_dir: Path):
     return jar_path, None
 
 
+def compile_conformance_team(opts, source_dir: Path):
+    """Compiles all bridge-owned team probe sources against the classic API."""
+    out_dir = WORK_DIR / "conformance-team-classes"
+    clean_dir(out_dir)
+    sources = sorted(source_dir.rglob("*.java")) if source_dir.is_dir() else []
+    if not sources:
+        return None, f"team probe source directory is empty or missing: {source_dir}"
+
+    classpath = str(Path(opts.robocode_home) / "libs" / "*")
+    cmd = [javac_beside(opts.rc_java_exe), "-cp", classpath, "-d", str(out_dir)] \
+        + [str(source) for source in sources]
+    try:
+        completed = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    except (OSError, subprocess.SubprocessError) as e:
+        return None, f"could not run javac for team probes: {e}"
+    if completed.returncode != 0:
+        return None, f"team probes did not compile:\n{completed.stdout}\n{completed.stderr}"
+    return out_dir, None
+
+
+def package_test_team_jar(class_dir: Path, team_class, member_classes, out_dir: Path):
+    """Packages compiled team members and a .team descriptor for both engines."""
+    package, _, team_simple_name = team_class.rpartition(".")
+    package_path = package.replace(".", "/")
+    source_pkg_dir = class_dir / package_path
+    if not source_pkg_dir.is_dir():
+        return None, f"no team package directory for {team_class} under {class_dir}"
+    if not member_classes:
+        return None, "no team members were supplied"
+
+    staging = out_dir / "team-src"
+    clean_dir(staging)
+    target_pkg_dir = staging / package_path
+    target_pkg_dir.mkdir(parents=True, exist_ok=True)
+    for class_file in source_pkg_dir.glob("*.class"):
+        shutil.copyfile(class_file, target_pkg_dir / class_file.name)
+
+    for member_class in member_classes:
+        member_package, _, member_simple_name = member_class.rpartition(".")
+        if member_package != package:
+            return None, f"team member is outside the team package: {member_class}"
+        (target_pkg_dir / f"{member_simple_name}.properties").write_text(
+            "#Robocode Robot\n"
+            f"robot.classname={member_class}\n"
+            "robot.version=1.0\n"
+            f"robot.description=Team conformance robot {member_class}\n"
+            "robot.author.name=Robocode\n"
+            "robocode.version=1.8.3.0\n",
+            encoding="utf-8")
+
+    team_entry = target_pkg_dir / f"{team_simple_name}.team"
+    team_entry.write_text(
+        "#Robocode Robot Team\n"
+        "team.version=1.0\n"
+        "team.description=Team conformance probe\n"
+        "team.author.name=Robocode\n"
+        f"team.members={','.join(member_classes)}\n",
+        encoding="utf-8")
+
+    jar_path = out_dir / f"{team_class}_1.0.jar"
+    if jar_path.exists():
+        jar_path.unlink()
+    shutil.make_archive(str(jar_path.with_suffix("")), "zip", root_dir=str(staging))
+    Path(str(jar_path.with_suffix("")) + ".zip").rename(jar_path)
+    return jar_path, None
+
+
 def run_conformance(opts):
     """Runs one robot on one engine and prints the result, including each participant's
     console output, as JSON on stdout.
@@ -1264,7 +1419,18 @@ def run_conformance(opts):
 
     enemy_jar = None
 
-    if opts.conformance_source:
+    if opts.conformance_team_source:
+        class_dir, error = compile_conformance_team(opts, opts.conformance_team_source)
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        packaged, error = package_test_team_jar(
+            class_dir, classname, opts.team_members, WORK_DIR / "conformance-team")
+        if error:
+            print(json.dumps({"ok": False, "fatal": error}))
+            return 2
+        jar, version = packaged, "1.0"
+    elif opts.conformance_source:
         class_dir, error = compile_conformance_robot(opts, opts.conformance_source)
         if error:
             print(json.dumps({"ok": False, "fatal": error}))
@@ -1335,15 +1501,21 @@ def read_worker_consoles(out_file: Path):
 def collect_bot_consoles(staging_dirs=None):
     """Each staged bot instance writes its own stdout/stderr; return them per instance."""
     consoles = []
+    seen = set()
     for staging in staging_dirs or [WORK_DIR / "tr-bots"]:
         if not staging.exists():
             continue
         for d in sorted(staging.iterdir()):
             if not d.is_dir() or d.name == "lib":
                 continue
-            text = read_capped(d / "stdout.log") + read_capped(d / "stderr.log")
-            if text.strip():
-                consoles.append(text)
+            for process_dir in team_member_dirs(d):
+                if process_dir in seen:
+                    continue
+                seen.add(process_dir)
+                text = read_capped(process_dir / "stdout.log") + read_capped(
+                    process_dir / "stderr.log")
+                if text.strip():
+                    consoles.append(text)
     return consoles
 
 
@@ -1401,20 +1573,15 @@ def main():
             rc = run_rc_battle(jar, classname, version, opts, setup)
             rc["has_log"] = write_error_log("robocode", robot_name, rc.pop("log_text", ""))
 
-            tr_skipped = (collection == "teamrumble")
-            if tr_skipped:
-                tr = {"ok": False, "score": None, "scores": [], "errors": [],
-                      "error_count": 0, "elapsed": 0.0, "skipped": True,
-                      "has_log": False}
-            else:
-                # The classic side has already run, so its signatures are the baseline the
-                # bridge side is judged against (C-004).
-                tr = run_tr_battle(jar, classname, version, opts, setup,
-                                   rc_signatures=classic_signatures(rc))
-                tr["has_log"] = write_error_log("tank-royale", robot_name,
-                                                tr.pop("log_text", ""))
+            # The classic side has already run, so its signatures are the baseline the
+            # bridge side is judged against (C-004). Team jars use the same path now that
+            # staging preserves their native team entry and member roster.
+            tr = run_tr_battle(jar, classname, version, opts, setup,
+                               rc_signatures=classic_signatures(rc))
+            tr["has_log"] = write_error_log("tank-royale", robot_name,
+                                            tr.pop("log_text", ""))
 
-            status, delta = evaluate(rc, tr, opts.threshold, tr_skipped)
+            status, delta = evaluate(rc, tr, opts.threshold)
             state["robots"][key] = {
                 "status": status,
                 "delta_pct": delta,
@@ -1433,9 +1600,8 @@ def main():
             tested += 1
 
             delta_str = "-" if delta is None else f"{delta:+.1f}%"
-            tr_str = "skipped" if tr_skipped else (
-                f"{fmt_score(tr['score'])} ({tr['error_count']} err, "
-                f"{tr['elapsed']:.0f}s)")
+            tr_str = (f"{fmt_score(tr['score'])} ({tr['error_count']} err, "
+                      f"{tr['elapsed']:.0f}s)")
             print(f"    RC={fmt_score(rc['score'])} ({rc['error_count']} err, "
                   f"{rc['elapsed']:.0f}s)  TR={tr_str}  delta={delta_str}  -> {status}",
                   flush=True)

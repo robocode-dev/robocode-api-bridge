@@ -108,6 +108,24 @@ final class ConformanceHarness {
         return run(engine, robotClass, source, null, participants);
     }
 
+    /** Runs a generated team probe with one native team entry per requested battle team. */
+    BattleOutcome runTeam(Engine engine, String teamClass, Path source, List<String> members) {
+        List<String> command = new ArrayList<>(List.of(
+                python,
+                HARNESS.toString(),
+                "--conformance", testRobotClasses.toString(),
+                "--robot-class", teamClass,
+                "--engine", engine.harnessName(),
+                "--rounds", String.valueOf(rounds),
+                "--robocode-home", robocodeHome.toString(),
+                "--conformance-team-source", source.toString()));
+        for (String member : members) {
+            command.add("--team-member");
+            command.add(member);
+        }
+        return runCommand(command);
+    }
+
     private BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass,
                               Integer participants) {
         List<String> command = new ArrayList<>(List.of(
@@ -131,6 +149,10 @@ final class ConformanceHarness {
             command.add(String.valueOf(participants));
         }
 
+        return runCommand(command);
+    }
+
+    private BattleOutcome runCommand(List<String> command) {
         try {
             Process process = new ProcessBuilder(command)
                     .directory(HARNESS.getParent().toFile())

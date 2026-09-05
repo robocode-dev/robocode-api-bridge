@@ -3,6 +3,7 @@ package dev.robocode.tankroyale.bridge.conformance;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.nio.file.Path;
 
@@ -56,6 +57,18 @@ abstract class ConformanceTestBase {
     void assertOnBothEngines(String robotClass, Path source, int participants,
                              Expectation expectation) {
         assertOnBothEnginesFixture(robotClass, source, null, participants, expectation);
+    }
+
+    /** Runs a locally held native team probe on both engines. */
+    void assertOnBothEnginesTeam(String teamClass, Path source, List<String> members,
+                                 Expectation expectation) {
+        for (Engine engine : Engine.values()) {
+            BattleOutcome outcome = outcomeForTeam(engine, teamClass, source, members);
+            assertTrue(outcome.completed(),
+                    () -> "the team battle did not complete on " + engine
+                            + " (" + outcome.summary() + ")");
+            expectation.check(outcome, engine);
+        }
     }
 
     /** Runs a robot against the same named opponent fixture on both engines. */
@@ -113,6 +126,13 @@ abstract class ConformanceTestBase {
     /** Runs a probe with an explicit participant count, reusing the result within this test. */
     BattleOutcome outcomeFor(Engine engine, String robotClass, Path source, int participants) {
         return outcomeForFixture(engine, robotClass, source, null, participants);
+    }
+
+    /** Runs a team probe, reusing the same battle within this test. */
+    BattleOutcome outcomeForTeam(Engine engine, String teamClass, Path source,
+                                 List<String> members) {
+        String key = engine.name() + " " + teamClass + " as a team";
+        return ran.computeIfAbsent(key, ignored -> harness.runTeam(engine, teamClass, source, members));
     }
 
     private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,
