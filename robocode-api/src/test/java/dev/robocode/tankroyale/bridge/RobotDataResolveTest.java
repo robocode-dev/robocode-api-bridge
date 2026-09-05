@@ -11,14 +11,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
- * Sanity coverage for {@link RobotData}'s resolver, guarding the order asterisk-stripping and
- * traversal-rejection run in.
+ * Unit coverage for {@link RobotData}'s resolver, the mechanism behind FIO-001's redirection.
  * <p>
- * FIO-001's own machine evidence is the conformance tier (Integration, per
- * {@code CAP-004/criteria.md}); this class covers a defect a review pass on CH-009 found in
- * that resolver before it shipped: checking {@code ".."} against the raw name, before
- * asterisks are stripped, let a name like {@code ".*."} pass the check and then collapse into
- * {@code ".."} once stripped, escaping the data directory.
+ * FIO-001's declared evidence class is Integration (per {@code CAP-004/criteria.md}), carried by
+ * {@code FileRedirectionConformanceTest}; this class adds focused unit coverage of the resolver
+ * itself, including a defect a review pass on CH-009 found before it shipped: checking
+ * {@code ".."} against the raw name, before asterisks are stripped, let a name like
+ * {@code ".*."} pass the check and then collapse into {@code ".."} once stripped, escaping the
+ * data directory.
  */
 class RobotDataResolveTest {
 
@@ -32,21 +32,21 @@ class RobotDataResolveTest {
     }
 
     @Test
-    @DisplayName("Sanity positive: a plain name resolves inside the directory")
-    void testSanity_UnitPositive_PlainNameResolvesInsideDirectory() {
+    @DisplayName("FIO-001 unit: a plain name resolves inside the directory")
+    void testFIO001_UnitPositive_PlainNameResolvesInsideDirectory() {
         File resolved = RobotData.resolve(DIRECTORY, "plain.txt");
         assertEquals(new File(DIRECTORY, "plain.txt"), resolved);
     }
 
     @Test
-    @DisplayName("Sanity negative: a literal \"..\" is rejected")
-    void testSanity_UnitNegative_LiteralTraversalIsRejected() {
+    @DisplayName("FIO-001 unit negative: a literal \"..\" is rejected")
+    void testFIO001_UnitNegative_LiteralTraversalIsRejected() {
         assertThrows(AccessControlException.class, () -> RobotData.resolve(DIRECTORY, "../escape.txt"));
     }
 
     @Test
-    @DisplayName("Sanity negative: an asterisk-adjacent traversal is rejected once stripped")
-    void testSanity_UnitNegative_AsteriskAdjacentTraversalIsRejectedOnceStripped() {
+    @DisplayName("FIO-001 unit negative: an asterisk-adjacent traversal is rejected once stripped")
+    void testFIO001_UnitNegative_AsteriskAdjacentTraversalIsRejectedOnceStripped() {
         // No literal ".." until the "*" is gone, so a check against the raw name alone would miss this.
         assertThrows(AccessControlException.class, () -> RobotData.resolve(DIRECTORY, ".*./escape.txt"));
         assertThrows(AccessControlException.class, () -> RobotData.resolve(DIRECTORY, "sub/.*./.*./.*./escape.txt"));

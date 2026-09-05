@@ -26,7 +26,8 @@ Feature: Robot file I/O sandboxing
     And nothing was written at the path the robot named
     # Classic redirects silently; the robot never learns the difference. A true drive-letter-
     # absolute name (Windows) is a narrower case neither engine redirects; both fail the write
-    # instead (CAP-004/design.md). Evidence: FileRedirectionConformanceTest.
+    # instead (CAP-004/design.md). Evidence: FileRedirectionConformanceTest (Integration),
+    # RobotDataResolveTest (Unit, resolver-level: strip/traversal-check ordering).
 
   @FIO-002
   Scenario: The data file and the data directory resolve against the same place
