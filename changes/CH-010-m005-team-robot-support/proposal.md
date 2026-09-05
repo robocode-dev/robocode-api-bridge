@@ -10,9 +10,11 @@ title: Produce runnable Tank Royale team bot directories
 
 ## What
 
-Give `robots-wrapper` a second production path: a team jar's `.team` descriptor (`team.members=`, a comma-separated list of member class names, duplicates allowed) drives production of one Tank Royale bot directory per member plus a team boot-entry directory naming them, so the Tank Royale booter groups them as one team at launch. Give `robocode-api`'s `BotPeer` droid detection: a member class implementing `robocode.Droid` gets a `Bot` subclass that also implements Tank Royale's `Droid` marker, since that is what the Bot API actually keys droid status on. Un-skip the team division in `compat-test`. Move `TEAM-001`, `TEAM-002`, `TEAM-003` out of `@draft` with integration evidence from purpose-written test robots (classic's own test suite has none to port here).
+Give `robots-wrapper` a second production path: a team jar's `.team` descriptor (`team.members=`, a comma-separated list of member class names, duplicates allowed) drives production of one Tank Royale bot directory per member plus a team boot-entry directory naming them, so the Tank Royale booter groups them as one team at launch. Give `robocode-api`'s `BotPeer` droid detection: a member class implementing `robocode.Droid` gets a `Bot` subclass that also implements Tank Royale's `Droid` marker, since that is what the Bot API actually keys droid status on.
 
 Team messaging keeps `ROUTE-009`'s existing numeric-id addressing unchanged — see "Why" below for why that is not a shortfall this change needs to close.
+
+**Scope note (found during Implement, see `tasks.md`):** `TEAM-001`'s own criterion text requires "the team is no longer recorded as skipped," and un-skipping `compat-test`'s team division turns out to need real team-battle-staging plumbing in `compat_test.py`, not the one-line flip the original task list assumed. That is materially bigger and harder to verify than the rest of this change, so this change stops at the wrapper and peer groundwork; `TEAM-001`, `TEAM-002`, `TEAM-003` stay `@draft` and a follow-up change closes them with the harness plumbing and purpose-written conformance test robots.
 
 ## Why
 
@@ -24,4 +26,4 @@ Droids are the sharpest fidelity requirement (`TEAM-003`): a droid that receives
 
 ## Route
 
-Full. This closes acceptance criteria currently `@draft` (`TEAM-001`, `TEAM-002`, `TEAM-003`) and records `ADR-002` — contract changes, not refactors of unchanged behaviour.
+Full. This is greenfield capability code toward `TEAM-001`–`TEAM-003` (still `@draft`, closed by the follow-up above) and records `ADR-002` — a contract-shaping change, not a refactor of unchanged behaviour.
