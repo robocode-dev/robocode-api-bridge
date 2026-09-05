@@ -10,6 +10,7 @@ bridge), then compares scores and errors.
 | File | Purpose |
 |---|---|
 | `compat_test.py` | Orchestrator: staging, checkpointing, error logs, report generation |
+| `test_team_staging.py` | Fast positive/negative checks for independent team-entry staging |
 | `regression-set.json` | The pinned watch list the regression gate measures against |
 | `trace-robot/` | Robots that report their own state: `TraceRobot` for `--trace`, `TurnSignProbe` for settling a convention question by measurement |
 | `RcBattleWorker.java` | Single-file worker (run uncompiled) driving the classic Robocode Control API |
@@ -65,6 +66,8 @@ robot was never ranked on.
 
 `--rounds` overrides the round count for quick local runs and makes the result
 incomparable with the rumble, so the report records the setup each row was measured at.
+
+Team jars are staged through their generated team entry. For the official two-team setup, the harness copies every member directory for the second team, rewrites that entry's `teamMembers` list to the copied names, and patches each member's output scripts separately. The Tank Royale worker raises its participant ceiling to the expanded member count, while the classic worker expands the selected `.team` descriptor through its Control API.
 
 ## Usage
 
@@ -182,13 +185,8 @@ untested robot. Completed robots are never re-run unless `--force` (everything) 
    `RcBattleWorker` runs a battle of the robot against itself (10 rounds default,
    800×600) via the Control API and records scores, battle errors, and each robot's
    console output (where classic Robocode prints robot exceptions).
-2. **Tank Royale** — the jar is staged with `lib\` (bridge + bot-api + wrapper jars) and
-   processed by the robots-wrapper; the generated boot script is patched to redirect the
-   bot process's stdout/stderr into log files; the bot dir is duplicated so the two
-   instances don't share log files; `TrBattleWorker` runs the identical setup via the
-   Battle Runner API (embedded server, max TPS).
-3. **Comparison** — scores are the *sum of both participants' total scores*. Errors are
-   exception signatures scraped from consoles/log files (stack-trace shaped lines).
+2. **Tank Royale** — the jar is staged with `lib\` (bridge + bot-api + wrapper jars) and processed by the robots-wrapper; the generated boot scripts are patched to redirect each bot process's stdout/stderr into log files; ordinary bot directories are duplicated per participant, while team entries are duplicated with independent member directories; `TrBattleWorker` runs the identical setup via the Battle Runner API (embedded server, max TPS).
+3. **Comparison** — scores are the *sum of all participating bots' total scores*. Errors are exception signatures scraped from consoles/log files (stack-trace shaped lines).
 
 Full error details land in `errors/robocode/<robot>.log` and
 `errors/tank-royale/<robot>.log`; the master table is `compatibility_report.md`.
@@ -209,7 +207,7 @@ therefore safe to run over a state file holding results from several eras.
 | `DISCREPANCY (score)` | Both ran, but scores diverge beyond the threshold |
 | `DISCREPANCY (errors)` | TR side threw errors the RC side didn't |
 | `FAIL (TR)` / `FAIL (RC)` / `FAIL (both)` | The battle did not complete on that side |
-| `SKIPPED-TR` | Team jar: classic result recorded, TR skipped (wrapper has no team support yet) |
+Historical state files may still contain `SKIPPED-TR` rows from before team staging landed; the next run automatically schedules those rows again. New team rows run both engines.
 
 ## Caveats
 

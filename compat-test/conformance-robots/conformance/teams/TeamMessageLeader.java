@@ -5,14 +5,13 @@ import robocode.TeamRobot;
 
 import java.io.IOException;
 
-/** Sends one direct and one broadcast message after the team roster is available. */
+/** Repeats one direct and one broadcast message after the team roster is available. */
 public class TeamMessageLeader extends TeamRobot {
-
-    private boolean sent;
 
     @Override
     public void run() {
-        while (!sent) {
+        int attempts = 0;
+        while (attempts++ < 25) {
             String[] teammates = getTeammates();
             if (teammates != null && teammates.length > 0) {
                 try {
@@ -22,7 +21,6 @@ public class TeamMessageLeader extends TeamRobot {
                 } catch (IOException e) {
                     out.println("TeamMessagesFailed:" + e.getClass().getSimpleName());
                 }
-                sent = true;
             }
             turnLeft(1);
         }

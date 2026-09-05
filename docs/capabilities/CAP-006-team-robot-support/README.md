@@ -13,11 +13,11 @@ reversal-cost: high
 
 Robocode's team division runs teams rather than individual robots: a `.team` descriptor naming several robots that start together, message each other, and win or lose as a unit. Droids are part of the same feature — robots with no radar that depend entirely on teammates for targeting.
 
-The wrapper now produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. Team jars are still recorded as skipped: nothing yet runs those directories through a battle on either engine.
+The wrapper produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. The compatibility harness stages team entries with independent member directories on both engines, and purpose-written conformance probes cover startup, teammate messaging, and droid semantics.
 
 ## Why it exists as its own capability
 
-It is the only part of this corpus that is greenfield rather than repair, and the only one where the failure is a clean absence rather than a subtle difference. Nothing about team support is currently wrong; it is missing, visibly, and the harness says so on every row.
+It is the only part of this corpus that was greenfield rather than repair, and the only one where the original failure was a clean absence rather than a subtle difference. The capability now has direct two-engine evidence, while the broader collection sweep remains a separate baseline task.
 
 That makes it lower-risk than the score gaps and higher-effort than any of them, which is why `P-001` places it late.
 
@@ -37,4 +37,4 @@ The interesting question was where a team becomes several Tank Royale bots. `AN-
 
 ## Status
 
-`draft`. Every criterion still describes behaviour the harness cannot yet exercise: `CH-010` landed the wrapper and peer groundwork (team bot directories, droid detection), but the team division still reports as skipped because `compat-test` has no team-battle-staging path on either engine yet. `M-005` is the plan door, and the team collection becomes this capability's corpus once that harness work and purpose-written conformance test robots land.
+`draft`. `CH-010` landed the wrapper and peer groundwork, and `CH-011` added team-battle staging plus purpose-written conformance probes. `TEAM-001` through `TEAM-003` now have two-engine integration evidence; `M-005` is complete. The capability remains draft until its high-cost inferred meaning is explicitly verified. The team collection remains useful for the broader `M-006` baseline rather than as a prerequisite for these criteria.

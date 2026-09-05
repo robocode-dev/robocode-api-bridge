@@ -1,10 +1,11 @@
 ---
 id: CH-011
 type: change
-status: proposed
+status: open
 links: [P-001, CAP-006, CRIT-006, ADR-002]
 title: Run team robots through the compatibility harness
-provenance: agent
+provenance: inferred
+reversal-cost: low
 ---
 
 # CH-011 — Run team robots through the compatibility harness

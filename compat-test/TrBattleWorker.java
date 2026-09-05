@@ -170,7 +170,9 @@ public class TrBattleWorker {
             String json = Files.readString(config, StandardCharsets.UTF_8);
             int key = json.indexOf("\"teamMembers\"");
             int start = key < 0 ? -1 : json.indexOf('[', key);
-            int end = start < 0 ? -1 : json.indexOf(']', start);
+            // Member directory names can contain version brackets, for example
+            // `Robot_[1.6]`; the final bracket closes the JSON array.
+            int end = start < 0 ? -1 : json.lastIndexOf(']');
             if (start < 0 || end < 0) {
                 return 1;
             }

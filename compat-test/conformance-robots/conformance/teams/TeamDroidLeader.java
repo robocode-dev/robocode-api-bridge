@@ -4,21 +4,22 @@ import robocode.TeamRobot;
 
 import java.io.IOException;
 
-/** Supplies the droid with a teammate message instead of a scan. */
+/** Repeats a teammate message until the droid has had time to receive it. */
 public class TeamDroidLeader extends TeamRobot {
-
-    private boolean sent;
 
     @Override
     public void run() {
-        while (!sent) {
-            try {
-                broadcastMessage("DROID_SIGNAL");
-                out.println("DroidSignalSent");
-            } catch (IOException e) {
-                out.println("DroidSignalFailed:" + e.getClass().getSimpleName());
+        int attempts = 0;
+        while (attempts++ < 25) {
+            String[] teammates = getTeammates();
+            if (teammates != null && teammates.length > 0) {
+                try {
+                    broadcastMessage("DROID_SIGNAL");
+                    out.println("DroidSignalSent");
+                } catch (IOException e) {
+                    out.println("DroidSignalFailed:" + e.getClass().getSimpleName());
+                }
             }
-            sent = true;
             turnLeft(1);
         }
         while (true) {

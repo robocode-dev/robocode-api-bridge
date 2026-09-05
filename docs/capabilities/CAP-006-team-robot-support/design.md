@@ -1,7 +1,7 @@
 ---
 id: DES-006
 type: design
-status: draft
+status: active
 links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002]
 title: Team robot support — design
 provenance: verified
@@ -10,13 +10,13 @@ reversal-cost: high
 
 # CAP-006 — design
 
-`status: draft`: the mapping decision is made (`ADR-002`) and its groundwork is implemented, but no criterion has integration evidence yet — the team division still cannot run through a battle on either engine.
+`status: active`: the mapping decision is implemented (`ADR-002`), the harness stages team rosters on both engines, and the conformance tier carries integration evidence for all three criteria.
 
 ## What exists
 
-`robots-wrapper`'s `Main.java` reads a jar's `.team` descriptor (`team.members=`, comma-separated, duplicates allowed) alongside its `.properties` entries, and emits a team boot-entry directory whose `<name>.json` carries `teamMembers`, naming each member's ordinary bot directory once per occurrence — the shape the Tank Royale booter's own `BootEntry`/`BotBooter` reads to group processes into a team and assign them `TEAM_ID`/`TEAM_NAME`/`TEAM_VERSION` at launch. `BotPeer.createBotImpl` constructs a `Bot` subclass that also implements Tank Royale's `Droid` marker when the wrapped robot implements `robocode.Droid`, since Tank Royale's own droid detection (`WebSocketHandler`) keys on that marker rather than any bot-info field.
+`robots-wrapper`'s `Main.java` reads a jar's `.team` descriptor (`team.members=`, comma-separated, duplicates allowed) alongside its `.properties` entries, and emits a team boot-entry directory whose `<name>.json` carries `teamMembers`, naming each member's ordinary bot directory once per occurrence — the shape the Tank Royale booter's own `BootEntry`/`BotBooter` reads to group processes into a team and assign them `TEAM_ID`/`TEAM_NAME`/`TEAM_VERSION` at launch. `BotPeer.createBotImpl` constructs a `Bot` subclass that also implements Tank Royale's `Droid` marker when the wrapped robot implements `robocode.Droid`, since Tank Royale's own droid detection (`WebSocketHandler`) keys on that marker rather than any bot-info field. `BotPeer.onTeamMessage` maps Tank Royale's `TeamMessageEvent` to classic `MessageEvent` and invokes `ITeamEvents.onMessageReceived` through the bridge's callback boundary.
 
-Not yet wired: `compat-test`'s battle-staging has no team-roster path on either engine, so nothing runs these directories through an actual battle, and the team division still reports as skipped.
+`compat-test` now discovers team manifests, duplicates member directories when a second team is needed, rewrites the copied roster, and collects logs from each member. The classic worker expands the selected `.team` descriptor through its Control API; the Tank Royale worker raises its participant ceiling to the expanded member count.
 
 ## The mapping decision
 
@@ -28,8 +28,8 @@ One difference survives the mapping and does not need reconstruction to handle: 
 
 Droids are the sharpest fidelity requirement here. A droid has no radar and receives no scan events, and getting that wrong makes the robot *better*: it gains information it should not have, wins more, and produces a battle in which nothing looks wrong. `TEAM-003` exists because that failure is silent in the direction the score-based instrument is least likely to question.
 
-Un-skipping the team division needs team-battle-staging plumbing in `compat-test/compat_test.py` on both engines (a team roster is not a flat participant list the way melee's is), which is the remaining work `M-005` needs before any `TEAM-00x` criterion can carry integration evidence.
+The collection sweep still needs a broader baseline under `M-006`, but team-battle staging is no longer a capability gap. The focused conformance fixtures and the read-only `Polylunar_1.6.jar` smoke run both engines without a team skip.
 
 ## Evidence plan
 
-Classic's own test suite is thinner on teams than on events and physics, so the conformance tier will need purpose-written test robots here rather than ported ones. The team collection provides the population once the wrapper can produce bot directories at all.
+Classic's own test suite is thinner on teams than on events and physics, so the conformance tier uses purpose-written test robots rather than ported ones. The focused probes cover team startup, direct versus broadcast delivery, and droid message/no-scan semantics; the read-only collection jar supplies an independent wrapper and harness smoke check.

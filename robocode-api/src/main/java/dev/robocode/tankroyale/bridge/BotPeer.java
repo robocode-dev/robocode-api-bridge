@@ -467,8 +467,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchMessageEvent(BotEvent botEvent) {
-        throw new UnsupportedOperationException(botEvent.getClass().getSimpleName() +
-                " is unsupported. Contact Robocode Tank Royale author for support");
+        log("-> onMessageReceived");
+        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent);
+        if (robot instanceof ITeamEvents) {
+            var teamEvents = (ITeamEvents) robot;
+            dispatchRobotCallback(() -> teamEvents.onMessageReceived(robocodeEvent));
+        }
     }
 
     @Override

@@ -26,7 +26,7 @@ The bridge is a translator sitting between two engines that disagree about almos
 | `CAP-008` call-routing fidelity | [design](../capabilities/CAP-008-call-routing-fidelity/design.md) | The test seam and recording fake, and why completeness is enforced by reflection rather than reviewed |
 | `CAP-004` file I/O sandboxing | [design](../capabilities/CAP-004-robot-file-io-sandboxing/design.md) | One resolution point used by every wrapper, and why the robot is never told it was redirected |
 | `CAP-005` score parity | [design](../capabilities/CAP-005-score-parity/design.md) | Self-play, the three shapes a finding takes, and what makes a baseline honest |
-| `CAP-006` team robot support | [design](../capabilities/CAP-006-team-robot-support/design.md) | An open decision: map onto Tank Royale teams, or reconstruct above individual bots |
+| `CAP-006` team robot support | [design](../capabilities/CAP-006-team-robot-support/design.md) | Native Tank Royale team mapping, roster staging, teammate messaging, and droid semantics |
 | `CAP-007` the compatibility harness | [design](../capabilities/CAP-007-compatibility-harness/design.md) | Python orchestration over Java workers, per-instance logs, and why that split costs what it does |
 
 ## The decisions that cut across them
