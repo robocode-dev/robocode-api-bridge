@@ -10,6 +10,7 @@ import static java.lang.Math.PI;
 import static java.lang.Math.toRadians;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -90,6 +91,15 @@ class BasicPeerRoutingTest {
 
         assertTrue(!bot.called("forward") && !bot.called("setForward"), bot.names());
         assertTrue(!bot.called("turnRight") && !bot.called("setTurnRight"), bot.names());
+    }
+
+    @Test
+    @DisplayName("ROUTE-002 positive: queued NaN fire is ignored at the classic bridge boundary")
+    void testROUTE002_UnitPositive_IgnoresNaNQueuedFire() {
+        assertNull(peer.setFire(Double.NaN));
+
+        assertTrue(!bot.called("setFire"), "NaN must not reach the strict Bot API validator: " + bot.names());
+        assertTrue(!bot.called("go"), "queued fire must not complete the turn: " + bot.names());
     }
 
     @Test

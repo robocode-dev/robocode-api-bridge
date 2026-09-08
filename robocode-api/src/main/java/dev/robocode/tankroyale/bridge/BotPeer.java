@@ -505,6 +505,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public Bullet fire(double power) {
         log("fire()");
+        if (rejectNaNFirepower(power)) {
+            // Classic fireBullet() still completes the turn when the invalid shot is ignored.
+            bot.go();
+            return null;
+        }
         bot.fire(power);
         return createAndAddBullet(power);
     }
@@ -512,10 +517,21 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public Bullet setFire(double power) {
         log("setFire()");
+        if (rejectNaNFirepower(power)) {
+            return null;
+        }
         if (bot.setFire(power)) {
             return createAndAddBullet(power);
         }
         return null;
+    }
+
+    private boolean rejectNaNFirepower(double power) {
+        if (Double.isNaN(power)) {
+            System.out.println("SYSTEM: You cannot call fire(NaN)");
+            return true;
+        }
+        return false;
     }
 
     private BulletPeer createAndAddBullet(double power) {

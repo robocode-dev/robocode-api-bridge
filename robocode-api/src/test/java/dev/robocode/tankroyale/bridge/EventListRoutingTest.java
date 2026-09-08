@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -89,6 +90,16 @@ class EventListRoutingTest {
         // The blocking form fires and completes the turn; the queued form does not. Routing
         // one to the other would change when the shot leaves relative to everything else.
         assertTrue(bot.called("setFire") || bot.called("fire"), bot.names());
+    }
+
+    @Test
+    @DisplayName("ROUTE-002 positive: blocking NaN fire is ignored and completes the turn")
+    void testROUTE002_UnitPositive_IgnoresNaNBlockingFireAndCompletesTurn() {
+        assertNull(peer.fire(Double.NaN));
+
+        assertTrue(!bot.called("fire") && !bot.called("setFire"),
+                "NaN must not reach the strict Bot API validator: " + bot.names());
+        assertTrue(bot.called("go"), "blocking fire must still complete the turn: " + bot.names());
     }
 
     @Test
