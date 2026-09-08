@@ -277,9 +277,21 @@ entries:
       component: "11"
     - id: CH-012
       kind: numeric
-      state: reserved
+      state: live
       prefix: CH
       component: "12"
+    - id: CH-012-proposal
+      kind: opaque
+      state: live
+    - id: CH-012-tasks
+      kind: opaque
+      state: live
+    - id: CH-012-open-questions
+      kind: opaque
+      state: live
+    - id: CH-012-verification
+      kind: opaque
+      state: live
     - id: CRIT-001
       kind: numeric
       state: live

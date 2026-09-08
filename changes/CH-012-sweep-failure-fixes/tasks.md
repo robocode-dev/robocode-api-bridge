@@ -1,3 +1,11 @@
+---
+id: CH-012-tasks
+type: tasks
+status: open
+links: []
+title: Tasks
+---
+
 # Tasks
 
 - [x] Reproduce `cs.Nene` startup battlefield access and `davidalves.net.DuelistNano` callback state access with focused conformance probes; serves `M-006`.

@@ -1,8 +1,8 @@
 ---
-id: CH-012
+id: CH-012-proposal
 type: change
-status: proposed
-links: [P-001#M-006]
+status: open
+links: [M-006]
 title: Close actionable lifecycle failures found by the M-006 sweep
 ---
 

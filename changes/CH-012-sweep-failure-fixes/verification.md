@@ -1,3 +1,11 @@
+---
+id: CH-012-verification
+type: verification
+status: active
+links: []
+title: Verification
+---
+
 # Verification
 
 `./gradlew :robocode-api:test :robots-wrapper:fatJar` passed after the lifecycle changes.
