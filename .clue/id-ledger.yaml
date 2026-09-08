@@ -5,7 +5,7 @@ counters:
     ARCH: "3"
     C: "7"
     CAP: "8"
-    CH: "11"
+    CH: "12"
     CRIT: "8"
     DES: "8"
     EVT: "15"
@@ -275,6 +275,23 @@ entries:
       state: reserved
       prefix: CH
       component: "11"
+    - id: CH-012
+      kind: numeric
+      state: live
+      prefix: CH
+      component: "12"
+    - id: CH-012-proposal
+      kind: opaque
+      state: live
+    - id: CH-012-tasks
+      kind: opaque
+      state: live
+    - id: CH-012-open-questions
+      kind: opaque
+      state: live
+    - id: CH-012-verification
+      kind: opaque
+      state: live
     - id: CRIT-001
       kind: numeric
       state: live

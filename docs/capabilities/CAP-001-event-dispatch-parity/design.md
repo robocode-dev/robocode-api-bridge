@@ -38,6 +38,8 @@ Since Bot API 1.0.2, new-turn events dispatch at the end of `execute()`, which i
 
 The Bot API's event publisher catches subscriber runtime exceptions so one callback cannot prevent other subscribers from receiving the event. That is compatible with classic's continued battle processing, but it hides the failure from the process logs that form conformance evidence. `BotPeer` therefore reports runtime exceptions at the legacy callback boundary and then returns to the Bot API queue; control-flow errors used by the Bot API for interruptible handlers pass through unchanged. `IDR-006` records this narrow exception-reporting rule.
 
+When a round ends, a callback already running on the old robot thread can overlap the next round's tick cleanup. A state read in that stale callback then raises the Bot API's "tick has not occurred yet" exception after the robot has stopped. `BotPeer` contains only that stopped-bot signature; active-bot and other callback exceptions remain visible.
+
 ## The guard
 
 `setInterruptible` is null-guarded. The Bot API permits the call at points where no event is currently being dispatched, and a robot may reach it through a code path where the current event is absent. The upstream fix landed in the Bot API across its language implementations under `C-006`; the guard here is the local defence.

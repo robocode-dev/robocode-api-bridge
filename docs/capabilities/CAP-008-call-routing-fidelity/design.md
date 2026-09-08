@@ -16,6 +16,8 @@ reversal-cost: low
 
 That is the whole enabling change, and it is small on purpose. Routing is only observable at the boundary between the two APIs, and in a battle that boundary sits behind a WebSocket and reports back as a score. With the seam it is a method call and an assertion.
 
+The generated wrapper leaves peer attachment until `GameStarted`. Tank Royale has not populated `GameSetup` when the bot is constructed, while classic robots may read battlefield dimensions from `setPeer()`. Attaching at the callback presents the setup-backed state without changing the frozen `robocode.*` surface.
+
 ## The fake
 
 `RecordingBot` is a dynamic proxy over `IBot` that records every call with its arguments and answers canned values for getters.

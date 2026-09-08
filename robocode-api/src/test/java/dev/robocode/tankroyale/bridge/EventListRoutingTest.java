@@ -1,6 +1,7 @@
 package dev.robocode.tankroyale.bridge;
 
 import dev.robocode.tankroyale.botapi.events.TickEvent;
+import dev.robocode.tankroyale.botapi.BotException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -77,6 +78,20 @@ class EventListRoutingTest {
         assertEquals(1, events.size());
         assertTrue(events.get(0) instanceof StatusEvent, events.toString());
         assertEquals(7, ((StatusEvent) events.get(0)).getStatus().getTime());
+    }
+
+    @Test
+    @DisplayName("ROUTE-008 positive: stale callback tick errors are contained after round shutdown")
+    void testROUTE008_UnitPositive_ContainsOnlyLateCallbackTickErrors() {
+        bot.returning("isRunning", false);
+
+        assertTrue(peer.isLateCallbackWithoutCurrentTick(new BotException(
+                "Game is not running or tick has not occurred yet. Make sure onTick() event handler has been called first")));
+
+        bot.returning("isRunning", true);
+        assertFalse(peer.isLateCallbackWithoutCurrentTick(new BotException(
+                "Game is not running or tick has not occurred yet. Make sure onTick() event handler has been called first")));
+        assertFalse(peer.isLateCallbackWithoutCurrentTick(new BotException("Game is not running")));
     }
 
     @Test

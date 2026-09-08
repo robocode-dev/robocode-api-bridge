@@ -324,7 +324,7 @@ public class Main {
                     "\t\tvar robot = (IBasicRobot) robotClass.getDeclaredConstructor().newInstance();\n" +
                     "\t\t\n" +
                     "\t\tvar peer = new BotPeer(robot, BotInfo.fromFile(\"" + robotClassAndVersion + ".json\"));\n" +
-                    "\t\trobot.setPeer(peer);\n" +
+                    "\t\t// BotPeer attaches the peer after GameStarted supplies battlefield setup.\n" +
                     "\t\tpeer.start();\n" +
                     "\t}\n" +
                     "}"

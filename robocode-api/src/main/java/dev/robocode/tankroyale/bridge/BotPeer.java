@@ -462,8 +462,26 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         try {
             callback.run();
         } catch (RuntimeException exception) {
+            if (isLateCallbackWithoutCurrentTick(exception)) {
+                return;
+            }
             exception.printStackTrace();
         }
+    }
+
+    /**
+     * A callback that is already on the old bot thread can overlap the next round's cleanup.
+     * The Bot API deliberately clears its current tick when that round starts, so a state read
+     * in this stale callback reports "tick has not occurred yet". Classic stops the old robot
+     * thread instead of exposing that internal cleanup exception to the battle. The callback's
+     * effects can no longer affect the finished round; suppress only this exact stale-thread
+     * signature and keep active-bot and bot-owned exceptions visible.
+     */
+    boolean isLateCallbackWithoutCurrentTick(RuntimeException exception) {
+        return !bot.isRunning()
+                && exception instanceof BotException
+                && exception.getMessage() != null
+                && exception.getMessage().contains("tick has not occurred yet");
     }
 
     private void dispatchMessageEvent(BotEvent botEvent) {
@@ -1169,6 +1187,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onGameStarted(GameStartedEvent gameStatedEvent) {
             totalTurns.set(0);
+            // Legacy robots may read battlefield dimensions from setPeer(). The Bot API fills
+            // GameSetup immediately before publishing this callback, so attach the peer here
+            // instead of before the connection has received game setup.
+            robot.setPeer(BotPeer.this);
         }
 
         @Override
