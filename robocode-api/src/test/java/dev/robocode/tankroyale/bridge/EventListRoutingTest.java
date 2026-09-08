@@ -1,8 +1,12 @@
 package dev.robocode.tankroyale.bridge;
 
+import dev.robocode.tankroyale.botapi.events.TickEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import robocode.StatusEvent;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -60,6 +64,19 @@ class EventListRoutingTest {
         // queue, every later one would come back empty and the robot would act on a partial
         // view of its own turn.
         assertFalse(bot.called("clearEvents"), bot.names());
+    }
+
+    @Test
+    @DisplayName("ROUTE-008 positive: a pending tick maps before the status callback snapshot exists")
+    void testROUTE008_UnitPositive_MapsPendingTickWithoutStatusSnapshot() {
+        bot.returning("getEvents", List.of(new TickEvent(7, 1, null, List.of(), List.of())))
+                .returning("getTurnNumber", 7);
+
+        List<robocode.Event> events = peer.getAllEvents();
+
+        assertEquals(1, events.size());
+        assertTrue(events.get(0) instanceof StatusEvent, events.toString());
+        assertEquals(7, ((StatusEvent) events.get(0)).getStatus().getTime());
     }
 
     @Test

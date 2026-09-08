@@ -23,7 +23,12 @@ final class AllEventsMapper {
             } else if (botEvent instanceof SkippedTurnEvent) {
                 event = new robocode.SkippedTurnEvent(botEvent.getTurnNumber());
             } else if (botEvent instanceof TickEvent) {
-                event = StatusEventMapper.map(robotStatus);
+                // A first tick can be queued before BotPeer dispatches its onStatus callback.
+                // Classic still exposes that tick through getAllEvents(), so build the same
+                // snapshot used by the peer getters instead of dereferencing a null callback
+                // snapshot (AN-014).
+                var status = robotStatus != null ? robotStatus : IBotToRobotStatusMapper.map(bot);
+                event = StatusEventMapper.map(status);
             } else if (botEvent instanceof CustomEvent) {
                 event = CustomEventMapper.map((CustomEvent) botEvent);
             } else if (botEvent instanceof BulletHitWallEvent) {
