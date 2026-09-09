@@ -26,7 +26,13 @@ Stage for Tank Royale: the jar with the bridge, Bot API, and wrapper jars alongs
 
 That duplication is load-bearing rather than tidy. `C-004`'s fail-fast rule needs an exception attributed to a participant, and two instances writing to one log makes attribution impossible.
 
-Compare: scores as the sum of both participants' totals, errors as stack-trace-shaped signatures scraped from consoles and logs.
+Compare: scores as the sum of all staged participants' totals, errors as normalized exception class plus the first legacy callback or application frame scraped from consoles and logs. A completion mismatch, an unmatched normalized error, a timeout, or a confirmed score gap is a parity case rather than a pass.
+
+## Durable parity registry
+
+`compat-test/parity-registry.json` is append-only per subject. An observation carries the official setup, source jar digest, selected classic identity, team classification, both engine outcomes, normalized errors, and the bridge, Tank Royale, Bot API, wrapper, and runner fingerprints that produced it. `parity-registry.md` is generated from that JSON and is the review table for every subject.
+
+The harness imports an interrupted checkpoint with `--sync-registry`, runs new first-pass work in bounded `--limit` batches, and selects retests with `--retry-unresolved` or `--retest-cause`. Matched subjects stay recorded and are not selected after an unrelated repair.
 
 ## What changes for the milestone
 
@@ -44,6 +50,6 @@ The bytecode transform that rewrites `while(true)` loops fails on modern JVMs fo
 
 This is the kind of exclusion that needs justifying rather than accumulating. Each one narrows what the instrument can see, and a growing list of ignored signatures is how an instrument stops reporting the thing it was built for. `HARN-003` covers the classification including exclusions, so a new one has to be stated rather than added quietly.
 
-## Why the report is untracked, and why that is a problem
+## Why the registry is tracked
 
-The generated report is excluded from version control along with the work directories and progress files. It is also the evidence `SCORE-001` is judged from, which means the corpus names evidence that exists only in whoever last ran the sweep's working tree, and a reviewer reading the acceptance brief cannot open it. Recorded as a blocked carrier during extraction; `M-006` has to resolve it when it produces the first real baseline.
+The generated compatibility report remains a local checkpoint view. The parity registry is the reviewable evidence carrier for `SCORE-001`; it survives an interrupted sweep, names the artifacts that produced each result, and shows whether a later repair resolved the same case.

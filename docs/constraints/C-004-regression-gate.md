@@ -3,14 +3,14 @@ id: C-004
 type: constraint
 status: active
 links: [CAP-005, CAP-007]
-title: A regression verdict averages repeats, and a Tank-Royale-only exception ends the battle
+title: A regression verdict averages repeats, and an asymmetric error ends score collection
 source: The OQ-001 Q2 resolution, recorded in PDR-001
 enforcement: agent
 provenance: inferred
 reversal-cost: high
 ---
 
-# C-004 — A regression verdict averages repeats, and a Tank-Royale-only exception ends the battle
+# C-004 — A regression verdict averages repeats, and an asymmetric error ends score collection
 
 Two rules, because a divergence between the engines arrives in two shapes and only one of them is a quantity.
 
@@ -22,13 +22,13 @@ A single battle is not evidence about a bot. One watched bot has swung by a fact
 
 Bots whose scores are meaningless at any repeat count are marked as such on the watch list. They are reported and never fail the run, because a gate that cries wolf on the same bot every time trains people to ignore it.
 
-## An exception classic did not produce ends the battle immediately
+## An error that classic did not produce ends Tank Royale score collection immediately
 
-When the Tank Royale side throws an exception whose signature the classic side did not produce, the battle is stopped and the signature is recorded. It is not scored, and it is not averaged.
+Classic Robocode is the reference. When the Tank Royale side throws an exception whose normalized signature classic did not produce, the battle is stopped and the signature is recorded. A normalized signature contains the exception class and the first legacy callback or application frame; engine frames, paths, and line numbers are not part of it. The stopped battle is not scored or averaged.
 
 The two rules are opposites on purpose. A score difference is a quantity that noise can explain and repetition can resolve. The same bot throwing only under the bridge is a categorical fact about the bridge that no amount of repetition improves, and finishing the battle to produce a score for it spends minutes to learn nothing further. The classic side runs first, so its signatures are already the baseline the Tank Royale side is compared against.
 
-This is also what keeps the error check from becoming a matter of opinion. Judged against a baseline rather than against a reviewer's sense of which exceptions look normal, "did this bot misbehave only under the bridge" has an answer.
+An error or completion mismatch in either direction is an unresolved parity case. The Tank Royale-only case can stop immediately because classic has already run; a classic-only mismatch is recorded after Tank Royale completes. This keeps the comparison objective: the registry compares observable outcomes, not a reviewer's sense of which exception looks normal.
 
 ## Residual
 

@@ -38,6 +38,16 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+from parity_registry import (
+    compare_errors,
+    error_signatures,
+    is_unresolved,
+    load_registry,
+    save_registry,
+    signature_keys,
+    sync_state,
+)
+
 # ----------------------------------------------------------------------------------
 # Configuration (override with CLI options or environment variables)
 # ----------------------------------------------------------------------------------
@@ -125,6 +135,9 @@ DIVISIONS = {
 # verdict is stated as movement from a recorded baseline rather than as an absolute delta:
 # a bot that has always differed by a given margin and still does has not regressed.
 REGRESSION_SET_FILE = BASE_DIR / "regression-set.json"
+PARITY_REGISTRY_FILE = BASE_DIR / "parity-registry.json"
+PARITY_REGISTRY_REPORT = BASE_DIR / "parity-registry.md"
+DEFAULT_BATCH_SIZE = 25
 REGRESSION_REPEATS = 5
 REGRESSION_BAND_POINTS = 15.0
 
@@ -320,16 +333,17 @@ class BridgeOnlyErrorWatcher:
 
     def __init__(self, bot_dirs, rc_signatures):
         self.bot_dirs = list(bot_dirs)
-        self.rc_signatures = {signature_key(s) for s in (rc_signatures or [])}
+        self.rc_signatures = signature_keys(rc_signatures or [])
         self.found = set()
         self.triggered = False
 
     def __call__(self):
         for d in self.bot_dirs:
             for log_name in ("stderr.log", "stdout.log"):
-                for line in extract_errors(read_capped(d / log_name)):
-                    if signature_key(line) not in self.rc_signatures:
-                        self.found.add(line)
+                for signature in error_signatures([], read_capped(d / log_name)):
+                    key = (signature["exception"], signature["origin"])
+                    if key not in self.rc_signatures:
+                        self.found.add(key)
         self.triggered = bool(self.found)
         return self.triggered
 
@@ -341,7 +355,7 @@ def classic_signatures(rc):
     that names no exception, so it matches nothing. Handing that to the watcher as a
     baseline makes every exception on the bridge side look bridge-only, and the gate then
     fails a bot whose classic side simply did not start."""
-    return rc.get("errors", []) if rc.get("ok") else None
+    return rc.get("error_signatures", []) if rc.get("ok") else None
 
 
 def signature_key(error_line):
@@ -349,6 +363,45 @@ def signature_key(error_line):
     fault compare equal despite differing messages, line numbers, or robot names."""
     match = EXCEPTION_RE.search(error_line or "")
     return match.group(1) if match else (error_line or "").strip()[:120]
+
+
+def attach_error_signatures(result):
+    result["error_signatures"] = error_signatures(
+        result.get("errors", []), result.get("log_text", ""))
+    return result
+
+
+def registry_manifest(opts):
+    """Pins the artifacts that produced a registry observation."""
+    manifest = {
+        "bridge_commit": subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=BASE_DIR.parent,
+            capture_output=True, text=True, check=False).stdout.strip() or None,
+        "tank_royale_commit": subprocess.run(
+            ["git", "rev-parse", "HEAD"], cwd=TANK_ROYALE_HOME,
+            capture_output=True, text=True, check=False).stdout.strip() or None,
+        "official_parameters": opts.rounds is None,
+        "threshold": opts.threshold,
+        "artifacts": {},
+    }
+    from parity_registry import sha256_file
+    for name in ("runner_jar", "bridge_api_jar", "wrapper_jar", "bot_api_jar"):
+        path = Path(getattr(opts, name))
+        manifest["artifacts"][name] = {"path": str(path), "sha256": sha256_file(path)}
+    if opts.registry_manifest:
+        supplied = json.loads(opts.registry_manifest.read_text(encoding="utf-8"))
+        manifest["supplied"] = supplied
+        manifest["bridge_commit"] = supplied.get("bridgeCommit", manifest["bridge_commit"])
+        manifest["tank_royale_commit"] = supplied.get("tankRoyaleCommit", manifest["tank_royale_commit"])
+        manifest["artifacts"] = supplied.get("artifactSha256", manifest["artifacts"])
+    return manifest
+
+
+def sync_parity_registry(state, opts):
+    registry = load_registry(PARITY_REGISTRY_FILE)
+    added = sync_state(registry, state, Path(opts.collection_dir), registry_manifest(opts))
+    save_registry(registry, PARITY_REGISTRY_FILE, PARITY_REGISTRY_REPORT)
+    return added
 
 
 # ----------------------------------------------------------------------------------
@@ -755,18 +808,18 @@ def evaluate(rc, tr, threshold, tr_skipped):
     if tr_skipped:
         return "SKIPPED-TR", None
     rc_ok, tr_ok = rc["ok"], tr["ok"]
+    errors = compare_errors(rc.get("error_signatures", []), tr.get("error_signatures", []))
+    equivalent_errors = not errors["classic_only"] and not errors["tank_royale_only"]
     if not rc_ok and not tr_ok:
-        return "FAIL (both)", None
-    if not rc_ok:
-        return "FAIL (RC)", None
-    if not tr_ok:
-        return "FAIL (TR)", None
+        return ("MATCHED (failure)" if equivalent_errors else "DISCREPANCY (outcome)"), None
+    if not rc_ok or not tr_ok:
+        return "DISCREPANCY (outcome)", None
 
     delta = None
     if rc["score"] and rc["score"] > 0 and tr["score"] is not None:
         delta = round((tr["score"] - rc["score"]) / rc["score"] * 100.0, 1)
 
-    if tr["error_count"] > 0 and rc["error_count"] == 0:
+    if not equivalent_errors:
         return "DISCREPANCY (errors)", delta
     if delta is not None and abs(delta) > threshold:
         return "DISCREPANCY (score)", delta
@@ -908,11 +961,17 @@ def discover_jars(opts):
     return jars
 
 
-def should_run(entry, opts):
+def should_run(entry, opts, registry=None, key=None):
     if entry is None or opts.force:
         return True
+    if opts.retry_unresolved and is_unresolved(entry.get("status", "")):
+        return True
+    if opts.retest_cause and registry is not None and key:
+        diagnosis = registry.get("subjects", {}).get(key, {}).get("diagnosis", {})
+        return (is_unresolved(entry.get("status", ""))
+                and diagnosis.get("cause") == opts.retest_cause)
     if opts.retry_failed:
-        return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS"))
+        return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS", "DISCREPANCY"))
     return False
 
 
@@ -962,11 +1021,22 @@ def parse_args():
     p.add_argument("--threshold", type=float, default=25.0,
                    help="score delta %% beyond which a robot is flagged as discrepancy")
     p.add_argument("--only", help="only test jars whose name contains this substring")
-    p.add_argument("--limit", type=int, help="stop after testing N robots this session")
+    p.add_argument("--limit", type=int, default=DEFAULT_BATCH_SIZE,
+                   help="stop after testing N subjects in this checkpoint")
     p.add_argument("--force", action="store_true",
                    help="re-run robots that already have results")
     p.add_argument("--retry-failed", action="store_true",
-                   help="re-run only robots whose previous status was FAIL/ERROR")
+                   help="re-run failed or discrepant robots (compatibility alias)")
+    p.add_argument("--retry-unresolved", action="store_true",
+                   help="re-run only currently unresolved parity cases")
+    p.add_argument("--retest-cause",
+                   help="re-run unresolved registry cases tagged with this diagnosis cause")
+    p.add_argument("--set-cause", nargs=3, metavar=("SUBJECT", "CAUSE", "OWNER"),
+                   help="tag a registry subject with its diagnosed cause and owner")
+    p.add_argument("--sync-registry", action="store_true",
+                   help="import checkpoint state into the tracked parity registry and exit")
+    p.add_argument("--registry-manifest", type=Path,
+                   help="JSON manifest for imported observations and local artifact pinning")
     p.add_argument("--report-only", action="store_true",
                    help="regenerate compatibility_report.md from the state file and exit")
     p.add_argument("--collection-dir", default=DEFAULTS["collection_dir"])
@@ -1049,8 +1119,10 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats):
     for attempt in range(repeats):
         attempts += 1
         rc = run_rc_battle(jar, classname, version, opts, setup)
+        attach_error_signatures(rc)
         tr = run_tr_battle(jar, classname, version, opts, setup,
                            rc_signatures=classic_signatures(rc))
+        attach_error_signatures(tr)
         if tr.get("aborted_on_bridge_only_error"):
             bridge_only = tr.get("bridge_only_signatures", [])
             break
@@ -1556,12 +1628,30 @@ def main():
         print(f"Report regenerated: {REPORT_FILE}")
         return 0
 
+    if opts.sync_registry:
+        added = sync_parity_registry(state, opts)
+        print(f"Parity registry synchronized: {added} observation(s) added.")
+        return 0
+
+    if opts.set_cause:
+        subject_key, cause, owner = opts.set_cause
+        registry = load_registry(PARITY_REGISTRY_FILE)
+        subject = registry.get("subjects", {}).get(subject_key)
+        if subject is None:
+            print(f"Registry subject not found: {subject_key}", file=sys.stderr)
+            return 2
+        subject["diagnosis"] = {"state": "diagnosed", "cause": cause, "owner": owner}
+        save_registry(registry, PARITY_REGISTRY_FILE, PARITY_REGISTRY_REPORT)
+        print(f"Tagged {subject_key} with cause {cause} ({owner}).")
+        return 0
+
     check_prerequisites(opts)
     WORK_DIR.mkdir(parents=True, exist_ok=True)
 
     jars = discover_jars(opts)
+    registry = load_registry(PARITY_REGISTRY_FILE)
     todo = [(c, j) for c, j in jars
-            if should_run(state["robots"].get(f"{c}/{j.name}"), opts)]
+            if should_run(state["robots"].get(f"{c}/{j.name}"), opts, registry, f"{c}/{j.name}")]
     print(f"Found {len(jars)} jars; {len(jars) - len(todo)} already tested, "
           f"{len(todo)} to test.")
 
@@ -1579,12 +1669,14 @@ def main():
 
             setup = division_setup(collection, opts)
             rc = run_rc_battle(jar, classname, version, opts, setup)
+            attach_error_signatures(rc)
             rc["has_log"] = write_error_log("robocode", robot_name, rc.pop("log_text", ""))
 
             # The classic side has already run, so its signatures are the baseline the
             # bridge side is judged against (C-004).
             tr = run_tr_battle(jar, classname, version, opts, setup,
                                rc_signatures=classic_signatures(rc))
+            attach_error_signatures(tr)
             tr["has_log"] = write_error_log("tank-royale", robot_name,
                                             tr.pop("log_text", ""))
 
@@ -1596,10 +1688,10 @@ def main():
                 "setup": setup,
                 "rc": {k: rc.get(k) for k in
                        ("ok", "score", "scores", "error_count", "elapsed",
-                        "errors", "has_log", "selected")},
+                        "errors", "error_signatures", "has_log", "selected")},
                 "tr": {k: tr.get(k) for k in
                        ("ok", "score", "scores", "error_count", "elapsed",
-                        "errors", "has_log", "skipped")},
+                        "errors", "error_signatures", "bridge_only_signatures", "has_log", "skipped")},
                 "completed_at": now_iso(),
             }
             save_state(state)
@@ -1616,10 +1708,12 @@ def main():
         print("\nInterrupted — progress saved. Re-run to resume.", file=sys.stderr)
         save_state(state)
         regenerate_report(state)
+        sync_parity_registry(state, opts)
         return 130
 
     save_state(state)
     regenerate_report(state)
+    sync_parity_registry(state, opts)
     elapsed_min = (time.time() - session_started) / 60
     print(f"\nDone. Tested {tested} robots in {elapsed_min:.1f} min. "
           f"Report: {REPORT_FILE}")

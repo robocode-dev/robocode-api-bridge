@@ -23,7 +23,7 @@ The relationship between this capability and its neighbours is therefore diagnos
 
 ## What it covers
 
-Score comparability per division at official parameters, the regression gate over a pinned watch list of bots that have diverged, and the rule that a bot throwing only under the bridge ends its battle immediately rather than producing a score.
+Pinned parity cases per jar or team at official parameters, the regression gate over a pinned watch list, and the rule that an error or completion mismatch is an unresolved case rather than a score. The tracked registry keeps every case's engine artifacts, observations, diagnosis, and repair retest.
 
 ## What it does not cover
 

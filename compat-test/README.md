@@ -11,6 +11,8 @@ bridge), then compares scores and errors.
 |---|---|
 | `compat_test.py` | Orchestrator: staging, checkpointing, error logs, report generation |
 | `regression-set.json` | The pinned watch list the regression gate measures against |
+| `parity-registry.json` | Tracked, append-only observations for every jar or team |
+| `parity-registry.md` | Generated review table for the parity registry |
 | `trace-robot/` | Robots that report their own state: `TraceRobot` for `--trace`, `TurnSignProbe` for settling a convention question by measurement |
 | `RcBattleWorker.java` | Single-file worker (run uncompiled) driving the classic Robocode Control API |
 | `TrBattleWorker.java` | Single-file worker (run uncompiled) driving the Tank Royale Battle Runner API |
@@ -70,11 +72,14 @@ incomparable with the rumble, so the report records the setup each row was measu
 
 ```bash
 cd compat-test
-python compat_test.py                          # test all collections, resume-aware
+python compat_test.py                          # run the next 25-subject checkpoint
 python compat_test.py --collections roborumble --limit 50
 python compat_test.py --only Waylander         # substring filter on jar name
 python compat_test.py --rounds 5               # override the official round count
 python compat_test.py --retry-failed           # re-run only FAIL/ERROR robots
+python compat_test.py --retry-unresolved        # re-run every unresolved parity case
+python compat_test.py --retest-cause lifecycle  # re-run unresolved cases tagged to one cause
+python compat_test.py --sync-registry --registry-manifest C:\path\to\run-manifest.json
 python compat_test.py --force                  # re-run everything
 python compat_test.py --report-only            # just regenerate the report
 ```
@@ -192,6 +197,8 @@ untested robot. Completed robots are never re-run unless `--force` (everything) 
 
 Full error details land in `errors/robocode/<robot>.log` and
 `errors/tank-royale/<robot>.log`; the master table is `compatibility_report.md`.
+
+`parity-registry.json` is the tracked evidence carrier. It appends each subject observation with its jar identity, setup, engine artifacts, normalized errors, and current diagnosis. `parity-registry.md` renders the current status of every subject for review. Import an existing checkpoint with `--sync-registry`; after a diagnosis, tag a case with `--set-cause <subject> <cause> <owner>` and rerun that cause with `--retest-cause <cause>`.
 
 **Every row states the setup it was measured at.** The report is regenerated from the state
 file long after the battles ran, so a single header describing the current configuration

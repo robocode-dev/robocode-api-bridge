@@ -133,6 +133,9 @@ events:
     - {id: TEAM-003, kind: numeric, state: live, prefix: TEAM, component: "3"}
     - {id: CH-014, kind: numeric, state: reserved, prefix: CH, component: "14"}
     - {id: CH-014, kind: numeric, state: live, prefix: CH, component: "14"}
+    - {id: PDR-003, kind: numeric, state: reserved, prefix: PDR, component: "3"}
+    - {id: HARN-001, kind: numeric, state: reserved, prefix: HARN, component: "1"}
+    - {id: PDR-003, kind: numeric, state: live, prefix: PDR, component: "3"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}
