@@ -530,6 +530,11 @@ claims:
       state: reserved
       prefix: PDR
       component: "2"
+    - id: PDR-003
+      kind: numeric
+      state: reserved
+      prefix: PDR
+      component: "3"
     - id: REH-001
       kind: numeric
       state: reserved
@@ -671,11 +676,11 @@ high-water:
       state: reserved
       prefix: CAP
       component: "8"
-    - id: CH-013
+    - id: CH-014
       kind: numeric
       state: reserved
       prefix: CH
-      component: "13"
+      component: "14"
     - id: CRIT-008
       kind: numeric
       state: reserved
