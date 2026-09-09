@@ -7,4 +7,5 @@ A goal artifact answers three questions: who wants it, what they want, and why i
 <!-- clue:index:start -->
 - [G-001 — Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode](G-001-legacy-robots-behave-the-same-on-tank-royale.md) · `accepted` — The people who wrote the robots, and the people who still compete with them.
 - [G-002 — Every test proves the criterion its name claims](G-002-conformance-evidence-proves-the-criterion-it-names.md) · `proposed` — Anyone reading the corpus to find out what is proven — a maintainer deciding whether a milestone can close, a reviewer deciding whether a criterion may leave `@draft`, the next agent picking up the…
+- [G-003 — Legacy robots are easy to obtain, wrap, and run on Tank Royale](G-003-legacy-robots-are-easy-to-obtain-wrap-and-run.md) · `proposed` — Everyone `G-001` promises fidelity to, once they try to actually reach it: newcomers trying the bridge for the first time, anyone running a personal or club rumble, and the project itself.
 <!-- clue:index:end -->

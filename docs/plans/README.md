@@ -10,4 +10,5 @@ Every full change proposal names the plan item it serves, or explicitly declares
 
 <!-- clue:index:start -->
 - [P-001 — Make the bridge's parity claims measurable, then close the gaps it measures](P-001-bridge-parity-campaign.md) · `active` — The campaign, sequenced so the instrument is built before the gaps it finds are closed.
+- [P-002 — Make the bridge buildable, distributable, and easy to point at real robots](P-002-build-distribution-and-bot-acquisition.md) · `draft` — `G-003` asks for an easy path from "I want to run legacy robots on Tank Royale" to "I have them running." This campaign is that path, sequenced so each milestone gives the next one something to build…
 <!-- clue:index:end -->

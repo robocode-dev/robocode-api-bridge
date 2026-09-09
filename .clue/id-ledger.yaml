@@ -140,6 +140,20 @@ events:
     - {id: OQ-005, kind: numeric, state: reserved, prefix: OQ, component: "5"}
     - {id: TASKS-007, kind: numeric, state: live, prefix: TASKS, component: "7"}
     - {id: OQ-005, kind: numeric, state: live, prefix: OQ, component: "5"}
+    - {id: CH-015, kind: numeric, state: reserved, prefix: CH, component: "15"}
+    - {id: G-003, kind: numeric, state: reserved, prefix: G, component: "3"}
+    - {id: P-002, kind: numeric, state: reserved, prefix: P, component: "2"}
+    - {id: M-001, kind: numeric, state: reserved, prefix: M, component: "1"}
+    - {id: M-002, kind: numeric, state: reserved, prefix: M, component: "2"}
+    - {id: M-003, kind: numeric, state: reserved, prefix: M, component: "3"}
+    - {id: M-004, kind: numeric, state: reserved, prefix: M, component: "4"}
+    - {id: G-003, kind: numeric, state: live, prefix: G, component: "3"}
+    - {id: P-002, kind: numeric, state: live, prefix: P, component: "2"}
+    - {id: CH-015, kind: numeric, state: live, prefix: CH, component: "15"}
+    - {id: TASKS-008, kind: numeric, state: reserved, prefix: TASKS, component: "8"}
+    - {id: OQ-006, kind: numeric, state: reserved, prefix: OQ, component: "6"}
+    - {id: TASKS-008, kind: numeric, state: live, prefix: TASKS, component: "8"}
+    - {id: OQ-006, kind: numeric, state: live, prefix: OQ, component: "6"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}
