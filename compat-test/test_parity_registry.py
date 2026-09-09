@@ -3,6 +3,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 
 
 MODULE = Path(__file__).with_name("parity_registry.py")
@@ -97,8 +98,7 @@ class ParityRegistryTest(unittest.TestCase):
             data = {"schema_version": 1, "subjects": {}}
             registry.sync_state(data, state, root, {"bridge_commit": "one"})
             jar.write_bytes(b"replacement")
-            state["robots"]["roborumble/a.Bot_1.0.jar"]["completed_at"] = "2026-09-10T00:00:00Z"
-            registry.sync_state(data, state, root, {"bridge_commit": "two"})
+            registry.sync_state(data, state, root, {"bridge_commit": "one"})
         observations = data["subjects"]["roborumble/a.Bot_1.0.jar"]["observations"]
         self.assertEqual(2, len(observations))
         self.assertNotEqual(observations[0]["source_identity"]["jar_sha256"],
@@ -132,6 +132,22 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertFalse(watcher(
             "java.lang.IllegalStateException: classic equivalent\n"
             "  at legacy.Bot.run(Bot.java:12)"))
+
+    def testC004_UnitPositive_ImmediateWorkerExitStillTriggersWatcher(self):
+        watcher = harness.BridgeOnlyErrorWatcher([], [])
+        returncode, output, timed_out = harness.run_java(
+            [sys.executable, "-c", "print('java.lang.IllegalStateException: failure\\n  at legacy.Bot.run(Bot.java:12)')"],
+            Path.cwd(), timeout=5, abort_when=watcher, poll_seconds=0.1)
+        self.assertEqual(-1, returncode)
+        self.assertFalse(timed_out)
+        self.assertTrue(watcher.triggered)
+        self.assertIn("IllegalStateException", output)
+
+    def testHARN001_UnitNegative_CauseRetestRequiresRepairAndKnownSelection(self):
+        missing_repair = SimpleNamespace(repair=None, retest_cause="lifecycle")
+        unknown_cause = SimpleNamespace(repair="abc123", retest_cause="lifecycle")
+        self.assertIn("requires --repair", harness.retest_option_error(missing_repair))
+        self.assertIn("No unresolved", harness.retest_option_error(unknown_cause, []))
 
 
 if __name__ == "__main__":

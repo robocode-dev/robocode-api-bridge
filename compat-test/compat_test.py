@@ -308,7 +308,12 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
             kill_process_tree(proc)
             return -1, collected() + "\n<stopped: exception with no classic counterpart>", False
         time.sleep(poll_seconds)
-    return proc.returncode, collected(), False
+    output = collected()
+    # A short-lived worker can write its final exception and exit between polls. Its
+    # output is still a bridge-only failure and must not leave a score in the result.
+    if abort_when(output):
+        return -1, output + "\n<stopped: exception with no classic counterpart>", False
+    return proc.returncode, output, False
 
 
 def _drain(stream, sink):
@@ -991,6 +996,17 @@ def should_run(entry, opts, registry=None, key=None):
     return False
 
 
+def retest_option_error(opts, todo=None):
+    """Return an actionable invalid-retetest message, or None when selection is valid."""
+    if opts.repair and not opts.retest_cause:
+        return "--repair requires --retest-cause so it can be linked to a diagnosis."
+    if opts.retest_cause and not opts.repair:
+        return "--retest-cause requires --repair to preserve repair evidence."
+    if todo is not None and opts.retest_cause and not todo:
+        return f"No unresolved registry subject is diagnosed with cause: {opts.retest_cause}"
+    return None
+
+
 def check_prerequisites(opts):
     problems = []
     for label, path in [
@@ -1633,8 +1649,9 @@ def division_setup(collection, opts):
 def main():
     opts = parse_args()
 
-    if opts.repair and not opts.retest_cause:
-        print("--repair requires --retest-cause so it can be linked to a diagnosis.", file=sys.stderr)
+    option_error = retest_option_error(opts)
+    if option_error:
+        print(option_error, file=sys.stderr)
         return 2
 
     if opts.conformance:
@@ -1677,6 +1694,10 @@ def main():
     registry = load_registry(PARITY_REGISTRY_FILE)
     todo = [(c, j) for c, j in jars
             if should_run(state["robots"].get(f"{c}/{j.name}"), opts, registry, f"{c}/{j.name}")]
+    option_error = retest_option_error(opts, todo)
+    if option_error:
+        print(option_error, file=sys.stderr)
+        return 2
     print(f"Found {len(jars)} jars; {len(jars) - len(todo)} already tested, "
           f"{len(todo)} to test.")
 

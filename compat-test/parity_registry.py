@@ -137,7 +137,8 @@ def _migrate_subject(subject: dict) -> None:
         add_diagnosis(subject, legacy["cause"], legacy.get("owner"), "migrated")
 
 
-def _same_observation(observation: dict, entry: dict, manifest: dict) -> bool:
+def _same_observation(observation: dict, entry: dict, manifest: dict,
+                      source_identity: dict) -> bool:
     """Recognize schema-1 observations whose ID predates per-observation identity."""
     return (
         observation.get("completed_at") == entry.get("completed_at")
@@ -149,6 +150,7 @@ def _same_observation(observation: dict, entry: dict, manifest: dict) -> bool:
         and observation.get("confirmation") == entry.get("confirmation")
         and observation.get("retest") == entry.get("retest")
         and observation.get("manifest") == manifest
+        and observation.get("source_identity") == source_identity
     )
 
 
@@ -168,7 +170,8 @@ def sync_state(registry: dict, state: dict, collection_dir: Path, manifest: dict
         for observation in subject["observations"]:
             observation.setdefault("source_identity", subject["identity"])
         oid = observation_id(key, entry, manifest, identity)
-        if any(observation["id"] == oid or _same_observation(observation, entry, manifest)
+        if any(observation["id"] == oid or _same_observation(
+                   observation, entry, manifest, identity)
                for observation in subject["observations"]):
             continue
         subject["observations"].append({
