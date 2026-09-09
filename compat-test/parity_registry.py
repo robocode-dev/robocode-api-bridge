@@ -9,7 +9,7 @@ from collections import Counter
 from pathlib import Path
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 EXCEPTION_RE = re.compile(r"\b((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error))\b")
 FRAME_RE = re.compile(r"^\s*at\s+([\w.$]+)\([^)]*\)", re.MULTILINE)
 FRAME_NOISE_PREFIXES = ("java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.")
@@ -84,8 +84,10 @@ def load_registry(path: Path) -> dict:
     return {"schema_version": SCHEMA_VERSION, "subjects": {}}
 
 
-def observation_id(key: str, entry: dict, manifest: dict) -> str:
-    payload = json.dumps({"key": key, "entry": entry, "manifest": manifest}, sort_keys=True)
+def observation_id(key: str, entry: dict, manifest: dict, source_identity: dict) -> str:
+    payload = json.dumps({
+        "key": key, "entry": entry, "manifest": manifest, "source_identity": source_identity,
+    }, sort_keys=True)
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 
@@ -102,18 +104,72 @@ def subject_identity(key: str, entry: dict, collection_dir: Path) -> dict:
     }
 
 
+def add_diagnosis(subject: dict, cause: str, owner: str, recorded_at: str) -> dict:
+    """Append an immutable diagnosis event; prior triage remains reviewable."""
+    events = subject.setdefault("diagnosis_events", [])
+    event = {
+        "id": f"diagnosis-{len(events) + 1}",
+        "cause": cause,
+        "owner": owner,
+        "recorded_at": recorded_at,
+    }
+    events.append(event)
+    return event
+
+
+def diagnosis_for_cause(subject: dict, cause: str) -> dict | None:
+    for event in reversed(subject.get("diagnosis_events", [])):
+        if event.get("cause") == cause:
+            return event
+    return None
+
+
+def latest_diagnosis(subject: dict) -> dict:
+    events = subject.get("diagnosis_events", [])
+    return events[-1] if events else {}
+
+
+def _migrate_subject(subject: dict) -> None:
+    """Make pre-event registry entries readable without losing their former triage."""
+    subject.setdefault("diagnosis_events", [])
+    legacy = subject.pop("diagnosis", None)
+    if legacy and legacy.get("cause"):
+        add_diagnosis(subject, legacy["cause"], legacy.get("owner"), "migrated")
+
+
+def _same_observation(observation: dict, entry: dict, manifest: dict) -> bool:
+    """Recognize schema-1 observations whose ID predates per-observation identity."""
+    return (
+        observation.get("completed_at") == entry.get("completed_at")
+        and observation.get("status") == entry.get("status")
+        and observation.get("delta_pct") == entry.get("delta_pct")
+        and observation.get("setup") == entry.get("setup")
+        and observation.get("classic") == entry.get("rc", {})
+        and observation.get("tank_royale") == entry.get("tr", {})
+        and observation.get("confirmation") == entry.get("confirmation")
+        and observation.get("retest") == entry.get("retest")
+        and observation.get("manifest") == manifest
+    )
+
+
 def sync_state(registry: dict, state: dict, collection_dir: Path, manifest: dict) -> int:
     """Append state observations without replacing earlier evidence."""
     added = 0
+    registry["schema_version"] = SCHEMA_VERSION
     subjects = registry.setdefault("subjects", {})
     for key, entry in sorted(state.get("robots", {}).items()):
+        identity = subject_identity(key, entry, collection_dir)
         subject = subjects.setdefault(key, {
-            "identity": subject_identity(key, entry, collection_dir),
-            "diagnosis": {"state": "untriaged", "cause": None, "owner": None},
+            "identity": identity,
+            "diagnosis_events": [],
             "observations": [],
         })
-        oid = observation_id(key, entry, manifest)
-        if any(observation["id"] == oid for observation in subject["observations"]):
+        _migrate_subject(subject)
+        for observation in subject["observations"]:
+            observation.setdefault("source_identity", subject["identity"])
+        oid = observation_id(key, entry, manifest, identity)
+        if any(observation["id"] == oid or _same_observation(observation, entry, manifest)
+               for observation in subject["observations"]):
             continue
         subject["observations"].append({
             "id": oid,
@@ -124,12 +180,15 @@ def sync_state(registry: dict, state: dict, collection_dir: Path, manifest: dict
             "classic": entry.get("rc", {}),
             "tank_royale": entry.get("tr", {}),
             "confirmation": entry.get("confirmation"),
+            "retest": entry.get("retest"),
+            "source_identity": identity,
             "manifest": manifest,
         })
         subject["latest_observation"] = oid
         subject["status"] = registry_status(entry.get("status", "unknown"))
         added += 1
     for subject in subjects.values():
+        _migrate_subject(subject)
         observations = subject.get("observations", [])
         if observations:
             subject["status"] = registry_status(observations[-1].get("status", "unknown"))
@@ -159,7 +218,7 @@ def render_markdown(registry: dict) -> str:
     ])
     for key, subject in sorted(subjects.items()):
         identity = subject["identity"]
-        diagnosis = subject.get("diagnosis", {})
+        diagnosis = latest_diagnosis(subject)
         lines.append(
             f"| {key} | {identity['division']} | {identity['kind']} | {subject.get('status', 'unknown')} | "
             f"{subject.get('latest_observation', '-')} | {diagnosis.get('cause') or '-'} | {diagnosis.get('owner') or '-'} |"

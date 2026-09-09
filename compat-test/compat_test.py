@@ -39,7 +39,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from parity_registry import (
+    add_diagnosis,
     compare_errors,
+    diagnosis_for_cause,
     error_signatures,
     is_unresolved,
     load_registry,
@@ -302,7 +304,7 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         if time.time() > deadline:
             kill_process_tree(proc)
             return -1, collected() + "\n<killed: orchestrator timeout>", True
-        if abort_when():
+        if abort_when("".join(chunks)):
             kill_process_tree(proc)
             return -1, collected() + "\n<stopped: exception with no classic counterpart>", False
         time.sleep(poll_seconds)
@@ -338,13 +340,23 @@ class BridgeOnlyErrorWatcher:
         self.found = set()
         self.triggered = False
 
-    def __call__(self):
+    def __call__(self, worker_output=""):
+        """Check both bot logs and runner/worker output received so far.
+
+        Runner output arrives through ``run_java`` while the process is live. Looking at
+        it here gives C-004 the same fail-fast behavior for exceptions reported by the
+        runner or worker as for exceptions written by a staged bot.
+        """
         for d in self.bot_dirs:
             for log_name in ("stderr.log", "stdout.log"):
                 for signature in error_signatures([], read_capped(d / log_name)):
                     key = (signature["exception"], signature["origin"])
                     if key not in self.rc_signatures:
                         self.found.add(key)
+        for signature in error_signatures([], worker_output):
+            key = (signature["exception"], signature["origin"])
+            if key not in self.rc_signatures:
+                self.found.add(key)
         self.triggered = bool(self.found)
         return self.triggered
 
@@ -970,9 +982,10 @@ def should_run(entry, opts, registry=None, key=None):
     if opts.confirm_score and entry.get("status") == "DISCREPANCY (score)":
         return True
     if opts.retest_cause and registry is not None and key:
-        diagnosis = registry.get("subjects", {}).get(key, {}).get("diagnosis", {})
+        diagnosis = diagnosis_for_cause(registry.get("subjects", {}).get(key, {}),
+                                        opts.retest_cause)
         return (is_unresolved(entry.get("status", ""))
-                and diagnosis.get("cause") == opts.retest_cause)
+                and diagnosis is not None)
     if opts.retry_failed:
         return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS", "DISCREPANCY"))
     return False
@@ -1036,6 +1049,8 @@ def parse_args():
                    help="run five official repeats for score-review cases")
     p.add_argument("--retest-cause",
                    help="re-run unresolved registry cases tagged with this diagnosis cause")
+    p.add_argument("--repair",
+                   help="repair reference recorded on observations made by --retest-cause")
     p.add_argument("--set-cause", nargs=3, metavar=("SUBJECT", "CAUSE", "OWNER"),
                    help="tag a registry subject with its diagnosed cause and owner")
     p.add_argument("--sync-registry", action="store_true",
@@ -1618,6 +1633,10 @@ def division_setup(collection, opts):
 def main():
     opts = parse_args()
 
+    if opts.repair and not opts.retest_cause:
+        print("--repair requires --retest-cause so it can be linked to a diagnosis.", file=sys.stderr)
+        return 2
+
     if opts.conformance:
         return run_conformance(opts)
     if opts.regression:
@@ -1646,7 +1665,7 @@ def main():
         if subject is None:
             print(f"Registry subject not found: {subject_key}", file=sys.stderr)
             return 2
-        subject["diagnosis"] = {"state": "diagnosed", "cause": cause, "owner": owner}
+        add_diagnosis(subject, cause, owner, now_iso())
         save_registry(registry, PARITY_REGISTRY_FILE, PARITY_REGISTRY_REPORT)
         print(f"Tagged {subject_key} with cause {cause} ({owner}).")
         return 0
@@ -1674,6 +1693,12 @@ def main():
             print(f"{index} {key} ...", flush=True)
 
             setup = division_setup(collection, opts)
+            diagnosis = diagnosis_for_cause(
+                registry.get("subjects", {}).get(key, {}), opts.retest_cause) \
+                if opts.retest_cause else None
+            retest = ({"cause": diagnosis["cause"], "owner": diagnosis.get("owner"),
+                       "diagnosis_id": diagnosis["id"], "repair": opts.repair}
+                      if diagnosis else None)
             if opts.confirm_score:
                 measured = measure_repeatedly(jar, classname, version, opts, setup, REGRESSION_REPEATS)
                 if measured["bridge_only_signatures"]:
@@ -1694,6 +1719,8 @@ def main():
                     "confirmation": measured,
                     "completed_at": now_iso(),
                 }
+                if retest:
+                    state["robots"][key]["retest"] = retest
                 save_state(state)
                 regenerate_report(state)
                 tested += 1
@@ -1725,6 +1752,8 @@ def main():
                         "errors", "error_signatures", "bridge_only_signatures", "has_log", "skipped")},
                 "completed_at": now_iso(),
             }
+            if retest:
+                state["robots"][key]["retest"] = retest
             save_state(state)
             regenerate_report(state)
             tested += 1
