@@ -540,6 +540,11 @@ claims:
       state: reserved
       prefix: P
       component: "1"
+    - id: P-002
+      kind: numeric
+      state: reserved
+      prefix: P
+      component: "2"
     - id: PDR-001
       kind: numeric
       state: reserved
@@ -726,11 +731,11 @@ high-water:
       state: reserved
       prefix: FIO
       component: "4"
-    - id: G-002
+    - id: G-003
       kind: numeric
       state: reserved
       prefix: G
-      component: "2"
+      component: "3"
     - id: HARN-001
       kind: numeric
       state: reserved
