@@ -18,7 +18,7 @@ permissions:
 jobs:
   validate:
     name: validate
-    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@v0.24.1
+    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@d98485188b0ae1505892bfdd2cafc22f8e890611
     with:
       runner: '["ubuntu-latest"]'
       clue-version: 0.24.1
