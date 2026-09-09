@@ -1,3 +1,11 @@
+---
+id: TASKS-008
+type: tasks
+status: open
+links: [CH-015]
+title: Tasks for CH-015 — Record the build/distribution/guide/downloader idea as a plan
+---
+
 # Tasks
 
 - [x] Check `clue validate --intent` for a stated corpus vision before proposing new goal/plan content

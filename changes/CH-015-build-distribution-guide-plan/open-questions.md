@@ -1,3 +1,11 @@
+---
+id: OQ-006
+type: open-questions
+status: open
+links: [CH-015]
+title: Open questions for CH-015 — Record the build/distribution/guide/downloader idea as a plan
+---
+
 # Open questions
 
 ## Milestone-ID (`M-xxx`) ledger gap

@@ -1,5 +1,9 @@
 ---
+id: CH-015
+type: change
+status: open
 links: [G-003]
+title: Record the build/distribution/guide/downloader idea as a plan
 ---
 
 # CH-015 — Record the build/distribution/guide/downloader idea as a plan
