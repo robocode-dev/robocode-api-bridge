@@ -455,6 +455,11 @@ claims:
       state: reserved
       prefix: G
       component: "2"
+    - id: HARN-001
+      kind: numeric
+      state: reserved
+      prefix: HARN
+      component: "1"
     - id: IDR-001
       kind: numeric
       state: reserved
@@ -721,11 +726,11 @@ high-water:
       state: reserved
       prefix: P
       component: "1"
-    - id: PDR-002
+    - id: PDR-003
       kind: numeric
       state: reserved
       prefix: PDR
-      component: "2"
+      component: "3"
     - id: REH-001
       kind: numeric
       state: reserved
