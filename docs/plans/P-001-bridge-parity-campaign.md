@@ -30,7 +30,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | done |
 | M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | done |
 | M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | done |
-| M-006 | full sweep across all three divisions | A sweep at official parameters has run across the one-versus-one, melee, and team collections, and its report is the baseline the regression watch list is measured against. | todo |
+| M-006 | versioned parity campaign across all three divisions | Every discoverable robot jar and team has a pinned, official-parameter parity case against classic Robocode. Every asymmetric outcome, error, hang, and confirmed score gap is diagnosed and retested after its repair; the tracked registry contains no unresolved bridge or Tank Royale discrepancy. | todo |
 
 ## Evidence doors
 
@@ -92,7 +92,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 
 `M-005` is last of the implementation milestones because it is the only one that is greenfield rather than a repair, and because the team division is the smallest. Its mapping decision is resolved (`AN-013`, `ADR-002`), the wrapper/peer groundwork landed in `CH-010`, and `CH-011` closes the exit criterion by running grouped team entries through both engines. `TEAM-002` remains an evidence door for the protocol's unresolved classic-name versus Tank-Royale-id identity difference; that does not reopen the milestone's narrower runnable-team criterion.
 
-`M-006` closes the campaign by producing the baseline everything afterwards is measured against. It is deliberately not first: sweeping at official parameters before the foundation exists would produce another set of numbers nobody can act on.
+`M-006` closes the campaign by keeping a versioned parity case for every collection subject and resolving the cases that differ. It is deliberately not first: sweeping at official parameters before the foundation exists would produce another set of numbers nobody can act on.
 
 ## What would change this plan
 

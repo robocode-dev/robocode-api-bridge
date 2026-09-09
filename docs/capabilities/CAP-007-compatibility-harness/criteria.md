@@ -64,10 +64,10 @@ Feature: The compatibility harness
   @HARN-006 @draft
   Scenario: A Tank-Royale-only exception aborts the battle at once
     Test-type: Integration
-    Given a classic run that produced a known set of exception signatures
-    When the Tank Royale run emits a signature not in that set
+    Given a classic run that produced a known set of normalized exception signatures
+    When the Tank Royale run emits a class-and-legacy-origin signature not in that set
     Then the battle is stopped at that point and the signature is recorded
-    # The rule C-004 states. Does not exist. Plan door: M-001.
+    # The rule C-004 states. A signature is exception class plus the first legacy callback or application frame. Plan door: M-001.
 
   @HARN-007 @draft
   Scenario: Each division runs at its official parameters

@@ -55,4 +55,5 @@ Each folder below holds one kind of record. A full change (the `clue-delta` loop
 - [decisions/](decisions/README.md) — ADR-xxx, PDR-xxx, and IDR-xxx future-shaping choices
 - [constraints/](constraints/README.md) — C-xxx: laws, licenses, policies, and verifiable quality bars you must not break
 - [analysis/](analysis/README.md) — spike findings, extraction reports
+- [use-cases/](use-cases/README.md)
 <!-- clue:index:end -->

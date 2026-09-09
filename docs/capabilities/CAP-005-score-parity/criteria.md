@@ -40,10 +40,11 @@ Feature: Score parity across the rumble collections
   @SCORE-003 @draft
   Scenario: A bot that throws only under the bridge stops its battle
     Test-type: Integration
-    Given a bot whose classic run produced a known set of exception signatures
-    When the Tank Royale run produces a signature the classic run did not
+    Given a bot whose classic run produced a known set of normalized exception signatures
+    When the Tank Royale run produces a class-and-legacy-origin signature the classic run did not
     Then the battle is stopped at that point and the signature is recorded
     And no score is reported for that pairing
+    # A signature is exception class plus the first legacy callback or application frame.
     # Decided against the classic baseline, so this is a verdict rather than a judgment.
     # Draft only because the harness is Python — see AN-003. Plan door: M-001.
 

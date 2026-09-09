@@ -23,7 +23,7 @@ An instrument whose failures are indistinguishable from findings needs promises 
 
 ## What it covers
 
-Staging a robot for each engine without modifying it, running the battle at the division's official parameters, surviving robots that hang or crash, checkpointing so a multi-hour sweep can be interrupted and resumed, classifying each result, averaging repeats for a regression verdict, stopping a battle on a Tank-Royale-only exception, and emitting per-turn traces for diagnosis.
+Staging a robot for each engine without modifying it, running the battle at the division's official parameters, surviving robots that hang or crash, checkpointing so a multi-hour sweep can be interrupted and resumed, classifying each result, maintaining the tracked parity registry, averaging repeats for a regression verdict, stopping Tank Royale score collection on an asymmetric error, and emitting per-turn traces for diagnosis.
 
 ## What it does not cover
 
