@@ -15,7 +15,7 @@ FRAME_RE = re.compile(r"^\s*at\s+([\w.$]+)\([^)]*\)", re.MULTILINE)
 FRAME_NOISE_PREFIXES = ("java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.")
 UNRESOLVED_STATUSES = frozenset((
     "DISCREPANCY (errors)", "DISCREPANCY (score)", "DISCREPANCY (no score)",
-    "DISCREPANCY (outcome)", "FAIL (RC)", "FAIL (TR)", "FAIL (both)",
+    "DISCREPANCY (outcome)", "CONFIRMED (score)", "FAIL (RC)", "FAIL (TR)", "FAIL (both)",
 ))
 
 
@@ -70,6 +70,14 @@ def is_unresolved(status: str) -> bool:
     return status in UNRESOLVED_STATUSES
 
 
+def registry_status(status: str) -> str:
+    return "score-review" if status == "DISCREPANCY (score)" else status
+
+
+def score_gap_confirmed(deltas: list[float], threshold: float, repeats: int = 5) -> bool:
+    return len(deltas) >= repeats and abs(sum(deltas) / len(deltas)) > threshold
+
+
 def load_registry(path: Path) -> dict:
     if path.exists():
         return json.loads(path.read_text(encoding="utf-8"))
@@ -115,11 +123,16 @@ def sync_state(registry: dict, state: dict, collection_dir: Path, manifest: dict
             "setup": entry.get("setup"),
             "classic": entry.get("rc", {}),
             "tank_royale": entry.get("tr", {}),
+            "confirmation": entry.get("confirmation"),
             "manifest": manifest,
         })
         subject["latest_observation"] = oid
-        subject["status"] = entry.get("status")
+        subject["status"] = registry_status(entry.get("status", "unknown"))
         added += 1
+    for subject in subjects.values():
+        observations = subject.get("observations", [])
+        if observations:
+            subject["status"] = registry_status(observations[-1].get("status", "unknown"))
     return added
 
 

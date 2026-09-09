@@ -45,6 +45,13 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertTrue(registry.is_unresolved("DISCREPANCY (score)"))
         self.assertFalse(registry.is_unresolved("PASS"))
 
+    def testSCORE002_UnitPositive_FiveRepeatedScoreGapsAreConfirmed(self):
+        self.assertTrue(registry.score_gap_confirmed([20.0, 21.0, 22.0, 19.0, 20.0], 15.0))
+
+    def testSCORE002_UnitNegative_InsufficientOrSmallSamplesStayInReview(self):
+        self.assertFalse(registry.score_gap_confirmed([30.0, 30.0, 30.0, 30.0], 15.0))
+        self.assertFalse(registry.score_gap_confirmed([2.0, 3.0, 4.0, 2.0, 3.0], 15.0))
+
     def testHARN001_UnitPositive_TeamIdentityIncludesItsJarDigest(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

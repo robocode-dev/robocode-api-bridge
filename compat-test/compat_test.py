@@ -44,6 +44,7 @@ from parity_registry import (
     is_unresolved,
     load_registry,
     save_registry,
+    score_gap_confirmed,
     signature_keys,
     sync_state,
 )
@@ -966,6 +967,8 @@ def should_run(entry, opts, registry=None, key=None):
         return True
     if opts.retry_unresolved and is_unresolved(entry.get("status", "")):
         return True
+    if opts.confirm_score and entry.get("status") == "DISCREPANCY (score)":
+        return True
     if opts.retest_cause and registry is not None and key:
         diagnosis = registry.get("subjects", {}).get(key, {}).get("diagnosis", {})
         return (is_unresolved(entry.get("status", ""))
@@ -1029,6 +1032,8 @@ def parse_args():
                    help="re-run failed or discrepant robots (compatibility alias)")
     p.add_argument("--retry-unresolved", action="store_true",
                    help="re-run only currently unresolved parity cases")
+    p.add_argument("--confirm-score", action="store_true",
+                   help="run five official repeats for score-review cases")
     p.add_argument("--retest-cause",
                    help="re-run unresolved registry cases tagged with this diagnosis cause")
     p.add_argument("--set-cause", nargs=3, metavar=("SUBJECT", "CAUSE", "OWNER"),
@@ -1139,6 +1144,7 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats):
     return {
         "rc_mean": mean(rc_scores), "tr_mean": mean(tr_scores),
         "delta_mean": mean(deltas), "samples": len(deltas), "attempts": attempts,
+        "deltas": deltas,
         "bridge_only_signatures": bridge_only,
     }
 
@@ -1668,6 +1674,31 @@ def main():
             print(f"{index} {key} ...", flush=True)
 
             setup = division_setup(collection, opts)
+            if opts.confirm_score:
+                measured = measure_repeatedly(jar, classname, version, opts, setup, REGRESSION_REPEATS)
+                if measured["bridge_only_signatures"]:
+                    status = "DISCREPANCY (errors)"
+                elif measured["samples"] < REGRESSION_REPEATS:
+                    status = "DISCREPANCY (outcome)"
+                elif score_gap_confirmed(measured["deltas"], REGRESSION_BAND_POINTS):
+                    status = "CONFIRMED (score)"
+                else:
+                    status = "MATCHED (score noise)"
+                state["robots"][key] = {
+                    "status": status,
+                    "delta_pct": measured["delta_mean"],
+                    "division": collection,
+                    "setup": setup,
+                    "rc": {"ok": measured["samples"] == REGRESSION_REPEATS, "score": measured["rc_mean"], "errors": []},
+                    "tr": {"ok": measured["samples"] == REGRESSION_REPEATS, "score": measured["tr_mean"], "errors": []},
+                    "confirmation": measured,
+                    "completed_at": now_iso(),
+                }
+                save_state(state)
+                regenerate_report(state)
+                tested += 1
+                print(f"    confirmation delta={measured['delta_mean']!s} -> {status}", flush=True)
+                continue
             rc = run_rc_battle(jar, classname, version, opts, setup)
             attach_error_signatures(rc)
             rc["has_log"] = write_error_log("robocode", robot_name, rc.pop("log_text", ""))
