@@ -510,6 +510,11 @@ claims:
       state: reserved
       prefix: IDR
       component: "8"
+    - id: M-001
+      kind: numeric
+      state: reserved
+      prefix: M
+      component: "1"
     - id: OQ-001
       kind: numeric
       state: reserved
@@ -751,11 +756,11 @@ high-water:
       state: reserved
       prefix: OQ
       component: "5"
-    - id: P-001
+    - id: P-002
       kind: numeric
       state: reserved
       prefix: P
-      component: "1"
+      component: "2"
     - id: PDR-003
       kind: numeric
       state: reserved
