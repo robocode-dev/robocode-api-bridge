@@ -462,8 +462,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchRobotCallback(Runnable callback) {
         try {
             callback.run();
-        } catch (RuntimeException exception) {
-            if (isLateCallbackWithoutCurrentTick(exception)) {
+        } catch (Exception exception) {
+            if (exception instanceof RuntimeException
+                    && isLateCallbackWithoutCurrentTick((RuntimeException) exception)) {
                 return;
             }
             exception.printStackTrace();
