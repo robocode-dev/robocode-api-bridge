@@ -1,8 +1,8 @@
 ---
 id: CH-016
 type: change
-status: proposed
-links: [P-001#M-006]
+status: open
+links: [P-001]
 title: Complete the all-division versioned parity campaign
 ---
 

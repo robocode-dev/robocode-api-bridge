@@ -156,6 +156,12 @@ events:
     - {id: OQ-006, kind: numeric, state: live, prefix: OQ, component: "6"}
     - {id: CH-016, kind: numeric, state: reserved, prefix: CH, component: "16"}
     - {id: PDR-004, kind: numeric, state: reserved, prefix: PDR, component: "4"}
+    - {id: OQ-007, kind: numeric, state: reserved, prefix: OQ, component: "7"}
+    - {id: TASKS-009, kind: numeric, state: reserved, prefix: TASKS, component: "9"}
+    - {id: PDR-004, kind: numeric, state: live, prefix: PDR, component: "4"}
+    - {id: TASKS-009, kind: numeric, state: live, prefix: TASKS, component: "9"}
+    - {id: OQ-007, kind: numeric, state: live, prefix: OQ, component: "7"}
+    - {id: CH-016, kind: numeric, state: live, prefix: CH, component: "16"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}
@@ -177,3 +183,4 @@ high-water:
     - {id: ROUTE-012, kind: numeric, state: reserved, prefix: ROUTE, component: "12"}
     - {id: TASKS-006, kind: numeric, state: reserved, prefix: TASKS, component: "6"}
     - {id: TEAM-003, kind: numeric, state: reserved, prefix: TEAM, component: "3"}
+    - {id: OQ-007, kind: numeric, state: reserved, prefix: OQ, component: "7"}
