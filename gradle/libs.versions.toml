@@ -1,0 +1,17 @@
+[versions]
+bcel = "6.10.0"
+ben-manes-versions = "0.52.0"
+junit = "5.11.4"
+kotlin = "2.1.0"
+tank-royale-bot-api = "1.0.2"
+
+[libraries]
+bcel = { module = "org.apache.bcel:bcel", version.ref = "bcel" }
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+tank-royale-bot-api = { module = "dev.robocode.tankroyale:robocode-tankroyale-bot-api", version.ref = "tank-royale-bot-api" }
+
+[plugins]
+ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

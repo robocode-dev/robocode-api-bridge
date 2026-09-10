@@ -1,13 +1,14 @@
 plugins {
     java
     idea
-    id("com.github.ben-manes.versions") version "0.52.0"  // ./gradlew dependencyUpdates
+    alias(libs.plugins.ben.manes.versions)  // ./gradlew dependencyUpdates
 }
 
 group = "dev.robocode"
 version = "0.5.0"
 
-val tankRoyaleBotApiVersion = providers.gradleProperty("tankRoyaleBotApiVersion").orElse("1.0.2")
+val tankRoyaleBotApiVersion = providers.gradleProperty("tankRoyaleBotApiVersion")
+    .orElse(libs.versions.tank.royale.bot.api)
 
 repositories {
     // CI resolves the published default. A live conformance run overrides its version with a
@@ -17,18 +18,23 @@ repositories {
 }
 
 dependencies {
-   implementation("dev.robocode.tankroyale:robocode-tankroyale-bot-api:${tankRoyaleBotApiVersion.get()}")
+   implementation(libs.tank.royale.bot.api) {
+       version {
+           require(tankRoyaleBotApiVersion.get())
+       }
+   }
 
    // Tier 1 of the evidence strategy (PDR-001): unit tests over the adapter's value
    // conversions. No engine, so this is the only tier that runs in CI.
-   testImplementation(platform("org.junit:junit-bom:5.11.4"))
-   testImplementation("org.junit.jupiter:junit-jupiter")
-   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+   testImplementation(platform(libs.junit.bom))
+   testImplementation(libs.junit.jupiter)
+   testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = sourceCompatibility
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 tasks {

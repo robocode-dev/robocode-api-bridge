@@ -1,7 +1,7 @@
 plugins {
     java
     idea
-    id("com.github.ben-manes.versions") version "0.52.0"  // ./gradlew dependencyUpdates
+    alias(libs.plugins.ben.manes.versions)  // ./gradlew dependencyUpdates
 }
 
 group = "dev.robocode"
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     implementation(project(":robocode-api"))
-    implementation("org.apache.bcel:bcel:6.10.0")
+    implementation(libs.bcel)
 }
 
 java {

@@ -1,6 +1,6 @@
 plugins {
     java
-    kotlin("jvm") version "2.1.0" apply false
+    alias(libs.plugins.kotlin.jvm) apply false
 }
 
 allprojects {
