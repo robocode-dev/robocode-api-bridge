@@ -12,7 +12,9 @@ from pathlib import Path
 SCHEMA_VERSION = 2
 EXCEPTION_RE = re.compile(r"\b((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error))\b")
 FRAME_RE = re.compile(r"^\s*at\s+([\w.$]+)\([^)]*\)", re.MULTILINE)
-FRAME_NOISE_PREFIXES = ("java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.")
+FRAME_NOISE_PREFIXES = (
+    "java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.", "net.sf.robocode."
+)
 UNRESOLVED_STATUSES = frozenset((
     "DISCREPANCY (errors)", "DISCREPANCY (score)", "DISCREPANCY (no score)",
     "DISCREPANCY (outcome)", "CONFIRMED (score)", "FAIL (RC)", "FAIL (TR)", "FAIL (both)",

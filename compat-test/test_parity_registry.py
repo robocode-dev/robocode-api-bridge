@@ -28,6 +28,18 @@ class ParityRegistryTest(unittest.TestCase):
             signatures,
         )
 
+    def testHARN003_UnitPositive_EngineFramesDoNotObscureLegacyOrigin(self):
+        signatures = registry.error_signatures([
+            "java.lang.SecurityException: stream limit\n"
+            "  at net.sf.robocode.host.io.RobotFileSystemManager.addStream(RobotFileSystemManager.java:66)\n"
+            "  at robocode.RobocodeFileOutputStream.<init>(RobocodeFileOutputStream.java:80)\n"
+            "  at amk.ChumbaMini.saveData(ChumbaMini.java:186)"
+        ])
+        self.assertEqual(
+            [{"exception": "java.lang.SecurityException", "origin": "amk.ChumbaMini.saveData"}],
+            signatures,
+        )
+
     def testHARN003_UnitNegative_SameExceptionFromDifferentCallbackIsDifferent(self):
         classic = [{"exception": "java.lang.NullPointerException", "origin": "legacy.Bot.run"}]
         tank = [{"exception": "java.lang.NullPointerException", "origin": "legacy.Bot.onScannedRobot"}]
