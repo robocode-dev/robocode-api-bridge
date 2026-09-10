@@ -6,24 +6,24 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 6 |
+| DISCREPANCY (errors) | 7 |
 | DISCREPANCY (no score) | 4 |
-| DISCREPANCY (outcome) | 24 |
+| DISCREPANCY (outcome) | 27 |
 | FAIL (TR) | 19 |
-| PASS | 142 |
-| score-review | 73 |
+| PASS | 144 |
+| score-review | 76 |
 
 ## Subjects
 
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
-| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | 6cf4c2d19c345143 | - | - |
-| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 2115684f4d962d9f | - | - |
-| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | f95bfc9918004475 | - | - |
-| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c6695ddb17617bb4 | - | - |
-| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 7460f20076ea744b | - | - |
-| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | eef5b7d7bdb75225 | - | - |
-| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 71fac4e736d00d6a | - | - |
+| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | e0a29e04464c6d4e | - | - |
+| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | c6707357d400ef93 | - | - |
+| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 546b017e243fd47d | - | - |
+| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 1d4b6c55b86bb735 | - | - |
+| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | b1a31739d743463f | - | - |
+| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | 0907bedad4f5a9a3 | - | - |
+| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | f470feb030782f0b | - | - |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | c64fb0b475ea6e81 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | FAIL (TR) | 30ccf919e98128fe | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | e10ba12633f28ccf | - | - |
@@ -250,38 +250,47 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | score-review | 78bba33b96e662cd | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | fc65e7d5693090d9 | - | - |
 | roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | score-review | 38ab74151e9be2ed | - | - |
-| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | c14679f4a43c88ef | - | - |
-| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | ee5f82ddcaac0c5c | - | - |
-| teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | fc0c07714d0f28a3 | - | - |
-| teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | fe2369dad2052b2f | - | - |
-| teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 9eeae095a857f90f | - | - |
-| teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | 18ea76a0eed2eead | - | - |
-| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | f962e073a18c7e50 | - | - |
-| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 12cbd735a868476e | - | - |
-| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 1ec521ee39d14aad | - | - |
-| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | DISCREPANCY (outcome) | bf521d0c5817a72b | - | - |
-| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | c3a58718e56d363d | - | - |
-| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | b7d7ca8dcf279442 | - | - |
-| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | DISCREPANCY (outcome) | 90a5bc9d5f152daf | - | - |
-| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | d6ae13f13de6797a | - | - |
-| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | DISCREPANCY (outcome) | f937b259781db762 | - | - |
-| teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | 6cd48d17deba947a | - | - |
-| teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | c92db8c9ab4cbcc9 | - | - |
-| teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | 7f2c986d28686060 | - | - |
-| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | 79fde80a0cb06b2c | - | - |
-| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | f6e185e86cbd49f9 | - | - |
-| teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | DISCREPANCY (outcome) | 44e200b13f7f22c0 | - | - |
-| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | d9bc45d197e1688b | - | - |
-| teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 71234694015ed347 | - | - |
-| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | d453db495a55c6bd | - | - |
-| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 58b9560ee5085401 | - | - |
-| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | DISCREPANCY (outcome) | 156cd08601a31dc1 | - | - |
-| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | d0f6861f9e7b42a0 | - | - |
-| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | DISCREPANCY (outcome) | 0fb44df8b99ef28b | - | - |
-| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | DISCREPANCY (outcome) | acfed8908786a539 | - | - |
-| teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | 420d9502974cb17b | - | - |
-| teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | DISCREPANCY (outcome) | 3231c2d20f30a8a5 | - | - |
-| teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | score-review | a425600aed1d323c | - | - |
-| teamrumble/pedersen.ImWithDroidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | 09d91a66a88e9574 | - | - |
-| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | 8c0a114d4d8a9eb3 | - | - |
-| teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 5ab192b4e2debead | - | - |
+| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | a2214acb17530f6d | - | - |
+| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 621342f2771ddacb | - | - |
+| teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 64049a996e313a63 | - | - |
+| teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | 4e7f81140450983a | - | - |
+| teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 73852bba225c42d2 | - | - |
+| teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | 888541f857bc39f4 | - | - |
+| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | b9121bf99dd1e4ae | - | - |
+| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c931c860939d31b0 | - | - |
+| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 4b955255430a44ae | - | - |
+| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | DISCREPANCY (outcome) | 3d1cb084bd898692 | - | - |
+| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 0761a5f0cf7dfbe5 | - | - |
+| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 280c3eef33c74cc5 | - | - |
+| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | DISCREPANCY (outcome) | 90ed28c0882943e4 | - | - |
+| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 57654501fe75042c | - | - |
+| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | DISCREPANCY (outcome) | e753019f6ee477ff | - | - |
+| teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | f9ea99b608005b9a | - | - |
+| teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | 3e4975f5215fcef2 | - | - |
+| teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | 5dc0d3b6f1aa0bc4 | - | - |
+| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | c90ad2d22d2b7b27 | - | - |
+| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 2411e4301d50ead1 | - | - |
+| teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | DISCREPANCY (outcome) | 12c2c27207245f4c | - | - |
+| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | 7fc1bc247c54eda1 | - | - |
+| teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | fb50b7444d4f2c49 | - | - |
+| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 5b6c5000f3478cf4 | - | - |
+| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 903bb0aeb66d163d | - | - |
+| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | DISCREPANCY (outcome) | c68bfae4704d4bf0 | - | - |
+| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | d29d6a0debbd29c2 | - | - |
+| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | DISCREPANCY (outcome) | 4d282934cb763b77 | - | - |
+| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | DISCREPANCY (outcome) | 698382c8953f7999 | - | - |
+| teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | 152489d912fdd514 | - | - |
+| teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | DISCREPANCY (outcome) | 854f9269abbb450b | - | - |
+| teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | score-review | 15718ab6fb1ac2c5 | - | - |
+| teamrumble/pedersen.ImWithDroidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | 3fc8888d1fae92d6 | - | - |
+| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | c4eab65d48ec8a3d | - | - |
+| teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 84403713dae6b4bf | - | - |
+| teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | DISCREPANCY (outcome) | fc22fe86839140ae | - | - |
+| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | score-review | 89a1c6c94ef786b9 | - | - |
+| teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | score-review | 043367d4ce51583d | - | - |
+| teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | a37554eed40145c3 | - | - |
+| teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | ad6115e81df3d292 | - | - |
+| teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | score-review | 892508ab4d4d1790 | - | - |
+| teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (errors) | 0fd0a4a6bfc2c29c | - | - |
+| teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | DISCREPANCY (outcome) | 500d43c9552ce3c9 | - | - |
+| teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | DISCREPANCY (outcome) | de12e10d04aad56d | - | - |
