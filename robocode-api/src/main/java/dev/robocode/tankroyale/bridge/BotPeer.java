@@ -16,6 +16,7 @@ import robocode.robotinterfaces.peer.ITeamRobotPeer;
 import java.awt.*;
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 import java.util.List;
@@ -951,13 +952,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     @Override
-    public void broadcastMessage(Serializable message) {
+    public void broadcastMessage(Serializable message) throws IOException {
         log("broadcastMessage()");
         bot.broadcastTeamMessage(BridgeTeamMessage.forTransport(message));
     }
 
     @Override
-    public void sendMessage(String name, Serializable message) {
+    public void sendMessage(String name, Serializable message) throws IOException {
         log("sendMessage()");
         try {
             var id = Integer.parseInt(name);

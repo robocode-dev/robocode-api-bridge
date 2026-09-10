@@ -11,7 +11,7 @@ reversal-cost: high
 
 # CAP-004 — acceptance criteria
 
-`FIO-001`–`FIO-003` are proven by `M-004`'s resolver work in `RobotData`. `FIO-004` stays `@draft`: `IDR-007` records why classic's own evidence for it depends on a `SecurityManager` this bridge does not have.
+`FIO-001`–`FIO-003` and `FIO-005` are proven by the resolver, quota, and stream work in `RobotData` and `RobocodeFileOutputStream`. `FIO-004` stays `@draft`: `IDR-007` records why classic's own evidence for it depends on a `SecurityManager` this bridge does not have.
 
 ```gherkin
 Feature: Robot file I/O sandboxing
@@ -45,6 +45,15 @@ Feature: Robot file I/O sandboxing
     When the battle runs
     Then the write is refused at the same point classic refuses it
     # Evidence: FileQuotaConformanceTest, porting classic's FileWriteSize probe.
+
+  @FIO-005
+  Scenario: A robot cannot keep more than five robot file streams open at once
+    Test-type: Integration
+    Given a robot that opens six `RobocodeFileOutputStream` instances without closing them
+    When the sixth stream is constructed and then an earlier stream is closed
+    Then the sixth construction is refused with classic's five-stream `SecurityException`
+    And a new stream can be opened after the earlier stream is closed
+    # Evidence: FileStreamLimitConformanceTest, porting classic's RobotFileSystemManager.addStream rule.
 
   @FIO-004 @draft
   Scenario: A robot cannot read or write outside its data directory

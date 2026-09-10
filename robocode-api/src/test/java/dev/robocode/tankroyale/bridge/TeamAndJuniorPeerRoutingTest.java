@@ -5,6 +5,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import dev.robocode.tankroyale.botapi.BotException;
 
+import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -43,7 +46,7 @@ class TeamAndJuniorPeerRoutingTest {
 
     @Test
     @DisplayName("ROUTE-009 positive: broadcasting reaches the team broadcast with the message intact")
-    void testROUTE009_UnitPositive_RoutesBroadcastWithTheMessageIntact() {
+    void testROUTE009_UnitPositive_RoutesBroadcastWithTheMessageIntact() throws IOException {
         peer.broadcastMessage("attack");
 
         assertEquals("attack", bot.onlyCall("broadcastTeamMessage").args[0],
@@ -52,7 +55,7 @@ class TeamAndJuniorPeerRoutingTest {
 
     @Test
     @DisplayName("ROUTE-009 positive: a message to one teammate is addressed by its numeric id")
-    void testROUTE009_UnitPositive_AddressesASingleTeammateByNumericId() {
+    void testROUTE009_UnitPositive_AddressesASingleTeammateByNumericId() throws IOException {
         peer.sendMessage("7", "regroup");
 
         RecordingBot.Call call = bot.onlyCall("sendTeamMessage");
@@ -62,7 +65,7 @@ class TeamAndJuniorPeerRoutingTest {
 
     @Test
     @DisplayName("ROUTE-009 negative: a directed message does not become a broadcast")
-    void testROUTE009_UnitNegative_ADirectedMessageIsNotBroadcast() {
+    void testROUTE009_UnitNegative_ADirectedMessageIsNotBroadcast() throws IOException {
         peer.sendMessage("3", "flank left");
 
         // Turning a private instruction into a broadcast would tell the whole team something
@@ -77,6 +80,14 @@ class TeamAndJuniorPeerRoutingTest {
         // silently dropped message leaves the sender believing its team was told.
         assertThrows(BotException.class, () -> peer.sendMessage("Leader", "regroup"));
         assertFalse(bot.called("sendTeamMessage"), bot.names());
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 negative: a non-serializable team payload preserves classic's failure")
+    void testROUTE009_UnitNegative_PreservesLegacySerializationFailure() {
+        assertThrows(NotSerializableException.class,
+                () -> peer.broadcastMessage(new NonSerializableMessage()));
+        assertFalse(bot.called("broadcastTeamMessage"), bot.names());
     }
 
     @Test
@@ -152,5 +163,9 @@ class TeamAndJuniorPeerRoutingTest {
                                 && call.args.length == 1
                                 && call.doubleArg(0) == 45),
                 "the turn must receive 45 degrees, not the raw radian value: " + bot.calls());
+    }
+
+    private static final class NonSerializableMessage implements Serializable {
+        private final Object payload = new Object();
     }
 }

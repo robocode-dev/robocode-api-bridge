@@ -17,10 +17,12 @@ public final class RobotData {
 
     /** The classic filesystem quota, documented in {@link robocode.RobocodeFileOutputStream} and enforced here. */
     private static final long MAX_QUOTA = 200_000L;
+    private static final int MAX_OPEN_STREAMS = 5;
 
     private static final Path dataDirPath;
     private static long quotaUsed;
     private static boolean quotaMessagePrinted;
+    private static int openStreams;
 
     static {
         dataDirPath = Paths.get("").resolve(RobotName.getName() + ".data");
@@ -30,6 +32,7 @@ public final class RobotData {
             throw new BotException("Could not create data directory: " + dataDirPath);
         }
         quotaUsed = 0;
+        openStreams = 0;
         File[] existingFiles = dataDirPath.toFile().listFiles();
         if (existingFiles != null) {
             for (File file : existingFiles) {
@@ -97,6 +100,23 @@ public final class RobotData {
                 quotaMessagePrinted = true;
             }
             throw new IOException(msg);
+        }
+    }
+
+    /** Reserves one of classic's five simultaneously open robot file streams. */
+    public static synchronized void registerStream() {
+        if (openStreams >= MAX_OPEN_STREAMS) {
+            throw new SecurityException(
+                    "You may only have 5 streams open at a time.\n"
+                            + " Make sure you call close() on your streams when you are finished with them.");
+        }
+        openStreams++;
+    }
+
+    /** Releases a stream reservation, including when a robot closes a stream more than once. */
+    public static synchronized void unregisterStream() {
+        if (openStreams > 0) {
+            openStreams--;
         }
     }
 }

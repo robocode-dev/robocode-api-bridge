@@ -33,7 +33,7 @@ public final class BridgeTeamMessage implements Serializable {
     }
 
     /** Returns a Gson-safe transport value while keeping simple messages unchanged. */
-    public static Serializable forTransport(Serializable message) {
+    public static Serializable forTransport(Serializable message) throws IOException {
         if (message instanceof String || message instanceof Number || message instanceof Boolean
                 || message instanceof Character || message instanceof Enum) {
             return message;
@@ -42,16 +42,12 @@ public final class BridgeTeamMessage implements Serializable {
     }
 
     /** Encodes one classic team message in a Gson-safe field. */
-    public static BridgeTeamMessage encode(Serializable message) {
-        try {
-            var bytes = new ByteArrayOutputStream();
-            try (var output = new ObjectOutputStream(bytes)) {
-                output.writeObject(message);
-            }
-            return new BridgeTeamMessage(Base64.getEncoder().encodeToString(bytes.toByteArray()));
-        } catch (IOException exception) {
-            throw new BotException("Could not serialize team message: " + exception.getMessage());
+    public static BridgeTeamMessage encode(Serializable message) throws IOException {
+        var bytes = new ByteArrayOutputStream();
+        try (var output = new ObjectOutputStream(bytes)) {
+            output.writeObject(message);
         }
+        return new BridgeTeamMessage(Base64.getEncoder().encodeToString(bytes.toByteArray()));
     }
 
     /** Restores the original classic message object. */
