@@ -12,7 +12,7 @@ title: Measure melee subjects against a pinned fixed opponent pool
 
 ## Decision
 
-The official melee parity case uses the subject robot plus nine opponents selected from a tracked twelve-jar pool. The pool is pinned by jar name and SHA-256 in `compat-test/melee-opponents.json`; selection is sorted, excludes the subject when it is in the pool, and takes the first nine remaining jars. Each registry setup records both the pool and the nine opponents selected for that subject.
+The official melee parity case uses the subject robot plus nine opponents selected from a tracked twelve-jar pool. The pool is pinned by jar name and SHA-256 in `compat-test/melee-opponents.json`; it was selected from subjects with existing `PASS` observations in the roborumble registry that are also present in the melee collection. Selection is sorted, excludes the subject when it is in the pool, and takes the first nine remaining jars. Each registry setup records both the pool and the nine opponents selected for that subject.
 
 ## Rationale
 

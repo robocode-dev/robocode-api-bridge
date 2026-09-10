@@ -6,7 +6,9 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
+| DISCREPANCY (errors) | 1 |
 | DISCREPANCY (no score) | 4 |
+| DISCREPANCY (outcome) | 1 |
 | FAIL (TR) | 19 |
 | PASS | 138 |
 | score-review | 65 |
@@ -15,6 +17,8 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
+| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 402992089d3bfff9 | - | - |
+| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9a7409b51af8a7c2 | - | - |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | c64fb0b475ea6e81 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | FAIL (TR) | 30ccf919e98128fe | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | e10ba12633f28ccf | - | - |
