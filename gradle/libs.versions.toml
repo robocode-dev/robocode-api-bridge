@@ -1,9 +1,10 @@
 [versions]
-bcel = "6.10.0"
-ben-manes-versions = "0.52.0"
+bcel = "6.13.0"
+ben-manes-versions = "0.61.0"
+# JUnit 6 requires Java 17; this project supports Java 11.
 junit = "5.11.4"
-kotlin = "2.1.0"
-tank-royale-bot-api = "1.0.2"
+kotlin = "2.4.20"
+tank-royale-bot-api = "1.2.0"
 
 [libraries]
 bcel = { module = "org.apache.bcel:bcel", version.ref = "bcel" }
@@ -13,5 +14,5 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 tank-royale-bot-api = { module = "dev.robocode.tankroyale:robocode-tankroyale-bot-api", version.ref = "tank-royale-bot-api" }
 
 [plugins]
-ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
+ben-manes-versions = { id = "io.github.ben-manes.versions", version.ref = "ben-manes-versions" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
