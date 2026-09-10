@@ -12,7 +12,9 @@ from pathlib import Path
 SCHEMA_VERSION = 2
 EXCEPTION_RE = re.compile(r"\b((?:[a-zA-Z_$][\w$]*\.)+[A-Z][\w$]*(?:Exception|Error))\b")
 FRAME_RE = re.compile(r"^\s*at\s+([\w.$]+)\([^)]*\)", re.MULTILINE)
-FRAME_NOISE_PREFIXES = ("java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.")
+FRAME_NOISE_PREFIXES = (
+    "java.", "javax.", "jdk.", "sun.", "robocode.", "dev.robocode.", "net.sf.robocode."
+)
 UNRESOLVED_STATUSES = frozenset((
     "DISCREPANCY (errors)", "DISCREPANCY (score)", "DISCREPANCY (no score)",
     "DISCREPANCY (outcome)", "CONFIRMED (score)", "FAIL (RC)", "FAIL (TR)", "FAIL (both)",
@@ -54,6 +56,22 @@ def signature_keys(signatures: list[dict[str, str]]) -> set[tuple[str, str]]:
 
 def compare_errors(rc: list[dict[str, str]], tr: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
     rc_keys, tr_keys = signature_keys(rc), signature_keys(tr)
+    # A robot can catch and print an exception without printing its stack trace. In that
+    # case one engine may retain the exception class but lose the legacy application frame.
+    # Known-vs-known origin differences remain meaningful; unknown attribution can
+    # bridge only the missing frame for the same exception class.
+    for exception in {key[0] for key in rc_keys | tr_keys}:
+        rc_origins = {origin for current_exception, origin in rc_keys if current_exception == exception}
+        tr_origins = {origin for current_exception, origin in tr_keys if current_exception == exception}
+        if rc_origins and tr_origins and ("unknown" in rc_origins or "unknown" in tr_origins):
+            rc_known = rc_origins - {"unknown"}
+            tr_known = tr_origins - {"unknown"}
+            if not rc_known or not tr_known:
+                rc_keys = {key for key in rc_keys if key[0] != exception}
+                tr_keys = {key for key in tr_keys if key[0] != exception}
+            else:
+                rc_keys.discard((exception, "unknown"))
+                tr_keys.discard((exception, "unknown"))
     return {
         "classic_only": [
             {"exception": exception, "origin": origin}

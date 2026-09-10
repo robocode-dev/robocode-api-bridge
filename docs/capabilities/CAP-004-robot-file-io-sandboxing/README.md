@@ -19,7 +19,7 @@ Robots depend on the redirection, and the dependency is invisible in their sourc
 
 ## What it covers
 
-Path confinement inside `getDataFile`/`getDataDirectory` — asterisks stripped, `..` rejected in the stripped name (stricter than classic's own check order, for safety — see `design.md`), and a `java.io.File` merge used so a root-relative name is re-rooted inside the directory rather than overriding it (a true drive-letter-absolute name fails the write on both engines instead) — plus the 200000-byte quota classic enforces on a robot's data directory.
+Path confinement inside `getDataFile`/`getDataDirectory` — asterisks stripped, `..` rejected in the stripped name (stricter than classic's own check order, for safety — see `design.md`), and a `java.io.File` merge used so a root-relative name is re-rooted inside the directory rather than overriding it (a true drive-letter-absolute name fails the write on both engines instead) — plus the 200000-byte quota and five-open-stream limit classic enforces on a robot's data directory.
 
 ## What it does not cover
 
@@ -27,4 +27,4 @@ The rest of classic's sandbox, and, within file I/O itself, a raw `java.io` call
 
 ## Status
 
-`active`. `FIO-001`–`FIO-003` are proven; `FIO-004` remains `@draft` per `IDR-007`. `M-004` is the plan door, and `C-005` is the constraint these criteria discharge — partially: the redirection and quota rules are machine-enforced, the raw-`java.io` case is not.
+`active`. `FIO-001`–`FIO-003` and `FIO-005` are proven; `FIO-004` remains `@draft` per `IDR-007`. `M-004` is the plan door, and `C-005` is the constraint these criteria discharge — partially: the redirection, quota, and stream-limit rules are machine-enforced, the raw-`java.io` case is not.

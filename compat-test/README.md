@@ -68,6 +68,8 @@ robot was never ranked on.
 `--rounds` overrides the round count for quick local runs and makes the result
 incomparable with the rumble, so the report records the setup each row was measured at.
 
+Official melee cases use the fixed twelve-jar opponent pool in `melee-opponents.json`. Each subject runs with the first nine pool entries after excluding itself, keeping ten participants while avoiding accidental self-play. The setup recorded in the parity registry includes the pool and the selected opponent names and hashes.
+
 ## Usage
 
 ```bash
@@ -199,7 +201,7 @@ untested robot. Completed robots are never re-run unless `--force` (everything) 
 Full error details land in `errors/robocode/<robot>.log` and
 `errors/tank-royale/<robot>.log`; the master table is `compatibility_report.md`.
 
-`parity-registry.json` is the tracked evidence carrier. It appends each subject observation with the exact jar identity, setup, engine artifacts, normalized errors, and focused retest link. It also retains an append-only diagnosis history, so a later triage decision cannot rewrite an earlier one. `parity-registry.md` renders the current status of every subject for review. Import an existing checkpoint with `--sync-registry`; after a diagnosis, tag a case with `--set-cause <subject> <cause> <owner>` and rerun that cause with `--retest-cause <cause> --repair <commit-or-PR>`.
+`parity-registry.json` is the tracked evidence carrier. It appends each subject observation with the exact jar identity, setup, engine artifacts, normalized errors, and focused retest link. Normalized error origins skip engine implementation frames from both classic and the bridge so the first legacy application frame remains comparable across engines. It also retains an append-only diagnosis history, so a later triage decision cannot rewrite an earlier one. `parity-registry.md` renders the current status of every subject for review. Import an existing checkpoint with `--sync-registry`; after a diagnosis, tag a case with `--set-cause <subject> <cause> <owner>` and rerun that cause with `--retest-cause <cause> --repair <commit-or-PR>`.
 
 **Every row states the setup it was measured at.** The report is regenerated from the state
 file long after the battles ran, so a single header describing the current configuration

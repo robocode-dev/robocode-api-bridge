@@ -27,6 +27,8 @@ One resolution point, used by everything that reaches the filesystem through it:
 
 The quota is enforced at the same layer regardless of how a stream's path was obtained: `RobotData` tracks bytes charged against the 200000-byte cap (seeded from the existing data directory's contents at startup, matching classic's `initializeQuota`), and `RobocodeFileOutputStream.write` charges each write before performing it, closing the stream and raising the same `IOException` message classic raises when the charge would exceed the cap. The charge happens before the underlying write, so a write that itself then fails (disk full, I/O error) leaves those bytes charged against the quota anyway; this matches classic's own `RobotFileOutputStream.write` ordering and is not worth a second code path to reverse for a fault a robot's data-directory write essentially never hits in practice.
 
+`RobotData` also tracks the five simultaneously open robot file streams that classic's `RobotFileSystemManager` permits. Construction reserves a slot after the underlying file opens, refusal uses classic's `SecurityException` message, and closing releases the slot exactly once so a later stream can open.
+
 **The robot is not told about redirection.** Classic redirects silently, and a robot that discovers it has been redirected — by an exception, or by reading back a path — behaves differently from the robot that ran on classic.
 
 ## What this design does not cover, and why
@@ -35,4 +37,4 @@ Classic also blocks a raw `java.io.FileOutputStream`/`FileInputStream` unconditi
 
 ## Evidence
 
-`FileRedirectionConformanceTest` (`FIO-001`, `FIO-002`) and `FileQuotaConformanceTest` (`FIO-003`) run a probe on both engines under `ARCH-003`'s conformance tier, giving `C-005` machine enforcement for the redirection and quota rules. The raw-`java.io` case `FIO-004` names remains agent-judgment-held, as it was before this change.
+`FileRedirectionConformanceTest` (`FIO-001`, `FIO-002`), `FileQuotaConformanceTest` (`FIO-003`), and `FileStreamLimitConformanceTest` (`FIO-005`) run probes on both engines under `ARCH-003`'s conformance tier, giving `C-005` machine enforcement for the redirection, quota, and stream-limit rules. The raw-`java.io` case `FIO-004` remains agent-judgment-held, as it was before this change.

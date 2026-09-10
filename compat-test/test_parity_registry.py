@@ -28,11 +28,45 @@ class ParityRegistryTest(unittest.TestCase):
             signatures,
         )
 
+    def testHARN003_UnitPositive_EngineFramesDoNotObscureLegacyOrigin(self):
+        signatures = registry.error_signatures([
+            "java.lang.SecurityException: stream limit\n"
+            "  at net.sf.robocode.host.io.RobotFileSystemManager.addStream(RobotFileSystemManager.java:66)\n"
+            "  at robocode.RobocodeFileOutputStream.<init>(RobocodeFileOutputStream.java:80)\n"
+            "  at amk.ChumbaMini.saveData(ChumbaMini.java:186)"
+        ])
+        self.assertEqual(
+            [{"exception": "java.lang.SecurityException", "origin": "amk.ChumbaMini.saveData"}],
+            signatures,
+        )
+
     def testHARN003_UnitNegative_SameExceptionFromDifferentCallbackIsDifferent(self):
         classic = [{"exception": "java.lang.NullPointerException", "origin": "legacy.Bot.run"}]
         tank = [{"exception": "java.lang.NullPointerException", "origin": "legacy.Bot.onScannedRobot"}]
         difference = registry.compare_errors(classic, tank)
         self.assertEqual(classic, difference["classic_only"])
+        self.assertEqual(tank, difference["tank_royale_only"])
+
+    def testHARN003_UnitPositive_UnknownOriginMatchesKnownOriginForSameException(self):
+        classic = [{"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}]
+        tank = [{"exception": "java.io.NotSerializableException", "origin": "unknown"}]
+        difference = registry.compare_errors(classic, tank)
+        self.assertEqual([], difference["classic_only"])
+        self.assertEqual([], difference["tank_royale_only"])
+
+    def testHARN003_UnitNegative_UnknownBridgeExceptionRemainsDiscrepant(self):
+        tank = [{"exception": "java.lang.IllegalStateException", "origin": "unknown"}]
+        difference = registry.compare_errors([], tank)
+        self.assertEqual(tank, difference["tank_royale_only"])
+
+    def testHARN003_UnitNegative_UnknownOriginDoesNotHideKnownOriginDifference(self):
+        classic = [
+            {"exception": "java.io.NotSerializableException", "origin": "unknown"},
+            {"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.run"},
+        ]
+        tank = [{"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}]
+        difference = registry.compare_errors(classic, tank)
+        self.assertEqual([classic[1]], difference["classic_only"])
         self.assertEqual(tank, difference["tank_royale_only"])
 
     def testHARN001_UnitPositive_StateSyncAppendsWithoutReplacingEarlierObservation(self):
@@ -133,6 +167,11 @@ class ParityRegistryTest(unittest.TestCase):
             "java.lang.IllegalStateException: classic equivalent\n"
             "  at legacy.Bot.run(Bot.java:12)"))
 
+    def testC004_UnitNegative_CaughtClassicExceptionWithoutOriginDoesNotTriggerWatcher(self):
+        signature = {"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}
+        watcher = harness.BridgeOnlyErrorWatcher([], [signature])
+        self.assertFalse(watcher("java.io.NotSerializableException: legacy payload"))
+
     def testC004_UnitPositive_ImmediateWorkerExitStillTriggersWatcher(self):
         watcher = harness.BridgeOnlyErrorWatcher([], [])
         returncode, output, timed_out = harness.run_java(
@@ -148,6 +187,22 @@ class ParityRegistryTest(unittest.TestCase):
         unknown_cause = SimpleNamespace(repair="abc123", retest_cause="lifecycle")
         self.assertIn("requires --repair", harness.retest_option_error(missing_repair))
         self.assertIn("No unresolved", harness.retest_option_error(unknown_cause, []))
+
+    def testHARN007_UnitPositive_FixedMeleeSelectionExcludesSubject(self):
+        pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}
+                for index in range(12)]
+        selected = harness.select_melee_opponent_names("robot-3.jar", pool)
+
+        self.assertEqual(9, len(selected))
+        self.assertNotIn("robot-3.jar", selected)
+        self.assertEqual([f"robot-{index}.jar" for index in (0, 1, 2, 4, 5, 6, 7, 8, 9)], selected)
+
+    def testHARN007_UnitNegative_FixedMeleeSelectionRejectsTooSmallPool(self):
+        pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}
+                for index in range(9)]
+
+        with self.assertRaises(ValueError):
+            harness.select_melee_opponent_names("robot-0.jar", pool)
 
 
 if __name__ == "__main__":

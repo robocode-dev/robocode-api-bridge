@@ -18,7 +18,7 @@ Per robot, per division: the sum of both participants' total scores from a robot
 
 The self-play arrangement is worth explaining because it looks odd. Pitting a robot against a copy of itself removes the opponent as a variable — both engines run the identical matchup — and it means a divergence in the robot's behaviour shows up symmetrically rather than being absorbed by an opponent that also behaves differently. It also scales: no pairing matrix, one battle per robot per engine.
 
-Melee changes this. The official melee setup is ten participants, and ten copies of one robot is a legitimate battle but a peculiar one. Whether the melee sweep uses self-play or a fixed opponent set is an open design question `M-006` must settle; `SCORE-006` is written to require that the division is measured, not how.
+Melee uses the official ten-participant setup with the fixed opponent pool in `PDR-004`. Each subject runs against nine opponents selected from the tracked twelve-jar pool in `compat-test/melee-opponents.json`, excluding the subject when it is in that pool. The selected names and hashes are recorded in the observation setup so a later run cannot silently change the comparison population.
 
 ## The three shapes of finding
 

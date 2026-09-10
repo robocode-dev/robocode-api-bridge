@@ -53,6 +53,7 @@ public class RcBattleWorker {
         int participants = Integer.parseInt(opt.getOrDefault("participants", "2"));
         String select = opt.get("select");
         String enemySelect = opt.get("enemy-select");
+        String enemySelects = opt.getOrDefault("enemies", enemySelect);
         Path outFile = Path.of(require(opt, "out"));
         int timeoutSecs = Integer.parseInt(opt.getOrDefault("timeout", "0"));
 
@@ -67,7 +68,7 @@ public class RcBattleWorker {
                 // Match RobocodeTestBed's deterministic setup used by the authoritative source test.
                 RandomFactory.resetDeterministic(0);
             }
-            runBattle(home, rounds, width, height, participants, select, enemySelect, result);
+            runBattle(home, rounds, width, height, participants, select, enemySelects, result);
             exitCode = Boolean.TRUE.equals(result.get("ok")) ? 0 : 1;
         } catch (Throwable t) {
             result.put("ok", false);
@@ -80,7 +81,7 @@ public class RcBattleWorker {
     }
 
     private static void runBattle(File home, int rounds, int width, int height, int participantCount,
-                                  String select, String enemySelect, Map<String, Object> result) {
+                                  String select, String enemySelects, Map<String, Object> result) {
         Collector collector = new Collector();
         RobocodeEngine engine = new RobocodeEngine(home);
         try {
@@ -88,7 +89,7 @@ public class RcBattleWorker {
             engine.setVisible(false);
 
             RobotSpecification[] participants = selectParticipants(
-                    engine, select, participantCount, enemySelect);
+                    engine, select, participantCount, enemySelects);
             if (participants == null || participants.length == 0) {
                 result.put("ok", false);
                 result.put("fatal", "No robot found in repository matching: " + select);
@@ -156,14 +157,23 @@ public class RcBattleWorker {
      * The count is the division's official participant count: two for 1-vs-1, ten for melee.
      */
     private static RobotSpecification[] selectParticipants(RobocodeEngine engine, String select, int count,
-                                                           String enemySelect) {
-        if (enemySelect != null && !enemySelect.isBlank()) {
+                                                           String enemySelects) {
+        if (enemySelects != null && !enemySelects.isBlank()) {
             RobotSpecification chosen = selectOne(engine, select);
-            RobotSpecification enemy = selectOne(engine, enemySelect);
-            if (chosen == null || enemy == null) {
+            if (chosen == null) {
                 return null;
             }
-            return new RobotSpecification[]{chosen, enemy};
+            String[] selections = enemySelects.split(",");
+            RobotSpecification[] participants = new RobotSpecification[selections.length + 1];
+            participants[0] = chosen;
+            for (int i = 0; i < selections.length; i++) {
+                RobotSpecification enemy = selectOne(engine, selections[i].trim());
+                if (enemy == null) {
+                    return null;
+                }
+                participants[i + 1] = enemy;
+            }
+            return participants;
         }
         int wanted = Math.max(2, count);
         if (select != null && !select.isBlank()) {

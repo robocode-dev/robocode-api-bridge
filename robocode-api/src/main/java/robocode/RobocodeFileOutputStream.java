@@ -4,6 +4,7 @@ import dev.robocode.tankroyale.bridge.RobotData;
 import robocode.exception.RobotException;
 
 import java.io.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * RobocodeFileOutputStream is similar to a {@link java.io.FileOutputStream}
@@ -25,6 +26,7 @@ import java.io.*;
 public class RobocodeFileOutputStream extends OutputStream {
     private final FileOutputStream out;
     private final String fileName;
+    private final AtomicBoolean streamRegistered = new AtomicBoolean();
 
     /**
      * Constructs a new RobocodeFileOutputStream.
@@ -77,7 +79,19 @@ public class RobocodeFileOutputStream extends OutputStream {
         // redirecting resolution happens once, in AdvancedRobot#getDataFile, and a File obtained from
         // there must not be resolved a second time here or an absolute, already-resolved path would be
         // re-rooted under itself.
-        out = new FileOutputStream(fileName, append);
+        FileOutputStream opened = new FileOutputStream(fileName, append);
+        try {
+            RobotData.registerStream();
+            out = opened;
+            streamRegistered.set(true);
+        } catch (RuntimeException | Error exception) {
+            try {
+                opened.close();
+            } catch (IOException closeException) {
+                exception.addSuppressed(closeException);
+            }
+            throw exception;
+        }
     }
 
     /**
@@ -88,7 +102,13 @@ public class RobocodeFileOutputStream extends OutputStream {
      */
     @Override
     public final void close() throws IOException {
-        out.close();
+        try {
+            out.close();
+        } finally {
+            if (streamRegistered.compareAndSet(true, false)) {
+                RobotData.unregisterStream();
+            }
+        }
     }
 
     /**
