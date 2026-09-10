@@ -59,6 +59,16 @@ class ParityRegistryTest(unittest.TestCase):
         difference = registry.compare_errors([], tank)
         self.assertEqual(tank, difference["tank_royale_only"])
 
+    def testHARN003_UnitNegative_UnknownOriginDoesNotHideKnownOriginDifference(self):
+        classic = [
+            {"exception": "java.io.NotSerializableException", "origin": "unknown"},
+            {"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.run"},
+        ]
+        tank = [{"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}]
+        difference = registry.compare_errors(classic, tank)
+        self.assertEqual([classic[1]], difference["classic_only"])
+        self.assertEqual(tank, difference["tank_royale_only"])
+
     def testHARN001_UnitPositive_StateSyncAppendsWithoutReplacingEarlierObservation(self):
         state = {"robots": {"roborumble/a.Bot_1.0.jar": {
             "status": "PASS", "delta_pct": 1.0, "completed_at": "2026-09-09T00:00:00Z",
