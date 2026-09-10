@@ -20,7 +20,7 @@ reversal-cost: low
 
 | ID | Milestone | Exit criterion | Status |
 |---|---|---|---|
-| M-144 | build cleanup + version catalog | `robocode-api`, `robots-wrapper`, and `conformance-test` share a Gradle version catalog (`gradle/libs.versions.toml`) for their dependency and plugin versions, and use a consistent Java target declaration style. `./gradlew build` succeeds across all modules from the catalog-sourced versions. | todo |
+| M-144 | build cleanup + version catalog | `robocode-api`, `robots-wrapper`, and `conformance-test` share a Gradle version catalog (`gradle/libs.versions.toml`) for their dependency and plugin versions, and use a consistent Java target declaration style. `./gradlew build` succeeds across all modules from the catalog-sourced versions. | done |
 | M-145 | artifact build & distribution | A tagged build produces downloadable `robocode-api` and `robots-wrapper` jars (via `maven-publish`, GitHub Releases, or an equivalent mechanism) that a fresh clone can fetch and run without building from source. | todo |
 | M-146 | usage guide | A guide documents the end-to-end flow from an existing robot jar to a running Tank Royale bot, replaces or removes the current undocumented manual `lib`-folder step, and points readers to https://rumble.robowiki.net/ as a source of robot jars. | todo |
 | M-147 | bot acquisition tooling | A documented, feasible acquisition path exists for building a local bot collection — either scripted downloading or a documented pointer to an existing bundle, whichever investigation at implementation time finds workable — and running it against `robots-wrapper` produces correctly wrapped bot directories for a sample set of bots. | todo |
