@@ -26,6 +26,10 @@ final class ConformanceHarness {
 
     private static final Path REPO_ROOT = locateRepoRoot();
     private static final Path HARNESS = REPO_ROOT.resolve("compat-test").resolve("compat_test.py");
+    private static final Path WORK_ROOT = REPO_ROOT.resolve("compat-test").resolve("work");
+    private static final Path WORK_DIR = WORK_ROOT.resolve(
+            "gradle-worker-" + System.getProperty("org.gradle.test.worker", "1")
+                    + "-" + ProcessHandle.current().pid());
 
     private final String python;
     private final Path robocodeHome;
@@ -121,10 +125,7 @@ final class ConformanceHarness {
                 "--robocode-home", robocodeHome.toString()));
 
         try {
-            Process process = new ProcessBuilder(command)
-                    .directory(HARNESS.getParent().toFile())
-                    .redirectErrorStream(false)
-                    .start();
+            Process process = startHarness(command);
 
             AtomicReference<String> out = new AtomicReference<>("");
             AtomicReference<String> err = new AtomicReference<>("");
@@ -179,10 +180,7 @@ final class ConformanceHarness {
         }
 
         try {
-            Process process = new ProcessBuilder(command)
-                    .directory(HARNESS.getParent().toFile())
-                    .redirectErrorStream(false)
-                    .start();
+            Process process = startHarness(command);
 
             // Both pipes are drained concurrently, and the wait comes before either is
             // read. Draining one to EOF first deadlocks as soon as the harness writes more
@@ -220,6 +218,15 @@ final class ConformanceHarness {
 
     private static BattleOutcome failed(String detail) {
         return new BattleOutcome(false, List.of(), List.of(), null, detail);
+    }
+
+    /** Starts a harness process with workspace isolation for this Gradle test worker. */
+    private static Process startHarness(List<String> command) throws IOException {
+        ProcessBuilder builder = new ProcessBuilder(command)
+                .directory(HARNESS.getParent().toFile())
+                .redirectErrorStream(false);
+        builder.environment().put("COMPAT_WORK_DIR", WORK_DIR.toString());
+        return builder.start();
     }
 
     /**

@@ -112,7 +112,7 @@ RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManage
 STATE_FILE = BASE_DIR / "test_progress.json"
 REPORT_FILE = BASE_DIR / "compatibility_report.md"
 ERRORS_DIR = BASE_DIR / "errors"
-WORK_DIR = BASE_DIR / "work"
+WORK_DIR = Path(os.environ.get("COMPAT_WORK_DIR", BASE_DIR / "work"))
 
 RC_WORKER = BASE_DIR / "RcBattleWorker.java"
 TR_WORKER = BASE_DIR / "TrBattleWorker.java"

@@ -34,6 +34,9 @@ java {
 // each engine runs in its own process (ARCH-003).
 tasks {
     test {
+        // The harness consumes these files directly rather than resolving them as Gradle dependencies.
+        dependsOn(":robocode-api:jar", ":robots-wrapper:fatJar")
+
         useJUnitPlatform()
         testLogging {
             events("failed", "skipped")
