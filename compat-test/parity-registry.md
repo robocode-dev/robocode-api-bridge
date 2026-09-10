@@ -17,23 +17,23 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
-| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | d393bf8e84030671 | - | - |
-| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | e6dd524cf0236894 | - | - |
-| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 50b5e644401cf262 | - | - |
-| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 6ff7d3e8351f16b8 | - | - |
-| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9d4ff97f88569be7 | - | - |
-| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | 6578bb126f9ba3dc | - | - |
-| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 6623009703a407b4 | - | - |
-| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | 14ec6a817e5ff3c2 | - | - |
-| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 8ae3e2121ec9ade9 | - | - |
-| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | 88d8a12982546c70 | - | - |
-| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 7a578bc8dbcedd62 | - | - |
-| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 792f88449d882a79 | - | - |
-| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | c22fd85799fd957c | - | - |
-| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6b1081bec8093413 | - | - |
-| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | fb7dcac0a2895b29 | - | - |
-| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 5f5fd2fab070dd18 | - | - |
-| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 02ec6bfdbeba885e | - | - |
+| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | d393bf8e84030671 | robot-file-stream-limit | bridge |
+| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | e6dd524cf0236894 | team-message-nonserializable-payload | bridge |
+| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 50b5e644401cf262 | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 6ff7d3e8351f16b8 | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9d4ff97f88569be7 | robot-file-stream-limit | bridge |
+| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | 6578bb126f9ba3dc | robot-file-stream-limit | bridge |
+| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 6623009703a407b4 | robot-file-stream-limit | bridge |
+| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | 14ec6a817e5ff3c2 | robot-file-stream-limit | bridge |
+| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 8ae3e2121ec9ade9 | robot-file-stream-limit | bridge |
+| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | 88d8a12982546c70 | robot-file-stream-limit | bridge |
+| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 7a578bc8dbcedd62 | robot-file-stream-limit | bridge |
+| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 792f88449d882a79 | robot-file-stream-limit | bridge |
+| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | c22fd85799fd957c | robot-file-stream-limit | bridge |
+| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6b1081bec8093413 | robot-file-stream-limit | bridge |
+| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | fb7dcac0a2895b29 | robot-file-stream-limit | bridge |
+| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 5f5fd2fab070dd18 | robot-file-stream-limit | bridge |
+| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 02ec6bfdbeba885e | robot-file-stream-limit | bridge |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | c64fb0b475ea6e81 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | FAIL (TR) | 30ccf919e98128fe | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | e10ba12633f28ccf | - | - |
