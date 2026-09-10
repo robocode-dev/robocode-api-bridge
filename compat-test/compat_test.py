@@ -393,6 +393,7 @@ class BridgeOnlyErrorWatcher:
     def __init__(self, bot_dirs, rc_signatures):
         self.bot_dirs = list(bot_dirs)
         self.rc_signatures = signature_keys(rc_signatures or [])
+        self.rc_exception_types = {exception for exception, _ in self.rc_signatures}
         self.found = set()
         self.triggered = False
 
@@ -407,14 +408,27 @@ class BridgeOnlyErrorWatcher:
             for log_name in ("stderr.log", "stdout.log"):
                 for signature in error_signatures([], read_capped(d / log_name)):
                     key = (signature["exception"], signature["origin"])
-                    if key not in self.rc_signatures:
+                    if self._is_bridge_only(key):
                         self.found.add(key)
         for signature in error_signatures([], worker_output):
             key = (signature["exception"], signature["origin"])
-            if key not in self.rc_signatures:
+            if self._is_bridge_only(key):
                 self.found.add(key)
         self.triggered = bool(self.found)
         return self.triggered
+
+    def _is_bridge_only(self, key):
+        """Return whether a signature has no classic counterpart.
+
+        A legacy robot may catch an IOException from a peer call and print only the
+        exception text. That produces an ``unknown`` origin even though the exception
+        class is the same one the classic engine reported with a stack frame. Keep
+        fail-fast strict for two attributed origins, but do not abort on this lost
+        attribution.
+        """
+        exception, origin = key
+        return key not in self.rc_signatures and not (
+            origin == "unknown" and exception in self.rc_exception_types)
 
 
 def classic_signatures(rc):

@@ -47,6 +47,18 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertEqual(classic, difference["classic_only"])
         self.assertEqual(tank, difference["tank_royale_only"])
 
+    def testHARN003_UnitPositive_UnknownOriginMatchesKnownOriginForSameException(self):
+        classic = [{"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}]
+        tank = [{"exception": "java.io.NotSerializableException", "origin": "unknown"}]
+        difference = registry.compare_errors(classic, tank)
+        self.assertEqual([], difference["classic_only"])
+        self.assertEqual([], difference["tank_royale_only"])
+
+    def testHARN003_UnitNegative_UnknownBridgeExceptionRemainsDiscrepant(self):
+        tank = [{"exception": "java.lang.IllegalStateException", "origin": "unknown"}]
+        difference = registry.compare_errors([], tank)
+        self.assertEqual(tank, difference["tank_royale_only"])
+
     def testHARN001_UnitPositive_StateSyncAppendsWithoutReplacingEarlierObservation(self):
         state = {"robots": {"roborumble/a.Bot_1.0.jar": {
             "status": "PASS", "delta_pct": 1.0, "completed_at": "2026-09-09T00:00:00Z",
@@ -144,6 +156,11 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertFalse(watcher(
             "java.lang.IllegalStateException: classic equivalent\n"
             "  at legacy.Bot.run(Bot.java:12)"))
+
+    def testC004_UnitNegative_CaughtClassicExceptionWithoutOriginDoesNotTriggerWatcher(self):
+        signature = {"exception": "java.io.NotSerializableException", "origin": "legacy.Bot.onScannedRobot"}
+        watcher = harness.BridgeOnlyErrorWatcher([], [signature])
+        self.assertFalse(watcher("java.io.NotSerializableException: legacy payload"))
 
     def testC004_UnitPositive_ImmediateWorkerExitStillTriggersWatcher(self):
         watcher = harness.BridgeOnlyErrorWatcher([], [])
