@@ -149,6 +149,22 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertIn("requires --repair", harness.retest_option_error(missing_repair))
         self.assertIn("No unresolved", harness.retest_option_error(unknown_cause, []))
 
+    def testHARN007_UnitPositive_FixedMeleeSelectionExcludesSubject(self):
+        pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}
+                for index in range(12)]
+        selected = harness.select_melee_opponent_names("robot-3.jar", pool)
+
+        self.assertEqual(9, len(selected))
+        self.assertNotIn("robot-3.jar", selected)
+        self.assertEqual([f"robot-{index}.jar" for index in (0, 1, 2, 4, 5, 6, 7, 8, 9)], selected)
+
+    def testHARN007_UnitNegative_FixedMeleeSelectionRejectsTooSmallPool(self):
+        pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}
+                for index in range(9)]
+
+        with self.assertRaises(ValueError):
+            harness.select_melee_opponent_names("robot-0.jar", pool)
+
 
 if __name__ == "__main__":
     unittest.main()

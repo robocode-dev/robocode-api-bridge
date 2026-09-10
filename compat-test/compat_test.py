@@ -47,6 +47,7 @@ from parity_registry import (
     load_registry,
     save_registry,
     score_gap_confirmed,
+    sha256_file,
     signature_keys,
     sync_state,
 )
@@ -140,6 +141,7 @@ DIVISIONS = {
 REGRESSION_SET_FILE = BASE_DIR / "regression-set.json"
 PARITY_REGISTRY_FILE = BASE_DIR / "parity-registry.json"
 PARITY_REGISTRY_REPORT = BASE_DIR / "parity-registry.md"
+MELEE_OPPONENTS_FILE = BASE_DIR / "melee-opponents.json"
 DEFAULT_BATCH_SIZE = 25
 REGRESSION_REPEATS = 5
 REGRESSION_BAND_POINTS = 15.0
@@ -175,6 +177,55 @@ def split_jar_name(jar_name):
         classname, version = base.rsplit("_", 1)
         return classname, version
     return base, None
+
+
+def load_melee_opponent_pool(collection_dir):
+    """Load and validate the immutable melee opponent pool and its jar hashes."""
+    try:
+        data = json.loads(MELEE_OPPONENTS_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise ValueError(f"cannot read {MELEE_OPPONENTS_FILE}: {exc}") from exc
+    if data.get("division") != "meleerumble":
+        raise ValueError("melee opponent pool must declare division meleerumble")
+    opponents = data.get("opponents")
+    if not isinstance(opponents, list) or len(opponents) < DIVISIONS["meleerumble"]["participants"]:
+        raise ValueError("melee opponent pool must contain more entries than the selected opponents")
+    names = [entry.get("jar") for entry in opponents]
+    if any(not isinstance(name, str) or not name.endswith(".jar") for name in names):
+        raise ValueError("melee opponent pool contains an invalid jar name")
+    if len(set(names)) != len(names):
+        raise ValueError("melee opponent pool contains duplicate jar names")
+    root = Path(collection_dir) / "meleerumble"
+    for entry in opponents:
+        jar = root / entry["jar"]
+        expected = entry.get("sha256")
+        actual = sha256_file(jar)
+        if actual != expected:
+            raise ValueError(
+                f"melee opponent hash mismatch for {entry['jar']}: expected {expected}, got {actual}")
+    return opponents
+
+
+def select_melee_opponent_names(subject_name, pool, count=None):
+    """Select a stable fixed-opponent slice without putting the subject in its own list."""
+    count = count or DIVISIONS["meleerumble"]["participants"] - 1
+    names = [entry["jar"] for entry in pool if entry["jar"] != subject_name]
+    if len(names) < count:
+        raise ValueError(f"melee opponent pool has only {len(names)} usable entries for {subject_name}")
+    return names[:count]
+
+
+def melee_opponents(subject_name, opts):
+    pool = load_melee_opponent_pool(opts.collection_dir)
+    selected_names = select_melee_opponent_names(subject_name, pool)
+    by_name = {entry["jar"]: entry for entry in pool}
+    selected = [by_name[name] for name in selected_names]
+    paths = [Path(opts.collection_dir) / "meleerumble" / entry["jar"] for entry in selected]
+    selectors = []
+    for entry in selected:
+        classname, version = split_jar_name(entry["jar"])
+        selectors.append(classname if version is None else f"{classname} {version}")
+    return paths, selectors, pool, selected
 
 
 def sanitize(name):
@@ -451,7 +502,8 @@ def save_state(state):
 # ----------------------------------------------------------------------------------
 
 def run_rc_battle(jar_path: Path, classname, version, opts, setup,
-                   enemy_jar_path=None, enemy_class=None):
+                   enemy_jar_path=None, enemy_class=None,
+                   enemy_jar_paths=None, enemy_classes=None):
     """Runs one classic Robocode battle for the jar at the division setup; returns a summary."""
     home_dir = WORK_DIR / "rc-home"
     (home_dir / "config").mkdir(parents=True, exist_ok=True)
@@ -466,8 +518,16 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup,
         robots_dir = WORK_DIR / "rc-robots"
         clean_dir(robots_dir)
         shutil.copyfile(jar_path, robots_dir / jar_path.name)
+    opponent_paths = list(enemy_jar_paths or [])
+    opponent_selectors = list(enemy_classes or [])
     if enemy_jar_path is not None:
-        shutil.copyfile(enemy_jar_path, robots_dir / Path(enemy_jar_path).name)
+        opponent_paths.append(enemy_jar_path)
+    if enemy_class is not None:
+        opponent_selectors.append(enemy_class)
+    if opponent_paths and len(opponent_paths) != len(opponent_selectors):
+        raise ValueError("classic opponent paths and selectors must have equal lengths")
+    for opponent_path in opponent_paths:
+        shutil.copyfile(opponent_path, robots_dir / Path(opponent_path).name)
 
     out_file = WORK_DIR / "rc-result.json"
     out_file.unlink(missing_ok=True)
@@ -494,7 +554,9 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup,
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
-    if enemy_class:
+    if opponent_selectors:
+        cmd.extend(["--enemies", ",".join(opponent_selectors), "--deterministic", "true"])
+    elif enemy_class:
         cmd.extend(["--enemy-select", enemy_class, "--deterministic", "true"])
     started = time.time()
     returncode, output, timed_out = run_java(cmd, cwd=home_dir, timeout=opts.timeout)
@@ -731,7 +793,8 @@ def wrap_jar_for_tr(jar_path: Path, classname, version, opts, staging_name="tr-b
 
 
 def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures=None,
-                  enemy_jar_path=None, enemy_class=None):
+                  enemy_jar_path=None, enemy_class=None,
+                  enemy_jar_paths=None, enemy_classes=None):
     """Wraps the jar and runs one Tank Royale battle at the division setup.
 
     `rc_signatures` is the set of exception signatures the classic side produced for this
@@ -751,13 +814,24 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         bot_dirs = [bot_dir]
         for index in range(2, max(2, setup["participants"]) + 1):
             bot_dirs.append(duplicate_team_dir(bot_dir, index))
-    elif enemy_jar_path is not None:
+    elif enemy_jar_path is not None or enemy_jar_paths:
         bot_dirs = [bot_dir]
     else:
         bot_dirs = stage_bot_dirs(bot_dir, setup["participants"])
+    opponent_paths = list(enemy_jar_paths or [])
+    opponent_selectors = list(enemy_classes or [])
     if enemy_jar_path is not None:
+        opponent_paths.append(enemy_jar_path)
+    if enemy_class is not None:
+        opponent_selectors.append(enemy_class)
+    if opponent_paths and len(opponent_paths) != len(opponent_selectors):
+        raise ValueError("Tank Royale opponent paths and selectors must have equal lengths")
+    for index, (opponent_path, opponent_selector) in enumerate(
+            zip(opponent_paths, opponent_selectors), start=1):
+        opponent_class, opponent_version = split_jar_name(Path(opponent_path).name)
         enemy_dir, enemy_error = wrap_jar_for_tr(
-            enemy_jar_path, enemy_class, None, opts, staging_name="tr-bots-enemy")
+            opponent_path, opponent_class, opponent_version, opts,
+            staging_name=f"tr-bots-enemy-{index}")
         if enemy_error:
             return {
                 "ok": False, "score": None, "scores": [], "elapsed": 0.0,
@@ -1021,6 +1095,11 @@ def check_prerequisites(opts):
             problems.append(f"  - {label} not found: {path}")
     if shutil.which("java") is None:
         problems.append("  - 'java' not found on PATH (JDK 17+ required)")
+    if "meleerumble" in opts.collections:
+        try:
+            load_melee_opponent_pool(opts.collection_dir)
+        except ValueError as exc:
+            problems.append(f"  - melee opponent pool invalid: {exc}")
 
     # Resolved once and reused: the classic side needs a JDK that still has a
     # SecurityManager, and failing here beats failing as a worker that never starts.
@@ -1144,7 +1223,8 @@ def mean(values):
     return sum(values) / len(values) if values else None
 
 
-def measure_repeatedly(jar, classname, version, opts, setup, repeats):
+def measure_repeatedly(jar, classname, version, opts, setup, repeats,
+                       enemy_jar_paths=None, enemy_classes=None):
     """Runs the pair of battles `repeats` times and returns the averaged delta.
 
     Averaging is what makes the comparison mean anything: one watched bot has swung by a
@@ -1154,10 +1234,14 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats):
     attempts = 0
     for attempt in range(repeats):
         attempts += 1
-        rc = run_rc_battle(jar, classname, version, opts, setup)
+        rc = run_rc_battle(jar, classname, version, opts, setup,
+                           enemy_jar_paths=enemy_jar_paths,
+                           enemy_classes=enemy_classes)
         attach_error_signatures(rc)
         tr = run_tr_battle(jar, classname, version, opts, setup,
-                           rc_signatures=classic_signatures(rc))
+                           rc_signatures=classic_signatures(rc),
+                           enemy_jar_paths=enemy_jar_paths,
+                           enemy_classes=enemy_classes)
         attach_error_signatures(tr)
         if tr.get("aborted_on_bridge_only_error"):
             bridge_only = tr.get("bridge_only_signatures", [])
@@ -1201,9 +1285,12 @@ def run_regression(opts):
             continue
 
         classname, version = split_jar_name(jar_name)
-        setup = division_setup(collection, opts)
+        setup = division_setup(collection, opts, jar_name)
+        enemy_jar_paths, enemy_classes = opponent_args(collection, setup, opts)
         print(f"  {entry['jar']} [{entry['state']}] ...", flush=True)
-        measured = measure_repeatedly(jar, classname, version, opts, setup, repeats)
+        measured = measure_repeatedly(
+            jar, classname, version, opts, setup, repeats,
+            enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
 
         if measured["bridge_only_signatures"]:
             verdict = "BRIDGE-ONLY ERROR"
@@ -1636,14 +1723,34 @@ def collect_bot_consoles(staging_dirs=None):
     return consoles
 
 
-def division_setup(collection, opts):
+def division_setup(collection, opts, subject_name=None):
     """The official parameters for a division (C-003), with --rounds as a deliberate
     override for quick local runs. Overriding makes the result incomparable with the
     rumble, so the report records the setup each row was measured at."""
     setup = dict(DIVISIONS.get(collection, DIVISIONS["roborumble"]))
     if opts.rounds is not None:
         setup["rounds"] = opts.rounds
+    if collection == "meleerumble":
+        pool = load_melee_opponent_pool(opts.collection_dir)
+        setup["opponent_pool"] = pool
+        if subject_name is not None:
+            selected_names = select_melee_opponent_names(subject_name, pool)
+            by_name = {entry["jar"]: entry for entry in pool}
+            setup["opponents"] = [by_name[name] for name in selected_names]
     return setup
+
+
+def opponent_args(collection, setup, opts):
+    """Resolve the exact opponent jars recorded in a subject's setup."""
+    if collection != "meleerumble":
+        return [], []
+    entries = setup.get("opponents", [])
+    paths = [Path(opts.collection_dir) / collection / entry["jar"] for entry in entries]
+    selectors = []
+    for entry in entries:
+        classname, version = split_jar_name(entry["jar"])
+        selectors.append(classname if version is None else f"{classname} {version}")
+    return paths, selectors
 
 
 def main():
@@ -1713,7 +1820,8 @@ def main():
             index = f"[{tested + 1}/{min(len(todo), opts.limit or len(todo))}]"
             print(f"{index} {key} ...", flush=True)
 
-            setup = division_setup(collection, opts)
+            setup = division_setup(collection, opts, jar.name)
+            enemy_jar_paths, enemy_classes = opponent_args(collection, setup, opts)
             diagnosis = diagnosis_for_cause(
                 registry.get("subjects", {}).get(key, {}), opts.retest_cause) \
                 if opts.retest_cause else None
@@ -1721,7 +1829,9 @@ def main():
                        "diagnosis_id": diagnosis["id"], "repair": opts.repair}
                       if diagnosis else None)
             if opts.confirm_score:
-                measured = measure_repeatedly(jar, classname, version, opts, setup, REGRESSION_REPEATS)
+                measured = measure_repeatedly(
+                    jar, classname, version, opts, setup, REGRESSION_REPEATS,
+                    enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
                 if measured["bridge_only_signatures"]:
                     status = "DISCREPANCY (errors)"
                 elif measured["samples"] < REGRESSION_REPEATS:
@@ -1747,14 +1857,18 @@ def main():
                 tested += 1
                 print(f"    confirmation delta={measured['delta_mean']!s} -> {status}", flush=True)
                 continue
-            rc = run_rc_battle(jar, classname, version, opts, setup)
+            rc = run_rc_battle(
+                jar, classname, version, opts, setup,
+                enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
             attach_error_signatures(rc)
             rc["has_log"] = write_error_log("robocode", robot_name, rc.pop("log_text", ""))
 
             # The classic side has already run, so its signatures are the baseline the
             # bridge side is judged against (C-004).
-            tr = run_tr_battle(jar, classname, version, opts, setup,
-                               rc_signatures=classic_signatures(rc))
+            tr = run_tr_battle(
+                jar, classname, version, opts, setup,
+                rc_signatures=classic_signatures(rc),
+                enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
             attach_error_signatures(tr)
             tr["has_log"] = write_error_log("tank-royale", robot_name,
                                             tr.pop("log_text", ""))

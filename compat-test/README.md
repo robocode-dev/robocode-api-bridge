@@ -68,6 +68,8 @@ robot was never ranked on.
 `--rounds` overrides the round count for quick local runs and makes the result
 incomparable with the rumble, so the report records the setup each row was measured at.
 
+Official melee cases use the fixed twelve-jar opponent pool in `melee-opponents.json`. Each subject runs with the first nine pool entries after excluding itself, keeping ten participants while avoiding accidental self-play. The setup recorded in the parity registry includes the pool and the selected opponent names and hashes.
+
 ## Usage
 
 ```bash
