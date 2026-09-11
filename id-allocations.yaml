@@ -285,6 +285,11 @@ claims:
       state: reserved
       prefix: CH
       component: "16"
+    - id: CH-017
+      kind: numeric
+      state: reserved
+      prefix: CH
+      component: "17"
     - id: CRIT-001
       kind: numeric
       state: reserved
@@ -786,11 +791,11 @@ high-water:
       state: reserved
       prefix: EVT
       component: "15"
-    - id: FIO-004
+    - id: FIO-005
       kind: numeric
       state: reserved
       prefix: FIO
-      component: "4"
+      component: "5"
     - id: G-003
       kind: numeric
       state: reserved
