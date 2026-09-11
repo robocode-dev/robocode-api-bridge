@@ -6,196 +6,196 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 18 |
+| DISCREPANCY (errors) | 20 |
 | DISCREPANCY (no score) | 4 |
-| DISCREPANCY (outcome) | 37 |
-| FAIL (TR) | 13 |
-| PASS | 151 |
+| DISCREPANCY (outcome) | 41 |
+| FAIL (TR) | 8 |
+| PASS | 150 |
 | score-review | 64 |
 
 ## Subjects
 
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
-| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | e27085ecea3e8a70 | robot-file-stream-limit | bridge |
-| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | da040482276cb63a | team-message-nonserializable-payload | bridge |
-| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | eeb2ed4a5b4521ab | robot-file-stream-limit | bridge |
-| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 03169e7faa03fef7 | robot-file-stream-limit | bridge |
-| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 73299deafd3c475a | robot-file-stream-limit | bridge |
-| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | 44f1ff8af51e5db4 | robot-file-stream-limit | bridge |
-| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 12ed06e9a9a2a199 | robot-file-stream-limit | bridge |
-| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | c96f12234c1c4814 | robot-file-stream-limit | bridge |
-| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 50dc9c17bfbc8c85 | robot-file-stream-limit | bridge |
-| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | 7a42241a1f7605a8 | robot-file-stream-limit | bridge |
-| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | f4bb8bae314b33ab | robot-file-stream-limit | bridge |
-| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 02dcba781f32a791 | robot-file-stream-limit | bridge |
-| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | ad3ed7e386588583 | robot-file-stream-limit | bridge |
-| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 9d44b714e89a775e | robot-file-stream-limit | bridge |
-| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | 3fd2c20ab72eff39 | robot-file-stream-limit | bridge |
-| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 439c94fcc5975e3f | robot-file-stream-limit | bridge |
-| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 813aea4b6e3f3e1b | robot-file-stream-limit | bridge |
-| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | 15121b091ba9f834 | - | - |
-| roborumble/AIR.iRobot_1.0.jar | roborumble | robot | score-review | 016b2580d8164e8d | - | - |
-| roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | a482dacd239163f7 | - | - |
-| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | ef031fc8b1d05c16 | - | - |
-| roborumble/CharlieN.Omega.Omega_1.03.jar | roborumble | robot | PASS | 23e880a8344ee3d9 | - | - |
-| roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 763faa7b60411bd4 | - | - |
-| roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | d4ce33c725cce094 | - | - |
-| roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | d315e52ebc20dd35 | - | - |
-| roborumble/abud.ThirdRobo_1.0.jar | roborumble | robot | score-review | 23a3a480dde49883 | - | - |
-| roborumble/acid.Bl4ck_1.0.jar | roborumble | robot | score-review | 6658a49656a2c263 | - | - |
-| roborumble/acid.Null_1.0.jar | roborumble | robot | PASS | a82137deaa3c346d | - | - |
-| roborumble/acid.Syzygy_1.0.4.jar | roborumble | robot | score-review | 8fb330888126c77d | - | - |
-| roborumble/ad.Quest_0.10.jar | roborumble | robot | PASS | c552ef837f2796fa | - | - |
-| roborumble/ad.last.Bottom_1.0.jar | roborumble | robot | PASS | 277ad44320c87f64 | - | - |
-| roborumble/adt.Ar1_2.1.jar | roborumble | robot | PASS | 244e360035f7b018 | - | - |
-| roborumble/adt.Ar2_1.0.jar | roborumble | robot | PASS | c734b6dfde35458d | - | - |
-| roborumble/aetos.AetosFirstBot_1.0.jar | roborumble | robot | PASS | 1f87f4d3180529ca | - | - |
-| roborumble/ag.Gir_0.99.jar | roborumble | robot | DISCREPANCY (outcome) | 1faadd33366c6b0e | - | - |
-| roborumble/agd.Mooserwirt2_2.7.jar | roborumble | robot | DISCREPANCY (outcome) | 7c53bdfd327e9f51 | - | - |
-| roborumble/agrach.Dalek_1.0.jar | roborumble | robot | score-review | 4ca79cede8c759d9 | - | - |
-| roborumble/agrach.MicroDalek_1.0.jar | roborumble | robot | PASS | d665156fa7043545 | - | - |
-| roborumble/agrach.RobotSlayer_1.0.jar | roborumble | robot | PASS | 34e94cea909bb376 | - | - |
-| roborumble/ags.Glacier_0.3.2.jar | roborumble | robot | score-review | 700c44d5f2be6e82 | - | - |
-| roborumble/ags.Midboss_1q.fast.jar | roborumble | robot | PASS | 1d570de71f01a1de | - | - |
-| roborumble/ags.micro.Carpet_1.1.jar | roborumble | robot | PASS | c4ebd1c22f44c35b | - | - |
-| roborumble/ags.polished.PolishedRuby_1.jar | roborumble | robot | score-review | 46f3935141b83c7b | - | - |
-| roborumble/ags.rougedc.RougeDC_willow.jar | roborumble | robot | score-review | 81a9c13814493648 | - | - |
-| roborumble/ahf.Acero_1.0.jar | roborumble | robot | PASS | e68860f591015516 | - | - |
-| roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | score-review | 4a7c9e2e32d63b55 | - | - |
-| roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | score-review | 2bb74c6181a9c4e6 | - | - |
-| roborumble/ahr.ice.Ice_1.0.jar | roborumble | robot | PASS | 3b6b98d6178b120c | - | - |
-| roborumble/ak.Fermat_2.0.jar | roborumble | robot | DISCREPANCY (outcome) | 290cfe73c93ded2f | - | - |
-| roborumble/alex.Diabolo5_1.1.jar | roborumble | robot | PASS | f90440c9ab1e7955 | - | - |
-| roborumble/alk.lap.LoudAndProud_2.23.jar | roborumble | robot | PASS | ee2087786e93f500 | - | - |
-| roborumble/am.Miedzix_3.0.jar | roborumble | robot | PASS | a782a47b1334fd8d | - | - |
-| roborumble/amarok.Rookie_1.1.jar | roborumble | robot | PASS | fa9e5da875a82a17 | - | - |
-| roborumble/amc.ROBv202_1.01.jar | roborumble | robot | PASS | 9c227104c4656e4a | - | - |
-| roborumble/amc.ROBv203_1.0.jar | roborumble | robot | PASS | 9ce2cbe9f4b31aee | - | - |
-| roborumble/amc.ROBv300_1.1.jar | roborumble | robot | score-review | 28018b67a38f5036 | - | - |
-| roborumble/amc.ROBv301_1.1.jar | roborumble | robot | score-review | c96b6c4bb8feca26 | - | - |
-| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | score-review | 5534e88c08c76c14 | - | - |
-| roborumble/amk.ChumbaMini_0.2.jar | roborumble | robot | PASS | a116bf459a2c980d | - | - |
-| roborumble/amk.ChumbaWumba_0.3.jar | roborumble | robot | PASS | 97d313767c28cb0d | - | - |
-| roborumble/amk.Punbot.Punbot_0.01.jar | roborumble | robot | PASS | f42c06758d327d0c | - | - |
-| roborumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | roborumble | robot | PASS | 3630613884e828a1 | - | - |
-| roborumble/amk.jointstrike.JointStrike_0.2.jar | roborumble | robot | PASS | c7de061b178440ac | - | - |
-| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | score-review | 3bb18e21a371692e | - | - |
-| roborumble/ao.T100_0.9.jar | roborumble | robot | score-review | 8e12e399467c8ec4 | - | - |
-| roborumble/ap.Frederick_1.1.jar | roborumble | robot | score-review | 87bf70ae49d62eec | - | - |
-| roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | 6df0b0f219493a14 | - | - |
-| roborumble/apc.Colossus2_0.12.jar | roborumble | robot | DISCREPANCY (outcome) | 6379f70acf004f6d | - | - |
-| roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | 0c40fec280b2ae52 | - | - |
-| roborumble/apc.botM_3.0.jar | roborumble | robot | PASS | 0658a09aec65bdc3 | - | - |
-| roborumble/apollokidd.ApolloKidd_0.9.jar | roborumble | robot | score-review | 1afd9d3cb1c5029e | - | - |
-| roborumble/apv.AspidReloaded_0.6.jar | roborumble | robot | PASS | af3f2d936aed32ca | - | - |
-| roborumble/apv.Aspid_1.7.jar | roborumble | robot | PASS | c020a1092b279fe0 | - | - |
-| roborumble/apv.LauLectrik_1.2.jar | roborumble | robot | PASS | 01300cdb0149a470 | - | - |
-| roborumble/apv.MicroAspid_1.8.jar | roborumble | robot | PASS | 0e4f47cffe5fe30b | - | - |
-| roborumble/apv.NanoLauLectrikTheCannibal_1.1.jar | roborumble | robot | PASS | 0aac6102866d136a | - | - |
-| roborumble/apv.NanoLauLectrik_1.0.jar | roborumble | robot | PASS | 82fd722fe6e1e407 | - | - |
-| roborumble/apv.ScruchiPu_1.0.jar | roborumble | robot | PASS | da32bec6dde80eaf | - | - |
-| roborumble/apv.TheBrainPi_0.5fix.jar | roborumble | robot | PASS | 1a9c9871df4767b1 | - | - |
-| roborumble/apv.test.Virus_0.6.1.jar | roborumble | robot | PASS | 4e830a3df777c9e8 | - | - |
-| roborumble/ar.QuantumChromodynamics_1.2.1.jar | roborumble | robot | PASS | 14b3598091c0eda0 | - | - |
-| roborumble/ar.TheoryOfEverything_1.2.1.jar | roborumble | robot | PASS | b6e6f48016bb1944 | - | - |
-| roborumble/ar.horizon.Horizon_1.2.2.jar | roborumble | robot | DISCREPANCY (outcome) | a4bd9d26f00d0069 | - | - |
-| roborumble/ara.Shera_0.88.jar | roborumble | robot | PASS | bc72b7afd005387f | - | - |
-| roborumble/areb.Union_1.06.jar | roborumble | robot | PASS | e936d5fa086090dc | - | - |
-| roborumble/arthord.KostyaTszyu_Beta2.jar | roborumble | robot | PASS | 23ef554f7cd8e694 | - | - |
-| roborumble/arthord.NanoSatanMelee_Beta.jar | roborumble | robot | PASS | 1e514c6d8e06a406 | - | - |
-| roborumble/arthord.NanoSatan_Mu.jar | roborumble | robot | PASS | a396986b5e625060 | - | - |
-| roborumble/arthord.micro.Apoptygma_0.4.jar | roborumble | robot | PASS | b607d5129d8c49d9 | - | - |
-| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 5e1dcd334d1a8012 | - | - |
-| roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 97fe445f1116770c | - | - |
-| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | DISCREPANCY (errors) | 3a1149847936cae0 | - | - |
-| roborumble/ary.Help_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | b967cda1945e0c9b | - | - |
-| roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | fa5c10b4eabc478b | - | - |
-| roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | 5d998631413c6ded | - | - |
-| roborumble/ary.mini.Nimi_1.0.jar | roborumble | robot | PASS | 7246a06bf8ebe63b | - | - |
-| roborumble/ary.nano.AceSurf_1.2.jar | roborumble | robot | PASS | 997ca37d1b15a182 | - | - |
-| roborumble/ary.nano.ColorNanoP_1.1.jar | roborumble | robot | PASS | 35e950c265bd9661 | - | - |
-| roborumble/as.xbots_1.0.jar | roborumble | robot | score-review | dee1de91c4a0cafd | - | - |
-| roborumble/asd.Cthulhu_1.2.jar | roborumble | robot | PASS | d3497d04fcb1e22e | - | - |
-| roborumble/asm.Statistas_0.1.jar | roborumble | robot | PASS | 6e6c33badcf514f1 | - | - |
-| roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | da54561dc81a708a | - | - |
-| roborumble/axeBots.HataMoto_3.09.jar | roborumble | robot | PASS | 8c01f121200835d8 | - | - |
-| roborumble/axeBots.Musashi_2.18.jar | roborumble | robot | PASS | 8364b3e01450497b | - | - |
-| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | 1dded15dbe2bd32a | - | - |
-| roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | e548c866448de368 | - | - |
-| roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | 1017ee604942a930 | - | - |
-| roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | 01f45c4d3f4c8607 | - | - |
-| roborumble/banshee.micro.Nexus6_0.3.0.jar | roborumble | robot | PASS | 880f31284d6aab23 | - | - |
-| roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 6708b02e572e833b | - | - |
-| roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | d277fcd0f4fa9ac3 | - | - |
-| roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | cd3792ef64ed691a | - | - |
-| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | score-review | eadf18e2369c4d34 | - | - |
-| roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 4a7c5b662a136f8b | - | - |
-| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | score-review | e1df32b048bd3138 | - | - |
-| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | score-review | c8a8932135e58924 | - | - |
-| roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | 62b814ca6811b240 | - | - |
-| roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | f9d1092b618b701d | - | - |
-| roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 581e2b193abdca2c | - | - |
-| roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | score-review | 85ffef2f6f8af876 | - | - |
-| roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 970d881503b8b286 | - | - |
-| roborumble/bk.Shooter_1.0.jar | roborumble | robot | score-review | a98085fd39274e84 | - | - |
-| roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6cdf4f740a3e1481 | - | - |
-| roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | 9fcecb0aee074ef9 | - | - |
-| roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 464de3df44de3cda | - | - |
-| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | score-review | ae5c1d278e652176 | - | - |
-| roborumble/blir.nano.inch.Inchworm_1.0.jar | roborumble | robot | PASS | fce62c91979555ce | - | - |
-| roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | 1ecd175c1f602fe5 | - | - |
-| roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | 8328d220bc9a94c8 | - | - |
-| roborumble/boe.Minerva_0.80.jar | roborumble | robot | DISCREPANCY (outcome) | 00a91d5377876d07 | - | - |
-| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | score-review | d0e8b9ba609f02e6 | - | - |
-| roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 4c815a9391152929 | - | - |
-| roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | a7a128248aeb3c93 | - | - |
-| roborumble/bots.UnterExBot_1.0.jar | roborumble | robot | PASS | 98c24ea236da41f2 | - | - |
-| roborumble/bp.Kuma_1.0.jar | roborumble | robot | score-review | eeb576d7718c4381 | - | - |
-| roborumble/braaropolis.Abot_1.0.jar | roborumble | robot | PASS | 446be7c40a8720ee | - | - |
-| roborumble/brainfade.Fallen_0.63.jar | roborumble | robot | PASS | 55ba606f72d28a9b | - | - |
-| roborumble/brainfade.melee.Dusk_0.44.jar | roborumble | robot | PASS | 1c87f34d865af02b | - | - |
-| roborumble/bts.mega.Gnarly_1.4.jar | roborumble | robot | PASS | ca378eb14958b4ca | - | - |
-| roborumble/bts.wiki.RipCurl_0.9b.jar | roborumble | robot | DISCREPANCY (outcome) | a533a3a318ab89ca | - | - |
-| roborumble/buba.Archivist_0.1.jar | roborumble | robot | PASS | 876865d23b415328 | - | - |
-| roborumble/buba.Buba_0.3.jar | roborumble | robot | PASS | d18214ecd6a66e4f | - | - |
-| roborumble/bumblebee.Bumblebee_1.0.jar | roborumble | robot | PASS | 20817ad725b35d62 | - | - |
-| roborumble/bvh.fnr.Fenrir_0.36l.jar | roborumble | robot | PASS | c42dcc45e38dcd92 | - | - |
-| roborumble/bvh.frg.Friga_0.112dev.jar | roborumble | robot | PASS | 2c64749929672cae | - | - |
-| roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | FAIL (TR) | d32b1f5ce3e25f80 | - | - |
-| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | score-review | bc89209e78a077fc | - | - |
-| roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | score-review | c679e09780c18a52 | - | - |
-| roborumble/bvh.micro.Freya_0.3.jar | roborumble | robot | PASS | 2f1498ceffdac7e0 | - | - |
-| roborumble/bvh.micro.Svadilfari_0.2.jar | roborumble | robot | PASS | 4dadfc08d52161ce | - | - |
-| roborumble/bvh.mini.Fenrir_0.39.jar | roborumble | robot | PASS | ff57f8cea1909f17 | - | - |
-| roborumble/bvh.mini.Freya_0.55.jar | roborumble | robot | PASS | 815497cd00aa57b0 | - | - |
-| roborumble/bvh.mini.Mjolnir_0.3.jar | roborumble | robot | score-review | 3d1c3e239d06d795 | - | - |
-| roborumble/bvh.mini.Wodan_0.50.jar | roborumble | robot | PASS | d89e8a196146f1ec | - | - |
-| roborumble/bvh.tyr.Tyr_1.74.jar | roborumble | robot | PASS | f40bad8a5aff304f | - | - |
-| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | score-review | b935555308fc01c3 | - | - |
-| roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | 67c108afb1e67978 | - | - |
-| roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | a96b223336b776df | - | - |
-| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | score-review | 99d4763f956857c8 | - | - |
-| roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | ad19841f89469280 | - | - |
-| roborumble/cb.Domogled_1.2.jar | roborumble | robot | FAIL (TR) | ab4a97816c447d60 | - | - |
-| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | FAIL (TR) | 2002e30ad998c641 | - | - |
-| roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | FAIL (TR) | 55bade0feb6ac865 | - | - |
-| roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | PASS | 997241f811003c48 | - | - |
-| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | score-review | 50feb7c195d9d53e | - | - |
-| roborumble/cbot.cbot.CBot_0.8.jar | roborumble | robot | FAIL (TR) | 7337304cd84cf9c0 | - | - |
-| roborumble/cf.OldMan.OldManXP_0.1.jar | roborumble | robot | PASS | f54923f1b67ca9f0 | - | - |
-| roborumble/cf.mini.Chiva_1.0.jar | roborumble | robot | PASS | 336aaa29d4d4cb86 | - | - |
-| roborumble/cf.proto.Shiva_2.2.jar | roborumble | robot | PASS | 92716decc58e938d | - | - |
-| roborumble/cf.star.Star2_1.23.jar | roborumble | robot | PASS | 8c06e2125b4e11c4 | - | - |
-| roborumble/ch.rhj.rbc.RHJ1_1.0.jar | roborumble | robot | PASS | 09fc48a0219093cf | - | - |
-| roborumble/chase.pm.Pytko_1.0.jar | roborumble | robot | PASS | 5621c60c56abe7ae | - | - |
-| roborumble/chickenfuego.UrChicken2_1.0.jar | roborumble | robot | PASS | ac7ec21a2a822b4f | - | - |
-| roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | ca8bad284ef8d30e | - | - |
-| roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 30b3c8b16bb49f75 | - | - |
-| roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 75019a166932d5c2 | - | - |
-| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | ad72f39287f5b880 | - | - |
-| roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | ec2f186e76fabdbc | - | - |
-| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | PASS | bec9ffc1e65a95d1 | - | - |
+| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | d9bd8d7385d3d22e | robot-file-stream-limit | bridge |
+| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cfc832207fef2893 | team-message-nonserializable-payload | bridge |
+| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 7839d20cf59e0a64 | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 43f3ee3528bd8f45 | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | fb2e2725a287d7f9 | robot-file-stream-limit | bridge |
+| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (outcome) | da0b567fb3f5ef46 | robot-file-stream-limit | bridge |
+| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d3c8a9380c597d9f | robot-file-stream-limit | bridge |
+| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | e0b9002bcec44313 | robot-file-stream-limit | bridge |
+| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 29b319062e1bb1e3 | robot-file-stream-limit | bridge |
+| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0f21ae3d08587d21 | robot-file-stream-limit | bridge |
+| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 617512a1164edacd | robot-file-stream-limit | bridge |
+| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 38e755d42cd6f5d8 | robot-file-stream-limit | bridge |
+| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 699891fba6c2f73a | robot-file-stream-limit | bridge |
+| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 8e8dcdcb86b61823 | robot-file-stream-limit | bridge |
+| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | c7f7c698db57b23f | robot-file-stream-limit | bridge |
+| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 353101b7102ac785 | robot-file-stream-limit | bridge |
+| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 6ef18d74aa63ea71 | robot-file-stream-limit | bridge |
+| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | 0453fc0f00dff45c | - | - |
+| roborumble/AIR.iRobot_1.0.jar | roborumble | robot | score-review | 354cd01bfdc3786d | - | - |
+| roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 484775d6d5b80949 | - | - |
+| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 8618b473bbaa031a | - | - |
+| roborumble/CharlieN.Omega.Omega_1.03.jar | roborumble | robot | PASS | c10141a6e3bffa57 | - | - |
+| roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 905cb13a51031ded | - | - |
+| roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | adf34a00921a19fb | - | - |
+| roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | e5f02cb946a9837d | - | - |
+| roborumble/abud.ThirdRobo_1.0.jar | roborumble | robot | score-review | 4253a99585b46990 | - | - |
+| roborumble/acid.Bl4ck_1.0.jar | roborumble | robot | score-review | 2bb7d3c8880ac0c7 | - | - |
+| roborumble/acid.Null_1.0.jar | roborumble | robot | PASS | dafccb3685f84816 | - | - |
+| roborumble/acid.Syzygy_1.0.4.jar | roborumble | robot | score-review | 1c25ef0bf9e140cd | - | - |
+| roborumble/ad.Quest_0.10.jar | roborumble | robot | PASS | 46f75c8d89cb2099 | - | - |
+| roborumble/ad.last.Bottom_1.0.jar | roborumble | robot | PASS | 363a58e2be617d0d | - | - |
+| roborumble/adt.Ar1_2.1.jar | roborumble | robot | PASS | 6afcda32d3c42317 | - | - |
+| roborumble/adt.Ar2_1.0.jar | roborumble | robot | PASS | 107d018a63a13641 | - | - |
+| roborumble/aetos.AetosFirstBot_1.0.jar | roborumble | robot | PASS | 7d0a6c97362bf310 | - | - |
+| roborumble/ag.Gir_0.99.jar | roborumble | robot | DISCREPANCY (outcome) | 8272b91362c26db3 | - | - |
+| roborumble/agd.Mooserwirt2_2.7.jar | roborumble | robot | DISCREPANCY (outcome) | f9382183cb98e975 | - | - |
+| roborumble/agrach.Dalek_1.0.jar | roborumble | robot | score-review | 96480883617001b2 | - | - |
+| roborumble/agrach.MicroDalek_1.0.jar | roborumble | robot | PASS | 3226abcca9e1a112 | - | - |
+| roborumble/agrach.RobotSlayer_1.0.jar | roborumble | robot | PASS | f62be7820a403bc4 | - | - |
+| roborumble/ags.Glacier_0.3.2.jar | roborumble | robot | score-review | 40164deb5ccde7f4 | - | - |
+| roborumble/ags.Midboss_1q.fast.jar | roborumble | robot | PASS | eec5d3717a0ab041 | - | - |
+| roborumble/ags.micro.Carpet_1.1.jar | roborumble | robot | PASS | 835e2b5ee60dd68d | - | - |
+| roborumble/ags.polished.PolishedRuby_1.jar | roborumble | robot | score-review | 9a850319dc55b819 | - | - |
+| roborumble/ags.rougedc.RougeDC_willow.jar | roborumble | robot | score-review | 50aa19c25c944bd8 | - | - |
+| roborumble/ahf.Acero_1.0.jar | roborumble | robot | PASS | 5622644c6c76d72e | - | - |
+| roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | score-review | 2a6056d1cc463a2e | - | - |
+| roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | score-review | d6d15bb31fa3b555 | - | - |
+| roborumble/ahr.ice.Ice_1.0.jar | roborumble | robot | PASS | 3f9a6aa7a7ee5ac6 | - | - |
+| roborumble/ak.Fermat_2.0.jar | roborumble | robot | DISCREPANCY (outcome) | 73d4df57f0f286c2 | - | - |
+| roborumble/alex.Diabolo5_1.1.jar | roborumble | robot | PASS | 54e8ee63b279df55 | - | - |
+| roborumble/alk.lap.LoudAndProud_2.23.jar | roborumble | robot | PASS | a2a4a6c406d3bb52 | - | - |
+| roborumble/am.Miedzix_3.0.jar | roborumble | robot | PASS | 56b2129496601231 | - | - |
+| roborumble/amarok.Rookie_1.1.jar | roborumble | robot | PASS | 2e3acc9b52356a56 | - | - |
+| roborumble/amc.ROBv202_1.01.jar | roborumble | robot | PASS | eca06ebe0df9bdc5 | - | - |
+| roborumble/amc.ROBv203_1.0.jar | roborumble | robot | PASS | 5399c0c7a1be95d6 | - | - |
+| roborumble/amc.ROBv300_1.1.jar | roborumble | robot | score-review | 94926f0c989e9218 | - | - |
+| roborumble/amc.ROBv301_1.1.jar | roborumble | robot | score-review | 0fbb01e93f126243 | - | - |
+| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | score-review | 00546ecb68e0a6ae | - | - |
+| roborumble/amk.ChumbaMini_0.2.jar | roborumble | robot | PASS | a15385d0f6ede1d9 | - | - |
+| roborumble/amk.ChumbaWumba_0.3.jar | roborumble | robot | PASS | 026ab57e9440b982 | - | - |
+| roborumble/amk.Punbot.Punbot_0.01.jar | roborumble | robot | PASS | 2a9fc96b3744b689 | - | - |
+| roborumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | roborumble | robot | PASS | 13b55fdccc6d4434 | - | - |
+| roborumble/amk.jointstrike.JointStrike_0.2.jar | roborumble | robot | PASS | 6217c1a2e39a54aa | - | - |
+| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | score-review | 0e53137c19f0123a | - | - |
+| roborumble/ao.T100_0.9.jar | roborumble | robot | score-review | 93f8942f94d19538 | - | - |
+| roborumble/ap.Frederick_1.1.jar | roborumble | robot | score-review | a0671464768348dc | - | - |
+| roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | a9bf217a528f7d4e | - | - |
+| roborumble/apc.Colossus2_0.12.jar | roborumble | robot | DISCREPANCY (outcome) | 2feeb3eb74fa0965 | - | - |
+| roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | 69466e1841b00089 | - | - |
+| roborumble/apc.botM_3.0.jar | roborumble | robot | PASS | 6e6db1ffab4d007e | - | - |
+| roborumble/apollokidd.ApolloKidd_0.9.jar | roborumble | robot | score-review | 68c390f59166a84b | - | - |
+| roborumble/apv.AspidReloaded_0.6.jar | roborumble | robot | PASS | 1a594e34018ec4b5 | - | - |
+| roborumble/apv.Aspid_1.7.jar | roborumble | robot | PASS | 068511f664ea6782 | - | - |
+| roborumble/apv.LauLectrik_1.2.jar | roborumble | robot | PASS | 32417eb47c284365 | - | - |
+| roborumble/apv.MicroAspid_1.8.jar | roborumble | robot | PASS | 7985bdc3643b8d58 | - | - |
+| roborumble/apv.NanoLauLectrikTheCannibal_1.1.jar | roborumble | robot | PASS | 29fdfb68ec9ac85a | - | - |
+| roborumble/apv.NanoLauLectrik_1.0.jar | roborumble | robot | PASS | 60f83de513153c95 | - | - |
+| roborumble/apv.ScruchiPu_1.0.jar | roborumble | robot | PASS | b02bd2e6ef425d3c | - | - |
+| roborumble/apv.TheBrainPi_0.5fix.jar | roborumble | robot | PASS | 553f60384be93bf1 | - | - |
+| roborumble/apv.test.Virus_0.6.1.jar | roborumble | robot | PASS | 45c5f5257c5427f4 | - | - |
+| roborumble/ar.QuantumChromodynamics_1.2.1.jar | roborumble | robot | PASS | d17fc969f7bcbf7d | - | - |
+| roborumble/ar.TheoryOfEverything_1.2.1.jar | roborumble | robot | PASS | 8e6d633bc393e03d | - | - |
+| roborumble/ar.horizon.Horizon_1.2.2.jar | roborumble | robot | DISCREPANCY (outcome) | 38bb89bb6941bc13 | - | - |
+| roborumble/ara.Shera_0.88.jar | roborumble | robot | PASS | c46b21a3657eeb15 | - | - |
+| roborumble/areb.Union_1.06.jar | roborumble | robot | PASS | 9c1c90866ffd9463 | - | - |
+| roborumble/arthord.KostyaTszyu_Beta2.jar | roborumble | robot | PASS | 3c5a4a72308d893c | - | - |
+| roborumble/arthord.NanoSatanMelee_Beta.jar | roborumble | robot | PASS | f45dc5b23007476d | - | - |
+| roborumble/arthord.NanoSatan_Mu.jar | roborumble | robot | PASS | a85e6e23935306a8 | - | - |
+| roborumble/arthord.micro.Apoptygma_0.4.jar | roborumble | robot | PASS | 5b93b570dbfd028e | - | - |
+| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 6d08e2da2e04517b | - | - |
+| roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 626c284d6d4465a7 | - | - |
+| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | DISCREPANCY (errors) | 281e68cc7636eea7 | - | - |
+| roborumble/ary.Help_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 7c98ee343049355a | - | - |
+| roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | 46a758d1896047fc | - | - |
+| roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | 4e79f0e8fa0bb3b7 | - | - |
+| roborumble/ary.mini.Nimi_1.0.jar | roborumble | robot | PASS | 3fe627c8cd344604 | - | - |
+| roborumble/ary.nano.AceSurf_1.2.jar | roborumble | robot | PASS | 6c93b93877288310 | - | - |
+| roborumble/ary.nano.ColorNanoP_1.1.jar | roborumble | robot | PASS | 2f576c866b5a47e0 | - | - |
+| roborumble/as.xbots_1.0.jar | roborumble | robot | score-review | 2e833c5c225ba202 | - | - |
+| roborumble/asd.Cthulhu_1.2.jar | roborumble | robot | PASS | 9b6e3f2ba9808e77 | - | - |
+| roborumble/asm.Statistas_0.1.jar | roborumble | robot | PASS | 13c87684e90db62f | - | - |
+| roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | e6b7973c9327a507 | - | - |
+| roborumble/axeBots.HataMoto_3.09.jar | roborumble | robot | PASS | 9df92eac9916fc19 | - | - |
+| roborumble/axeBots.Musashi_2.18.jar | roborumble | robot | PASS | c73f3c417be8205c | - | - |
+| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | 918d67996fdacf3a | - | - |
+| roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | f06a004a1644fd76 | - | - |
+| roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | ebd09bad15b6da4a | - | - |
+| roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | 35bed04838af7c47 | - | - |
+| roborumble/banshee.micro.Nexus6_0.3.0.jar | roborumble | robot | PASS | 323b9a61a3778b72 | - | - |
+| roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 55b20b3ffe7b3067 | - | - |
+| roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | 19f17358f6fb3fe0 | - | - |
+| roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | 7751943c3626adb6 | - | - |
+| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | score-review | 5880dfe2fbb2accd | - | - |
+| roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 19eb31405a6b1f55 | - | - |
+| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | score-review | 30d7e0e002a5c404 | - | - |
+| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | score-review | 98ea684613f4ed35 | - | - |
+| roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | e040f3c6d5531583 | - | - |
+| roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | f3060a59cf2228e0 | - | - |
+| roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | d63989a2ca259c98 | - | - |
+| roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | score-review | 193b115a37281407 | - | - |
+| roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 587492ac3e35c8df | - | - |
+| roborumble/bk.Shooter_1.0.jar | roborumble | robot | score-review | 9786598492944793 | - | - |
+| roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 24e08603bd0e4a82 | - | - |
+| roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | d4cfdacf6e2c9a49 | - | - |
+| roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 793dd0f1b9c63c12 | - | - |
+| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | score-review | 16bf52937ef58441 | - | - |
+| roborumble/blir.nano.inch.Inchworm_1.0.jar | roborumble | robot | PASS | 85dadcc1238de2a1 | - | - |
+| roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | 046a9e6196138861 | - | - |
+| roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | 79fe50773a859872 | - | - |
+| roborumble/boe.Minerva_0.80.jar | roborumble | robot | DISCREPANCY (outcome) | 44124605bbb35e5c | - | - |
+| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | score-review | 1ffb0d1aef126e58 | - | - |
+| roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 4179483cbc71089e | - | - |
+| roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | 581d49f7870b5b2a | - | - |
+| roborumble/bots.UnterExBot_1.0.jar | roborumble | robot | PASS | ed03da881ac12242 | - | - |
+| roborumble/bp.Kuma_1.0.jar | roborumble | robot | score-review | b37a331658c6357f | - | - |
+| roborumble/braaropolis.Abot_1.0.jar | roborumble | robot | PASS | 01d532be059c2017 | - | - |
+| roborumble/brainfade.Fallen_0.63.jar | roborumble | robot | PASS | a74ec0d0f190d331 | - | - |
+| roborumble/brainfade.melee.Dusk_0.44.jar | roborumble | robot | PASS | 1b15100b8a6d299b | - | - |
+| roborumble/bts.mega.Gnarly_1.4.jar | roborumble | robot | PASS | eeddfa940d43e8e5 | - | - |
+| roborumble/bts.wiki.RipCurl_0.9b.jar | roborumble | robot | DISCREPANCY (outcome) | 87597967ef07ea4a | - | - |
+| roborumble/buba.Archivist_0.1.jar | roborumble | robot | PASS | 4d28f54657262d52 | - | - |
+| roborumble/buba.Buba_0.3.jar | roborumble | robot | PASS | 30626200234d9c27 | - | - |
+| roborumble/bumblebee.Bumblebee_1.0.jar | roborumble | robot | PASS | ae43ea1fef67a0c5 | - | - |
+| roborumble/bvh.fnr.Fenrir_0.36l.jar | roborumble | robot | PASS | cc62ca41935466fa | - | - |
+| roborumble/bvh.frg.Friga_0.112dev.jar | roborumble | robot | PASS | 5d040ba153e11982 | - | - |
+| roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | DISCREPANCY (outcome) | 64bf824d1aa628ee | - | - |
+| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | score-review | 2d51d3006d7fc503 | - | - |
+| roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | score-review | 1227a96bc4f0f2fe | - | - |
+| roborumble/bvh.micro.Freya_0.3.jar | roborumble | robot | PASS | e60c0e998036a2f5 | - | - |
+| roborumble/bvh.micro.Svadilfari_0.2.jar | roborumble | robot | PASS | 0d7d2ed06f3bfff2 | - | - |
+| roborumble/bvh.mini.Fenrir_0.39.jar | roborumble | robot | PASS | e91c132720faf974 | - | - |
+| roborumble/bvh.mini.Freya_0.55.jar | roborumble | robot | PASS | 1c023390e0f2f421 | - | - |
+| roborumble/bvh.mini.Mjolnir_0.3.jar | roborumble | robot | PASS | edba1ff7aaef3d93 | - | - |
+| roborumble/bvh.mini.Wodan_0.50.jar | roborumble | robot | PASS | e2232eaf2f8243f0 | - | - |
+| roborumble/bvh.tyr.Tyr_1.74.jar | roborumble | robot | PASS | ad7851865610ac82 | - | - |
+| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | score-review | d76442a6550a82a2 | - | - |
+| roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | b42becf405bd9779 | - | - |
+| roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | ef7449d69af6f5fa | - | - |
+| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | score-review | fcec425908285f7e | - | - |
+| roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | d5244c14c9f8a304 | - | - |
+| roborumble/cb.Domogled_1.2.jar | roborumble | robot | DISCREPANCY (outcome) | 21e80a2910be74e8 | - | - |
+| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 54c844293603884b | - | - |
+| roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 62b50be746f66ccc | - | - |
+| roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | score-review | 7898b39a4b7920f6 | - | - |
+| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | cfb2db82fc7bcf45 | - | - |
+| roborumble/cbot.cbot.CBot_0.8.jar | roborumble | robot | PASS | f23c2346f4d83205 | - | - |
+| roborumble/cf.OldMan.OldManXP_0.1.jar | roborumble | robot | PASS | c1716d409e206694 | - | - |
+| roborumble/cf.mini.Chiva_1.0.jar | roborumble | robot | PASS | 18038ae8d2701d7b | - | - |
+| roborumble/cf.proto.Shiva_2.2.jar | roborumble | robot | PASS | 1e62ba52b1060ffd | - | - |
+| roborumble/cf.star.Star2_1.23.jar | roborumble | robot | PASS | 18b5fb7dbc4c52c4 | - | - |
+| roborumble/ch.rhj.rbc.RHJ1_1.0.jar | roborumble | robot | PASS | 5773c50428521fc4 | - | - |
+| roborumble/chase.pm.Pytko_1.0.jar | roborumble | robot | PASS | 346f8ec53b0be583 | - | - |
+| roborumble/chickenfuego.UrChicken2_1.0.jar | roborumble | robot | score-review | 8afb598c11d80594 | - | - |
+| roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | fb87f1c733fbf3d7 | - | - |
+| roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 8344edd723226674 | - | - |
+| roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 84d0cd0bbd7b8336 | - | - |
+| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 4f7e0ebeb8051047 | - | - |
+| roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 8182c9f755eafae6 | - | - |
+| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | c329cdacb7878dbc | - | - |
 | roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | score-review | 41f11a8de1bd0c5b | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | b68f0a69b507a3fe | - | - |
 | roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (no score) | c50ef80274e4a320 | - | - |
@@ -260,47 +260,47 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | score-review | 78bba33b96e662cd | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | fc65e7d5693090d9 | - | - |
 | roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | score-review | 38ab74151e9be2ed | - | - |
-| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 1ecda8ec6b5fb1be | - | - |
-| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | a2d53611e44d10f6 | - | - |
-| teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | ed2d73bf485027bc | - | - |
-| teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | 3b1f416963da0019 | - | - |
-| teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 223afe5fbf292dac | - | - |
-| teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | 234d8bd216fd1761 | - | - |
-| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | 4cf2088b09a7ae4b | - | - |
-| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 2221ab354fe66b57 | - | - |
-| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | ce584a1ae735db5d | - | - |
-| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | DISCREPANCY (outcome) | 8732b25dbcb2af3d | - | - |
-| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 8b97cf2f2ca0b424 | - | - |
-| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 7492a074c80f6a14 | - | - |
-| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | DISCREPANCY (outcome) | d026ec6baeeec0bd | - | - |
-| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 10592394523062bb | - | - |
-| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | DISCREPANCY (outcome) | f7cf41476d207033 | - | - |
-| teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | d0aefc1a537207c8 | - | - |
-| teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | b9d5429eb928cfb8 | - | - |
-| teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | f1cf8c01ee816368 | - | - |
-| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | de6665305854f0ff | - | - |
-| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | e7341a5f7f36112c | - | - |
-| teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | DISCREPANCY (outcome) | 22ffafee655c4a36 | - | - |
-| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | 656a7f66ccf13167 | - | - |
-| teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 6eb65137ea847f44 | - | - |
-| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 16a232b1245960c1 | - | - |
-| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | eb2ac1d4d894e283 | - | - |
-| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | DISCREPANCY (outcome) | 03c40c597d50ad3c | - | - |
-| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | c09b423c928e3cd5 | - | - |
-| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | DISCREPANCY (outcome) | 2cc5e2b1593bc997 | - | - |
-| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | DISCREPANCY (outcome) | 2c51bef62cf733c3 | - | - |
-| teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | db05fa1b3acba7c3 | - | - |
-| teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | DISCREPANCY (outcome) | 376e21a59fc4e021 | - | - |
-| teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | score-review | f63220499191ced0 | - | - |
-| teamrumble/pedersen.ImWithDroidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | d283eb185078225d | - | - |
-| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | 9bc29772ec713d45 | - | - |
-| teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | d0320b795231cf02 | - | - |
-| teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | DISCREPANCY (outcome) | bdd4320673e2dbbb | - | - |
-| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | score-review | bb6803ac66114e7e | - | - |
-| teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | score-review | 8f346658f512e938 | - | - |
-| teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | 490a9dda1a3aa5d6 | - | - |
-| teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | 25fcb3dc877575ba | - | - |
-| teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | score-review | d81f46c1cf94e99a | - | - |
-| teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (errors) | 42bad809cbbcb6fa | - | - |
-| teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | DISCREPANCY (outcome) | 8c15caf442eaab5d | - | - |
-| teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | DISCREPANCY (outcome) | c8bc8463783f6da4 | - | - |
+| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 38ba0e7be7853146 | - | - |
+| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | eb63f89c2f35acea | - | - |
+| teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 1b32ef531fdd5fe5 | - | - |
+| teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | 802ca5d53a17d647 | - | - |
+| teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 099643bb141a50b9 | - | - |
+| teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | 38a9c9b9e2fcac38 | - | - |
+| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | 1e0a7ebc2514f911 | - | - |
+| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 9b479e4292f58b7b | - | - |
+| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | fbff104ddd95de23 | - | - |
+| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | DISCREPANCY (outcome) | ee47548f4c10358c | - | - |
+| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | abf52648e4ebb36d | - | - |
+| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 04a09d7aa6ddd714 | - | - |
+| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | DISCREPANCY (outcome) | ce0f428c744bb751 | - | - |
+| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 22085029e9808fae | - | - |
+| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | DISCREPANCY (outcome) | a0825dfd9b0660fa | - | - |
+| teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | 9f19391129fc5aa5 | - | - |
+| teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | c206574173f367f9 | - | - |
+| teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | d580f38f60e50bd6 | - | - |
+| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | 06ce738c394e9fba | - | - |
+| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 9d270cb3f05e71c5 | - | - |
+| teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | DISCREPANCY (outcome) | 2b8ead77e7e33530 | - | - |
+| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | 63824e138dc94307 | - | - |
+| teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | f8e1bf864a2f6896 | - | - |
+| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 66c5987640eed967 | - | - |
+| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 88261925716545f5 | - | - |
+| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | DISCREPANCY (outcome) | f2efe9f5d508d418 | - | - |
+| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 40020768b9b3dac2 | - | - |
+| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | DISCREPANCY (outcome) | ec1ed531373830b9 | - | - |
+| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | DISCREPANCY (outcome) | 7f93f74587ba3c92 | - | - |
+| teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | aa45a4c512c522f4 | - | - |
+| teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | DISCREPANCY (outcome) | 67c2cd09ef64b9a8 | - | - |
+| teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | score-review | d5a902a9920e7342 | - | - |
+| teamrumble/pedersen.ImWithDroidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | 555b6fe92b61f478 | - | - |
+| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | DISCREPANCY (outcome) | b91cfa5e56aec4f8 | - | - |
+| teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 3bd8ba15bd0b5c48 | - | - |
+| teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | DISCREPANCY (outcome) | 7b9ee716ca9a2bc4 | - | - |
+| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | score-review | 5f08e6e856a2fba4 | - | - |
+| teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | score-review | 7b965924c6510162 | - | - |
+| teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | 8f09d56788e3a993 | - | - |
+| teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | bd5f2da94b8989df | - | - |
+| teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | score-review | 1de91473b96119c7 | - | - |
+| teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (errors) | 577a1dd0e9570b83 | - | - |
+| teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | DISCREPANCY (outcome) | c3ebae9eabba0514 | - | - |
+| teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | DISCREPANCY (outcome) | 915ba06f8ff817e7 | - | - |
