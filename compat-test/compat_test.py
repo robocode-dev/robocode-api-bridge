@@ -1823,6 +1823,7 @@ def main():
           f"{len(todo)} to test.")
 
     tested = 0
+    checkpoint_state = {"robots": {}}
     session_started = time.time()
     try:
         for collection, jar in todo:
@@ -1866,6 +1867,7 @@ def main():
                 }
                 if retest:
                     state["robots"][key]["retest"] = retest
+                checkpoint_state["robots"][key] = state["robots"][key]
                 save_state(state)
                 regenerate_report(state)
                 tested += 1
@@ -1903,6 +1905,7 @@ def main():
             }
             if retest:
                 state["robots"][key]["retest"] = retest
+            checkpoint_state["robots"][key] = state["robots"][key]
             save_state(state)
             regenerate_report(state)
             tested += 1
@@ -1917,12 +1920,12 @@ def main():
         print("\nInterrupted — progress saved. Re-run to resume.", file=sys.stderr)
         save_state(state)
         regenerate_report(state)
-        sync_parity_registry(state, opts)
+        sync_parity_registry(checkpoint_state, opts)
         return 130
 
     save_state(state)
     regenerate_report(state)
-    sync_parity_registry(state, opts)
+    sync_parity_registry(checkpoint_state, opts)
     elapsed_min = (time.time() - session_started) / 60
     print(f"\nDone. Tested {tested} robots in {elapsed_min:.1f} min. "
           f"Report: {REPORT_FILE}")
