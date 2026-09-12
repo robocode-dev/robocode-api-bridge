@@ -7,10 +7,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | DISCREPANCY (errors) | 22 |
-| DISCREPANCY (no score) | 4 |
+| DISCREPANCY (no score) | 5 |
 | DISCREPANCY (outcome) | 54 |
-| PASS | 183 |
-| score-review | 88 |
+| PASS | 200 |
+| score-review | 95 |
 
 ## Subjects
 
@@ -43,6 +43,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/DM.Mijit_.3.jar | roborumble | robot | score-review | 25e2318cd74f0417 | - | - |
 | roborumble/DTF.Kludgy_1.2b.jar | roborumble | robot | PASS | a020ea383408d5e2 | - | - |
 | roborumble/EBBU.Sim2_1.02.jar | roborumble | robot | score-review | 82308feb917d2c0a | - | - |
+| roborumble/EE.LittleBig_1.0.jar | roborumble | robot | score-review | dd65d66b59ff8acb | - | - |
+| roborumble/EFD.AdvancedEFD_0.4.5a.jar | roborumble | robot | PASS | 595afba07d52e536 | - | - |
+| roborumble/EH.Fusion_0.32.jar | roborumble | robot | score-review | 96dd484b2b911c5d | - | - |
+| roborumble/EH.Pegasus_0.113.jar | roborumble | robot | PASS | 2696bc59852c8d21 | - | - |
+| roborumble/EH.kms.LightningStorm_0.11B.jar | roborumble | robot | PASS | 1ef751e58aaba9b3 | - | - |
+| roborumble/EH.mini.Panther_0.2.jar | roborumble | robot | PASS | 871fe99089163f17 | - | - |
+| roborumble/EH.nano.NightBird_M.jar | roborumble | robot | PASS | c796f14f9487fcd6 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 039e536841d5a2cf | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -323,6 +330,24 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dz.OthoMini_0.15.jar | roborumble | robot | PASS | 1bf733ce688bea50 | - | - |
 | roborumble/e32.Omni_0.04.jar | roborumble | robot | DISCREPANCY (outcome) | 93f7fce337a4cc1d | - | - |
 | roborumble/eat.HumblePieLite_1.0.jar | roborumble | robot | PASS | a85c70974ba48767 | - | - |
+| roborumble/ebo.Sparse_0.02.jar | roborumble | robot | score-review | 9da95784397a1e18 | - | - |
+| roborumble/ebo.Tahoe_1.1.79.jar | roborumble | robot | PASS | 681b5afe8a64b645 | - | - |
+| roborumble/eem.EvBotNG_v12.8.jar | roborumble | robot | PASS | 7ebb64d148b85617 | - | - |
+| roborumble/eem.EvBot_v4.6.4.jar | roborumble | robot | PASS | f3b0485111bec962 | - | - |
+| roborumble/eem.IWillFireNoBullet_v2.4.jar | roborumble | robot | score-review | 7cdf1837d55623fb | - | - |
+| roborumble/eem.awful_v1.2.jar | roborumble | robot | DISCREPANCY (no score) | 59537630aafb178b | - | - |
+| roborumble/eem.zapper_v4.17.jar | roborumble | robot | PASS | 9739522025a54af6 | - | - |
+| roborumble/ej.ChocolateBar_1.1.jar | roborumble | robot | score-review | b47ad477d6bd24cb | - | - |
+| roborumble/el.Attackr_0.1.jar | roborumble | robot | PASS | f2944dcec0666d53 | - | - |
+| roborumble/el.JumpShoot_0.2.jar | roborumble | robot | PASS | 795d56a26238569f | - | - |
+| roborumble/el33t.EL33tGangstarr2_2.0.jar | roborumble | robot | score-review | 791e673951bd2014 | - | - |
+| roborumble/eld.Hmm_1.0.jar | roborumble | robot | PASS | 6429e35e8dc9bb33 | - | - |
+| roborumble/element.Earth_1.1.jar | roborumble | robot | score-review | e9a5d46ed04f0534 | - | - |
+| roborumble/elloco.Flower_0.1r1.jar | roborumble | robot | PASS | dc5eb966fb783139 | - | - |
+| roborumble/elloco.Kabuto_0.2r.jar | roborumble | robot | PASS | 5558a61657f168c0 | - | - |
+| roborumble/elvbot.ElverionBot_0.3.jar | roborumble | robot | PASS | 71e2df5b73f1ffcc | - | - |
+| roborumble/emp.Yngwie_1.11.jar | roborumble | robot | PASS | 2b8bbf46a8f1d158 | - | - |
+| roborumble/ender.EnderRobot_1.1.jar | roborumble | robot | PASS | bf1c109c4d17f836 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
