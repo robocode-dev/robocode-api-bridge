@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 25 |
 | DISCREPANCY (no score) | 32 |
-| DISCREPANCY (outcome) | 73 |
+| DISCREPANCY (outcome) | 76 |
 | MATCHED (failure) | 49 |
-| PASS | 311 |
-| score-review | 139 |
+| PASS | 324 |
+| score-review | 148 |
 
 ## Subjects
 
@@ -602,6 +602,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/lxx.Emerald_0.6.5.jar | roborumble | robot | PASS | e1f2d59c5739168c | - | - |
 | roborumble/lxx.Tomcat_3.68.jar | roborumble | robot | DISCREPANCY (errors) | e788aec118e82732 | - | - |
 | roborumble/m3thos.Eva00_1.1.jar | roborumble | robot | PASS | dd5208c15051255e | - | - |
+| roborumble/m3thos.Eva02_0.7.1.jar | roborumble | robot | DISCREPANCY (outcome) | 5ff80459c930a46d | - | - |
+| roborumble/m3thos.mini.Eva01_0.5.5.jar | roborumble | robot | DISCREPANCY (outcome) | b9e4c8f459ecab10 | - | - |
+| roborumble/ma.is.fon.rs.RobotA_0.01.jar | roborumble | robot | score-review | a074520b2159b864 | - | - |
+| roborumble/madmath.Cow_0.1.1.jar | roborumble | robot | score-review | 25cbd1ecf5367e95 | - | - |
+| roborumble/mae.Mae1_1.1.jar | roborumble | robot | PASS | a5d90777e3acda8b | - | - |
+| roborumble/mahrgell.mahrram_1.3.jar | roborumble | robot | score-review | 8a064582ce83895d | - | - |
+| roborumble/marcinek.TopGun_1.3.jar | roborumble | robot | PASS | 1753ac81f37305a4 | - | - |
+| roborumble/maribo.FollowFire_1.11.jar | roborumble | robot | score-review | 8c3f1a7c4da1872b | - | - |
+| roborumble/maribo.IotaCT_1.0.jar | roborumble | robot | PASS | 99e8e67f560ef782 | - | - |
+| roborumble/maribo.Omicron_1.0.jar | roborumble | robot | score-review | 531052ecdf1582a2 | - | - |
+| roborumble/maribo.melee.BMV_0.1.jar | roborumble | robot | PASS | cd6390b2871f4e30 | - | - |
+| roborumble/marksteam.Phoenix_1.0.jar | roborumble | robot | score-review | a07937e0978e74f3 | - | - |
+| roborumble/matt.BlueMind_0.8.00.jar | roborumble | robot | PASS | 6a9e51857545b3d5 | - | - |
+| roborumble/matt.UnderDark3_2.4.34.jar | roborumble | robot | score-review | c992e509cf71f004 | - | - |
+| roborumble/matt.UnderDark4_0.4.00.jar | roborumble | robot | PASS | 8ea191b9dc12b10f | - | - |
+| roborumble/matt.advanced.Katana_1.0.jar | roborumble | robot | PASS | 86798553d9132d2c | - | - |
+| roborumble/maye.SlashBot_1.0.jar | roborumble | robot | PASS | d823d1afaaf2dcff | - | - |
+| roborumble/mb.Beast_0.4.1.jar | roborumble | robot | PASS | 2d62fbf2e5074786 | - | - |
+| roborumble/mb.Monte_0.1.0.jar | roborumble | robot | score-review | f52fa9153bebc76b | - | - |
+| roborumble/mbh.Mbh_0.1.jar | roborumble | robot | PASS | f93e22ed603d13d0 | - | - |
+| roborumble/mbro.BelajarBot_0.0.3.jar | roborumble | robot | PASS | 533868a7667753bd | - | - |
+| roborumble/mbro.Detektor3_0.1.1.jar | roborumble | robot | PASS | ee61ca6f09d190f8 | - | - |
+| roborumble/mc.Messapia_0.1.8.jar | roborumble | robot | score-review | d02c8b3b9aa53fe9 | - | - |
+| roborumble/mc2.enemy.Original_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | d61d43fd7ce16b88 | - | - |
+| roborumble/mcb.Audace_1.3.jar | roborumble | robot | PASS | 279a31189d233c25 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
