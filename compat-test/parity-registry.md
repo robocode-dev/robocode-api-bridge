@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | DISCREPANCY (errors) | 22 |
-| DISCREPANCY (no score) | 5 |
+| DISCREPANCY (no score) | 6 |
 | DISCREPANCY (outcome) | 54 |
-| MATCHED (failure) | 50 |
+| MATCHED (failure) | 49 |
 | PASS | 200 |
 | score-review | 95 |
 
@@ -376,7 +376,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/fire219.cymba.Cymba_1.8.jar | roborumble | robot | MATCHED (failure) | 131ec84edafe270b | - | - |
 | roborumble/florent.FloatingTadpole_1.2.6.jar | roborumble | robot | MATCHED (failure) | 82b4ce7fc5742beb | - | - |
 | roborumble/florent.XSeries.X2_0.17.jar | roborumble | robot | MATCHED (failure) | c9a80321ef9eab53 | - | - |
-| roborumble/florent.small.LittleAngel_1.8.jar | roborumble | robot | MATCHED (failure) | fea0c1217f809175 | - | - |
+| roborumble/florent.small.LittleAngel_1.8.jar | roborumble | robot | DISCREPANCY (no score) | 3f8326a84f0bd900 | - | - |
 | roborumble/florent.test.Toad_0.14t.jar | roborumble | robot | MATCHED (failure) | 13e6e0cdc1395289 | - | - |
 | roborumble/fm.claire_1.7.jar | roborumble | robot | MATCHED (failure) | 70de3507acc20c29 | - | - |
 | roborumble/fm.mammillarias_1.3.jar | roborumble | robot | MATCHED (failure) | d0cd14dbbf73d88b | - | - |
