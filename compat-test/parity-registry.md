@@ -7,7 +7,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | DISCREPANCY (errors) | 22 |
-| DISCREPANCY (no score) | 28 |
+| DISCREPANCY (no score) | 31 |
 | DISCREPANCY (outcome) | 57 |
 | MATCHED (failure) | 49 |
 | PASS | 200 |
@@ -424,6 +424,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/gtf.robocode.Strafer_2.1.1.jar | roborumble | robot | DISCREPANCY (no score) | 1b9743c2f5eaa391 | - | - |
 | roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | DISCREPANCY (no score) | 7c0c54c5c13d5050 | - | - |
 | roborumble/gwah.GBotMarkIV_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 8b1a6bdf876ed094 | - | - |
+| roborumble/gwah.GerryBotMkII_1.5.1.jar | roborumble | robot | DISCREPANCY (no score) | f10a31cfcd02142e | - | - |
+| roborumble/ha2.T2_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 1bece4ef2e0c4719 | - | - |
+| roborumble/ha2.T2b_0.2b.jar | roborumble | robot | DISCREPANCY (no score) | 15ea51b55ba7e79a | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
