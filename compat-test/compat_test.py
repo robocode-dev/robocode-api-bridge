@@ -694,8 +694,19 @@ def team_member_dirs(team_dir: Path):
     """Returns the generated sibling directories named by a team boot entry."""
     config = team_dir / f"{team_dir.name}.json"
     try:
-        data = json.loads(config.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
+        text = config.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        # Legacy robot metadata can contain Windows-1252 author names even though the
+        # wrapper's JSON structure and member names are otherwise ordinary text.
+        try:
+            text = config.read_text(encoding="cp1252")
+        except (OSError, UnicodeError):
+            return []
+    except OSError:
+        return []
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
         return []
     members = data.get("teamMembers")
     if not isinstance(members, list):

@@ -124,6 +124,18 @@ class ParityRegistryTest(unittest.TestCase):
             set(captured[0]["robots"]),
         )
 
+    def testHARN001_UnitPositive_TeamMemberDirsReadWindows1252Metadata(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            team_dir = root / "legacy.Team_1.0"
+            team_dir.mkdir()
+            member_dir = root / "membre-é"
+            member_dir.mkdir()
+            (team_dir / "legacy.Team_1.0.json").write_bytes(
+                json.dumps({"teamMembers": [member_dir.name]}).encode("cp1252"))
+
+            self.assertEqual([member_dir], harness.team_member_dirs(team_dir))
+
     def testHARN001_UnitNegative_FailedCasesRemainUnresolved(self):
         self.assertTrue(registry.is_unresolved("FAIL (TR)"))
         self.assertTrue(registry.is_unresolved("DISCREPANCY (score)"))
