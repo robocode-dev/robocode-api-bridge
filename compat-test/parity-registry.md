@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 25 |
 | DISCREPANCY (no score) | 32 |
-| DISCREPANCY (outcome) | 78 |
+| DISCREPANCY (outcome) | 81 |
 | MATCHED (failure) | 49 |
-| PASS | 336 |
-| score-review | 159 |
+| PASS | 348 |
+| score-review | 169 |
 
 ## Subjects
 
@@ -652,6 +652,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/mme.NikeEnhanced_2.0.jar | roborumble | robot | score-review | 82d3439e0edbe4b4 | - | - |
 | roborumble/mn.Combat_3.25.0.jar | roborumble | robot | DISCREPANCY (outcome) | ec1cce937bc29b09 | - | - |
 | roborumble/mn.micro.perceptual.Mimic_1.0.0.jar | roborumble | robot | PASS | fa21dbaf21a76e1c | - | - |
+| roborumble/mn.nano.SkippedTurns_1.1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 6575d76867504d26 | - | - |
+| roborumble/mn.nano.perceptual.Impact_1.3.0.jar | roborumble | robot | score-review | 3eaffb97ae957a2d | - | - |
+| roborumble/mnt.AHEB_0.6a.jar | roborumble | robot | score-review | f17bdd7a3c104b3c | - | - |
+| roborumble/mnt.SurferBot_0.2.5.jar | roborumble | robot | DISCREPANCY (outcome) | 47a1e08efb5ca58c | - | - |
+| roborumble/morbid.MorbidPriest_1.0.jar | roborumble | robot | PASS | fc177c15b82ca872 | - | - |
+| roborumble/mrm.MightyMoose_.2.jar | roborumble | robot | score-review | 87529bbdc6c32027 | - | - |
+| roborumble/ms.Ares_0.19.jar | roborumble | robot | PASS | d8663236bffd6ec7 | - | - |
+| roborumble/mue.Ascendant_1.2.27.jar | roborumble | robot | score-review | 5707fc085104a700 | - | - |
+| roborumble/mue.Hyperion_0.8.jar | roborumble | robot | score-review | 46f8b66bc9b65f98 | - | - |
+| roborumble/muf.CrazyKitten_0.9.jar | roborumble | robot | PASS | 24ebb83f1f83c891 | - | - |
+| roborumble/mwj.A1176183_1.0.jar | roborumble | robot | score-review | 4e51a38a4bc47576 | - | - |
+| roborumble/myl.micro.Avipes_1.00.jar | roborumble | robot | PASS | 032e896324fbf636 | - | - |
+| roborumble/myl.micro.NekoNinja_1.30.jar | roborumble | robot | PASS | 9d230e4afbe3b6b4 | - | - |
+| roborumble/myl.micro.Predator_1.50.jar | roborumble | robot | PASS | 0b94d58e2efb335f | - | - |
+| roborumble/myl.micro.Troodon_1.10.jar | roborumble | robot | score-review | 7e319cec019dd57c | - | - |
+| roborumble/myl.nano.Graviton_1.10.jar | roborumble | robot | score-review | 42f21d05faa46521 | - | - |
+| roborumble/myl.nano.Kakuru_1.20.jar | roborumble | robot | PASS | e3aebeeba9256a4e | - | - |
+| roborumble/myl.nano.KomoriNinja_1.1.jar | roborumble | robot | score-review | 6a75615f456acc97 | - | - |
+| roborumble/mym.EdgeStalker_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 032038ab1ca0e462 | - | - |
+| roborumble/mz.AdeptBSB_1.03.jar | roborumble | robot | PASS | 25ee22f1da166676 | - | - |
+| roborumble/mz.Adept_2.65.jar | roborumble | robot | PASS | e3afcb98c1cb92f6 | - | - |
+| roborumble/mz.Movement_1.8.jar | roborumble | robot | PASS | 4f0a6caf21085d4b | - | - |
+| roborumble/mz.NanoDeath_2.56.jar | roborumble | robot | PASS | 03396c3d89c24579 | - | - |
+| roborumble/mz.NanoGod_2.02.jar | roborumble | robot | PASS | a6855f8135b53cb0 | - | - |
+| roborumble/nammyung.ModelT_0.23.jar | roborumble | robot | score-review | 4c8a112e7dc35bd7 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
