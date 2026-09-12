@@ -9,6 +9,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (errors) | 22 |
 | DISCREPANCY (no score) | 5 |
 | DISCREPANCY (outcome) | 54 |
+| MATCHED (failure) | 25 |
 | PASS | 200 |
 | score-review | 95 |
 
@@ -50,6 +51,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/EH.kms.LightningStorm_0.11B.jar | roborumble | robot | PASS | 1ef751e58aaba9b3 | - | - |
 | roborumble/EH.mini.Panther_0.2.jar | roborumble | robot | PASS | 871fe99089163f17 | - | - |
 | roborumble/EH.nano.NightBird_M.jar | roborumble | robot | PASS | c796f14f9487fcd6 | - | - |
+| roborumble/Ex.Survival_3.7.jar | roborumble | robot | MATCHED (failure) | 2221f19d53cb555a | - | - |
+| roborumble/FatalFlaw.FatalFlaw_1.0.5.jar | roborumble | robot | MATCHED (failure) | eb875409279d0776 | - | - |
+| roborumble/Fenix.FenixTrack_1.0.jar | roborumble | robot | MATCHED (failure) | b58617e0e3214317 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 039e536841d5a2cf | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -348,6 +352,28 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/elvbot.ElverionBot_0.3.jar | roborumble | robot | PASS | 71e2df5b73f1ffcc | - | - |
 | roborumble/emp.Yngwie_1.11.jar | roborumble | robot | PASS | 2b8bbf46a8f1d158 | - | - |
 | roborumble/ender.EnderRobot_1.1.jar | roborumble | robot | PASS | bf1c109c4d17f836 | - | - |
+| roborumble/ep.MyFirstRobot_1.0.jar | roborumble | robot | MATCHED (failure) | 09c6cfb05af392d7 | - | - |
+| roborumble/ers.micro.ISuck.ISuckMicro_0.1f.jar | roborumble | robot | MATCHED (failure) | bdffea9c570eb754 | - | - |
+| roborumble/ers.nano.ISuck.ISuckNano_0.1d.jar | roborumble | robot | MATCHED (failure) | 9a259f9c6c5ee751 | - | - |
+| roborumble/ers.nano.Lig.LigMA_1.0.jar | roborumble | robot | MATCHED (failure) | 43759291daa44c50 | - | - |
+| roborumble/ers.nano.Meroka.Meroka_1.1.jar | roborumble | robot | MATCHED (failure) | e6622eb45701b731 | - | - |
+| roborumble/ers.nano.Sugma.SugmaVCS_1.1.jar | roborumble | robot | MATCHED (failure) | b4e347e3240cad13 | - | - |
+| roborumble/ers.nano.Sunderer.Sunderer_1.2.jar | roborumble | robot | MATCHED (failure) | f5bdc5d5a7662f77 | - | - |
+| roborumble/eskimo.micro.Echo_0.1.jar | roborumble | robot | MATCHED (failure) | fd95d2feff3f2fea | - | - |
+| roborumble/et.Predator_1.8.jar | roborumble | robot | MATCHED (failure) | 875e0d05d23208c4 | - | - |
+| roborumble/ethdsy.Malacka_2.4.jar | roborumble | robot | MATCHED (failure) | 986386c9abd2263c | - | - |
+| roborumble/etienne72230.Wall_street_1.0.jar | roborumble | robot | MATCHED (failure) | 42eebf58778f64fb | - | - |
+| roborumble/evd.X1_0.01.jar | roborumble | robot | MATCHED (failure) | 06854d9dbad423a8 | - | - |
+| roborumble/exauge.GateKeeper_1.1.121g.jar | roborumble | robot | MATCHED (failure) | f4cfae2f888eb716 | - | - |
+| roborumble/exauge.LemonDrop_1.6.130.jar | roborumble | robot | MATCHED (failure) | 86d70443e0197c47 | - | - |
+| roborumble/exauge.Leopard_1.1.019.jar | roborumble | robot | MATCHED (failure) | d67bbe47d65abd53 | - | - |
+| roborumble/extra.LightSauce_0.01.jar | roborumble | robot | MATCHED (failure) | e5c9ee7cfeed3b07 | - | - |
+| roborumble/extra.Sauce_.01.jar | roborumble | robot | MATCHED (failure) | 7b2918a07def466d | - | - |
+| roborumble/fala.robocode.FalaRobot_1.0.jar | roborumble | robot | MATCHED (failure) | 29a5601892a26834 | - | - |
+| roborumble/fcr.First_1.0.jar | roborumble | robot | MATCHED (failure) | 8db47e2d9d62a27b | - | - |
+| roborumble/fire219.CatBot_1.0.jar | roborumble | robot | MATCHED (failure) | 36add8be7ffef313 | - | - |
+| roborumble/fire219.cymba.Cymba_1.8.jar | roborumble | robot | MATCHED (failure) | 131ec84edafe270b | - | - |
+| roborumble/florent.FloatingTadpole_1.2.6.jar | roborumble | robot | MATCHED (failure) | 82b4ce7fc5742beb | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
