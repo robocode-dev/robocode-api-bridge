@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 22 |
+| DISCREPANCY (errors) | 23 |
 | DISCREPANCY (no score) | 31 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (outcome) | 63 |
 | MATCHED (failure) | 49 |
-| PASS | 231 |
-| score-review | 110 |
+| PASS | 244 |
+| score-review | 119 |
 
 ## Subjects
 
@@ -476,7 +476,32 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jekl.DarkHallow_.90.9.jar | roborumble | robot | PASS | ef19377660a16a9a | - | - |
 | roborumble/jekl.Jekyl_.70.jar | roborumble | robot | PASS | 746f7ebb593a6006 | - | - |
 | roborumble/jekl.mini.BlackPearl_.91.jar | roborumble | robot | score-review | f83b97c8b3cce583 | - | - |
+| roborumble/jep.Terrible_0.4.1.jar | roborumble | robot | score-review | 610b809670c3c242 | - | - |
 | roborumble/jep.nano.Hawkwing_0.4.1.jar | roborumble | robot | PASS | 46f42695e1a7f118 | - | - |
+| roborumble/jep.nano.Hotspur_0.1.jar | roborumble | robot | PASS | c2e419d7c5f31be0 | - | - |
+| roborumble/jeremyreeder.Bully_1.jar | roborumble | robot | score-review | cfd4f9ecc5b1e9c5 | - | - |
+| roborumble/jeremyreeder.Vincent_2011.12.09.jar | roborumble | robot | score-review | 5937f2ce8280ffed | - | - |
+| roborumble/jeremyreeder.collective.Prophet_5.jar | roborumble | robot | score-review | 184353f9c23e961e | - | - |
+| roborumble/jf.Dodger_1.3.jar | roborumble | robot | score-review | 92b831520dd0868f | - | - |
+| roborumble/jgap.JGAP12584_1.0.jar | roborumble | robot | PASS | be1d9435f1ab4e2a | - | - |
+| roborumble/jgap.JGAP130166_1.0.jar | roborumble | robot | PASS | 6683dc1cc9cc5218 | - | - |
+| roborumble/jgap.JGAP23423_1.0.jar | roborumble | robot | score-review | 898e764b76e36455 | - | - |
+| roborumble/jgap.JGAP6139_1.0.jar | roborumble | robot | score-review | 9d36b13a51ac844a | - | - |
+| roborumble/jgap.JGAP7247_2_1.0.jar | roborumble | robot | DISCREPANCY (errors) | e199f80ecc172fca | - | - |
+| roborumble/jgap.JGAP7958_1.0.jar | roborumble | robot | score-review | 68d33e4907c12469 | - | - |
+| roborumble/jje.BagPuss_1.2.jar | roborumble | robot | score-review | 48caa85e1e1f702b | - | - |
+| roborumble/jk.mega.DrussGT_3.1.7.jar | roborumble | robot | PASS | 7bd03a5c78b1cf12 | - | - |
+| roborumble/jk.melee.Neuromancer_7.12.jar | roborumble | robot | PASS | a3becdc000776726 | - | - |
+| roborumble/jk.micro.Cotillion_0.8.jar | roborumble | robot | PASS | ac423db318a7666c | - | - |
+| roborumble/jk.mini.CunobelinDC_1.2.jar | roborumble | robot | PASS | a3251e634f8d649d | - | - |
+| roborumble/jk.nano.Machete_2.0.jar | roborumble | robot | PASS | 9159148bd0131ead | - | - |
+| roborumble/jk.precise.EnergyDome_1.6.jar | roborumble | robot | PASS | 9847c2cdcac260e3 | - | - |
+| roborumble/jk.precise.Wintermute_0.8.jar | roborumble | robot | PASS | 58d7e52300e5940f | - | - |
+| roborumble/jk.sheldor.nano.Yatagan_1.2.3.jar | roborumble | robot | PASS | 190529e94cc2061c | - | - |
+| roborumble/jmcd.BeoWulf_2.8.jar | roborumble | robot | DISCREPANCY (outcome) | 5895c8c745cbbda2 | - | - |
+| roborumble/joe.ADinosaur_1.0.jar | roborumble | robot | PASS | fba69a53a36df25b | - | - |
+| roborumble/josago.Jorgito_0.16.jar | roborumble | robot | DISCREPANCY (outcome) | 3dce8987b150739e | - | - |
+| roborumble/jp.Perpy_16.0.jar | roborumble | robot | PASS | 6123a16a81268bc9 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
