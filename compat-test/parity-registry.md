@@ -9,7 +9,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (errors) | 22 |
 | DISCREPANCY (no score) | 5 |
 | DISCREPANCY (outcome) | 54 |
-| MATCHED (failure) | 25 |
+| MATCHED (failure) | 50 |
 | PASS | 200 |
 | score-review | 95 |
 
@@ -54,6 +54,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/Ex.Survival_3.7.jar | roborumble | robot | MATCHED (failure) | 2221f19d53cb555a | - | - |
 | roborumble/FatalFlaw.FatalFlaw_1.0.5.jar | roborumble | robot | MATCHED (failure) | eb875409279d0776 | - | - |
 | roborumble/Fenix.FenixTrack_1.0.jar | roborumble | robot | MATCHED (failure) | b58617e0e3214317 | - | - |
+| roborumble/Gecko.ultimateGeckoBot_1.0.jar | roborumble | robot | MATCHED (failure) | fc62b9d07f77cb43 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 039e536841d5a2cf | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -374,6 +375,30 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/fire219.CatBot_1.0.jar | roborumble | robot | MATCHED (failure) | 36add8be7ffef313 | - | - |
 | roborumble/fire219.cymba.Cymba_1.8.jar | roborumble | robot | MATCHED (failure) | 131ec84edafe270b | - | - |
 | roborumble/florent.FloatingTadpole_1.2.6.jar | roborumble | robot | MATCHED (failure) | 82b4ce7fc5742beb | - | - |
+| roborumble/florent.XSeries.X2_0.17.jar | roborumble | robot | MATCHED (failure) | c9a80321ef9eab53 | - | - |
+| roborumble/florent.small.LittleAngel_1.8.jar | roborumble | robot | MATCHED (failure) | fea0c1217f809175 | - | - |
+| roborumble/florent.test.Toad_0.14t.jar | roborumble | robot | MATCHED (failure) | 13e6e0cdc1395289 | - | - |
+| roborumble/fm.claire_1.7.jar | roborumble | robot | MATCHED (failure) | 70de3507acc20c29 | - | - |
+| roborumble/fm.mammillarias_1.3.jar | roborumble | robot | MATCHED (failure) | d0cd14dbbf73d88b | - | - |
+| roborumble/fnc.bandit.Bandit_5.2.0.jar | roborumble | robot | MATCHED (failure) | 1a80127f5f410c25 | - | - |
+| roborumble/fnc.bandit2002.Bandit2002_4.0.2.jar | roborumble | robot | MATCHED (failure) | 18951e98762a9f79 | - | - |
+| roborumble/frag.FragBot_1.0.jar | roborumble | robot | MATCHED (failure) | 47fa458493cbc45e | - | - |
+| roborumble/franzor.Lizt_1.3.1.jar | roborumble | robot | MATCHED (failure) | c3f55886bc4b2329 | - | - |
+| roborumble/froh.micro.Aversari_0.31.jar | roborumble | robot | MATCHED (failure) | fdd83abc5317dc7c | - | - |
+| roborumble/fromHell.BlackBox_0.0.2.jar | roborumble | robot | MATCHED (failure) | 1ca9b10801992a11 | - | - |
+| roborumble/fromHell.C22H30N2O2S_2.2.jar | roborumble | robot | MATCHED (failure) | b621bda1a3c49348 | - | - |
+| roborumble/fromHell.C4H10O_1.5.1.jar | roborumble | robot | MATCHED (failure) | b8e9e74c1eec8204 | - | - |
+| roborumble/fromHell.CHCl3_1.4.2.jar | roborumble | robot | MATCHED (failure) | bdc7925c24e2e3f3 | - | - |
+| roborumble/fruits.NanoStrawbery_1.3.jar | roborumble | robot | MATCHED (failure) | 5b966841b00b16eb | - | - |
+| roborumble/fullsail.LaxativeTeaTwo_1.0.jar | roborumble | robot | MATCHED (failure) | dd866b226f39b65e | - | - |
+| roborumble/fullsail.SweetTea_1.1.jar | roborumble | robot | MATCHED (failure) | 936f481cf375afa4 | - | - |
+| roborumble/fullsail.TimbotNoPrediction_1.0.jar | roborumble | robot | MATCHED (failure) | 7c615c99a39069ac | - | - |
+| roborumble/fushi.PvP1.PvP1_2004-02-16.jar | roborumble | robot | MATCHED (failure) | 1b8259c3cfd580ce | - | - |
+| roborumble/fw.Number1_1.0b.jar | roborumble | robot | MATCHED (failure) | 2cc6120e92d4b230 | - | - |
+| roborumble/gadsky.Gadsky_1.01.jar | roborumble | robot | MATCHED (failure) | 79fa67574b3f574a | - | - |
+| roborumble/geep.mini.GPBotA_1.0.jar | roborumble | robot | MATCHED (failure) | 0d25e3d2ded7c752 | - | - |
+| roborumble/geep.mini.GPBotB_1.1.jar | roborumble | robot | MATCHED (failure) | 962021716e3e7eaf | - | - |
+| roborumble/genprog.Gajeel_1.0.jar | roborumble | robot | MATCHED (failure) | ff92ee797e807b9c | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
