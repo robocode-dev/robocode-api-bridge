@@ -7,8 +7,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | DISCREPANCY (errors) | 22 |
-| DISCREPANCY (no score) | 6 |
-| DISCREPANCY (outcome) | 54 |
+| DISCREPANCY (no score) | 28 |
+| DISCREPANCY (outcome) | 57 |
 | MATCHED (failure) | 49 |
 | PASS | 200 |
 | score-review | 95 |
@@ -55,6 +55,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/FatalFlaw.FatalFlaw_1.0.5.jar | roborumble | robot | MATCHED (failure) | eb875409279d0776 | - | - |
 | roborumble/Fenix.FenixTrack_1.0.jar | roborumble | robot | MATCHED (failure) | b58617e0e3214317 | - | - |
 | roborumble/Gecko.ultimateGeckoBot_1.0.jar | roborumble | robot | MATCHED (failure) | fc62b9d07f77cb43 | - | - |
+| roborumble/Grystrion.RandomTrackerNOREV_1.0.jar | roborumble | robot | DISCREPANCY (no score) | a633af2142797af3 | - | - |
+| roborumble/Grystrion.TrackerWO_1.0.jar | roborumble | robot | DISCREPANCY (no score) | ac36cf3c058f2c58 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 039e536841d5a2cf | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -399,6 +401,29 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/geep.mini.GPBotA_1.0.jar | roborumble | robot | MATCHED (failure) | 0d25e3d2ded7c752 | - | - |
 | roborumble/geep.mini.GPBotB_1.1.jar | roborumble | robot | MATCHED (failure) | 962021716e3e7eaf | - | - |
 | roborumble/genprog.Gajeel_1.0.jar | roborumble | robot | MATCHED (failure) | ff92ee797e807b9c | - | - |
+| roborumble/genprog.Rinmorikazu_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e8721bfe1878ce0b | - | - |
+| roborumble/genprog.Zafaran_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 1945c190c76e6150 | - | - |
+| roborumble/germ.TheMind_.2.jar | roborumble | robot | DISCREPANCY (no score) | f6001e8b572533b4 | - | - |
+| roborumble/gf.Centaur.Centaur_0.6.7.jar | roborumble | robot | DISCREPANCY (no score) | 64630a3acc5ad08d | - | - |
+| roborumble/gg.Squaraus_0.6.jar | roborumble | robot | DISCREPANCY (no score) | af5d371fd0d8ebc8 | - | - |
+| roborumble/gg.Wolverine_2.0.jar | roborumble | robot | DISCREPANCY (no score) | 5a1633d8ea1a8831 | - | - |
+| roborumble/gh.GresSuffurd_0.4.13.jar | roborumble | robot | DISCREPANCY (no score) | 422163e3feada153 | - | - |
+| roborumble/gh.GrubbmGrb_1.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | f2c1c5022a5838fb | - | - |
+| roborumble/gh.GrypRepetyf_0.13.jar | roborumble | robot | DISCREPANCY (no score) | 43c8214c070a00fd | - | - |
+| roborumble/gh.micro.Grinnik_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e524b4d483d0635e | - | - |
+| roborumble/gh.mini.Grimmig_0.3.6.jar | roborumble | robot | DISCREPANCY (no score) | 5f21e7bfd82d02e0 | - | - |
+| roborumble/gh.nano.Grofvuil_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 2d26131918c382a7 | - | - |
+| roborumble/ghent.ArthurPanzergon_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | dfa7800f0f04cab3 | - | - |
+| roborumble/gimp.GimpBot_0.1.jar | roborumble | robot | DISCREPANCY (no score) | 971d83252cd783ae | - | - |
+| roborumble/gio.RealGioBot_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 5e1535e7c64aba59 | - | - |
+| roborumble/gjr.Cephalosporin_0.2.jar | roborumble | robot | DISCREPANCY (no score) | db03f6ffc0fe3874 | - | - |
+| roborumble/goblin.Bender_2.4.jar | roborumble | robot | DISCREPANCY (no score) | c974dc2f04983d30 | - | - |
+| roborumble/gre.svman4.Leonidas_1.3.2.jar | roborumble | robot | DISCREPANCY (no score) | 58b0a10a9eac6c89 | - | - |
+| roborumble/gre.svman4.Morfeas_1.4.3.jar | roborumble | robot | DISCREPANCY (outcome) | 414e70d87bc5aa3d | - | - |
+| roborumble/grybgoofy.GoofyBot_0.10.jar | roborumble | robot | DISCREPANCY (no score) | 8ca01ec24f3ecc76 | - | - |
+| roborumble/gtf.robocode.Strafer_2.1.1.jar | roborumble | robot | DISCREPANCY (no score) | 1b9743c2f5eaa391 | - | - |
+| roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | DISCREPANCY (no score) | 7c0c54c5c13d5050 | - | - |
+| roborumble/gwah.GBotMarkIV_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 8b1a6bdf876ed094 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
