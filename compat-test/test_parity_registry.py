@@ -1,9 +1,11 @@
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
 
 MODULE = Path(__file__).with_name("parity_registry.py")
@@ -79,6 +81,88 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertEqual(1, registry.sync_state(data, state, Path("missing"), manifest))
         self.assertEqual(0, registry.sync_state(data, state, Path("missing"), manifest))
         self.assertEqual("PASS", data["subjects"]["roborumble/a.Bot_1.0.jar"]["status"])
+
+    def testHARN001_UnitPositive_NormalCheckpointSyncDoesNotReplayAccumulatedProgress(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_file = root / "test_progress.json"
+            state_file.write_text(json.dumps({
+                "version": 1,
+                "settings": {},
+                "robots": {"roborumble/prior.Bot_1.0.jar": {
+                    "status": "PASS", "completed_at": "2026-09-10T00:00:00Z",
+                    "setup": {}, "rc": {}, "tr": {},
+                }},
+            }), encoding="utf-8")
+            current_jar = root / "roborumble" / "current.Bot_1.0.jar"
+            current_jar.parent.mkdir()
+            current_jar.write_bytes(b"current")
+            captured = []
+
+            def result():
+                return {
+                    "ok": True, "score": 1.0, "scores": [1.0], "error_count": 0,
+                    "elapsed": 0.0, "errors": [], "log_text": "", "selected": "current.Bot",
+                }
+
+            with patch.object(harness, "STATE_FILE", state_file), \
+                    patch.object(harness, "discover_jars", return_value=[("roborumble", current_jar)]), \
+                    patch.object(harness, "check_prerequisites"), \
+                    patch.object(harness, "division_setup", return_value={}), \
+                    patch.object(harness, "run_rc_battle", side_effect=lambda *args, **kwargs: result()), \
+                    patch.object(harness, "run_tr_battle", side_effect=lambda *args, **kwargs: result()), \
+                    patch.object(harness, "write_error_log", return_value=False), \
+                    patch.object(harness, "evaluate", return_value=("PASS", 0.0)), \
+                    patch.object(harness, "regenerate_report"), \
+                    patch.object(harness, "sync_parity_registry",
+                                 side_effect=lambda checkpoint, opts: captured.append(checkpoint)), \
+                    patch.object(sys, "argv", ["compat_test.py", "--collections", "roborumble", "--limit", "1"]):
+                self.assertEqual(0, harness.main())
+
+        self.assertEqual(
+            {"roborumble/current.Bot_1.0.jar"},
+            set(captured[0]["robots"]),
+        )
+
+    def testHARN001_UnitPositive_TeamMemberDirsReadWindows1252Metadata(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            team_dir = root / "legacy.Team_1.0"
+            team_dir.mkdir()
+            member_dir = root / "membre-é"
+            member_dir.mkdir()
+            (team_dir / "legacy.Team_1.0.json").write_bytes(
+                json.dumps({"teamMembers": [member_dir.name]}).encode("cp1252"))
+
+            self.assertEqual([member_dir], harness.team_member_dirs(team_dir))
+
+    def testHARN008_UnitPositive_RobocodeVersionReadsInstallReleaseHeading(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text(
+                "## Version 1.11.1 (13-Jul-2026)\n", encoding="utf-8")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+            self.assertIsNone(harness.robocode_version_error(root, "1.11.1"))
+
+    def testHARN008_UnitPositive_RobocodeVersionFallsBackToUniqueEngineVersion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "libs").mkdir()
+            (root / "libs" / "robocode.core-1.11.1.jar").write_bytes(b"")
+            (root / "libs" / "robocode.host-1.11.1.jar").write_bytes(b"")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+
+    def testHARN008_UnitNegative_UnsupportedRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text("## Version 1.9.4.2\n", encoding="utf-8")
+            error = harness.robocode_version_error(root)
+        self.assertIn("not in LiteRumble's allowed client list", error)
+
+    def testHARN008_UnitNegative_UnknownRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            error = harness.robocode_version_error(Path(directory))
+        self.assertIn("could not be determined", error)
 
     def testHARN001_UnitNegative_FailedCasesRemainUnresolved(self):
         self.assertTrue(registry.is_unresolved("FAIL (TR)"))

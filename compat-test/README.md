@@ -31,7 +31,8 @@ the failure.
   JDK; override with `--rc-java` or `COMPAT_RC_JAVA`. The Tank Royale side is unaffected.
 - Robot collection at `C:\Code\LiteRumble robots` with `roborumble`, `meleerumble`,
   `teamrumble` subdirectories of `.jar` files.
-- Classic Robocode installation at `C:\robocode` (1.10.3 tested).
+- Classic Robocode installation at `C:\robocode`; LiteRumble currently accepts client versions
+  1.10.3, 1.11.0, and 1.11.1, and the harness records and validates the installed version.
 - Built artifacts (all present after building the respective repos):
   - Tank Royale runner fat jar: `C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar`
   - Bridge adapter: `robocode-api\build\libs\robocode-api-0.5.0.jar` (this repo, `gradlew :robocode-api:build`)

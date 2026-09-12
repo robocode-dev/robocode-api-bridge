@@ -12,8 +12,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 
-// TODO: Handle robot.properties field `includeData` (boolean)
-
 import org.apache.bcel.classfile.ClassParser;
 
 public class Main {
@@ -59,6 +57,7 @@ public class Main {
                             classToBotDir.put(robotProps.classname, botDir);
 
                             Files.copy(zipFile.getInputStream(zipEntry), botDir.resolve(robotProps.classname + ".properties"));
+                            copyDataFiles(zipFile, robotProps, botDir);
                         }
                     }
                 }
@@ -254,7 +253,6 @@ public class Main {
         String includeDataStr = props.getProperty("robot.include.data");
         if (includeDataStr != null) {
             robotProps.includeData = Boolean.parseBoolean(includeDataStr);
-            System.err.println("Include data is not supported yet: " + robotProps.name());
         }
 
         return robotProps;
@@ -283,6 +281,47 @@ public class Main {
         System.out.println((className + " " + version).trim() + " (" + filename + ")");
 
         return botDir;
+    }
+
+    /** Copies the robot's packaged data resources into the runtime data directory. */
+    static void copyDataFiles(ZipFile zipFile, RobotProperties robotProps, Path botDir) throws IOException {
+        String resourcePrefix = robotProps.classname.replace('.', '/') + ".data/";
+        Path dataDir = botDir.resolve(robotProps.name() + ".data").normalize();
+        int copied = 0;
+
+        var entries = zipFile.entries();
+        while (entries.hasMoreElements()) {
+            var entry = entries.nextElement();
+            String entryName = entry.getName().replace('\\', '/');
+            if (!entryName.startsWith(resourcePrefix)) {
+                continue;
+            }
+
+            String relativeName = entryName.substring(resourcePrefix.length());
+            if (relativeName.isEmpty()) {
+                continue;
+            }
+            Path target = dataDir.resolve(relativeName).normalize();
+            if (!target.startsWith(dataDir)) {
+                throw new IOException("robot data entry escapes its data directory: " + entry.getName());
+            }
+            if (entry.isDirectory()) {
+                Files.createDirectories(target);
+                continue;
+            }
+
+            if (target.getParent() != null) {
+                Files.createDirectories(target.getParent());
+            }
+            try (InputStream inputStream = zipFile.getInputStream(entry)) {
+                Files.copy(inputStream, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
+            copied++;
+        }
+
+        if (copied > 0) {
+            System.out.println("  copied " + copied + " packaged data file(s)");
+        }
     }
 
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
