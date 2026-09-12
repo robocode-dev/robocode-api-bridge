@@ -110,6 +110,11 @@ RC_JAVA_SEARCH_GLOBS = (
 )
 RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManager
 
+# LiteRumble currently accepts these classic Robocode client versions. Keep this
+# list aligned with robo-code/literumble/structures.py; the collection is ranked
+# by the classic client, so an unrecognised install must not create evidence.
+LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS = ("1.10.3", "1.11.0", "1.11.1")
+
 STATE_FILE = BASE_DIR / "test_progress.json"
 REPORT_FILE = BASE_DIR / "compatibility_report.md"
 ERRORS_DIR = BASE_DIR / "errors"
@@ -305,6 +310,49 @@ def resolve_rc_java(opts):
     return best[1] if best else None
 
 
+def resolve_robocode_version(robocode_home):
+    """Return the classic Robocode release installed at *robocode_home*.
+
+    The release notes are the authoritative version marker in a normal install.
+    A uniquely versioned engine library is a fallback for stripped-down installs.
+    """
+    root = Path(robocode_home)
+    versions_file = root / "versions.md"
+    try:
+        text = versions_file.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        text = ""
+    match = re.search(r"(?m)^## Version\s+([^\s(]+)", text)
+    if match:
+        return match.group(1)
+
+    versions = set()
+    for jar in (root / "libs").glob("robocode.*-*.jar"):
+        match = re.search(r"-(\d+(?:\.\d+)+)\.jar$", jar.name)
+        if match:
+            versions.add(match.group(1))
+    return next(iter(versions)) if len(versions) == 1 else None
+
+
+def robocode_version_error(robocode_home, version=None):
+    """Return a friendly validation error, or None for a LiteRumble client."""
+    version = version or resolve_robocode_version(robocode_home)
+    if version is None:
+        return (f"classic Robocode version could not be determined at {robocode_home}; "
+                "refusing to create unpinned LiteRumble evidence")
+    if version not in LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS:
+        allowed = ", ".join(LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS)
+        return (f"classic Robocode {version} is not in LiteRumble's allowed client list "
+                f"({allowed}); use one of those versions for comparable evidence")
+    return None
+
+
+def validate_robocode_version(opts):
+    """Resolve and validate the classic client, retaining it on the options object."""
+    opts.robocode_version = resolve_robocode_version(opts.robocode_home)
+    return robocode_version_error(opts.robocode_home, opts.robocode_version)
+
+
 def kill_process_tree(proc: subprocess.Popen):
     """Kills a process and all of its children (bot JVMs, embedded server, booter)."""
     if proc.poll() is not None:
@@ -457,6 +505,8 @@ def attach_error_signatures(result):
 def registry_manifest(opts):
     """Pins the artifacts that produced a registry observation."""
     manifest = {
+        "robocode_version": getattr(opts, "robocode_version", None)
+            or resolve_robocode_version(opts.robocode_home),
         "bridge_commit": subprocess.run(
             ["git", "rev-parse", "HEAD"], cwd=BASE_DIR.parent,
             capture_output=True, text=True, check=False).stdout.strip() or None,
@@ -1118,6 +1168,9 @@ def check_prerequisites(opts):
     ]:
         if not Path(path).exists():
             problems.append(f"  - {label} not found: {path}")
+    version_error = validate_robocode_version(opts)
+    if version_error:
+        problems.append(f"  - {version_error}")
     if shutil.which("java") is None:
         problems.append("  - 'java' not found on PATH (JDK 17+ required)")
     if "meleerumble" in opts.collections:
@@ -1803,6 +1856,10 @@ def main():
         return 0
 
     if opts.sync_registry:
+        version_error = validate_robocode_version(opts)
+        if version_error:
+            print(version_error, file=sys.stderr)
+            return 2
         added = sync_parity_registry(state, opts)
         print(f"Parity registry synchronized: {added} observation(s) added.")
         return 0

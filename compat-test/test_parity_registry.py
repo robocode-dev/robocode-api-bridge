@@ -136,6 +136,34 @@ class ParityRegistryTest(unittest.TestCase):
 
             self.assertEqual([member_dir], harness.team_member_dirs(team_dir))
 
+    def testHARN008_UnitPositive_RobocodeVersionReadsInstallReleaseHeading(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text(
+                "## Version 1.11.1 (13-Jul-2026)\n", encoding="utf-8")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+            self.assertIsNone(harness.robocode_version_error(root, "1.11.1"))
+
+    def testHARN008_UnitPositive_RobocodeVersionFallsBackToUniqueEngineVersion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "libs").mkdir()
+            (root / "libs" / "robocode.core-1.11.1.jar").write_bytes(b"")
+            (root / "libs" / "robocode.host-1.11.1.jar").write_bytes(b"")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+
+    def testHARN008_UnitNegative_UnsupportedRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text("## Version 1.9.4.2\n", encoding="utf-8")
+            error = harness.robocode_version_error(root)
+        self.assertIn("not in LiteRumble's allowed client list", error)
+
+    def testHARN008_UnitNegative_UnknownRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            error = harness.robocode_version_error(Path(directory))
+        self.assertIn("could not be determined", error)
+
     def testHARN001_UnitNegative_FailedCasesRemainUnresolved(self):
         self.assertTrue(registry.is_unresolved("FAIL (TR)"))
         self.assertTrue(registry.is_unresolved("DISCREPANCY (score)"))
