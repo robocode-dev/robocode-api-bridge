@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 22 |
 | DISCREPANCY (no score) | 31 |
-| DISCREPANCY (outcome) | 59 |
+| DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| PASS | 215 |
-| score-review | 103 |
+| PASS | 231 |
+| score-review | 110 |
 
 ## Subjects
 
@@ -452,6 +452,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jaara.LambdaBot_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 0cd0ce600ce7a8cf | - | - |
 | roborumble/jab.DiamondStealer_5.jar | roborumble | robot | PASS | 09312469b177eef5 | - | - |
 | roborumble/jab.avk.ManuelGallegus_0.6.jar | roborumble | robot | DISCREPANCY (outcome) | a39df0f593fe2025 | - | - |
+| roborumble/jab.micro.Sanguijuela_0.8.jar | roborumble | robot | score-review | ebb7d7c721bd2a3d | - | - |
+| roborumble/jaemcrb.nano.M1Abrams_1.0.jar | roborumble | robot | PASS | 8de62d1e1e93edfe | - | - |
+| roborumble/jam.RaikoMX_0.32.jar | roborumble | robot | PASS | eca974fa0fd37a28 | - | - |
+| roborumble/jam.micro.RaikoMicro_1.44.jar | roborumble | robot | PASS | 3bfa49fd33c336b4 | - | - |
+| roborumble/jam.mini.Raiko_0.43.jar | roborumble | robot | score-review | 6e101daed7168592 | - | - |
+| roborumble/janm.Jammy_1.0.jar | roborumble | robot | PASS | d7331a446c291ea1 | - | - |
+| roborumble/japs.Serenity_1.0.jar | roborumble | robot | score-review | f3a42e32015e55aa | - | - |
+| roborumble/japs.Sjonniebot_0.9.1.jar | roborumble | robot | PASS | 9b13ea94574add37 | - | - |
+| roborumble/jasolo.Sonda_0.55.jar | roborumble | robot | PASS | 01203ed3d41f66cd | - | - |
+| roborumble/jaw.KarenCain_0.11.jar | roborumble | robot | PASS | a6b474d3d5900dca | - | - |
+| roborumble/jaw.Mouse_0.11.jar | roborumble | robot | PASS | 5bdee286f6b42607 | - | - |
+| roborumble/jaybot.adv.bots.JayBot_2.0.jar | roborumble | robot | PASS | 7ee52bd421251e91 | - | - |
+| roborumble/jaybot.bots.Oddball_4.0.jar | roborumble | robot | DISCREPANCY (outcome) | ee5b6a1afcb7c6f8 | - | - |
+| roborumble/jbot.Rabbit2_1.1.jar | roborumble | robot | PASS | 21054c5022752597 | - | - |
+| roborumble/jcs.AutoBot_4.2.1.jar | roborumble | robot | score-review | d52f242b7cf667d0 | - | - |
+| roborumble/jcs.Decepticon_2.5.3.jar | roborumble | robot | PASS | 9f21384be184c5c1 | - | - |
+| roborumble/jcs.Megatron_1.2.jar | roborumble | robot | PASS | dfd70f66155cf480 | - | - |
+| roborumble/jcs.Seth_1.8.jar | roborumble | robot | DISCREPANCY (outcome) | 7cbbe2b6780c0995 | - | - |
+| roborumble/jcw.ArcherOne_1.0.jar | roborumble | robot | score-review | 3b8d0bac2d8b47ad | - | - |
+| roborumble/jcz.linio.Linio_2.0.H.jar | roborumble | robot | PASS | a1f75e443bb759cf | - | - |
+| roborumble/jdw.Hornet_1.0.jar | roborumble | robot | score-review | f6b616930407a978 | - | - |
+| roborumble/jekl.DarkHallow_.90.9.jar | roborumble | robot | PASS | ef19377660a16a9a | - | - |
+| roborumble/jekl.Jekyl_.70.jar | roborumble | robot | PASS | 746f7ebb593a6006 | - | - |
+| roborumble/jekl.mini.BlackPearl_.91.jar | roborumble | robot | score-review | f83b97c8b3cce583 | - | - |
+| roborumble/jep.nano.Hawkwing_0.4.1.jar | roborumble | robot | PASS | 46f42695e1a7f118 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
