@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 23 |
 | DISCREPANCY (no score) | 31 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
-| PASS | 246 |
-| score-review | 119 |
+| PASS | 260 |
+| score-review | 124 |
 
 ## Subjects
 
@@ -502,6 +502,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/joe.ADinosaur_1.0.jar | roborumble | robot | PASS | fba69a53a36df25b | - | - |
 | roborumble/josago.Jorgito_0.16.jar | roborumble | robot | DISCREPANCY (outcome) | 3dce8987b150739e | - | - |
 | roborumble/jp.Perpy_16.0.jar | roborumble | robot | PASS | 6123a16a81268bc9 | - | - |
+| roborumble/jp.SineWall_1.0.jar | roborumble | robot | PASS | f525491d80c17dbd | - | - |
+| roborumble/jrm.Test0_1.0.jar | roborumble | robot | score-review | 87280748930f85ca | - | - |
+| roborumble/js.PinBall_1.6.jar | roborumble | robot | DISCREPANCY (outcome) | e13f3ced41c0f759 | - | - |
+| roborumble/jsal.Jsalbot_1.0.jar | roborumble | robot | PASS | f729ebca3114899c | - | - |
+| roborumble/jt.SpearmintCT_Alpha.jar | roborumble | robot | score-review | e663bf152188ba08 | - | - |
+| roborumble/justin.DemonicRage_3.20.jar | roborumble | robot | DISCREPANCY (outcome) | 299c1957c0af6855 | - | - |
+| roborumble/jw.Booring_1.11.jar | roborumble | robot | DISCREPANCY (outcome) | 523daa9bb1a66d82 | - | - |
+| roborumble/jwst.DAD.DarkAndDarker_1.1.jar | roborumble | robot | PASS | 75967befc13ff72a | - | - |
+| roborumble/kanishk.Fr0z3n_1.1.jar | roborumble | robot | PASS | 529babf01a0b4930 | - | - |
+| roborumble/kano.gamma.KanoGamma_1.8.jar | roborumble | robot | PASS | 78295d7324f7da2d | - | - |
+| roborumble/kawam.kmBot9_1.0.jar | roborumble | robot | PASS | acc0a8de12e6e0eb | - | - |
+| roborumble/kawigi.f.FhqwhgadsMicro_1.0.jar | roborumble | robot | PASS | 939360d33239dc93 | - | - |
+| roborumble/kawigi.micro.Shiz_1.1.jar | roborumble | robot | score-review | e2df7a9d6c23797e | - | - |
+| roborumble/kawigi.mini.Coriantumr_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 28a7118ca364289e | - | - |
+| roborumble/kawigi.mini.Fhqwhgads_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | d4bf466a526e95db | - | - |
+| roborumble/kawigi.nano.FunkyChicken_1.1.jar | roborumble | robot | PASS | 291eab4972832579 | - | - |
+| roborumble/kawigi.nano.ThnikkaBot_0.9.jar | roborumble | robot | PASS | 038ecd73c09d8b0d | - | - |
+| roborumble/kawigi.robot.Girl_1.2.jar | roborumble | robot | PASS | 7395d4249b4a692e | - | - |
+| roborumble/kawigi.sbf.Barracuda_1.0.jar | roborumble | robot | PASS | d85142bfa8039f0d | - | - |
+| roborumble/kawigi.sbf.FloodHT_0.9.2.jar | roborumble | robot | PASS | dadcf7bf4e0ecb8c | - | - |
+| roborumble/kawigi.sbf.FloodMicro_1.5.jar | roborumble | robot | score-review | c9c40370dcf10011 | - | - |
+| roborumble/kawigi.sbf.FloodMini_1.4.jar | roborumble | robot | PASS | 30197c435377ba69 | - | - |
+| roborumble/kawigi.sbf.FloodNano_1.2.jar | roborumble | robot | score-review | 117a6d40be35854c | - | - |
+| roborumble/kawigi.sbf.FloodSonnet_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | 01421e46ea8b0558 | - | - |
+| roborumble/kawigi.sbf.Teancum_1.3.jar | roborumble | robot | PASS | 48f06e2fa8400492 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
