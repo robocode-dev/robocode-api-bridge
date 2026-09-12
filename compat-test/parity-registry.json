@@ -94053,7 +94053,7 @@
         "key": "roborumble/jab.DiamondStealer_5.jar",
         "kind": "robot"
       },
-      "latest_observation": "c01840135f4887d5",
+      "latest_observation": "09312469b177eef5",
       "observations": [
         {
           "classic": {
@@ -94126,6 +94126,82 @@
             "scores": [
               4051.0,
               3423.0
+            ],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 3.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 8292.0,
+            "scores": [
+              4181.0,
+              4111.0
+            ],
+            "selected": "jab.DiamondStealer 5"
+          },
+          "completed_at": "2026-09-12T15:56:35Z",
+          "confirmation": null,
+          "delta_pct": -6.9,
+          "id": "09312469b177eef5",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.2.0.jar",
+                "sha256": "d62396784e1e03acb37e3caa74b242dd9e2bd5f78d2d4033bf97bc242474d265"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "27cfeefd415e961e924fd04e8bd6c0cf14d9bb7d7f87e1069b7e9fec7acfa047"
+              }
+            },
+            "bridge_commit": "b685c5548d337c44d5c03b92033e8901bb1a25a5",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "0268506c4ed945f568cd18f57e7faef91ac6a33d",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "jab.DiamondStealer 5",
+            "division": "roborumble",
+            "jar": "jab.DiamondStealer_5.jar",
+            "jar_sha256": "57f7348becec43c111d2e126240b30b5fdb8bc597ff18104df1cf07d67aaee5c",
+            "key": "roborumble/jab.DiamondStealer_5.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 7719.0,
+            "scores": [
+              4270.0,
+              3449.0
             ],
             "skipped": null
           }

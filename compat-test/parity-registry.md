@@ -450,7 +450,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/is.fon.rs.FonDestroyer3084_1.0.jar | roborumble | robot | PASS | fb46403241162b0e | - | - |
 | roborumble/is.fon.rs.Kamikaza_1.0.jar | roborumble | robot | PASS | 5e11553e3a29aca5 | - | - |
 | roborumble/jaara.LambdaBot_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 0cd0ce600ce7a8cf | - | - |
-| roborumble/jab.DiamondStealer_5.jar | roborumble | robot | PASS | c01840135f4887d5 | - | - |
+| roborumble/jab.DiamondStealer_5.jar | roborumble | robot | PASS | 09312469b177eef5 | - | - |
 | roborumble/jab.avk.ManuelGallegus_0.6.jar | roborumble | robot | DISCREPANCY (outcome) | a39df0f593fe2025 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
