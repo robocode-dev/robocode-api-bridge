@@ -8,9 +8,9 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 23 |
 | DISCREPANCY (no score) | 31 |
-| DISCREPANCY (outcome) | 63 |
+| DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| PASS | 244 |
+| PASS | 245 |
 | score-review | 119 |
 
 ## Subjects
@@ -498,7 +498,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jk.precise.EnergyDome_1.6.jar | roborumble | robot | PASS | 9847c2cdcac260e3 | - | - |
 | roborumble/jk.precise.Wintermute_0.8.jar | roborumble | robot | PASS | 58d7e52300e5940f | - | - |
 | roborumble/jk.sheldor.nano.Yatagan_1.2.3.jar | roborumble | robot | PASS | 190529e94cc2061c | - | - |
-| roborumble/jmcd.BeoWulf_2.8.jar | roborumble | robot | DISCREPANCY (outcome) | 5895c8c745cbbda2 | - | - |
+| roborumble/jmcd.BeoWulf_2.8.jar | roborumble | robot | PASS | ad8b1f2666ea6051 | - | - |
 | roborumble/joe.ADinosaur_1.0.jar | roborumble | robot | PASS | fba69a53a36df25b | - | - |
 | roborumble/josago.Jorgito_0.16.jar | roborumble | robot | DISCREPANCY (outcome) | 3dce8987b150739e | - | - |
 | roborumble/jp.Perpy_16.0.jar | roborumble | robot | PASS | 6123a16a81268bc9 | - | - |
