@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 27 |
 | DISCREPANCY (no score) | 34 |
-| DISCREPANCY (outcome) | 90 |
+| DISCREPANCY (outcome) | 92 |
 | MATCHED (failure) | 49 |
-| PASS | 472 |
-| score-review | 210 |
+| PASS | 489 |
+| score-review | 216 |
 
 ## Subjects
 
@@ -855,6 +855,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/robar.nano.Scytodes_0.3.jar | roborumble | robot | PASS | 959dd8c7c9371068 | - | - |
 | roborumble/robar.nano.Vespa_0.95.jar | roborumble | robot | PASS | 11d4a6ff81a970d9 | - | - |
 | roborumble/robo.PartsBot_1.1.jar | roborumble | robot | PASS | a2e1c539b305ad8f | - | - |
+| roborumble/robots.Lucky_1.2.jar | roborumble | robot | PASS | 2992cd9722fe6ba8 | - | - |
+| roborumble/romz.robot.Test_0.1.0.jar | roborumble | robot | PASS | e03a33b9230e79f9 | - | - |
+| roborumble/romz.robot.circular.WildRabbit_0.9.6.jar | roborumble | robot | PASS | 320581acfab18570 | - | - |
+| roborumble/romz.robot.guessfactor.TeasingFox_0.2.jar | roborumble | robot | PASS | f02031538056ba50 | - | - |
+| roborumble/rsalesc.mega.Knight_0.6.28.jar | roborumble | robot | DISCREPANCY (outcome) | e0e5b9d788f4ec0e | - | - |
+| roborumble/rsim.micro.uCatcher_0.1.jar | roborumble | robot | score-review | e47dc8233c05ce71 | - | - |
+| roborumble/rsim.mini.BulletCatcher_0.4.jar | roborumble | robot | PASS | 782cca12c41b465a | - | - |
+| roborumble/rsk1.RSK1_4.0.jar | roborumble | robot | PASS | 000d22607abdab9c | - | - |
+| roborumble/ruc.nano.Zealot_0.2.jar | roborumble | robot | PASS | 59feda052eabd1ad | - | - |
+| roborumble/ry.LightningBug_1.0.jar | roborumble | robot | PASS | 1c9f13b5ed4ef479 | - | - |
+| roborumble/ry.VirtualGunExperiment_1.2.0.jar | roborumble | robot | score-review | f36ba837fe0038af | - | - |
+| roborumble/ry.Worst_1.0.jar | roborumble | robot | score-review | 946be774c812e808 | - | - |
+| roborumble/rz.Aleph_0.34.jar | roborumble | robot | DISCREPANCY (outcome) | 3b2c004742d9703c | - | - |
+| roborumble/rz.Apollon_0.23.jar | roborumble | robot | PASS | 4e77ac25614feb65 | - | - |
+| roborumble/rz.Artist_0.2.jar | roborumble | robot | PASS | 28a588776203af18 | - | - |
+| roborumble/rz.GlowBlowAPM_1.0.jar | roborumble | robot | PASS | b24015f872b81536 | - | - |
+| roborumble/rz.GlowBlowMelee_1.4.jar | roborumble | robot | PASS | b33aa13d56e2a759 | - | - |
+| roborumble/rz.GlowBlow_2.31.jar | roborumble | robot | PASS | 59b518e2468133e4 | - | - |
+| roborumble/rz.HawkOnFire_0.1.jar | roborumble | robot | PASS | aec194fd7547e7cc | - | - |
+| roborumble/rz.SmallDevil_1.502.jar | roborumble | robot | score-review | c2e642ac1ff7d1a8 | - | - |
+| roborumble/sadoner.killer_0.2.jar | roborumble | robot | PASS | f271d8c933ecd8d3 | - | - |
+| roborumble/sam.ChipmunkDuelist_1.0.jar | roborumble | robot | score-review | ddeb136fccccaf47 | - | - |
+| roborumble/sam.Samspin_1.0.jar | roborumble | robot | PASS | 684a3443b50ac99f | - | - |
+| roborumble/sample.Corners_1.0.jar | roborumble | robot | score-review | 2d5107dbd6d0ded4 | - | - |
+| roborumble/sample.Crazy_1.0.jar | roborumble | robot | PASS | 4ae3b689554154fc | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
