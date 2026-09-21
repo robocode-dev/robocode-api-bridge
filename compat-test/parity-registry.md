@@ -10,8 +10,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 36 |
 | DISCREPANCY (outcome) | 95 |
 | MATCHED (failure) | 49 |
-| PASS | 555 |
-| score-review | 243 |
+| PASS | 572 |
+| score-review | 251 |
 
 ## Subjects
 
@@ -980,6 +980,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/stelo.MirrorNano_1.4.jar | roborumble | robot | score-review | 954d91c27cca3cb6 | - | - |
 | roborumble/stelo.Mirror_1.1.jar | roborumble | robot | PASS | ca0b224ceadc65f1 | - | - |
 | roborumble/stelo.MoojukNano_1.2.jar | roborumble | robot | PASS | 5aea32191bb43a03 | - | - |
+| roborumble/stelo.PatternRobot_1.0.jar | roborumble | robot | score-review | d1abf12fd69afec8 | - | - |
+| roborumble/stelo.PianistNano_1.3.jar | roborumble | robot | score-review | dfbed6096848bdd9 | - | - |
+| roborumble/stelo.RamTrackSurfer_1.2.jar | roborumble | robot | PASS | 2435f292d4571cb8 | - | - |
+| roborumble/stelo.Randomness_1.1.jar | roborumble | robot | score-review | 9fd868a5044a5de0 | - | - |
+| roborumble/stelo.SteloTestNano_1.0.jar | roborumble | robot | score-review | 11d2bb55a6b34db5 | - | - |
+| roborumble/stelo.UnfoolableNano_1.0.jar | roborumble | robot | score-review | 18ffe1f130b14c1a | - | - |
+| roborumble/stelo.UntouchableNano_1.4.jar | roborumble | robot | PASS | d7e07b1217de2e3a | - | - |
+| roborumble/step.NanoBidu_1.0.jar | roborumble | robot | PASS | b4b24069c0200fe4 | - | - |
+| roborumble/step.nanoPri_1.0.jar | roborumble | robot | score-review | 9485f074e69490f3 | - | - |
+| roborumble/stf.PanzerGeneral_0.1.jar | roborumble | robot | PASS | 4ae3b2213f277234 | - | - |
+| roborumble/stordy.StordyBot_1.0.jar | roborumble | robot | PASS | 833fad64a48e390f | - | - |
+| roborumble/stranger.nano.TestBot_1.0.jar | roborumble | robot | PASS | 0a6e1fec08a87839 | - | - |
+| roborumble/strider.Festis_1.2.1.jar | roborumble | robot | PASS | e51b547ab2b1acfb | - | - |
+| roborumble/strider.Mer_1.1.0.jar | roborumble | robot | PASS | a3c8b04eee54adcc | - | - |
+| roborumble/stuff.Vlad_0.1.jar | roborumble | robot | PASS | adb6530a5ea5e2f9 | - | - |
+| roborumble/suh.mega.WaveSurferGF_1.04.jar | roborumble | robot | score-review | d964e8f33ee413f0 | - | - |
+| roborumble/suh.mega.WaveSurferPG_1.06.jar | roborumble | robot | score-review | 663308f1025d87ed | - | - |
+| roborumble/suh.micro.MirrorPM_1.00.jar | roborumble | robot | PASS | 950022fbee88c1b3 | - | - |
+| roborumble/suh.micro.WallPM_1.00.jar | roborumble | robot | PASS | c29ea1a9486a82ac | - | - |
+| roborumble/suh.nano.AngularMirrorC_1.00.jar | roborumble | robot | PASS | 603c4b17840a5982 | - | - |
+| roborumble/suh.nano.AntiGravityL_1.01.jar | roborumble | robot | PASS | baf33495f851c17e | - | - |
+| roborumble/suh.nano.CornerRL_1.00.jar | roborumble | robot | PASS | b66676204709299f | - | - |
+| roborumble/suh.nano.CrossC_1.00.jar | roborumble | robot | PASS | 70186a636cda28eb | - | - |
+| roborumble/suh.nano.CrossH_1.00.jar | roborumble | robot | PASS | 2ec68234ab872c7d | - | - |
+| roborumble/suh.nano.CrossL_1.00.jar | roborumble | robot | PASS | dcf16cb442c321eb | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
