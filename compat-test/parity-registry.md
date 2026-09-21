@@ -10,8 +10,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 104 |
 | MATCHED (failure) | 49 |
-| PASS | 616 |
-| score-review | 270 |
+| PASS | 637 |
+| score-review | 274 |
 
 ## Subjects
 
@@ -1080,6 +1080,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/traker.Eraser_1.jar | roborumble | robot | DISCREPANCY (outcome) | 13db0bdc268469ea | - | - |
 | roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
 | roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
+| roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |
+| roborumble/tzu.TheArtOfWar_1.2.jar | roborumble | robot | PASS | 258a5b71bf9c7445 | - | - |
+| roborumble/ua.kiiv.kosyak.robocode.tn1.Tn1_2.0.jar | roborumble | robot | PASS | 19cc7a468b88eecc | - | - |
+| roborumble/uccc.Dorito_1.12.jar | roborumble | robot | score-review | c35b75e47d35f25a | - | - |
+| roborumble/uccc.MilkyWay_1.01.jar | roborumble | robot | score-review | 41f6d0786fd3e5ce | - | - |
+| roborumble/uccc.RingDing_1.12.jar | roborumble | robot | PASS | 695e293ccdd362a3 | - | - |
+| roborumble/uccc.Scrapple_1.0.jar | roborumble | robot | score-review | fe4ed74105911c2d | - | - |
+| roborumble/ultra.Defender_1.2.jar | roborumble | robot | PASS | b9430bdc2d8e8a41 | - | - |
+| roborumble/unarmedlad.nano.VirginSteele_2.2.jar | roborumble | robot | PASS | 0fd56cde022a08f0 | - | - |
+| roborumble/ur4n0.UR4NO_1.0.jar | roborumble | robot | PASS | 9676cdeeebec7f97 | - | - |
+| roborumble/urdos.URDOS_1.3.jar | roborumble | robot | PASS | ce41d1ee858569d7 | - | - |
+| roborumble/usa.nano.Nemo_2.0.jar | roborumble | robot | PASS | c0eff80a2a2ca297 | - | - |
+| roborumble/velas.Alpha_1.0.jar | roborumble | robot | PASS | c0a22d940d4f12a2 | - | - |
+| roborumble/velas.Beta_2_0_2.0.jar | roborumble | robot | PASS | abd4b67acd37eb5e | - | - |
+| roborumble/vft.Hrist_1.0.jar | roborumble | robot | PASS | a9eeb8774d3fa17a | - | - |
+| roborumble/vft.Valkyrie_1.0.jar | roborumble | robot | PASS | f4e22feabae45025 | - | - |
+| roborumble/vic.Locke_0.7.5.5.jar | roborumble | robot | PASS | 0417f0e27d6f83ea | - | - |
+| roborumble/vjik.UnViolation_1.1.jar | roborumble | robot | PASS | 15cd6a71061cc42a | - | - |
+| roborumble/voidious.Diamond_1.8.22.jar | roborumble | robot | PASS | 4146412ffe28ac43 | - | - |
+| roborumble/voidious.Dookious_1.573c.jar | roborumble | robot | PASS | 0e8186501813d9fe | - | - |
+| roborumble/voidious.micro.Jen_1.11.jar | roborumble | robot | PASS | 81755654920b97cd | - | - |
+| roborumble/voidious.mini.Komarious_1.88.jar | roborumble | robot | score-review | c4341bb65734df04 | - | - |
+| roborumble/voidious.perceptual.RetroGirl_1.0.0.jar | roborumble | robot | PASS | efc81fba9fb6e2f2 | - | - |
+| roborumble/vort.Chaser_0.0.3.jar | roborumble | robot | PASS | 7093732e1715be6e | - | - |
+| roborumble/vuen.Fractal_0.55.jar | roborumble | robot | PASS | 164ba6952c0c5fb0 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
