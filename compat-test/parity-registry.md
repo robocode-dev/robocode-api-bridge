@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 28 |
+| DISCREPANCY (errors) | 29 |
 | DISCREPANCY (no score) | 36 |
 | DISCREPANCY (outcome) | 95 |
 | MATCHED (failure) | 49 |
-| PASS | 538 |
-| score-review | 236 |
+| PASS | 555 |
+| score-review | 243 |
 
 ## Subjects
 
@@ -955,6 +955,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/snowman.Snowman_1.0.jar | roborumble | robot | PASS | 6b808572dc24cb3d | - | - |
 | roborumble/sos.SOS_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 8dcd655cb77ed8d2 | - | - |
 | roborumble/sp.AstherNano_1.0.jar | roborumble | robot | PASS | b5ff43ddfe84ad64 | - | - |
+| roborumble/spartancompany.Spartan2_1.0.jar | roborumble | robot | PASS | 4aaaad05305dbba1 | - | - |
+| roborumble/spinnercat.CopyKat_1.2.3.jar | roborumble | robot | score-review | 9e93aa13f6c201c0 | - | - |
+| roborumble/spinnercat.Kitten_1.6.jar | roborumble | robot | PASS | 18491cc2f34ef597 | - | - |
+| roborumble/spinnercat.Limit_.01.jar | roborumble | robot | PASS | 01c48428522f5744 | - | - |
+| roborumble/spinnercat.Robovirus_2.718.jar | roborumble | robot | DISCREPANCY (errors) | 5e13bc795dc2d038 | - | - |
+| roborumble/spinnercat.haiku.Refrigerator_1.1.jar | roborumble | robot | PASS | 61940867361d7826 | - | - |
+| roborumble/spinnercat.mega.Tardis_1.2.jar | roborumble | robot | PASS | 027e7e543c67499c | - | - |
+| roborumble/sqTank.waveSurfing.LionWWSVMvoid_0.01.jar | roborumble | robot | score-review | 5ee51a0234856dfe | - | - |
+| roborumble/squidM.SquidmanNano_1.0.jar | roborumble | robot | score-review | ac88679d96137e1a | - | - |
+| roborumble/squidM.SurfinUSA_1.0.jar | roborumble | robot | score-review | ad4ac858d82c9144 | - | - |
+| roborumble/starpkg.StarViewerZ_1.26.jar | roborumble | robot | PASS | 9ab989c332dabcb9 | - | - |
+| roborumble/staticline.whiskey.Whiskey_0.6.jar | roborumble | robot | PASS | d7a4afc809726a3f | - | - |
+| roborumble/stefw.Tigger_0.0.23.jar | roborumble | robot | PASS | 75cc32356ead100e | - | - |
+| roborumble/stelo.Chord_1.0.jar | roborumble | robot | score-review | 58f620cc6ccc9488 | - | - |
+| roborumble/stelo.FretNano_1.1.jar | roborumble | robot | PASS | e0c012a8f8adc65b | - | - |
+| roborumble/stelo.Liblix_0.3.1.jar | roborumble | robot | PASS | 044f196d7b50d879 | - | - |
+| roborumble/stelo.Lifestealer_1.0.jar | roborumble | robot | PASS | cd422646c602bded | - | - |
+| roborumble/stelo.MatchupAGF_1.1.jar | roborumble | robot | PASS | 6d9918588d08695a | - | - |
+| roborumble/stelo.MatchupMicro_1.2.jar | roborumble | robot | PASS | 44b4234cdd229266 | - | - |
+| roborumble/stelo.MatchupMini_1.1.jar | roborumble | robot | PASS | 02bb9c6fd9075b86 | - | - |
+| roborumble/stelo.MatchupWS_1.2c.jar | roborumble | robot | PASS | 806000fa021cba86 | - | - |
+| roborumble/stelo.MirrorMicro_1.1.jar | roborumble | robot | score-review | 05d8191a63ab4f92 | - | - |
+| roborumble/stelo.MirrorNano_1.4.jar | roborumble | robot | score-review | 954d91c27cca3cb6 | - | - |
+| roborumble/stelo.Mirror_1.1.jar | roborumble | robot | PASS | ca0b224ceadc65f1 | - | - |
+| roborumble/stelo.MoojukNano_1.2.jar | roborumble | robot | PASS | 5aea32191bb43a03 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
