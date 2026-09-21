@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 26 |
 | DISCREPANCY (no score) | 33 |
-| DISCREPANCY (outcome) | 85 |
+| DISCREPANCY (outcome) | 88 |
 | MATCHED (failure) | 49 |
-| PASS | 398 |
-| score-review | 191 |
+| PASS | 416 |
+| score-review | 195 |
 
 ## Subjects
 
@@ -755,6 +755,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/panzer.Panzer_0.2.jar | roborumble | robot | score-review | 7e05b530409e3827 | - | - |
 | roborumble/paolord.TheHulk_1.0.jar | roborumble | robot | score-review | b69ddb01a016a30b | - | - |
 | roborumble/patson.PatsonTestBot_1.0.jar | roborumble | robot | DISCREPANCY (errors) | bcae170fb126b98c | - | - |
+| roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | score-review | 95adbd22ba62453c | - | - |
+| roborumble/pb.Oscillator_1.0.jar | roborumble | robot | PASS | 7df2b921a4b28b34 | - | - |
+| roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | score-review | b97a060c77e8cbd9 | - | - |
+| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | e8764db70e70af0a | - | - |
+| roborumble/pe.SandboxLump_1.52.jar | roborumble | robot | PASS | ff93d22a269cfb72 | - | - |
+| roborumble/pe.mini.SandboxMini_1.2.jar | roborumble | robot | PASS | 1930cd48c43fab7b | - | - |
+| roborumble/pe.minimelee.SandboxMiniMelee_1.1.jar | roborumble | robot | PASS | 7b272700364a7c9c | - | - |
+| roborumble/pedersen.Hubris_2.4.jar | roborumble | robot | DISCREPANCY (outcome) | c3be61affe6e9030 | - | - |
+| roborumble/pedersen.Ugluk_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 7fc005ef2c17d2da | - | - |
+| roborumble/pez.clean.Swiffer_0.2.9.jar | roborumble | robot | PASS | e28da1958311b5a0 | - | - |
+| roborumble/pez.frankie.Frankie_0.9.6.1.jar | roborumble | robot | PASS | 301d808b9534b3ce | - | - |
+| roborumble/pez.gloom.GloomyDark_0.9.2.jar | roborumble | robot | PASS | 47368d0adc4dbcb9 | - | - |
+| roborumble/pez.mako.Mako_1.5.jar | roborumble | robot | PASS | 380eb9cba52e3299 | - | - |
+| roborumble/pez.micro.Aristocles_0.3.7.jar | roborumble | robot | score-review | 93c7e32da7211492 | - | - |
+| roborumble/pez.mini.ChironexFleckeri_0.5.jar | roborumble | robot | score-review | d54f346f46c249a3 | - | - |
+| roborumble/pez.mini.Gouldingi_1.5.jar | roborumble | robot | PASS | 4470ef719a8aef66 | - | - |
+| roborumble/pez.mini.Pugilist_2.5.1f.jar | roborumble | robot | PASS | 01a8e04a2e883aa8 | - | - |
+| roborumble/pez.mini.Tityus_0.9.1.jar | roborumble | robot | PASS | af8172dd9b69c545 | - | - |
+| roborumble/pez.mini.VertiLeach_0.4.0.jar | roborumble | robot | PASS | f85c137cb4b7b461 | - | - |
+| roborumble/pez.nano.Icarus_0.3.jar | roborumble | robot | PASS | 7f67cb882e6fc113 | - | - |
+| roborumble/pez.nano.LittleEvilBrother_0.1.jar | roborumble | robot | PASS | 8338b53b2f11a77f | - | - |
+| roborumble/pez.rumble.Ali_0.4.9.jar | roborumble | robot | PASS | 0d900165e66c08a3 | - | - |
+| roborumble/pez.rumble.CassiusClay_2rho.02no.jar | roborumble | robot | PASS | 12b89599f0a91d68 | - | - |
+| roborumble/pfvicm.Sobieski_7.2.3b.jar | roborumble | robot | PASS | 3dd4c99501265fe7 | - | - |
+| roborumble/ph.micro.Pikeman_0.4.5.jar | roborumble | robot | PASS | c19ea24d7fb285b5 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
