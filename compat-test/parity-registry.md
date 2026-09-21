@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 27 |
+| DISCREPANCY (errors) | 28 |
 | DISCREPANCY (no score) | 36 |
 | DISCREPANCY (outcome) | 95 |
 | MATCHED (failure) | 49 |
-| PASS | 525 |
-| score-review | 225 |
+| PASS | 538 |
+| score-review | 236 |
 
 ## Subjects
 
@@ -878,6 +878,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rz.GlowBlow_2.31.jar | roborumble | robot | PASS | 59b518e2468133e4 | - | - |
 | roborumble/rz.HawkOnFire_0.1.jar | roborumble | robot | PASS | aec194fd7547e7cc | - | - |
 | roborumble/rz.SmallDevil_1.502.jar | roborumble | robot | score-review | c2e642ac1ff7d1a8 | - | - |
+| roborumble/sL300.Mozart_life.jar | roborumble | robot | PASS | a39f6dbfb2b90619 | - | - |
 | roborumble/sadoner.killer_0.2.jar | roborumble | robot | PASS | f271d8c933ecd8d3 | - | - |
 | roborumble/sam.ChipmunkDuelist_1.0.jar | roborumble | robot | score-review | ddeb136fccccaf47 | - | - |
 | roborumble/sam.Samspin_1.0.jar | roborumble | robot | PASS | 684a3443b50ac99f | - | - |
@@ -930,6 +931,30 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/simonton.micro.WeeklongObsession_3.4.1.jar | roborumble | robot | PASS | a8a467451a62a1c9 | - | - |
 | roborumble/simonton.mini.WeeksOnEnd_1.10.4.jar | roborumble | robot | PASS | b9b55071acd0439d | - | - |
 | roborumble/simonton.nano.WeekendObsession_S_1.7.jar | roborumble | robot | score-review | e102e3ed5887efb7 | - | - |
+| roborumble/skm.PateranBotlock2_1.0.jar | roborumble | robot | score-review | 8d348df275a40416 | - | - |
+| roborumble/skm.Ryubot_1.0.jar | roborumble | robot | score-review | 9760adb4f4d94d58 | - | - |
+| roborumble/slugzilla.Basilisk_3.9.jar | roborumble | robot | PASS | ba84fc1c9a260097 | - | - |
+| roborumble/slugzilla.Basilite_0.13.jar | roborumble | robot | PASS | a294ba800f43d4e8 | - | - |
+| roborumble/slugzilla.ButtHead_2.0.jar | roborumble | robot | score-review | 068ed7ab5d4b7278 | - | - |
+| roborumble/slugzilla.OrbitGF_1.0.jar | roborumble | robot | score-review | a55bf86c02ca0eec | - | - |
+| roborumble/slugzilla.OrbitLinear_1.1.jar | roborumble | robot | score-review | b6deabce2414a73c | - | - |
+| roborumble/slugzilla.OrbitPattern_1.1.jar | roborumble | robot | PASS | 45f4fad21f8c02af | - | - |
+| roborumble/slugzilla.OscillateGF_1.0.jar | roborumble | robot | score-review | 686937fbcc8bc3e6 | - | - |
+| roborumble/slugzilla.OscillateLinear_1.0.jar | roborumble | robot | score-review | 41fdb3b690b35884 | - | - |
+| roborumble/slugzilla.OscillatePattern_1.0.jar | roborumble | robot | score-review | 7d03231691754ccd | - | - |
+| roborumble/slugzilla.Parallax_0.1.jar | roborumble | robot | PASS | 07f591be42f2a0fe | - | - |
+| roborumble/slugzilla.RandomGF_1.0.jar | roborumble | robot | PASS | e1f3bffc68b3ca8a | - | - |
+| roborumble/slugzilla.RandomLinear_1.0.jar | roborumble | robot | PASS | 9fbc9aebedbd8263 | - | - |
+| roborumble/slugzilla.RandomPattern_1.0.jar | roborumble | robot | PASS | af8f3260a79f224a | - | - |
+| roborumble/slugzilla.SNGGF_1.0.jar | roborumble | robot | score-review | 59e11cc69421f1f9 | - | - |
+| roborumble/slugzilla.SNGLinear_1.0.jar | roborumble | robot | score-review | 89f43f1876681f37 | - | - |
+| roborumble/slugzilla.SNGPattern_1.0.jar | roborumble | robot | score-review | 141e9cd7503cd2af | - | - |
+| roborumble/slugzilla.SquirmyToad_3.9.jar | roborumble | robot | PASS | ec0739c158029a04 | - | - |
+| roborumble/sm.Devil_7.3.jar | roborumble | robot | PASS | 2c963819bc71ae95 | - | - |
+| roborumble/sng.arco.Arco_0.0.jar | roborumble | robot | PASS | 0dfcbad07786f103 | - | - |
+| roborumble/snowman.Snowman_1.0.jar | roborumble | robot | PASS | 6b808572dc24cb3d | - | - |
+| roborumble/sos.SOS_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 8dcd655cb77ed8d2 | - | - |
+| roborumble/sp.AstherNano_1.0.jar | roborumble | robot | PASS | b5ff43ddfe84ad64 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
