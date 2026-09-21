@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 30 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 99 |
+| DISCREPANCY (outcome) | 104 |
 | MATCHED (failure) | 49 |
-| PASS | 600 |
-| score-review | 266 |
+| PASS | 616 |
+| score-review | 270 |
 
 ## Subjects
 
@@ -1055,6 +1055,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/test.Fuzzer_1.0.1.jar | roborumble | robot | score-review | 3c7ff8aefc109aa0 | - | - |
 | roborumble/test.Podgy_4.0.jar | roborumble | robot | score-review | fbc9e6ea567d3568 | - | - |
 | roborumble/testantiswapgun.AntiSwap_1.0.jar | roborumble | robot | PASS | 7efb12702de04526 | - | - |
+| roborumble/tex.Longbot_0.4.jar | roborumble | robot | PASS | 8c0df9a5304fb375 | - | - |
+| roborumble/throxbot.ThroxBot_0.1.jar | roborumble | robot | PASS | f562e62e29cb6bf8 | - | - |
+| roborumble/tide.pear.Pear_0.62.1.jar | roborumble | robot | score-review | c1e37ab1650b02a6 | - | - |
+| roborumble/timmit.TimmiT_0.22.jar | roborumble | robot | PASS | 7586b5ffa32a85d5 | - | - |
+| roborumble/timmit.micro.TimXJ_0.22.jar | roborumble | robot | PASS | c53a11703a9a7b14 | - | - |
+| roborumble/timmit.mini.TimVA_0.43.jar | roborumble | robot | PASS | ae20e402d06bf044 | - | - |
+| roborumble/timmit.nano.TimCat_0.13.jar | roborumble | robot | score-review | 79745ba32e2f25fe | - | - |
+| roborumble/timmit.nano.TimDog_0.33.jar | roborumble | robot | PASS | 00b253e2a5b6569e | - | - |
+| roborumble/tjk.AFlatNatural_1.0.jar | roborumble | robot | PASS | 85d1d52f7c5fbfa9 | - | - |
+| roborumble/tjk.deBroglie_rev0108.jar | roborumble | robot | PASS | dad5f10f813b5490 | - | - |
+| roborumble/tk.BotOX_0.3.jar | roborumble | robot | PASS | 7b47033a9aecb9c6 | - | - |
+| roborumble/tkt.RedShift_1.1.CS.0.jar | roborumble | robot | score-review | 249cd620a2f886b0 | - | - |
+| roborumble/tlp.ThreeLeggedPig_1.jar | roborumble | robot | PASS | e5e607b23d018f71 | - | - |
+| roborumble/tm.Yuugao_1.0.jar | roborumble | robot | PASS | 601f0e21d66845b9 | - | - |
+| roborumble/tobe.Fusion_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 797ece6a98aa0477 | - | - |
+| roborumble/tobe.Relativity_3.9.jar | roborumble | robot | DISCREPANCY (outcome) | 06434ae8e7ca45c7 | - | - |
+| roborumble/tobe.Saturn_lambda.jar | roborumble | robot | DISCREPANCY (outcome) | 609af0090a204acc | - | - |
+| roborumble/tobe.calypso.Calypso_4.1.jar | roborumble | robot | score-review | 70a448fb51b746c6 | - | - |
+| roborumble/tobe.mini.Charon_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | 54f3b6fc6340eae8 | - | - |
+| roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
+| roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
+| roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
+| roborumble/traker.Eraser_1.jar | roborumble | robot | DISCREPANCY (outcome) | 13db0bdc268469ea | - | - |
+| roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
+| roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
