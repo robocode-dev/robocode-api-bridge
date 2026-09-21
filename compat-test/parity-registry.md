@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 25 |
+| DISCREPANCY (errors) | 26 |
 | DISCREPANCY (no score) | 33 |
-| DISCREPANCY (outcome) | 83 |
+| DISCREPANCY (outcome) | 85 |
 | MATCHED (failure) | 49 |
-| PASS | 381 |
-| score-review | 186 |
+| PASS | 398 |
+| score-review | 191 |
 
 ## Subjects
 
@@ -729,7 +729,32 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ola.Puffin_1.0.jar | roborumble | robot | score-review | 375de569515bb7cd | - | - |
 | roborumble/omens.CannonfodderMicro_1.4.jar | roborumble | robot | PASS | 4affc00289d4e403 | - | - |
 | roborumble/omens.CannonfodderNano_1.4.jar | roborumble | robot | PASS | 4c9e2969bb78ff22 | - | - |
+| roborumble/oog.PricklyPear_1.0.6.jar | roborumble | robot | PASS | ecd3a11a4717e1d3 | - | - |
 | roborumble/oog.melee.Capulet_1.2.jar | roborumble | robot | score-review | ee56d3e5562790dc | - | - |
+| roborumble/oog.melee.Mercutio_1.0.jar | roborumble | robot | score-review | 1b8ff814bf573b6a | - | - |
+| roborumble/oog.micro.Claudius_1.11.jar | roborumble | robot | PASS | 6166b36569a952be | - | - |
+| roborumble/oog.micro.MagicD3_0.41.jar | roborumble | robot | PASS | 62a49ca736d28393 | - | - |
+| roborumble/oog.micro.Maui_1.2.jar | roborumble | robot | PASS | 6f68728f1ef2bcf9 | - | - |
+| roborumble/oog.micro.SavantMicro_1.1.jar | roborumble | robot | PASS | f8d72a8e50bff547 | - | - |
+| roborumble/oog.mini.AlphaDragon_0.1.jar | roborumble | robot | PASS | 56f8fd8ae159ed77 | - | - |
+| roborumble/oog.nano.Caligula_1.15.jar | roborumble | robot | score-review | 7b3cf58b7581110e | - | - |
+| roborumble/oog.nano.Fuatisha_1.1.jar | roborumble | robot | PASS | 2e21b63faa23e8b9 | - | - |
+| roborumble/oog.nano.MagicD2_2.4.jar | roborumble | robot | PASS | 450fd1b982143f77 | - | - |
+| roborumble/oog.nano.SavantVS_1.1.jar | roborumble | robot | PASS | f8fe4ba967e59210 | - | - |
+| roborumble/oog.nano.SavantWS_0.1.jar | roborumble | robot | PASS | 4cc5ab9eac671a38 | - | - |
+| roborumble/origin.SleepSiphon_1.7b.jar | roborumble | robot | DISCREPANCY (outcome) | 8805f04d9690920a | - | - |
+| roborumble/ouroboros.Dragon_0.0.3.jar | roborumble | robot | PASS | 860711bdb5c86ce5 | - | - |
+| roborumble/pa.Improved_1.1.jar | roborumble | robot | PASS | 9f39058ff327c11d | - | - |
+| roborumble/pa3k.Manta_1.20.jar | roborumble | robot | PASS | 19969a6d8f9d6553 | - | - |
+| roborumble/pa3k.Quark_1.02.jar | roborumble | robot | PASS | 006a0b04fbf1960f | - | - |
+| roborumble/pa3k.Viper_5.03.jar | roborumble | robot | PASS | e3e3794e764be778 | - | - |
+| roborumble/pac.ABC_2.1.jar | roborumble | robot | DISCREPANCY (outcome) | 67da680ba9b037ee | - | - |
+| roborumble/pak.Dargon_1.0b.jar | roborumble | robot | PASS | 44af6a60fc0162fe | - | - |
+| roborumble/pak.JakeTheTestingRobot_.1b.jar | roborumble | robot | PASS | 5b008fd5bb01cda0 | - | - |
+| roborumble/paket.MojRobot_1.0.jar | roborumble | robot | score-review | b8e28e1790c20bc0 | - | - |
+| roborumble/panzer.Panzer_0.2.jar | roborumble | robot | score-review | 7e05b530409e3827 | - | - |
+| roborumble/paolord.TheHulk_1.0.jar | roborumble | robot | score-review | b69ddb01a016a30b | - | - |
+| roborumble/patson.PatsonTestBot_1.0.jar | roborumble | robot | DISCREPANCY (errors) | bcae170fb126b98c | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
