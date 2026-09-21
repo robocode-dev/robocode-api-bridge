@@ -10,8 +10,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 32 |
 | DISCREPANCY (outcome) | 83 |
 | MATCHED (failure) | 49 |
-| PASS | 363 |
-| score-review | 177 |
+| PASS | 365 |
+| score-review | 178 |
 
 ## Subjects
 
@@ -75,6 +75,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/NDH.GuessFactor_1.0.jar | roborumble | robot | PASS | db031b6a71c48044 | - | - |
 | roborumble/NG.LegatusLegionis_1.2.jar | roborumble | robot | PASS | e7e8907e9e62c644 | - | - |
 | roborumble/Noran.BitchingElk_0.054.jar | roborumble | robot | score-review | 9d8e0d7d6484cf4e | - | - |
+| roborumble/Noran.RandomTargeting_0.02.jar | roborumble | robot | score-review | e012f27fbf629333 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 7c97630f120460e2 | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -702,6 +703,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/nkn.mini.Jskr0_0.1.jar | roborumble | robot | score-review | c273fc1b4d424de2 | - | - |
 | roborumble/non.mega.NaN_0.1.jar | roborumble | robot | PASS | 8a21454d7a135902 | - | - |
 | roborumble/non.mega.NoName_0.0.jar | roborumble | robot | PASS | 41bc7d5ccd53bdbf | - | - |
+| roborumble/nosteel.Welby_0.0.3.jar | roborumble | robot | PASS | ca4d97b1dc09be6c | - | - |
+| roborumble/nova.Snow_1.0.jar | roborumble | robot | PASS | 6e203ee5f5f8269e | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
