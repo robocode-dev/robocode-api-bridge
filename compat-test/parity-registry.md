@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | DISCREPANCY (errors) | 27 |
-| DISCREPANCY (no score) | 35 |
-| DISCREPANCY (outcome) | 93 |
+| DISCREPANCY (no score) | 36 |
+| DISCREPANCY (outcome) | 95 |
 | MATCHED (failure) | 49 |
-| PASS | 507 |
-| score-review | 221 |
+| PASS | 525 |
+| score-review | 225 |
 
 ## Subjects
 
@@ -83,6 +83,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/Queens_teamrobot.UltraRazor_1.0.jar | roborumble | robot | PASS | 43c2efac1cd80368 | - | - |
 | roborumble/RobotMarco.MarcoV_0.1.jar | roborumble | robot | score-review | 4ce94ab4ed71983a | - | - |
 | roborumble/SFS.SamsSecondRobot_1.0.jar | roborumble | robot | PASS | 6bb607869c096bf7 | - | - |
+| roborumble/SHAM.WOW_1.4.jar | roborumble | robot | PASS | 7845776cc1f2e35d | - | - |
+| roborumble/SK.SimpleKiller_1.0.jar | roborumble | robot | PASS | f9c353d1c835ef68 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
 | roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 7c97630f120460e2 | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
@@ -904,7 +906,30 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/sgp.JollyNinja_3.53.jar | roborumble | robot | score-review | fb3b063e3ea768d0 | - | - |
 | roborumble/sgp.MadHatter_4.13.jar | roborumble | robot | PASS | 124413cdb1d864a5 | - | - |
 | roborumble/sgp.ShiningBeetle_1.1.jar | roborumble | robot | PASS | a6e716db052d2df1 | - | - |
+| roborumble/sgp.SleepingGoat_1.1.jar | roborumble | robot | PASS | 719e881d80dac4dd | - | - |
 | roborumble/sgp.nano.FurryLeech_1.0.jar | roborumble | robot | PASS | 0beaaf5d752a8fc0 | - | - |
+| roborumble/sheldor.melee.nano.TestMelee_0.1.jar | roborumble | robot | PASS | 7b3dfdb88d5308dc | - | - |
+| roborumble/sheldor.micro.EpeeistMicro_2.1.0.jar | roborumble | robot | score-review | 89631887b05fc716 | - | - |
+| roborumble/sheldor.micro.FoilistMicro_1.2.0.jar | roborumble | robot | PASS | 41c445c3ceb46c03 | - | - |
+| roborumble/sheldor.nano.Epeeist_1.1.0.jar | roborumble | robot | PASS | 48a5fc29962fb5be | - | - |
+| roborumble/sheldor.nano.Foilist_2.0.0.jar | roborumble | robot | PASS | a9291baebe7ee188 | - | - |
+| roborumble/sheldor.nano.PointInLineRRAL_1.0.0.jar | roborumble | robot | PASS | cb7a7868e85b40de | - | - |
+| roborumble/sheldor.nano.PointInLine_1.0.jar | roborumble | robot | score-review | 2c5b6a6a1a2c23b4 | - | - |
+| roborumble/sheldor.nano.Retreat_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 140da97590563c7c | - | - |
+| roborumble/sheldor.nano.Sabreur_1.1.2.jar | roborumble | robot | PASS | b29f723fa1835966 | - | - |
+| roborumble/sheldor.nano.Sabreuse_1.0.0.jar | roborumble | robot | PASS | 6dd278eb62af9c3c | - | - |
+| roborumble/shinh.Entangled_0.3.jar | roborumble | robot | score-review | 9a69cae89c4de3ec | - | - |
+| roborumble/shrub.Silver_v048.jar | roborumble | robot | PASS | cd4d057bb7d5e85c | - | - |
+| roborumble/shrub.Vapour_v159.jar | roborumble | robot | PASS | f8d04f7031f24f7f | - | - |
+| roborumble/shu.nitro.LENIN_.T34.jar | roborumble | robot | PASS | 8a9ad8559b04d0a4 | - | - |
+| roborumble/sigterm.Sigterm_1.0.jar | roborumble | robot | PASS | 1a57f4c74b8e9b66 | - | - |
+| roborumble/simonton.GFNano_D_3.1b.jar | roborumble | robot | PASS | 043d9b7c5fd14090 | - | - |
+| roborumble/simonton.beta.LifelongObsession_0.5.1.jar | roborumble | robot | DISCREPANCY (outcome) | 3f3d946ea4e24b08 | - | - |
+| roborumble/simonton.mega.SniperFrog_1.0.fix2.jar | roborumble | robot | PASS | 9e3cb37668b4d10c | - | - |
+| roborumble/simonton.micro.GFMicro_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 869b933ce21be1eb | - | - |
+| roborumble/simonton.micro.WeeklongObsession_3.4.1.jar | roborumble | robot | PASS | a8a467451a62a1c9 | - | - |
+| roborumble/simonton.mini.WeeksOnEnd_1.10.4.jar | roborumble | robot | PASS | b9b55071acd0439d | - | - |
+| roborumble/simonton.nano.WeekendObsession_S_1.7.jar | roborumble | robot | score-review | e102e3ed5887efb7 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
