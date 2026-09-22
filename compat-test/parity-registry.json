@@ -172352,7 +172352,14 @@
       "status": "score-review"
     },
     "teamrumble/bvh.team.Valkiries_1.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:56Z"
+        }
+      ],
       "identity": {
         "classic_selected": "bvh.team.Valkirie 0.44t",
         "division": "teamrumble",
@@ -172361,7 +172368,7 @@
         "key": "teamrumble/bvh.team.Valkiries_1.0.jar",
         "kind": "team"
       },
-      "latest_observation": "e556a2d82c7fee6a",
+      "latest_observation": "0410196ed2cca286",
       "observations": [
         {
           "classic": {
@@ -173037,12 +173044,178 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 4.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20836.0,
+            "scores": [
+              9508.0,
+              11328.0
+            ],
+            "selected": "bvh.team.Valkirie 0.44t"
+          },
+          "completed_at": "2026-09-22T18:12:17Z",
+          "confirmation": null,
+          "delta_pct": 40.7,
+          "id": "ff6c5feb418d1aa0",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "1e23ca96b8dc3f9d40679d22864206000fa9c004",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "bvh.team.Valkirie 0.44t",
+            "division": "teamrumble",
+            "jar": "bvh.team.Valkiries_1.0.jar",
+            "jar_sha256": "1c30ae07eec48b629b6ce1ee0f8626c7e16b186d20fb238d70b99cde92a26216",
+            "key": "teamrumble/bvh.team.Valkiries_1.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 20.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 29314.0,
+            "scores": [
+              14880.0,
+              14434.0
+            ],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 4.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21310.0,
+            "scores": [
+              10619.0,
+              10691.0
+            ],
+            "selected": "bvh.team.Valkirie 0.44t"
+          },
+          "completed_at": "2026-09-22T18:16:50Z",
+          "confirmation": null,
+          "delta_pct": 34.7,
+          "id": "0410196ed2cca286",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "bvh.team.Valkirie 0.44t",
+            "division": "teamrumble",
+            "jar": "bvh.team.Valkiries_1.0.jar",
+            "jar_sha256": "1c30ae07eec48b629b6ce1ee0f8626c7e16b186d20fb238d70b99cde92a26216",
+            "key": "teamrumble/bvh.team.Valkiries_1.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 20.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 28715.0,
+            "scores": [
+              15157.0,
+              13558.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/cb.fire.FirestarterTeam_2.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "cb.fire.Firestarter 2.0",
         "division": "teamrumble",
@@ -173051,7 +173224,7 @@
         "key": "teamrumble/cb.fire.FirestarterTeam_2.0.jar",
         "kind": "team"
       },
-      "latest_observation": "62e25ad244cff6a2",
+      "latest_observation": "a4b32950172587c1",
       "observations": [
         {
           "classic": {
@@ -173652,12 +173825,120 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 27.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20475.0,
+            "scores": [
+              10924.0,
+              9551.0
+            ],
+            "selected": "cb.fire.Firestarter 2.0"
+          },
+          "completed_at": "2026-09-22T18:17:22Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "a4b32950172587c1",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "cb.fire.Firestarter 2.0",
+            "division": "teamrumble",
+            "jar": "cb.fire.FirestarterTeam_2.0.jar",
+            "jar_sha256": "fc1585926dbd73e0a3a9ea59bf1f1e33d42e0d5cc9c5db3f74a67d7d2d36d4a5",
+            "key": "teamrumble/cb.fire.FirestarterTeam_2.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "C.I.I"
+              ]
+            ],
+            "elapsed": 4.2,
+            "error_count": 11,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "C.I.I"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/cx.mini.DemoniacNimrods_0.50.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "cx.mini.Nimrod 0.50",
         "division": "teamrumble",
@@ -173666,7 +173947,7 @@
         "key": "teamrumble/cx.mini.DemoniacNimrods_0.50.jar",
         "kind": "team"
       },
-      "latest_observation": "59837503724eaca8",
+      "latest_observation": "ffdcc9fa6535acbb",
       "observations": [
         {
           "classic": {
@@ -174267,9 +174548,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 3.7,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21889.0,
+            "scores": [
+              10176.0,
+              11713.0
+            ],
+            "selected": "cx.mini.Nimrod 0.50"
+          },
+          "completed_at": "2026-09-22T18:17:36Z",
+          "confirmation": null,
+          "delta_pct": 46.6,
+          "id": "ffdcc9fa6535acbb",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "cx.mini.Nimrod 0.50",
+            "division": "teamrumble",
+            "jar": "cx.mini.DemoniacNimrods_0.50.jar",
+            "jar_sha256": "742983458acb65cb939258dbaaf6a931870606383852284df77c3374a860c098",
+            "key": "teamrumble/cx.mini.DemoniacNimrods_0.50.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 10.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 32089.0,
+            "scores": [
+              16119.0,
+              15970.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/davidalves.PhoenixTeam_0.54.jar": {
       "diagnosis_events": [],
@@ -176102,7 +176465,14 @@
       "status": "score-review"
     },
     "teamrumble/ethdsy.MalackaTeam_1.2.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ethdsy.Malacka 2.4b",
         "division": "teamrumble",
@@ -176111,7 +176481,7 @@
         "key": "teamrumble/ethdsy.MalackaTeam_1.2.jar",
         "kind": "team"
       },
-      "latest_observation": "7af6492a2dcfc090",
+      "latest_observation": "da49937ad4b818af",
       "observations": [
         {
           "classic": {
@@ -176712,12 +177082,120 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 3.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 24982.0,
+            "scores": [
+              9692.0,
+              15290.0
+            ],
+            "selected": "ethdsy.Malacka 2.4b"
+          },
+          "completed_at": "2026-09-22T18:17:44Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "da49937ad4b818af",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "ethdsy.Malacka 2.4b",
+            "division": "teamrumble",
+            "jar": "ethdsy.MalackaTeam_1.2.jar",
+            "jar_sha256": "380eac760fe70a97a3c4a761aafabcef83c86b7cade4bca441b0e10da4ed709c",
+            "key": "teamrumble/ethdsy.MalackaTeam_1.2.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NumberFormatException",
+                "ethdsy.Malacka.run"
+              ]
+            ],
+            "elapsed": 4.2,
+            "error_count": 11,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NumberFormatException",
+                "origin": "ethdsy.Malacka.run"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\"",
+              "java.lang.NumberFormatException: For input string: \"M\""
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/florent.XSeries.Xmen_0.9.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "florent.XSeries.X2 0.9",
         "division": "teamrumble",
@@ -176726,7 +177204,7 @@
         "key": "teamrumble/florent.XSeries.Xmen_0.9.jar",
         "kind": "team"
       },
-      "latest_observation": "76b47d136530aef9",
+      "latest_observation": "90ef34e34891187f",
       "observations": [
         {
           "classic": {
@@ -178175,12 +178653,277 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 24.9,
+            "error_count": 46,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.team.Xmen.removeBullet"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 21105.0,
+            "scores": [
+              8110.0,
+              12995.0
+            ],
+            "selected": "florent.XSeries.X2 0.9"
+          },
+          "completed_at": "2026-09-22T18:18:15Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "90ef34e34891187f",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "florent.XSeries.X2 0.9",
+            "division": "teamrumble",
+            "jar": "florent.XSeries.Xmen_0.9.jar",
+            "jar_sha256": "7f9235dc6d7526c3c9c024dcba6a51b7d6b9d102eb0eb47a25da1870bc707770",
+            "key": "teamrumble/florent.XSeries.Xmen_0.9.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.ArrayIndexOutOfBoundsException",
+                "florent.stats.StatKeeper.endRound"
+              ],
+              [
+                "java.lang.NullPointerException",
+                "florent.XSeries.gun.patternrecognition.ScanStore.record"
+              ]
+            ],
+            "elapsed": 6.2,
+            "error_count": 109,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "florent.XSeries.gun.patternrecognition.ScanStore.record"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "florent.stats.StatKeeper.endRound"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.gun.patternrecognition.ScanStore.record"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.team.Xmen.removeBullet"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.movement.wavesurfing.EnemyWave.wallDistance(double, java.awt.geom.Rectangle2D)\" because \"enemy.lastWave\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 6",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 6",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/gh.mini.GrubbmGroup_0.4.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "gh.mini.GrubbmOgre 0.4",
         "division": "teamrumble",
@@ -178189,7 +178932,7 @@
         "key": "teamrumble/gh.mini.GrubbmGroup_0.4.jar",
         "kind": "team"
       },
-      "latest_observation": "29b983fb951e3497",
+      "latest_observation": "8da1db1940655a72",
       "observations": [
         {
           "classic": {
@@ -178790,9 +179533,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 3.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 22956.0,
+            "scores": [
+              11631.0,
+              11325.0
+            ],
+            "selected": "gh.mini.GrubbmOgre 0.4"
+          },
+          "completed_at": "2026-09-22T18:18:45Z",
+          "confirmation": null,
+          "delta_pct": 29.8,
+          "id": "8da1db1940655a72",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "gh.mini.GrubbmOgre 0.4",
+            "division": "teamrumble",
+            "jar": "gh.mini.GrubbmGroup_0.4.jar",
+            "jar_sha256": "d4c8bd894ef6324d97ac984ff8ece51e4683b53b45ef4a4629155d9ddc2a5721",
+            "key": "teamrumble/gh.mini.GrubbmGroup_0.4.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 26.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 29799.0,
+            "scores": [
+              15191.0,
+              14608.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/gh.nano.GrofGroup_1.1.jar": {
       "diagnosis_events": [],
@@ -181970,7 +182795,14 @@
       "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "kawigi.micro.Shiz 1.1",
         "division": "teamrumble",
@@ -181979,7 +182811,7 @@
         "key": "teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar",
         "kind": "team"
       },
-      "latest_observation": "c1295aebef75315f",
+      "latest_observation": "d191b3cc728cc41d",
       "observations": [
         {
           "classic": {
@@ -182505,12 +183337,101 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 6.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20796.0,
+            "scores": [
+              10213.0,
+              10583.0
+            ],
+            "selected": "kawigi.micro.Shiz 1.1"
+          },
+          "completed_at": "2026-09-22T18:19:12Z",
+          "confirmation": null,
+          "delta_pct": 19.9,
+          "id": "d191b3cc728cc41d",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "kawigi.micro.Shiz 1.1",
+            "division": "teamrumble",
+            "jar": "kawigi.micro.ArmyOfShiz_1.1.jar",
+            "jar_sha256": "5a3f656a25984f50dd15ba2f482f114dd8719c8fee3c2795e7829d7fc2fcb28f",
+            "key": "teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 20.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 24943.0,
+            "scores": [
+              12549.0,
+              12394.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "teamrumble/kawigi.sbf.TidalWave_0.8.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:57Z"
+        }
+      ],
       "identity": {
         "classic_selected": "kawigi.sbf.FloodHT 0.8",
         "division": "teamrumble",
@@ -182519,7 +183440,7 @@
         "key": "teamrumble/kawigi.sbf.TidalWave_0.8.jar",
         "kind": "team"
       },
-      "latest_observation": "bc5aed98b43bd0b7",
+      "latest_observation": "def9be010e856ed7",
       "observations": [
         {
           "classic": {
@@ -183038,6 +183959,101 @@
             "error_signatures": [],
             "errors": [
               "HARNESS: robots-wrapper produced no bot directory (no robot .properties in jar?):"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 6.9,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 22521.0,
+            "scores": [
+              13093.0,
+              9428.0
+            ],
+            "selected": "kawigi.sbf.FloodHT 0.8"
+          },
+          "completed_at": "2026-09-22T18:19:26Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "def9be010e856ed7",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "kawigi.sbf.FloodHT 0.8",
+            "division": "teamrumble",
+            "jar": "kawigi.sbf.TidalWave_0.8.jar",
+            "jar_sha256": "1bbdb19a62782ebde0c75eccb304b082b2ec2ba9f6e9727405a43cee41792708",
+            "key": "teamrumble/kawigi.sbf.TidalWave_0.8.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.ArrayIndexOutOfBoundsException",
+                "kawigi.sbf.FloodHT.onEnd"
+              ]
+            ],
+            "elapsed": 6.1,
+            "error_count": 5,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "kawigi.sbf.FloodHT.onEnd"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 8 out of bounds for length 6",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 6",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 6",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 6"
             ],
             "has_log": true,
             "ok": false,
@@ -185643,7 +186659,14 @@
       "status": "score-review"
     },
     "teamrumble/mn.CombatTeam_3.25.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "mn.Combat 3.25.0",
         "division": "teamrumble",
@@ -185652,7 +186675,7 @@
         "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
         "kind": "team"
       },
-      "latest_observation": "e6184c662faad118",
+      "latest_observation": "f9c5cb6bbddd06d5",
       "observations": [
         {
           "classic": {
@@ -186178,12 +187201,118 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 52.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20841.0,
+            "scores": [
+              7773.0,
+              13068.0
+            ],
+            "selected": "mn.Combat 3.25.0"
+          },
+          "completed_at": "2026-09-22T18:20:30Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "f9c5cb6bbddd06d5",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.Combat 3.25.0",
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "dev.robocode.tankroyale.botapi.BotException",
+                "mn.b.e.a"
+              ]
+            ],
+            "elapsed": 10.2,
+            "error_count": 9,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.botapi.BotException",
+                "origin": "mn.b.e.a"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10",
+              "dev.robocode.tankroyale.botapi.BotException: The maximum number team massages has already been reached: 10"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "mn.SuperSittingDuck 1.0.2",
         "division": "teamrumble",
@@ -186192,7 +187321,7 @@
         "key": "teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar",
         "kind": "team"
       },
-      "latest_observation": "77d4cb00fc9740ab",
+      "latest_observation": "35c5a5b5b403c542",
       "observations": [
         {
           "classic": {
@@ -187279,12 +188408,313 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 1.6,
+            "error_count": 100,
+            "error_signatures": [
+              {
+                "exception": "java.lang.RuntimeException",
+                "origin": "mn.SuperSittingDuck.run"
+              }
+            ],
+            "errors": [
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 0.0,
+            "scores": [
+              0.0,
+              0.0
+            ],
+            "selected": "mn.SuperSittingDuck 1.0.2"
+          },
+          "completed_at": "2026-09-22T18:21:02Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "35c5a5b5b403c542",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.SuperSittingDuck 1.0.2",
+            "division": "teamrumble",
+            "jar": "mn.SuperSittingDuckTeam_1.0.2.jar",
+            "jar_sha256": "54725c8839f7074aac3a9f30d6adfd6bca82e7f0756ed792cff928e3ca5f457e",
+            "key": "teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (no score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 18.1,
+            "error_count": 100,
+            "error_signatures": [
+              {
+                "exception": "java.lang.RuntimeException",
+                "origin": "mn.SuperSittingDuck.run"
+              }
+            ],
+            "errors": [
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException",
+              "java.lang.RuntimeException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 0.0,
+            "scores": [
+              0.0,
+              0.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "DISCREPANCY (no score)"
     },
     "teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "mn.nano.perceptual.Impact 1.3.0",
         "division": "teamrumble",
@@ -187293,7 +188723,7 @@
         "key": "teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar",
         "kind": "team"
       },
-      "latest_observation": "4a69881cd4bd3ab8",
+      "latest_observation": "f07457b85f7d6964",
       "observations": [
         {
           "classic": {
@@ -187744,12 +189174,101 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 1.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 25738.0,
+            "scores": [
+              10760.0,
+              14978.0
+            ],
+            "selected": "mn.nano.perceptual.Impact 1.3.0"
+          },
+          "completed_at": "2026-09-22T18:20:42Z",
+          "confirmation": null,
+          "delta_pct": 43.1,
+          "id": "f07457b85f7d6964",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.nano.perceptual.Impact 1.3.0",
+            "division": "teamrumble",
+            "jar": "mn.nano.perceptual.ImpactTeam_1.3.0.jar",
+            "jar_sha256": "909094b34b95955fee95cab355a2a8589fa54ad65ee848b91e781fc538c70391",
+            "key": "teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 10.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 36829.0,
+            "scores": [
+              19580.0,
+              17249.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/ms.AresHaikuTeam_0.3.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ms.AresHaiku 0.3",
         "division": "teamrumble",
@@ -187758,7 +189277,7 @@
         "key": "teamrumble/ms.AresHaikuTeam_0.3.jar",
         "kind": "team"
       },
-      "latest_observation": "f35bd5706b1577c3",
+      "latest_observation": "208d6bf410614cc3",
       "observations": [
         {
           "classic": {
@@ -188209,9 +189728,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20567.0,
+            "scores": [
+              11459.0,
+              9108.0
+            ],
+            "selected": "ms.AresHaiku 0.3"
+          },
+          "completed_at": "2026-09-22T18:21:19Z",
+          "confirmation": null,
+          "delta_pct": 39.9,
+          "id": "208d6bf410614cc3",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "ms.AresHaiku 0.3",
+            "division": "teamrumble",
+            "jar": "ms.AresHaikuTeam_0.3.jar",
+            "jar_sha256": "8d42c60a8d2a9872b825d481b62d751d8e1d1243eb74d895734f85152677b987",
+            "key": "teamrumble/ms.AresHaikuTeam_0.3.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 28763.0,
+            "scores": [
+              14611.0,
+              14152.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/mskwik.BumblingIdiots_1.0.jar": {
       "diagnosis_events": [],
@@ -188685,7 +190286,14 @@
       "status": "score-review"
     },
     "teamrumble/myl.micro.TroodonPack_1.10.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "myl.micro.Troodon 1.10",
         "division": "teamrumble",
@@ -188694,7 +190302,7 @@
         "key": "teamrumble/myl.micro.TroodonPack_1.10.jar",
         "kind": "team"
       },
-      "latest_observation": "158adf42fb2b69b8",
+      "latest_observation": "4966d291dcec2148",
       "observations": [
         {
           "classic": {
@@ -189145,9 +190753,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 3.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 20027.0,
+            "scores": [
+              9110.0,
+              10917.0
+            ],
+            "selected": "myl.micro.Troodon 1.10"
+          },
+          "completed_at": "2026-09-22T18:21:39Z",
+          "confirmation": null,
+          "delta_pct": 10.2,
+          "id": "4966d291dcec2148",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "myl.micro.Troodon 1.10",
+            "division": "teamrumble",
+            "jar": "myl.micro.TroodonPack_1.10.jar",
+            "jar_sha256": "6a58910408814544a7e877313a65908825ab1e72764ba9bad502ecef93799e5c",
+            "key": "teamrumble/myl.micro.TroodonPack_1.10.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 22079.0,
+            "scores": [
+              11350.0,
+              10729.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "teamrumble/ntc.slippery.Slippery_1.0.jar": {
       "diagnosis_events": [],
@@ -189621,7 +191311,14 @@
       "status": "score-review"
     },
     "teamrumble/pedersen.ImWithDroidTeam_1.3.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "pedersen.ImWithStupid 1.3",
         "division": "teamrumble",
@@ -189630,7 +191327,7 @@
         "key": "teamrumble/pedersen.ImWithDroidTeam_1.3.jar",
         "kind": "team"
       },
-      "latest_observation": "05d5284e7b3b78b2",
+      "latest_observation": "9c7e73ca883e1468",
       "observations": [
         {
           "classic": {
@@ -190081,12 +191778,101 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 13.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 19859.0,
+            "scores": [
+              12148.0,
+              7711.0
+            ],
+            "selected": "pedersen.ImWithStupid 1.3"
+          },
+          "completed_at": "2026-09-22T18:22:07Z",
+          "confirmation": null,
+          "delta_pct": 37.4,
+          "id": "9c7e73ca883e1468",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "pedersen.ImWithStupid 1.3",
+            "division": "teamrumble",
+            "jar": "pedersen.ImWithDroidTeam_1.3.jar",
+            "jar_sha256": "08590df195fdc1d850fcf718064c1338f9d4dc85fab3affe9908b19aa24aa33b",
+            "key": "teamrumble/pedersen.ImWithDroidTeam_1.3.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 27296.0,
+            "scores": [
+              14380.0,
+              12916.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/pedersen.ImWithStupidTeam_1.3.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "nested-team-jar-discovery",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T18:12:58Z"
+        }
+      ],
       "identity": {
         "classic_selected": "pedersen.ImWithStupid 1.3",
         "division": "teamrumble",
@@ -190095,7 +191881,7 @@
         "key": "teamrumble/pedersen.ImWithStupidTeam_1.3.jar",
         "kind": "team"
       },
-      "latest_observation": "3240fb0bb549a6fd",
+      "latest_observation": "6881105b0a1dac37",
       "observations": [
         {
           "classic": {
@@ -190546,9 +192332,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 11.3,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 22839.0,
+            "scores": [
+              11203.0,
+              11636.0
+            ],
+            "selected": "pedersen.ImWithStupid 1.3"
+          },
+          "completed_at": "2026-09-22T18:22:35Z",
+          "confirmation": null,
+          "delta_pct": 34.2,
+          "id": "6881105b0a1dac37",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "f46fc2b25bbae8658817e1324f827128f0194127ca50ccc8de3a5f194bbad2ee"
+              }
+            },
+            "bridge_commit": "f76de0ca9e422c3ca20fbd97692e5a19f063fab0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "nested-team-jar-discovery",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "f76de0c"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "pedersen.ImWithStupid 1.3",
+            "division": "teamrumble",
+            "jar": "pedersen.ImWithStupidTeam_1.3.jar",
+            "jar_sha256": "214b6b55252fb3dd161f641833c48db0401f6b87277427fb4708b07880b7e317",
+            "key": "teamrumble/pedersen.ImWithStupidTeam_1.3.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 30640.0,
+            "scores": [
+              15564.0,
+              15076.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/radnor.RadnorMedSchool_1.0.jar": {
       "diagnosis_events": [],
