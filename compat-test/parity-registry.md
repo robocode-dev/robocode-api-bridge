@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 30 |
 | DISCREPANCY (no score) | 39 |
-| DISCREPANCY (outcome) | 104 |
+| DISCREPANCY (outcome) | 106 |
 | MATCHED (failure) | 49 |
-| PASS | 656 |
-| score-review | 279 |
+| PASS | 670 |
+| score-review | 283 |
 
 ## Subjects
 
@@ -1130,6 +1130,26 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/wiki.nano.DevilFISH_1.0.jar | roborumble | robot | PASS | dbfca7e5defd5feb | - | - |
 | roborumble/wiki.nano.RaikoNano_1.1.jar | roborumble | robot | PASS | f9646d636f024672 | - | - |
 | roborumble/wilson.Chameleon_0.91.jar | roborumble | robot | score-review | 91b838943f37afae | - | - |
+| roborumble/winamp32.micro.MicroMacro_1.0.jar | roborumble | robot | score-review | 859b669e24953d5f | - | - |
+| roborumble/wit.Chuliath_1.0.jar | roborumble | robot | score-review | 8de4ab4e3ebebf75 | - | - |
+| roborumble/wit.Deep7_2.0.jar | roborumble | robot | PASS | 882dce9bf917da9c | - | - |
+| roborumble/wompi.Kowari_1.6.jar | roborumble | robot | score-review | aee185f8772f9bc8 | - | - |
+| roborumble/wompi.Numbat_1.9.jar | roborumble | robot | DISCREPANCY (outcome) | 48f1b34993000752 | - | - |
+| roborumble/xiongan.Xiongan_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 24644411e022565b | - | - |
+| roborumble/yabot.YaBot_0.1.jar | roborumble | robot | PASS | 4dd28cfef1345daa | - | - |
+| roborumble/yagami.Tidus_0.11.jar | roborumble | robot | score-review | 0885ba495b5a215b | - | - |
+| roborumble/yarghard.Y101_1.0.jar | roborumble | robot | PASS | ec491d81b2bc43a0 | - | - |
+| roborumble/yarhoslav.YaroBot_1.2.jar | roborumble | robot | PASS | 7f93bbeaa0bc6d18 | - | - |
+| roborumble/yk.JahMicro_1.0.jar | roborumble | robot | PASS | 44e11069bf6dccee | - | - |
+| roborumble/yk.JahRoslav_1.1.jar | roborumble | robot | PASS | 574837370acf9d5f | - | - |
+| roborumble/zch.David_0.21.jar | roborumble | robot | PASS | 563246013f486f2a | - | - |
+| roborumble/zch.Hirkan_0.11.jar | roborumble | robot | PASS | f47396d4d769ab19 | - | - |
+| roborumble/zen.Lindada_0.2.jar | roborumble | robot | PASS | 5750d784bc5734a5 | - | - |
+| roborumble/zeze2.OperatorZeze_1.05.jar | roborumble | robot | PASS | 63a831474b979586 | - | - |
+| roborumble/zezinho.QuerMePegarKKKK_1.0.jar | roborumble | robot | PASS | 9336aae44cab6d46 | - | - |
+| roborumble/zh.UnderDog_0.0.2.jar | roborumble | robot | PASS | b4be90c25b189d27 | - | - |
+| roborumble/zignd.ZigIndexOutOfRange_1.1.jar | roborumble | robot | PASS | 5038b185d12a79e5 | - | - |
+| roborumble/zyx.mega.YersiniaPestis_3.0.jar | roborumble | robot | PASS | de945e89bf0064f6 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
