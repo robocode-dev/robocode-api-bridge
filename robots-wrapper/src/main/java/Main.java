@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -198,7 +199,7 @@ public class Main {
             membersJson.append('"').append(escape(memberDirNames.get(i))).append('"');
         }
 
-        try (var writer = new FileWriter(file)) {
+        try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
                     "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
@@ -332,7 +333,7 @@ public class Main {
             author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
         }
 
-        try (var writer = new FileWriter(file)) {
+        try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
                     "  \"name\": \"" + robotProps.name() + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
