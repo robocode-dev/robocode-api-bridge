@@ -335,7 +335,7 @@ public class Main {
 
         try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
-                    "  \"name\": \"" + robotProps.name() + "\",\n" +
+                    "  \"name\": \"" + escape(robotProps.name()) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
                     "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
@@ -444,14 +444,41 @@ public class Main {
     }
 
     static String escape(String str) {
-        return str
-                .replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t")
-                .replace("\f", "\\f")
-                .replace("\b", "\\b");
+        var escaped = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            char character = str.charAt(i);
+            switch (character) {
+                case '\\':
+                    escaped.append("\\\\");
+                    break;
+                case '"':
+                    escaped.append("\\\"");
+                    break;
+                case '\n':
+                    escaped.append("\\n");
+                    break;
+                case '\r':
+                    escaped.append("\\r");
+                    break;
+                case '\t':
+                    escaped.append("\\t");
+                    break;
+                case '\f':
+                    escaped.append("\\f");
+                    break;
+                case '\b':
+                    escaped.append("\\b");
+                    break;
+                default:
+                    if (character < 0x20 || character > 0x7e) {
+                        escaped.append(String.format("\\u%04x", (int) character));
+                    } else {
+                        escaped.append(character);
+                    }
+                    break;
+            }
+        }
+        return escaped.toString();
     }
 
     static String toBaseFilename(Path filePath) {
