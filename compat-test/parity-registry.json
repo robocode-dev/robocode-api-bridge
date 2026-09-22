@@ -36148,6 +36148,1055 @@
       ],
       "status": "DISCREPANCY (errors)"
     },
+    "meleerumble/amk.superstrike.SuperStrike_0.3.jar": {
+      "diagnosis_events": [],
+      "identity": {
+        "classic_selected": "amk.superstrike.SuperStrike 0.3",
+        "division": "meleerumble",
+        "jar": "amk.superstrike.SuperStrike_0.3.jar",
+        "jar_sha256": "ef146a488f92e25b5f8f957831fd715bb6a6b2b1f8cf72ffa05bad505c34c79b",
+        "key": "meleerumble/amk.superstrike.SuperStrike_0.3.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "44e5d871a2089a0a",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 4.2,
+            "error_count": 506,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.WinEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 114773.0,
+            "scores": [
+              12595.0,
+              13395.0,
+              13450.0,
+              10253.0,
+              11654.0,
+              9509.0,
+              10236.0,
+              9902.0,
+              8588.0,
+              15191.0
+            ],
+            "selected": "amk.superstrike.SuperStrike 0.3"
+          },
+          "completed_at": "2026-09-22T14:53:54Z",
+          "confirmation": null,
+          "delta_pct": -3.1,
+          "id": "44e5d871a2089a0a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "amk.superstrike.SuperStrike 0.3",
+            "division": "meleerumble",
+            "jar": "amk.superstrike.SuperStrike_0.3.jar",
+            "jar_sha256": "ef146a488f92e25b5f8f957831fd715bb6a6b2b1f8cf72ffa05bad505c34c79b",
+            "key": "meleerumble/amk.superstrike.SuperStrike_0.3.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 28.1,
+            "error_count": 31,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 111227.0,
+            "scores": [
+              16489.0,
+              13494.0,
+              12875.0,
+              11826.0,
+              11765.0,
+              11067.0,
+              9645.0,
+              9202.0,
+              7747.0,
+              7117.0
+            ],
+            "skipped": null
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
+    "meleerumble/amz.NanoClone_1.41.jar": {
+      "diagnosis_events": [],
+      "identity": {
+        "classic_selected": "amz.NanoClone 1.41",
+        "division": "meleerumble",
+        "jar": "amz.NanoClone_1.41.jar",
+        "jar_sha256": "bc98f99e0cc2dcd3f839ccff6bd0e149a5bc70dfc8883c413245567eadd2c401",
+        "key": "meleerumble/amz.NanoClone_1.41.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "87e98511be4470ad",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 4.0,
+            "error_count": 850,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 115230.0,
+            "scores": [
+              16527.0,
+              12302.0,
+              13729.0,
+              10129.0,
+              13776.0,
+              7776.0,
+              9292.0,
+              9913.0,
+              5258.0,
+              16528.0
+            ],
+            "selected": "amz.NanoClone 1.41"
+          },
+          "completed_at": "2026-09-22T14:54:28Z",
+          "confirmation": null,
+          "delta_pct": -5.4,
+          "id": "87e98511be4470ad",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "amz.NanoClone 1.41",
+            "division": "meleerumble",
+            "jar": "amz.NanoClone_1.41.jar",
+            "jar_sha256": "bc98f99e0cc2dcd3f839ccff6bd0e149a5bc70dfc8883c413245567eadd2c401",
+            "key": "meleerumble/amz.NanoClone_1.41.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 28.1,
+            "error_count": 31,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 109045.0,
+            "scores": [
+              17603.0,
+              15521.0,
+              12485.0,
+              12428.0,
+              11006.0,
+              10259.0,
+              10131.0,
+              9839.0,
+              8839.0,
+              934.0
+            ],
+            "skipped": null
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
+    "meleerumble/ap.Frederick_1.1.jar": {
+      "diagnosis_events": [],
+      "identity": {
+        "classic_selected": "ap.Frederick 1.1",
+        "division": "meleerumble",
+        "jar": "ap.Frederick_1.1.jar",
+        "jar_sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899",
+        "key": "meleerumble/ap.Frederick_1.1.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "0d8c9f65ee072eec",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 4.7,
+            "error_count": 150,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 114270.0,
+            "scores": [
+              6080.0,
+              12502.0,
+              12400.0,
+              9241.0,
+              9051.0,
+              7915.0,
+              10097.0,
+              10179.0,
+              17168.0,
+              19637.0
+            ],
+            "selected": "ap.Frederick 1.1"
+          },
+          "completed_at": "2026-09-22T14:56:15Z",
+          "confirmation": null,
+          "delta_pct": -1.0,
+          "id": "0d8c9f65ee072eec",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "ap.Frederick 1.1",
+            "division": "meleerumble",
+            "jar": "ap.Frederick_1.1.jar",
+            "jar_sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899",
+            "key": "meleerumble/ap.Frederick_1.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 100.2,
+            "error_count": 30,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 113133.0,
+            "scores": [
+              18031.0,
+              13804.0,
+              13372.0,
+              11884.0,
+              11115.0,
+              10820.0,
+              9555.0,
+              8770.0,
+              8746.0,
+              7036.0
+            ],
+            "skipped": null
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
     "roborumble/AD.CodaFirst_1.1.jar": {
       "diagnosis_events": [],
       "identity": {
@@ -85969,7 +87018,7 @@
         "key": "roborumble/ds.OoV4_0.3b.jar",
         "kind": "robot"
       },
-      "latest_observation": "e7f7eb2f720cc080",
+      "latest_observation": "1eddc4f0f49437bf",
       "observations": [
         {
           "classic": {
@@ -86134,9 +87183,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 4.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5527.0,
+            "scores": [
+              2606.0,
+              2921.0
+            ],
+            "selected": "ds.OoV4 0.3b"
+          },
+          "completed_at": "2026-09-22T15:15:52Z",
+          "confirmation": null,
+          "delta_pct": -18.0,
+          "id": "1eddc4f0f49437bf",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ds.OoV4 0.3b",
+            "division": "roborumble",
+            "jar": "ds.OoV4_0.3b.jar",
+            "jar_sha256": "37d01e0d0527cc972c042370b1f6bf482dca677d2cc72e1ee8abf524e2315833",
+            "key": "roborumble/ds.OoV4_0.3b.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4532.0,
+            "scores": [
+              2506.0,
+              2026.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/ds.Versatile_RB1.0.1.jar": {
       "diagnosis_events": [
@@ -86155,7 +87285,7 @@
         "key": "roborumble/ds.Versatile_RB1.0.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "a39f66501af34116",
+      "latest_observation": "6a0a47aacb2e5d1b",
       "observations": [
         {
           "classic": {
@@ -86393,6 +87523,87 @@
             "scores": [
               7214.0,
               6788.0
+            ],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 6.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5252.0,
+            "scores": [
+              2352.0,
+              2900.0
+            ],
+            "selected": "ds.Versatile RB1.0.1"
+          },
+          "completed_at": "2026-09-22T14:49:42Z",
+          "confirmation": null,
+          "delta_pct": 147.9,
+          "id": "6a0a47aacb2e5d1b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ds.Versatile RB1.0.1",
+            "division": "roborumble",
+            "jar": "ds.Versatile_RB1.0.1.jar",
+            "jar_sha256": "756b8734cc934fc2c3107a9ad6d7211f40b9a16a851c5242bd1b93ee4d957cd4",
+            "key": "roborumble/ds.Versatile_RB1.0.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 13022.0,
+            "scores": [
+              7236.0,
+              5786.0
             ],
             "skipped": null
           }
@@ -103938,7 +105149,7 @@
         "key": "roborumble/josago.Jorgito_0.16.jar",
         "kind": "robot"
       },
-      "latest_observation": "34c5fc361409c391",
+      "latest_observation": "dd17a61c839cce2f",
       "observations": [
         {
           "classic": {
@@ -104104,9 +105315,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 8228.0,
+            "scores": [
+              4575.0,
+              3653.0
+            ],
+            "selected": "josago.Jorgito 0.16"
+          },
+          "completed_at": "2026-09-22T15:16:15Z",
+          "confirmation": null,
+          "delta_pct": 2.8,
+          "id": "dd17a61c839cce2f",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "josago.Jorgito 0.16",
+            "division": "roborumble",
+            "jar": "josago.Jorgito_0.16.jar",
+            "jar_sha256": "ee18dd0aa0e8703eba84320f47280b05d902ce4129a56e79a412d4c7dd78dfdf",
+            "key": "roborumble/josago.Jorgito_0.16.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 8455.0,
+            "scores": [
+              4303.0,
+              4152.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/jp.Perpy_16.0.jar": {
       "diagnosis_events": [],
@@ -104785,7 +106077,7 @@
         "key": "roborumble/jw.Booring_1.11.jar",
         "kind": "robot"
       },
-      "latest_observation": "c15365614f02875a",
+      "latest_observation": "1c0d5e5c5bd1b1aa",
       "observations": [
         {
           "classic": {
@@ -104944,6 +106236,98 @@
             ],
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Booring 1.11 (Jimmi Wimmersj\u00f6) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.3,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6502.0,
+            "scores": [
+              3235.0,
+              3267.0
+            ],
+            "selected": "jw.Booring 1.11"
+          },
+          "completed_at": "2026-09-22T14:49:48Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "1c0d5e5c5bd1b1aa",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "jw.Booring 1.11",
+            "division": "roborumble",
+            "jar": "jw.Booring_1.11.jar",
+            "jar_sha256": "649cc72201c4dd224d09f39de7b10a941a39cccfab2aad46539af56928c06fa8",
+            "key": "roborumble/jw.Booring_1.11.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "jw.BulletCounter3.dodgedRange"
+              ]
+            ],
+            "elapsed": 4.1,
+            "error_count": 3,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "jw.BulletCounter3.dodgedRange"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot invoke \"robocode.ScannedRobotEvent.getDistance()\" because \"this.target\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"robocode.ScannedRobotEvent.getDistance()\" because \"this.target\" is null"
             ],
             "has_log": true,
             "ok": false,
@@ -107052,7 +108436,7 @@
         "key": "roborumble/kc.micro.WaveShark_0.4.jar",
         "kind": "robot"
       },
-      "latest_observation": "81a2fbe897f8d386",
+      "latest_observation": "754ffb2e50872664",
       "observations": [
         {
           "classic": {
@@ -107183,6 +108567,91 @@
             "diagnosis_id": "diagnosis-1",
             "owner": "wrapper",
             "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "kc.micro.WaveShark 0.4",
+            "division": "roborumble",
+            "jar": "kc.micro.WaveShark_0.4.jar",
+            "jar_sha256": "f7093d8506004e69ca13dd62d988f8bacaa613688c484fae85d7d532ecf94c13",
+            "key": "roborumble/kc.micro.WaveShark_0.4.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [WaveShark 0.4 (Kev ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 3.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5202.0,
+            "scores": [
+              2409.0,
+              2793.0
+            ],
+            "selected": "kc.micro.WaveShark 0.4"
+          },
+          "completed_at": "2026-09-22T14:50:26Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "754ffb2e50872664",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
           },
           "setup": {
             "height": 600,
@@ -109797,7 +111266,7 @@
         "key": "roborumble/kronenthaler.Basilisk_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "92c2b2ffd5f46e14",
+      "latest_observation": "499659efa710a968",
       "observations": [
         {
           "classic": {
@@ -109928,6 +111397,91 @@
             "diagnosis_id": "diagnosis-1",
             "owner": "wrapper",
             "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "kronenthaler.Basilisk 1.0",
+            "division": "roborumble",
+            "jar": "kronenthaler.Basilisk_1.0.jar",
+            "jar_sha256": "303ca7f685da16603f72cdf3e4905b949d16f37fc8b599777336148c92e5d750",
+            "key": "roborumble/kronenthaler.Basilisk_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Basilisk 1.0 (kronenthaler\t) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4084.0,
+            "scores": [
+              1758.0,
+              2326.0
+            ],
+            "selected": "kronenthaler.Basilisk 1.0"
+          },
+          "completed_at": "2026-09-22T14:51:03Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "499659efa710a968",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
           },
           "setup": {
             "height": 600,
@@ -112781,7 +114335,7 @@
         "key": "roborumble/m3thos.Eva02_0.7.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "e467474760567ece",
+      "latest_observation": "fac5aed9195e2513",
       "observations": [
         {
           "classic": {
@@ -112947,6 +114501,91 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.3,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5415.0,
+            "scores": [
+              2493.0,
+              2922.0
+            ],
+            "selected": "m3thos.Eva02 0.7.1"
+          },
+          "completed_at": "2026-09-22T14:51:40Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "fac5aed9195e2513",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "m3thos.Eva02 0.7.1",
+            "division": "roborumble",
+            "jar": "m3thos.Eva02_0.7.1.jar",
+            "jar_sha256": "a701e12fadda3d024e39051efa6ea34a3b042dbe21243c566753d9877bfb273f",
+            "key": "roborumble/m3thos.Eva02_0.7.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Eva02 0.7.1 (Miguel S. Filipe (miguel.filipe@gmail.com) ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
@@ -112968,7 +114607,7 @@
         "key": "roborumble/m3thos.mini.Eva01_0.5.5.jar",
         "kind": "robot"
       },
-      "latest_observation": "39923b11ca37b6ce",
+      "latest_observation": "47eb30ecf7fb1625",
       "observations": [
         {
           "classic": {
@@ -113099,6 +114738,91 @@
             "diagnosis_id": "diagnosis-1",
             "owner": "wrapper",
             "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "m3thos.mini.Eva01 0.5.5",
+            "division": "roborumble",
+            "jar": "m3thos.mini.Eva01_0.5.5.jar",
+            "jar_sha256": "79258e6872e2b3d905481f6dbb5686c32a14b1ae8531c79c881fdbb16e0754a2",
+            "key": "roborumble/m3thos.mini.Eva01_0.5.5.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Eva01 0.5.5 (Miguel S. Filipe (miguel.filipe@gmail.com) ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4643.0,
+            "scores": [
+              2410.0,
+              2233.0
+            ],
+            "selected": "m3thos.mini.Eva01 0.5.5"
+          },
+          "completed_at": "2026-09-22T14:52:16Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "47eb30ecf7fb1625",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
           },
           "setup": {
             "height": 600,
@@ -155948,7 +157672,7 @@
         "key": "roborumble/tobe.Fusion_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "a171b4921cf257b4",
+      "latest_observation": "c20f9ad4a4b53987",
       "observations": [
         {
           "classic": {
@@ -156130,9 +157854,106 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.9,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\rc-robots\\.data\\tobe\\Fusion.data\\guncontrol_tobe.Fusion 1.0 (2).dat (Den angivne fil blev ikke fundet)",
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\rc-robots\\.data\\tobe\\Fusion.data\\guncontrol_tobe.Fusion 1.0 (1).dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 5543.0,
+            "scores": [
+              2941.0,
+              2602.0
+            ],
+            "selected": "tobe.Fusion 1.0"
+          },
+          "completed_at": "2026-09-22T14:52:37Z",
+          "confirmation": null,
+          "delta_pct": -13.1,
+          "id": "c20f9ad4a4b53987",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Fusion 1.0",
+            "division": "roborumble",
+            "jar": "tobe.Fusion_1.0.jar",
+            "jar_sha256": "696dc840c706ca45bca9067cc09c1ec0059df8e7bee9fa8708b7f00c4dd1f3df",
+            "key": "roborumble/tobe.Fusion_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 18.0,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\tr-bots\\tobe.Fusion_1.0\\Fusion.data\\guncontrol_1.dat (Den angivne fil blev ikke fundet)",
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\tr-bots\\tobe.Fusion_1.0-2\\Fusion.data\\guncontrol_2.dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 4816.0,
+            "scores": [
+              2785.0,
+              2031.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/tobe.Relativity_3.9.jar": {
       "diagnosis_events": [
@@ -156151,7 +157972,7 @@
         "key": "roborumble/tobe.Relativity_3.9.jar",
         "kind": "robot"
       },
-      "latest_observation": "9a8d116041dbbf94",
+      "latest_observation": "6b507b00b578c9fe",
       "observations": [
         {
           "classic": {
@@ -156326,9 +158147,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5960.0,
+            "scores": [
+              2785.0,
+              3175.0
+            ],
+            "selected": "tobe.Relativity 3.9"
+          },
+          "completed_at": "2026-09-22T14:53:02Z",
+          "confirmation": null,
+          "delta_pct": -3.9,
+          "id": "6b507b00b578c9fe",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Relativity 3.9",
+            "division": "roborumble",
+            "jar": "tobe.Relativity_3.9.jar",
+            "jar_sha256": "b2286291cefb3f915e76b9950d4933b070e949fe67444ff6ac2a69af63bc5c56",
+            "key": "roborumble/tobe.Relativity_3.9.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5730.0,
+            "scores": [
+              2958.0,
+              2772.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/tobe.Saturn_lambda.jar": {
       "diagnosis_events": [
@@ -156347,7 +158249,7 @@
         "key": "roborumble/tobe.Saturn_lambda.jar",
         "kind": "robot"
       },
-      "latest_observation": "97a619583a4776d1",
+      "latest_observation": "c2e40bc12ae1c728",
       "observations": [
         {
           "classic": {
@@ -156522,9 +158424,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6035.0,
+            "scores": [
+              2945.0,
+              3090.0
+            ],
+            "selected": "tobe.Saturn lambda"
+          },
+          "completed_at": "2026-09-22T14:53:19Z",
+          "confirmation": null,
+          "delta_pct": -9.7,
+          "id": "c2e40bc12ae1c728",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Saturn lambda",
+            "division": "roborumble",
+            "jar": "tobe.Saturn_lambda.jar",
+            "jar_sha256": "78d9a2e64194bb50d1a7b6bdd6fd3dfc6249bc2a9ba6d4f9261a0088cac4532f",
+            "key": "roborumble/tobe.Saturn_lambda.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5448.0,
+            "scores": [
+              2822.0,
+              2626.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/tobe.calypso.Calypso_4.1.jar": {
       "diagnosis_events": [],
@@ -156634,7 +158617,7 @@
         "key": "roborumble/tobe.mini.Charon_0.9.jar",
         "kind": "robot"
       },
-      "latest_observation": "b1793325ccd007e5",
+      "latest_observation": "1c814f1bf301289d",
       "observations": [
         {
           "classic": {
@@ -156793,6 +158776,105 @@
             ],
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Charon 0.9 (Torbj\u00f6rn Gannholm) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 1.9,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4494.0,
+            "scores": [
+              2350.0,
+              2144.0
+            ],
+            "selected": "tobe.mini.Charon 0.9"
+          },
+          "completed_at": "2026-09-22T14:52:46Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "1c814f1bf301289d",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "19e72aff2848732a4c54be6c608adcd70e6991c8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "48871c9"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.mini.Charon 0.9",
+            "division": "roborumble",
+            "jar": "tobe.mini.Charon_0.9.jar",
+            "jar_sha256": "f9262c7aadd18718049ed6595cc2b8d3edcf0d79ac8a2921f5f9415d77957633",
+            "key": "roborumble/tobe.mini.Charon_0.9.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.IllegalArgumentException",
+                "tobe.mini.Charon.run"
+              ]
+            ],
+            "elapsed": 6.1,
+            "error_count": 10,
+            "error_signatures": [
+              {
+                "exception": "java.lang.IllegalArgumentException",
+                "origin": "tobe.mini.Charon.run"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN",
+              "java.lang.IllegalArgumentException: 'targetSpeed' cannot be NaN"
             ],
             "has_log": true,
             "ok": false,

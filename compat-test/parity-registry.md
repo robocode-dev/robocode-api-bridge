@@ -6,11 +6,11 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 30 |
+| DISCREPANCY (errors) | 33 |
 | DISCREPANCY (no score) | 39 |
-| DISCREPANCY (outcome) | 99 |
+| DISCREPANCY (outcome) | 94 |
 | MATCHED (failure) | 49 |
-| PASS | 682 |
+| PASS | 687 |
 | score-review | 286 |
 
 ## Subjects
@@ -34,6 +34,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | d8d5f7f19cea99d9 | robot-file-stream-limit | bridge |
 | meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 5db1d80aa5499f68 | robot-file-stream-limit | bridge |
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | d8d75fced51e8ee0 | robot-file-stream-limit | bridge |
+| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 44e5d871a2089a0a | - | - |
+| meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | 87e98511be4470ad | - | - |
+| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 0d8c9f65ee072eec | - | - |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | bf7472d00df944d2 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
@@ -347,8 +350,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |
 | roborumble/drm.CobraBora_1.12.jar | roborumble | robot | score-review | 54f1d01d2403ba18 | - | - |
 | roborumble/drm.Magazine_0.39.jar | roborumble | robot | score-review | e8b005bbf41df0df | - | - |
-| roborumble/ds.OoV4_0.3b.jar | roborumble | robot | DISCREPANCY (outcome) | e7f7eb2f720cc080 | wrapper-json-encoding | wrapper |
-| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | a39f66501af34116 | wrapper-json-encoding | wrapper |
+| roborumble/ds.OoV4_0.3b.jar | roborumble | robot | PASS | 1eddc4f0f49437bf | wrapper-json-encoding | wrapper |
+| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | 6a0a47aacb2e5d1b | wrapper-json-encoding | wrapper |
 | roborumble/dsekercioglu.mega.Raven_3.56j8.jar | roborumble | robot | PASS | a90d58c1d2d60969 | - | - |
 | roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar | roborumble | robot | score-review | 4d83ffe42a94379f | - | - |
 | roborumble/dsekercioglu.mini.Partial_0.1.3.jar | roborumble | robot | PASS | 5984357cffc8ce26 | - | - |
@@ -531,7 +534,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jk.sheldor.nano.Yatagan_1.2.3.jar | roborumble | robot | PASS | 190529e94cc2061c | - | - |
 | roborumble/jmcd.BeoWulf_2.8.jar | roborumble | robot | PASS | ad8b1f2666ea6051 | - | - |
 | roborumble/joe.ADinosaur_1.0.jar | roborumble | robot | PASS | fba69a53a36df25b | - | - |
-| roborumble/josago.Jorgito_0.16.jar | roborumble | robot | DISCREPANCY (outcome) | 34c5fc361409c391 | wrapper-json-encoding | wrapper |
+| roborumble/josago.Jorgito_0.16.jar | roborumble | robot | PASS | dd17a61c839cce2f | wrapper-json-encoding | wrapper |
 | roborumble/jp.Perpy_16.0.jar | roborumble | robot | PASS | 6123a16a81268bc9 | - | - |
 | roborumble/jp.SineWall_1.0.jar | roborumble | robot | PASS | f525491d80c17dbd | - | - |
 | roborumble/jrm.Test0_1.0.jar | roborumble | robot | score-review | 87280748930f85ca | - | - |
@@ -539,7 +542,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jsal.Jsalbot_1.0.jar | roborumble | robot | PASS | f729ebca3114899c | - | - |
 | roborumble/jt.SpearmintCT_Alpha.jar | roborumble | robot | score-review | e663bf152188ba08 | - | - |
 | roborumble/justin.DemonicRage_3.20.jar | roborumble | robot | DISCREPANCY (outcome) | 299c1957c0af6855 | - | - |
-| roborumble/jw.Booring_1.11.jar | roborumble | robot | DISCREPANCY (outcome) | c15365614f02875a | wrapper-json-encoding | wrapper |
+| roborumble/jw.Booring_1.11.jar | roborumble | robot | DISCREPANCY (outcome) | 1c0d5e5c5bd1b1aa | wrapper-json-encoding | wrapper |
 | roborumble/jwst.DAD.DarkAndDarker_1.1.jar | roborumble | robot | PASS | 75967befc13ff72a | - | - |
 | roborumble/kanishk.Fr0z3n_1.1.jar | roborumble | robot | PASS | 529babf01a0b4930 | - | - |
 | roborumble/kano.gamma.KanoGamma_1.8.jar | roborumble | robot | PASS | 78295d7324f7da2d | - | - |
@@ -562,7 +565,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kc.mega.BeepBoop_1.21.jar | roborumble | robot | DISCREPANCY (outcome) | 17cd4cf14dcc2da7 | - | - |
 | roborumble/kc.micro.Needle_0.101.jar | roborumble | robot | PASS | 08a9125a7c4f78c8 | - | - |
 | roborumble/kc.micro.Thorn_1.252.jar | roborumble | robot | PASS | 0c021dbb724f9eae | - | - |
-| roborumble/kc.micro.WaveShark_0.4.jar | roborumble | robot | DISCREPANCY (outcome) | 81a2fbe897f8d386 | wrapper-json-encoding | wrapper |
+| roborumble/kc.micro.WaveShark_0.4.jar | roborumble | robot | DISCREPANCY (outcome) | 754ffb2e50872664 | wrapper-json-encoding | wrapper |
 | roborumble/kc.micro.rammer.MaxRisk_0.6.jar | roborumble | robot | score-review | 1d7f127258dd610c | - | - |
 | roborumble/kc.mini.Vyper_0.311.jar | roborumble | robot | PASS | 2a4e8fb340184b39 | - | - |
 | roborumble/kc.nano.Splinter_1.2.jar | roborumble | robot | PASS | b397c0bf2d8d3823 | - | - |
@@ -590,7 +593,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kneels.nano.Derp_0.2.jar | roborumble | robot | score-review | cd4748fb78080dd6 | - | - |
 | roborumble/krillr.mega.Psyche_0.0.3.jar | roborumble | robot | PASS | 3809aeaf0c65634c | - | - |
 | roborumble/krillr.mini.JointStrike_2.0.0.jar | roborumble | robot | PASS | cd44968f3f411b9a | - | - |
-| roborumble/kronenthaler.Basilisk_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 92c2b2ffd5f46e14 | wrapper-json-encoding | wrapper |
+| roborumble/kronenthaler.Basilisk_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 499659efa710a968 | wrapper-json-encoding | wrapper |
 | roborumble/krzysiek.robbo2.Robbo_1.0.0.jar | roborumble | robot | PASS | f3397e3639521b5d | - | - |
 | roborumble/kvk.HebusLeTroll_0.41.jar | roborumble | robot | PASS | a603f37930217598 | - | - |
 | roborumble/labg.Cataclysm_2.05.jar | roborumble | robot | PASS | a9a0290c0e4c2314 | - | - |
@@ -621,8 +624,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/lxx.Emerald_0.6.5.jar | roborumble | robot | PASS | e1f2d59c5739168c | - | - |
 | roborumble/lxx.Tomcat_3.68.jar | roborumble | robot | DISCREPANCY (errors) | e788aec118e82732 | - | - |
 | roborumble/m3thos.Eva00_1.1.jar | roborumble | robot | PASS | dd5208c15051255e | - | - |
-| roborumble/m3thos.Eva02_0.7.1.jar | roborumble | robot | DISCREPANCY (outcome) | e467474760567ece | wrapper-json-encoding | wrapper |
-| roborumble/m3thos.mini.Eva01_0.5.5.jar | roborumble | robot | DISCREPANCY (outcome) | 39923b11ca37b6ce | wrapper-json-encoding | wrapper |
+| roborumble/m3thos.Eva02_0.7.1.jar | roborumble | robot | DISCREPANCY (outcome) | fac5aed9195e2513 | wrapper-json-encoding | wrapper |
+| roborumble/m3thos.mini.Eva01_0.5.5.jar | roborumble | robot | DISCREPANCY (outcome) | 47eb30ecf7fb1625 | wrapper-json-encoding | wrapper |
 | roborumble/ma.is.fon.rs.RobotA_0.01.jar | roborumble | robot | score-review | a074520b2159b864 | - | - |
 | roborumble/madmath.Cow_0.1.1.jar | roborumble | robot | score-review | 25cbd1ecf5367e95 | - | - |
 | roborumble/mae.Mae1_1.1.jar | roborumble | robot | PASS | a5d90777e3acda8b | - | - |
@@ -1071,11 +1074,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/tkt.RedShift_1.1.CS.0.jar | roborumble | robot | score-review | 249cd620a2f886b0 | - | - |
 | roborumble/tlp.ThreeLeggedPig_1.jar | roborumble | robot | PASS | e5e607b23d018f71 | - | - |
 | roborumble/tm.Yuugao_1.0.jar | roborumble | robot | PASS | 601f0e21d66845b9 | - | - |
-| roborumble/tobe.Fusion_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | a171b4921cf257b4 | wrapper-json-encoding | wrapper |
-| roborumble/tobe.Relativity_3.9.jar | roborumble | robot | DISCREPANCY (outcome) | 9a8d116041dbbf94 | wrapper-json-encoding | wrapper |
-| roborumble/tobe.Saturn_lambda.jar | roborumble | robot | DISCREPANCY (outcome) | 97a619583a4776d1 | wrapper-json-encoding | wrapper |
+| roborumble/tobe.Fusion_1.0.jar | roborumble | robot | PASS | c20f9ad4a4b53987 | wrapper-json-encoding | wrapper |
+| roborumble/tobe.Relativity_3.9.jar | roborumble | robot | PASS | 6b507b00b578c9fe | wrapper-json-encoding | wrapper |
+| roborumble/tobe.Saturn_lambda.jar | roborumble | robot | PASS | c2e40bc12ae1c728 | wrapper-json-encoding | wrapper |
 | roborumble/tobe.calypso.Calypso_4.1.jar | roborumble | robot | score-review | 70a448fb51b746c6 | - | - |
-| roborumble/tobe.mini.Charon_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | b1793325ccd007e5 | wrapper-json-encoding | wrapper |
+| roborumble/tobe.mini.Charon_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | 1c814f1bf301289d | wrapper-json-encoding | wrapper |
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
 | roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
