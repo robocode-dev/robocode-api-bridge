@@ -38,19 +38,22 @@ public class Main {
         }
     }
 
-    static void processJar(Path jarPath) {
+    static Map<String, Path> processJar(Path jarPath) {
+        Map<String, Path> classToBotDir = new HashMap<>();
         try {
             var jarFile = jarPath.toFile();
             // classname -> its bot directory, so a .team entry (processed after every .properties
             // entry) can name each member's already-created directory.
-            Map<String, Path> classToBotDir = new HashMap<>();
 
             try (var zipFile = new ZipFile(jarFile)) {
                 var entries = zipFile.entries();
                 while (entries.hasMoreElements()) {
                     var zipEntry = entries.nextElement();
                     var filename = zipEntry.getName();
-                    if (filename.toLowerCase().endsWith(".properties")) {
+                    if (filename.toLowerCase().endsWith(".jar")) {
+                        Path nestedJar = stageNestedJar(jarPath, zipFile, zipEntry);
+                        classToBotDir.putAll(processJar(nestedJar));
+                    } else if (filename.toLowerCase().endsWith(".properties")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
@@ -75,6 +78,17 @@ public class Main {
         } catch (Exception ex) {
             System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
         }
+        return classToBotDir;
+    }
+
+    /** Stages a robot jar embedded in a classic team archive beside its generated bot directories. */
+    static Path stageNestedJar(Path parentJar, ZipFile zipFile, ZipEntry zipEntry) throws IOException {
+        Path nestedJar = Files.createTempFile(parentJar.getParent(),
+                parentJar.getFileName().toString() + "-nested-", ".jar");
+        try (InputStream inputStream = zipFile.getInputStream(zipEntry)) {
+            Files.copy(inputStream, nestedJar, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+        }
+        return nestedJar;
     }
 
     /**
