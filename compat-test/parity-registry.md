@@ -10,8 +10,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 39 |
 | DISCREPANCY (outcome) | 106 |
 | MATCHED (failure) | 49 |
-| PASS | 670 |
-| score-review | 283 |
+| PASS | 676 |
+| score-review | 285 |
 
 ## Subjects
 
@@ -1150,6 +1150,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/zh.UnderDog_0.0.2.jar | roborumble | robot | PASS | b4be90c25b189d27 | - | - |
 | roborumble/zignd.ZigIndexOutOfRange_1.1.jar | roborumble | robot | PASS | 5038b185d12a79e5 | - | - |
 | roborumble/zyx.mega.YersiniaPestis_3.0.jar | roborumble | robot | PASS | de945e89bf0064f6 | - | - |
+| roborumble/zyx.micro.Ant_1.1.jar | roborumble | robot | PASS | 58b16c25647a3fca | - | - |
+| roborumble/zyx.nano.Ant_1.1.jar | roborumble | robot | PASS | 805aa68fcec2251e | - | - |
+| roborumble/zyx.nano.EscherichiaColi_1.0.jar | roborumble | robot | PASS | 7d74db622dc673a4 | - | - |
+| roborumble/zyx.nano.RedBull_1.0.jar | roborumble | robot | score-review | 8ffa9617eece147d | - | - |
+| roborumble/zzx.Gron_1.14.jar | roborumble | robot | PASS | 55fb646fb1b531a7 | - | - |
+| roborumble/zzx.Ignohis_8.0.jar | roborumble | robot | PASS | 0b66e37ab9b2b032 | - | - |
+| roborumble/zzx.Serunyr_2.0.2.jar | roborumble | robot | score-review | 961eb834cc4c139b | - | - |
+| roborumble/zzx.StormHead_1.0.1.jar | roborumble | robot | PASS | 46e1b1c082fd54c6 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
