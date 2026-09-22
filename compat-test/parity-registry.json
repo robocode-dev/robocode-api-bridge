@@ -85953,7 +85953,14 @@
       "status": "score-review"
     },
     "roborumble/ds.OoV4_0.3b.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ds.OoV4 0.3b",
         "division": "roborumble",
@@ -85962,7 +85969,7 @@
         "key": "roborumble/ds.OoV4_0.3b.jar",
         "kind": "robot"
       },
-      "latest_observation": "65233acaa3f49f22",
+      "latest_observation": "e7f7eb2f720cc080",
       "observations": [
         {
           "classic": {
@@ -86042,12 +86049,104 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 4.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5457.0,
+            "scores": [
+              3157.0,
+              2300.0
+            ],
+            "selected": "ds.OoV4 0.3b"
+          },
+          "completed_at": "2026-09-22T14:34:47Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "e7f7eb2f720cc080",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ds.OoV4 0.3b",
+            "division": "roborumble",
+            "jar": "ds.OoV4_0.3b.jar",
+            "jar_sha256": "37d01e0d0527cc972c042370b1f6bf482dca677d2cc72e1ee8abf524e2315833",
+            "key": "roborumble/ds.OoV4_0.3b.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [OoV4 0.3b (s\u00e9bastien D\u00e9bia) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "roborumble/ds.Versatile_RB1.0.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ds.Versatile RB1.0.1",
         "division": "roborumble",
@@ -86056,7 +86155,7 @@
         "key": "roborumble/ds.Versatile_RB1.0.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "e717799e2d1d178c",
+      "latest_observation": "a39f66501af34116",
       "observations": [
         {
           "classic": {
@@ -86136,9 +86235,170 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 6.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5127.0,
+            "scores": [
+              2720.0,
+              2407.0
+            ],
+            "selected": "ds.Versatile RB1.0.1"
+          },
+          "completed_at": "2026-09-22T14:35:28Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "8fc1da6f1b9ae834",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ds.Versatile RB1.0.1",
+            "division": "roborumble",
+            "jar": "ds.Versatile_RB1.0.1.jar",
+            "jar_sha256": "756b8734cc934fc2c3107a9ad6d7211f40b9a16a851c5242bd1b93ee4d957cd4",
+            "key": "roborumble/ds.Versatile_RB1.0.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Versatile RB1.0.1 (S\u00e9bastien D\u00e9bia) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 6.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5051.0,
+            "scores": [
+              2584.0,
+              2467.0
+            ],
+            "selected": "ds.Versatile RB1.0.1"
+          },
+          "completed_at": "2026-09-22T14:49:16Z",
+          "confirmation": null,
+          "delta_pct": 177.2,
+          "id": "a39f66501af34116",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "48871c9bdc5855ef48c61e2d3beb33b1e78df12c",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ds.Versatile RB1.0.1",
+            "division": "roborumble",
+            "jar": "ds.Versatile_RB1.0.1.jar",
+            "jar_sha256": "756b8734cc934fc2c3107a9ad6d7211f40b9a16a851c5242bd1b93ee4d957cd4",
+            "key": "roborumble/ds.Versatile_RB1.0.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 14002.0,
+            "scores": [
+              7214.0,
+              6788.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "roborumble/dsekercioglu.mega.Raven_3.56j8.jar": {
       "diagnosis_events": [],
@@ -103662,7 +103922,14 @@
       "status": "PASS"
     },
     "roborumble/josago.Jorgito_0.16.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "josago.Jorgito 0.16",
         "division": "roborumble",
@@ -103671,7 +103938,7 @@
         "key": "roborumble/josago.Jorgito_0.16.jar",
         "kind": "robot"
       },
-      "latest_observation": "3dce8987b150739e",
+      "latest_observation": "34c5fc361409c391",
       "observations": [
         {
           "classic": {
@@ -103745,6 +104012,91 @@
             ],
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Jorgito 0.16 (Jorge S\ufffdez G\ufffdmez) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 3.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 8182.0,
+            "scores": [
+              3838.0,
+              4344.0
+            ],
+            "selected": "josago.Jorgito 0.16"
+          },
+          "completed_at": "2026-09-22T14:36:05Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "34c5fc361409c391",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "josago.Jorgito 0.16",
+            "division": "roborumble",
+            "jar": "josago.Jorgito_0.16.jar",
+            "jar_sha256": "ee18dd0aa0e8703eba84320f47280b05d902ce4129a56e79a412d4c7dd78dfdf",
+            "key": "roborumble/josago.Jorgito_0.16.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Jorgito 0.16 (Jorge S\u00e1ez G\u00f3mez) (\u00d72)]"
             ],
             "has_log": true,
             "ok": false,
@@ -104417,7 +104769,14 @@
       "status": "DISCREPANCY (outcome)"
     },
     "roborumble/jw.Booring_1.11.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "jw.Booring 1.11",
         "division": "roborumble",
@@ -104426,7 +104785,7 @@
         "key": "roborumble/jw.Booring_1.11.jar",
         "kind": "robot"
       },
-      "latest_observation": "523daa9bb1a66d82",
+      "latest_observation": "c15365614f02875a",
       "observations": [
         {
           "classic": {
@@ -104500,6 +104859,91 @@
             ],
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Booring 1.11 (Jimmi Wimmersj\ufffd) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6103.0,
+            "scores": [
+              2994.0,
+              3109.0
+            ],
+            "selected": "jw.Booring 1.11"
+          },
+          "completed_at": "2026-09-22T14:36:42Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "c15365614f02875a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "jw.Booring 1.11",
+            "division": "roborumble",
+            "jar": "jw.Booring_1.11.jar",
+            "jar_sha256": "649cc72201c4dd224d09f39de7b10a941a39cccfab2aad46539af56928c06fa8",
+            "key": "roborumble/jw.Booring_1.11.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Booring 1.11 (Jimmi Wimmersj\u00f6) (\u00d72)]"
             ],
             "has_log": true,
             "ok": false,
@@ -106592,7 +107036,14 @@
       "status": "PASS"
     },
     "roborumble/kc.micro.WaveShark_0.4.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "kc.micro.WaveShark 0.4",
         "division": "roborumble",
@@ -106601,7 +107052,7 @@
         "key": "roborumble/kc.micro.WaveShark_0.4.jar",
         "kind": "robot"
       },
-      "latest_observation": "57dd1774fc8cbf22",
+      "latest_observation": "81a2fbe897f8d386",
       "observations": [
         {
           "classic": {
@@ -106648,6 +107099,91 @@
             "threshold": 25.0
           },
           "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "kc.micro.WaveShark 0.4",
+            "division": "roborumble",
+            "jar": "kc.micro.WaveShark_0.4.jar",
+            "jar_sha256": "f7093d8506004e69ca13dd62d988f8bacaa613688c484fae85d7d532ecf94c13",
+            "key": "roborumble/kc.micro.WaveShark_0.4.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [WaveShark 0.4 (Kev ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 3.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5204.0,
+            "scores": [
+              2345.0,
+              2859.0
+            ],
+            "selected": "kc.micro.WaveShark 0.4"
+          },
+          "completed_at": "2026-09-22T14:37:20Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "81a2fbe897f8d386",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
           "setup": {
             "height": 600,
             "participants": 2,
@@ -109245,7 +109781,14 @@
       "status": "PASS"
     },
     "roborumble/kronenthaler.Basilisk_1.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "kronenthaler.Basilisk 1.0",
         "division": "roborumble",
@@ -109254,7 +109797,7 @@
         "key": "roborumble/kronenthaler.Basilisk_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "6b8d1c60aef70f89",
+      "latest_observation": "92c2b2ffd5f46e14",
       "observations": [
         {
           "classic": {
@@ -109301,6 +109844,91 @@
             "threshold": 25.0
           },
           "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "kronenthaler.Basilisk 1.0",
+            "division": "roborumble",
+            "jar": "kronenthaler.Basilisk_1.0.jar",
+            "jar_sha256": "303ca7f685da16603f72cdf3e4905b949d16f37fc8b599777336148c92e5d750",
+            "key": "roborumble/kronenthaler.Basilisk_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Basilisk 1.0 (kronenthaler\t) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4319.0,
+            "scores": [
+              2213.0,
+              2106.0
+            ],
+            "selected": "kronenthaler.Basilisk 1.0"
+          },
+          "completed_at": "2026-09-22T14:37:57Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "92c2b2ffd5f46e14",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
           "setup": {
             "height": 600,
             "participants": 2,
@@ -112137,7 +112765,14 @@
       "status": "PASS"
     },
     "roborumble/m3thos.Eva02_0.7.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "m3thos.Eva02 0.7.1",
         "division": "roborumble",
@@ -112146,7 +112781,7 @@
         "key": "roborumble/m3thos.Eva02_0.7.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "5ff80459c930a46d",
+      "latest_observation": "e467474760567ece",
       "observations": [
         {
           "classic": {
@@ -112227,12 +112862,104 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5504.0,
+            "scores": [
+              2155.0,
+              3349.0
+            ],
+            "selected": "m3thos.Eva02 0.7.1"
+          },
+          "completed_at": "2026-09-22T14:38:34Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "e467474760567ece",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "m3thos.Eva02 0.7.1",
+            "division": "roborumble",
+            "jar": "m3thos.Eva02_0.7.1.jar",
+            "jar_sha256": "a701e12fadda3d024e39051efa6ea34a3b042dbe21243c566753d9877bfb273f",
+            "key": "roborumble/m3thos.Eva02_0.7.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Eva02 0.7.1 (Miguel S. Filipe (miguel.filipe@gmail.com) ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "roborumble/m3thos.mini.Eva01_0.5.5.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "m3thos.mini.Eva01 0.5.5",
         "division": "roborumble",
@@ -112241,7 +112968,7 @@
         "key": "roborumble/m3thos.mini.Eva01_0.5.5.jar",
         "kind": "robot"
       },
-      "latest_observation": "b9e4c8f459ecab10",
+      "latest_observation": "39923b11ca37b6ce",
       "observations": [
         {
           "classic": {
@@ -112288,6 +113015,91 @@
             "threshold": 25.0
           },
           "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "m3thos.mini.Eva01 0.5.5",
+            "division": "roborumble",
+            "jar": "m3thos.mini.Eva01_0.5.5.jar",
+            "jar_sha256": "79258e6872e2b3d905481f6dbb5686c32a14b1ae8531c79c881fdbb16e0754a2",
+            "key": "roborumble/m3thos.mini.Eva01_0.5.5.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Eva01 0.5.5 (Miguel S. Filipe (miguel.filipe@gmail.com) ) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4920.0,
+            "scores": [
+              2336.0,
+              2584.0
+            ],
+            "selected": "m3thos.mini.Eva01 0.5.5"
+          },
+          "completed_at": "2026-09-22T14:39:10Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "39923b11ca37b6ce",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
           "setup": {
             "height": 600,
             "participants": 2,
@@ -125198,7 +126010,14 @@
       "status": "PASS"
     },
     "roborumble/pac.ABC_2.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "pac.ABC 2.1",
         "division": "roborumble",
@@ -125207,7 +126026,7 @@
         "key": "roborumble/pac.ABC_2.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "67da680ba9b037ee",
+      "latest_observation": "dd2bdd747ab9f593",
       "observations": [
         {
           "classic": {
@@ -125288,9 +126107,170 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 7852.0,
+            "scores": [
+              4270.0,
+              3582.0
+            ],
+            "selected": "pac.ABC 2.1"
+          },
+          "completed_at": "2026-09-22T14:39:46Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "a1c152fd99b27a57",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "pac.ABC 2.1",
+            "division": "roborumble",
+            "jar": "pac.ABC_2.1.jar",
+            "jar_sha256": "687d9d9374a68c03afeac33737203b3738599df4948f9ed0380965c5480ce37d",
+            "key": "roborumble/pac.ABC_2.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [ABC 2.1 (Carla Greg\u00f3rio e Rog\u00e9rio Costa.) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 8597.0,
+            "scores": [
+              4492.0,
+              4105.0
+            ],
+            "selected": "pac.ABC 2.1"
+          },
+          "completed_at": "2026-09-22T14:46:31Z",
+          "confirmation": null,
+          "delta_pct": -9.6,
+          "id": "dd2bdd747ab9f593",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "fd82f08e8172b9183256e6ba3edd6bef0192533544604dab4d3e6a92a23b15c7"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "pac.ABC 2.1",
+            "division": "roborumble",
+            "jar": "pac.ABC_2.1.jar",
+            "jar_sha256": "687d9d9374a68c03afeac33737203b3738599df4948f9ed0380965c5480ce37d",
+            "key": "roborumble/pac.ABC_2.1.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 7771.0,
+            "scores": [
+              4183.0,
+              3588.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/pak.Dargon_1.0b.jar": {
       "diagnosis_events": [],
@@ -154952,7 +155932,14 @@
       "status": "PASS"
     },
     "roborumble/tobe.Fusion_1.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "tobe.Fusion 1.0",
         "division": "roborumble",
@@ -154961,7 +155948,7 @@
         "key": "roborumble/tobe.Fusion_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "797ece6a98aa0477",
+      "latest_observation": "a171b4921cf257b4",
       "observations": [
         {
           "classic": {
@@ -155050,12 +156037,112 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.9,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\rc-robots\\.data\\tobe\\Fusion.data\\guncontrol_tobe.Fusion 1.0 (2).dat (Den angivne fil blev ikke fundet)",
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\rc-robots\\.data\\tobe\\Fusion.data\\guncontrol_tobe.Fusion 1.0 (1).dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 5755.0,
+            "scores": [
+              2736.0,
+              3019.0
+            ],
+            "selected": "tobe.Fusion 1.0"
+          },
+          "completed_at": "2026-09-22T14:40:24Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "a171b4921cf257b4",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Fusion 1.0",
+            "division": "roborumble",
+            "jar": "tobe.Fusion_1.0.jar",
+            "jar_sha256": "696dc840c706ca45bca9067cc09c1ec0059df8e7bee9fa8708b7f00c4dd1f3df",
+            "key": "roborumble/tobe.Fusion_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Fusion 1.0 (Torbj\u00f6rn Gannholm) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "roborumble/tobe.Relativity_3.9.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "tobe.Relativity 3.9",
         "division": "roborumble",
@@ -155064,7 +156151,7 @@
         "key": "roborumble/tobe.Relativity_3.9.jar",
         "kind": "robot"
       },
-      "latest_observation": "06434ae8e7ca45c7",
+      "latest_observation": "9a8d116041dbbf94",
       "observations": [
         {
           "classic": {
@@ -155154,12 +156241,104 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6151.0,
+            "scores": [
+              3312.0,
+              2839.0
+            ],
+            "selected": "tobe.Relativity 3.9"
+          },
+          "completed_at": "2026-09-22T14:41:37Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "9a8d116041dbbf94",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Relativity 3.9",
+            "division": "roborumble",
+            "jar": "tobe.Relativity_3.9.jar",
+            "jar_sha256": "b2286291cefb3f915e76b9950d4933b070e949fe67444ff6ac2a69af63bc5c56",
+            "key": "roborumble/tobe.Relativity_3.9.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Relativity 3.9 (Torbj\u00f6rn Gannholm) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
         }
       ],
       "status": "DISCREPANCY (outcome)"
     },
     "roborumble/tobe.Saturn_lambda.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "tobe.Saturn lambda",
         "division": "roborumble",
@@ -155168,7 +156347,7 @@
         "key": "roborumble/tobe.Saturn_lambda.jar",
         "kind": "robot"
       },
-      "latest_observation": "609af0090a204acc",
+      "latest_observation": "97a619583a4776d1",
       "observations": [
         {
           "classic": {
@@ -155251,6 +156430,91 @@
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Saturn lambda (Torbj\ufffdrn Gannholm) (\u00d72)]",
               "INFO [SERVER] java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@4f0b8059[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@7ebfbe5e[Wrapped task = dev.robocode.tankroyale.server.connection.ClientWebSocketsHandler$$Lambda$90/0x0000024bc80b5e10@65"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6296.0,
+            "scores": [
+              2701.0,
+              3595.0
+            ],
+            "selected": "tobe.Saturn lambda"
+          },
+          "completed_at": "2026-09-22T14:42:14Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "97a619583a4776d1",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.Saturn lambda",
+            "division": "roborumble",
+            "jar": "tobe.Saturn_lambda.jar",
+            "jar_sha256": "78d9a2e64194bb50d1a7b6bdd6fd3dfc6249bc2a9ba6d4f9261a0088cac4532f",
+            "key": "roborumble/tobe.Saturn_lambda.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Saturn lambda (Torbj\u00f6rn Gannholm) (\u00d72)]"
             ],
             "has_log": true,
             "ok": false,
@@ -155354,7 +156618,14 @@
       "status": "score-review"
     },
     "roborumble/tobe.mini.Charon_0.9.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "wrapper-json-encoding",
+          "id": "diagnosis-1",
+          "owner": "wrapper",
+          "recorded_at": "2026-09-22T00:00:00Z"
+        }
+      ],
       "identity": {
         "classic_selected": "tobe.mini.Charon 0.9",
         "division": "roborumble",
@@ -155363,7 +156634,7 @@
         "key": "roborumble/tobe.mini.Charon_0.9.jar",
         "kind": "robot"
       },
-      "latest_observation": "54f3b6fc6340eae8",
+      "latest_observation": "b1793325ccd007e5",
       "observations": [
         {
           "classic": {
@@ -155437,6 +156708,91 @@
             ],
             "errors": [
               "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Charon 0.9 (Torbj\ufffdrn Gannholm) (\u00d72)]"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 2.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4581.0,
+            "scores": [
+              2236.0,
+              2345.0
+            ],
+            "selected": "tobe.mini.Charon 0.9"
+          },
+          "completed_at": "2026-09-22T14:41:00Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "b1793325ccd007e5",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.3.1.jar",
+                "sha256": "33a06bfcbf9711f946336afe90ca0c8d3ad72cd3dd96b955e694101c4bee1f7b"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "3b3212aded7edf2eca481e2e536075f59e074993a85f87ba7f5bd0760892c151"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "8164c5811de9d8a6f5b90c445ed7e302824ed502fd1ff641ee96061b9f80755f"
+              }
+            },
+            "bridge_commit": "8135a43662eeb1f292ffedce708ce6778b7bf80f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "9c25770c02671d1f9d941aad312013562a441427",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "wrapper-json-encoding",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "wrapper",
+            "repair": "8135a43"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "tobe.mini.Charon 0.9",
+            "division": "roborumble",
+            "jar": "tobe.mini.Charon_0.9.jar",
+            "jar_sha256": "f9262c7aadd18718049ed6595cc2b8d3edcf0d79ac8a2921f5f9415d77957633",
+            "key": "roborumble/tobe.mini.Charon_0.9.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 34.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "dev.robocode.tankroyale.runner.BattleException",
+                "origin": "TrBattleWorker.runBattle"
+              }
+            ],
+            "errors": [
+              "FATAL: dev.robocode.tankroyale.runner.BattleException: Bot connect timeout (30000ms): connected 0 of 2. Pending: [Charon 0.9 (Torbj\u00f6rn Gannholm) (\u00d72)]"
             ],
             "has_log": true,
             "ok": false,
