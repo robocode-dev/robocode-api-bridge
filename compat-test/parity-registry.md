@@ -8,9 +8,9 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 30 |
 | DISCREPANCY (no score) | 39 |
-| DISCREPANCY (outcome) | 106 |
+| DISCREPANCY (outcome) | 101 |
 | MATCHED (failure) | 49 |
-| PASS | 676 |
+| PASS | 681 |
 | score-review | 285 |
 
 ## Subjects
@@ -213,7 +213,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bumblebee.Bumblebee_1.0.jar | roborumble | robot | PASS | 43be93c102edd078 | - | - |
 | roborumble/bvh.fnr.Fenrir_0.36l.jar | roborumble | robot | PASS | b4921a3482058324 | - | - |
 | roborumble/bvh.frg.Friga_0.112dev.jar | roborumble | robot | PASS | 76fc12ecb24aaeda | - | - |
-| roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | DISCREPANCY (outcome) | d085ccd0fda17438 | - | - |
+| roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | PASS | fe61ff5c72809b21 | packaged-data-resources | bridge |
 | roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | score-review | 8a25b46b587e2378 | - | - |
 | roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | score-review | baababf4d63efaf4 | - | - |
 | roborumble/bvh.micro.Freya_0.3.jar | roborumble | robot | PASS | cb8ffc8035b0b113 | - | - |
@@ -287,9 +287,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | score-review | fce67ed0d1b04c77 | - | - |
 | roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 6003e69f1e0dcce6 | - | - |
 | roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | score-review | 3ddba38f0713acc3 | - | - |
-| roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | DISCREPANCY (outcome) | ce292f19f1f58ae4 | - | - |
-| roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | DISCREPANCY (outcome) | 2c000dadc48e9029 | - | - |
-| roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | DISCREPANCY (outcome) | 84f686571606eda3 | - | - |
+| roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
+| roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
+| roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | PASS | 090ad59ca3e144b7 | packaged-data-resources | bridge |
 | roborumble/davidalves.Firebird_0.25.jar | roborumble | robot | score-review | fbca028f7a468788 | - | - |
 | roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | d37fc2d466f2354b | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
@@ -441,7 +441,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/gg.Squaraus_0.6.jar | roborumble | robot | DISCREPANCY (no score) | af5d371fd0d8ebc8 | - | - |
 | roborumble/gg.Wolverine_2.0.jar | roborumble | robot | DISCREPANCY (no score) | 5a1633d8ea1a8831 | - | - |
 | roborumble/gh.GresSuffurd_0.4.13.jar | roborumble | robot | DISCREPANCY (no score) | 422163e3feada153 | - | - |
-| roborumble/gh.GrubbmGrb_1.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | f2c1c5022a5838fb | - | - |
+| roborumble/gh.GrubbmGrb_1.2.4.jar | roborumble | robot | PASS | 5ec4a9ed6e45a26d | packaged-data-resources | bridge |
 | roborumble/gh.GrypRepetyf_0.13.jar | roborumble | robot | DISCREPANCY (no score) | 43c8214c070a00fd | - | - |
 | roborumble/gh.micro.Grinnik_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e524b4d483d0635e | - | - |
 | roborumble/gh.mini.Grimmig_0.3.6.jar | roborumble | robot | DISCREPANCY (no score) | 5f21e7bfd82d02e0 | - | - |
