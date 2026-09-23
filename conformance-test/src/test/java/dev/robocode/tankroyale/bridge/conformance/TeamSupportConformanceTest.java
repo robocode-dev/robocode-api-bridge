@@ -49,6 +49,10 @@ class TeamSupportConformanceTest extends ConformanceTestBase {
                     outcome.countOf("Message:BROADCAST"),
                     () -> "broadcast messages were not delivered to every teammate on " + engine
                             + " (" + outcome.summary() + ")");
+            assertEquals(TEAM_INSTANCES * rounds,
+                    outcome.countOf("TeamRecipientBatch:BATCH:first,BATCH:second"),
+                    () -> "serializable collection batches were not delivered in order on " + engine
+                            + " (" + outcome.summary() + ")");
             assertEquals(TEAM_INSTANCES * rounds, outcome.countOf("Message:DIRECT"),
                     () -> "direct messages were not delivered to one teammate per team on " + engine
                             + " (" + outcome.summary() + ")");

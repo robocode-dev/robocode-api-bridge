@@ -3,6 +3,7 @@ package conformance.teams;
 import robocode.TeamRobot;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TeamLeader extends TeamRobot {
 
@@ -18,7 +19,12 @@ public class TeamLeader extends TeamRobot {
             execute();
             execute();
             broadcastMessage(new TeamPayload("BROADCAST"));
-            // Keep the two message deliveries on separate turns. Classic queues both
+            execute();
+            var batch = new ArrayList<String>();
+            batch.add("BATCH:first");
+            batch.add("BATCH:second");
+            broadcastMessage(batch);
+            // Keep each message delivery on its own turn. Classic queues same-turn
             // messages reliably, but Tank Royale's callback scheduling is not required to
             // preserve multiple same-turn messages while the bridge is draining events.
             execute();

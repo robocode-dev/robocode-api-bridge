@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -11,8 +12,6 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
-
-// TODO: Handle robot.properties field `includeData` (boolean)
 
 import org.apache.bcel.classfile.ClassParser;
 
@@ -39,19 +38,22 @@ public class Main {
         }
     }
 
-    static void processJar(Path jarPath) {
+    static Map<String, Path> processJar(Path jarPath) {
+        Map<String, Path> classToBotDir = new HashMap<>();
         try {
             var jarFile = jarPath.toFile();
             // classname -> its bot directory, so a .team entry (processed after every .properties
             // entry) can name each member's already-created directory.
-            Map<String, Path> classToBotDir = new HashMap<>();
 
             try (var zipFile = new ZipFile(jarFile)) {
                 var entries = zipFile.entries();
                 while (entries.hasMoreElements()) {
                     var zipEntry = entries.nextElement();
                     var filename = zipEntry.getName();
-                    if (filename.toLowerCase().endsWith(".properties")) {
+                    if (filename.toLowerCase().endsWith(".jar")) {
+                        Path nestedJar = stageNestedJar(jarPath, zipFile, zipEntry);
+                        classToBotDir.putAll(processJar(nestedJar));
+                    } else if (filename.toLowerCase().endsWith(".properties")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
@@ -59,6 +61,7 @@ public class Main {
                             classToBotDir.put(robotProps.classname, botDir);
 
                             Files.copy(zipFile.getInputStream(zipEntry), botDir.resolve(robotProps.classname + ".properties"));
+                            copyDataFiles(zipFile, robotProps, botDir);
                         }
                     }
                 }
@@ -75,6 +78,17 @@ public class Main {
         } catch (Exception ex) {
             System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
         }
+        return classToBotDir;
+    }
+
+    /** Stages a robot jar embedded in a classic team archive beside its generated bot directories. */
+    static Path stageNestedJar(Path parentJar, ZipFile zipFile, ZipEntry zipEntry) throws IOException {
+        Path nestedJar = Files.createTempFile(parentJar.getParent(),
+                parentJar.getFileName().toString() + "-nested-", ".jar");
+        try (InputStream inputStream = zipFile.getInputStream(zipEntry)) {
+            Files.copy(inputStream, nestedJar, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+        }
+        return nestedJar;
     }
 
     /**
@@ -199,7 +213,7 @@ public class Main {
             membersJson.append('"').append(escape(memberDirNames.get(i))).append('"');
         }
 
-        try (var writer = new FileWriter(file)) {
+        try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
                     "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
@@ -254,7 +268,6 @@ public class Main {
         String includeDataStr = props.getProperty("robot.include.data");
         if (includeDataStr != null) {
             robotProps.includeData = Boolean.parseBoolean(includeDataStr);
-            System.err.println("Include data is not supported yet: " + robotProps.name());
         }
 
         return robotProps;
@@ -285,6 +298,47 @@ public class Main {
         return botDir;
     }
 
+    /** Copies the robot's packaged data resources into the runtime data directory. */
+    static void copyDataFiles(ZipFile zipFile, RobotProperties robotProps, Path botDir) throws IOException {
+        String resourcePrefix = robotProps.classname.replace('.', '/') + ".data/";
+        Path dataDir = botDir.resolve(robotProps.name() + ".data").normalize();
+        int copied = 0;
+
+        var entries = zipFile.entries();
+        while (entries.hasMoreElements()) {
+            var entry = entries.nextElement();
+            String entryName = entry.getName().replace('\\', '/');
+            if (!entryName.startsWith(resourcePrefix)) {
+                continue;
+            }
+
+            String relativeName = entryName.substring(resourcePrefix.length());
+            if (relativeName.isEmpty()) {
+                continue;
+            }
+            Path target = dataDir.resolve(relativeName).normalize();
+            if (!target.startsWith(dataDir)) {
+                throw new IOException("robot data entry escapes its data directory: " + entry.getName());
+            }
+            if (entry.isDirectory()) {
+                Files.createDirectories(target);
+                continue;
+            }
+
+            if (target.getParent() != null) {
+                Files.createDirectories(target.getParent());
+            }
+            try (InputStream inputStream = zipFile.getInputStream(entry)) {
+                Files.copy(inputStream, target, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            }
+            copied++;
+        }
+
+        if (copied > 0) {
+            System.out.println("  copied " + copied + " packaged data file(s)");
+        }
+    }
+
     static void createJsonFile(Path botDir, RobotProperties robotProps) throws IOException {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + ".json");
 
@@ -293,9 +347,9 @@ public class Main {
             author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
         }
 
-        try (var writer = new FileWriter(file)) {
+        try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
-                    "  \"name\": \"" + robotProps.name() + "\",\n" +
+                    "  \"name\": \"" + escape(robotProps.name()) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(robotProps.version, "[n/a]")) + "\",\n" +
                     "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
@@ -404,14 +458,41 @@ public class Main {
     }
 
     static String escape(String str) {
-        return str
-                .replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t")
-                .replace("\f", "\\f")
-                .replace("\b", "\\b");
+        var escaped = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            char character = str.charAt(i);
+            switch (character) {
+                case '\\':
+                    escaped.append("\\\\");
+                    break;
+                case '"':
+                    escaped.append("\\\"");
+                    break;
+                case '\n':
+                    escaped.append("\\n");
+                    break;
+                case '\r':
+                    escaped.append("\\r");
+                    break;
+                case '\t':
+                    escaped.append("\\t");
+                    break;
+                case '\f':
+                    escaped.append("\\f");
+                    break;
+                case '\b':
+                    escaped.append("\\b");
+                    break;
+                default:
+                    if (character < 0x20 || character > 0x7e) {
+                        escaped.append(String.format("\\u%04x", (int) character));
+                    } else {
+                        escaped.append(character);
+                    }
+                    break;
+            }
+        }
+        return escaped.toString();
     }
 
     static String toBaseFilename(Path filePath) {

@@ -166,6 +166,12 @@ events:
     - {id: AN-015, kind: numeric, state: live, prefix: AN, component: "15"}
     - {id: FIO-005, kind: numeric, state: reserved, prefix: FIO, component: "5"}
     - {id: FIO-005, kind: numeric, state: live, prefix: FIO, component: "5"}
+    - {id: CH-017, kind: numeric, state: reserved, prefix: CH, component: "17"}
+    - {id: TASKS-010, kind: numeric, state: reserved, prefix: TASKS, component: "10"}
+    - {id: OQ-008, kind: numeric, state: reserved, prefix: OQ, component: "8"}
+    - {id: CH-017, kind: numeric, state: live, prefix: CH, component: "17"}
+    - {id: TASKS-010, kind: numeric, state: live, prefix: TASKS, component: "10"}
+    - {id: OQ-008, kind: numeric, state: live, prefix: OQ, component: "8"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}
