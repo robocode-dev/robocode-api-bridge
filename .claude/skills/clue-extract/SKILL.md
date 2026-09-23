@@ -1,6 +1,6 @@
 ---
 cliewen-skill: true
-version: 0.24.1
+version: 0.26.0
 ---
 
 <!-- Generated from Cliewen's canonical skill sources; edit those sources, not this file. -->
