@@ -186681,7 +186681,7 @@
         "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
         "kind": "team"
       },
-      "latest_observation": "f9c5cb6bbddd06d5",
+      "latest_observation": "ff6384a43dc40ba1",
       "observations": [
         {
           "classic": {
@@ -187306,9 +187306,86 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 34.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 10645.0,
+            "scores": [
+              3832.0,
+              6813.0
+            ],
+            "selected": "mn.Combat 3.25.0"
+          },
+          "completed_at": "2026-09-23T19:44:44Z",
+          "confirmation": null,
+          "delta_pct": 25.6,
+          "id": "ff6384a43dc40ba1",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "c6f5ec58c498ed3338ed3092820380a184ad7e674e4829e67d6bd1a428ed289f"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "5c4abd10a629eeafed273018617e436e6267d17519092e70b68c094bed3cb9fd"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "49891ec09e277e7e88d520bb220d5425a79587c2f850fdc85c46275283690bde"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "09d446cb5dc08c5a71d9ebf8398d135c1a31e15b0d942ef13cf2f41b3ad11708"
+              }
+            },
+            "bridge_commit": "cc5a6735f6c4002418338c35e96710844e25b3ca",
+            "official_parameters": false,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee091b2ed7ebbd274649d1472f249b9816455710",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 5,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.Combat 3.25.0",
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 22.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 13367.0,
+            "scores": [
+              7379.0,
+              5988.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar": {
       "diagnosis_events": [
