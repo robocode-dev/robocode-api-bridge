@@ -2,7 +2,7 @@
 id: AN-015
 type: analysis
 status: active
-links: [CH-016, CAP-005, CAP-007, PDR-003, IDR-007, C-007]
+links: [P-001, CAP-005, CAP-007, PDR-003, IDR-007, C-007]
 title: The first melee registry cases are contaminated by fixed-opponent failures
 provenance: inferred
 reversal-cost: low
@@ -34,13 +34,12 @@ The missing classic stream-limit behaviour is a bridge gap worth a focused repai
 
 The remaining tracked roborumble and team failures do not form one common signature in this snapshot. Their normalized frames are mostly individual application methods, with a smaller set of harness no-result and data-file cases. They need per-family triage; bulk attribution to the bridge would overstate what the registry proves.
 
-## What this means for CH-016
+## Implications for M-006
 
 The current melee observations cannot be used as clean subject-level parity evidence until the fixed opponent pool is either revised through an explicit decision or the harness isolates opponent failures from the subject result. The rumble jars remain read-only; removing, rewriting, or recompiling the failing opponent jars would violate `C-007` and would destroy the very evidence being diagnosed.
 
-The registry should retain the observations and append a harness-owned cause for the opponent-contamination cluster. A later focused retest may use a repaired or explicitly revised opponent setup, and must link that repair or decision rather than silently replacing the original observations. The stream-limit mismatch and the non-serializable team-message mismatch remain separate bridge investigations.
+The registry should retain the observations and append a harness-owned cause for the opponent-contamination cluster. A later focused retest may use a repaired or explicitly revised opponent setup, and must link that repair or decision rather than silently replacing the original observations. The stream-limit mismatch and the non-serializable team-message mismatch remain separate bridge investigations under M-006.
 
 ## Rejected interpretations
 
 The analysis rejects treating every classic-only error in these melee runs as a defect in the measured subject, treating the pinned pool's prior roborumble `PASS` results as proof that its jars are clean in melee, and modifying the rumble jars to make the comparison complete.
-

@@ -5,7 +5,6 @@ status: active
 links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002, IDR-008]
 title: Team robot support — design
 provenance: verified
-reversal-cost: high
 ---
 
 # CAP-006 — design
