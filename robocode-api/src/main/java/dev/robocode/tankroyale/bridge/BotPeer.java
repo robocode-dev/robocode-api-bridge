@@ -132,6 +132,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public String getName() {
         log("getName()");
+        try {
+            var name = TankRoyaleBotNameResolver.getName(bot, bot.getMyId());
+            if (name != null) return name;
+        } catch (BotException ignored) {
+            // Before game setup the Bot API may not yet know this bot's id; classic's local
+            // robot name is still available and is the correct fallback at that point.
+        }
         return RobotName.getName();
     }
 
@@ -491,7 +498,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (!(robot instanceof ITeamEvents)) {
             return;
         }
-        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent);
+        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent, bot);
         dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
     }
 
@@ -938,18 +945,17 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public String[] getTeammates() {
         log("getTeammates()");
         var teammates = bot.getTeammateIds();
-        return (teammates != null) ? teammates.stream().map(String::valueOf).toArray(String[]::new) : null;
+        return (teammates != null)
+                ? teammates.stream().map(id -> TankRoyaleBotNameResolver.getNameOrId(bot, id)).toArray(String[]::new)
+                : null;
     }
 
     @Override
     public boolean isTeammate(String name) {
         log("isTeammate()");
-        try {
-            var id = Integer.parseInt(name);
-            return bot.isTeammate(id);
-        } catch (NumberFormatException e) {
-            return false;
-        }
+        var id = parseBotId(name);
+        if (id == null) id = findTeammateId(name);
+        return id != null && bot.isTeammate(id);
     }
 
     @Override
@@ -961,11 +967,30 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void sendMessage(String name, Serializable message) throws IOException {
         log("sendMessage()");
-        try {
-            var id = Integer.parseInt(name);
-            bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
-        } catch (NumberFormatException ignore) {
+        var id = parseBotId(name);
+        if (id == null) id = findTeammateId(name);
+        if (id == null) {
             throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
+        }
+        bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
+    }
+
+    private Integer findTeammateId(String name) {
+        if (name == null) return null;
+        var teammateIds = bot.getTeammateIds();
+        if (teammateIds == null) return null;
+        return teammateIds.stream()
+                .filter(id -> name.equals(TankRoyaleBotNameResolver.getNameOrId(bot, id)))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private static Integer parseBotId(String name) {
+        if (name == null) return null;
+        try {
+            return Integer.valueOf(name);
+        } catch (NumberFormatException ignored) {
+            return null;
         }
     }
 

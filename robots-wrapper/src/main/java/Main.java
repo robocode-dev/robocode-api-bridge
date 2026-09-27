@@ -355,7 +355,8 @@ public class Main {
                     "  \"description\": \"" + escape(replaceIfBlank(robotProps.description, "")) + "\",\n" +
                     "  \"homepage\": \"" + escape(replaceIfBlank(robotProps.webpage, "")) + "\",\n" +
                     "  \"platform\": \"JVM\",\n" +
-                    "  \"language\": \"Java\"\n" +
+                    "  \"language\": \"Java\",\n" +
+                    "  \"teamMemberName\": \"" + escape(robotProps.classname) + "\"\n" +
                     "}\n"
             );
         }

@@ -9,6 +9,7 @@ public class TeamDroid extends TeamRobot implements Droid {
 
     @Override
     public void run() {
+        out.println("TeamDroidName:" + getName());
         out.println("TeamDroidReady");
         while (true) {
             execute();

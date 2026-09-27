@@ -50,20 +50,30 @@ final class RecordingBot {
 
     private final List<Call> calls = new ArrayList<>();
     private final Map<String, Object> canned = new HashMap<>();
+    private final Map<Integer, String> botNames = new HashMap<>();
     private final IBot proxy;
 
-    private RecordingBot() {
+    private RecordingBot(boolean withNameMap) {
         proxy = (IBot) Proxy.newProxyInstance(
                 IBot.class.getClassLoader(),
-                new Class<?>[] { IBot.class },
+                withNameMap
+                        ? new Class<?>[] { IBot.class, BotNameProvider.class }
+                        : new Class<?>[] { IBot.class },
                 (p, method, args) -> {
                     calls.add(new Call(method.getName(), args));
+                    if (method.getName().equals("getBotName")) {
+                        return botNames.get((Integer) args[0]);
+                    }
                     return answer(method);
                 });
     }
 
     static RecordingBot create() {
-        return new RecordingBot();
+        return new RecordingBot(true);
+    }
+
+    static RecordingBot createWithoutNameMap() {
+        return new RecordingBot(false);
     }
 
     /** Sets the value a named getter returns, e.g. {@code returning("getEnergy", 42.0)}. */
@@ -75,6 +85,11 @@ final class RecordingBot {
     /** Makes a getter answer null, which is distinct from never having been set. */
     RecordingBot returningNull(String method) {
         canned.put(method, null);
+        return this;
+    }
+
+    RecordingBot named(int botId, String name) {
+        botNames.put(botId, name);
         return this;
     }
 
@@ -144,4 +159,8 @@ final class RecordingBot {
         if (type == java.util.Collection.class) return List.of();
         return null;
     }
+}
+
+interface BotNameProvider {
+    String getBotName(int botId);
 }

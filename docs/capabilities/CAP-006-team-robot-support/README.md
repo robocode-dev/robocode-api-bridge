@@ -13,7 +13,7 @@ reversal-cost: high
 
 Robocode's team division runs teams rather than individual robots: a `.team` descriptor naming several robots that start together, message each other, and win or lose as a unit. Droids are part of the same feature — robots with no radar that depend entirely on teammates for targeting.
 
-The wrapper produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. The compatibility harness now stages the grouped entry on both engines, and the team division is no longer recorded as skipped.
+The wrapper produces a runnable Tank Royale bot directory per team member and a team boot entry the Tank Royale booter reads to group them, and `BotPeer` gives a droid team member the `Bot` subclass Tank Royale's droid detection actually keys on. Generated bot metadata carries each member's full class name, which Tank Royale uses with its battle-wide name map to restore classic team identities. The compatibility harness stages the grouped entry on both engines, and the team division is no longer recorded as skipped.
 
 ## Why it exists as its own capability
 
@@ -23,7 +23,7 @@ That makes it lower-risk than the score gaps and higher-effort than any of them,
 
 ## What it covers
 
-The wrapper producing runnable Tank Royale bot directories from a team jar, grouped team staging on both engines, teammate messaging and directed-recipient isolation, and droid semantics — a robot that receives no scan events of its own and acts on what its teammates tell it. The bridge keeps Tank Royale's numeric sender and teammate-id representation because the protocol exposes no classic robot-name mapping; `ADR-002` records that boundary.
+The wrapper producing runnable Tank Royale bot directories from a team jar, grouped team staging on both engines, teammate messaging and directed-recipient isolation, classic name identity through the frozen team API, and droid semantics — a robot that receives no scan events of its own and acts on what its teammates tell it. `ADR-002` keeps Tank Royale's native team model underneath and uses its authoritative name map for the classic API.
 
 ## What it does not cover
 
@@ -37,4 +37,4 @@ The interesting question was where a team becomes several Tank Royale bots. `AN-
 
 ## Status
 
-`draft`. `CH-011` adds team-aware staging and purpose-written two-engine evidence. `TEAM-001` and `TEAM-003` are active with passing integration evidence; `TEAM-002` remains `@draft` because the bridge can prove message delivery and directed-recipient isolation, but not literal classic sender names across the two engines under the protocol boundary recorded in `ADR-002`. `M-005` is complete; the full team collection remains available for the later `M-006` sweep.
+`draft`. `CH-011` adds team-aware staging and purpose-written two-engine evidence. `TEAM-001`, `TEAM-002`, and `TEAM-003` have passing integration evidence, including name-map conformance with the matched local Tank Royale 1.4.0 Bot API and runner. The bridge's default dependency is still Bot API 1.2.0, which retains the numeric-ID fallback; make the capability active when the supported default pair includes the name map. `M-005` is complete; the full team collection remains available for the later `M-006` sweep.

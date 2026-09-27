@@ -12,4 +12,6 @@ The merged CH-016 checkpoint established the fixed melee comparison, completed o
 
 This change continues from that accepted checkpoint. It will run the remaining official-parameter cases with the read-only collection intact, diagnose every unresolved outcome, implement bridge-owned repairs where the evidence supports them, and append focused retests with complete artifact manifests. It will update the permanent plan, CAP-005 evidence/design bookkeeping, generated registry report, and changelog only to the extent the resulting registry proves those claims.
 
+It also resolves `TEAM-002`'s classic-name identity blocker using the authoritative name map added by merged [Tank Royale PR 277](https://github.com/robocode-dev/tank-royale/pull/277). The bridge adds the full team member class name to generated bot metadata and translates between Tank Royale IDs and server-assigned classic names. Two-engine integration evidence closes `P-001` evidence door `M-130`; it does not close the broader `M-006` parity campaign.
+
 The change proceeds under classic Robocode as the behavioural reference, PDR-003's append-only registry rules, and PDR-004's pinned melee opponent pool. It does not rewrite or replace prior observations or collection jars.

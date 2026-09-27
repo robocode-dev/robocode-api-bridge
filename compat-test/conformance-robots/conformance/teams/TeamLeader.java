@@ -9,8 +9,17 @@ public class TeamLeader extends TeamRobot {
 
     @Override
     public void run() {
+        out.println("TeamLeaderName:" + getName());
         String[] teammates = getTeammates();
         out.println("TeamLeaderReady:" + (teammates == null ? 0 : teammates.length));
+        if (teammates != null) {
+            for (String teammate : teammates) {
+                out.println("TeamTeammateName:" + teammate);
+                if (!isTeammate(teammate)) {
+                    out.println("TeamIsTeammateMismatch:" + teammate);
+                }
+            }
+        }
         try {
             // Let every member finish connecting before the first team message. The
             // embedded Tank Royale server starts bot processes independently, so sending

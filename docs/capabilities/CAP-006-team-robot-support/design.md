@@ -5,12 +5,11 @@ status: active
 links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002, IDR-008]
 title: Team robot support — design
 provenance: verified
-reversal-cost: high
 ---
 
 # CAP-006 — design
 
-`status: active`: the mapping decision is implemented and the team division now runs through both engines. `TEAM-002` remains draft because literal classic sender-name parity is not observable through the Tank Royale protocol; the delivery and recipient-isolation behavior is still exercised by the focused probe.
+Team behavior runs through both engines, including classic-name parity when paired with the Tank Royale Bot API and runner that carry the name map. `TEAM-002` is active with two-engine evidence; the overall capability remains draft until the supported default Bot API version includes the map.
 
 ## What exists
 
@@ -24,13 +23,13 @@ reversal-cost: high
 
 A Robocode team is several robots that start together, address each other by name, and are scored as a unit. `AN-013` checked how closely Tank Royale's own team concept corresponds: membership, droid semantics (`+20` energy, no scanner — identical wording to classic's own `Droid.java`), messaging, and team-level scoring are all server-owned in both engines, the same shape at every point checked. `ADR-002` records the resulting choice: map onto Tank Royale's native team model (one Tank Royale bot process per member, grouped by the booter) rather than reconstructing team semantics above individual bots.
 
-One difference survives the mapping and does not need reconstruction to handle: classic addresses teammates by name, Tank Royale by a per-battle numeric bot id, and no channel in the wire protocol ever reveals a real classic name to running robot code (confirmed while investigating `CH-010`'s `TEAM-002` groundwork — even a scanned bot's own event carries no name field). This bridge already reports every scanned robot's name as its stringified Tank Royale id everywhere else, so team messaging keeps that same numeric-id addressing (`ROUTE-009`) rather than inventing a team-specific exception the protocol cannot support.
+Classic team methods address robots by name, while Tank Royale routes by numeric bot IDs. `ADR-002` requires the bridge to restore full classic names, optional versions, and duplicate-instance suffixes without replacing Tank Royale's native team grouping. The wrapper supplies the member class name in `teamMemberName`; Tank Royale's server supplies the battle-wide mapping through the Bot API, including the duplicate suffix. The bridge uses it for its own name, teammate names, name-based checks and directed sends, and message-event senders.
 
 ## What is already known to be in the way
 
 Droids are the sharpest fidelity requirement here. A droid has no radar and receives no scan events, and getting that wrong makes the robot *better*: it gains information it should not have, wins more, and produces a battle in which nothing looks wrong. `TEAM-003` checks the negative scan case and the positive teammate-information case on both engines.
 
-Classic name-based teammate addressing remains the known fidelity boundary. The bridge follows `ADR-002` and passes Tank Royale's numeric teammate ids through the frozen string-based methods; a future protocol-supported name mapping would need a separate change and evidence decision.
+The bridge discovers the newer `getBotName(int)` API reflectively so it remains source-compatible with the older default dependency. When that method is absent, the bridge retains its numeric-ID fallback. Full name parity therefore requires a Bot API and runner built from the Tank Royale change that adds the authoritative map; `TEAM-002` was verified against that matched local 1.4.0 pair.
 
 ## Evidence plan
 

@@ -9,6 +9,7 @@ public class TeamRecipient extends TeamRobot {
 
     @Override
     public void run() {
+        out.println("TeamRecipientName:" + getName());
         out.println("TeamRecipientReady");
         while (true) {
             execute();
