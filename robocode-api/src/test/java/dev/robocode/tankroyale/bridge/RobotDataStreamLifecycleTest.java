@@ -31,8 +31,8 @@ class RobotDataStreamLifecycleTest {
     }
 
     @Test
-    @DisplayName("FIO-005 unit: round-end cleanup releases abandoned stream slots")
-    void testFIO005_UnitPositive_RoundEndClosesAbandonedStreams() throws IOException {
+    @DisplayName("FIO-005 unit: between-round cleanup releases abandoned stream slots")
+    void testFIO005_UnitPositive_BetweenRoundCleanupClosesAbandonedStreams() throws IOException {
         List<RobocodeFileOutputStream> firstRound = openStreams("first-round");
         assertThrows(SecurityException.class, () -> open("first-round-overflow"));
 

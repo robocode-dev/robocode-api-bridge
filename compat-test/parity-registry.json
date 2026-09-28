@@ -68271,6 +68271,12 @@
           "id": "diagnosis-1",
           "owner": "bridge",
           "recorded_at": "2026-09-28T21:36:27Z"
+        },
+        {
+          "cause": "round-end-stream-close-race",
+          "id": "diagnosis-2",
+          "owner": "bridge",
+          "recorded_at": "2026-09-28T21:45:57Z"
         }
       ],
       "identity": {
@@ -68281,7 +68287,7 @@
         "key": "roborumble/ag.Gir_0.99.jar",
         "kind": "robot"
       },
-      "latest_observation": "e3c870e44a2cc066",
+      "latest_observation": "d61ab1a5cabc06c8",
       "observations": [
         {
           "classic": {
@@ -68813,6 +68819,147 @@
               "Exception trying to write: java.io.IOException: You have reached your filesystem quota of: 200000 bytes.",
               "Exception reading 1_robotstats.stt: java.io.EOFException",
               "Exception reading 1_move.fct: java.io.EOFException"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 11.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4971.0,
+            "scores": [
+              2570.0,
+              2401.0
+            ],
+            "selected": "ag.Gir 0.99"
+          },
+          "completed_at": "2026-09-28T21:37:59Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "d61ab1a5cabc06c8",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9e2eef5c8d2ad084872958a59413b43d530e7dae308a3de4ebf2b133a9c95fe7"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "86735a767c117a476c43fe7e3d09818c102d0253d1393beababf562dc0b8e583"
+              }
+            },
+            "bridge_commit": "3878254caf32a342bcf28cfdf7468b09edf5e13d",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "file-overwrite-quota-accounting",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "3878254"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ag.Gir 0.99",
+            "division": "roborumble",
+            "jar": "ag.Gir_0.99.jar",
+            "jar_sha256": "35a4cbabb1c433b6a4e54977741e90195fa95332d7afcce0c7ffe9c8af1ce32d",
+            "key": "roborumble/ag.Gir_0.99.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.io.EOFException",
+                "unknown"
+              ],
+              [
+                "java.io.IOException",
+                "unknown"
+              ],
+              [
+                "java.lang.NullPointerException",
+                "ag.FileManager.writeNetLayersize"
+              ],
+              [
+                "java.lang.NullPointerException",
+                "ag.FileManager.writeNetRC"
+              ],
+              [
+                "java.lang.NullPointerException",
+                "ag.targeting.TargetingNeural.shoot"
+              ]
+            ],
+            "elapsed": 6.2,
+            "error_count": 12,
+            "error_signatures": [
+              {
+                "exception": "java.io.EOFException",
+                "origin": "ag.FileManager.writeNetLayersize"
+              },
+              {
+                "exception": "java.io.EOFException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.io.IOException",
+                "origin": "ag.FileManager.writeNetLayersize"
+              },
+              {
+                "exception": "java.io.IOException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "ag.FileManager.writeNetLayersize"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "ag.FileManager.writeNetRC"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "ag.targeting.TargetingNeural.shoot"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.getLayerSize()\" because \"net\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.calcOutput(double[])\" because \"this.mNeuralNet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.getLayerSize()\" because \"net\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.calcOutput(double[])\" because \"this.mNeuralNet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.getLayerSize()\" because \"net\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"ag.neuralgir.NeuralNet.calcOutput(double[])\" because \"this.mNeuralNet\" is null",
+              "Exception trying to write: java.io.IOException: Stream Closed",
+              "Exception reading 1_gun.net: java.io.EOFException",
+              "Exception reading 1_gun.net: java.io.EOFException",
+              "Exception reading 1_gun.net: java.io.EOFException",
+              "Exception reading 1_gun.net: java.io.EOFException"
             ],
             "has_log": true,
             "ok": false,

@@ -66,7 +66,7 @@ Three focused official 35-round Roborumble replays of `roborumble/ak.Fermat_2.0.
 
 Trace output shows the active set growing from repeated opens of `Fermat.data/*.txt` files. Fermat's `DataWriter.run()` opens a stream, writes a copied statistics list, and closes the stream only on the successful path; its broad `catch (Exception)` prints only `Could not write Data` and does not close the current stream. The exact exception caught by that legacy worker is therefore unavailable. Its leaked streams remain registered until Fermat's later `writeOneOnOneData()` reaches the five-stream limit.
 
-The bridge repair closes still-registered output streams at round end, after signaling the main robot loop to stop. This contains streams abandoned by legacy helper threads so they cannot accumulate into a later round's quota; the five-stream limit remains enforced during a round. Classic's filesystem manager is attached to the robot proxy for the battle, so this cleanup is recorded as a bridge resource-lifecycle repair rather than a claim that classic resets its stream counter every round.
+The bridge closes still-registered output streams at the start of the next round, after Tank Royale's internal round-ended handler has stopped and joined the previous main bot thread. This contains streams abandoned by legacy helper threads so they cannot accumulate into a later round's quota, while avoiding a close race with the finishing robot callback. The five-stream limit remains enforced within each round.
 
 Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c630c`, and `ff31ace0ad193807`, all linked to repair `796a170`) completed with zero Tank Royale errors; classic also reported zero errors in each. No skipped-turn report was recorded. The results remain `DISCREPANCY (score)` at -43.2%, -41.2%, and -32.6%, so these runs verify the stream-error repair but do not resolve Fermat's score gap.
 
@@ -84,7 +84,9 @@ The official Roborumble observation for `ag.Gir_0.99.jar` completed on classic w
 
 Classic's `ThreadManager.createRobotFileStream()` subtracts an existing file's length from quota usage before opening it for replacement (`append == false`), and checks the current quota before creating a new file. The bridge counted every write but never credited the old length of an overwritten file. Gir rewrites learned data files repeatedly, so its quota usage grew with historical bytes written instead of current file sizes. The bridge now performs classic's quota adjustment before opening the stream.
 
-The FIO-003 two-engine regression rewrites the same 100,000-byte file twice and passes on classic and Tank Royale using the matched local bridge and Tank Royale 1.4.0 Bot API/runner. The repair-linked official Roborumble retest is pending.
+The FIO-003 two-engine regression rewrites the same 100,000-byte file twice and passes on classic and Tank Royale using the matched local bridge and Tank Royale 1.4.0 Bot API/runner. The first repair-linked official retest (`d61ab1a5cabc06c8`, repair `3878254`) removed the quota errors but remained `DISCREPANCY (outcome)` with 12 Tank Royale errors. Its first error was `IOException: Stream Closed` while writing `1_gun.net`, followed by EOF reads and null-network errors.
+
+The second diagnosis, `round-end-stream-close-race`, identifies the remaining trigger. Tank Royale publishes the bridge's `RoundEnded` callback before its internal handler stops and joins the previous bot thread; the bridge closed open streams inside that earlier callback. Cleanup now runs on the next `RoundStarted`, after the previous main bot thread has stopped. The repair-linked official retest for this lifecycle-order correction is pending.
 
 ## Rejected interpretations
 

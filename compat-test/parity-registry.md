@@ -155,7 +155,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/adt.Ar1_2.1.jar | roborumble | robot | PASS | dc30e55fda4f71f3 | - | - |
 | roborumble/adt.Ar2_1.0.jar | roborumble | robot | PASS | 50bd0c5dc7d1d237 | - | - |
 | roborumble/aetos.AetosFirstBot_1.0.jar | roborumble | robot | PASS | fb18442d99e5c6e3 | - | - |
-| roborumble/ag.Gir_0.99.jar | roborumble | robot | DISCREPANCY (outcome) | e3c870e44a2cc066 | file-overwrite-quota-accounting | bridge |
+| roborumble/ag.Gir_0.99.jar | roborumble | robot | DISCREPANCY (outcome) | d61ab1a5cabc06c8 | round-end-stream-close-race | bridge |
 | roborumble/agd.Mooserwirt2_2.7.jar | roborumble | robot | score-review | 103589457c330e19 | - | - |
 | roborumble/agrach.Dalek_1.0.jar | roborumble | robot | score-review | 5bdc9d1e03ddbbfd | - | - |
 | roborumble/agrach.MicroDalek_1.0.jar | roborumble | robot | PASS | 3406205b8980f6c5 | - | - |

@@ -146,7 +146,7 @@ public final class RobotData {
         openStreams.remove(stream);
     }
 
-    /** Closes file streams left behind by legacy worker threads when a robot round ends. */
+    /** Closes file streams left behind by legacy worker threads before the next round starts. */
     static void closeOpenStreams() {
         List<RobocodeFileOutputStream> streams;
         synchronized (RobotData.class) {

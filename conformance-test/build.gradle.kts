@@ -37,6 +37,11 @@ tasks {
         // The harness consumes these files directly rather than resolving them as Gradle dependencies.
         dependsOn(":robocode-api:jar", ":robots-wrapper:fatJar")
 
+        // The harness also consumes engine jars and paths supplied outside Gradle's input model.
+        // Always execute so an updated local engine or environment-selected artifact is not hidden
+        // behind a stale UP-TO-DATE result.
+        outputs.upToDateWhen { false }
+
         useJUnitPlatform()
         testLogging {
             events("failed", "skipped")
