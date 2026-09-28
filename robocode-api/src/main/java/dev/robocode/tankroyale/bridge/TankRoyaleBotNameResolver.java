@@ -26,7 +26,7 @@ final class TankRoyaleBotNameResolver {
 
     static String getNameOrId(Object bot, int botId) {
         var name = getName(bot, botId);
-        return name != null ? name : String.valueOf(botId);
+        return (name != null ? name : String.valueOf(botId)).intern();
     }
 
     private static java.lang.reflect.Method getMethod(Object bot) {

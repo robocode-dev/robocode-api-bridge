@@ -70,6 +70,12 @@ The bridge repair closes still-registered output streams at round end, after sig
 
 Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c630c`, and `ff31ace0ad193807`, all linked to repair `796a170`) completed with zero Tank Royale errors; classic also reported zero errors in each. No skipped-turn report was recorded. The results remain `DISCREPANCY (score)` at -43.2%, -41.2%, and -32.6%, so these runs verify the stream-error repair but do not resolve Fermat's score gap.
 
+## Colossus2 scan-name identity
+
+The official Roborumble observation for `apc.Colossus2_0.12.jar` had 180 Tank Royale `ArrayIndexOutOfBoundsException`s from `onScannedRobot`, while classic reported none (`aafa949ac07b6f62`). Bytecode inspection shows the callback compares `ScannedRobotEvent.getName()` to its 20 saved names using reference equality (`if_acmpne`). It appends each name it does not recognize to a 20-slot array, so repeated scans must carry the same `String` object for the same target.
+
+Classic constructs scans with `RobotPeer.getNameForEvent(otherRobot)`, which returns the target's stable name held by `RobotStatics`. The bridge previously created `String.valueOf(scannedBotId)` for every event, producing a new object on each scan and causing Colossus2 to treat a known target as new. The mapper now resolves the classic name through Tank Royale's name map and interns the result; older Bot APIs without that map use an interned numeric fallback. Unit tests assert the mapped value and stable reference for both paths. A repair-linked official retest remains pending.
+
 ## Rejected interpretations
 
 The analysis rejects treating every classic-only error in these melee runs as a defect in the measured subject, treating the pinned pool's prior roborumble `PASS` results as proof that its jars are clean in melee, and modifying the rumble jars to make the comparison complete.
