@@ -6,7 +6,6 @@ links: [CAP-004]
 title: Robot file I/O sandboxing — acceptance criteria
 ac-prefix: FIO
 provenance: verified
-reversal-cost: high
 ---
 
 # CAP-004 — acceptance criteria

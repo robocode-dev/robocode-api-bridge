@@ -7,7 +7,6 @@ title: A robot reads and writes only inside its own data directory
 source: Classic Robocode's robot sandbox, which every rumble robot was written against
 enforcement: partial
 provenance: verified
-reversal-cost: high
 ---
 
 # C-005 — A robot reads and writes only inside its own data directory

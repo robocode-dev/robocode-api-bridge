@@ -6,7 +6,6 @@ links: [G-001, C-005, IDR-007]
 goal: G-001
 title: Robot file I/O sandboxing
 provenance: verified
-reversal-cost: high
 ---
 
 # CAP-004 — Robot file I/O sandboxing

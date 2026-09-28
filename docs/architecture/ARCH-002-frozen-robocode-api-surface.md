@@ -5,7 +5,6 @@ status: active
 links: [G-001, ARCH-001, CAP-003]
 title: The frozen Robocode API surface — robocode.* is reproduced, not designed
 provenance: verified
-reversal-cost: high
 ---
 
 # ARCH-002 — The frozen Robocode API surface
