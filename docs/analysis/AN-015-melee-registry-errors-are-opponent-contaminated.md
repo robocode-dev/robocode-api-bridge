@@ -74,7 +74,9 @@ Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c
 
 The official Roborumble observation for `apc.Colossus2_0.12.jar` had 180 Tank Royale `ArrayIndexOutOfBoundsException`s from `onScannedRobot`, while classic reported none (`aafa949ac07b6f62`). Bytecode inspection shows the callback compares `ScannedRobotEvent.getName()` to its 20 saved names using reference equality (`if_acmpne`). It appends each name it does not recognize to a 20-slot array, so repeated scans must carry the same `String` object for the same target.
 
-Classic constructs scans with `RobotPeer.getNameForEvent(otherRobot)`, which returns the target's stable name held by `RobotStatics`. The bridge previously created `String.valueOf(scannedBotId)` for every event, producing a new object on each scan and causing Colossus2 to treat a known target as new. The mapper now resolves the classic name through Tank Royale's name map and interns the result; older Bot APIs without that map use an interned numeric fallback. Unit tests assert the mapped value and stable reference for both paths. A repair-linked official retest remains pending.
+Classic constructs scans with `RobotPeer.getNameForEvent(otherRobot)`, which returns the target's stable name held by `RobotStatics`. The bridge previously created `String.valueOf(scannedBotId)` for every event, producing a new object on each scan and causing Colossus2 to treat a known target as new. The mapper now resolves the classic name through Tank Royale's name map and interns the result; older Bot APIs without that map use an interned numeric fallback. Unit tests assert the mapped value and stable reference for both paths.
+
+The repair-linked official 35-round retest (`9c81fee190364e22`, repair `255fcb3`) completed with zero errors on both engines and `PASS` status. Classic scored 11,561 and Tank Royale 10,070, a -12.9% delta within the registry's 25% threshold. The observation contains no turn-by-turn skipped-turn data, so it does not establish whether either engine skipped turns.
 
 ## Rejected interpretations
 

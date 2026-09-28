@@ -8,9 +8,9 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 75 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 88 |
+| DISCREPANCY (outcome) | 87 |
 | MATCHED (failure) | 49 |
-| PASS | 691 |
+| PASS | 692 |
 | score-review | 294 |
 
 ## Subjects
@@ -188,7 +188,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ao.T100_0.9.jar | roborumble | robot | score-review | dde2c0b78956ab41 | - | - |
 | roborumble/ap.Frederick_1.1.jar | roborumble | robot | DISCREPANCY (no score) | afd8cef3db9b2fa4 | - | - |
 | roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | aabd00fd8b967bed | - | - |
-| roborumble/apc.Colossus2_0.12.jar | roborumble | robot | DISCREPANCY (outcome) | aafa949ac07b6f62 | - | - |
+| roborumble/apc.Colossus2_0.12.jar | roborumble | robot | PASS | 9c81fee190364e22 | scan-target-name-identity | bridge |
 | roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | e8c0fd36dc3876f7 | - | - |
 | roborumble/apc.botM_3.0.jar | roborumble | robot | PASS | a47d3ba08bb6086f | - | - |
 | roborumble/apollokidd.ApolloKidd_0.9.jar | roborumble | robot | score-review | bcbade73beb02c58 | - | - |

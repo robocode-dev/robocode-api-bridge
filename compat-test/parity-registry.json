@@ -76552,7 +76552,14 @@
       "status": "PASS"
     },
     "roborumble/apc.Colossus2_0.12.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "scan-target-name-identity",
+          "id": "diagnosis-1",
+          "owner": "bridge",
+          "recorded_at": "2026-09-28T21:09:47Z"
+        }
+      ],
       "identity": {
         "classic_selected": "apc.Colossus2 0.12",
         "division": "roborumble",
@@ -76561,7 +76568,7 @@
         "key": "roborumble/apc.Colossus2_0.12.jar",
         "kind": "robot"
       },
-      "latest_observation": "aafa949ac07b6f62",
+      "latest_observation": "9c81fee190364e22",
       "observations": [
         {
           "classic": {
@@ -77107,9 +77114,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 11561.0,
+            "scores": [
+              5458.0,
+              6103.0
+            ],
+            "selected": "apc.Colossus2 0.12"
+          },
+          "completed_at": "2026-09-28T21:10:30Z",
+          "confirmation": null,
+          "delta_pct": -12.9,
+          "id": "9c81fee190364e22",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "c732df55bc3cc2f39786753dc8e0e4891b73d1eded69480ff1c44f91ebb27bfa"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "d911904596cde3bd9de9a83954c734973743b8e442e5e8b7d1b75b3a5dbeb08d"
+              }
+            },
+            "bridge_commit": "255fcb35d768bad26e95f5bde43e10c2b998c05a",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "scan-target-name-identity",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "255fcb3"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "apc.Colossus2 0.12",
+            "division": "roborumble",
+            "jar": "apc.Colossus2_0.12.jar",
+            "jar_sha256": "b4dbfb04c20332efad6d132d89259a0218fb245dbc8d73a14e368d6dcc024db3",
+            "key": "roborumble/apc.Colossus2_0.12.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 10070.0,
+            "scores": [
+              5618.0,
+              4452.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/apc.LeeroyJenkins2_1.0.jar": {
       "diagnosis_events": [],
