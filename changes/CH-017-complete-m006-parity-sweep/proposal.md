@@ -2,7 +2,7 @@
 id: CH-017
 type: change
 status: open
-links: [P-001, CH-016]
+links: [P-001]
 title: Continue the all-division versioned parity campaign
 ---
 
