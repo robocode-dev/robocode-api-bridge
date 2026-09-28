@@ -5,7 +5,6 @@ status: accepted
 links: []
 title: Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode
 provenance: verified
-reversal-cost: high
 ---
 
 # G-001 — Legacy Robocode robots run unmodified on Tank Royale and behave as they do on classic Robocode
