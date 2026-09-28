@@ -6,9 +6,9 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| DISCREPANCY (errors) | 33 |
+| DISCREPANCY (errors) | 54 |
 | DISCREPANCY (no score) | 40 |
-| DISCREPANCY (outcome) | 83 |
+| DISCREPANCY (outcome) | 87 |
 | MATCHED (failure) | 49 |
 | PASS | 689 |
 | score-review | 294 |
@@ -37,6 +37,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 44e5d871a2089a0a | - | - |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | 87e98511be4470ad | - | - |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 0d8c9f65ee072eec | - | - |
+| meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | e635d3558bfd09bc | - | - |
+| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 21a2c4a504e912ab | - | - |
+| meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 1e651c72ac620a9e | - | - |
+| meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | 4b092c6fc546a70d | - | - |
+| meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | 9b446497f4946220 | - | - |
+| meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 4df116958c48cf67 | - | - |
+| meleerumble/as.FrankTheTank_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 37024126101ec28f | - | - |
+| meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 1233d28410286af5 | - | - |
+| meleerumble/awesomeness.Elite_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b70b7c4324fb2671 | - | - |
+| meleerumble/axeBots.HataMoto_3.09.jar | meleerumble | robot | DISCREPANCY (outcome) | f02a222e13047011 | - | - |
+| meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (outcome) | 091cbdb379677185 | - | - |
+| meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | 584cd0f3ef575185 | - | - |
+| meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 34284e784f889aa4 | - | - |
+| meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | 0e555108c857e84e | - | - |
+| meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 24e1c68ffaa4d90a | - | - |
+| meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | a14785216530e193 | - | - |
+| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | a7743ab3acf92fc8 | - | - |
+| meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | bc55ababbbac09b4 | - | - |
+| meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | 8de5e7872b68c360 | - | - |
+| meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | bf04da4787f958fa | - | - |
+| meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | 9cf9fac0e57b6fcc | - | - |
+| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | ccc68151c7d9cdd0 | - | - |
+| meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | 0f4b5e123283cfed | - | - |
+| meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 9d8c3fd37f10fca5 | - | - |
+| meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | a37eccfc435298b2 | - | - |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | bf7472d00df944d2 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
