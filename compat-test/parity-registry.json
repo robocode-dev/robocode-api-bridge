@@ -72050,7 +72050,14 @@
       "status": "PASS"
     },
     "roborumble/ak.Fermat_2.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "legacy-worker-stream-leak",
+          "id": "diagnosis-1",
+          "owner": "bridge",
+          "recorded_at": "2026-09-28T20:56:08Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ak.Fermat 2.0",
         "division": "roborumble",
@@ -72059,7 +72066,7 @@
         "key": "roborumble/ak.Fermat_2.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "49b5fb75c478cf4b",
+      "latest_observation": "ff31ace0ad193807",
       "observations": [
         {
           "classic": {
@@ -72576,9 +72583,252 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 8.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5524.0,
+            "scores": [
+              2886.0,
+              2638.0
+            ],
+            "selected": "ak.Fermat 2.0"
+          },
+          "completed_at": "2026-09-28T20:56:51Z",
+          "confirmation": null,
+          "delta_pct": -43.2,
+          "id": "d5d2e35d49eabd9a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "cf9ff36332c20a2cfa9f4a439376cb89ed8dda264b0c20fc8cc9727a60024296"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "d911904596cde3bd9de9a83954c734973743b8e442e5e8b7d1b75b3a5dbeb08d"
+              }
+            },
+            "bridge_commit": "796a170134447f59286147f67e7ebeb8e060d3dd",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "legacy-worker-stream-leak",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "796a170"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ak.Fermat 2.0",
+            "division": "roborumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "roborumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 22.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 3135.0,
+            "scores": [
+              1878.0,
+              1257.0
+            ],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 8.7,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5161.0,
+            "scores": [
+              2155.0,
+              3006.0
+            ],
+            "selected": "ak.Fermat 2.0"
+          },
+          "completed_at": "2026-09-28T20:58:37Z",
+          "confirmation": null,
+          "delta_pct": -41.2,
+          "id": "11ec421d416c630c",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "cf9ff36332c20a2cfa9f4a439376cb89ed8dda264b0c20fc8cc9727a60024296"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "d911904596cde3bd9de9a83954c734973743b8e442e5e8b7d1b75b3a5dbeb08d"
+              }
+            },
+            "bridge_commit": "796a170134447f59286147f67e7ebeb8e060d3dd",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "legacy-worker-stream-leak",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "796a170"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ak.Fermat 2.0",
+            "division": "roborumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "roborumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 24.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 3036.0,
+            "scores": [
+              1993.0,
+              1043.0
+            ],
+            "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 8.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5117.0,
+            "scores": [
+              2467.0,
+              2650.0
+            ],
+            "selected": "ak.Fermat 2.0"
+          },
+          "completed_at": "2026-09-28T20:59:24Z",
+          "confirmation": null,
+          "delta_pct": -32.6,
+          "id": "ff31ace0ad193807",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "cf9ff36332c20a2cfa9f4a439376cb89ed8dda264b0c20fc8cc9727a60024296"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "d911904596cde3bd9de9a83954c734973743b8e442e5e8b7d1b75b3a5dbeb08d"
+              }
+            },
+            "bridge_commit": "796a170134447f59286147f67e7ebeb8e060d3dd",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "legacy-worker-stream-leak",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "796a170"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ak.Fermat 2.0",
+            "division": "roborumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "roborumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 24.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 3447.0,
+            "scores": [
+              1934.0,
+              1513.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "score-review"
     },
     "roborumble/alex.Diabolo5_1.1.jar": {
       "diagnosis_events": [],

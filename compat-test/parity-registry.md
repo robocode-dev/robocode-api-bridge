@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | DISCREPANCY (errors) | 75 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 89 |
+| DISCREPANCY (outcome) | 88 |
 | MATCHED (failure) | 49 |
 | PASS | 691 |
-| score-review | 293 |
+| score-review | 294 |
 
 ## Subjects
 
@@ -169,7 +169,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | score-review | f6526bb51480d4f5 | - | - |
 | roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | score-review | a2becfd0a85b24db | - | - |
 | roborumble/ahr.ice.Ice_1.0.jar | roborumble | robot | PASS | 3a76f56e636e4829 | - | - |
-| roborumble/ak.Fermat_2.0.jar | roborumble | robot | DISCREPANCY (outcome) | 49b5fb75c478cf4b | - | - |
+| roborumble/ak.Fermat_2.0.jar | roborumble | robot | score-review | ff31ace0ad193807 | legacy-worker-stream-leak | bridge |
 | roborumble/alex.Diabolo5_1.1.jar | roborumble | robot | PASS | bf426b80c7e5c3f8 | - | - |
 | roborumble/alk.lap.LoudAndProud_2.23.jar | roborumble | robot | PASS | c36eb610f9e6a0d7 | - | - |
 | roborumble/am.Miedzix_3.0.jar | roborumble | robot | PASS | 32356b3362a6a0a9 | - | - |

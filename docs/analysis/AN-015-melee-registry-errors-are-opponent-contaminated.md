@@ -66,7 +66,9 @@ Three focused official 35-round Roborumble replays of `roborumble/ak.Fermat_2.0.
 
 Trace output shows the active set growing from repeated opens of `Fermat.data/*.txt` files. Fermat's `DataWriter.run()` opens a stream, writes a copied statistics list, and closes the stream only on the successful path; its broad `catch (Exception)` prints only `Could not write Data` and does not close the current stream. The exact exception caught by that legacy worker is therefore unavailable. Its leaked streams remain registered until Fermat's later `writeOneOnOneData()` reaches the five-stream limit.
 
-The bridge repair closes still-registered output streams at round end, after signaling the main robot loop to stop. This contains streams abandoned by legacy helper threads so they cannot accumulate into a later round's quota; the five-stream limit remains enforced during a round. Classic's filesystem manager is attached to the robot proxy for the battle, so this cleanup is recorded as a bridge resource-lifecycle repair rather than a claim that classic resets its stream counter every round. A repair-linked official retest remains pending.
+The bridge repair closes still-registered output streams at round end, after signaling the main robot loop to stop. This contains streams abandoned by legacy helper threads so they cannot accumulate into a later round's quota; the five-stream limit remains enforced during a round. Classic's filesystem manager is attached to the robot proxy for the battle, so this cleanup is recorded as a bridge resource-lifecycle repair rather than a claim that classic resets its stream counter every round.
+
+Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c630c`, and `ff31ace0ad193807`, all linked to repair `796a170`) completed with zero Tank Royale errors; classic also reported zero errors in each. No skipped-turn report was recorded. The results remain `DISCREPANCY (score)` at -43.2%, -41.2%, and -32.6%, so these runs verify the stream-error repair but do not resolve Fermat's score gap.
 
 ## Rejected interpretations
 
