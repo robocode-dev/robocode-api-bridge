@@ -8,6 +8,13 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.AccessControlException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.List;
+import java.util.Set;
+
+import robocode.RobocodeFileOutputStream;
 
 /**
  * Resolves every path a robot names against its data directory, the way classic Robocode's
@@ -22,7 +29,8 @@ public final class RobotData {
     private static final Path dataDirPath;
     private static long quotaUsed;
     private static boolean quotaMessagePrinted;
-    private static int openStreams;
+    private static final Set<RobocodeFileOutputStream> openStreams =
+            Collections.newSetFromMap(new IdentityHashMap<>());
 
     static {
         dataDirPath = Paths.get("").resolve(RobotName.getName() + ".data");
@@ -32,7 +40,6 @@ public final class RobotData {
             throw new BotException("Could not create data directory: " + dataDirPath);
         }
         quotaUsed = 0;
-        openStreams = 0;
         File[] existingFiles = dataDirPath.toFile().listFiles();
         if (existingFiles != null) {
             for (File file : existingFiles) {
@@ -104,19 +111,32 @@ public final class RobotData {
     }
 
     /** Reserves one of classic's five simultaneously open robot file streams. */
-    public static synchronized void registerStream() {
-        if (openStreams >= MAX_OPEN_STREAMS) {
+    public static synchronized void registerStream(RobocodeFileOutputStream stream) {
+        if (openStreams.size() >= MAX_OPEN_STREAMS) {
             throw new SecurityException(
                     "You may only have 5 streams open at a time.\n"
                             + " Make sure you call close() on your streams when you are finished with them.");
         }
-        openStreams++;
+        openStreams.add(stream);
     }
 
     /** Releases a stream reservation, including when a robot closes a stream more than once. */
-    public static synchronized void unregisterStream() {
-        if (openStreams > 0) {
-            openStreams--;
+    public static synchronized void unregisterStream(RobocodeFileOutputStream stream) {
+        openStreams.remove(stream);
+    }
+
+    /** Closes file streams left behind by legacy worker threads when a robot round ends. */
+    static void closeOpenStreams() {
+        List<RobocodeFileOutputStream> streams;
+        synchronized (RobotData.class) {
+            streams = new ArrayList<>(openStreams);
+        }
+        for (RobocodeFileOutputStream stream : streams) {
+            try {
+                stream.close();
+            } catch (IOException ignored) {
+                // Round-end cleanup has no robot callback through which to report a close failure.
+            }
         }
     }
 }

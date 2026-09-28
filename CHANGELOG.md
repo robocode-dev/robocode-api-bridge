@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Close legacy data streams abandoned by worker threads at round end, and track active stream instances so leaked handles cannot consume later rounds' five-stream quota.
 - Bounded compatibility-sweep timeout supervision so blocked error watching or process-tree cleanup cannot stall a checkpoint indefinitely, and retain Windows taskkill diagnostics when cleanup is incomplete.
 - Fixed legacy bot startup and round-transition lifecycle races by attaching peers after game setup and containing stale callback tick errors during shutdown.
 - Added two-engine conformance evidence for pending scan delivery, turn-boundary timing, custom-event removal, skipped turns, handler exceptions, and official melee-participant-count scans.

@@ -81,7 +81,7 @@ public class RobocodeFileOutputStream extends OutputStream {
         // re-rooted under itself.
         FileOutputStream opened = new FileOutputStream(fileName, append);
         try {
-            RobotData.registerStream();
+            RobotData.registerStream(this);
             out = opened;
             streamRegistered.set(true);
         } catch (RuntimeException | Error exception) {
@@ -106,7 +106,7 @@ public class RobocodeFileOutputStream extends OutputStream {
             out.close();
         } finally {
             if (streamRegistered.compareAndSet(true, false)) {
-                RobotData.unregisterStream();
+                RobotData.unregisterStream(this);
             }
         }
     }

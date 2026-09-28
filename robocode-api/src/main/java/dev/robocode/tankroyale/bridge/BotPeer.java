@@ -1250,6 +1250,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 }
             } finally {
                 robot.stopThread();
+                RobotData.closeOpenStreams();
             }
         }
 
