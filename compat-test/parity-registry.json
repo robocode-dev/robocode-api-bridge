@@ -68287,7 +68287,7 @@
         "key": "roborumble/ag.Gir_0.99.jar",
         "kind": "robot"
       },
-      "latest_observation": "d61ab1a5cabc06c8",
+      "latest_observation": "a6c8859641c3bbaf",
       "observations": [
         {
           "classic": {
@@ -68967,9 +68967,90 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 11.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4846.0,
+            "scores": [
+              2401.0,
+              2445.0
+            ],
+            "selected": "ag.Gir 0.99"
+          },
+          "completed_at": "2026-09-28T21:55:09Z",
+          "confirmation": null,
+          "delta_pct": 18.8,
+          "id": "a6c8859641c3bbaf",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "23de3a465159adc275f52b531b4223ede35dcfe155030970c8985ee52dc6e6c6"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "b1b530ece2752a7bbe3a24b9702a66678d80969a61a51b72aec3fd29f1a4e116"
+              }
+            },
+            "bridge_commit": "792ae196e6e361bf6e3f258740f65ebaa6cf56f4",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "round-end-stream-close-race",
+            "diagnosis_id": "diagnosis-2",
+            "owner": "bridge",
+            "repair": "792ae19"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ag.Gir 0.99",
+            "division": "roborumble",
+            "jar": "ag.Gir_0.99.jar",
+            "jar_sha256": "35a4cbabb1c433b6a4e54977741e90195fa95332d7afcce0c7ffe9c8af1ce32d",
+            "key": "roborumble/ag.Gir_0.99.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 32.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5756.0,
+            "scores": [
+              2953.0,
+              2803.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/agd.Mooserwirt2_2.7.jar": {
       "diagnosis_events": [],
@@ -72220,7 +72301,7 @@
         "key": "roborumble/ak.Fermat_2.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "ff31ace0ad193807",
+      "latest_observation": "dcb3bec37ae6637b",
       "observations": [
         {
           "classic": {
@@ -72980,9 +73061,90 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 8.9,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5224.0,
+            "scores": [
+              2659.0,
+              2565.0
+            ],
+            "selected": "ak.Fermat 2.0"
+          },
+          "completed_at": "2026-09-28T21:56:00Z",
+          "confirmation": null,
+          "delta_pct": -11.4,
+          "id": "dcb3bec37ae6637b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "866722a87fe3360f1f049404c3d8361bf82e5b301461b932608a01f570e55c5e"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "23de3a465159adc275f52b531b4223ede35dcfe155030970c8985ee52dc6e6c6"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale-team-names\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "42d5228c37c826d6af148247e80f7ec3bd57ea9e17cd98d20409cc2a9dbbf040"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge-ch017\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "b1b530ece2752a7bbe3a24b9702a66678d80969a61a51b72aec3fd29f1a4e116"
+              }
+            },
+            "bridge_commit": "792ae196e6e361bf6e3f258740f65ebaa6cf56f4",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "21324d6b7c4433e3fc1ba2a0e29c691fc3565e47",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "legacy-worker-stream-leak",
+            "diagnosis_id": "diagnosis-1",
+            "owner": "bridge",
+            "repair": "792ae19"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ak.Fermat 2.0",
+            "division": "roborumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "roborumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 32.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4627.0,
+            "scores": [
+              2369.0,
+              2258.0
+            ],
+            "skipped": null
+          }
         }
       ],
-      "status": "score-review"
+      "status": "PASS"
     },
     "roborumble/alex.Diabolo5_1.1.jar": {
       "diagnosis_events": [],

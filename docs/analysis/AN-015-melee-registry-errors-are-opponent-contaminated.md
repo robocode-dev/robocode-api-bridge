@@ -68,7 +68,7 @@ Trace output shows the active set growing from repeated opens of `Fermat.data/*.
 
 The bridge closes still-registered output streams at the start of the next round, after Tank Royale's internal round-ended handler has stopped and joined the previous main bot thread. This contains streams abandoned by legacy helper threads so they cannot accumulate into a later round's quota, while avoiding a close race with the finishing robot callback. The five-stream limit remains enforced within each round.
 
-Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c630c`, and `ff31ace0ad193807`, all linked to repair `796a170`) completed with zero Tank Royale errors; classic also reported zero errors in each. No skipped-turn report was recorded. The results remain `DISCREPANCY (score)` at -43.2%, -41.2%, and -32.6%, so these runs verify the stream-error repair but do not resolve Fermat's score gap.
+Three repair-linked 35-round official retests (`d5d2e35d49eabd9a`, `11ec421d416c630c`, and `ff31ace0ad193807`, all linked to repair `796a170`) completed with zero errors on both engines. A further retest after moving cleanup until the previous main bot thread has stopped (`dcb3bec37ae6637b`, repair `792ae19`) also completed all 35 rounds with zero errors on both engines and `PASS` at -11.4%. The earlier score-review deltas were -43.2%, -41.2%, and -32.6%; the updated retest is within the 25% review threshold. Skipped-turn telemetry was not captured.
 
 ## Colossus2 scan-name identity
 
@@ -86,7 +86,7 @@ Classic's `ThreadManager.createRobotFileStream()` subtracts an existing file's l
 
 The FIO-003 two-engine regression rewrites the same 100,000-byte file twice and passes on classic and Tank Royale using the matched local bridge and Tank Royale 1.4.0 Bot API/runner. The first repair-linked official retest (`d61ab1a5cabc06c8`, repair `3878254`) removed the quota errors but remained `DISCREPANCY (outcome)` with 12 Tank Royale errors. Its first error was `IOException: Stream Closed` while writing `1_gun.net`, followed by EOF reads and null-network errors.
 
-The second diagnosis, `round-end-stream-close-race`, identifies the remaining trigger. Tank Royale publishes the bridge's `RoundEnded` callback before its internal handler stops and joins the previous bot thread; the bridge closed open streams inside that earlier callback. Cleanup now runs on the next `RoundStarted`, after the previous main bot thread has stopped. The repair-linked official retest for this lifecycle-order correction is pending.
+The second diagnosis, `round-end-stream-close-race`, identifies the remaining trigger. Tank Royale publishes the bridge's `RoundEnded` callback before its internal handler stops and joins the previous bot thread; the bridge closed open streams inside that earlier callback. Cleanup now runs on the next `RoundStarted`, after the previous main bot thread has stopped. The repair-linked official 35-round retest (`a6c8859641c3bbaf`, repair `792ae19`) completed with zero errors on both engines and `PASS` at +18.8%. Skipped-turn telemetry was not captured.
 
 ## Rejected interpretations
 
