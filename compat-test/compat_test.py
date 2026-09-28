@@ -356,8 +356,9 @@ def validate_robocode_version(opts):
 PROCESS_TREE_KILL_TIMEOUT_SECONDS = 15
 
 
-def kill_process_tree(proc: subprocess.Popen):
+def kill_process_tree(proc: subprocess.Popen, diagnostics=None):
     """Kills a process and its children without allowing cleanup to stall a sweep."""
+    diagnostics = diagnostics if diagnostics is not None else []
     if proc.poll() is not None:
         return True
     if sys.platform == "win32":
@@ -365,9 +366,20 @@ def kill_process_tree(proc: subprocess.Popen):
             taskkill = subprocess.run(
                 ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
                 capture_output=True, timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
-        except (OSError, subprocess.TimeoutExpired):
+        except subprocess.TimeoutExpired:
             taskkill = None
+            diagnostics.append(
+                f"<taskkill timed out after {PROCESS_TREE_KILL_TIMEOUT_SECONDS}s>")
+        except OSError as exc:
+            taskkill = None
+            diagnostics.append(f"<taskkill could not start: {exc}>")
         if taskkill is None or taskkill.returncode != 0:
+            if taskkill is not None:
+                output = " ".join(
+                    value.strip() for value in (taskkill.stdout, taskkill.stderr) if value
+                )
+                diagnostics.append(
+                    f"<taskkill exited {taskkill.returncode}: {output[:600]}>")
             if proc.poll() is not None:
                 return True
             try:
@@ -418,8 +430,10 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         try:
             proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            tree_killed = kill_process_tree(proc)
+            cleanup_diagnostics = []
+            tree_killed = kill_process_tree(proc, cleanup_diagnostics)
             details = ["<killed: orchestrator timeout>"]
+            details.extend(cleanup_diagnostics)
             if not tree_killed:
                 details.append("<process-tree termination incomplete>")
             return -1, collected() + "\n" + "\n".join(details), True
@@ -450,13 +464,15 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         return result.get("triggered", False)
 
     def timeout_result(pending):
-        tree_killed = kill_process_tree(proc)
+        cleanup_diagnostics = []
+        tree_killed = kill_process_tree(proc, cleanup_diagnostics)
         watcher_stuck = False
         if pending is not None:
             thread, _ = pending
             thread.join(timeout=0.25)
             watcher_stuck = thread.is_alive()
         details = ["<killed: orchestrator timeout>"]
+        details.extend(cleanup_diagnostics)
         if not tree_killed:
             details.append("<process-tree termination incomplete>")
         if watcher_stuck:
@@ -479,8 +495,10 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         pending_check = None
 
         if triggered:
-            tree_killed = kill_process_tree(proc)
+            cleanup_diagnostics = []
+            tree_killed = kill_process_tree(proc, cleanup_diagnostics)
             details = ["<stopped: exception with no classic counterpart>"]
+            details.extend(cleanup_diagnostics)
             if not tree_killed:
                 details.append("<process-tree termination incomplete>")
             return -1, collected() + "\n" + "\n".join(details), False

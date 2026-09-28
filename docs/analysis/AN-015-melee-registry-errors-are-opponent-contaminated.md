@@ -50,6 +50,16 @@ Three outcome discrepancies carried Tank-Royale-only exceptions from measured-su
 
 The fourth outcome discrepancy was com.syncleus.robocode.Dreadnaught. Its first Tank Royale run produced no result and recorded 8,139 seconds against the 600-second per-side timeout. Source review found that the fail-fast watcher ran synchronously inside the timeout loop and Windows taskkill had no timeout. Both paths are now bounded and covered by regression tests. The timeout did not reproduce: a same-setup official retest completed in 36.1 seconds and returned to the opponent-error discrepancy pattern. The original elapsed-time record remains in the append-only registry; that run did not capture which blocking step caused the overrun.
 
+## Focused retests after timeout supervision repair
+
+The repair-linked official Dreadnaught retest completed all 35 rounds in 60.6 seconds on Tank Royale, below the 600-second per-side timeout. Its observation (`e60cf1d52f296445`) remains `DISCREPANCY (errors)` because the fixed pool still produces the opponent-origin `SecurityException` and `ArrayIndexOutOfBoundsException`. The registry links this retest to cause `harness-timeout-overrun` and repair commit `4d0fa88`; the earlier 36.1-second observation is unchanged and remains unlinked.
+
+The three subject-only exceptions were retaken under the same official 35-round, 1000-by-1000, ten-participant setup and exact nine-opponent pool. Firestarter again threw a `NullPointerException` in its obfuscated `C.I.I` callback (`0b2c1f3d52ecd23f`); RiOx again threw `ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 9` at `cf.OPs.RiOxM_OP.onScannedRobot` (`491778d42b27fa0a`); and B26354 again threw `NullPointerException` from `darkcanuck.m.a` (`b336f45184cf831d`). The classic runs contained the known opponent-pool errors, not these subject signatures. Tank Royale fail-fast stopped each run at the first subject-only exception, so these observations prove reproducibility rather than full-battle score parity.
+
+The RiOx bytecode shows a nine-entry enemy array sized from `getOthers()` and a monotonically increasing index for each previously unseen `ScannedRobotEvent.getName()`. Index 9 therefore indicates a tenth distinct name reached that callback, but the run did not capture the scan sequence needed to identify why. The bridge currently maps `ScannedBotEvent.getScannedBotId()` to the string exposed by `ScannedRobotEvent.getName()`; this is a plausible identity boundary to investigate, not a confirmed cause. The three cases remain unresolved, and no rumble jar was changed.
+
+The first focused Firestarter retake recorded uncertain process-tree cleanup after its fail-fast stop. A second retake reproduced the same bot exception with cleanup confirmed. The harness now records taskkill's timeout or error text when Windows cleanup cannot be confirmed, and its timeout supervision tests pass.
+
 ## Rejected interpretations
 
 The analysis rejects treating every classic-only error in these melee runs as a defect in the measured subject, treating the pinned pool's prior roborumble `PASS` results as proof that its jars are clean in melee, and modifying the rumble jars to make the comparison complete.

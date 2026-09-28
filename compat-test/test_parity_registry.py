@@ -275,7 +275,7 @@ class ParityRegistryTest(unittest.TestCase):
             release_watcher.wait(timeout=2)
             return False
 
-        def terminate_worker(proc):
+        def terminate_worker(proc, _diagnostics):
             proc.kill()
             proc.wait(timeout=2)
             return True
@@ -299,15 +299,17 @@ class ParityRegistryTest(unittest.TestCase):
         proc = Mock()
         proc.pid = 12345
         proc.poll.return_value = None
+        diagnostics = []
 
         with patch.object(harness.sys, "platform", "win32"), \
                 patch.object(
                     harness.subprocess, "run",
                     side_effect=harness.subprocess.TimeoutExpired("taskkill", 15)) as taskkill:
-            terminated = harness.kill_process_tree(proc)
+            terminated = harness.kill_process_tree(proc, diagnostics)
 
         self.assertFalse(terminated)
         self.assertEqual(15, taskkill.call_args.kwargs["timeout"])
+        self.assertIn("<taskkill timed out after 15s>", diagnostics)
         proc.kill.assert_called_once()
         proc.wait.assert_called_once_with(timeout=15)
 
