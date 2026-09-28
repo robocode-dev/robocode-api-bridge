@@ -353,19 +353,43 @@ def validate_robocode_version(opts):
     return robocode_version_error(opts.robocode_home, opts.robocode_version)
 
 
+PROCESS_TREE_KILL_TIMEOUT_SECONDS = 15
+
+
 def kill_process_tree(proc: subprocess.Popen):
-    """Kills a process and all of its children (bot JVMs, embedded server, booter)."""
+    """Kills a process and its children without allowing cleanup to stall a sweep."""
     if proc.poll() is not None:
-        return
+        return True
     if sys.platform == "win32":
-        subprocess.run(["taskkill", "/PID", str(proc.pid), "/T", "/F"],
-                       capture_output=True)
+        try:
+            taskkill = subprocess.run(
+                ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
+                capture_output=True, timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+        except (OSError, subprocess.TimeoutExpired):
+            taskkill = None
+        if taskkill is None or taskkill.returncode != 0:
+            if proc.poll() is not None:
+                return True
+            try:
+                proc.kill()
+                proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+            return False
     else:
-        proc.kill()
+        try:
+            proc.kill()
+        except OSError:
+            pass
     try:
-        proc.wait(timeout=15)
+        proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
     except subprocess.TimeoutExpired:
-        proc.kill()
+        try:
+            proc.kill()
+            proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+        except (OSError, subprocess.TimeoutExpired):
+            return False
+    return proc.poll() is not None
 
 
 def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
@@ -394,25 +418,92 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         try:
             proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            kill_process_tree(proc)
-            return -1, collected() + "\n<killed: orchestrator timeout>", True
+            tree_killed = kill_process_tree(proc)
+            details = ["<killed: orchestrator timeout>"]
+            if not tree_killed:
+                details.append("<process-tree termination incomplete>")
+            return -1, collected() + "\n" + "\n".join(details), True
         return proc.returncode, collected(), False
 
-    deadline = time.time() + timeout
-    while proc.poll() is None:
-        if time.time() > deadline:
-            kill_process_tree(proc)
-            return -1, collected() + "\n<killed: orchestrator timeout>", True
-        if abort_when("".join(chunks)):
-            kill_process_tree(proc)
-            return -1, collected() + "\n<stopped: exception with no classic counterpart>", False
-        time.sleep(poll_seconds)
-    output = collected()
-    # A short-lived worker can write its final exception and exit between polls. Its
-    # output is still a bridge-only failure and must not leave a score in the result.
-    if abort_when(output):
-        return -1, output + "\n<stopped: exception with no classic counterpart>", False
-    return proc.returncode, output, False
+    deadline = time.monotonic() + timeout
+    pending_check = None
+
+    def start_abort_check(worker_output):
+        result = {}
+
+        def check():
+            try:
+                result["triggered"] = bool(abort_when(worker_output))
+            except Exception as exc:
+                result["error"] = exc
+
+        thread = threading.Thread(target=check, daemon=True)
+        thread.start()
+        return thread, result
+
+    def abort_result(pending):
+        thread, result = pending
+        if thread.is_alive():
+            return None
+        if "error" in result:
+            raise result["error"]
+        return result.get("triggered", False)
+
+    def timeout_result(pending):
+        tree_killed = kill_process_tree(proc)
+        watcher_stuck = False
+        if pending is not None:
+            thread, _ = pending
+            thread.join(timeout=0.25)
+            watcher_stuck = thread.is_alive()
+        details = ["<killed: orchestrator timeout>"]
+        if not tree_killed:
+            details.append("<process-tree termination incomplete>")
+        if watcher_stuck:
+            details.append("<abort watcher did not stop before timeout>")
+        return -1, collected() + "\n" + "\n".join(details), True
+
+    while True:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return timeout_result(pending_check)
+
+        if pending_check is None:
+            pending_check = start_abort_check("".join(chunks))
+
+        check_thread, _ = pending_check
+        check_thread.join(timeout=min(poll_seconds, remaining))
+        triggered = abort_result(pending_check)
+        if triggered is None:
+            continue
+        pending_check = None
+
+        if triggered:
+            tree_killed = kill_process_tree(proc)
+            details = ["<stopped: exception with no classic counterpart>"]
+            if not tree_killed:
+                details.append("<process-tree termination incomplete>")
+            return -1, collected() + "\n" + "\n".join(details), False
+
+        if proc.poll() is not None:
+            # A short-lived worker can write its final exception and exit between polls.
+            # Its output is still a bridge-only failure and must not leave a score.
+            pending_check = start_abort_check("".join(chunks))
+            while True:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    return timeout_result(pending_check)
+                thread, _ = pending_check
+                thread.join(timeout=min(poll_seconds, remaining))
+                triggered = abort_result(pending_check)
+                if triggered is None:
+                    continue
+                if triggered:
+                    return -1, collected() + \
+                        "\n<stopped: exception with no classic counterpart>", False
+                return proc.returncode, collected(), False
+
+        time.sleep(min(poll_seconds, max(0.0, deadline - time.monotonic())))
 
 
 def _drain(stream, sink):
@@ -622,9 +713,9 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup,
         cmd.extend(["--enemies", ",".join(opponent_selectors), "--deterministic", "true"])
     elif enemy_class:
         cmd.extend(["--enemy-select", enemy_class, "--deterministic", "true"])
-    started = time.time()
+    started = time.monotonic()
     returncode, output, timed_out = run_java(cmd, cwd=home_dir, timeout=opts.timeout)
-    elapsed = time.time() - started
+    elapsed = time.monotonic() - started
 
     return summarize_worker_result(
         out_file, returncode, output, timed_out, elapsed, engine="robocode")
@@ -635,6 +726,18 @@ def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, en
         "ok": False, "score": None, "scores": [], "errors": [],
         "error_count": 0, "elapsed": round(elapsed, 1), "log_text": "",
     }
+    cleanup_failures = []
+    if "<process-tree termination incomplete>" in output:
+        cleanup_failures.append("process-tree termination incomplete")
+    if "<abort watcher did not stop before timeout>" in output:
+        cleanup_failures.append("abort watcher did not stop before timeout")
+    if cleanup_failures:
+        result["errors"] = [f"HARNESS: {message}" for message in cleanup_failures]
+        result["error_count"] = len(cleanup_failures)
+        result["log_text"] = f"=== {engine} worker cleanup failed ===\n\n{output}"
+        result["stop_sweep"] = True
+        return result
+
     data = None
     if out_file.exists():
         try:
@@ -928,13 +1031,13 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
-    started = time.time()
+    started = time.monotonic()
     watcher = None
     if rc_signatures is not None:
         watcher = BridgeOnlyErrorWatcher(staged_log_dirs(bot_dirs), rc_signatures)
     returncode, output, timed_out = run_java(
         cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher)
-    elapsed = time.time() - started
+    elapsed = time.monotonic() - started
 
     result = summarize_worker_result(
         out_file, returncode, output, timed_out, elapsed, engine="tank-royale")
@@ -1892,7 +1995,7 @@ def main():
 
     tested = 0
     checkpoint_state = {"robots": {}}
-    session_started = time.time()
+    session_started = time.monotonic()
     try:
         for collection, jar in todo:
             if opts.limit is not None and tested >= opts.limit:
@@ -1949,10 +2052,19 @@ def main():
 
             # The classic side has already run, so its signatures are the baseline the
             # bridge side is judged against (C-004).
-            tr = run_tr_battle(
-                jar, classname, version, opts, setup,
-                rc_signatures=classic_signatures(rc),
-                enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
+            if rc.get("stop_sweep"):
+                tr = {
+                    "ok": False, "score": None, "scores": [], "error_count": 1,
+                    "elapsed": 0.0,
+                    "errors": ["HARNESS: Tank Royale side skipped after classic process cleanup failed"],
+                    "error_signatures": [], "bridge_only_signatures": None,
+                    "has_log": False, "skipped": None, "stop_sweep": True,
+                }
+            else:
+                tr = run_tr_battle(
+                    jar, classname, version, opts, setup,
+                    rc_signatures=classic_signatures(rc),
+                    enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
             attach_error_signatures(tr)
             tr["has_log"] = write_error_log("tank-royale", robot_name,
                                             tr.pop("log_text", ""))
@@ -1984,6 +2096,11 @@ def main():
             print(f"    RC={fmt_score(rc['score'])} ({rc['error_count']} err, "
                   f"{rc['elapsed']:.0f}s)  TR={tr_str}  delta={delta_str}  -> {status}",
                   flush=True)
+            if rc.get("stop_sweep") or tr.get("stop_sweep"):
+                sync_parity_registry(checkpoint_state, opts)
+                print("Stopped this checkpoint because process cleanup did not complete.",
+                      file=sys.stderr)
+                return 2
     except KeyboardInterrupt:
         print("\nInterrupted — progress saved. Re-run to resume.", file=sys.stderr)
         save_state(state)
@@ -1994,7 +2111,7 @@ def main():
     save_state(state)
     regenerate_report(state)
     sync_parity_registry(checkpoint_state, opts)
-    elapsed_min = (time.time() - session_started) / 60
+    elapsed_min = (time.monotonic() - session_started) / 60
     print(f"\nDone. Tested {tested} robots in {elapsed_min:.1f} min. "
           f"Report: {REPORT_FILE}")
     return 0

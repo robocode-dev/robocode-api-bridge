@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 
 MODULE = Path(__file__).with_name("parity_registry.py")
@@ -265,6 +265,51 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertFalse(timed_out)
         self.assertTrue(watcher.triggered)
         self.assertIn("IllegalStateException", output)
+
+    def testHARN002_IntegrationPositive_TimeoutExpiresWhileWatcherIsBlocked(self):
+        watcher_started = harness.threading.Event()
+        release_watcher = harness.threading.Event()
+
+        def blocked_watcher(_):
+            watcher_started.set()
+            release_watcher.wait(timeout=2)
+            return False
+
+        def terminate_worker(proc):
+            proc.kill()
+            proc.wait(timeout=2)
+            return True
+
+        started = harness.time.monotonic()
+        try:
+            with patch.object(harness, "kill_process_tree", side_effect=terminate_worker):
+                returncode, output, timed_out = harness.run_java(
+                    [sys.executable, "-c", "import time; time.sleep(30)"],
+                    Path.cwd(), timeout=0.1, abort_when=blocked_watcher, poll_seconds=0.01)
+        finally:
+            release_watcher.set()
+
+        self.assertTrue(watcher_started.is_set())
+        self.assertEqual(-1, returncode)
+        self.assertTrue(timed_out)
+        self.assertIn("<abort watcher did not stop before timeout>", output)
+        self.assertLess(harness.time.monotonic() - started, 1.5)
+
+    def testHARN002_UnitPositive_TaskkillHasTimeoutAndFallsBackToWorker(self):
+        proc = Mock()
+        proc.pid = 12345
+        proc.poll.return_value = None
+
+        with patch.object(harness.sys, "platform", "win32"), \
+                patch.object(
+                    harness.subprocess, "run",
+                    side_effect=harness.subprocess.TimeoutExpired("taskkill", 15)) as taskkill:
+            terminated = harness.kill_process_tree(proc)
+
+        self.assertFalse(terminated)
+        self.assertEqual(15, taskkill.call_args.kwargs["timeout"])
+        proc.kill.assert_called_once()
+        proc.wait.assert_called_once_with(timeout=15)
 
     def testHARN001_UnitNegative_CauseRetestRequiresRepairAndKnownSelection(self):
         missing_repair = SimpleNamespace(repair=None, retest_cause="lifecycle")

@@ -3,12 +3,12 @@ id: AN-015
 type: analysis
 status: active
 links: [CH-016, CAP-005, CAP-007, PDR-003, IDR-007, C-007]
-title: The first melee registry cases are contaminated by fixed-opponent failures
+title: The melee registry contains opponent-contaminated failures
 provenance: inferred
 reversal-cost: low
 ---
 
-# AN-015 — The first melee registry cases are contaminated by fixed-opponent failures
+# AN-015 — The melee registry contains opponent-contaminated failures
 
 ## Risk investigated
 
@@ -40,7 +40,16 @@ The current melee observations cannot be used as clean subject-level parity evid
 
 The registry should retain the observations and append a harness-owned cause for the opponent-contamination cluster. A later focused retest may use a repaired or explicitly revised opponent setup, and must link that repair or decision rather than silently replacing the original observations. The stream-limit mismatch and the non-serializable team-message mismatch remain separate bridge investigations.
 
+## Follow-up evidence from the next official checkpoint
+
+The second official melee checkpoint completed on 2026-09-28 with 25 observations: 20 error discrepancies, 4 outcome discrepancies, and 1 pass. Classic again reported opponent-origin ArrayIndexOutOfBoundsException signatures from amk.ChumbaMini.saveData and amk.guns.Aristocles.prepare in 24 observations; both jars are in the pinned opponent pool. The 25 subjects were tagged with the existing melee-opponent-pool-contamination diagnosis.
+
+The stream-limit gap described above referred to the source snapshot examined on 2026-09-10. The bridge now enforces the five-open-stream limit in RobotData; the newer observations were produced with that implementation. The opponent-origin exceptions and the three measured-subject exceptions remain separate findings.
+
+Three outcome discrepancies carried Tank-Royale-only exceptions from measured-subject methods: cb.fire.Firestarter, cf.RiO.RiOxM_OP, and darkcanuck.B26354. Those remain separate cases for focused diagnosis.
+
+The fourth outcome discrepancy was com.syncleus.robocode.Dreadnaught. Its first Tank Royale run produced no result and recorded 8,139 seconds against the 600-second per-side timeout. Source review found that the fail-fast watcher ran synchronously inside the timeout loop and Windows taskkill had no timeout. Both paths are now bounded and covered by regression tests. The timeout did not reproduce: a same-setup official retest completed in 36.1 seconds and returned to the opponent-error discrepancy pattern. The original elapsed-time record remains in the append-only registry; that run did not capture which blocking step caused the overrun.
+
 ## Rejected interpretations
 
 The analysis rejects treating every classic-only error in these melee runs as a defect in the measured subject, treating the pinned pool's prior roborumble `PASS` results as proof that its jars are clean in melee, and modifying the rumble jars to make the comparison complete.
-

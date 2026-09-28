@@ -8,6 +8,15 @@ title: CH-017 implementation tasks
 
 # Tasks
 
+## Latest checkpoint
+
+The second official melee checkpoint completed on 2026-09-28 with 25 observations: 20 error discrepancies, 4 outcome discrepancies, and 1 pass. The fixed-opponent contamination diagnosis was appended for all 25 measured subjects.
+
+Dreadnaught's first Tank Royale run produced no result and recorded 8,139 seconds against the configured 600-second per-side timeout. After bounding watcher and process-tree cleanup, an official retest completed in 36.1 seconds and recorded the opponent-contaminated error result. Both observations remain in the append-only registry.
+
+The 36.1-second retest predates its diagnosis event and is not linked to the repair commit. A repair-linked retest remains to be recorded.
+
+The checkpoint also produced three Tank-Royale-only exceptions in the measured subjects. Their focused reruns and diagnosis remain open. The full collection sweep remains in progress.
 - [x] Confirm the post-CH-016 registry frontier, discoverable collection, official parameters, pinned melee pool, and available engine artifacts; serves `SCORE-006`.
 - [x] Correct normal checkpoint synchronization to append only subjects completed in the current invocation, and add regression evidence preventing replay of accumulated progress; serves `HARN-001` and `SCORE-006`.
 - [ ] Run the remaining official-parameter roborumble and melee subjects in bounded checkpoints, preserving every completed observation and its artifact manifest in the tracked registry; serves `SCORE-001` and `SCORE-006`. The first additional official melee checkpoint completed on 2026-09-28 with 25 observations from `compat_test.py`: 21 error discrepancies and 4 outcome discrepancies. The full collection sweep remains in progress.
