@@ -1250,17 +1250,19 @@ def discover_jars(opts):
 
 
 def should_run(entry, opts, registry=None, key=None):
+    if opts.retest_cause:
+        if registry is None or not key:
+            return False
+        subject = registry.get("subjects", {}).get(key, {})
+        diagnosis = diagnosis_for_cause(subject, opts.retest_cause)
+        status = subject.get("status") or (entry or {}).get("status", "")
+        return is_unresolved(status) and diagnosis is not None
     if entry is None or opts.force:
         return True
     if opts.retry_unresolved and is_unresolved(entry.get("status", "")):
         return True
     if opts.confirm_score and entry.get("status") == "DISCREPANCY (score)":
         return True
-    if opts.retest_cause and registry is not None and key:
-        diagnosis = diagnosis_for_cause(registry.get("subjects", {}).get(key, {}),
-                                        opts.retest_cause)
-        return (is_unresolved(entry.get("status", ""))
-                and diagnosis is not None)
     if opts.retry_failed:
         return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS", "DISCREPANCY"))
     return False

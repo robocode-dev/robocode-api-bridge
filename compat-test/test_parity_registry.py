@@ -319,6 +319,29 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertIn("requires --repair", harness.retest_option_error(missing_repair))
         self.assertIn("No unresolved", harness.retest_option_error(unknown_cause, []))
 
+    def testHARN001_UnitNegative_CauseRetestDoesNotSelectUnclassifiedMissingCheckpoint(self):
+        opts = SimpleNamespace(
+            force=False, retry_unresolved=False, confirm_score=False,
+            retest_cause="lifecycle", retry_failed=False)
+        subject = {"status": "DISCREPANCY (errors)", "diagnosis_events": []}
+
+        self.assertFalse(harness.should_run(
+            None, opts, {"subjects": {"meleerumble/a.Bot_1.0.jar": subject}},
+            "meleerumble/a.Bot_1.0.jar"))
+
+    def testHARN001_UnitPositive_CauseRetestSelectsDiagnosedRegistrySubjectWithoutCheckpoint(self):
+        opts = SimpleNamespace(
+            force=False, retry_unresolved=False, confirm_score=False,
+            retest_cause="lifecycle", retry_failed=False)
+        subject = {
+            "status": "DISCREPANCY (errors)",
+            "diagnosis_events": [{"id": "diagnosis-1", "cause": "lifecycle"}],
+        }
+
+        self.assertTrue(harness.should_run(
+            None, opts, {"subjects": {"meleerumble/a.Bot_1.0.jar": subject}},
+            "meleerumble/a.Bot_1.0.jar"))
+
     def testHARN007_UnitPositive_FixedMeleeSelectionExcludesSubject(self):
         pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}
                 for index in range(12)]
