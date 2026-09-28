@@ -90,6 +90,27 @@ public final class RobotData {
     }
 
     /**
+     * Prepares a stream open using the quota rules in classic's
+     * {@code ThreadManager.createRobotFileStream}: check the quota before creating a new file,
+     * and release the old file length before replacing an existing data file.
+     */
+    public static synchronized void prepareFileForWrite(String fileName, boolean append) throws IOException {
+        File file = new File(fileName);
+        if (file.exists()) {
+            if (!append && isDataDirectoryFile(file)) {
+                quotaUsed -= file.length();
+            }
+        } else {
+            checkQuota(0);
+        }
+    }
+
+    private static boolean isDataDirectoryFile(File file) throws IOException {
+        File canonicalParent = file.getCanonicalFile().getParentFile();
+        return canonicalParent != null && canonicalParent.equals(dataDirPath.toFile().getCanonicalFile());
+    }
+
+    /**
      * Charges {@code numBytes} against the data directory's quota, matching classic's
      * {@code RobotFileSystemManager.checkQuota}: a write that would exceed {@link #MAX_QUOTA} is
      * refused with an {@link IOException} carrying the same message classic raises, printed once.

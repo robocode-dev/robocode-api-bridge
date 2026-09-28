@@ -68265,7 +68265,14 @@
       "status": "PASS"
     },
     "roborumble/ag.Gir_0.99.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "file-overwrite-quota-accounting",
+          "id": "diagnosis-1",
+          "owner": "bridge",
+          "recorded_at": "2026-09-28T21:36:27Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ag.Gir 0.99",
         "division": "roborumble",

@@ -78,6 +78,14 @@ Classic constructs scans with `RobotPeer.getNameForEvent(otherRobot)`, which ret
 
 The repair-linked official 35-round retest (`9c81fee190364e22`, repair `255fcb3`) completed with zero errors on both engines and `PASS` status. Classic scored 11,561 and Tank Royale 10,070, a -12.9% delta within the registry's 25% threshold. The observation contains no turn-by-turn skipped-turn data, so it does not establish whether either engine skipped turns.
 
+## Gir file-quota accounting
+
+The official Roborumble observation for `ag.Gir_0.99.jar` completed on classic with no errors, while Tank Royale recorded 18 errors (`e3c870e44a2cc066`). Its log shows failed writes at the 200,000-byte quota followed by truncated `*_move.fct` and `*_robotstats.stt` files; Gir then reports EOF while loading movement factors and throws `ArrayIndexOutOfBoundsException` in `ag.movement.Movement.readMoveFactors`.
+
+Classic's `ThreadManager.createRobotFileStream()` subtracts an existing file's length from quota usage before opening it for replacement (`append == false`), and checks the current quota before creating a new file. The bridge counted every write but never credited the old length of an overwritten file. Gir rewrites learned data files repeatedly, so its quota usage grew with historical bytes written instead of current file sizes. The bridge now performs classic's quota adjustment before opening the stream.
+
+The FIO-003 two-engine regression rewrites the same 100,000-byte file twice and passes on classic and Tank Royale using the matched local bridge and Tank Royale 1.4.0 Bot API/runner. The repair-linked official Roborumble retest is pending.
+
 ## Rejected interpretations
 
 The analysis rejects treating every classic-only error in these melee runs as a defect in the measured subject, treating the pinned pool's prior roborumble `PASS` results as proof that its jars are clean in melee, and modifying the rumble jars to make the comparison complete.
