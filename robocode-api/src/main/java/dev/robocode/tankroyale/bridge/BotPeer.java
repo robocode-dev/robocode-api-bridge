@@ -47,6 +47,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
     private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
+    private volatile boolean initialStatusDispatched;
+    private volatile boolean initialStatusCallbackActive;
     private boolean stopThread;
     private volatile int suppressScansThroughTurn = -1;
     private boolean hitWallHandlerActive;
@@ -145,7 +147,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public long getTime() {
         log("getTime()");
-        return bot.getTurnNumber();
+        return initialStatusCallbackActive ? 0 : bot.getTurnNumber();
     }
 
     @Override
@@ -280,14 +282,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         bot.go();
     }
 
-    private void dispatchStatusEvent(BotEvent botEvent) {
+    private void dispatchStatusEvent(TickEvent tickEvent) {
         log("-> onStatus");
 
         // Save robot status snapshot for event handlers needing robot status
         RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
         currentRobotStatus.set(robotStatus);
-
-        TickEvent tickEvent = (TickEvent) botEvent;
 
         // Update fired bullets
         firedBullets.forEach(bulletPeer -> {
@@ -298,9 +298,38 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                     bulletPeer.setPosition(bulletState.getX(), bulletState.getY()));
         });
 
-        // Fire event
+        // Classic has already delivered the start status before run(). Tank Royale retains the
+        // corresponding first TickEvent until execute(), so consume its duplicate callback here.
+        if (initialStatusDispatched && tickEvent.getTurnNumber() == 1) {
+            return;
+        }
+
+        dispatchStatusCallback(robotStatus, false);
+    }
+
+    private void dispatchInitialStatusEvent() {
+        if (initialStatusDispatched || bot.getTurnNumber() != 1) {
+            return;
+        }
+
+        // The first Tank Royale tick supplies the complete state needed for Classic's start
+        // StatusEvent. Deliver it before the robot's run() and mark it consumed before invoking
+        // user code, which may inspect the pending event list or block on execute().
+        initialStatusDispatched = true;
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, 0);
+        currentRobotStatus.set(robotStatus);
+        dispatchStatusCallback(robotStatus, true);
+    }
+
+    private void dispatchStatusCallback(RobotStatus robotStatus, boolean initial) {
         var robocodeEvent = StatusEventMapper.map(robotStatus);
-        dispatchRobotCallback(() -> basicEvents.onStatus(robocodeEvent));
+        boolean previousInitialStatusCallback = initialStatusCallbackActive;
+        initialStatusCallbackActive = initial;
+        try {
+            dispatchRobotCallback(() -> basicEvents.onStatus(robocodeEvent));
+        } finally {
+            initialStatusCallbackActive = previousInitialStatusCallback;
+        }
     }
 
     private void dispatchScannedRobotEvent(BotEvent botEvent) {
@@ -822,7 +851,15 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.Event> getAllEvents() {
         log("getAllEvents()");
-        return AllEventsMapper.map(bot.getEvents(), bot, currentRobotStatus.get());
+        var botEvents = bot.getEvents();
+        if (initialStatusDispatched) {
+            // The start status is already delivered before run(), so it is no longer pending to
+            // the legacy robot even though Tank Royale keeps its first TickEvent queued.
+            botEvents = botEvents.stream()
+                    .filter(event -> !(event instanceof TickEvent && event.getTurnNumber() == 1))
+                    .collect(Collectors.toList());
+        }
+        return AllEventsMapper.map(botEvents, bot, currentRobotStatus.get());
     }
 
     @Override
@@ -1087,6 +1124,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             stopThread = false;
 
             prepareRobotForRound();
+            dispatchInitialStatusEvent();
 
             Runnable runnable = robot.getRobotRunnable();
             if (runnable != null) {
@@ -1237,6 +1275,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             // stopped and joined the previous bot thread. Close any abandoned streams here,
             // after that stop has completed and before the next round's bot thread starts.
             RobotData.closeOpenStreams();
+            initialStatusDispatched = false;
             suppressScansThroughTurn = -1;
             firedBullets.clear();
         }

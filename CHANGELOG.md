@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Deliver each round's initial status callback before the legacy robot's `run()` method, matching Classic Robocode and preventing robots from reading uninitialized callback state.
 - Preserve classic scan target names and stable string identity so legacy robots continue to recognize repeated scans of the same bot.
 - Close legacy data streams abandoned by worker threads between rounds after the previous bot thread has stopped, and track active stream instances so leaked handles cannot consume later rounds' five-stream quota.
 - Match classic data-quota accounting when a robot replaces an existing file, so repeated rewrites do not consume quota cumulatively.
