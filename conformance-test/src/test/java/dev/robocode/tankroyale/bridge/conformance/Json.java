@@ -45,6 +45,51 @@ final class Json {
         return json.substring(cursor, end).trim();
     }
 
+    /** The raw object value for a field, or null when the field is absent or not an object. */
+    static String object(String json, String field) {
+        int at = indexOfKey(json, field);
+        if (at < 0) {
+            return null;
+        }
+        int cursor = at;
+        while (cursor < json.length() && json.charAt(cursor) != ':') {
+            cursor++;
+        }
+        cursor++;
+        while (cursor < json.length() && Character.isWhitespace(json.charAt(cursor))) {
+            cursor++;
+        }
+        if (cursor >= json.length() || json.charAt(cursor) != '{') {
+            return null;
+        }
+
+        int start = cursor;
+        int depth = 0;
+        boolean quoted = false;
+        boolean escaped = false;
+        for (; cursor < json.length(); cursor++) {
+            char c = json.charAt(cursor);
+            if (quoted) {
+                if (escaped) {
+                    escaped = false;
+                } else if (c == '\\') {
+                    escaped = true;
+                } else if (c == '"') {
+                    quoted = false;
+                }
+                continue;
+            }
+            if (c == '"') {
+                quoted = true;
+            } else if (c == '{') {
+                depth++;
+            } else if (c == '}' && --depth == 0) {
+                return json.substring(start, cursor + 1);
+            }
+        }
+        return null;
+    }
+
     /** The elements of an array of strings, or an empty list when the field is absent. */
     static List<String> stringArray(String json, String field) {
         List<String> values = new ArrayList<>();

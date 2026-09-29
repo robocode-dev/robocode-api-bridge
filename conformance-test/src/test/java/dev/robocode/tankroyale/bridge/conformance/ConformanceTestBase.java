@@ -131,6 +131,26 @@ abstract class ConformanceTestBase {
         return outcomeForFixture(engine, robotClass, source, null, participants);
     }
 
+    /** Runs one compatibility-harness battle with the opt-in telemetry setting under test. */
+    BattleOutcome telemetryOutcome(Engine engine, String robotClass, Path source,
+                                   boolean captureSkippedTurns) {
+        return harness.run(engine, robotClass, source, captureSkippedTurns);
+    }
+
+    /** Runs a telemetry battle with a short per-engine timeout for the incomplete path. */
+    BattleOutcome telemetryOutcome(Engine engine, String robotClass, Path source,
+                                   boolean captureSkippedTurns, int timeoutSeconds) {
+        return harness.run(engine, robotClass, source, captureSkippedTurns, timeoutSeconds);
+    }
+
+    /** Runs one standard parity measurement with isolated checkpoint and registry files. */
+    String runRecordedMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                  String selectedRobot, boolean captureSkippedTurns,
+                                  Integer turnTimeoutMicros) {
+        return harness.runCompatibilityMeasurement(collectionDir, dataDir, workDir,
+                selectedRobot, captureSkippedTurns, turnTimeoutMicros);
+    }
+
     private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,
                                             String enemyClass) {
         return outcomeForFixture(engine, robotClass, source, enemyClass, null);
