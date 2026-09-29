@@ -400,7 +400,7 @@ class ParityRegistryTest(unittest.TestCase):
                 encoding="utf-8")
 
             result = harness.skipped_turn_telemetry(
-                [first, second], True, True, expected_participants=2)
+                [first, second], True, True, expected_bots=2)
 
         self.assertEqual("captured", result["status"])
         self.assertEqual([

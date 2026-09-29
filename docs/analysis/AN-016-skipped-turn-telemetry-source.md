@@ -35,6 +35,8 @@ Bridge-side telemetry at `BotPeer`'s skipped-turn dispatch records the event at 
 
 After implementation, three one-round local Tank Royale runs of the existing `SkippedTurnProbe` with two bridge bots reported 84, 82, and 76 unique event tuples. In each run, per-bot comparison matched every tuple's turn number to exactly one `SkippedTurnReported` callback line, and each completion marker's count matched its bot's tuples. A run without `--capture-skipped-turns` reported `disabled` with `events: null` and emitted no bridge markers, even when the parent environment supplied the telemetry property. These runs used the locally built bridge/wrapper with the Bot API and runner from the same Tank Royale 1.4.0 worktree revision; this is local conformance evidence, not a release or cross-machine performance claim.
 
+A three-member team probe completed with two runner score groups and six bot-process logs. Counting scores as bots first produced `unavailable`; the harness now validates readiness against the expanded staged member directories and reported a completed capture with zero events. This confirms that team captures count bridge processes rather than runner score groups.
+
 The first end-to-end attempt also showed that `bot.getMyId()` is unavailable during `BotPeer` construction. The readiness marker now comes from `GameStartedEvent`, after the Bot API has assigned the ID; the forced-skip run passed after that correction.
 
 This source measures skipped-turn events delivered to the bridge. It does not claim to observe a server-detected event that never reaches the bridge. Disabled capture, an incomplete battle, and a completed capture with no events must remain distinguishable. Historical registry observations stay unmeasured.

@@ -929,7 +929,7 @@ def staged_log_dirs(bot_dirs):
     return list(dict.fromkeys(expanded))
 
 
-def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_participants):
+def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
     """Reads the opt-in bridge markers without treating a missing marker as zero skips."""
     if not enabled:
         return {"status": "disabled", "events": None}
@@ -965,7 +965,7 @@ def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_participants):
         except OSError:
             return {"status": "incomplete", "events": None}
 
-    if expected_participants < 1 or len(ready_bot_ids) != expected_participants:
+    if expected_bots < 1 or len(ready_bot_ids) != expected_bots:
         return {"status": "unavailable", "events": None}
 
     if any(bot_id not in ready_bot_ids for bot_id, _, _ in events):
@@ -1178,7 +1178,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         result["scores"] = []
     result["skipped_turn_telemetry"] = skipped_turn_telemetry(
         bot_dirs, capture_skipped_turns, result.get("completed", False),
-        len(result.get("scores", [])))
+        len(staged_log_dirs(bot_dirs)))
     return result
 
 
@@ -2192,6 +2192,10 @@ def main():
                     "errors": ["HARNESS: Tank Royale side skipped after classic process cleanup failed"],
                     "error_signatures": [], "bridge_only_signatures": None,
                     "has_log": False, "skipped": None, "stop_sweep": True,
+                    "skipped_turn_telemetry": {
+                        "status": "incomplete" if opts.capture_skipped_turns else "disabled",
+                        "events": None,
+                    },
                 }
             else:
                 tr = run_tr_battle(
