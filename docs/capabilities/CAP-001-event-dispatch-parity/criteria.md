@@ -58,7 +58,7 @@ Feature: Event dispatch and timing parity
     Given a robot that records the turn number at each handler entry
     When the same battle runs on both engines
     Then each handler is entered at the same point in the turn on both engines
-    # Proven by TurnBoundaryConformanceTest with the bridge-owned TurnBoundaryProbe: each engine records matching event, status-snapshot, and peer turn clocks across multiple turns. The two tests once tagged EVT-005 proved round/battle completion instead and are now EVT-011; see G-002. Plan door: M-001.
+    # Proven by TurnBoundaryConformanceTest with the bridge-owned TurnBoundaryProbe across multiple turns, and InitialStatusConformanceTest with InitialStatusProbe for the initial time-zero status before run() and no duplicate from the queued first tick. The two tests once tagged EVT-005 proved round/battle completion instead and are now EVT-011; see G-002. Plan door: M-001.
 
   @EVT-006
   Scenario: Custom events fire and can be removed
