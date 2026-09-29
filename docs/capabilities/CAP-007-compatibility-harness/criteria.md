@@ -76,4 +76,15 @@ Feature: The compatibility harness
     When its battle setup is resolved
     Then the battlefield, round count, and participant count are that division's official values
     # The harness currently uses one setup for every division. Plan door: M-001.
+
+  @HARN-008 @draft
+  Scenario: Skipped-turn telemetry preserves events and distinguishes missing capture from zero
+    Test-type: Integration
+    Given a completed Tank Royale compatibility run with telemetry enabled
+    When the bridge receives skipped-turn events
+    Then the observation records one event per distinct bot ID, round, and skipped turn number, including warm-up turns
+    And a completed enabled run with no events is captured with an empty event list
+    And disabled, unavailable, or incomplete capture has a distinct status and does not claim zero events
+    # Callback-level telemetry is opt-in and does not claim to see server events that never reach the bridge. Plan door: M-006.
+    # The harness is Python and is not yet a supported evidence carrier.
 ```
