@@ -1040,6 +1040,11 @@ claims:
       state: reserved
       prefix: TASKS
       component: "10"
+    - id: TASKS-011
+      kind: numeric
+      state: reserved
+      prefix: TASKS
+      component: "11"
     - id: TEAM-001
       kind: numeric
       state: reserved
@@ -1061,11 +1066,11 @@ high-water:
       state: reserved
       prefix: ADR
       component: "2"
-    - id: AN-015
+    - id: AN-017
       kind: numeric
       state: reserved
       prefix: AN
-      component: "15"
+      component: "17"
     - id: API-006
       kind: numeric
       state: reserved
