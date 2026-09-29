@@ -1055,6 +1055,11 @@ claims:
       state: reserved
       prefix: TASKS
       component: "11"
+    - id: TASKS-012
+      kind: numeric
+      state: reserved
+      prefix: TASKS
+      component: "12"
     - id: TEAM-001
       kind: numeric
       state: reserved
@@ -1101,11 +1106,11 @@ high-water:
       state: reserved
       prefix: CAP
       component: "8"
-    - id: CH-018
+    - id: CH-019
       kind: numeric
       state: reserved
       prefix: CH
-      component: "18"
+      component: "19"
     - id: CRIT-008
       kind: numeric
       state: reserved
