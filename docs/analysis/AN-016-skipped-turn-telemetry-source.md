@@ -37,6 +37,10 @@ After implementation, three one-round local Tank Royale runs of the existing `Sk
 
 A three-member team probe completed with two runner score groups and six bot-process logs. Counting scores as bots first produced `unavailable`; the harness now validates readiness against the expanded staged member directories and reported a completed capture with zero events. This confirms that team captures count bridge processes rather than runner score groups.
 
+## Supported integration evidence
+
+On 2026-09-29, `SkippedTurnTelemetryConformanceTest` passed on the prepared Windows environment with classic Robocode 1.11.1 and Tank Royale runner/Bot API 1.4.0 from local revision `21324d6b7c4433e3fc1ba2a0e29c691fc3565e47`. Its forced-skip case ran the ordinary two-engine compatibility sweep for five rounds, compared every persisted registry tuple with the callbacks in that same run's two bot logs, and confirmed that round-one warm-up events survived into both the checkpoint and registry. A quiet fixture completed through the same path with a 10-second turn deadline and persisted `captured` with an empty event list. The integration suite also distinguished `disabled`, `unavailable`, and `incomplete` as `events: null`. This is prepared local conformance evidence; the tier skips when its external installations are absent and makes no cross-machine timing or performance claim.
+
 The first end-to-end attempt also showed that `bot.getMyId()` is unavailable during `BotPeer` construction. The readiness marker now comes from `GameStartedEvent`, after the Bot API has assigned the ID; the forced-skip run passed after that correction.
 
 This source measures skipped-turn events delivered to the bridge. It does not claim to observe a server-detected event that never reaches the bridge. Disabled capture, an incomplete battle, and a completed capture with no events must remain distinguishable. Historical registry observations stay unmeasured.
