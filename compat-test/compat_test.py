@@ -58,6 +58,12 @@ from parity_registry import (
 
 BASE_DIR = Path(__file__).resolve().parent
 TANK_ROYALE_HOME = Path(os.environ.get("COMPAT_TANK_ROYALE_HOME", r"C:\Code\tank-royale"))
+SKIPPED_TURN_TELEMETRY_PROPERTY = "robocode.bridge.skippedTurnTelemetry"
+SKIPPED_TURN_READY_RE = re.compile(r"^BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=(\d+)\s*$")
+SKIPPED_TURN_EVENT_RE = re.compile(
+    r"^BRIDGE_SKIPPED_TURN botId=(\d+) round=(\d+) turn=(\d+)\s*$")
+SKIPPED_TURN_COMPLETE_RE = re.compile(
+    r"^BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=(\d+) eventCount=(\d+)\s*$")
 
 
 def local_bot_api_jar():
@@ -404,7 +410,7 @@ def kill_process_tree(proc: subprocess.Popen, diagnostics=None):
     return proc.poll() is not None
 
 
-def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
+def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0, env=None):
     """Runs a java command; returns (returncode, stdout+stderr, timed_out).
 
     `abort_when` is an optional callable polled while the battle runs. When it returns
@@ -416,7 +422,7 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
     harness rather than the battle."""
     proc = subprocess.Popen(
         cmd, cwd=str(cwd), stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        text=True, encoding="utf-8", errors="replace")
+        text=True, encoding="utf-8", errors="replace", env=env)
 
     chunks = []
     reader = threading.Thread(target=_drain, args=(proc.stdout, chunks), daemon=True)
@@ -741,7 +747,7 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup,
 
 def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, engine):
     result = {
-        "ok": False, "score": None, "scores": [], "errors": [],
+        "ok": False, "completed": False, "score": None, "scores": [], "errors": [],
         "error_count": 0, "elapsed": round(elapsed, 1), "log_text": "",
     }
     cleanup_failures = []
@@ -773,6 +779,7 @@ def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, en
         return result
 
     result["ok"] = bool(data.get("ok"))
+    result["completed"] = bool(data.get("completed"))
     result["selected"] = data.get("selected")
     scores = [p.get("score", 0) for p in data.get("participants", [])]
     result["scores"] = [round(float(s), 1) for s in scores]
@@ -922,6 +929,83 @@ def staged_log_dirs(bot_dirs):
     return list(dict.fromkeys(expanded))
 
 
+def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
+    """Reads the opt-in bridge markers without treating a missing marker as zero skips."""
+    if not enabled:
+        return {"status": "disabled", "events": None}
+    if not completed:
+        return {"status": "incomplete", "events": None}
+
+    ready_bot_ids = set()
+    completed_event_counts = {}
+    events = set()
+    directories = staged_log_dirs(bot_dirs)
+    if not directories:
+        return {"status": "incomplete", "events": None}
+
+    for directory in directories:
+        try:
+            with open(directory / "stdout.log", encoding="utf-8", errors="replace") as log:
+                for line in log:
+                    line = line.rstrip("\r\n")
+                    ready_match = SKIPPED_TURN_READY_RE.fullmatch(line)
+                    if ready_match:
+                        ready_bot_ids.add(int(ready_match.group(1)))
+                        continue
+                    complete_match = SKIPPED_TURN_COMPLETE_RE.fullmatch(line)
+                    if complete_match:
+                        bot_id, event_count = (int(value) for value in complete_match.groups())
+                        if bot_id in completed_event_counts:
+                            return {"status": "incomplete", "events": None}
+                        completed_event_counts[bot_id] = event_count
+                        continue
+                    event_match = SKIPPED_TURN_EVENT_RE.fullmatch(line)
+                    if event_match:
+                        events.add(tuple(int(value) for value in event_match.groups()))
+        except OSError:
+            return {"status": "incomplete", "events": None}
+
+    if expected_bots < 1 or len(ready_bot_ids) != expected_bots:
+        return {"status": "unavailable", "events": None}
+
+    if any(bot_id not in ready_bot_ids for bot_id, _, _ in events):
+        return {"status": "unavailable", "events": None}
+
+    if set(completed_event_counts) != ready_bot_ids:
+        return {"status": "incomplete", "events": None}
+
+    events_by_bot = {}
+    for bot_id, _, _ in events:
+        events_by_bot[bot_id] = events_by_bot.get(bot_id, 0) + 1
+    if any(completed_event_counts[bot_id] != events_by_bot.get(bot_id, 0)
+           for bot_id in ready_bot_ids):
+        return {"status": "incomplete", "events": None}
+
+    ordered_events = [
+        {"bot_id": bot_id, "round": round_number, "turn": turn_number}
+        for bot_id, round_number, turn_number in sorted(
+            events, key=lambda event: (event[1], event[2], event[0]))
+    ]
+    return {"status": "captured", "events": ordered_events}
+
+
+def java_env_for_skipped_turn_telemetry(enabled):
+    """Controls the telemetry property in the runner JVM and any bot JVMs it starts."""
+    env = os.environ.copy()
+    options = env.get("JAVA_TOOL_OPTIONS", "")
+    property_option = re.compile(
+        rf"(?<!\S)-D{re.escape(SKIPPED_TURN_TELEMETRY_PROPERTY)}(?:=[^\s]*)?(?=\s|$)")
+    options = property_option.sub(" ", options).strip()
+    if enabled:
+        options = " ".join(
+            value for value in (options, f"-D{SKIPPED_TURN_TELEMETRY_PROPERTY}=true") if value)
+    if options:
+        env["JAVA_TOOL_OPTIONS"] = options
+    else:
+        env.pop("JAVA_TOOL_OPTIONS", None)
+    return env
+
+
 def stage_bot_dirs(bot_dir: Path, participants):
     """Returns the list of bot directories for a battle: the original plus enough copies
     to reach the division's participant count."""
@@ -949,7 +1033,8 @@ def wrap_jar_for_tr(jar_path: Path, classname, version, opts, staging_name="tr-b
     shutil.copyfile(jar_path, staging / jar_path.name)
 
     returncode, output, timed_out = run_java(
-        ["java", "-jar", opts.wrapper_jar, str(staging)], cwd=staging, timeout=120)
+        ["java", "-jar", opts.wrapper_jar, str(staging)], cwd=staging, timeout=120,
+        env=java_env_for_skipped_turn_telemetry(False))
     if returncode != 0:
         return None, f"robots-wrapper failed (exit {returncode}):\n{output}"
 
@@ -997,6 +1082,9 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
     robot. When the Tank Royale side emits one that is not in it, C-004 says to stop: the
     same bot misbehaving only under the bridge is a categorical fact, and finishing the
     battle to produce a score for it spends minutes to learn nothing further."""
+    capture_skipped_turns = getattr(opts, "capture_skipped_turns", False)
+    unavailable_telemetry = {"status": "incomplete", "events": None} \
+        if capture_skipped_turns else {"status": "disabled", "events": None}
     bot_dir, wrap_error = wrap_jar_for_tr(
         jar_path, classname, version, opts, team=setup.get("team", False))
     if wrap_error:
@@ -1004,6 +1092,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
             "ok": False, "score": None, "scores": [], "elapsed": 0.0,
             "errors": ["HARNESS: " + wrap_error.splitlines()[0]],
             "error_count": 1, "log_text": "=== Wrapping failed ===\n" + wrap_error,
+            "skipped_turn_telemetry": unavailable_telemetry,
         }
 
     if setup.get("team", False):
@@ -1033,6 +1122,7 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
                 "ok": False, "score": None, "scores": [], "elapsed": 0.0,
                 "errors": ["HARNESS: " + enemy_error.splitlines()[0]],
                 "error_count": 1, "log_text": "=== Wrapping opponent failed ===\n" + enemy_error,
+                "skipped_turn_telemetry": unavailable_telemetry,
             }
         bot_dirs.append(enemy_dir)
     out_file = WORK_DIR / "tr-result.json"
@@ -1053,8 +1143,9 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
     watcher = None
     if rc_signatures is not None:
         watcher = BridgeOnlyErrorWatcher(staged_log_dirs(bot_dirs), rc_signatures)
+    java_env = java_env_for_skipped_turn_telemetry(capture_skipped_turns)
     returncode, output, timed_out = run_java(
-        cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher)
+        cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher, env=java_env)
     elapsed = time.monotonic() - started
 
     result = summarize_worker_result(
@@ -1085,6 +1176,9 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         result["bridge_only_signatures"] = sorted(watcher.found)
         result["score"] = None
         result["scores"] = []
+    result["skipped_turn_telemetry"] = skipped_turn_telemetry(
+        bot_dirs, capture_skipped_turns, result.get("completed", False),
+        len(staged_log_dirs(bot_dirs)))
     return result
 
 
@@ -1365,6 +1459,8 @@ def parse_args():
                    help="java executable for the classic side; must be JDK 23 or older, "
                         "since newer releases removed the SecurityManager classic needs "
                         "(auto-detected when not given)")
+    p.add_argument("--capture-skipped-turns", action="store_true",
+                   help="record Tank Royale bridge skipped-turn events, including warm-up turns")
 
     gate = p.add_argument_group("regression gate (C-004)")
     gate.add_argument("--regression", action="store_true",
@@ -1432,6 +1528,7 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats,
     factor of forty between runs on the classic engine alone (AN-001)."""
     rc_scores, tr_scores, deltas = [], [], []
     bridge_only = []
+    telemetry_runs = []
     attempts = 0
     for attempt in range(repeats):
         attempts += 1
@@ -1444,6 +1541,11 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats,
                            enemy_jar_paths=enemy_jar_paths,
                            enemy_classes=enemy_classes)
         attach_error_signatures(tr)
+        if getattr(opts, "capture_skipped_turns", False):
+            telemetry_runs.append({
+                "attempt": attempts,
+                **tr.get("skipped_turn_telemetry", {"status": "incomplete", "events": None}),
+            })
         if tr.get("aborted_on_bridge_only_error"):
             bridge_only = tr.get("bridge_only_signatures", [])
             break
@@ -1457,12 +1559,15 @@ def measure_repeatedly(jar, classname, version, opts, setup, repeats,
         print(f"      repeat {attempt + 1}/{repeats}: RC={fmt_score(rc.get('score'))} "
               f"TR={fmt_score(tr.get('score'))} "
               f"delta={'-' if delta is None else f'{delta:+.1f}%'}", flush=True)
-    return {
+    measured = {
         "rc_mean": mean(rc_scores), "tr_mean": mean(tr_scores),
         "delta_mean": mean(deltas), "samples": len(deltas), "attempts": attempts,
         "deltas": deltas,
         "bridge_only_signatures": bridge_only,
     }
+    if getattr(opts, "capture_skipped_turns", False):
+        measured["skipped_turn_telemetry_runs"] = telemetry_runs
+    return measured
 
 
 def run_regression(opts):
@@ -1492,6 +1597,9 @@ def run_regression(opts):
         measured = measure_repeatedly(
             jar, classname, version, opts, setup, repeats,
             enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
+        if "skipped_turn_telemetry_runs" in measured:
+            print("    skipped-turn telemetry runs: " + json.dumps(
+                measured["skipped_turn_telemetry_runs"], separators=(",", ":")), flush=True)
 
         if measured["bridge_only_signatures"]:
             verdict = "BRIDGE-ONLY ERROR"
@@ -1896,6 +2004,11 @@ def run_conformance(opts):
         if opts.enemy_class:
             staging_dirs.append(WORK_DIR / "tr-bots-enemy")
         result["consoles"] = collect_bot_consoles(staging_dirs)
+    if "skipped_turn_telemetry" not in result:
+        result["skipped_turn_telemetry"] = {
+            "status": "unavailable" if opts.capture_skipped_turns else "disabled",
+            "events": None,
+        }
     result.pop("log_text", None)
     result["setup"] = setup
     print(json.dumps(result))
@@ -2079,6 +2192,10 @@ def main():
                     "errors": ["HARNESS: Tank Royale side skipped after classic process cleanup failed"],
                     "error_signatures": [], "bridge_only_signatures": None,
                     "has_log": False, "skipped": None, "stop_sweep": True,
+                    "skipped_turn_telemetry": {
+                        "status": "incomplete" if opts.capture_skipped_turns else "disabled",
+                        "events": None,
+                    },
                 }
             else:
                 tr = run_tr_battle(
@@ -2100,7 +2217,8 @@ def main():
                         "errors", "error_signatures", "has_log", "selected")},
                 "tr": {k: tr.get(k) for k in
                        ("ok", "score", "scores", "error_count", "elapsed",
-                        "errors", "error_signatures", "bridge_only_signatures", "has_log", "skipped")},
+                        "errors", "error_signatures", "bridge_only_signatures", "has_log",
+                        "skipped", "skipped_turn_telemetry")},
                 "completed_at": now_iso(),
             }
             if retest:

@@ -35,6 +35,11 @@ import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
+    private static final String SKIPPED_TURN_TELEMETRY_PROPERTY =
+            "robocode.bridge.skippedTurnTelemetry";
+    private static final boolean SKIPPED_TURN_TELEMETRY_ENABLED =
+            Boolean.getBoolean(SKIPPED_TURN_TELEMETRY_PROPERTY);
+
     private volatile IBasicRobot robot;
     private volatile IBasicEvents basicEvents;
     private volatile IAdvancedEvents advancedEvents;
@@ -54,6 +59,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private boolean hitWallHandlerActive;
     private boolean hitWallHandlerBlocked;
     private boolean suppressScansForBlockedWallHandler;
+    private final List<String> skippedTurnTelemetryRecords = SKIPPED_TURN_TELEMETRY_ENABLED
+            ? new ArrayList<>() : Collections.emptyList();
+    private final Set<String> skippedTurnTelemetryEventRecords = SKIPPED_TURN_TELEMETRY_ENABLED
+            ? new HashSet<>() : Collections.emptySet();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -445,8 +454,28 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchSkippedTurnEvent(BotEvent botEvent) {
         log("-> onSkippedTurn");
         var skippedTurnEvent = (SkippedTurnEvent) botEvent;
+        if (SKIPPED_TURN_TELEMETRY_ENABLED) {
+            String record = "BRIDGE_SKIPPED_TURN botId=" + bot.getMyId()
+                    + " round=" + bot.getRoundNumber()
+                    + " turn=" + skippedTurnEvent.getTurnNumber();
+            if (skippedTurnTelemetryEventRecords.add(record)) {
+                skippedTurnTelemetryRecords.add(record);
+            }
+        }
         var robocodeEvent = new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber());
         dispatchRobotCallback(() -> advancedEvents.onSkippedTurn(robocodeEvent));
+    }
+
+    private void flushSkippedTurnTelemetry() {
+        if (SKIPPED_TURN_TELEMETRY_ENABLED) {
+            for (String record : skippedTurnTelemetryRecords) {
+                System.out.println(record);
+            }
+            System.out.println("BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=" + bot.getMyId()
+                    + " eventCount=" + skippedTurnTelemetryEventRecords.size());
+            skippedTurnTelemetryRecords.clear();
+            skippedTurnTelemetryEventRecords.clear();
+        }
     }
 
     private void dispatchDeathEvent() {
@@ -1252,6 +1281,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onGameStarted(GameStartedEvent gameStatedEvent) {
             totalTurns.set(0);
+            if (SKIPPED_TURN_TELEMETRY_ENABLED) {
+                skippedTurnTelemetryRecords.add(
+                        "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=" + bot.getMyId());
+            }
             // Legacy robots may read battlefield dimensions from setPeer(). The Bot API fills
             // GameSetup immediately before publishing this callback, so attach the peer here
             // instead of before the connection has received game setup.
@@ -1260,6 +1293,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onGameEnded(GameEndedEvent gameEndedEvent) {
+            flushSkippedTurnTelemetry();
             log("-> onBattleEnded");
             if (basicEvents instanceof IBasicEvents2) {
                 ((IBasicEvents2) basicEvents).onBattleEnded(new robocode.BattleEndedEvent(
