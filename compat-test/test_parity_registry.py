@@ -358,6 +358,139 @@ class ParityRegistryTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             harness.select_melee_opponent_names("robot-0.jar", pool)
 
+    def testHARN008_UnitNegative_DisabledCaptureDoesNotClaimZeroEvents(self):
+        self.assertEqual(
+            {"status": "disabled", "events": None},
+            harness.skipped_turn_telemetry([], False, True, 0),
+        )
+
+    def testHARN008_UnitNegative_IncompleteCaptureDoesNotClaimZeroEvents(self):
+        self.assertEqual(
+            {"status": "incomplete", "events": None},
+            harness.skipped_turn_telemetry([], True, False, 0),
+        )
+
+    def testHARN008_UnitNegative_MissingBridgeReadinessIsUnavailable(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bot_dir = Path(directory) / "bot"
+            bot_dir.mkdir()
+            (bot_dir / "stdout.log").write_text("", encoding="utf-8")
+
+            result = harness.skipped_turn_telemetry([bot_dir], True, True, 1)
+
+        self.assertEqual({"status": "unavailable", "events": None}, result)
+
+    def testHARN008_UnitPositive_CaptureDeduplicatesAndKeepsWarmupTurns(self):
+        with tempfile.TemporaryDirectory() as directory:
+            first = Path(directory) / "bot-1"
+            second = Path(directory) / "bot-2"
+            first.mkdir()
+            second.mkdir()
+            (first / "stdout.log").write_text(
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=11\n"
+                "BRIDGE_SKIPPED_TURN botId=11 round=1 turn=4\n"
+                "BRIDGE_SKIPPED_TURN botId=11 round=1 turn=4\n"
+                "BRIDGE_SKIPPED_TURN botId=11 round=1 turn=2\n"
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=11 eventCount=2\n",
+                encoding="utf-8")
+            (second / "stdout.log").write_text(
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=12\n"
+                "BRIDGE_SKIPPED_TURN botId=12 round=2 turn=1\n"
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=12 eventCount=1\n",
+                encoding="utf-8")
+
+            result = harness.skipped_turn_telemetry(
+                [first, second], True, True, expected_participants=2)
+
+        self.assertEqual("captured", result["status"])
+        self.assertEqual([
+            {"bot_id": 11, "round": 1, "turn": 2},
+            {"bot_id": 11, "round": 1, "turn": 4},
+            {"bot_id": 12, "round": 2, "turn": 1},
+        ], result["events"])
+
+    def testHARN008_UnitPositive_CompletedCaptureCanReportZeroEvents(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bot_dir = Path(directory) / "bot"
+            bot_dir.mkdir()
+            (bot_dir / "stdout.log").write_text(
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=11\n"
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=11 eventCount=0\n",
+                encoding="utf-8")
+
+            result = harness.skipped_turn_telemetry([bot_dir], True, True, 1)
+
+        self.assertEqual({"status": "captured", "events": []}, result)
+
+    def testHARN008_UnitNegative_MissingLogMakesCaptureIncomplete(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bot_dir = Path(directory) / "bot"
+            bot_dir.mkdir()
+
+            result = harness.skipped_turn_telemetry([bot_dir], True, True, 1)
+
+        self.assertEqual({"status": "incomplete", "events": None}, result)
+
+    def testHARN008_UnitNegative_MissingCompletionMarkerDoesNotClaimZeroEvents(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bot_dir = Path(directory) / "bot"
+            bot_dir.mkdir()
+            (bot_dir / "stdout.log").write_text(
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=11\n"
+                "BRIDGE_SKIPPED_TURN botId=11 round=1 turn=3\n",
+                encoding="utf-8")
+
+            result = harness.skipped_turn_telemetry([bot_dir], True, True, 1)
+
+        self.assertEqual({"status": "incomplete", "events": None}, result)
+
+    def testHARN008_UnitNegative_CompletionCountDetectsTruncatedEvents(self):
+        with tempfile.TemporaryDirectory() as directory:
+            bot_dir = Path(directory) / "bot"
+            bot_dir.mkdir()
+            (bot_dir / "stdout.log").write_text(
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_READY botId=11\n"
+                "BRIDGE_SKIPPED_TURN botId=11 round=1 turn=3\n"
+                "BRIDGE_SKIPPED_TURN_TELEMETRY_COMPLETE botId=11 eventCount=2\n",
+                encoding="utf-8")
+
+            result = harness.skipped_turn_telemetry([bot_dir], True, True, 1)
+
+        self.assertEqual({"status": "incomplete", "events": None}, result)
+
+    def testHARN008_UnitPositive_OptInOverridesOnlyTelemetryJvmProperty(self):
+        with patch.dict(harness.os.environ, {
+                "JAVA_TOOL_OPTIONS": "-Xmx512m -Drobocode.bridge.skippedTurnTelemetry=false"
+        }, clear=True):
+            env = harness.java_env_for_skipped_turn_telemetry(True)
+
+        self.assertEqual(
+            "-Xmx512m -Drobocode.bridge.skippedTurnTelemetry=true",
+            env["JAVA_TOOL_OPTIONS"])
+
+    def testHARN008_UnitNegative_DisabledRemovesInheritedTelemetryProperty(self):
+        with patch.dict(harness.os.environ, {
+                "JAVA_TOOL_OPTIONS": "-Xmx512m -Drobocode.bridge.skippedTurnTelemetry=true"
+        }, clear=True):
+            env = harness.java_env_for_skipped_turn_telemetry(False)
+
+        self.assertEqual("-Xmx512m", env["JAVA_TOOL_OPTIONS"])
+
+    def testHARN008_UnitPositive_TelemetryPersistsInAppendOnlyObservation(self):
+        telemetry = {
+            "status": "captured",
+            "events": [{"bot_id": 11, "round": 1, "turn": 2}],
+        }
+        state = {"robots": {"roborumble/a.Bot_1.0.jar": {
+            "status": "PASS", "delta_pct": 0.0, "completed_at": "2026-09-11T00:00:00Z",
+            "setup": {}, "rc": {}, "tr": {"skipped_turn_telemetry": telemetry},
+        }}}
+        data = {"schema_version": 1, "subjects": {}}
+
+        self.assertEqual(1, registry.sync_state(data, state, Path("missing"), {}))
+        observation = data["subjects"]["roborumble/a.Bot_1.0.jar"]["observations"][0]
+        self.assertEqual(telemetry, observation["tank_royale"]["skipped_turn_telemetry"])
+
 
 if __name__ == "__main__":
     unittest.main()

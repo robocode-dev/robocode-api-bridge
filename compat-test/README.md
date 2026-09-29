@@ -204,6 +204,18 @@ Full error details land in `errors/robocode/<robot>.log` and
 
 `parity-registry.json` is the tracked evidence carrier. It appends each subject observation with the exact jar identity, setup, engine artifacts, normalized errors, and focused retest link. Normalized error origins skip engine implementation frames from both classic and the bridge so the first legacy application frame remains comparable across engines. It also retains an append-only diagnosis history, so a later triage decision cannot rewrite an earlier one. `parity-registry.md` renders the current status of every subject for review. Import an existing checkpoint with `--sync-registry`; after a diagnosis, tag a case with `--set-cause <subject> <cause> <owner>` and rerun that cause with `--retest-cause <cause> --repair <commit-or-PR>`.
 
+### Skipped-turn telemetry
+
+Pass `--capture-skipped-turns` to enable opt-in records for Tank Royale bridge callbacks; capture is off by default. Each registry observation stores `tank_royale.skipped_turn_telemetry` with a status and, only when capture is complete, an `events` list of unique `{bot_id, round, turn}` values sorted by round and turn, including warm-up. `disabled`, `unavailable`, and `incomplete` use `events: null`; `captured` with `events: []` means the completed run delivered no skipped-turn callbacks to the bridge. Per-bot readiness and completion-count markers let the harness detect an older bridge jar or a truncated capture. The data describes callbacks delivered to the bridge and does not claim to record server detections that never reach it.
+
+Use the conformance probe to check a forced-skip run locally:
+
+```bash
+python compat_test.py --conformance conformance-robots --conformance-source conformance-robots/conformance/probes/SkippedTurnProbe.java --robot-class conformance.probes.SkippedTurnProbe --engine tr --rounds 1 --capture-skipped-turns
+```
+
+The conformance JSON includes `skipped_turn_telemetry` at the top level. On a parity sweep, use `--capture-skipped-turns` and inspect the per-observation field in `parity-registry.json`. Repeated `--confirm-score` runs keep one record per attempt under `confirmation.skipped_turn_telemetry_runs`; the regression gate prints the same per-attempt JSON to stdout.
+
 **Every row states the setup it was measured at.** The report is regenerated from the state
 file long after the battles ran, so a single header describing the current configuration
 would restate every stored row as though it had been measured under today's settings --

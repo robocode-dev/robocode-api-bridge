@@ -10,7 +10,7 @@ reversal-cost: low
 
 # CAP-007 — design
 
-`status: draft`: the orchestration and isolation described here exist; the division setups, averaging, fail-fast, and tracing do not.
+`status: draft`: the orchestration, isolation, and opt-in skipped-turn capture described here exist; the division setups, averaging, fail-fast, and tracing do not.
 
 ## Shape
 
@@ -33,6 +33,8 @@ Compare: scores as the sum of all staged participants' totals, errors as normali
 `compat-test/parity-registry.json` is append-only per subject. An observation carries the official setup, source jar digest, selected classic identity, team classification, both engine outcomes, normalized errors, and the classic Robocode version plus bridge, Tank Royale, Bot API, wrapper, and runner fingerprints that produced it. The harness refuses to create LiteRumble evidence when the classic version is unknown or outside LiteRumble's allowed client list. `parity-registry.md` is generated from that JSON and is the review table for every subject.
 
 The harness imports an interrupted checkpoint with `--sync-registry`, runs new first-pass work in bounded `--limit` batches, and selects retests with `--retry-unresolved` or `--retest-cause`. Matched subjects stay recorded and are not selected after an unrelated repair.
+
+Skipped-turn capture is opt-in with `--capture-skipped-turns`. For a completed Tank Royale run, `tank_royale.skipped_turn_telemetry` in each registry observation has `status: captured` and an `events` list containing distinct `{bot_id, round, turn}` records in round/turn order; warm-up turns are included. `disabled`, `unavailable`, and `incomplete` statuses carry `events: null`, so only a completed capture can report an empty list. The bridge buffers each bot's readiness and event markers until `GameEnded`, then writes a completion marker with its distinct-event count; the harness checks both markers against the registry events before reporting capture as complete. These records cover `SkippedTurnEvent` callbacks delivered to bridge bots and do not claim to observe server detections that never reach a bot.
 
 ## What changes for the milestone
 

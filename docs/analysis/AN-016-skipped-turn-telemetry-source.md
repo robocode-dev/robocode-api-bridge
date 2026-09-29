@@ -31,7 +31,11 @@ The spike made no TPS or performance claim. An earlier filtered Gradle integrati
 
 ## Findings
 
-Bridge-side telemetry at `BotPeer`'s skipped-turn dispatch records the event at the boundary the compatibility layer receives, before the legacy robot's callback runs. It can be enabled only for measurement runs and can emit the exact bot ID, round, and skipped turn number to the bot's existing log. It avoids the runner's repeated timing windows and bounded timing buffer.
+Bridge-side telemetry at `BotPeer`'s skipped-turn dispatch records the event at the boundary the compatibility layer receives, before the legacy robot's callback runs. It can be enabled only for measurement runs and preserves the exact bot ID, round, and skipped turn number. It buffers records in memory and flushes them at `GameEnded`, avoiding a file write on each skipped-turn callback. A final marker per bot reports the number of unique tuples so the harness can detect an interrupted flush. It avoids the runner's repeated timing windows and bounded timing buffer.
+
+After implementation, three one-round local Tank Royale runs of the existing `SkippedTurnProbe` with two bridge bots reported 84, 82, and 76 unique event tuples. In each run, per-bot comparison matched every tuple's turn number to exactly one `SkippedTurnReported` callback line, and each completion marker's count matched its bot's tuples. A run without `--capture-skipped-turns` reported `disabled` with `events: null` and emitted no bridge markers, even when the parent environment supplied the telemetry property. These runs used the locally built bridge/wrapper with the Bot API and runner from the same Tank Royale 1.4.0 worktree revision; this is local conformance evidence, not a release or cross-machine performance claim.
+
+The first end-to-end attempt also showed that `bot.getMyId()` is unavailable during `BotPeer` construction. The readiness marker now comes from `GameStartedEvent`, after the Bot API has assigned the ID; the forced-skip run passed after that correction.
 
 This source measures skipped-turn events delivered to the bridge. It does not claim to observe a server-detected event that never reaches the bridge. Disabled capture, an incomplete battle, and a completed capture with no events must remain distinguishable. Historical registry observations stay unmeasured.
 
