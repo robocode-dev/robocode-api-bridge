@@ -3,15 +3,23 @@ id: CH-017
 type: change
 status: open
 links: [P-001]
-title: Continue the all-division versioned parity campaign
+title: Merge an evidence-backed M-006 checkpoint
 ---
 
 # Proposal
 
-The merged CH-016 checkpoint established the fixed melee comparison, completed official team coverage, and added diagnosis and containment for the first melee error clusters, but M-006 remains open. The tracked registry still contains unresolved cases and does not yet establish complete parity across the discoverable roborumble and melee collections.
+This change packages a bounded, evidence-backed checkpoint from the all-division parity campaign. It includes the bridge repairs, conformance evidence, official retests, registry observations, and documentation already recorded on this branch. It does not claim that `P-001#M-006` is complete; the plan milestone remains open for the unresolved collection cases and repairs.
 
-This change continues from that accepted checkpoint. It will run the remaining official-parameter cases with the read-only collection intact, diagnose every unresolved outcome, implement bridge-owned repairs where the evidence supports them, and append focused retests with complete artifact manifests. It will update the permanent plan, CAP-005 evidence/design bookkeeping, generated registry report, and changelog only to the extent the resulting registry proves those claims.
+The checkpoint includes the completed `TEAM-002` classic-name mapping using the authoritative map delivered by [Tank Royale PR 277](https://github.com/robocode-dev/tank-royale/pull/277), the tested startup, file-stream, quota, scan-name, and harness repairs, and the corresponding observations in the append-only registry. The permanent plan and changelog state only what this evidence supports.
 
-It also resolves `TEAM-002`'s classic-name identity blocker using the authoritative name map added by merged [Tank Royale PR 277](https://github.com/robocode-dev/tank-royale/pull/277). The bridge adds the full team member class name to generated bot metadata and translates between Tank Royale IDs and server-assigned classic names. Two-engine integration evidence closes `P-001` evidence door `M-130`; it does not close the broader `M-006` parity campaign.
+## Challenge
 
-The change proceeds under classic Robocode as the behavioural reference, PDR-003's append-only registry rules, and PDR-004's pinned melee opponent pool. It does not rewrite or replace prior observations or collection jars.
+The main assumption is that merging independently tested checkpoint work while `M-006` remains open gives the bridge a useful, truthful baseline without suggesting that overall parity is complete. The alternative is to keep this accumulated work in draft until every collection discrepancy is resolved; the PR's history shows that this makes the checkpoint wait on a much larger campaign.
+
+The cheapest useful test is to inspect the complete merge diff and strict digest gate, verify that each claim in this checkpoint has a test or registry observation, and confirm the plan still labels `M-006` unfinished. Stop and narrow the checkpoint if any claim relies on full-campaign completion, or if a retest is represented as a clean parity result when its recorded status remains discrepant.
+
+A change could pass its focused tests and still fail the people preserving legacy robots if unresolved cases are hidden by the merge or missing skipped-turn telemetry is treated as proof that no turns were skipped. The registry and analysis retain those cases as unresolved, and observations with `skipped: null` remain explicitly unmeasured.
+
+## Follow-up boundary
+
+After this checkpoint is accepted, the remaining official sweep, diagnosis of unresolved cases, evidence-backed repairs, final capability bookkeeping, and per-turn skipped-turn instrumentation continue in a separate change from the updated `main` branch. This checkpoint leaves `P-001#M-006` open and does not stand in for that follow-up.

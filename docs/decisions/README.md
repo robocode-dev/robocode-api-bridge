@@ -34,5 +34,5 @@ A decision that changes a methodology contract inventories every live carrier th
 - [ADR-002 — Preserve Tank Royale team grouping and expose classic team names](ADR-002-map-teams-onto-tank-royales-native-team-model.md) · `verified` — Keep server-owned team semantics while exposing classic name identity through the frozen team API.
 - [IDR-008 — Preserve arbitrary classic Serializable team messages through a bridge envelope](IDR-008-preserve-serializable-team-messages.md) · `inferred` — Non-primitive legacy team messages use a bridge-owned Java-serialization envelope because Tank Royale's JSON serializer cannot reflect into every classic message type.
 - [PDR-003 — Treat every rumble subject as a versioned parity case against classic Robocode](PDR-003-versioned-parity-registry.md) · `inferred` — The compatibility harness keeps an append-only, tracked parity registry for every robot jar and team.
-- [PDR-004 — Measure melee subjects against a pinned fixed opponent pool](PDR-004-fixed-melee-opponent-pool.md) · `inferred` — Official melee evidence uses a tracked twelve-jar pool and nine selected opponents per subject.
+- [PDR-004 — Measure melee subjects against a pinned fixed opponent pool](PDR-004-fixed-melee-opponent-pool.md) · `verified` — Official melee evidence uses a tracked twelve-jar pool and nine selected opponents per subject.
 <!-- clue:index:end -->
