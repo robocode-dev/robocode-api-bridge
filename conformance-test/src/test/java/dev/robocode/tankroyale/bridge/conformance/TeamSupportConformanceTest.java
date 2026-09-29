@@ -49,11 +49,53 @@ class TeamSupportConformanceTest extends ConformanceTestBase {
                     outcome.countOf("Message:BROADCAST"),
                     () -> "broadcast messages were not delivered to every teammate on " + engine
                             + " (" + outcome.summary() + ")");
+            assertEquals(TEAM_INSTANCES * rounds,
+                    outcome.countOf("TeamRecipientBatch:BATCH:first,BATCH:second"),
+                    () -> "serializable collection batches were not delivered in order on " + engine
+                            + " (" + outcome.summary() + ")");
             assertEquals(TEAM_INSTANCES * rounds, outcome.countOf("Message:DIRECT"),
                     () -> "direct messages were not delivered to one teammate per team on " + engine
                             + " (" + outcome.summary() + ")");
             assertTrue(outcome.anyConsoleContains(" from "),
                     () -> "team messages did not carry a sender on " + engine
+                            + " (" + outcome.summary() + ")");
+        });
+    }
+
+    @Test
+    @DisplayName("TEAM-002: team APIs expose classic names on both engines")
+    void testTEAM002_IntegrationPositive_ExposesClassicNamesAndResolvesThem() {
+        assertOnBothEnginesTeam(TEAM, SOURCE, (outcome, engine) -> {
+            int rounds = configuredRounds();
+            for (int occurrence = 1; occurrence <= TEAM_INSTANCES; occurrence++) {
+                String suffix = " (" + occurrence + ")";
+                assertEquals(rounds, outcome.countOf(
+                                "TeamLeaderName:conformance.teams.TeamLeader 1.0" + suffix),
+                        () -> "the leader name did not match classic on " + engine
+                                + " (" + outcome.summary() + ")");
+                assertEquals(rounds, outcome.countOf(
+                                "TeamRecipientName:conformance.teams.TeamRecipient 1.0" + suffix),
+                        () -> "the recipient name did not match classic on " + engine
+                                + " (" + outcome.summary() + ")");
+                assertEquals(rounds, outcome.countOf(
+                                "TeamDroidName:conformance.teams.TeamDroid 1.0" + suffix),
+                        () -> "the droid name did not match classic on " + engine
+                                + " (" + outcome.summary() + ")");
+                assertEquals(rounds, outcome.countOf(
+                                "TeamTeammateName:conformance.teams.TeamRecipient 1.0" + suffix),
+                        () -> "the teammate list did not return classic names on " + engine
+                                + " (" + outcome.summary() + ")");
+                assertEquals(rounds, outcome.countOf(
+                                "TeamTeammateName:conformance.teams.TeamDroid 1.0" + suffix),
+                        () -> "the teammate list did not return classic names on " + engine
+                                + " (" + outcome.summary() + ")");
+            }
+            assertFalse(outcome.anyConsoleContains("TeamIsTeammateMismatch:"),
+                    () -> "isTeammate rejected a name from getTeammates() on " + engine
+                            + " (" + outcome.summary() + ")");
+            assertEquals(TEAM_INSTANCES * 2 * (TEAM_MEMBERS - 1) * rounds,
+                    outcome.countOf(" from conformance.teams.TeamLeader 1.0 ("),
+                    () -> "message events did not expose classic sender names on " + engine
                             + " (" + outcome.summary() + ")");
         });
     }

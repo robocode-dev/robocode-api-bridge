@@ -9,6 +9,10 @@ import static java.lang.Math.toRadians;
 final class IBotToRobotStatusMapper {
 
     public static robocode.RobotStatus map(IBot bot) {
+        return map(bot, bot.getTurnNumber());
+    }
+
+    public static robocode.RobotStatus map(IBot bot, long time) {
         return new RobotStatus(
                 bot.getEnergy(),
                 bot.getX(),
@@ -37,7 +41,7 @@ final class IBotToRobotStatusMapper {
                 0, // numSentries, not supported
                 bot.getRoundNumber() - 1,
                 bot.getNumberOfRounds(),
-                bot.getTurnNumber()
+                time
         );
     }
 }

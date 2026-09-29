@@ -269,11 +269,13 @@ public class TrBattleWorker {
         private static void writeValue(StringBuilder sb, Object value) {
             if (value == null) {
                 sb.append("null");
-            } else if (value instanceof String s) {
+            } else if (value instanceof String) {
+                String s = (String) value;
                 sb.append('"').append(escape(s)).append('"');
             } else if (value instanceof Number || value instanceof Boolean) {
                 sb.append(value);
-            } else if (value instanceof Map<?, ?> map) {
+            } else if (value instanceof Map) {
+                Map<?, ?> map = (Map<?, ?>) value;
                 sb.append('{');
                 boolean first = true;
                 for (Map.Entry<?, ?> e : map.entrySet()) {
@@ -283,7 +285,8 @@ public class TrBattleWorker {
                     writeValue(sb, e.getValue());
                 }
                 sb.append('}');
-            } else if (value instanceof Iterable<?> it) {
+            } else if (value instanceof Iterable) {
+                Iterable<?> it = (Iterable<?>) value;
                 sb.append('[');
                 boolean first = true;
                 for (Object o : it) {
@@ -302,21 +305,21 @@ public class TrBattleWorker {
             for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
                 switch (c) {
-                    case '"' -> sb.append("\\\"");
-                    case '\\' -> sb.append("\\\\");
-                    case '\n' -> sb.append("\\n");
-                    case '\r' -> sb.append("\\r");
-                    case '\t' -> sb.append("\\t");
-                    case '\b' -> sb.append("\\b");
-                    case '\f' -> sb.append("\\f");
-                    default -> {
+                    case '"': sb.append("\\\""); break;
+                    case '\\': sb.append("\\\\"); break;
+                    case '\n': sb.append("\\n"); break;
+                    case '\r': sb.append("\\r"); break;
+                    case '\t': sb.append("\\t"); break;
+                    case '\b': sb.append("\\b"); break;
+                    case '\f': sb.append("\\f"); break;
+                    default:
                         if (c < 0x20) {
                             sb.append(String.format("\\u%04x", (int) c));
                         } else {
                             sb.append(c);
                         }
+                        break;
                     }
-                }
             }
             return sb.toString();
         }

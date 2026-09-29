@@ -1,9 +1,11 @@
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 
 MODULE = Path(__file__).with_name("parity_registry.py")
@@ -79,6 +81,88 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertEqual(1, registry.sync_state(data, state, Path("missing"), manifest))
         self.assertEqual(0, registry.sync_state(data, state, Path("missing"), manifest))
         self.assertEqual("PASS", data["subjects"]["roborumble/a.Bot_1.0.jar"]["status"])
+
+    def testHARN001_UnitPositive_NormalCheckpointSyncDoesNotReplayAccumulatedProgress(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            state_file = root / "test_progress.json"
+            state_file.write_text(json.dumps({
+                "version": 1,
+                "settings": {},
+                "robots": {"roborumble/prior.Bot_1.0.jar": {
+                    "status": "PASS", "completed_at": "2026-09-10T00:00:00Z",
+                    "setup": {}, "rc": {}, "tr": {},
+                }},
+            }), encoding="utf-8")
+            current_jar = root / "roborumble" / "current.Bot_1.0.jar"
+            current_jar.parent.mkdir()
+            current_jar.write_bytes(b"current")
+            captured = []
+
+            def result():
+                return {
+                    "ok": True, "score": 1.0, "scores": [1.0], "error_count": 0,
+                    "elapsed": 0.0, "errors": [], "log_text": "", "selected": "current.Bot",
+                }
+
+            with patch.object(harness, "STATE_FILE", state_file), \
+                    patch.object(harness, "discover_jars", return_value=[("roborumble", current_jar)]), \
+                    patch.object(harness, "check_prerequisites"), \
+                    patch.object(harness, "division_setup", return_value={}), \
+                    patch.object(harness, "run_rc_battle", side_effect=lambda *args, **kwargs: result()), \
+                    patch.object(harness, "run_tr_battle", side_effect=lambda *args, **kwargs: result()), \
+                    patch.object(harness, "write_error_log", return_value=False), \
+                    patch.object(harness, "evaluate", return_value=("PASS", 0.0)), \
+                    patch.object(harness, "regenerate_report"), \
+                    patch.object(harness, "sync_parity_registry",
+                                 side_effect=lambda checkpoint, opts: captured.append(checkpoint)), \
+                    patch.object(sys, "argv", ["compat_test.py", "--collections", "roborumble", "--limit", "1"]):
+                self.assertEqual(0, harness.main())
+
+        self.assertEqual(
+            {"roborumble/current.Bot_1.0.jar"},
+            set(captured[0]["robots"]),
+        )
+
+    def testHARN001_UnitPositive_TeamMemberDirsReadWindows1252Metadata(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            team_dir = root / "legacy.Team_1.0"
+            team_dir.mkdir()
+            member_dir = root / "membre-é"
+            member_dir.mkdir()
+            (team_dir / "legacy.Team_1.0.json").write_bytes(
+                json.dumps({"teamMembers": [member_dir.name]}).encode("cp1252"))
+
+            self.assertEqual([member_dir], harness.team_member_dirs(team_dir))
+
+    def testHARN008_UnitPositive_RobocodeVersionReadsInstallReleaseHeading(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text(
+                "## Version 1.11.1 (13-Jul-2026)\n", encoding="utf-8")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+            self.assertIsNone(harness.robocode_version_error(root, "1.11.1"))
+
+    def testHARN008_UnitPositive_RobocodeVersionFallsBackToUniqueEngineVersion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "libs").mkdir()
+            (root / "libs" / "robocode.core-1.11.1.jar").write_bytes(b"")
+            (root / "libs" / "robocode.host-1.11.1.jar").write_bytes(b"")
+            self.assertEqual("1.11.1", harness.resolve_robocode_version(root))
+
+    def testHARN008_UnitNegative_UnsupportedRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "versions.md").write_text("## Version 1.9.4.2\n", encoding="utf-8")
+            error = harness.robocode_version_error(root)
+        self.assertIn("not in LiteRumble's allowed client list", error)
+
+    def testHARN008_UnitNegative_UnknownRobocodeVersionIsRejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            error = harness.robocode_version_error(Path(directory))
+        self.assertIn("could not be determined", error)
 
     def testHARN001_UnitNegative_FailedCasesRemainUnresolved(self):
         self.assertTrue(registry.is_unresolved("FAIL (TR)"))
@@ -182,11 +266,81 @@ class ParityRegistryTest(unittest.TestCase):
         self.assertTrue(watcher.triggered)
         self.assertIn("IllegalStateException", output)
 
+    def testHARN002_IntegrationPositive_TimeoutExpiresWhileWatcherIsBlocked(self):
+        watcher_started = harness.threading.Event()
+        release_watcher = harness.threading.Event()
+
+        def blocked_watcher(_):
+            watcher_started.set()
+            release_watcher.wait(timeout=2)
+            return False
+
+        def terminate_worker(proc, _diagnostics):
+            proc.kill()
+            proc.wait(timeout=2)
+            return True
+
+        started = harness.time.monotonic()
+        try:
+            with patch.object(harness, "kill_process_tree", side_effect=terminate_worker):
+                returncode, output, timed_out = harness.run_java(
+                    [sys.executable, "-c", "import time; time.sleep(30)"],
+                    Path.cwd(), timeout=0.1, abort_when=blocked_watcher, poll_seconds=0.01)
+        finally:
+            release_watcher.set()
+
+        self.assertTrue(watcher_started.is_set())
+        self.assertEqual(-1, returncode)
+        self.assertTrue(timed_out)
+        self.assertIn("<abort watcher did not stop before timeout>", output)
+        self.assertLess(harness.time.monotonic() - started, 1.5)
+
+    def testHARN002_UnitPositive_TaskkillHasTimeoutAndFallsBackToWorker(self):
+        proc = Mock()
+        proc.pid = 12345
+        proc.poll.return_value = None
+        diagnostics = []
+
+        with patch.object(harness.sys, "platform", "win32"), \
+                patch.object(
+                    harness.subprocess, "run",
+                    side_effect=harness.subprocess.TimeoutExpired("taskkill", 15)) as taskkill:
+            terminated = harness.kill_process_tree(proc, diagnostics)
+
+        self.assertFalse(terminated)
+        self.assertEqual(15, taskkill.call_args.kwargs["timeout"])
+        self.assertIn("<taskkill timed out after 15s>", diagnostics)
+        proc.kill.assert_called_once()
+        proc.wait.assert_called_once_with(timeout=15)
+
     def testHARN001_UnitNegative_CauseRetestRequiresRepairAndKnownSelection(self):
         missing_repair = SimpleNamespace(repair=None, retest_cause="lifecycle")
         unknown_cause = SimpleNamespace(repair="abc123", retest_cause="lifecycle")
         self.assertIn("requires --repair", harness.retest_option_error(missing_repair))
         self.assertIn("No unresolved", harness.retest_option_error(unknown_cause, []))
+
+    def testHARN001_UnitNegative_CauseRetestDoesNotSelectUnclassifiedMissingCheckpoint(self):
+        opts = SimpleNamespace(
+            force=False, retry_unresolved=False, confirm_score=False,
+            retest_cause="lifecycle", retry_failed=False)
+        subject = {"status": "DISCREPANCY (errors)", "diagnosis_events": []}
+
+        self.assertFalse(harness.should_run(
+            None, opts, {"subjects": {"meleerumble/a.Bot_1.0.jar": subject}},
+            "meleerumble/a.Bot_1.0.jar"))
+
+    def testHARN001_UnitPositive_CauseRetestSelectsDiagnosedRegistrySubjectWithoutCheckpoint(self):
+        opts = SimpleNamespace(
+            force=False, retry_unresolved=False, confirm_score=False,
+            retest_cause="lifecycle", retry_failed=False)
+        subject = {
+            "status": "DISCREPANCY (errors)",
+            "diagnosis_events": [{"id": "diagnosis-1", "cause": "lifecycle"}],
+        }
+
+        self.assertTrue(harness.should_run(
+            None, opts, {"subjects": {"meleerumble/a.Bot_1.0.jar": subject}},
+            "meleerumble/a.Bot_1.0.jar"))
 
     def testHARN007_UnitPositive_FixedMeleeSelectionExcludesSubject(self):
         pool = [{"jar": f"robot-{index}.jar", "sha256": "hash"}

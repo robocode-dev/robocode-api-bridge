@@ -47,6 +47,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
     private final AtomicReference<RobotStatus> currentRobotStatus = new AtomicReference<>();
 
+    private volatile boolean initialStatusDispatched;
+    private volatile boolean initialStatusCallbackActive;
     private boolean stopThread;
     private volatile int suppressScansThroughTurn = -1;
     private boolean hitWallHandlerActive;
@@ -132,13 +134,20 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public String getName() {
         log("getName()");
+        try {
+            var name = TankRoyaleBotNameResolver.getName(bot, bot.getMyId());
+            if (name != null) return name;
+        } catch (BotException ignored) {
+            // Before game setup the Bot API may not yet know this bot's id; classic's local
+            // robot name is still available and is the correct fallback at that point.
+        }
         return RobotName.getName();
     }
 
     @Override
     public long getTime() {
         log("getTime()");
-        return bot.getTurnNumber();
+        return initialStatusCallbackActive ? 0 : bot.getTurnNumber();
     }
 
     @Override
@@ -273,14 +282,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         bot.go();
     }
 
-    private void dispatchStatusEvent(BotEvent botEvent) {
+    private void dispatchStatusEvent(TickEvent tickEvent) {
         log("-> onStatus");
 
         // Save robot status snapshot for event handlers needing robot status
         RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
         currentRobotStatus.set(robotStatus);
-
-        TickEvent tickEvent = (TickEvent) botEvent;
 
         // Update fired bullets
         firedBullets.forEach(bulletPeer -> {
@@ -291,9 +298,38 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                     bulletPeer.setPosition(bulletState.getX(), bulletState.getY()));
         });
 
-        // Fire event
+        // Classic has already delivered the start status before run(). Tank Royale retains the
+        // corresponding first TickEvent until execute(), so consume its duplicate callback here.
+        if (initialStatusDispatched && tickEvent.getTurnNumber() == 1) {
+            return;
+        }
+
+        dispatchStatusCallback(robotStatus, false);
+    }
+
+    private void dispatchInitialStatusEvent() {
+        if (initialStatusDispatched || bot.getTurnNumber() != 1) {
+            return;
+        }
+
+        // The first Tank Royale tick supplies the complete state needed for Classic's start
+        // StatusEvent. Deliver it before the robot's run() and mark it consumed before invoking
+        // user code, which may inspect the pending event list or block on execute().
+        initialStatusDispatched = true;
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, 0);
+        currentRobotStatus.set(robotStatus);
+        dispatchStatusCallback(robotStatus, true);
+    }
+
+    private void dispatchStatusCallback(RobotStatus robotStatus, boolean initial) {
         var robocodeEvent = StatusEventMapper.map(robotStatus);
-        dispatchRobotCallback(() -> basicEvents.onStatus(robocodeEvent));
+        boolean previousInitialStatusCallback = initialStatusCallbackActive;
+        initialStatusCallbackActive = initial;
+        try {
+            dispatchRobotCallback(() -> basicEvents.onStatus(robocodeEvent));
+        } finally {
+            initialStatusCallbackActive = previousInitialStatusCallback;
+        }
     }
 
     private void dispatchScannedRobotEvent(BotEvent botEvent) {
@@ -491,7 +527,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (!(robot instanceof ITeamEvents)) {
             return;
         }
-        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent);
+        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent, bot);
         dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
     }
 
@@ -815,7 +851,15 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public List<robocode.Event> getAllEvents() {
         log("getAllEvents()");
-        return AllEventsMapper.map(bot.getEvents(), bot, currentRobotStatus.get());
+        var botEvents = bot.getEvents();
+        if (initialStatusDispatched) {
+            // The start status is already delivered before run(), so it is no longer pending to
+            // the legacy robot even though Tank Royale keeps its first TickEvent queued.
+            botEvents = botEvents.stream()
+                    .filter(event -> !(event instanceof TickEvent && event.getTurnNumber() == 1))
+                    .collect(Collectors.toList());
+        }
+        return AllEventsMapper.map(botEvents, bot, currentRobotStatus.get());
     }
 
     @Override
@@ -938,18 +982,17 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public String[] getTeammates() {
         log("getTeammates()");
         var teammates = bot.getTeammateIds();
-        return (teammates != null) ? teammates.stream().map(String::valueOf).toArray(String[]::new) : null;
+        return (teammates != null)
+                ? teammates.stream().map(id -> TankRoyaleBotNameResolver.getNameOrId(bot, id)).toArray(String[]::new)
+                : null;
     }
 
     @Override
     public boolean isTeammate(String name) {
         log("isTeammate()");
-        try {
-            var id = Integer.parseInt(name);
-            return bot.isTeammate(id);
-        } catch (NumberFormatException e) {
-            return false;
-        }
+        var id = parseBotId(name);
+        if (id == null) id = findTeammateId(name);
+        return id != null && bot.isTeammate(id);
     }
 
     @Override
@@ -961,11 +1004,30 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void sendMessage(String name, Serializable message) throws IOException {
         log("sendMessage()");
-        try {
-            var id = Integer.parseInt(name);
-            bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
-        } catch (NumberFormatException ignore) {
+        var id = parseBotId(name);
+        if (id == null) id = findTeammateId(name);
+        if (id == null) {
             throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
+        }
+        bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
+    }
+
+    private Integer findTeammateId(String name) {
+        if (name == null) return null;
+        var teammateIds = bot.getTeammateIds();
+        if (teammateIds == null) return null;
+        return teammateIds.stream()
+                .filter(id -> name.equals(TankRoyaleBotNameResolver.getNameOrId(bot, id)))
+                .findFirst()
+                .orElse(null);
+    }
+
+    private static Integer parseBotId(String name) {
+        if (name == null) return null;
+        try {
+            return Integer.valueOf(name);
+        } catch (NumberFormatException ignored) {
+            return null;
         }
     }
 
@@ -1062,6 +1124,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             stopThread = false;
 
             prepareRobotForRound();
+            dispatchInitialStatusEvent();
 
             Runnable runnable = robot.getRobotRunnable();
             if (runnable != null) {
@@ -1208,6 +1271,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
+            // Tank Royale publishes RoundEnded to bot handlers before its internal handler has
+            // stopped and joined the previous bot thread. Close any abandoned streams here,
+            // after that stop has completed and before the next round's bot thread starts.
+            RobotData.closeOpenStreams();
+            initialStatusDispatched = false;
             suppressScansThroughTurn = -1;
             firedBullets.clear();
         }

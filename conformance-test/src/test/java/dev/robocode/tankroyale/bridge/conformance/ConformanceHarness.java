@@ -123,6 +123,7 @@ final class ConformanceHarness {
                 "--engine", engine.harnessName(),
                 "--rounds", String.valueOf(rounds),
                 "--robocode-home", robocodeHome.toString()));
+        addBridgeArtifacts(command);
 
         try {
             Process process = startHarness(command);
@@ -166,6 +167,7 @@ final class ConformanceHarness {
                 "--engine", engine.harnessName(),
                 "--rounds", String.valueOf(rounds),
                 "--robocode-home", robocodeHome.toString()));
+        addBridgeArtifacts(command);
         if (source != null) {
             command.add("--conformance-source");
             command.add(source.toString());
@@ -290,6 +292,18 @@ final class ConformanceHarness {
     private static String trim(String text) {
         String collapsed = text == null ? "" : text.strip();
         return collapsed.length() > 600 ? collapsed.substring(collapsed.length() - 600) : collapsed;
+    }
+
+    private static void addBridgeArtifacts(List<String> command) {
+        addArgumentIfSet(command, "--bridge-api-jar", System.getProperty("conformance.bridgeApiJar"));
+        addArgumentIfSet(command, "--wrapper-jar", System.getProperty("conformance.wrapperJar"));
+    }
+
+    private static void addArgumentIfSet(List<String> command, String option, String value) {
+        if (value != null && !value.isBlank()) {
+            command.add(option);
+            command.add(value);
+        }
     }
 
     private static Path existingDirectory(String path) {

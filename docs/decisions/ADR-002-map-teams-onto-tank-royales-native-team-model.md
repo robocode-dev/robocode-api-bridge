@@ -1,37 +1,33 @@
 ---
 id: ADR-002
 type: decision
-status: inferred
+status: verified
 author: agent
-accepted-by: []
+accepted-by: [Flemming N. Larsen]
 links: [CAP-006, ARCH-001, AN-013]
-title: Map team robots onto Tank Royale's native team model rather than reconstructing team semantics
+title: Preserve Tank Royale team grouping and expose classic team names
 ---
 
-# ADR-002 — Map team robots onto Tank Royale's native team model rather than reconstructing team semantics
+# ADR-002 — Preserve Tank Royale team grouping and expose classic team names
 
 ## Decision
 
-The bridge maps a classic team onto Tank Royale's own team concept: each team member becomes its own Tank Royale bot process, grouped by the Tank Royale booter's own team mechanism (a `teamMembers` field on a boot entry, resolved to sibling directories and assigned a shared team id at launch), and membership, droid gating (no scanner, +20 energy), team messaging, and team-level scoring are all left to the server. The bridge does not reimplement any of that.
+The bridge continues to map classic teams onto Tank Royale's native team model: one bot process per member, grouped by the booter, with membership, droid behavior, messaging transport, and team scoring owned by the server.
 
-Team messaging keeps Tank Royale's own numeric bot-id addressing rather than translating it to classic's name-based addressing: no channel in the Bot API's wire protocol ever reveals a real classic name to running robot code (not even a scanned bot's own event), and this bridge already reports every scanned robot's name as its stringified Tank Royale id everywhere else, so team messaging is consistent with that rather than a special-cased exception.
+The frozen `robocode.*` team API exposes classic names, not Tank Royale numeric IDs. `getName()`, `getTeammates()`, `isTeammate()`, `sendMessage()`, and `MessageEvent.getSender()` therefore use the classic full robot name, optional version, and the classic ` (n)` suffix when names repeat in the battle. Numeric IDs remain internal transport identifiers.
 
 ## Context
 
-`CAP-006`'s design was deliberately left thin on this point: whether Tank Royale's team model corresponds closely enough to classic's to translate onto directly, or whether the bridge needed a second implementation of team semantics above individual bots, had not been checked.
+`AN-013` checked whether Tank Royale's team model corresponds closely enough to classic's to translate onto directly, or whether the bridge needed a second implementation of team semantics above individual bots. Tank Royale's Bot API carries the same shape at every point classic does: per-bot team id and name sent at handshake, server-mediated team membership and messaging, a `Droid` marker with the identical "+20 energy, no scanner" contract classic's own `Droid.java` states, and server-side results that already distinguish team-level from bot-level scoring (`ResultsForObserver.isTeam`).
 
-`AN-013` checked it. Tank Royale's Bot API carries the same shape at every point classic does: per-bot team id and name sent at handshake, server-mediated `getTeammateIds`/`isTeammate`/`broadcastTeamMessage`/`sendTeamMessage`, a `Droid` marker with the identical "+20 energy, no scanner" contract classic's own `Droid.java` states, and server-side results that already distinguish team-level from bot-level scoring (`ResultsForObserver.isTeam`).
+Flemming N. Larsen explicitly chose classic-name restoration on 2026-09-27 while resolving CH-017 OQ-008-1. Merged [Tank Royale PR 277](https://github.com/robocode-dev/tank-royale/pull/277) adds the full team-member name to bot metadata and sends each bot its own name and teammate names at game start. The server assigns duplicate suffixes across the battle, so the bridge can use authoritative names instead of deriving suffixes from a team-local view.
 
 ## Why this way
 
-This is the same reasoning `IDR-001` already applied to event dispatch: when the engine already owns a piece of game semantics, the bridge translates rather than reimplements, because a second implementation is more code and depends on the two engines' models agreeing forever, not just now. `AN-013` found no gap between the two models large enough to justify paying that cost here.
-
-Numeric-id team addressing is not a gap left unclosed by choice; it is the only option the wire protocol supports. Classic's name-based addressing works because the battle holds a static, name-keyed registry of every robot before round one. Tank Royale gives a connected bot no equivalent — not `getTeammateIds()` (ids only), not `ScannedBotEvent` (no name field at all) — so a droid, which by definition never scans, has no way to learn a teammate's classic name from the protocol at all. Building a name-to-id table would only work for the subset of teammates a bot has scanned or already heard from, which is a narrower and more surprising contract than simply keeping the numeric-id addressing this bridge already uses for every other identity surface.
+The bridge should translate the server-owned team model rather than create a parallel implementation. Name restoration changes only the frozen API's identity view; it does not replace server-owned membership or message routing.
 
 ## Consequences
 
-`robots-wrapper` gained a second production path: a team jar's `.team` descriptor drives production of one bot directory per member plus a team boot-entry directory naming them, rather than one bot directory per jar. `ARCH-001` already named this as the thing that had to give; this decision fixes how.
+`robots-wrapper` gained a second production path: a team jar's `.team` descriptor drives production of one bot directory per member plus a team boot-entry directory naming them, rather than one bot directory per jar. Each generated bot metadata file also carries the full Java class name as `teamMemberName`, which lets the Tank Royale server build the classic identity map.
 
-A real, ported team robot that hardcodes a teammate's classic name in `sendMessage("sample.MyFirstDroid", ...)` will not resolve that name under the bridge — it receives numeric ids from `getTeammates()` instead, and must address by those. This is a known, named fidelity gap rather than a silent one, carried by `TEAM-002`'s evidence rather than worked around here.
-
-If a future Tank Royale release adds a way to learn another bot's declared name (not just its id), that is new evidence against the addressing half of this decision — it gets its own analysis and, if it changes this decision, a revision to this record.
+The bridge maps Tank Royale IDs to those authoritative names for `getName()`, `getTeammates()`, `isTeammate()`, directed `sendMessage()`, and `MessageEvent.getSender()`. The name-map API is optional at runtime so the bridge can still compile and run with earlier Bot API versions; those versions retain the prior numeric-ID fallback. The full-name behavior is verified with the matched local Tank Royale 1.4.0 Bot API and runner, including battle-wide duplicate suffixes and directed-recipient isolation (`TEAM-002`).

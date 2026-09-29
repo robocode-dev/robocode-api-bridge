@@ -36,6 +36,17 @@ tasks {
     test {
         // The harness consumes these files directly rather than resolving them as Gradle dependencies.
         dependsOn(":robocode-api:jar", ":robots-wrapper:fatJar")
+        val bridgeApiJar = project(":robocode-api").tasks.named<Jar>("jar")
+            .flatMap { it.archiveFile }
+        val wrapperJar = project(":robots-wrapper").tasks.named<Jar>("fatJar")
+            .flatMap { it.archiveFile }
+        systemProperty("conformance.bridgeApiJar", bridgeApiJar.get().asFile.absolutePath)
+        systemProperty("conformance.wrapperJar", wrapperJar.get().asFile.absolutePath)
+
+        // The harness also consumes engine jars and paths supplied outside Gradle's input model.
+        // Always execute so an updated local engine or environment-selected artifact is not hidden
+        // behind a stale UP-TO-DATE result.
+        outputs.upToDateWhen { false }
 
         useJUnitPlatform()
         testLogging {

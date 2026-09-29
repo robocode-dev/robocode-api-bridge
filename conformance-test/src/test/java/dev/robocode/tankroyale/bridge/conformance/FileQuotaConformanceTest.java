@@ -17,6 +17,9 @@ class FileQuotaConformanceTest extends ConformanceTestBase {
     private static final String ROBOT = "conformance.probes.FileQuotaProbe";
     private static final Path SOURCE = ConformanceHarness.repoRoot().resolve(Path.of(
             "compat-test", "conformance-robots", "conformance", "probes", "FileQuotaProbe.java"));
+    private static final String OVERWRITE_ROBOT = "conformance.probes.FileQuotaOverwriteProbe";
+    private static final Path OVERWRITE_SOURCE = ConformanceHarness.repoRoot().resolve(Path.of(
+            "compat-test", "conformance-robots", "conformance", "probes", "FileQuotaOverwriteProbe.java"));
 
     @Test
     @DisplayName("FIO-003: a write past the quota is refused with classic's own message")
@@ -42,5 +45,21 @@ class FileQuotaConformanceTest extends ConformanceTestBase {
                 assertFalse(outcome.anyConsoleContains("WroteChunk:2"),
                         () -> "the third, quota-exceeding chunk reported as written on " + engine
                                 + " (" + outcome.summary() + ")"));
+    }
+
+    @Test
+    @DisplayName("FIO-003 positive: replacing an existing data file reuses its quota")
+    void testFIO003_IntegrationPositive_ReplacedBytesDoNotAccumulateQuota() {
+        assertOnBothEngines(OVERWRITE_ROBOT, OVERWRITE_SOURCE, (outcome, engine) -> {
+            assertTrue(outcome.anyConsoleContains("OverwriteSucceeded:0"),
+                    () -> "the first data-file write did not succeed on " + engine
+                            + " (" + outcome.summary() + ")");
+            assertTrue(outcome.anyConsoleContains("OverwriteSucceeded:1"),
+                    () -> "replacing the data file charged its old size again on " + engine
+                            + " (" + outcome.summary() + ")");
+            assertFalse(outcome.anyConsoleContains("OverwriteFailed:"),
+                    () -> "replacing the data file unexpectedly failed on " + engine
+                            + " (" + outcome.summary() + ")");
+        });
     }
 }

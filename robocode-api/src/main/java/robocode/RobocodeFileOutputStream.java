@@ -79,9 +79,10 @@ public class RobocodeFileOutputStream extends OutputStream {
         // redirecting resolution happens once, in AdvancedRobot#getDataFile, and a File obtained from
         // there must not be resolved a second time here or an absolute, already-resolved path would be
         // re-rooted under itself.
+        RobotData.prepareFileForWrite(fileName, append);
         FileOutputStream opened = new FileOutputStream(fileName, append);
         try {
-            RobotData.registerStream();
+            RobotData.registerStream(this);
             out = opened;
             streamRegistered.set(true);
         } catch (RuntimeException | Error exception) {
@@ -106,7 +107,7 @@ public class RobocodeFileOutputStream extends OutputStream {
             out.close();
         } finally {
             if (streamRegistered.compareAndSet(true, false)) {
-                RobotData.unregisterStream();
+                RobotData.unregisterStream(this);
             }
         }
     }

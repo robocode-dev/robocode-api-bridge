@@ -110,6 +110,11 @@ RC_JAVA_SEARCH_GLOBS = (
 )
 RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManager
 
+# LiteRumble currently accepts these classic Robocode client versions. Keep this
+# list aligned with robo-code/literumble/structures.py; the collection is ranked
+# by the classic client, so an unrecognised install must not create evidence.
+LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS = ("1.10.3", "1.11.0", "1.11.1")
+
 STATE_FILE = BASE_DIR / "test_progress.json"
 REPORT_FILE = BASE_DIR / "compatibility_report.md"
 ERRORS_DIR = BASE_DIR / "errors"
@@ -305,19 +310,98 @@ def resolve_rc_java(opts):
     return best[1] if best else None
 
 
-def kill_process_tree(proc: subprocess.Popen):
-    """Kills a process and all of its children (bot JVMs, embedded server, booter)."""
-    if proc.poll() is not None:
-        return
-    if sys.platform == "win32":
-        subprocess.run(["taskkill", "/PID", str(proc.pid), "/T", "/F"],
-                       capture_output=True)
-    else:
-        proc.kill()
+def resolve_robocode_version(robocode_home):
+    """Return the classic Robocode release installed at *robocode_home*.
+
+    The release notes are the authoritative version marker in a normal install.
+    A uniquely versioned engine library is a fallback for stripped-down installs.
+    """
+    root = Path(robocode_home)
+    versions_file = root / "versions.md"
     try:
-        proc.wait(timeout=15)
+        text = versions_file.read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        text = ""
+    match = re.search(r"(?m)^## Version\s+([^\s(]+)", text)
+    if match:
+        return match.group(1)
+
+    versions = set()
+    for jar in (root / "libs").glob("robocode.*-*.jar"):
+        match = re.search(r"-(\d+(?:\.\d+)+)\.jar$", jar.name)
+        if match:
+            versions.add(match.group(1))
+    return next(iter(versions)) if len(versions) == 1 else None
+
+
+def robocode_version_error(robocode_home, version=None):
+    """Return a friendly validation error, or None for a LiteRumble client."""
+    version = version or resolve_robocode_version(robocode_home)
+    if version is None:
+        return (f"classic Robocode version could not be determined at {robocode_home}; "
+                "refusing to create unpinned LiteRumble evidence")
+    if version not in LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS:
+        allowed = ", ".join(LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS)
+        return (f"classic Robocode {version} is not in LiteRumble's allowed client list "
+                f"({allowed}); use one of those versions for comparable evidence")
+    return None
+
+
+def validate_robocode_version(opts):
+    """Resolve and validate the classic client, retaining it on the options object."""
+    opts.robocode_version = resolve_robocode_version(opts.robocode_home)
+    return robocode_version_error(opts.robocode_home, opts.robocode_version)
+
+
+PROCESS_TREE_KILL_TIMEOUT_SECONDS = 15
+
+
+def kill_process_tree(proc: subprocess.Popen, diagnostics=None):
+    """Kills a process and its children without allowing cleanup to stall a sweep."""
+    diagnostics = diagnostics if diagnostics is not None else []
+    if proc.poll() is not None:
+        return True
+    if sys.platform == "win32":
+        try:
+            taskkill = subprocess.run(
+                ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
+                capture_output=True, timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+        except subprocess.TimeoutExpired:
+            taskkill = None
+            diagnostics.append(
+                f"<taskkill timed out after {PROCESS_TREE_KILL_TIMEOUT_SECONDS}s>")
+        except OSError as exc:
+            taskkill = None
+            diagnostics.append(f"<taskkill could not start: {exc}>")
+        if taskkill is None or taskkill.returncode != 0:
+            if taskkill is not None:
+                output = " ".join(
+                    value.strip() for value in (taskkill.stdout, taskkill.stderr) if value
+                )
+                diagnostics.append(
+                    f"<taskkill exited {taskkill.returncode}: {output[:600]}>")
+            if proc.poll() is not None:
+                return True
+            try:
+                proc.kill()
+                proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+            return False
+    else:
+        try:
+            proc.kill()
+        except OSError:
+            pass
+    try:
+        proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
     except subprocess.TimeoutExpired:
-        proc.kill()
+        try:
+            proc.kill()
+            proc.wait(timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+        except (OSError, subprocess.TimeoutExpired):
+            return False
+    return proc.poll() is not None
 
 
 def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
@@ -346,25 +430,98 @@ def run_java(cmd, cwd, timeout, abort_when=None, poll_seconds=2.0):
         try:
             proc.wait(timeout=timeout)
         except subprocess.TimeoutExpired:
-            kill_process_tree(proc)
-            return -1, collected() + "\n<killed: orchestrator timeout>", True
+            cleanup_diagnostics = []
+            tree_killed = kill_process_tree(proc, cleanup_diagnostics)
+            details = ["<killed: orchestrator timeout>"]
+            details.extend(cleanup_diagnostics)
+            if not tree_killed:
+                details.append("<process-tree termination incomplete>")
+            return -1, collected() + "\n" + "\n".join(details), True
         return proc.returncode, collected(), False
 
-    deadline = time.time() + timeout
-    while proc.poll() is None:
-        if time.time() > deadline:
-            kill_process_tree(proc)
-            return -1, collected() + "\n<killed: orchestrator timeout>", True
-        if abort_when("".join(chunks)):
-            kill_process_tree(proc)
-            return -1, collected() + "\n<stopped: exception with no classic counterpart>", False
-        time.sleep(poll_seconds)
-    output = collected()
-    # A short-lived worker can write its final exception and exit between polls. Its
-    # output is still a bridge-only failure and must not leave a score in the result.
-    if abort_when(output):
-        return -1, output + "\n<stopped: exception with no classic counterpart>", False
-    return proc.returncode, output, False
+    deadline = time.monotonic() + timeout
+    pending_check = None
+
+    def start_abort_check(worker_output):
+        result = {}
+
+        def check():
+            try:
+                result["triggered"] = bool(abort_when(worker_output))
+            except Exception as exc:
+                result["error"] = exc
+
+        thread = threading.Thread(target=check, daemon=True)
+        thread.start()
+        return thread, result
+
+    def abort_result(pending):
+        thread, result = pending
+        if thread.is_alive():
+            return None
+        if "error" in result:
+            raise result["error"]
+        return result.get("triggered", False)
+
+    def timeout_result(pending):
+        cleanup_diagnostics = []
+        tree_killed = kill_process_tree(proc, cleanup_diagnostics)
+        watcher_stuck = False
+        if pending is not None:
+            thread, _ = pending
+            thread.join(timeout=0.25)
+            watcher_stuck = thread.is_alive()
+        details = ["<killed: orchestrator timeout>"]
+        details.extend(cleanup_diagnostics)
+        if not tree_killed:
+            details.append("<process-tree termination incomplete>")
+        if watcher_stuck:
+            details.append("<abort watcher did not stop before timeout>")
+        return -1, collected() + "\n" + "\n".join(details), True
+
+    while True:
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return timeout_result(pending_check)
+
+        if pending_check is None:
+            pending_check = start_abort_check("".join(chunks))
+
+        check_thread, _ = pending_check
+        check_thread.join(timeout=min(poll_seconds, remaining))
+        triggered = abort_result(pending_check)
+        if triggered is None:
+            continue
+        pending_check = None
+
+        if triggered:
+            cleanup_diagnostics = []
+            tree_killed = kill_process_tree(proc, cleanup_diagnostics)
+            details = ["<stopped: exception with no classic counterpart>"]
+            details.extend(cleanup_diagnostics)
+            if not tree_killed:
+                details.append("<process-tree termination incomplete>")
+            return -1, collected() + "\n" + "\n".join(details), False
+
+        if proc.poll() is not None:
+            # A short-lived worker can write its final exception and exit between polls.
+            # Its output is still a bridge-only failure and must not leave a score.
+            pending_check = start_abort_check("".join(chunks))
+            while True:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    return timeout_result(pending_check)
+                thread, _ = pending_check
+                thread.join(timeout=min(poll_seconds, remaining))
+                triggered = abort_result(pending_check)
+                if triggered is None:
+                    continue
+                if triggered:
+                    return -1, collected() + \
+                        "\n<stopped: exception with no classic counterpart>", False
+                return proc.returncode, collected(), False
+
+        time.sleep(min(poll_seconds, max(0.0, deadline - time.monotonic())))
 
 
 def _drain(stream, sink):
@@ -457,6 +614,8 @@ def attach_error_signatures(result):
 def registry_manifest(opts):
     """Pins the artifacts that produced a registry observation."""
     manifest = {
+        "robocode_version": getattr(opts, "robocode_version", None)
+            or resolve_robocode_version(opts.robocode_home),
         "bridge_commit": subprocess.run(
             ["git", "rev-parse", "HEAD"], cwd=BASE_DIR.parent,
             capture_output=True, text=True, check=False).stdout.strip() or None,
@@ -572,9 +731,9 @@ def run_rc_battle(jar_path: Path, classname, version, opts, setup,
         cmd.extend(["--enemies", ",".join(opponent_selectors), "--deterministic", "true"])
     elif enemy_class:
         cmd.extend(["--enemy-select", enemy_class, "--deterministic", "true"])
-    started = time.time()
+    started = time.monotonic()
     returncode, output, timed_out = run_java(cmd, cwd=home_dir, timeout=opts.timeout)
-    elapsed = time.time() - started
+    elapsed = time.monotonic() - started
 
     return summarize_worker_result(
         out_file, returncode, output, timed_out, elapsed, engine="robocode")
@@ -585,6 +744,18 @@ def summarize_worker_result(out_file, returncode, output, timed_out, elapsed, en
         "ok": False, "score": None, "scores": [], "errors": [],
         "error_count": 0, "elapsed": round(elapsed, 1), "log_text": "",
     }
+    cleanup_failures = []
+    if "<process-tree termination incomplete>" in output:
+        cleanup_failures.append("process-tree termination incomplete")
+    if "<abort watcher did not stop before timeout>" in output:
+        cleanup_failures.append("abort watcher did not stop before timeout")
+    if cleanup_failures:
+        result["errors"] = [f"HARNESS: {message}" for message in cleanup_failures]
+        result["error_count"] = len(cleanup_failures)
+        result["log_text"] = f"=== {engine} worker cleanup failed ===\n\n{output}"
+        result["stop_sweep"] = True
+        return result
+
     data = None
     if out_file.exists():
         try:
@@ -694,8 +865,19 @@ def team_member_dirs(team_dir: Path):
     """Returns the generated sibling directories named by a team boot entry."""
     config = team_dir / f"{team_dir.name}.json"
     try:
-        data = json.loads(config.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
+        text = config.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        # Legacy robot metadata can contain Windows-1252 author names even though the
+        # wrapper's JSON structure and member names are otherwise ordinary text.
+        try:
+            text = config.read_text(encoding="cp1252")
+        except (OSError, UnicodeError):
+            return []
+    except OSError:
+        return []
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
         return []
     members = data.get("teamMembers")
     if not isinstance(members, list):
@@ -867,13 +1049,13 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
-    started = time.time()
+    started = time.monotonic()
     watcher = None
     if rc_signatures is not None:
         watcher = BridgeOnlyErrorWatcher(staged_log_dirs(bot_dirs), rc_signatures)
     returncode, output, timed_out = run_java(
         cmd, cwd=WORK_DIR, timeout=opts.timeout, abort_when=watcher)
-    elapsed = time.time() - started
+    elapsed = time.monotonic() - started
 
     result = summarize_worker_result(
         out_file, returncode, output, timed_out, elapsed, engine="tank-royale")
@@ -1068,17 +1250,19 @@ def discover_jars(opts):
 
 
 def should_run(entry, opts, registry=None, key=None):
+    if opts.retest_cause:
+        if registry is None or not key:
+            return False
+        subject = registry.get("subjects", {}).get(key, {})
+        diagnosis = diagnosis_for_cause(subject, opts.retest_cause)
+        status = subject.get("status") or (entry or {}).get("status", "")
+        return is_unresolved(status) and diagnosis is not None
     if entry is None or opts.force:
         return True
     if opts.retry_unresolved and is_unresolved(entry.get("status", "")):
         return True
     if opts.confirm_score and entry.get("status") == "DISCREPANCY (score)":
         return True
-    if opts.retest_cause and registry is not None and key:
-        diagnosis = diagnosis_for_cause(registry.get("subjects", {}).get(key, {}),
-                                        opts.retest_cause)
-        return (is_unresolved(entry.get("status", ""))
-                and diagnosis is not None)
     if opts.retry_failed:
         return entry.get("status", "").startswith(("FAIL", "ERROR", "HARNESS", "DISCREPANCY"))
     return False
@@ -1107,6 +1291,9 @@ def check_prerequisites(opts):
     ]:
         if not Path(path).exists():
             problems.append(f"  - {label} not found: {path}")
+    version_error = validate_robocode_version(opts)
+    if version_error:
+        problems.append(f"  - {version_error}")
     if shutil.which("java") is None:
         problems.append("  - 'java' not found on PATH (JDK 17+ required)")
     if "meleerumble" in opts.collections:
@@ -1792,6 +1979,10 @@ def main():
         return 0
 
     if opts.sync_registry:
+        version_error = validate_robocode_version(opts)
+        if version_error:
+            print(version_error, file=sys.stderr)
+            return 2
         added = sync_parity_registry(state, opts)
         print(f"Parity registry synchronized: {added} observation(s) added.")
         return 0
@@ -1823,7 +2014,8 @@ def main():
           f"{len(todo)} to test.")
 
     tested = 0
-    session_started = time.time()
+    checkpoint_state = {"robots": {}}
+    session_started = time.monotonic()
     try:
         for collection, jar in todo:
             if opts.limit is not None and tested >= opts.limit:
@@ -1866,6 +2058,7 @@ def main():
                 }
                 if retest:
                     state["robots"][key]["retest"] = retest
+                checkpoint_state["robots"][key] = state["robots"][key]
                 save_state(state)
                 regenerate_report(state)
                 tested += 1
@@ -1879,10 +2072,19 @@ def main():
 
             # The classic side has already run, so its signatures are the baseline the
             # bridge side is judged against (C-004).
-            tr = run_tr_battle(
-                jar, classname, version, opts, setup,
-                rc_signatures=classic_signatures(rc),
-                enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
+            if rc.get("stop_sweep"):
+                tr = {
+                    "ok": False, "score": None, "scores": [], "error_count": 1,
+                    "elapsed": 0.0,
+                    "errors": ["HARNESS: Tank Royale side skipped after classic process cleanup failed"],
+                    "error_signatures": [], "bridge_only_signatures": None,
+                    "has_log": False, "skipped": None, "stop_sweep": True,
+                }
+            else:
+                tr = run_tr_battle(
+                    jar, classname, version, opts, setup,
+                    rc_signatures=classic_signatures(rc),
+                    enemy_jar_paths=enemy_jar_paths, enemy_classes=enemy_classes)
             attach_error_signatures(tr)
             tr["has_log"] = write_error_log("tank-royale", robot_name,
                                             tr.pop("log_text", ""))
@@ -1903,6 +2105,7 @@ def main():
             }
             if retest:
                 state["robots"][key]["retest"] = retest
+            checkpoint_state["robots"][key] = state["robots"][key]
             save_state(state)
             regenerate_report(state)
             tested += 1
@@ -1913,17 +2116,22 @@ def main():
             print(f"    RC={fmt_score(rc['score'])} ({rc['error_count']} err, "
                   f"{rc['elapsed']:.0f}s)  TR={tr_str}  delta={delta_str}  -> {status}",
                   flush=True)
+            if rc.get("stop_sweep") or tr.get("stop_sweep"):
+                sync_parity_registry(checkpoint_state, opts)
+                print("Stopped this checkpoint because process cleanup did not complete.",
+                      file=sys.stderr)
+                return 2
     except KeyboardInterrupt:
         print("\nInterrupted — progress saved. Re-run to resume.", file=sys.stderr)
         save_state(state)
         regenerate_report(state)
-        sync_parity_registry(state, opts)
+        sync_parity_registry(checkpoint_state, opts)
         return 130
 
     save_state(state)
     regenerate_report(state)
-    sync_parity_registry(state, opts)
-    elapsed_min = (time.time() - session_started) / 60
+    sync_parity_registry(checkpoint_state, opts)
+    elapsed_min = (time.monotonic() - session_started) / 60
     print(f"\nDone. Tested {tested} robots in {elapsed_min:.1f} min. "
           f"Report: {REPORT_FILE}")
     return 0

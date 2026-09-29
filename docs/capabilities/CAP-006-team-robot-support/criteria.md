@@ -11,7 +11,7 @@ reversal-cost: high
 
 # CAP-006 — acceptance criteria
 
-`TEAM-001` and `TEAM-003` are active against `M-005` with integration evidence. `TEAM-002` remains `@draft`: the focused evidence proves delivery and directed-recipient isolation, but the two engines expose different sender identities and the protocol provides no classic name mapping (`ADR-002`).
+`TEAM-001`, `TEAM-002`, and `TEAM-003` are active against `M-005` with two-engine integration evidence. Name-map conformance uses the matched local Tank Royale 1.4.0 Bot API and runner.
 
 ```gherkin
 Feature: Team robot support
@@ -27,17 +27,18 @@ Feature: Team robot support
     # TeamSupportConformanceTest.testTEAM001_IntegrationNegative_TeamEntryDoesNotCollapseMembers.
     # Plan door: M-005.
 
-  @TEAM-002 @draft
+  @TEAM-002
   Scenario: A message sent to teammates arrives as classic delivers it
     Test-type: Integration
-    Given a team whose members exchange messages
+    Given a team whose members exchange messages by classic name
     When the same battle runs on classic Robocode and on Tank Royale through the bridge
     Then each member reports receiving the same messages from the same senders
     And a message addressed to one teammate does not reach the others
-    # Evidence: TeamSupportConformanceTest.testTEAM002_IntegrationPositive_TeammateMessagesReachIntendedMembers and
-    # TeamSupportConformanceTest.testTEAM002_IntegrationNegative_DirectedMessageIsNotBroadcast prove delivery,
-    # sender presence, and recipient isolation. Literal same-name sender parity remains unproven because the
-    # Tank Royale protocol exposes numeric ids; see ADR-002. Plan door: M-005.
+    And getName(), getTeammates(), isTeammate(), and MessageEvent.getSender() expose classic names
+    # Evidence: TeamSupportConformanceTest.testTEAM002_IntegrationPositive_TeammateMessagesReachIntendedMembers,
+    # testTEAM002_IntegrationPositive_ExposesClassicNamesAndResolvesThem, and
+    # testTEAM002_IntegrationNegative_DirectedMessageIsNotBroadcast prove delivery, full names including
+    # duplicate suffixes, name resolution, sender identity, and recipient isolation. Plan door: M-005.
 
   @TEAM-003
   Scenario: A droid relies on its teammates rather than on its own radar

@@ -30,7 +30,7 @@ Compare: scores as the sum of all staged participants' totals, errors as normali
 
 ## Durable parity registry
 
-`compat-test/parity-registry.json` is append-only per subject. An observation carries the official setup, source jar digest, selected classic identity, team classification, both engine outcomes, normalized errors, and the bridge, Tank Royale, Bot API, wrapper, and runner fingerprints that produced it. `parity-registry.md` is generated from that JSON and is the review table for every subject.
+`compat-test/parity-registry.json` is append-only per subject. An observation carries the official setup, source jar digest, selected classic identity, team classification, both engine outcomes, normalized errors, and the classic Robocode version plus bridge, Tank Royale, Bot API, wrapper, and runner fingerprints that produced it. The harness refuses to create LiteRumble evidence when the classic version is unknown or outside LiteRumble's allowed client list. `parity-registry.md` is generated from that JSON and is the review table for every subject.
 
 The harness imports an interrupted checkpoint with `--sync-registry`, runs new first-pass work in bounded `--limit` batches, and selects retests with `--retry-unresolved` or `--retest-cause`. Matched subjects stay recorded and are not selected after an unrelated repair.
 

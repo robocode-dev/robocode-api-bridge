@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import dev.robocode.tankroyale.botapi.BotException;
+import dev.robocode.tankroyale.botapi.events.TeamMessageEvent;
 
 import java.io.IOException;
 import java.io.NotSerializableException;
@@ -28,9 +29,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * support does land, these calls are what it will run on, and a routing fault discovered
  * then would look like a fault in the new work.
  *
- * The identity translation is the interesting part. Robocode addresses teammates by name and
- * Tank Royale by numeric id, so the peer parses one into the other — and what it does with a
- * name that is not a number differs between the two calls.
+ * Robocode addresses teammates by name while Tank Royale routes by numeric id. The bridge uses
+ * Tank Royale's name map to preserve classic names and translates names back to ids for directed
+ * messages and teammate checks.
  */
 class TeamAndJuniorPeerRoutingTest {
 
@@ -54,12 +55,43 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
+    @DisplayName("ROUTE-009 positive: getName returns the classic name from Tank Royale")
+    void testROUTE009_UnitPositive_ReportsClassicBotName() {
+        bot.named(0, "legacy.TeamRobot 1.2 (1)");
+
+        assertEquals("legacy.TeamRobot 1.2 (1)", peer.getName());
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: older Bot APIs fall back to the local robot name")
+    void testROUTE009_UnitPositive_FallsBackWhenNameMapApiIsUnavailable() {
+        bot = RecordingBot.createWithoutNameMap();
+        peer = new BotPeer(new StubRobot(), bot.asBot());
+        bot.clear();
+
+        assertEquals("StubRobot", peer.getName());
+    }
+
+    @Test
     @DisplayName("ROUTE-009 positive: a message to one teammate is addressed by its numeric id")
     void testROUTE009_UnitPositive_AddressesASingleTeammateByNumericId() throws IOException {
         peer.sendMessage("7", "regroup");
 
         RecordingBot.Call call = bot.onlyCall("sendTeamMessage");
         assertEquals(7, call.args[0], "Robocode names teammates; Tank Royale numbers them");
+        assertEquals("regroup", call.args[1]);
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: a directed message by classic name reaches that teammate")
+    void testROUTE009_UnitPositive_AddressesTeammateByClassicName() throws IOException {
+        String teammateName = "legacy.TeamRobot 1.2 (1)";
+        bot.named(7, teammateName).returning("getTeammateIds", Set.of(7));
+
+        peer.sendMessage(teammateName, "regroup");
+
+        RecordingBot.Call call = bot.onlyCall("sendTeamMessage");
+        assertEquals(7, call.args[0]);
         assertEquals("regroup", call.args[1]);
     }
 
@@ -76,8 +108,8 @@ class TeamAndJuniorPeerRoutingTest {
     @Test
     @DisplayName("ROUTE-009 negative: an unaddressable teammate name is refused, not silently dropped")
     void testROUTE009_UnitNegative_RefusesAnUnaddressableTeammateName() {
-        // A name that is not a number has no Tank Royale id. Failing loudly is right: a
-        // silently dropped message leaves the sender believing its team was told.
+        // A name outside this team's name map has no Tank Royale id. Failing loudly is right:
+        // a silently dropped message leaves the sender believing its team was told.
         assertThrows(BotException.class, () -> peer.sendMessage("Leader", "regroup"));
         assertFalse(bot.called("sendTeamMessage"), bot.names());
     }
@@ -91,8 +123,17 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-009 positive: teammates are reported as names built from their ids")
+    @DisplayName("ROUTE-009 positive: teammates are reported with their classic names")
     void testROUTE009_UnitPositive_ReportsTeammatesAsNames() {
+        bot.named(4, "legacy.TeamRobot 1.2 (1)")
+                .returning("getTeammateIds", Set.of(4));
+
+        assertArrayEquals(new String[] { "legacy.TeamRobot 1.2 (1)" }, peer.getTeammates());
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: teammate ids remain a fallback when the name map is unavailable")
+    void testROUTE009_UnitPositive_FallsBackToNumericTeammateIds() {
         bot.returning("getTeammateIds", Set.of(4));
 
         assertArrayEquals(new String[] { "4" }, peer.getTeammates());
@@ -118,6 +159,18 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
+    @DisplayName("ROUTE-009 positive: a teammate check accepts the classic name")
+    void testROUTE009_UnitPositive_ChecksTeammateByClassicName() {
+        String teammateName = "legacy.TeamRobot 1.2 (1)";
+        bot.named(9, teammateName)
+                .returning("getTeammateIds", Set.of(9))
+                .returning("isTeammate", true);
+
+        assertTrue(peer.isTeammate(teammateName));
+        assertEquals(9, bot.onlyCall("isTeammate").args[0]);
+    }
+
+    @Test
     @DisplayName("ROUTE-009 negative: an unparseable name is not a teammate and asks nothing")
     void testROUTE009_UnitNegative_TreatsAnUnparseableNameAsNotATeammate() {
         assertFalse(peer.isTeammate("Leader"));
@@ -131,6 +184,20 @@ class TeamAndJuniorPeerRoutingTest {
         List<robocode.MessageEvent> events = peer.getMessageEvents();
 
         assertEquals(List.of(), events, "no events yet, but the call must not fail");
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: a message event exposes its sender's classic name")
+    void testROUTE009_UnitPositive_MapsMessageSenderToClassicName() {
+        String senderName = "legacy.TeamRobot 1.2 (1)";
+        bot.named(12, senderName)
+                .returning("getEvents", List.of(new TeamMessageEvent(3, "attack", 12)));
+
+        List<robocode.MessageEvent> events = peer.getMessageEvents();
+
+        assertEquals(1, events.size());
+        assertEquals(senderName, events.get(0).getSender());
+        assertEquals("attack", events.get(0).getMessage());
     }
 
     @Test
