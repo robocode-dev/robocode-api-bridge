@@ -155,6 +155,10 @@ final class ConformanceHarness {
             command.add("--turn-timeout-micros");
             command.add(String.valueOf(turnTimeoutMicros));
         }
+        if (testTelemetryStatus != null) {
+            command.add("--test-skipped-turn-status");
+            command.add(testTelemetryStatus);
+        }
 
         try {
             ProcessBuilder builder = new ProcessBuilder(command)
@@ -162,9 +166,6 @@ final class ConformanceHarness {
                     .redirectErrorStream(true);
             builder.environment().put("COMPAT_WORK_DIR", workDir.toString());
             builder.environment().put("COMPAT_DATA_DIR", dataDir.toString());
-            if (testTelemetryStatus != null) {
-                builder.environment().put("COMPAT_TEST_SKIPPED_TURN_STATUS", testTelemetryStatus);
-            }
             Process process = builder.start();
 
             AtomicReference<String> output = new AtomicReference<>("");

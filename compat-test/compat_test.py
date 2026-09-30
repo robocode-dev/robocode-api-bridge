@@ -1182,9 +1182,9 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
     result["skipped_turn_telemetry"] = skipped_turn_telemetry(
         bot_dirs, capture_skipped_turns, result.get("completed", False),
         len(staged_log_dirs(bot_dirs)))
-    test_status = os.environ.get("COMPAT_TEST_SKIPPED_TURN_STATUS")
+    test_status = opts.test_skipped_turn_status
     if test_status is not None:
-        if not capture_skipped_turns or test_status not in {"unavailable", "incomplete"}:
+        if not capture_skipped_turns:
             raise ValueError("invalid compatibility-test skipped-turn telemetry status")
         # Let the JVM integration test send a synthetic status through the same checkpoint
         # and registry write path after separately checking how the status is produced.
@@ -1473,6 +1473,8 @@ def parse_args():
                    help="record Tank Royale bridge skipped-turn events, including warm-up turns")
     p.add_argument("--turn-timeout-micros", type=int, default=None,
                    help="override Tank Royale's turn timeout in microseconds for local probes")
+    p.add_argument("--test-skipped-turn-status", choices=("unavailable", "incomplete"),
+                   default=None, help=argparse.SUPPRESS)
 
     gate = p.add_argument_group("regression gate (C-004)")
     gate.add_argument("--regression", action="store_true",
