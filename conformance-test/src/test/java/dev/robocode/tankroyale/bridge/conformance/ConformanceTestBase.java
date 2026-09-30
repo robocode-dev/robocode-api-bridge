@@ -147,8 +147,16 @@ abstract class ConformanceTestBase {
     String runRecordedMeasurement(Path collectionDir, Path dataDir, Path workDir,
                                   String selectedRobot, boolean captureSkippedTurns,
                                   Integer turnTimeoutMicros) {
+        return runRecordedMeasurement(collectionDir, dataDir, workDir, selectedRobot,
+                captureSkippedTurns, turnTimeoutMicros, null);
+    }
+
+    /** Injects a non-captured test status after the ordinary runner result and before persistence. */
+    String runRecordedMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                  String selectedRobot, boolean captureSkippedTurns,
+                                  Integer turnTimeoutMicros, String testTelemetryStatus) {
         return harness.runCompatibilityMeasurement(collectionDir, dataDir, workDir,
-                selectedRobot, captureSkippedTurns, turnTimeoutMicros);
+                selectedRobot, captureSkippedTurns, turnTimeoutMicros, testTelemetryStatus);
     }
 
     private BattleOutcome outcomeForFixture(Engine engine, String robotClass, Path source,

@@ -90,6 +90,43 @@ class SkippedTurnTelemetryConformanceTest extends ConformanceTestBase {
         assertTelemetryState(incomplete, "incomplete");
     }
 
+    @Test
+    @DisplayName("HARN-008 negative: non-captured states survive checkpoint and registry persistence")
+    void testHARN008_IntegrationNegative_PersistsNonCapturedStates(
+            @TempDir Path temporaryDirectory) throws IOException {
+        Path collectionDir = temporaryDirectory.resolve("collection");
+        Path fixtureJar = prepareFixtureJar(QUIET_ROBOT, QUIET_SOURCE, collectionDir);
+
+        assertPersistedNonCapturedState(collectionDir, temporaryDirectory, fixtureJar,
+                "disabled", false, null);
+        assertPersistedNonCapturedState(collectionDir, temporaryDirectory, fixtureJar,
+                "unavailable", true, "unavailable");
+        assertPersistedNonCapturedState(collectionDir, temporaryDirectory, fixtureJar,
+                "incomplete", true, "incomplete");
+    }
+
+    private void assertPersistedNonCapturedState(Path collectionDir, Path temporaryDirectory,
+                                                Path fixtureJar, String status,
+                                                boolean captureSkippedTurns,
+                                                String testTelemetryStatus) throws IOException {
+        Path dataDir = temporaryDirectory.resolve(status + "-data");
+        Path workDir = temporaryDirectory.resolve(status + "-work");
+        assertNull(runCompatibilityMeasurement(collectionDir, dataDir, workDir,
+                "NoSkippedTurnProbe", captureSkippedTurns, 10_000_000, testTelemetryStatus));
+
+        String registryTelemetry = persistedTelemetry(dataDir, fixtureJar);
+        String checkpoint = Files.readString(dataDir.resolve("test_progress.json"));
+        String checkpointTelemetry = Json.object(checkpoint, "skipped_turn_telemetry");
+        assertEquals(status, Json.scalar(checkpointTelemetry, "status"));
+        assertTrue(NULL_EVENTS.matcher(checkpointTelemetry).find(),
+                status + " checkpoint capture must not claim an empty event list: "
+                        + checkpointTelemetry);
+        assertEquals(status, Json.scalar(registryTelemetry, "status"));
+        assertTrue(NULL_EVENTS.matcher(registryTelemetry).find(),
+                status + " registry capture must not claim an empty event list: "
+                        + registryTelemetry);
+    }
+
     private static void assertTelemetryState(BattleOutcome outcome, String status) {
         String telemetry = skippedTurnTelemetry(outcome);
         assertEquals(status, Json.scalar(telemetry, "status"), outcome.summary());
@@ -121,6 +158,13 @@ class SkippedTurnTelemetryConformanceTest extends ConformanceTestBase {
     private String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
                                                String selectedRobot, boolean captureSkippedTurns,
                                                Integer turnTimeoutMicros) {
+        return runCompatibilityMeasurement(collectionDir, dataDir, workDir, selectedRobot,
+                captureSkippedTurns, turnTimeoutMicros, null);
+    }
+
+    private String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                               String selectedRobot, boolean captureSkippedTurns,
+                                               Integer turnTimeoutMicros, String testTelemetryStatus) {
         try {
             Files.createDirectories(dataDir);
             Files.createDirectories(workDir);
@@ -128,7 +172,7 @@ class SkippedTurnTelemetryConformanceTest extends ConformanceTestBase {
             return "could not create isolated measurement directories: " + e.getMessage();
         }
         return runRecordedMeasurement(collectionDir, dataDir, workDir, selectedRobot,
-                captureSkippedTurns, turnTimeoutMicros);
+                captureSkippedTurns, turnTimeoutMicros, testTelemetryStatus);
     }
 
     private static String persistedTelemetry(Path dataDir, Path jar) throws IOException {

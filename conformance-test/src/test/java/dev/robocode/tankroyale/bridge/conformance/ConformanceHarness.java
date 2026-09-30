@@ -130,6 +130,13 @@ final class ConformanceHarness {
     String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
                                        String selectedRobot, boolean captureSkippedTurns,
                                        Integer turnTimeoutMicros) {
+        return runCompatibilityMeasurement(collectionDir, dataDir, workDir, selectedRobot,
+                captureSkippedTurns, turnTimeoutMicros, null);
+    }
+
+    String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                       String selectedRobot, boolean captureSkippedTurns,
+                                       Integer turnTimeoutMicros, String testTelemetryStatus) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
@@ -155,6 +162,9 @@ final class ConformanceHarness {
                     .redirectErrorStream(true);
             builder.environment().put("COMPAT_WORK_DIR", workDir.toString());
             builder.environment().put("COMPAT_DATA_DIR", dataDir.toString());
+            if (testTelemetryStatus != null) {
+                builder.environment().put("COMPAT_TEST_SKIPPED_TURN_STATUS", testTelemetryStatus);
+            }
             Process process = builder.start();
 
             AtomicReference<String> output = new AtomicReference<>("");
