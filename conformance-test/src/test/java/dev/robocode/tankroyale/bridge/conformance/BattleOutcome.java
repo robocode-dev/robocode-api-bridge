@@ -19,14 +19,16 @@ final class BattleOutcome {
     private final List<String> errors;
     private final Double score;
     private final String detail;
+    private final String skippedTurnTelemetry;
 
     BattleOutcome(boolean completed, List<String> consoles, List<String> errors,
-                  Double score, String detail) {
+                  Double score, String detail, String skippedTurnTelemetry) {
         this.completed = completed;
         this.consoles = List.copyOf(consoles);
         this.errors = List.copyOf(errors);
         this.score = score;
         this.detail = detail;
+        this.skippedTurnTelemetry = skippedTurnTelemetry;
     }
 
     boolean completed() {
@@ -47,6 +49,10 @@ final class BattleOutcome {
 
     String detail() {
         return detail;
+    }
+
+    String skippedTurnTelemetry() {
+        return skippedTurnTelemetry;
     }
 
     /** True when any participant printed the marker. */

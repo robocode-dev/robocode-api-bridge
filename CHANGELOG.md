@@ -13,3 +13,4 @@
 - Preserved classic handler-exception reporting by surfacing legacy callback failures at the bridge boundary while retaining Tank Royale's event queue.
 - Added grouped team-robot staging and two-engine conformance evidence for team membership, teammate messages, directed-recipient isolation, droid no-scan behavior, and arbitrary serializable message payloads.
 - Restored classic team names, including battle-wide duplicate suffixes, through the Tank Royale name map for team identity, teammate lookup, directed messaging, and message-event senders when paired with the matching Tank Royale Bot API and runner.
+- Added supported integration evidence that checks skipped-turn telemetry, including warm-up events and completed empty captures, in the persisted parity registry.

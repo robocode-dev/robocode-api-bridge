@@ -11,7 +11,7 @@ reversal-cost: low
 
 # CAP-007 — acceptance criteria
 
-Every criterion is `@draft` against `M-001`. The first three describe behaviour that already works; they are draft because Python is not a supported evidence carrier, not because the behaviour is missing. `AN-003` records the distinction.
+`HARN-001` through `HARN-007` remain `@draft` against `M-001` because their evidence is not yet supported; `AN-003` records why Python-only tests do not prove them. `HARN-008` is active with the JVM integration evidence required by `M-006`.
 
 ```gherkin
 Feature: The compatibility harness
@@ -77,7 +77,7 @@ Feature: The compatibility harness
     Then the battlefield, round count, and participant count are that division's official values
     # The harness currently uses one setup for every division. Plan door: M-001.
 
-  @HARN-008 @draft
+  @HARN-008
   Scenario: Skipped-turn telemetry preserves events and distinguishes missing capture from zero
     Test-type: Integration
     Given a completed Tank Royale compatibility run with telemetry enabled
@@ -85,6 +85,5 @@ Feature: The compatibility harness
     Then the observation records one event per distinct bot ID, round, and skipped turn number, including warm-up turns
     And a completed enabled run with no events is captured with an empty event list
     And disabled, unavailable, or incomplete capture has a distinct status and does not claim zero events
-    # Callback-level telemetry is opt-in and does not claim to see server events that never reach the bridge. Plan door: M-006.
-    # The harness is Python and is not yet a supported evidence carrier.
+    # Callback-level telemetry is opt-in and does not claim to see server events that never reach the bridge. The JVM integration bed checks the normal parity sweep's persisted checkpoint and registry against the bot callback logs. Plan door: M-006.
 ```

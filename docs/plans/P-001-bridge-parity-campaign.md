@@ -83,7 +83,7 @@ They are bookkeeping rather than a second plan. A door closes when its criterion
 | M-141 | `EVT-013` | `EVT-013` is active, with evidence attributable to it. Successor to `EVT-003` (`M-103`). Work lands under M-001. | done |
 | M-142 | `EVT-014` | `EVT-014` is active, with evidence attributable to it. Successor to `EVT-007` (`M-107`). Work lands under M-001. | done |
 | M-143 | `EVT-015` | `EVT-015` is active, with evidence attributable to it. Successor to `EVT-001` (`M-101`). Work lands under M-001. | done |
-| M-148 | `HARN-008` | `HARN-008` is active, with evidence attributable to it. Work lands under M-006. | todo |
+| M-148 | `HARN-008` | `HARN-008` is active, with evidence attributable to it. Work lands under M-006. | done |
 
 ## Why this order
 

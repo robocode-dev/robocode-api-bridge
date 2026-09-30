@@ -2,7 +2,7 @@
 id: DES-007
 type: design
 status: draft
-links: [CAP-007, ARCH-003, C-003, C-004, C-007, AN-003]
+links: [CAP-007, ARCH-003, C-003, C-004, C-007, AN-003, AN-016, CRIT-007]
 title: The compatibility harness — design
 provenance: inferred
 reversal-cost: low
@@ -35,6 +35,8 @@ Compare: scores as the sum of all staged participants' totals, errors as normali
 The harness imports an interrupted checkpoint with `--sync-registry`, runs new first-pass work in bounded `--limit` batches, and selects retests with `--retry-unresolved` or `--retest-cause`. Matched subjects stay recorded and are not selected after an unrelated repair.
 
 Skipped-turn capture is opt-in with `--capture-skipped-turns`. For a completed Tank Royale run, `tank_royale.skipped_turn_telemetry` in each registry observation has `status: captured` and an `events` list containing distinct `{bot_id, round, turn}` records in round/turn order; warm-up turns are included. `disabled`, `unavailable`, and `incomplete` statuses carry `events: null`, so only a completed capture can report an empty list. The bridge buffers each bot's readiness and event markers until `GameEnded`, then writes a completion marker with its distinct-event count; the harness checks both markers against the registry events before reporting capture as complete. These records cover `SkippedTurnEvent` callbacks delivered to bridge bots and do not claim to observe server detections that never reach a bot.
+
+The supported JVM integration test runs the ordinary two-engine compatibility sweep with isolated `COMPAT_DATA_DIR` and `COMPAT_WORK_DIR` paths. It compares the persisted checkpoint and append-only registry records with the same run's bot callback logs, verifies warm-up events, and records a completed empty capture using a probe run with a longer turn deadline. The test belongs to the local conformance tier and skips when its classic and Tank Royale installations are unavailable.
 
 ## What changes for the milestone
 

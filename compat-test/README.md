@@ -48,9 +48,7 @@ the failure.
   > deferred same-priority events, e.g. every other scan event for robots that call a
   > blocking method such as `fire()` inside `onScannedRobot`.
 
-All paths are defaults only — override with CLI flags (`--collection-dir`,
-`--robocode-home`, `--runner-jar`, `--bridge-api-jar`, `--wrapper-jar`, `--bot-api-jar`)
-or the corresponding `COMPAT_*` environment variables.
+All paths are defaults only — override with CLI flags (`--collection-dir`, `--robocode-home`, `--runner-jar`, `--bridge-api-jar`, `--wrapper-jar`, `--bot-api-jar`) or the corresponding `COMPAT_*` environment variables. Set `COMPAT_DATA_DIR` to redirect the checkpoint, report, error logs, and parity registry to an isolated directory; set `COMPAT_WORK_DIR` to isolate temporary engine and bot files.
 
 ## Division setups
 
@@ -207,6 +205,8 @@ Full error details land in `errors/robocode/<robot>.log` and
 ### Skipped-turn telemetry
 
 Pass `--capture-skipped-turns` to enable opt-in records for Tank Royale bridge callbacks; capture is off by default. Each registry observation stores `tank_royale.skipped_turn_telemetry` with a status and, only when capture is complete, an `events` list of unique `{bot_id, round, turn}` values sorted by round and turn, including warm-up. `disabled`, `unavailable`, and `incomplete` use `events: null`; `captured` with `events: []` means the completed run delivered no skipped-turn callbacks to the bridge. Per-bot readiness and completion-count markers let the harness detect an older bridge jar or a truncated capture. The data describes callbacks delivered to the bridge and does not claim to record server detections that never reach it.
+
+`--turn-timeout-micros` overrides Tank Royale's per-turn timeout for a local probe. A large value makes a completed no-event capture practical to verify without depending on a bot narrowly meeting the default turn deadline.
 
 Use the conformance probe to check a forced-skip run locally:
 

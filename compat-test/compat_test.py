@@ -121,9 +121,10 @@ RC_JAVA_MAX_FEATURE = 23  # the last release that still allowed a SecurityManage
 # by the classic client, so an unrecognised install must not create evidence.
 LITERUMBLE_ALLOWED_ROBOCODE_CLIENTS = ("1.10.3", "1.11.0", "1.11.1")
 
-STATE_FILE = BASE_DIR / "test_progress.json"
-REPORT_FILE = BASE_DIR / "compatibility_report.md"
-ERRORS_DIR = BASE_DIR / "errors"
+DATA_DIR = Path(os.environ.get("COMPAT_DATA_DIR", BASE_DIR))
+STATE_FILE = DATA_DIR / "test_progress.json"
+REPORT_FILE = DATA_DIR / "compatibility_report.md"
+ERRORS_DIR = DATA_DIR / "errors"
 WORK_DIR = Path(os.environ.get("COMPAT_WORK_DIR", BASE_DIR / "work"))
 
 RC_WORKER = BASE_DIR / "RcBattleWorker.java"
@@ -150,8 +151,8 @@ DIVISIONS = {
 # verdict is stated as movement from a recorded baseline rather than as an absolute delta:
 # a bot that has always differed by a given margin and still does has not regressed.
 REGRESSION_SET_FILE = BASE_DIR / "regression-set.json"
-PARITY_REGISTRY_FILE = BASE_DIR / "parity-registry.json"
-PARITY_REGISTRY_REPORT = BASE_DIR / "parity-registry.md"
+PARITY_REGISTRY_FILE = DATA_DIR / "parity-registry.json"
+PARITY_REGISTRY_REPORT = DATA_DIR / "parity-registry.md"
 MELEE_OPPONENTS_FILE = BASE_DIR / "melee-opponents.json"
 DEFAULT_BATCH_SIZE = 25
 REGRESSION_REPEATS = 5
@@ -1139,6 +1140,8 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
         "--out", str(out_file),
         "--timeout", str(max(30, opts.timeout - 15)),
     ]
+    if opts.turn_timeout_micros is not None:
+        cmd.extend(["--turn-timeout", str(opts.turn_timeout_micros)])
     started = time.monotonic()
     watcher = None
     if rc_signatures is not None:
@@ -1179,6 +1182,13 @@ def run_tr_battle(jar_path: Path, classname, version, opts, setup, rc_signatures
     result["skipped_turn_telemetry"] = skipped_turn_telemetry(
         bot_dirs, capture_skipped_turns, result.get("completed", False),
         len(staged_log_dirs(bot_dirs)))
+    test_status = opts.test_skipped_turn_status
+    if test_status is not None:
+        if not capture_skipped_turns:
+            raise ValueError("invalid compatibility-test skipped-turn telemetry status")
+        # Let the JVM integration test send a synthetic status through the same checkpoint
+        # and registry write path after separately checking how the status is produced.
+        result["skipped_turn_telemetry"] = {"status": test_status, "events": None}
     return result
 
 
@@ -1461,6 +1471,10 @@ def parse_args():
                         "(auto-detected when not given)")
     p.add_argument("--capture-skipped-turns", action="store_true",
                    help="record Tank Royale bridge skipped-turn events, including warm-up turns")
+    p.add_argument("--turn-timeout-micros", type=int, default=None,
+                   help="override Tank Royale's turn timeout in microseconds for local probes")
+    p.add_argument("--test-skipped-turn-status", choices=("unavailable", "incomplete"),
+                   default=None, help=argparse.SUPPRESS)
 
     gate = p.add_argument_group("regression gate (C-004)")
     gate.add_argument("--regression", action="store_true",
@@ -2082,6 +2096,7 @@ def main():
     if opts.trace:
         return run_trace(opts)
 
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
     state = load_state()
     state["settings"] = {"rounds": opts.rounds, "threshold": opts.threshold,
                          "divisions": DIVISIONS}

@@ -48,6 +48,11 @@ final class ConformanceHarness {
         return REPO_ROOT;
     }
 
+    /** Jar produced by a conformance-source run, ready for the normal parity-sweep path. */
+    static Path conformanceRobotJar(String robotClass) {
+        return WORK_DIR.resolve("conformance").resolve(robotClass + "_1.0.jar");
+    }
+
     /** The number of rounds every battle this harness runs is configured for. */
     int rounds() {
         return rounds;
@@ -112,6 +117,77 @@ final class ConformanceHarness {
         return run(engine, robotClass, source, null, participants);
     }
 
+    BattleOutcome run(Engine engine, String robotClass, Path source, boolean captureSkippedTurns) {
+        return run(engine, robotClass, source, null, null, captureSkippedTurns, null);
+    }
+
+    BattleOutcome run(Engine engine, String robotClass, Path source, boolean captureSkippedTurns,
+                      int timeoutSeconds) {
+        return run(engine, robotClass, source, null, null, captureSkippedTurns, timeoutSeconds);
+    }
+
+    /** Runs the ordinary two-engine sweep for one fixture and isolates its durable output. */
+    String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                       String selectedRobot, boolean captureSkippedTurns,
+                                       Integer turnTimeoutMicros) {
+        return runCompatibilityMeasurement(collectionDir, dataDir, workDir, selectedRobot,
+                captureSkippedTurns, turnTimeoutMicros, null);
+    }
+
+    String runCompatibilityMeasurement(Path collectionDir, Path dataDir, Path workDir,
+                                       String selectedRobot, boolean captureSkippedTurns,
+                                       Integer turnTimeoutMicros, String testTelemetryStatus) {
+        List<String> command = new ArrayList<>(List.of(
+                python,
+                HARNESS.toString(),
+                "--collections", "roborumble",
+                "--collection-dir", collectionDir.toString(),
+                "--only", selectedRobot,
+                "--limit", "1",
+                "--rounds", String.valueOf(rounds),
+                "--timeout", "300",
+                "--robocode-home", robocodeHome.toString()));
+        addBridgeArtifacts(command);
+        if (captureSkippedTurns) {
+            command.add("--capture-skipped-turns");
+        }
+        if (turnTimeoutMicros != null) {
+            command.add("--turn-timeout-micros");
+            command.add(String.valueOf(turnTimeoutMicros));
+        }
+        if (testTelemetryStatus != null) {
+            command.add("--test-skipped-turn-status");
+            command.add(testTelemetryStatus);
+        }
+
+        try {
+            ProcessBuilder builder = new ProcessBuilder(command)
+                    .directory(HARNESS.getParent().toFile())
+                    .redirectErrorStream(true);
+            builder.environment().put("COMPAT_WORK_DIR", workDir.toString());
+            builder.environment().put("COMPAT_DATA_DIR", dataDir.toString());
+            Process process = builder.start();
+
+            AtomicReference<String> output = new AtomicReference<>("");
+            Thread pumpOutput = pump(process.getInputStream(), output);
+            if (!process.waitFor(20, TimeUnit.MINUTES)) {
+                process.destroyForcibly();
+                join(pumpOutput);
+                return "the compatibility measurement did not finish within 20 minutes: "
+                        + trim(output.get());
+            }
+            join(pumpOutput);
+            return process.exitValue() == 0 ? null
+                    : "the compatibility measurement exited " + process.exitValue() + ": "
+                    + trim(output.get());
+        } catch (IOException e) {
+            return "could not start the compatibility measurement: " + e.getMessage();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return "interrupted while waiting for the compatibility measurement";
+        }
+    }
+
     /** Runs a bridge-owned team fixture on one engine. */
     BattleOutcome runTeam(Engine engine, String teamClass, Path source) {
         List<String> command = new ArrayList<>(List.of(
@@ -159,6 +235,12 @@ final class ConformanceHarness {
 
     private BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass,
                               Integer participants) {
+        return run(engine, robotClass, source, enemyClass, participants, false, null);
+    }
+
+    private BattleOutcome run(Engine engine, String robotClass, Path source, String enemyClass,
+                              Integer participants, boolean captureSkippedTurns,
+                              Integer timeoutSeconds) {
         List<String> command = new ArrayList<>(List.of(
                 python,
                 HARNESS.toString(),
@@ -179,6 +261,13 @@ final class ConformanceHarness {
         if (participants != null) {
             command.add("--participants");
             command.add(String.valueOf(participants));
+        }
+        if (captureSkippedTurns) {
+            command.add("--capture-skipped-turns");
+        }
+        if (timeoutSeconds != null) {
+            command.add("--timeout");
+            command.add(String.valueOf(timeoutSeconds));
         }
 
         try {
@@ -219,7 +308,7 @@ final class ConformanceHarness {
     }
 
     private static BattleOutcome failed(String detail) {
-        return new BattleOutcome(false, List.of(), List.of(), null, detail);
+        return new BattleOutcome(false, List.of(), List.of(), null, detail, null);
     }
 
     /** Starts a harness process with workspace isolation for this Gradle test worker. */
@@ -266,7 +355,8 @@ final class ConformanceHarness {
                 Json.stringArray(json, "consoles"),
                 Json.stringArray(json, "errors"),
                 score,
-                Json.scalar(json, "fatal"));
+                Json.scalar(json, "fatal"),
+                Json.object(json, "skipped_turn_telemetry"));
     }
 
     /** Starts a daemon thread that drains a pipe to EOF into {@code sink}. */
