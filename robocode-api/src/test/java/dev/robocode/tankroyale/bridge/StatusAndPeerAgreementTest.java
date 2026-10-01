@@ -1,9 +1,12 @@
 package dev.robocode.tankroyale.bridge;
 
+import dev.robocode.tankroyale.botapi.events.TickEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import robocode.RobotStatus;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -77,6 +80,18 @@ class StatusAndPeerAgreementTest {
         assertEquals(peer.getRoundNum(), status.getRoundNum(), "round number");
         assertEquals(peer.getNumRounds(), status.getNumRounds(), "number of rounds");
         assertEquals(peer.getNumSentries(), status.getNumSentries(), "number of sentries");
+    }
+
+    @Test
+    @DisplayName("ROUTE-012 negative: an unconsumed Bot API tick cannot advance classic robot time")
+    void testROUTE012_UnitNegative_TimeStaysAtDeliveredTickUntilNextStatus() {
+        peer.dispatchStatusEvent(new TickEvent(97, 8, null, List.of(), List.of()));
+        bot.returning("getTurnNumber", 98);
+
+        assertEquals(97L, peer.getTime(), "WebSocket receipt alone does not advance robot time");
+
+        peer.dispatchStatusEvent(new TickEvent(98, 8, null, List.of(), List.of()));
+        assertEquals(98L, peer.getTime(), "the delivered status advances robot time");
     }
 
     @Test

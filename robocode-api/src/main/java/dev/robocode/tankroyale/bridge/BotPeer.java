@@ -54,6 +54,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private volatile boolean initialStatusDispatched;
     private volatile boolean initialStatusCallbackActive;
+    // The Bot API receives ticks on its WebSocket thread. Classic robot time advances only
+    // when the robot thread receives the next status during execute(), not on network receipt.
+    private volatile long deliveredTurn = -1;
     private boolean stopThread;
     private volatile int suppressScansThroughTurn = -1;
     private boolean hitWallHandlerActive;
@@ -156,7 +159,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public long getTime() {
         log("getTime()");
-        return initialStatusCallbackActive ? 0 : bot.getTurnNumber();
+        if (initialStatusCallbackActive) return 0;
+        return deliveredTurn >= 0 ? deliveredTurn : bot.getTurnNumber();
     }
 
     @Override
@@ -291,11 +295,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         bot.go();
     }
 
-    private void dispatchStatusEvent(TickEvent tickEvent) {
+    void dispatchStatusEvent(TickEvent tickEvent) {
         log("-> onStatus");
 
         // Save robot status snapshot for event handlers needing robot status
-        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot);
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, tickEvent.getTurnNumber());
         currentRobotStatus.set(robotStatus);
 
         // Update fired bullets
@@ -313,6 +317,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             return;
         }
 
+        deliveredTurn = tickEvent.getTurnNumber();
         dispatchStatusCallback(robotStatus, false);
     }
 
@@ -325,6 +330,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         // StatusEvent. Deliver it before the robot's run() and mark it consumed before invoking
         // user code, which may inspect the pending event list or block on execute().
         initialStatusDispatched = true;
+        deliveredTurn = bot.getTurnNumber();
         RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, 0);
         currentRobotStatus.set(robotStatus);
         dispatchStatusCallback(robotStatus, true);

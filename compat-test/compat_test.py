@@ -1617,6 +1617,10 @@ def run_regression(opts):
 
         if measured["bridge_only_signatures"]:
             verdict = "BRIDGE-ONLY ERROR"
+            print("    bridge-only signatures: " + json.dumps([
+                {"exception": exception, "origin": origin}
+                for exception, origin in measured["bridge_only_signatures"]
+            ], separators=(",", ":")), flush=True)
             regressions.append((entry, measured, verdict))
         elif measured["samples"] == 0:
             # Not the same as "no baseline". Nothing was measured at all, and a gate that
