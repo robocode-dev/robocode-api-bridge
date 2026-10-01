@@ -9,7 +9,7 @@ provenance: verified
 
 # CAP-006 — design
 
-Team behavior runs through both engines, including classic-name parity when paired with the Tank Royale Bot API and runner that carry the name map. `TEAM-002` is active with two-engine evidence; the overall capability remains draft until the supported default Bot API version includes the map.
+Team behavior runs through both engines, including classic-name parity with the default Tank Royale 1.4.0 Bot API and its matched runner. `TEAM-002` is active with two-engine evidence; the overall capability remains draft pending the corpus activation requirements named in its status.
 
 ## What exists
 
@@ -29,7 +29,7 @@ Classic team methods address robots by name, while Tank Royale routes by numeric
 
 Droids are the sharpest fidelity requirement here. A droid has no radar and receives no scan events, and getting that wrong makes the robot *better*: it gains information it should not have, wins more, and produces a battle in which nothing looks wrong. `TEAM-003` checks the negative scan case and the positive teammate-information case on both engines.
 
-The bridge discovers the newer `getBotName(int)` API reflectively so it remains source-compatible with the older default dependency. When that method is absent, the bridge retains its numeric-ID fallback. Full name parity therefore requires a Bot API and runner built from the Tank Royale change that adds the authoritative map; `TEAM-002` was verified against that matched local 1.4.0 pair.
+The bridge discovers `getBotName(int)` reflectively so an explicitly selected older Bot API retains the numeric-ID fallback. The default published 1.4.0 Bot API and its matched runner supply the authoritative name map; `TEAM-002` was verified against both a matched local pair and the published pair.
 
 ## Evidence plan
 

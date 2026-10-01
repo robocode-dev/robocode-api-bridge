@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Default to the published Tank Royale Bot API 1.4.0 and resolve it from Maven Central, so team names work with the matching 1.4.0 runner even when a different local API build uses the same version.
 - Deliver each round's initial status callback before the legacy robot's `run()` method, matching Classic Robocode and preventing robots from reading uninitialized callback state.
 - Preserve classic scan target names and stable string identity so legacy robots continue to recognize repeated scans of the same bot.
 - Close legacy data streams abandoned by worker threads between rounds after the previous bot thread has stopped, and track active stream instances so leaked handles cannot consume later rounds' five-stream quota.

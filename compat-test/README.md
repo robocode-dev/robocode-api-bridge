@@ -37,10 +37,7 @@ the failure.
   - Tank Royale runner fat jar: `C:\Code\tank-royale\runner\examples\lib\robocode-tankroyale-runner.jar`
   - Bridge adapter: `robocode-api\build\libs\robocode-api-0.5.0.jar` (this repo, `gradlew :robocode-api:build`)
   - Robots wrapper: `robots-wrapper\build\libs\robots-wrapper-0.3.1.jar` (this repo, `gradlew :robots-wrapper:build`)
-  - Tank Royale Bot API **1.0.2**, resolved from Maven Central by the Gradle build. The
-    harness reads the jar from `~\.m2\repository\...\robocode-tankroyale-bot-api-1.0.2.jar`,
-    where building the bridge once puts it. To try an unreleased Bot API, publish it with
-    `gradlew :bot-api:java:publishToMavenLocal` in the tank-royale repository.
+  - Tank Royale Bot API **1.4.0**. The bridge's default Gradle build resolves the published jar from Maven Central; the harness defaults to a locally built jar under `C:\Code\tank-royale\bot-api\java\build\libs`. For a published pair, pass the 1.4.0 runner and Bot API jars with `--runner-jar` and `--bot-api-jar` (or `COMPAT_RUNNER_JAR` and `COMPAT_BOT_API_JAR`). For an unreleased pair, publish the Bot API with `gradlew :bot-api:java:publishToMavenLocal`, build the runner from the same revision, and build the bridge with `-PtankRoyaleBotApiVersion=<local-version>`.
 
   > ⚠️ The bot-api version matters: it must be protocol-compatible with the server embedded
   > in the runner jar (an incompatible pairing leaves the robots idle, scoring 0 — newer

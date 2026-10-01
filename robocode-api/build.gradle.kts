@@ -11,9 +11,11 @@ val tankRoyaleBotApiVersion = providers.gradleProperty("tankRoyaleBotApiVersion"
     .orElse(libs.versions.tank.royale.bot.api)
 
 repositories {
-    // CI resolves the published default. A live conformance run overrides its version with a
-    // locally published Tank Royale Bot API from the same revision as the runner (C-002).
-    mavenLocal()
+    // Resolve the default from Maven Central, even when a different local build has the same
+    // version. Conformance can explicitly select a locally published API matched to its runner.
+    if (providers.gradleProperty("tankRoyaleBotApiVersion").isPresent) {
+        mavenLocal()
+    }
     mavenCentral()
 }
 
