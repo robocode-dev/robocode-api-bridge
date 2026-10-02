@@ -6,12 +6,13 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
+| CONFIRMED (score) | 1 |
 | DISCREPANCY (errors) | 78 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 83 |
 | MATCHED (failure) | 49 |
 | PASS | 694 |
-| score-review | 293 |
+| score-review | 292 |
 
 ## Subjects
 
@@ -1236,7 +1237,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 527d1334b6cbaafe | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 1277993795db5d90 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
-| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | score-review | ff6384a43dc40ba1 | tank-royale-team-message-limit | tank-royale |
+| teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | CONFIRMED (score) | 7a4500fc645b380a | tank-royale-team-message-limit | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 35c5a5b5b403c542 | nested-team-jar-discovery | wrapper |
 | teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | score-review | f07457b85f7d6964 | nested-team-jar-discovery | wrapper |
 | teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | score-review | 208d6bf410614cc3 | nested-team-jar-discovery | wrapper |
