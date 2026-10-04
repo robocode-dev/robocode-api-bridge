@@ -372,7 +372,8 @@ def kill_process_tree(proc: subprocess.Popen, diagnostics=None):
         try:
             taskkill = subprocess.run(
                 ["taskkill", "/PID", str(proc.pid), "/T", "/F"],
-                capture_output=True, timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
+                capture_output=True, text=True, errors="replace",
+                timeout=PROCESS_TREE_KILL_TIMEOUT_SECONDS)
         except subprocess.TimeoutExpired:
             taskkill = None
             diagnostics.append(
