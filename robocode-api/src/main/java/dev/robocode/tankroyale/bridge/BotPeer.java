@@ -48,6 +48,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final IBot bot;
     private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private final Map<Integer, BulletPeer> mappedBullets = new ConcurrentHashMap<>();
+    private volatile int initialOtherCount = -1;
+    private final Set<Integer> deadOtherBots = ConcurrentHashMap.newKeySet();
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
@@ -234,7 +236,18 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public int getOthers() {
         log("getOthers()");
-        return bot.getEnemyCount();
+        var teammates = bot.getTeammateIds();
+        if (teammates == null || teammates.isEmpty()) return bot.getEnemyCount();
+        if (initialOtherCount < 0) {
+            initialOtherCount = bot.getEnemyCount() + teammates.size();
+        }
+        for (var event : bot.getEvents()) {
+            if (event instanceof BotDeathEvent) {
+                var victimId = ((BotDeathEvent) event).getVictimId();
+                if (victimId != bot.getMyId()) deadOtherBots.add(victimId);
+            }
+        }
+        return Math.max(0, initialOtherCount - deadOtherBots.size());
     }
 
     @Override
@@ -472,6 +485,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
         log("-> onRobotDeath");
+        if (botDeathEvent.getVictimId() != bot.getMyId()) {
+            deadOtherBots.add(botDeathEvent.getVictimId());
+        }
         var robocodeEvent = new robocode.RobotDeathEvent(TankRoyaleBotNameResolver.getNameOrId(bot, botDeathEvent.getVictimId()));
         dispatchRobotCallback(() -> basicEvents.onRobotDeath(robocodeEvent));
     }
@@ -1181,7 +1197,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         return robot instanceof robocode.Droid;
     }
 
-    private class BotImpl extends Bot implements BulletMapper.Resolver {
+    private class BotImpl extends Bot implements BulletMapper.Resolver, IBotToRobotStatusMapper.OthersResolver {
+
+        @Override
+        public int getClassicOthers() {
+            return BotPeer.this.getOthers();
+        }
 
         @Override
         public Bullet resolveBullet(BulletState state, String victimName) {
@@ -1366,6 +1387,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             suppressScansThroughTurn = -1;
             firedBullets.clear();
             mappedBullets.clear();
+            initialOtherCount = -1;
+            deadOtherBots.clear();
         }
 
         @Override

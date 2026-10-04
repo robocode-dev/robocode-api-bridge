@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Include living teammates in `getOthers()` and robot status, and keep that count from increasing when the robot dies.
 - Preserve the bullet object and hash code returned by firing when delivering later bullet events, so legacy robots can retrieve statistics stored under that bullet.
 - Register blocking fire commands before advancing the turn, and return null when the gun cannot fire instead of returning an untracked bullet.
 - Keep known classic bot names consistent across scans, team messages, bullets, collisions, and robot-death events so legacy robots can match events to their recorded teammates.
