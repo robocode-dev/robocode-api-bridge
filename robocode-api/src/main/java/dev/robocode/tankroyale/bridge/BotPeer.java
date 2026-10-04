@@ -404,7 +404,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchBulletMissedEvent(BotEvent botEvent) {
         log("-> onBulletMissed");
         var bulletHitWallEvent = (BulletHitWallEvent) botEvent;
-        Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null);
+        Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null, bot);
         var robocodeEvent = new robocode.BulletMissedEvent(bullet);
         robocodeEvent.setTime(bulletHitWallEvent.getTurnNumber());
         dispatchRobotCallback(() -> basicEvents.onBulletMissed(robocodeEvent));
@@ -414,13 +414,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("-> onBulletHit");
         var bulletHitBotEvent = (BulletHitBotEvent) botEvent;
         var bulletState = bulletHitBotEvent.getBullet();
-        var victimName = String.valueOf(bulletHitBotEvent.getVictimId());
+        var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bulletHitBotEvent.getVictimId());
         var bullet = new Bullet(
                 toRobocodeHeadingRad(bulletState.getDirection()),
                 bulletState.getX(),
                 bulletState.getY(),
                 bulletState.getPower(),
-                String.valueOf(bulletState.getOwnerId()),
+                TankRoyaleBotNameResolver.getNameOrId(bot, bulletState.getOwnerId()),
                 victimName,
                 false, // isActive
                 bulletState.getBulletId());
@@ -436,7 +436,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         BulletState bullet = hitByBulletEvent.getBullet();
         double bearing = toRobocodeBearingRad(bot.bearingTo(bullet.getX(), bullet.getY()));
         var robocodeEvent = new robocode.HitByBulletEvent(
-                bearing, map(bullet, String.valueOf(bot.getMyId())));
+                bearing, map(bullet, TankRoyaleBotNameResolver.getNameOrId(bot, bot.getMyId()), bot));
         robocodeEvent.setTime(hitByBulletEvent.getTurnNumber());
         dispatchRobotCallback(() -> basicEvents.onHitByBullet(robocodeEvent));
     }
@@ -472,14 +472,14 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         double bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
         var robocodeEvent = new robocode.HitRobotEvent(
-                String.valueOf(hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
+                TankRoyaleBotNameResolver.getNameOrId(bot, hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
         );
         dispatchRobotCallback(() -> basicEvents.onHitRobot(robocodeEvent));
     }
 
     private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
         log("-> onRobotDeath");
-        var robocodeEvent = new robocode.RobotDeathEvent(String.valueOf(botDeathEvent.getVictimId()));
+        var robocodeEvent = new robocode.RobotDeathEvent(TankRoyaleBotNameResolver.getNameOrId(bot, botDeathEvent.getVictimId()));
         dispatchRobotCallback(() -> basicEvents.onRobotDeath(robocodeEvent));
     }
 
@@ -526,7 +526,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("-> onBulletHitBullet");
         var bulletHitBulletEvent = (BulletHitBulletEvent) botEvent;
         BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
-        Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null);
+        Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null, bot);
         bullet.setInactive();
 
         firedBullets.remove(bullet);

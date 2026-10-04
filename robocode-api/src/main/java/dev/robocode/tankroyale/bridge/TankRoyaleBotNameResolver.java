@@ -10,6 +10,7 @@ final class TankRoyaleBotNameResolver {
     private TankRoyaleBotNameResolver() { }
 
     static String getName(Object bot, int botId) {
+        if (bot == null) return null;
         final var method = getMethod(bot);
         if (method == null) return null;
         try {

@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Keep known classic bot names consistent across scans, team messages, bullets, collisions, and robot-death events so legacy robots can match events to their recorded teammates.
 - Fixed a Windows compatibility-sweep crash when process cleanup failed, so the harness retains cleanup diagnostics and records the battle result.
 - Preserve projectile callback timestamps so legacy robots can match bullet outcomes to the turn when they occurred.
 - Batch multiple team messages sent in one turn while preserving their order and directed recipients, and retain the existing transport for a single message.

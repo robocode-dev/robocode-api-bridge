@@ -37,11 +37,11 @@ final class AllEventsMapper {
             } else if (botEvent instanceof CustomEvent) {
                 event = CustomEventMapper.map((CustomEvent) botEvent);
             } else if (botEvent instanceof BulletHitWallEvent) {
-                event = BulletMissedEventMapper.map((BulletHitWallEvent) botEvent);
+                event = BulletMissedEventMapper.map((BulletHitWallEvent) botEvent, bot);
             } else if (botEvent instanceof BulletHitBulletEvent) {
-                event = BulletHitBulletEventMapper.map((BulletHitBulletEvent) botEvent);
+                event = BulletHitBulletEventMapper.map((BulletHitBulletEvent) botEvent, bot);
             } else if (botEvent instanceof BulletHitBotEvent) {
-                event = BulletHitEventMapper.map((BulletHitBotEvent) botEvent);
+                event = BulletHitEventMapper.map((BulletHitBotEvent) botEvent, bot);
             } else if (botEvent instanceof HitByBulletEvent) {
                 event = HitByBulletEventMapper.map((HitByBulletEvent) botEvent, bot);
             } else if (botEvent instanceof HitWallEvent) {
@@ -51,7 +51,7 @@ final class AllEventsMapper {
             } else if (botEvent instanceof ScannedBotEvent) {
                 event = ScannedRobotEventMapper.map((ScannedBotEvent) botEvent, bot);
             } else if (botEvent instanceof BotDeathEvent) {
-                event = RobotDeathEventMapper.map((BotDeathEvent) botEvent);
+                event = RobotDeathEventMapper.map((BotDeathEvent) botEvent, bot);
             }
             if (event != null) {
                 events.add(event);

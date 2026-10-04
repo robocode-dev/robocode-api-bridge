@@ -11,7 +11,7 @@ final class HitRobotEventMapper {
     public static HitRobotEvent map(HitBotEvent hitBotEvent, IBot bot) {
         if (hitBotEvent == null) return null;
 
-        var name = String.valueOf(hitBotEvent.getVictimId());
+        var name = TankRoyaleBotNameResolver.getNameOrId(bot, hitBotEvent.getVictimId());
         var bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
         var event = new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
