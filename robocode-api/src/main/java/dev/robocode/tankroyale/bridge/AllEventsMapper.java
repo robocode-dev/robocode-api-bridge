@@ -17,6 +17,11 @@ final class AllEventsMapper {
         var events = new ArrayList<Event>();
 
         botEvents.forEach(botEvent -> {
+            if (botEvent instanceof TeamMessageEvent) {
+                events.addAll(MessageEventMapper.map((TeamMessageEvent) botEvent, bot));
+                return;
+            }
+
             Event event = null;
             if (botEvent instanceof WonRoundEvent) {
                 event = new robocode.WinEvent();
@@ -47,8 +52,6 @@ final class AllEventsMapper {
                 event = ScannedRobotEventMapper.map((ScannedBotEvent) botEvent, bot);
             } else if (botEvent instanceof BotDeathEvent) {
                 event = RobotDeathEventMapper.map((BotDeathEvent) botEvent);
-            } else if (botEvent instanceof TeamMessageEvent) {
-                event = MessageEventMapper.map((TeamMessageEvent)botEvent, bot);
             }
             if (event != null) {
                 events.add(event);

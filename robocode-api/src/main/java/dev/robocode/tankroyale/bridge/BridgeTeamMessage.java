@@ -50,6 +50,11 @@ public final class BridgeTeamMessage implements Serializable {
         return new BridgeTeamMessage(Base64.getEncoder().encodeToString(bytes.toByteArray()));
     }
 
+    /** Encodes a directed classic message with its recipient for a shared batch packet. */
+    static BridgeTeamMessage forRecipient(int recipientId, Serializable message) throws IOException {
+        return encode(new RoutedMessage(recipientId, message));
+    }
+
     /** Restores the original classic message object. */
     public Serializable decode() {
         if (payload == null) {
@@ -62,6 +67,27 @@ public final class BridgeTeamMessage implements Serializable {
             }
         } catch (IOException | ClassNotFoundException | ClassCastException exception) {
             throw new BotException("Could not deserialize team message: " + exception.getMessage());
+        }
+    }
+
+    static final class RoutedMessage implements Serializable {
+
+        private static final long serialVersionUID = 1L;
+
+        private final int recipientId;
+        private final Serializable message;
+
+        RoutedMessage(int recipientId, Serializable message) {
+            this.recipientId = recipientId;
+            this.message = message;
+        }
+
+        int getRecipientId() {
+            return recipientId;
+        }
+
+        Serializable getMessage() {
+            return message;
         }
     }
 }

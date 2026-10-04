@@ -66,6 +66,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             ? new ArrayList<>() : Collections.emptyList();
     private final Set<String> skippedTurnTelemetryEventRecords = SKIPPED_TURN_TELEMETRY_ENABLED
             ? new HashSet<>() : Collections.emptySet();
+    private final List<Serializable> pendingTeamMessages = new ArrayList<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -292,7 +293,18 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void execute() {
         log("execute()");
+        flushTeamMessages();
         bot.go();
+    }
+
+    private void flushTeamMessages() {
+        List<Serializable> messages;
+        synchronized (pendingTeamMessages) {
+            if (pendingTeamMessages.isEmpty()) return;
+            messages = new ArrayList<>(pendingTeamMessages);
+            pendingTeamMessages.clear();
+        }
+        bot.broadcastTeamMessageBatch(messages);
     }
 
     void dispatchStatusEvent(TickEvent tickEvent) {
@@ -562,8 +574,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (!(robot instanceof ITeamEvents)) {
             return;
         }
-        var robocodeEvent = MessageEventMapper.map((TeamMessageEvent) botEvent, bot);
-        dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
+        var robocodeEvents = MessageEventMapper.map((TeamMessageEvent) botEvent, bot);
+        for (var robocodeEvent : robocodeEvents) {
+            dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
+        }
     }
 
     @Override
@@ -1033,7 +1047,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void broadcastMessage(Serializable message) throws IOException {
         log("broadcastMessage()");
-        bot.broadcastTeamMessage(BridgeTeamMessage.forTransport(message));
+        synchronized (pendingTeamMessages) {
+            pendingTeamMessages.add(BridgeTeamMessage.forTransport(message));
+        }
     }
 
     @Override
@@ -1044,7 +1060,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (id == null) {
             throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
         }
-        bot.sendTeamMessage(id, BridgeTeamMessage.forTransport(message));
+        if (!bot.isTeammate(id)) {
+            throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
+        }
+        synchronized (pendingTeamMessages) {
+            pendingTeamMessages.add(BridgeTeamMessage.forRecipient(id, message));
+        }
     }
 
     private Integer findTeammateId(String name) {
@@ -1171,7 +1192,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             // setup code endlessly, and without go() no intent is ever sent to the server, making
             // every turn last the full turn timeout with the robot unable to act.
             while (bot.isRunning() && !stopThread) {
-                bot.go();
+                BotPeer.this.execute();
             }
 
             log("Bot.run() -> exit");

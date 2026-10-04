@@ -46,12 +46,17 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-009 positive: broadcasting reaches the team broadcast with the message intact")
+    @DisplayName("ROUTE-009 positive: the turn flushes broadcasts as an ordered batch")
     void testROUTE009_UnitPositive_RoutesBroadcastWithTheMessageIntact() throws IOException {
         peer.broadcastMessage("attack");
 
-        assertEquals("attack", bot.onlyCall("broadcastTeamMessage").args[0],
-                "the message must arrive as sent, not serialized or wrapped on the way");
+        assertFalse(bot.called("broadcastTeamMessageBatch"),
+                "messages stay queued until the classic turn is submitted");
+
+        peer.execute();
+
+        assertEquals(List.of("attack"), bot.onlyCall("broadcastTeamMessageBatch").args[0],
+                "a broadcast keeps its original payload inside the ordered turn batch");
     }
 
     @Test
@@ -75,34 +80,44 @@ class TeamAndJuniorPeerRoutingTest {
     @Test
     @DisplayName("ROUTE-009 positive: a message to one teammate is addressed by its numeric id")
     void testROUTE009_UnitPositive_AddressesASingleTeammateByNumericId() throws IOException {
+        bot.returning("isTeammate", true);
         peer.sendMessage("7", "regroup");
 
-        RecordingBot.Call call = bot.onlyCall("sendTeamMessage");
-        assertEquals(7, call.args[0], "Robocode names teammates; Tank Royale numbers them");
-        assertEquals("regroup", call.args[1]);
+        peer.execute();
+
+        Object payload = ((List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0]).get(0);
+        assertTrue(payload instanceof BridgeTeamMessage);
+        var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) payload).decode();
+        assertEquals(7, routed.getRecipientId(), "Robocode names teammates; Tank Royale numbers them");
+        assertEquals("regroup", routed.getMessage());
     }
 
     @Test
     @DisplayName("ROUTE-009 positive: a directed message by classic name reaches that teammate")
     void testROUTE009_UnitPositive_AddressesTeammateByClassicName() throws IOException {
         String teammateName = "legacy.TeamRobot 1.2 (1)";
-        bot.named(7, teammateName).returning("getTeammateIds", Set.of(7));
+        bot.named(7, teammateName).returning("getTeammateIds", Set.of(7)).returning("isTeammate", true);
 
         peer.sendMessage(teammateName, "regroup");
 
-        RecordingBot.Call call = bot.onlyCall("sendTeamMessage");
-        assertEquals(7, call.args[0]);
-        assertEquals("regroup", call.args[1]);
+        peer.execute();
+
+        Object payload = ((List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0]).get(0);
+        var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) payload).decode();
+        assertEquals(7, routed.getRecipientId());
+        assertEquals("regroup", routed.getMessage());
     }
 
     @Test
-    @DisplayName("ROUTE-009 negative: a directed message does not become a broadcast")
-    void testROUTE009_UnitNegative_ADirectedMessageIsNotBroadcast() throws IOException {
-        peer.sendMessage("3", "flank left");
+    @DisplayName("ROUTE-009 negative: another teammate does not receive a directed message")
+    void testROUTE009_UnitNegative_HidesDirectedMessageFromOtherTeammates() throws IOException {
+        bot.returning("getMyId", 4);
+        var routed = BridgeTeamMessage.forRecipient(3, "flank left");
+        var event = new TeamMessageEvent(3,
+                new dev.robocode.tankroyale.botapi.TeamMessageBatch(List.of(routed)), 9);
+        bot.named(9, "sender").returning("getEvents", List.of(event));
 
-        // Turning a private instruction into a broadcast would tell the whole team something
-        // meant for one member, which changes the team's behaviour without any error.
-        assertFalse(bot.called("broadcastTeamMessage"), bot.names());
+        assertEquals(List.of(), peer.getMessageEvents());
     }
 
     @Test
@@ -198,6 +213,29 @@ class TeamAndJuniorPeerRoutingTest {
         assertEquals(1, events.size());
         assertEquals(senderName, events.get(0).getSender());
         assertEquals("attack", events.get(0).getMessage());
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: a batch becomes ordered classic message events for its recipient")
+    void testROUTE009_UnitPositive_ExpandsAnOrderedBatchForItsRecipient() throws IOException {
+        String senderName = "legacy.TeamRobot 1.2 (1)";
+        var event = new TeamMessageEvent(3,
+                new dev.robocode.tankroyale.botapi.TeamMessageBatch(List.of(
+                        "attack",
+                        BridgeTeamMessage.forRecipient(5, "regroup"),
+                        BridgeTeamMessage.forRecipient(6, "private"))),
+                12);
+        bot.named(12, senderName)
+                .returning("getMyId", 5)
+                .returning("getEvents", List.of(event));
+
+        List<robocode.MessageEvent> events = peer.getMessageEvents();
+
+        assertEquals(2, events.size());
+        assertEquals("attack", events.get(0).getMessage());
+        assertEquals("regroup", events.get(1).getMessage());
+        assertEquals(senderName, events.get(0).getSender());
+        assertEquals(senderName, events.get(1).getSender());
     }
 
     @Test
