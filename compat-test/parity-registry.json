@@ -210039,6 +210039,18 @@
           "id": "diagnosis-2",
           "owner": "unknown",
           "recorded_at": "2026-10-04T19:33:05Z"
+        },
+        {
+          "cause": "robot-invalid-scan-comparator",
+          "id": "diagnosis-3",
+          "owner": "robot",
+          "recorded_at": "2026-10-04T20:53:53Z"
+        },
+        {
+          "cause": "robot-null-bullet-on-team-message",
+          "id": "diagnosis-4",
+          "owner": "robot",
+          "recorded_at": "2026-10-04T20:53:59Z"
         }
       ],
       "identity": {
@@ -210049,7 +210061,7 @@
         "key": "teamrumble/florent.XSeries.Xmen_0.9.jar",
         "kind": "team"
       },
-      "latest_observation": "eabd3bd515d4a176",
+      "latest_observation": "0e6d32277699624a",
       "observations": [
         {
           "classic": {
@@ -212611,6 +212623,146 @@
               "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
               "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
               "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.IllegalArgumentException: Comparison method violates its general contract!",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 23.3,
+            "error_count": 25,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.team.Xmen.removeBullet"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 20774.0,
+            "scores": [
+              8670.0,
+              12104.0
+            ],
+            "selected": "florent.XSeries.X2 0.9"
+          },
+          "completed_at": "2026-10-04T20:52:11Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "0e6d32277699624a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "80267b0d2349fe635f3d110ec2877d48fe127810",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "florent.XSeries.X2 0.9",
+            "division": "teamrumble",
+            "jar": "florent.XSeries.Xmen_0.9.jar",
+            "jar_sha256": "7f9235dc6d7526c3c9c024dcba6a51b7d6b9d102eb0eb47a25da1870bc707770",
+            "key": "teamrumble/florent.XSeries.Xmen_0.9.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.IllegalArgumentException",
+                "florent.XSeries.gun.patternrecognition.ScanStore.mostSimilarScans"
+              ]
+            ],
+            "elapsed": 8.2,
+            "error_count": 12,
+            "error_signatures": [
+              {
+                "exception": "java.lang.IllegalArgumentException",
+                "origin": "florent.XSeries.gun.patternrecognition.ScanStore.mostSimilarScans"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.gun.patternrecognition.ScanStore.mostSimilarScans"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "florent.XSeries.team.Xmen.removeBullet"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.IllegalArgumentException: Comparison method violates its general contract!",
               "java.lang.IllegalArgumentException: Comparison method violates its general contract!",
               "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
               "java.lang.NullPointerException: Cannot invoke \"florent.XSeries.team.XBullet.getLocation(double)\" because \"bullet\" is null",
