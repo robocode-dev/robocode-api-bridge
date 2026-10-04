@@ -615,13 +615,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public Bullet fire(double power) {
         log("fire()");
-        if (rejectNaNFirepower(power)) {
-            // Classic fireBullet() still completes the turn when the invalid shot is ignored.
-            bot.go();
-            return null;
-        }
-        bot.fire(power);
-        return createAndAddBullet(power);
+        var bullet = setFire(power);
+        execute();
+        return bullet;
     }
 
     @Override
