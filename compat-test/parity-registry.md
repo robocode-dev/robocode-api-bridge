@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 1 |
-| DISCREPANCY (errors) | 78 |
+| DISCREPANCY (errors) | 80 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 82 |
+| DISCREPANCY (outcome) | 80 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 3 |
 | PASS | 694 |
@@ -67,7 +67,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 36c414b3475bc35a | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 99b9848bba0aaf07 | melee-opponent-pool-contamination | harness |
 | meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | ea8e5e13560f1498 | melee-opponent-pool-contamination | harness |
-| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (outcome) | 0b2c1f3d52ecd23f | melee-opponent-pool-contamination | harness |
+| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | 5d839d3648d7ed3a | initial-status-before-run | bridge |
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | abd63f20d915d381 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 491778d42b27fa0a | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6a47d423a68edb16 | melee-opponent-pool-contamination | harness |
@@ -1234,7 +1234,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | e3e38c2f6cbb6913 | - | - |
 | teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 958bfa1999f49a8f | - | - |
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
-| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | de6c5637b4a08810 | unresolved-tidalwave-target-lifecycle | unknown |
+| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (errors) | d84e06614899bbdb | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 527d1334b6cbaafe | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 1277993795db5d90 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
