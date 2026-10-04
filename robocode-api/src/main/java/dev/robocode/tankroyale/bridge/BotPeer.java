@@ -47,6 +47,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private final IBot bot;
     private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new ConcurrentHashMap<>());
+    private final Map<Integer, BulletPeer> mappedBullets = new ConcurrentHashMap<>();
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
     private final Map<robocode.Condition, Condition> conditions = new ConcurrentHashMap<>();
@@ -415,15 +416,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var bulletHitBotEvent = (BulletHitBotEvent) botEvent;
         var bulletState = bulletHitBotEvent.getBullet();
         var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bulletHitBotEvent.getVictimId());
-        var bullet = new Bullet(
-                toRobocodeHeadingRad(bulletState.getDirection()),
-                bulletState.getX(),
-                bulletState.getY(),
-                bulletState.getPower(),
-                TankRoyaleBotNameResolver.getNameOrId(bot, bulletState.getOwnerId()),
-                victimName,
-                false, // isActive
-                bulletState.getBulletId());
+        var bullet = BulletMapper.map(bulletState, victimName, bot);
 
         var robocodeEvent = new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
         robocodeEvent.setTime(bulletHitBotEvent.getTurnNumber());
@@ -525,11 +518,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private void dispatchBulletHitBulletEvent(BotEvent botEvent) {
         log("-> onBulletHitBullet");
         var bulletHitBulletEvent = (BulletHitBulletEvent) botEvent;
-        BulletPeer bullet = findBulletById(bulletHitBulletEvent.getBullet());
+        Bullet bullet = BulletMapper.map(bulletHitBulletEvent.getBullet(), null, bot);
         Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null, bot);
-        bullet.setInactive();
-
-        firedBullets.remove(bullet);
 
         var robocodeEvent = new robocode.BulletHitBulletEvent(bullet, hitBullet);
         robocodeEvent.setTime(bulletHitBulletEvent.getTurnNumber());
@@ -1165,7 +1155,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var foundBullet = new AtomicReference<BulletPeer>();
         var minDist = new AtomicReference<>(Double.MAX_VALUE);
 
-        firedBullets.forEach(bullet -> {
+        firedBullets.stream().filter(bullet -> bullet.getBulletId() == -1).forEach(bullet -> {
             var dist = Math.pow(bullet.getX() - bulletState.getX(), 2) + Math.pow(bullet.getY() - bulletState.getY(), 2);
             if (dist < minDist.get()) {
                 foundBullet.set(bullet);
@@ -1195,7 +1185,17 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         return robot instanceof robocode.Droid;
     }
 
-    private class BotImpl extends Bot {
+    private class BotImpl extends Bot implements BulletMapper.Resolver {
+
+        @Override
+        public Bullet resolveBullet(BulletState state, String victimName) {
+            if (state.getOwnerId() != bot.getMyId()) return null;
+            var bullet = mappedBullets.get(state.getBulletId());
+            if (bullet == null) return null;
+            bullet.updateState(state, victimName, false);
+            firedBullets.remove(bullet);
+            return bullet;
+        }
 
         final AtomicInteger totalTurns = new AtomicInteger(0);
 
@@ -1369,6 +1369,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             initialStatusDispatched = false;
             suppressScansThroughTurn = -1;
             firedBullets.clear();
+            mappedBullets.clear();
         }
 
         @Override
@@ -1395,6 +1396,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 throw new BotException("onBulletFired: Could not find bullet: " + bulletState.getX() + "," + bulletState.getY());
             }
             bullet.setBulletId(bulletState.getBulletId());
+            bullet.updateState(bulletState, null, true);
+            mappedBullets.put(bulletState.getBulletId(), bullet);
         }
     }
 
