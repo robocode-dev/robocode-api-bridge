@@ -253,6 +253,36 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
+    @DisplayName("ROUTE-009 positive: recipient order spans items and consecutive sender batches")
+    void testROUTE009_UnitPositive_PreservesOrderAcrossSenderBatches() throws IOException {
+        var firstBatch = new TeamMessageEvent(3,
+                new dev.robocode.tankroyale.botapi.TeamMessageBatch(List.of(
+                        "a1",
+                        BridgeTeamMessage.forRecipient(5, "a2"),
+                        BridgeTeamMessage.forRecipient(6, "filtered"),
+                        "a3")),
+                12);
+        var secondBatch = new TeamMessageEvent(3,
+                new dev.robocode.tankroyale.botapi.TeamMessageBatch(List.of(
+                        "b1",
+                        BridgeTeamMessage.forRecipient(5, "b2"))),
+                13);
+        bot.named(12, "sender-1")
+                .named(13, "sender-2")
+                .returning("getMyId", 5)
+                .returning("getEvents", List.of(firstBatch, secondBatch));
+
+        List<robocode.MessageEvent> events = peer.getMessageEvents();
+
+        assertEquals(List.of("a1", "a2", "a3", "b1", "b2"),
+                events.stream().map(robocode.MessageEvent::getMessage)
+                        .collect(java.util.stream.Collectors.toList()));
+        assertEquals(List.of("sender-1", "sender-1", "sender-1", "sender-2", "sender-2"),
+                events.stream().map(robocode.MessageEvent::getSender)
+                        .collect(java.util.stream.Collectors.toList()));
+    }
+
+    @Test
     @DisplayName("ROUTE-010 positive: the junior turn-and-move reaches the Bot API")
     void testROUTE010_UnitPositive_RoutesTheJuniorTurnAndMove() {
         peer.turnAndMove(80, toRadians(45));

@@ -29,13 +29,16 @@ public class TeamLeader extends TeamRobot {
             execute();
             broadcastMessage(new TeamPayload("BROADCAST"));
             execute();
+            for (int index = 1; index <= 5; index++) {
+                broadcastMessage(new TeamPayload("ORDER:LEADER:" + index));
+            }
+            execute();
             var batch = new ArrayList<String>();
             batch.add("BATCH:first");
             batch.add("BATCH:second");
             broadcastMessage(batch);
-            // Keep each message delivery on its own turn. Classic queues same-turn
-            // messages reliably, but Tank Royale's callback scheduling is not required to
-            // preserve multiple same-turn messages while the bridge is draining events.
+            // Keep the list payload and directed-message checks separate from the same-turn
+            // ordering probe above so each path has an independent result.
             execute();
             if (teammates != null && teammates.length > 0) {
                 sendMessage(teammates[0], "DIRECT");

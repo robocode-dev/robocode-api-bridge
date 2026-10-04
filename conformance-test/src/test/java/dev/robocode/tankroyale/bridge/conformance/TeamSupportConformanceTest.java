@@ -49,6 +49,12 @@ class TeamSupportConformanceTest extends ConformanceTestBase {
                     outcome.countOf("Message:BROADCAST"),
                     () -> "broadcast messages were not delivered to every teammate on " + engine
                             + " (" + outcome.summary() + ")");
+            assertEquals(TEAM_INSTANCES * 2 * rounds, outcome.countOf("TeamRecipientOrderOk:"),
+                    () -> "same-turn messages were not delivered in order on " + engine
+                            + " (" + outcome.summary() + ")");
+            assertFalse(outcome.anyConsoleContains("TeamRecipientOrderError:"),
+                    () -> "same-turn messages were reordered or duplicated on " + engine
+                            + " (" + outcome.summary() + ")");
             assertEquals(TEAM_INSTANCES * rounds,
                     outcome.countOf("TeamRecipientBatch:BATCH:first,BATCH:second"),
                     () -> "serializable collection batches were not delivered in order on " + engine
