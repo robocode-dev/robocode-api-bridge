@@ -66,7 +66,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             ? new ArrayList<>() : Collections.emptyList();
     private final Set<String> skippedTurnTelemetryEventRecords = SKIPPED_TURN_TELEMETRY_ENABLED
             ? new HashSet<>() : Collections.emptySet();
-    private final List<Serializable> pendingTeamMessages = new ArrayList<>();
+    private final List<PendingTeamMessage> pendingTeamMessages = new ArrayList<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -298,13 +298,24 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void flushTeamMessages() {
-        List<Serializable> messages;
+        List<PendingTeamMessage> pending;
         synchronized (pendingTeamMessages) {
             if (pendingTeamMessages.isEmpty()) return;
-            messages = new ArrayList<>(pendingTeamMessages);
+            pending = new ArrayList<>(pendingTeamMessages);
             pendingTeamMessages.clear();
         }
-        bot.broadcastTeamMessageBatch(messages);
+        if (pending.size() == 1) {
+            PendingTeamMessage message = pending.get(0);
+            if (message.recipientId == null) {
+                bot.broadcastTeamMessage(message.transportMessage);
+            } else {
+                bot.sendTeamMessage(message.recipientId, message.transportMessage);
+            }
+            return;
+        }
+        bot.broadcastTeamMessageBatch(pending.stream()
+                .map(message -> message.batchMessage)
+                .collect(Collectors.toList()));
     }
 
     void dispatchStatusEvent(TickEvent tickEvent) {
@@ -1048,7 +1059,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public void broadcastMessage(Serializable message) throws IOException {
         log("broadcastMessage()");
         synchronized (pendingTeamMessages) {
-            pendingTeamMessages.add(BridgeTeamMessage.forTransport(message));
+            Serializable transportMessage = BridgeTeamMessage.forTransport(message);
+            pendingTeamMessages.add(new PendingTeamMessage(null, transportMessage, transportMessage));
         }
     }
 
@@ -1064,7 +1076,21 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             throw new BotException("sendMessage: Cannot find receiver of team message: " + name);
         }
         synchronized (pendingTeamMessages) {
-            pendingTeamMessages.add(BridgeTeamMessage.forRecipient(id, message));
+            Serializable transportMessage = BridgeTeamMessage.forTransport(message);
+            Serializable batchMessage = BridgeTeamMessage.forRecipient(id, message);
+            pendingTeamMessages.add(new PendingTeamMessage(id, transportMessage, batchMessage));
+        }
+    }
+
+    private static final class PendingTeamMessage {
+        private final Integer recipientId;
+        private final Serializable transportMessage;
+        private final Serializable batchMessage;
+
+        private PendingTeamMessage(Integer recipientId, Serializable transportMessage, Serializable batchMessage) {
+            this.recipientId = recipientId;
+            this.transportMessage = transportMessage;
+            this.batchMessage = batchMessage;
         }
     }
 

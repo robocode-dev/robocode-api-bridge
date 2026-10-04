@@ -46,17 +46,34 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-009 positive: the turn flushes broadcasts as an ordered batch")
-    void testROUTE009_UnitPositive_RoutesBroadcastWithTheMessageIntact() throws IOException {
+    @DisplayName("ROUTE-009 positive: one broadcast uses the classic single-message call")
+    void testROUTE009_UnitPositive_PreservesTheSingleBroadcastCall() throws IOException {
         peer.broadcastMessage("attack");
 
-        assertFalse(bot.called("broadcastTeamMessageBatch"),
+        assertFalse(bot.called("broadcastTeamMessage"),
                 "messages stay queued until the classic turn is submitted");
 
         peer.execute();
 
-        assertEquals(List.of("attack"), bot.onlyCall("broadcastTeamMessageBatch").args[0],
-                "a broadcast keeps its original payload inside the ordered turn batch");
+        assertEquals("attack", bot.onlyCall("broadcastTeamMessage").args[0],
+                "a single broadcast keeps its original payload and API call");
+        assertFalse(bot.called("broadcastTeamMessageBatch"));
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 positive: multiple turn messages are sent in one ordered batch")
+    void testROUTE009_UnitPositive_BatchesMultipleMessagesInOrder() throws IOException {
+        bot.returning("isTeammate", true);
+        peer.broadcastMessage("attack");
+        peer.sendMessage("7", "regroup");
+
+        peer.execute();
+
+        List<?> messages = (List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0];
+        assertEquals("attack", messages.get(0));
+        var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) messages.get(1)).decode();
+        assertEquals(7, routed.getRecipientId());
+        assertEquals("regroup", routed.getMessage());
     }
 
     @Test
@@ -85,11 +102,9 @@ class TeamAndJuniorPeerRoutingTest {
 
         peer.execute();
 
-        Object payload = ((List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0]).get(0);
-        assertTrue(payload instanceof BridgeTeamMessage);
-        var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) payload).decode();
-        assertEquals(7, routed.getRecipientId(), "Robocode names teammates; Tank Royale numbers them");
-        assertEquals("regroup", routed.getMessage());
+        Object[] args = bot.onlyCall("sendTeamMessage").args;
+        assertEquals(7, args[0], "Robocode names teammates; Tank Royale numbers them");
+        assertEquals("regroup", args[1]);
     }
 
     @Test
@@ -102,10 +117,9 @@ class TeamAndJuniorPeerRoutingTest {
 
         peer.execute();
 
-        Object payload = ((List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0]).get(0);
-        var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) payload).decode();
-        assertEquals(7, routed.getRecipientId());
-        assertEquals("regroup", routed.getMessage());
+        Object[] args = bot.onlyCall("sendTeamMessage").args;
+        assertEquals(7, args[0]);
+        assertEquals("regroup", args[1]);
     }
 
     @Test
