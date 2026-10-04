@@ -6,13 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
+| CONFIRMED (score) | 1 |
 | DISCREPANCY (errors) | 78 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 83 |
+| DISCREPANCY (outcome) | 82 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 1 |
+| MATCHED (score noise) | 3 |
 | PASS | 694 |
-| score-review | 292 |
+| score-review | 290 |
 
 ## Subjects
 
@@ -1219,13 +1220,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 3c112507fe15db93 | - | - |
 | teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | b781be282cf00232 | - | - |
 | teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | d964a1c4da7e73fa | - | - |
-| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | score-review | 0410196ed2cca286 | nested-team-jar-discovery | wrapper |
-| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | a4b32950172587c1 | nested-team-jar-discovery | wrapper |
-| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | score-review | ffdcc9fa6535acbb | nested-team-jar-discovery | wrapper |
+| teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | MATCHED (score noise) | ec40d37777c4769c | nested-team-jar-discovery | wrapper |
+| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | a2de40645f245e76 | unresolved-firestarter-wave-history | unknown |
+| teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | f9da598653e8d726 | unresolved-confirmed-team-score-gap | unknown |
 | teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 3a77798e76eadbbb | - | - |
 | teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 95a261e1dcd6e54a | - | - |
-| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | DISCREPANCY (outcome) | da49937ad4b818af | nested-team-jar-discovery | wrapper |
-| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 90ef34e34891187f | nested-team-jar-discovery | wrapper |
+| teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | MATCHED (score noise) | cbb87704154d6859 | bridge-bullet-identity-and-blocking-fire | bridge |
+| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | eabd3bd515d4a176 | unresolved-xmen-comparator-contract | unknown |
 | teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | score-review | 8da1db1940655a72 | nested-team-jar-discovery | wrapper |
 | teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | 3784af636099c8b7 | - | - |
 | teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | d373ae9bed366ff4 | - | - |
@@ -1233,12 +1234,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | e3e38c2f6cbb6913 | - | - |
 | teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 958bfa1999f49a8f | - | - |
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
-| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | def9be010e856ed7 | nested-team-jar-discovery | wrapper |
+| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (outcome) | de6c5637b4a08810 | unresolved-tidalwave-target-lifecycle | unknown |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 527d1334b6cbaafe | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 1277993795db5d90 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
-| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 35c5a5b5b403c542 | nested-team-jar-discovery | wrapper |
+| teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 7e73a2f8079f0688 | symmetric-robot-runtime-failure-zero-score | robot |
 | teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | score-review | f07457b85f7d6964 | nested-team-jar-discovery | wrapper |
 | teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | score-review | 208d6bf410614cc3 | nested-team-jar-discovery | wrapper |
 | teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | 982cb1f3bee1097c | - | - |
