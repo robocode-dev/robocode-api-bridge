@@ -241,12 +241,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (initialOtherCount < 0) {
             initialOtherCount = bot.getEnemyCount() + teammates.size();
         }
-        for (var event : bot.getEvents()) {
-            if (event instanceof BotDeathEvent) {
-                var victimId = ((BotDeathEvent) event).getVictimId();
-                if (victimId != bot.getMyId()) deadOtherBots.add(victimId);
-            }
-        }
         return Math.max(0, initialOtherCount - deadOtherBots.size());
     }
 
@@ -334,6 +328,19 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     void dispatchStatusEvent(TickEvent tickEvent) {
         log("-> onStatus");
+
+        var teammates = bot.getTeammateIds();
+        if (teammates != null && !teammates.isEmpty()) {
+            if (initialOtherCount < 0) {
+                initialOtherCount = tickEvent.getBotState().getEnemyCount() + teammates.size();
+            }
+            for (var event : tickEvent.getEvents()) {
+                if (event instanceof BotDeathEvent) {
+                    var victimId = ((BotDeathEvent) event).getVictimId();
+                    if (victimId != bot.getMyId()) deadOtherBots.add(victimId);
+                }
+            }
+        }
 
         // Save robot status snapshot for event handlers needing robot status
         RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, tickEvent.getTurnNumber());
