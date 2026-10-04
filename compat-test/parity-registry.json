@@ -204379,6 +204379,12 @@
           "id": "diagnosis-2",
           "owner": "unknown",
           "recorded_at": "2026-10-04T19:33:04Z"
+        },
+        {
+          "cause": "robot-unguarded-empty-wave-candidates",
+          "id": "diagnosis-3",
+          "owner": "robot",
+          "recorded_at": "2026-10-04T20:58:01Z"
         }
       ],
       "identity": {
@@ -204389,7 +204395,7 @@
         "key": "teamrumble/cb.fire.FirestarterTeam_2.0.jar",
         "kind": "team"
       },
-      "latest_observation": "a2de40645f245e76",
+      "latest_observation": "79f11250acee04e4",
       "observations": [
         {
           "classic": {
@@ -205584,6 +205590,97 @@
             "errors": [
               "HARNESS: worker produced no result (exit code -1)",
               "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 26.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21791.0,
+            "scores": [
+              11881.0,
+              9910.0
+            ],
+            "selected": "cb.fire.Firestarter 2.0"
+          },
+          "completed_at": "2026-10-04T20:55:53Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "79f11250acee04e4",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "29030a92434d0d9161c42e701b13847783037c9d",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "cb.fire.Firestarter 2.0",
+            "division": "teamrumble",
+            "jar": "cb.fire.FirestarterTeam_2.0.jar",
+            "jar_sha256": "fc1585926dbd73e0a3a9ea59bf1f1e33d42e0d5cc9c5db3f74a67d7d2d36d4a5",
+            "key": "teamrumble/cb.fire.FirestarterTeam_2.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "C.I.I"
+              ]
+            ],
+            "elapsed": 24.2,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "C.I.I"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot load from object array because \"this.contains\" is null"
             ],
             "has_log": true,
             "ok": false,

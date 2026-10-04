@@ -1221,7 +1221,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | b781be282cf00232 | - | - |
 | teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | d964a1c4da7e73fa | - | - |
 | teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | MATCHED (score noise) | ec40d37777c4769c | nested-team-jar-discovery | wrapper |
-| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | a2de40645f245e76 | unresolved-firestarter-wave-history | unknown |
+| teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 79f11250acee04e4 | robot-unguarded-empty-wave-candidates | robot |
 | teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | f9da598653e8d726 | unresolved-confirmed-team-score-gap | unknown |
 | teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 3a77798e76eadbbb | - | - |
 | teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 95a261e1dcd6e54a | - | - |
