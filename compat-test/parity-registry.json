@@ -217350,6 +217350,12 @@
           "id": "diagnosis-2",
           "owner": "tank-royale",
           "recorded_at": "2026-09-22T18:40:08Z"
+        },
+        {
+          "cause": "tank-royale-duplicate-bullet-outcomes",
+          "id": "diagnosis-3",
+          "owner": "tank-royale",
+          "recorded_at": "2026-10-04T18:19:46Z"
         }
       ],
       "identity": {
@@ -217360,7 +217366,7 @@
         "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
         "kind": "team"
       },
-      "latest_observation": "7a4500fc645b380a",
+      "latest_observation": "5f85b23d94a6826a",
       "observations": [
         {
           "classic": {
@@ -218936,9 +218942,1435 @@
             "ok": true,
             "score": 26984.8
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": 21177.5
+          },
+          "completed_at": "2026-10-04T16:20:40Z",
+          "confirmation": {
+            "attempts": 3,
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "mn.c.e.equals"
+              ]
+            ],
+            "delta_mean": 27.05,
+            "deltas": [
+              29.5,
+              24.6
+            ],
+            "rc_mean": 21177.5,
+            "samples": 2,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 80
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 80
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": 26891.5
+          },
+          "delta_pct": 27.05,
+          "id": "c88da7a13390b92b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "eeae3ee93168df490b1355e803a9b52f4e18071a497eefafbc9e1a52edbdd37d"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "48df8452b73c9c3c3a8fa3b620bb7e9639c87b787597661d04e02b7efe4daadb"
+              }
+            },
+            "bridge_commit": "3b90443ccf7889266d4fccf88b2187f817323784",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "c8ad3a8d19a843f6258d6f6f9db7f29229963903",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "tank-royale-team-message-limit",
+            "diagnosis_id": "diagnosis-2",
+            "owner": "tank-royale",
+            "repair": "3b90443"
+          },
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": 26891.5
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 47.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21526.0,
+            "scores": [
+              7760.0,
+              13766.0
+            ],
+            "selected": "mn.Combat 3.25.0"
+          },
+          "completed_at": "2026-10-04T18:07:17Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "8403606ef2ccf884",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "ecd1132c5c15478598fd149f21bad0f79e044eefb4e1ec3309b254e879bb8d46"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "ff8dca2462f42e728fd0e7a411ed93edea1b419bb8253a187b23cb98ca60f007"
+              }
+            },
+            "bridge_commit": "19c4c1dc3666408ce4b82147fe79a9c84f541a86",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "c8ad3a8d19a843f6258d6f6f9db7f29229963903",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.Combat 3.25.0",
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "mn.c.e.equals"
+              ]
+            ],
+            "elapsed": 18.3,
+            "error_count": 5,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "mn.c.e.equals"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 47.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21173.0,
+            "scores": [
+              12755.0,
+              8418.0
+            ],
+            "selected": "mn.Combat 3.25.0"
+          },
+          "completed_at": "2026-10-04T18:09:22Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "cfdb029df67bf6b0",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "7575d34194111d7992bc9fa7e7fe72a2b77172b17fb276c6a684db7beaf4d38a"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "4a6599df3aba74cdfabc2f28e3fe8e3a4541984d948a68f7e02e7cc0fac19cb6"
+              }
+            },
+            "bridge_commit": "19c4c1dc3666408ce4b82147fe79a9c84f541a86",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "c8ad3a8d19a843f6258d6f6f9db7f29229963903",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.Combat 3.25.0",
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "mn.c.e.equals"
+              ]
+            ],
+            "elapsed": 18.2,
+            "error_count": 4,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "mn.c.e.equals"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null",
+              "java.lang.NullPointerException: Cannot read field \"d\" because \"<local2>\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 55.8,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 21023.0,
+            "scores": [
+              12248.0,
+              8775.0
+            ],
+            "selected": "mn.Combat 3.25.0"
+          },
+          "completed_at": "2026-10-04T18:12:20Z",
+          "confirmation": null,
+          "delta_pct": -6.3,
+          "id": "964298d9806878d6",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "ecd1132c5c15478598fd149f21bad0f79e044eefb4e1ec3309b254e879bb8d46"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "cabb15257ad2090e90352be8e5d494235842b6594352b5024f008521280bd3f0"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "ff8dca2462f42e728fd0e7a411ed93edea1b419bb8253a187b23cb98ca60f007"
+              }
+            },
+            "bridge_commit": "a92166100e7ec11c37924f10067a7aef35346674",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "1765c6803048ba0fd1c8802fc255162511b558d2",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "mn.Combat 3.25.0",
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 24.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 19707.0,
+            "scores": [
+              13591.0,
+              6116.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 78
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 128
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 128
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 128
+                },
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 282
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 282
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 282
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 282
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 286
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 286
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 286
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 20992.8
+          },
+          "completed_at": "2026-10-04T18:19:33Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -6.720000000000001,
+            "deltas": [
+              -7.0,
+              -6.2,
+              -6.4,
+              -7.7,
+              -6.3
+            ],
+            "rc_mean": 20992.8,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 83
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 129
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 129
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 800
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 800
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 800
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 244
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 2,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 2,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 2,
+                    "turn": 51
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 80
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 19588.6
+          },
+          "delta_pct": -6.720000000000001,
+          "id": "5f85b23d94a6826a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "ecd1132c5c15478598fd149f21bad0f79e044eefb4e1ec3309b254e879bb8d46"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "cabb15257ad2090e90352be8e5d494235842b6594352b5024f008521280bd3f0"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "ff8dca2462f42e728fd0e7a411ed93edea1b419bb8253a187b23cb98ca60f007"
+              }
+            },
+            "bridge_commit": "a92166100e7ec11c37924f10067a7aef35346674",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "1765c6803048ba0fd1c8802fc255162511b558d2",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "mn.CombatTeam_3.25.0.jar",
+            "jar_sha256": "64618918a708b58cd8877b78071e64dc77239fdf43113fade60f566962f04268",
+            "key": "teamrumble/mn.CombatTeam_3.25.0.jar",
+            "kind": "team"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 19588.6
+          }
         }
       ],
-      "status": "CONFIRMED (score)"
+      "status": "MATCHED (score noise)"
     },
     "teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar": {
       "diagnosis_events": [
