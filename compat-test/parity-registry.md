@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 77 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 10 |
+| MATCHED (score noise) | 11 |
 | PASS | 697 |
-| score-review | 280 |
+| score-review | 279 |
 
 ## Subjects
 
@@ -1246,7 +1246,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | PASS | 4966d291dcec2148 | nested-team-jar-discovery | wrapper |
 | teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | MATCHED (score noise) | aec07898ca594790 | bridge-team-message-batch-exceeds-128-logical-payload-limit | bridge |
 | teamrumble/pedersen.ImWithDroidTeam_1.3.jar | teamrumble | team | MATCHED (score noise) | 0d4afa51ee3bbcbf | nested-team-jar-discovery | wrapper |
-| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | score-review | 6881105b0a1dac37 | nested-team-jar-discovery | wrapper |
+| teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | MATCHED (score noise) | 88173d72acfab9ca | nested-team-jar-discovery | wrapper |
 | teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 2c658128e3f16dec | - | - |
 | teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | DISCREPANCY (outcome) | 5dc044f92c8d4b7e | - | - |
 | teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | score-review | ee6dff4622862b08 | - | - |

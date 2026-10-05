@@ -44,4 +44,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-038 — BumblingIdiots' earlier higher score is not confirmed by five current pairs](AN-038-bumblingidiots-score-gap-not-reproduced.md) · `active` — Does the old +28.3% BumblingIdiots score advantage persist in five current official pairs?
 - [AN-039 — Slippery exposes an oversized team-message batch; bounded flushing restores the official run](AN-039-slippery-team-message-batch-limit.md) · `active` — Why did Slippery exceed Tank Royale's logical-message limit, and does its old score gap persist after the bridge repair?
 - [AN-040 — ImWithDroidTeam's earlier score gap is not confirmed by five current pairs](AN-040-imwithdroidteam-score-gap-not-reproduced.md) · `active` — Does the old +37.4% ImWithDroidTeam score advantage persist in five current official pairs?
+- [AN-041 — ImWithStupidTeam's earlier score gap is not confirmed by five current pairs](AN-041-imwithstupidteam-score-gap-not-reproduced.md) · `active` — Does the old +34.2% ImWithStupidTeam score advantage persist in five current official pairs?
 <!-- clue:index:end -->
