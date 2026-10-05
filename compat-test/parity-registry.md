@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 1 |
 | DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 79 |
+| DISCREPANCY (outcome) | 78 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
-| PASS | 694 |
+| PASS | 695 |
 | score-review | 287 |
 
 ## Subjects
@@ -1232,7 +1232,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | be52cefcf409116c | robot-unchecked-death-event-target-lookup | robot |
 | teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | 732c648d5061b714 | - | - |
 | teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (errors) | 93aa5d1940c52002 | robot-unassigned-enemy-slot-null-lookup | robot |
-| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 958bfa1999f49a8f | - | - |
+| teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | PASS | abbff68a384e39b8 | tank-royale-team-message-limit | tank-royale |
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (errors) | d84e06614899bbdb | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 527d1334b6cbaafe | - | - |
