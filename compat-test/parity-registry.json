@@ -215225,7 +215225,14 @@
       "status": "MATCHED (score noise)"
     },
     "teamrumble/gimp.GimpTeam_0.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-unchecked-death-event-target-lookup",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-05T15:00:05Z"
+        }
+      ],
       "identity": {
         "classic_selected": "gimp.GimpBot [0.1]",
         "division": "teamrumble",
@@ -215234,7 +215241,7 @@
         "key": "teamrumble/gimp.GimpTeam_0.1.jar",
         "kind": "team"
       },
-      "latest_observation": "d373ae9bed366ff4",
+      "latest_observation": "be52cefcf409116c",
       "observations": [
         {
           "classic": {
@@ -215906,6 +215913,146 @@
               13574.0
             ],
             "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 5.0,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "gimp.GimpBot.onRobotDeath"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.RobotDeathEvent",
+              "java.lang.NullPointerException: Cannot assign field \"live\" because \"en\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 22013.0,
+            "scores": [
+              12131.0,
+              9882.0
+            ],
+            "selected": "gimp.GimpBot [0.1]"
+          },
+          "completed_at": "2026-10-05T14:55:15Z",
+          "confirmation": null,
+          "delta_pct": -9.8,
+          "id": "be52cefcf409116c",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "381c33de8ffbc1acd1e0eacddd85636fdb5b460e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "gimp.GimpBot [0.1]",
+            "division": "teamrumble",
+            "jar": "gimp.GimpTeam_0.1.jar",
+            "jar_sha256": "cbe24b9d14afcf2e5e60bd2f10c065e827592b83b6ee155e6738a52c44a54330",
+            "key": "teamrumble/gimp.GimpTeam_0.1.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 20.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 19859.0,
+            "scores": [
+              10774.0,
+              9085.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
           }
         }
       ],
