@@ -9,9 +9,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 4 |
 | DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 77 |
+| DISCREPANCY (outcome) | 76 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 12 |
+| MATCHED (score noise) | 13 |
 | PASS | 698 |
 | score-review | 276 |
 
@@ -1255,5 +1255,5 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | 0265440c2520dc55 | - | - |
 | teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | CONFIRMED (score) | 7bae417652f7cb81 | tank-royale-opponent-names-not-exposed | tank-royale |
 | teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (outcome) | 3c9d506cf26eda09 | robot-death-event-assumes-prior-scan | robot |
-| teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | DISCREPANCY (outcome) | 152cee51381a3f05 | - | - |
+| teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | MATCHED (score noise) | 1be38207150c4149 | classic-team-self-message-not-looped-back | bridge |
 | teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | DISCREPANCY (outcome) | d43b31dcbb90be5f | - | - |
