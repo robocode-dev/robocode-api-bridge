@@ -35,6 +35,7 @@ import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
+    private static final int MESSAGE_EVENT_PRIORITY = 75;
     private static final String SKIPPED_TURN_TELEMETRY_PROPERTY =
             "robocode.bridge.skippedTurnTelemetry";
     private static final boolean SKIPPED_TURN_TELEMETRY_ENABLED =
@@ -70,6 +71,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final Set<String> skippedTurnTelemetryEventRecords = SKIPPED_TURN_TELEMETRY_ENABLED
             ? new HashSet<>() : Collections.emptySet();
     private final List<PendingTeamMessage> pendingTeamMessages = new ArrayList<>();
+    private final List<PendingSelfTeamMessage> pendingSelfTeamMessages = new ArrayList<>();
+    private final List<MessageEvent> activeSelfTeamMessageEvents = new ArrayList<>();
 
     @SuppressWarnings("unused")
     public BotPeer(IBasicRobot robot, BotInfo botInfo) {
@@ -131,7 +134,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         setEventPriority(robocode.SkippedTurnEvent.class.getSimpleName(), 100);
         setEventPriority(robocode.StatusEvent.class.getSimpleName(), 99);
         setEventPriority(robocode.CustomEvent.class.getSimpleName(), 80);
-        setEventPriority(robocode.MessageEvent.class.getSimpleName(), 75);
+        setEventPriority(robocode.MessageEvent.class.getSimpleName(), MESSAGE_EVENT_PRIORITY);
         setEventPriority(robocode.RobotDeathEvent.class.getSimpleName(), 70);
         setEventPriority(robocode.BulletMissedEvent.class.getSimpleName(), 60);
         setEventPriority(robocode.BulletHitBulletEvent.class.getSimpleName(), 55);
@@ -303,6 +306,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("execute()");
         flushTeamMessages();
         bot.go();
+        dispatchPendingSelfTeamMessages(deliveredTurn);
     }
 
     private void flushTeamMessages() {
@@ -394,6 +398,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchScannedRobotEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onScannedRobot");
         var scannedBotEvent = (ScannedBotEvent) botEvent;
         if (shouldSuppressScannedEvent(scannedBotEvent)) {
@@ -425,6 +430,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchBulletMissedEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onBulletMissed");
         var bulletHitWallEvent = (BulletHitWallEvent) botEvent;
         Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null, bot);
@@ -434,6 +440,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchBulletHitEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onBulletHit");
         var bulletHitBotEvent = (BulletHitBotEvent) botEvent;
         var bulletState = bulletHitBotEvent.getBullet();
@@ -446,6 +453,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchHitByBulletEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onHitByBullet");
         var hitByBulletEvent = (HitByBulletEvent) botEvent;
         BulletState bullet = hitByBulletEvent.getBullet();
@@ -456,7 +464,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         dispatchRobotCallback(() -> basicEvents.onHitByBullet(robocodeEvent));
     }
 
-    private void dispatchHitWallEvent() {
+    private void dispatchHitWallEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onHitWall");
         hitWallHandlerActive = true;
         hitWallHandlerBlocked = false;
@@ -481,6 +490,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchHitRobotEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onHitRobot");
 
         var hitBotEvent = (HitBotEvent) botEvent;
@@ -493,6 +503,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchRobotDeathEvent(BotDeathEvent botDeathEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botDeathEvent);
         log("-> onRobotDeath");
         if (botDeathEvent.getVictimId() != bot.getMyId()) {
             deadOtherBots.add(botDeathEvent.getVictimId());
@@ -528,7 +539,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         }
     }
 
-    private void dispatchDeathEvent() {
+    private void dispatchDeathEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onDeath");
         var robocodeEvent = new robocode.DeathEvent();
         dispatchRobotCallback(() -> basicEvents.onDeath(robocodeEvent));
@@ -541,6 +553,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchBulletHitBulletEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onBulletHitBullet");
         var bulletHitBulletEvent = (BulletHitBulletEvent) botEvent;
         Bullet bullet = BulletMapper.map(bulletHitBulletEvent.getBullet(), null, bot);
@@ -600,6 +613,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchMessageEvent(BotEvent botEvent) {
+        dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onMessageReceived");
         if (!(robot instanceof ITeamEvents)) {
             return;
@@ -607,6 +621,39 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var robocodeEvents = MessageEventMapper.map((TeamMessageEvent) botEvent, bot);
         for (var robocodeEvent : robocodeEvents) {
             dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(robocodeEvent));
+        }
+    }
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    private void dispatchPendingSelfTeamMessagesBefore(BotEvent nextEvent) {
+        if (bot.getEventPriority((Class) nextEvent.getClass()) <= MESSAGE_EVENT_PRIORITY) {
+            dispatchPendingSelfTeamMessages(nextEvent.getTurnNumber());
+        }
+    }
+
+    private void dispatchPendingSelfTeamMessages(long nextTurn) {
+        if (!(robot instanceof ITeamEvents)) return;
+
+        List<PendingSelfTeamMessage> ready = new ArrayList<>();
+        synchronized (pendingSelfTeamMessages) {
+            var iterator = pendingSelfTeamMessages.iterator();
+            while (iterator.hasNext()) {
+                var message = iterator.next();
+                if (message.sentTurn < nextTurn) {
+                    ready.add(message);
+                    iterator.remove();
+                }
+            }
+        }
+
+        for (var message : ready) {
+            var event = new MessageEvent(message.senderName, message.message);
+            activeSelfTeamMessageEvents.add(event);
+            try {
+                dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(event));
+            } finally {
+                activeSelfTeamMessageEvents.remove(event);
+            }
         }
     }
 
@@ -934,7 +981,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                     .filter(event -> !(event instanceof TickEvent && event.getTurnNumber() == 1))
                     .collect(Collectors.toList());
         }
-        return AllEventsMapper.map(botEvents, bot, currentRobotStatus.get());
+        var events = AllEventsMapper.map(botEvents, bot, currentRobotStatus.get());
+        events.addAll(activeSelfTeamMessageEvents);
+        return events;
     }
 
     @Override
@@ -1082,6 +1131,14 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void sendMessage(String name, Serializable message) throws IOException {
         log("sendMessage()");
+        String ownName = getName();
+        if (robot instanceof ITeamEvents && name != null && name.equals(ownName)) {
+            synchronized (pendingSelfTeamMessages) {
+                pendingSelfTeamMessages.add(new PendingSelfTeamMessage(
+                        bot.getTurnNumber(), ownName, message));
+            }
+            return;
+        }
         var id = parseBotId(name);
         if (id == null) id = findTeammateId(name);
         if (id == null) {
@@ -1106,6 +1163,18 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             this.recipientId = recipientId;
             this.transportMessage = transportMessage;
             this.batchMessage = batchMessage;
+        }
+    }
+
+    private static final class PendingSelfTeamMessage {
+        private final int sentTurn;
+        private final String senderName;
+        private final Serializable message;
+
+        private PendingSelfTeamMessage(int sentTurn, String senderName, Serializable message) {
+            this.sentTurn = sentTurn;
+            this.senderName = senderName;
+            this.message = message;
         }
     }
 
@@ -1318,7 +1387,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onHitWall(dev.robocode.tankroyale.botapi.events.HitWallEvent hitWallEvent) {
-            dispatchHitWallEvent();
+            dispatchHitWallEvent(hitWallEvent);
         }
 
         @Override
@@ -1328,7 +1397,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onDeath(dev.robocode.tankroyale.botapi.events.DeathEvent deathEvent) {
-            dispatchDeathEvent();
+            dispatchDeathEvent(deathEvent);
         }
 
         @Override
@@ -1394,6 +1463,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             RobotData.closeOpenStreams();
             initialStatusDispatched = false;
             suppressScansThroughTurn = -1;
+            synchronized (pendingSelfTeamMessages) {
+                pendingSelfTeamMessages.clear();
+            }
+            activeSelfTeamMessageEvents.clear();
             firedBullets.clear();
             mappedBullets.clear();
             initialOtherCount = -1;
