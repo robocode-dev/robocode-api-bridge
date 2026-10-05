@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 1 |
+| CONFIRMED (score) | 2 |
 | DISCREPANCY (errors) | 80 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 77 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
 | PASS | 697 |
-| score-review | 287 |
+| score-review | 286 |
 
 ## Subjects
 
@@ -1236,7 +1236,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | PASS | b5f4b749ab64fd9a | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | PASS | 1c265b098fb762c5 | - | - |
-| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 1277993795db5d90 | - | - |
+| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 61afa98612b51fb6 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 7e73a2f8079f0688 | symmetric-robot-runtime-failure-zero-score | robot |
