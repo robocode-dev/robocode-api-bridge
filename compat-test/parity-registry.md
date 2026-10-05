@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 2 |
+| CONFIRMED (score) | 3 |
 | DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 77 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
 | PASS | 697 |
-| score-review | 285 |
+| score-review | 284 |
 
 ## Subjects
 
@@ -1240,7 +1240,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | DISCREPANCY (errors) | 02701f091eea7032 | robot-null-previous-duel-opponent-on-wave-callback | robot |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 15d61e66e8f76f48 | symmetric-robot-runtime-failure-zero-score | robot |
-| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | score-review | f07457b85f7d6964 | nested-team-jar-discovery | wrapper |
+| teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | CONFIRMED (score) | d6c0e206a3083e6a | unresolved-confirmed-team-score-gap | unknown |
 | teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | score-review | 208d6bf410614cc3 | nested-team-jar-discovery | wrapper |
 | teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | 982cb1f3bee1097c | - | - |
 | teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | PASS | 4966d291dcec2148 | nested-team-jar-discovery | wrapper |
