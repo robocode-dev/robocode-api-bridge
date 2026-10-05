@@ -237255,7 +237255,14 @@
       "status": "PASS"
     },
     "teamrumble/rz.AlephTeam_0.34.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-enemy-pattern-reads-past-final-sample",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-05T19:05:35Z"
+        }
+      ],
       "identity": {
         "classic_selected": "rz.Aleph [0.34]",
         "division": "teamrumble",
@@ -237264,7 +237271,7 @@
         "key": "teamrumble/rz.AlephTeam_0.34.jar",
         "kind": "team"
       },
-      "latest_observation": "5dc044f92c8d4b7e",
+      "latest_observation": "318881e18dc34010",
       "observations": [
         {
           "classic": {
@@ -237705,9 +237712,155 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 5.9,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "java.lang.IndexOutOfBoundsException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "513 java.lang.IndexOutOfBoundsException: Index 3363 out of bounds for length 3363"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 21047.0,
+            "scores": [
+              12497.0,
+              8550.0
+            ],
+            "selected": "rz.Aleph [0.34]"
+          },
+          "completed_at": "2026-10-05T19:02:32Z",
+          "confirmation": null,
+          "delta_pct": -1.5,
+          "id": "318881e18dc34010",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "3f09f55c412b024e5aa7fc202cde9cdbbd3fdd0d61a636370d340361e572aa3a"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "c415dc1254d6cbf49d3f93cf326b781ed2dcbb83",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "rz.Aleph [0.34]",
+            "division": "teamrumble",
+            "jar": "rz.AlephTeam_0.34.jar",
+            "jar_sha256": "bdd8d3fa9492e41a8a35e8f67347ebc36c74ee850740587ace45497348bff697",
+            "key": "teamrumble/rz.AlephTeam_0.34.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 38.1,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "java.lang.IndexOutOfBoundsException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "1104 java.lang.IndexOutOfBoundsException: Index 1095 out of bounds for length 1095"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 20740.0,
+            "scores": [
+              12803.0,
+              7937.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "teamrumble/rz.GlowingHawks_0.2.jar": {
       "diagnosis_events": [],

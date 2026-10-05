@@ -45,4 +45,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-039 — Slippery exposes an oversized team-message batch; bounded flushing restores the official run](AN-039-slippery-team-message-batch-limit.md) · `active` — Why did Slippery exceed Tank Royale's logical-message limit, and does its old score gap persist after the bridge repair?
 - [AN-040 — ImWithDroidTeam's earlier score gap is not confirmed by five current pairs](AN-040-imwithdroidteam-score-gap-not-reproduced.md) · `active` — Does the old +37.4% ImWithDroidTeam score advantage persist in five current official pairs?
 - [AN-041 — ImWithStupidTeam's earlier score gap is not confirmed by five current pairs](AN-041-imwithstupidteam-score-gap-not-reproduced.md) · `active` — Does the old +34.2% ImWithStupidTeam score advantage persist in five current official pairs?
+- [AN-042 — AlephTeam's earlier asymmetric index error is robot-owned and appears on both engines](AN-042-alephteam-index-error-is-robot-owned.md) · `active` — Does the old Tank Royale-only index error persist on current artifacts, and what operation produces it?
 <!-- clue:index:end -->
