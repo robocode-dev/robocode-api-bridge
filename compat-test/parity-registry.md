@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 1 |
-| DISCREPANCY (errors) | 80 |
+| DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 80 |
+| DISCREPANCY (outcome) | 79 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
 | PASS | 694 |
@@ -1231,7 +1231,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | MATCHED (score noise) | ae0e37bf27a31ebc | - | - |
 | teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | be52cefcf409116c | robot-unchecked-death-event-target-lookup | robot |
 | teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | 732c648d5061b714 | - | - |
-| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (outcome) | e3e38c2f6cbb6913 | - | - |
+| teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (errors) | 93aa5d1940c52002 | robot-unassigned-enemy-slot-null-lookup | robot |
 | teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | DISCREPANCY (outcome) | 958bfa1999f49a8f | - | - |
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (errors) | d84e06614899bbdb | bot-assumes-target-exists-before-first-scan | robot |
