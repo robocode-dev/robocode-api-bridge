@@ -239985,7 +239985,14 @@
       "status": "PASS"
     },
     "teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "tank-royale-opponent-names-not-exposed",
+          "id": "diagnosis-1",
+          "owner": "tank-royale",
+          "recorded_at": "2026-10-05T19:56:18Z"
+        }
+      ],
       "identity": {
         "classic_selected": "sp.Minis.geneticBot 1.1",
         "division": "teamrumble",
@@ -239994,7 +240001,7 @@
         "key": "teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar",
         "kind": "team"
       },
-      "latest_observation": "16840c9a800a8b91",
+      "latest_observation": "7bae417652f7cb81",
       "observations": [
         {
           "classic": {
@@ -240375,12 +240382,191 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 14109.6
+          },
+          "completed_at": "2026-10-05T19:46:10Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 39.0,
+            "deltas": [
+              44.9,
+              37.3,
+              44.9,
+              29.7,
+              38.2
+            ],
+            "rc_mean": 14109.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 19588.0
+          },
+          "delta_pct": 39.0,
+          "id": "7bae417652f7cb81",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "3f09f55c412b024e5aa7fc202cde9cdbbd3fdd0d61a636370d340361e572aa3a"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "fef17858fce2008bdb792396d7ca15f2f1e5968f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "sp.Minis.GeneBotUpgrade_1.1.jar",
+            "jar_sha256": "64916763891da023ba2935e8ad61d34638e4a0297d858ffc4e79b81b3e2f66e7",
+            "key": "teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar",
+            "kind": "team"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 19588.0
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "teamrumble/tmnr.TMNR_1.01.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-death-event-assumes-prior-scan",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-05T20:00:19Z"
+        }
+      ],
       "identity": {
         "classic_selected": "tmnr.Donatello 1.01",
         "division": "teamrumble",
@@ -240389,7 +240575,7 @@
         "key": "teamrumble/tmnr.TMNR_1.01.jar",
         "kind": "team"
       },
-      "latest_observation": "f255c21a2cd735b1",
+      "latest_observation": "3c9d506cf26eda09",
       "observations": [
         {
           "classic": {
@@ -240810,9 +240996,100 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 4.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 19726.0,
+            "scores": [
+              9666.0,
+              10060.0
+            ],
+            "selected": "tmnr.Donatello 1.01"
+          },
+          "completed_at": "2026-10-05T19:57:03Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "3c9d506cf26eda09",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "3f09f55c412b024e5aa7fc202cde9cdbbd3fdd0d61a636370d340361e572aa3a"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "fef17858fce2008bdb792396d7ca15f2f1e5968f",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "tmnr.Donatello 1.01",
+            "division": "teamrumble",
+            "jar": "tmnr.TMNR_1.01.jar",
+            "jar_sha256": "6ba527fe5cd0f98ebba9dd4ccb2cdba8b8e6da4ef60f0d69b0b4a65b24bd6e47",
+            "key": "teamrumble/tmnr.TMNR_1.01.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "tmnr.Raphael$Robot.access$6"
+              ]
+            ],
+            "elapsed": 6.2,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "tmnr.Raphael$Robot.access$6"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot assign field \"alive\" because \"<parameter1>\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "DISCREPANCY (outcome)"
     },
     "teamrumble/ustimaw.NightmareTeam_3.3.jar": {
       "diagnosis_events": [],
