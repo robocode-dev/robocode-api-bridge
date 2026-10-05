@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 80 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 3 |
+| MATCHED (score noise) | 4 |
 | PASS | 694 |
-| score-review | 290 |
+| score-review | 289 |
 
 ## Subjects
 
@@ -1224,7 +1224,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 79f11250acee04e4 | robot-unguarded-empty-wave-candidates | robot |
 | teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | 6141b626a28b54b0 | unresolved-confirmed-team-score-gap | unknown |
 | teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 903836b97b9628b9 | unresolved-phoenix-melee-position-history | unknown |
-| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 95a261e1dcd6e54a | - | - |
+| teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | MATCHED (score noise) | de36a467e13df0c0 | - | - |
 | teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | MATCHED (score noise) | cbb87704154d6859 | bridge-bullet-identity-and-blocking-fire | bridge |
 | teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 0e6d32277699624a | robot-null-bullet-on-team-message | robot |
 | teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | score-review | 8da1db1940655a72 | nested-team-jar-discovery | wrapper |

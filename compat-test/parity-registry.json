@@ -208018,7 +208018,7 @@
         "key": "teamrumble/dummy_team.BlindFighters_1.01.jar",
         "kind": "team"
       },
-      "latest_observation": "95a261e1dcd6e54a",
+      "latest_observation": "de36a467e13df0c0",
       "observations": [
         {
           "classic": {
@@ -208627,9 +208627,181 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 19545.2
+          },
+          "completed_at": "2026-10-05T14:28:28Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 12.3,
+            "deltas": [
+              10.2,
+              14.9,
+              12.6,
+              7.7,
+              16.1
+            ],
+            "rc_mean": 19545.2,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 21941.8
+          },
+          "delta_pct": 12.3,
+          "id": "de36a467e13df0c0",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "8bfc95f7824addf2c4e79c562cd6a3a710825083",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "dummy_team.BlindFighters_1.01.jar",
+            "jar_sha256": "d3276ae8f7ed703a76a6c344cf7e744ee72305116d5f78b988d470de158d29ec",
+            "key": "teamrumble/dummy_team.BlindFighters_1.01.jar",
+            "kind": "team"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 21941.8
+          }
         }
       ],
-      "status": "score-review"
+      "status": "MATCHED (score noise)"
     },
     "teamrumble/ethdsy.MalackaTeam_1.2.jar": {
       "diagnosis_events": [
