@@ -41,4 +41,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-035 — SuperSittingDuckTeam repeats its symmetric zero-score runtime failure on current artifacts](AN-035-supersittingduck-current-runtime-failure.md) · `active` — Does the symmetric `mn.SuperSittingDuck.run` failure persist on current artifacts, and does the retest expose an asymmetric cause?
 - [AN-036 — ImpactTeam repeats a higher Tank Royale score without locating the cause](AN-036-impactteam-confirmed-score-gap.md) · `active` — Does the confirmed ImpactTeam score gap identify a bridge or robot cause, or remain an unlocalized parity signal?
 - [AN-037 — AresHaikuTeam's earlier score gap does not reproduce in five current pairs](AN-037-areshaikuteam-score-gap-not-reproduced.md) · `active` — Does the old +39.9% AresHaikuTeam score gap persist in five current official pairs?
+- [AN-038 — BumblingIdiots' earlier higher score is not confirmed by five current pairs](AN-038-bumblingidiots-score-gap-not-reproduced.md) · `active` — Does the old +28.3% BumblingIdiots score advantage persist in five current official pairs?
 <!-- clue:index:end -->
