@@ -9,6 +9,7 @@
 - Fixed a Windows compatibility-sweep crash when process cleanup failed, so the harness retains cleanup diagnostics and records the battle result.
 - Preserve projectile callback timestamps so legacy robots can match bullet outcomes to the turn when they occurred.
 - Batch multiple team messages sent in one turn while preserving their order and directed recipients, and retain the existing transport for a single message.
+- Keep oversized legacy team-message queues within Tank Royale's per-turn logical-payload limit and carry remaining messages into later turns instead of failing the robot turn.
 - Default to the published Tank Royale Bot API 1.4.0 and resolve it from Maven Central, so team names work with the matching 1.4.0 runner even when a different local API build uses the same version.
 - Deliver each round's initial status callback before the legacy robot's `run()` method, matching Classic Robocode and preventing robots from reading uninitialized callback state.
 - Preserve classic scan target names and stable string identity so legacy robots continue to recognize repeated scans of the same bot.

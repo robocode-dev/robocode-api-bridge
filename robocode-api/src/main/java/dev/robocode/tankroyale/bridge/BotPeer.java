@@ -309,8 +309,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         List<PendingTeamMessage> pending;
         synchronized (pendingTeamMessages) {
             if (pendingTeamMessages.isEmpty()) return;
-            pending = new ArrayList<>(pendingTeamMessages);
-            pendingTeamMessages.clear();
+            int messageCount = Math.min(
+                    pendingTeamMessages.size(), Constants.MAX_LOGICAL_TEAM_MESSAGES_PER_TURN);
+            pending = new ArrayList<>(pendingTeamMessages.subList(0, messageCount));
+            pendingTeamMessages.subList(0, messageCount).clear();
         }
         if (pending.size() == 1) {
             PendingTeamMessage message = pending.get(0);
