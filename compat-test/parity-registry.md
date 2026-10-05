@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 77 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 6 |
+| MATCHED (score noise) | 7 |
 | PASS | 697 |
-| score-review | 284 |
+| score-review | 283 |
 
 ## Subjects
 
@@ -1241,7 +1241,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 15d61e66e8f76f48 | symmetric-robot-runtime-failure-zero-score | robot |
 | teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | CONFIRMED (score) | d6c0e206a3083e6a | unresolved-confirmed-team-score-gap | unknown |
-| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | score-review | 208d6bf410614cc3 | nested-team-jar-discovery | wrapper |
+| teamrumble/ms.AresHaikuTeam_0.3.jar | teamrumble | team | MATCHED (score noise) | 557db1e6c0832ee2 | nested-team-jar-discovery | wrapper |
 | teamrumble/mskwik.BumblingIdiots_1.0.jar | teamrumble | team | score-review | 982cb1f3bee1097c | - | - |
 | teamrumble/myl.micro.TroodonPack_1.10.jar | teamrumble | team | PASS | 4966d291dcec2148 | nested-team-jar-discovery | wrapper |
 | teamrumble/ntc.slippery.Slippery_1.0.jar | teamrumble | team | score-review | d53817b4982c3ef4 | - | - |
