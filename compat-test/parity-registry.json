@@ -222933,7 +222933,14 @@
       "status": "CONFIRMED (score)"
     },
     "teamrumble/lxx.ConceptATeam_0.8.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-null-previous-duel-opponent-on-wave-callback",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-05T16:30:50Z"
+        }
+      ],
       "identity": {
         "classic_selected": "lxx.ConceptA 0.8",
         "division": "teamrumble",
@@ -222942,7 +222949,7 @@
         "key": "teamrumble/lxx.ConceptATeam_0.8.jar",
         "kind": "team"
       },
-      "latest_observation": "6d7c8a3305582f2a",
+      "latest_observation": "02701f091eea7032",
       "observations": [
         {
           "classic": {
@@ -223671,9 +223678,205 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 3.4,
+            "error_count": 8,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "lxx.util.CaUtils.getNonZeroLateralDirection"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.StatusEvent",
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.StatusEvent",
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.StatusEvent",
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.StatusEvent",
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 21481.0,
+            "scores": [
+              11273.0,
+              10208.0
+            ],
+            "selected": "lxx.ConceptA 0.8"
+          },
+          "completed_at": "2026-10-05T16:10:34Z",
+          "confirmation": null,
+          "delta_pct": 6.2,
+          "id": "02701f091eea7032",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "b4be3bf4ceb3f3acf9f261888cee190fdcace7bc",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "lxx.ConceptA 0.8",
+            "division": "teamrumble",
+            "jar": "lxx.ConceptATeam_0.8.jar",
+            "jar_sha256": "8ed86d05ddbe64e77cc93352da90d53afed21a832a43f40f1525f1b67f1264aa",
+            "key": "teamrumble/lxx.ConceptATeam_0.8.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 12.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 22815.0,
+            "scores": [
+              12473.0,
+              10342.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 2
+                }
+              ],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "score-review"
+      "status": "DISCREPANCY (errors)"
     },
     "teamrumble/mn.CombatTeam_3.25.0.jar": {
       "diagnosis_events": [

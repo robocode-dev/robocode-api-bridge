@@ -7,13 +7,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 2 |
-| DISCREPANCY (errors) | 80 |
+| DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 77 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
 | PASS | 697 |
-| score-review | 286 |
+| score-review | 285 |
 
 ## Subjects
 
@@ -1237,7 +1237,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | PASS | b5f4b749ab64fd9a | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | PASS | 1c265b098fb762c5 | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 61afa98612b51fb6 | - | - |
-| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
+| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | DISCREPANCY (errors) | 02701f091eea7032 | robot-null-previous-duel-opponent-on-wave-callback | robot |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 7e73a2f8079f0688 | symmetric-robot-runtime-failure-zero-score | robot |
 | teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | score-review | f07457b85f7d6964 | nested-team-jar-discovery | wrapper |

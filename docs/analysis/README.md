@@ -37,4 +37,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-029 — TidalWave passes on a fresh official pair while its previous record needs provenance follow-up](AN-029-tidalwave-current-pair-passes.md) · `active` — Does `teamrumble/kawigi.sbf.TidalWave_0.8.jar` still show a parity discrepancy on the current matched bridge and Tank Royale artifacts?
 - [AN-030 — OmegaSquad passes on matched current teamrumble artifacts](AN-030-omegasquad-current-pair-passes.md) · `active` — Does `teamrumble/kid.team.OmegaSquad_.0.2.jar` still fail under Tank Royale when tested with the current bridge, Bot API, and runner builds?
 - [AN-031 — SittingDroidTeam confirms a survival-score gap without locating its cause](AN-031-sittingdroidteam-confirmed-score-gap.md) · `active` — Does the confirmed score gap identify the scoring cause, or only a difference in death timing?
+- [AN-032 — ConceptATeam's current score is in band; its Classic null dereference is in the robot jar](AN-032-concept-a-team-null-duel-opponent.md) · `active` — Does the old score gap persist, and is the current Classic-only exception caused by the bridge?
 <!-- clue:index:end -->
