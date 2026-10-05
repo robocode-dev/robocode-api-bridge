@@ -1223,7 +1223,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | MATCHED (score noise) | ec40d37777c4769c | nested-team-jar-discovery | wrapper |
 | teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 79f11250acee04e4 | robot-unguarded-empty-wave-candidates | robot |
 | teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | 6141b626a28b54b0 | unresolved-confirmed-team-score-gap | unknown |
-| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 3a77798e76eadbbb | - | - |
+| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (outcome) | 903836b97b9628b9 | unresolved-phoenix-melee-position-history | unknown |
 | teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | score-review | 95a261e1dcd6e54a | - | - |
 | teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | MATCHED (score noise) | cbb87704154d6859 | bridge-bullet-identity-and-blocking-fire | bridge |
 | teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 0e6d32277699624a | robot-null-bullet-on-team-message | robot |
