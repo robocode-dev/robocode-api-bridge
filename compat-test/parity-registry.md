@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 80 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 4 |
+| MATCHED (score noise) | 5 |
 | PASS | 694 |
-| score-review | 289 |
+| score-review | 288 |
 
 ## Subjects
 
@@ -1227,7 +1227,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | MATCHED (score noise) | de36a467e13df0c0 | - | - |
 | teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | MATCHED (score noise) | cbb87704154d6859 | bridge-bullet-identity-and-blocking-fire | bridge |
 | teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (outcome) | 0e6d32277699624a | robot-null-bullet-on-team-message | robot |
-| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | score-review | 8da1db1940655a72 | nested-team-jar-discovery | wrapper |
+| teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | MATCHED (score noise) | 664f2cb7d8684621 | nested-team-jar-discovery | wrapper |
 | teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | score-review | 3784af636099c8b7 | - | - |
 | teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | d373ae9bed366ff4 | - | - |
 | teamrumble/jab.DiamondStealers_5.jar | teamrumble | team | PASS | 732c648d5061b714 | - | - |

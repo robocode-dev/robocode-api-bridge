@@ -213349,7 +213349,7 @@
         "key": "teamrumble/gh.mini.GrubbmGroup_0.4.jar",
         "kind": "team"
       },
-      "latest_observation": "8da1db1940655a72",
+      "latest_observation": "664f2cb7d8684621",
       "observations": [
         {
           "classic": {
@@ -214032,9 +214032,325 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 22449.8
+          },
+          "completed_at": "2026-10-05T14:36:17Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 28.82,
+            "deltas": [
+              36.2,
+              26.5,
+              28.9,
+              28.6,
+              23.9
+            ],
+            "rc_mean": 22449.8,
+            "samples": 5,
+            "tr_mean": 28917.4
+          },
+          "delta_pct": 28.82,
+          "id": "6753c7240ebb4c18",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "8f7b0f50f17d0d5ddc214abb720b41db41bbab2d",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "gh.mini.GrubbmGroup_0.4.jar",
+            "jar_sha256": "d4c8bd894ef6324d97ac984ff8ece51e4683b53b45ef4a4629155d9ddc2a5721",
+            "key": "teamrumble/gh.mini.GrubbmGroup_0.4.jar",
+            "kind": "team"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 28917.4
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 22467.8
+          },
+          "completed_at": "2026-10-05T14:44:13Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -4.36,
+            "deltas": [
+              -1.2,
+              -3.7,
+              -6.5,
+              -6.0,
+              -4.4
+            ],
+            "rc_mean": 22467.8,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 21486.6
+          },
+          "delta_pct": -4.36,
+          "id": "664f2cb7d8684621",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "8f7b0f50f17d0d5ddc214abb720b41db41bbab2d",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "gh.mini.GrubbmGroup_0.4.jar",
+            "jar_sha256": "d4c8bd894ef6324d97ac984ff8ece51e4683b53b45ef4a4629155d9ddc2a5721",
+            "key": "teamrumble/gh.mini.GrubbmGroup_0.4.jar",
+            "kind": "team"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 21486.6
+          }
         }
       ],
-      "status": "score-review"
+      "status": "MATCHED (score noise)"
     },
     "teamrumble/gh.nano.GrofGroup_1.1.jar": {
       "diagnosis_events": [],
