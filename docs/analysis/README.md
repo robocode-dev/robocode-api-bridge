@@ -46,4 +46,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-040 — ImWithDroidTeam's earlier score gap is not confirmed by five current pairs](AN-040-imwithdroidteam-score-gap-not-reproduced.md) · `active` — Does the old +37.4% ImWithDroidTeam score advantage persist in five current official pairs?
 - [AN-041 — ImWithStupidTeam's earlier score gap is not confirmed by five current pairs](AN-041-imwithstupidteam-score-gap-not-reproduced.md) · `active` — Does the old +34.2% ImWithStupidTeam score advantage persist in five current official pairs?
 - [AN-042 — AlephTeam's earlier asymmetric index error is robot-owned and appears on both engines](AN-042-alephteam-index-error-is-robot-owned.md) · `active` — Does the old Tank Royale-only index error persist on current artifacts, and what operation produces it?
+- [AN-043 — GlowingHawks dereferences an unscanned target in its death handler](AN-043-glowinghawks-death-handler-assumes-prior-scan.md) · `active` — Does the current Tank Royale-only death-handler exception identify a bridge defect or a robot assumption about prior scans?
 <!-- clue:index:end -->

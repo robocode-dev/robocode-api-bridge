@@ -7,13 +7,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 3 |
-| DISCREPANCY (errors) | 81 |
+| DISCREPANCY (errors) | 82 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 76 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 11 |
 | PASS | 698 |
-| score-review | 279 |
+| score-review | 278 |
 
 ## Subjects
 
@@ -1249,7 +1249,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | MATCHED (score noise) | 88173d72acfab9ca | nested-team-jar-discovery | wrapper |
 | teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 2c658128e3f16dec | - | - |
 | teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | PASS | 318881e18dc34010 | robot-enemy-pattern-reads-past-final-sample | robot |
-| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | score-review | ee6dff4622862b08 | - | - |
+| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | DISCREPANCY (errors) | c88aa80da0c0d8b1 | robot-death-event-assumes-prior-scan | robot |
 | teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | score-review | 7114988a3b5ce8ee | - | - |
 | teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | 2bf376bbcfb874ad | - | - |
 | teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | 0265440c2520dc55 | - | - |
