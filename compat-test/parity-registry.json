@@ -219092,7 +219092,7 @@
         "key": "teamrumble/kawigi.sbf.TidalWave_0.8.jar",
         "kind": "team"
       },
-      "latest_observation": "d84e06614899bbdb",
+      "latest_observation": "b5f4b749ab64fd9a",
       "observations": [
         {
           "classic": {
@@ -220333,9 +220333,143 @@
             "ok": false,
             "score": 21598.0
           }
+        },
+        {
+          "classic": {
+            "elapsed": 6.5,
+            "error_count": 1,
+            "error_signatures": [],
+            "errors": [
+              "Unable to stop thread: kawigi.sbf.FloodHT 0.8 (1)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 22567.0,
+            "scores": [
+              12890.0,
+              9677.0
+            ],
+            "selected": "kawigi.sbf.FloodHT 0.8"
+          },
+          "completed_at": "2026-10-05T15:18:42Z",
+          "confirmation": null,
+          "delta_pct": -5.6,
+          "id": "b5f4b749ab64fd9a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "fa3d5909bae372d30f7653d37db7aa53c5fd493bd8710ddaaa22928b602d5ed5"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "64b355799e18bdfd90aafbe0baadde79dcaa78cc",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "5000c678b7fffc8a6147adb5dc4b42b3c6b4d4bb",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "kawigi.sbf.FloodHT 0.8",
+            "division": "teamrumble",
+            "jar": "kawigi.sbf.TidalWave_0.8.jar",
+            "jar_sha256": "1bbdb19a62782ebde0c75eccb304b082b2ec2ba9f6e9727405a43cee41792708",
+            "key": "teamrumble/kawigi.sbf.TidalWave_0.8.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 21312.0,
+            "scores": [
+              13416.0,
+              7896.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "PASS"
     },
     "teamrumble/kid.team.OmegaSquad_.0.2.jar": {
       "diagnosis_events": [],

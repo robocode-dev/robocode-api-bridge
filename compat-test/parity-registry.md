@@ -7,12 +7,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 1 |
-| DISCREPANCY (errors) | 81 |
+| DISCREPANCY (errors) | 80 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 78 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 6 |
-| PASS | 695 |
+| PASS | 696 |
 | score-review | 287 |
 
 ## Subjects
@@ -1234,7 +1234,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/jab.Enjambre_3.jar | teamrumble | team | DISCREPANCY (errors) | 93aa5d1940c52002 | robot-unassigned-enemy-slot-null-lookup | robot |
 | teamrumble/jeremyreeder.collective.FourProphetsAndADiscliple_5.jar | teamrumble | team | PASS | abbff68a384e39b8 | tank-royale-team-message-limit | tank-royale |
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
-| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | DISCREPANCY (errors) | d84e06614899bbdb | bot-assumes-target-exists-before-first-scan | robot |
+| teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | PASS | b5f4b749ab64fd9a | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | DISCREPANCY (outcome) | 527d1334b6cbaafe | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | score-review | 1277993795db5d90 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | score-review | 6d7c8a3305582f2a | - | - |
