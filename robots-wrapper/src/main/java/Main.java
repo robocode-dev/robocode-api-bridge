@@ -57,6 +57,7 @@ public class Main {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
+                            resolveDuplicatePropertiesClassName(zipFile, filename, robotProps, classToBotDir);
                             Path botDir = createBotDir(jarPath, jarFile.getName(), robotProps);
                             classToBotDir.put(robotProps.classname, botDir);
 
@@ -79,6 +80,26 @@ public class Main {
             System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
         }
         return classToBotDir;
+    }
+
+    /** Uses the properties entry's matching class when stale metadata collides with another member. */
+    static void resolveDuplicatePropertiesClassName(ZipFile zipFile, String propertiesEntryName,
+                                                     RobotProperties robotProps,
+                                                     Map<String, Path> classToBotDir) {
+        if (!classToBotDir.containsKey(robotProps.classname)) {
+            return;
+        }
+
+        String entryClassName = propertiesEntryName
+                .substring(0, propertiesEntryName.length() - ".properties".length())
+                .replace('/', '.')
+                .replace('\\', '.');
+        String classEntryName = entryClassName.replace('.', '/') + ".class";
+        if (!entryClassName.equals(robotProps.classname) && zipFile.getEntry(classEntryName) != null) {
+            System.err.println("Duplicate robot.classname " + robotProps.classname
+                    + " in " + propertiesEntryName + "; using matching class entry " + entryClassName);
+            robotProps.classname = entryClassName;
+        }
     }
 
     /** Stages a robot jar embedded in a classic team archive beside its generated bot directories. */
