@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 10 |
+| CONFIRMED (score) | 11 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 701 |
-| score-review | 269 |
+| score-review | 268 |
 
 ## Subjects
 
@@ -244,7 +244,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 8d781fc673893f81 | - | - |
 | roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | MATCHED (score noise) | 02a6d347ffc7c3d8 | - | - |
 | roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 6c6d91b59c2d4dae | - | - |
-| roborumble/bk.Shooter_1.0.jar | roborumble | robot | score-review | 81e101672cb7f9c8 | - | - |
+| roborumble/bk.Shooter_1.0.jar | roborumble | robot | CONFIRMED (score) | 6b24a095635bd032 | - | - |
 | roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6e0ffccdcd38fada | - | - |
 | roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | 1b2a4d6c4330ef36 | - | - |
 | roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 1842fd1571b0c43b | - | - |
