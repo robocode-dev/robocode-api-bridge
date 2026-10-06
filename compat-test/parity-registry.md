@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 7 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 72 |
+| DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
-| PASS | 700 |
+| PASS | 701 |
 | score-review | 273 |
 
 ## Subjects
@@ -230,7 +230,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | abb124f1b2d515b0 | robot-unchecked-null-history-file | robot |
 | roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | 38162854ee54a334 | - | - |
 | roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | 630f1c58f42bbb9d | - | - |
-| roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | 90ed0c87e0e6d487 | - | - |
+| roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | PASS | 694f876a9c4ba524 | - | - |
 | roborumble/banshee.micro.Nexus6_0.3.0.jar | roborumble | robot | PASS | adcebd2fb3e2312d | - | - |
 | roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 0cf3d7725dede5d5 | - | - |
 | roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | b2c5048162694f75 | - | - |

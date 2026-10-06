@@ -116,4 +116,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-110 — FourWD's score gap is confirmed while its Classic null-target exception is robot-owned](AN-110-fourwd-confirmed-score-gap-and-null-target.md) · `active` — Is FourWD's score gap reproducible, and what causes its NullPointerException?
 - [AN-111 — Help's score gap confirms while its historical null-wave error is robot-owned](AN-111-help-confirmed-score-gap-and-null-wave.md) · `active` — Does Help's score gap persist with current artifacts, and what caused the historical Tank Royale exception?
 - [AN-112 — Okami's Classic-only file-read errors follow its unchecked missing-history-file path](AN-112-okami-null-history-file-errors.md) · `active` — Do Okami's Classic-only file errors recur, and how does the robot handle missing history files?
+- [AN-113 — Ololobot's historical Tank Royale crash does not recur with current artifacts](AN-113-ololobot-old-tank-royale-crash-not-reproduced.md) · `active` — Does Ololobot's historical Tank Royale no-score failure recur with the current matched artifacts?
 <!-- clue:index:end -->
