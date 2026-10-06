@@ -106,4 +106,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-100 — Cinnamon's current melee errors belong to the pinned opponent pool](AN-100-cinnamon-melee-pool-errors.md) · `active` — Do Cinnamon's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-101 — B26354's earlier Tank Royale exception does not recur with the current matched artifacts](AN-101-b26354-current-melee-result.md) · `active` — Does B26354's earlier Tank Royale-only exception recur with the current matched artifacts, and is its current score delta a confirmed gap?
 - [AN-102 — CodaFirst's official score gap is confirmed but its behavioral cause remains open](AN-102-codafirst-confirmed-score-gap.md) · `active` — What causes CodaFirst's confirmed score gap when the official runs have no runtime errors or skipped turns?
+- [AN-103 — ArchimedesAlpha's no-score result comes from keyboard-only controls](AN-103-archimedesalpha-keyboard-only-no-score.md) · `active` — Does ArchimedesAlpha's no-score result identify a bridge discrepancy or its interactive-only controls?
 <!-- clue:index:end -->

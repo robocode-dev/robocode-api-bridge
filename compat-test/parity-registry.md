@@ -92,7 +92,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 1085f87da4e7117f | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
-| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 5db318c40ca0955b | - | - |
+| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 3120c221c1dbfb93 | robot-keyboard-input-required-for-activity | robot |
 | roborumble/CharlieN.Omega.Omega_1.03.jar | roborumble | robot | PASS | 6c16b6ead3897593 | - | - |
 | roborumble/DM.Capriite_3.7.2.jar | roborumble | robot | PASS | 63eec6535e7bcdb8 | - | - |
 | roborumble/DM.Chicken_4.0.jar | roborumble | robot | score-review | f98b80f045eaa5ba | - | - |
