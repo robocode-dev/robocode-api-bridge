@@ -134,4 +134,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-128 — Domogled's historical Tank Royale exception does not recur](AN-128-domogled-tank-royale-error-not-reproduced.md) · `active` — Does Domogled's historical Tank Royale-only exception recur with current matched artifacts?
 - [AN-129 — Firestarter's repeated no-score outcome follows unchecked robot state](AN-129-firestarter-repeated-robot-owned-no-score.md) · `active` — Does Firestarter's Tank Royale no-score result recur, and what do its logged exceptions identify?
 - [AN-130 — RandomBot's historical Tank Royale failure does not recur](AN-130-randombot-outcome-failure-not-reproduced.md) · `active` — Does RandomBot's historical Tank Royale no-score failure recur with current matched artifacts?
+- [AN-131 — Insomnia's historical score gap does not clear the five-run confirmation band](AN-131-insomnia-score-gap-not-confirmed.md) · `active` — Does Insomnia's historical score discrepancy persist in the current five-pair confirmation?
 <!-- clue:index:end -->
