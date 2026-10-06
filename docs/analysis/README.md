@@ -78,4 +78,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-072 — Freya's current melee errors come from the pinned opponent pool](AN-072-freya-melee-opponent-errors.md) · `active` — Do the current `bvh.fry.Freya_0.82.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-073 — Micro Freya's current melee errors come from the pinned opponent pool](AN-073-micro-freya-melee-opponent-errors.md) · `active` — Do the current `bvh.micro.Freya_0.3.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-074 — Mini Fenrir's current melee errors come from the pinned opponent pool](AN-074-mini-fenrir-melee-opponent-errors.md) · `active` — Do the current `bvh.mini.Fenrir_0.39.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-075 — Mini Freya's current melee errors come from the pinned opponent pool](AN-075-mini-freya-melee-opponent-errors.md) · `active` — Do the current `bvh.mini.Freya_0.55.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
