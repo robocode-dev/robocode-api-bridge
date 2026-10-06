@@ -82,7 +82,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cs.Grudge_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b6294849af0b8079 | melee-opponent-pool-contamination | harness |
 | meleerumble/cs.Wren_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d6682247ccce0d91 | melee-opponent-pool-contamination | harness |
 | meleerumble/cs.sheldor.Talon_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | cf8014dc1274c8e8 | melee-opponent-pool-contamination | harness |
-| meleerumble/css.Delitioner_0.11.jar | meleerumble | robot | DISCREPANCY (errors) | 8be5aeec0bbfefd0 | melee-opponent-pool-contamination | harness |
+| meleerumble/css.Delitioner_0.11.jar | meleerumble | robot | DISCREPANCY (errors) | 309b49ab69e7bfe5 | melee-opponent-pool-contamination | harness |
 | meleerumble/cvt.Firsty_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d470a27f7edb48c5 | melee-opponent-pool-contamination | harness |
 | meleerumble/cx.BlestPain_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | f2b0af33f69a9a6a | melee-opponent-pool-contamination | harness |
 | meleerumble/cx.Princess_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 011b7e15640d6efa | melee-opponent-pool-contamination | harness |
