@@ -128,4 +128,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-122 — Kuma's large positive score gap is confirmed across five runs](AN-122-kuma-confirmed-score-gap.md) · `active` — Does Kuma's historical score discrepancy persist with current matched artifacts?
 - [AN-123 — RipCurl's historical Tank Royale failure does not recur, and its old frame is unattributed](AN-123-ripcurl-historical-outcome-not-reproduced.md) · `active` — Does RipCurl's historical Tank Royale no-score failure recur, and does its old error identify the subject?
 - [AN-124 — Hodur's variable scores still yield a confirmed mean gap](AN-124-hodur-confirmed-score-gap-with-variation.md) · `active` — Does Hodur's historical score difference persist across five current pairs despite per-pair variation?
+- [AN-125 — Loki's smaller current score gap still clears the confirmation band](AN-125-loki-smaller-score-gap-still-confirmed.md) · `active` — Does Loki retain a score gap across five current pairs, and how does it compare with earlier runs?
 <!-- clue:index:end -->
