@@ -7,13 +7,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 22 |
-| DISCREPANCY (errors) | 84 |
+| DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
 | PASS | 707 |
-| score-review | 253 |
+| score-review | 252 |
 
 ## Subjects
 
@@ -330,7 +330,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.CigaretBH_1.03.jar | roborumble | robot | PASS | b3f0624de06e9e36 | - | - |
 | roborumble/cx.Lacrimas_1.36.jar | roborumble | robot | PASS | 539ae590fae08967 | - | - |
 | roborumble/cx.Princess_1.0.jar | roborumble | robot | PASS | 5d92f19933b9dea0 | - | - |
-| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | score-review | e0eb72591fc796b8 | - | - |
+| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | DISCREPANCY (errors) | df6757b238884587 | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/cx.micro.Smoke_0.96.jar | roborumble | robot | PASS | 22c757bf2c791a1c | - | - |
 | roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | score-review | 33b8c433861acbd1 | - | - |
 | roborumble/cx.mini.BlackSwans_0.60.jar | roborumble | robot | PASS | 8ff4ff433f3d1ef6 | - | - |
