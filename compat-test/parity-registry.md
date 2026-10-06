@@ -120,7 +120,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/KiraNL.SpaceKees_0.1.jar | roborumble | robot | PASS | 51a7d06b9bd85bee | - | - |
 | roborumble/Krabb.fe4r.Fe4r_0.4.jar | roborumble | robot | PASS | 974a69b8c7986c2a | - | - |
 | roborumble/Krabb.krabby.Krabby_1.18b.jar | roborumble | robot | PASS | 1f6ea5fdbb0c8d06 | - | - |
-| roborumble/Krabb.sliNk.Garm_0.9u.jar | roborumble | robot | DISCREPANCY (outcome) | a51bebcb193de7f9 | - | - |
+| roborumble/Krabb.sliNk.Garm_0.9u.jar | roborumble | robot | DISCREPANCY (outcome) | 2e935b12cefc0443 | - | - |
 | roborumble/Legend.Biogon_1.5.jar | roborumble | robot | PASS | 182b54a548d2d2a1 | - | - |
 | roborumble/Legend.BoulderZY_1.4.9.jar | roborumble | robot | PASS | 2bb7dd7a316d3f30 | - | - |
 | roborumble/Legend.Qetro_1.6.jar | roborumble | robot | score-review | 198ccdef7a8da62a | - | - |
