@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 4 |
+| CONFIRMED (score) | 5 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 72 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 13 |
 | PASS | 698 |
-| score-review | 276 |
+| score-review | 275 |
 
 ## Subjects
 
@@ -89,7 +89,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 3d2a941329d5e431 | melee-opponent-pool-contamination | harness |
 | meleerumble/dans.Cinnamon_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 453a1f4ed8473f61 | melee-opponent-pool-contamination | harness |
 | meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (errors) | e2187be09c14425c | melee-opponent-pool-contamination | harness |
-| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | 8a4dfbfbf555deff | - | - |
+| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 1085f87da4e7117f | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
 | roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 5db318c40ca0955b | - | - |
