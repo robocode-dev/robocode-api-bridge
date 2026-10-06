@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 7 |
+| CONFIRMED (score) | 8 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
 | PASS | 701 |
-| score-review | 273 |
+| score-review | 272 |
 
 ## Subjects
 
@@ -235,7 +235,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 0cf3d7725dede5d5 | - | - |
 | roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | b2c5048162694f75 | - | - |
 | roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | e3cdf960bfb9afc4 | - | - |
-| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | score-review | 34a30695ece53fb7 | - | - |
+| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | f0b9374e244abc40 | - | - |
 | roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 2f9eb4f23c454774 | - | - |
 | roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | score-review | 5853982276128593 | - | - |
 | roborumble/bbo.RamboT_0.3.jar | roborumble | robot | score-review | aca48d105b06bcde | - | - |
