@@ -46,7 +46,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | d338a164bbc2e0a1 | melee-opponent-pool-contamination | harness |
 | meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 4fca7d303ab293b5 | melee-opponent-pool-contamination | harness |
 | meleerumble/as.FrankTheTank_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | f0f45320bec4bfe4 | melee-opponent-pool-contamination | harness |
-| meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 1233d28410286af5 | - | - |
+| meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 0679565125f26395 | subject-owned-data-file-append-quota | robot |
 | meleerumble/awesomeness.Elite_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b70b7c4324fb2671 | - | - |
 | meleerumble/axeBots.HataMoto_3.09.jar | meleerumble | robot | DISCREPANCY (outcome) | f02a222e13047011 | - | - |
 | meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (outcome) | 091cbdb379677185 | - | - |

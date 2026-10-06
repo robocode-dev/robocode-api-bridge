@@ -62,4 +62,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-056 — NanoSatanMelee's current melee errors come from the pinned opponent pool](AN-056-nanosatanmelee-opponent-errors.md) · `active` — Do the current `arthord.NanoSatanMelee_Beta.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-057 — Swarm's current melee error comes from the pinned opponent pool](AN-057-swarm-melee-opponent-errors.md) · `active` — Do the current `ary.Swarm_1.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-058 — FrankTheTank's current melee errors come from the pinned opponent pool](AN-058-frankthetank-melee-opponent-errors.md) · `active` — Do the current `as.FrankTheTank_1.3.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-059 — Cthulhu's melee errors mix its own data-file quota output with opponent failures](AN-059-cthulhu-mixed-melee-errors.md) · `active` — Does Cthulhu's current result come from its own file writes, the bridge, or the pinned opponent pool?
 <!-- clue:index:end -->
