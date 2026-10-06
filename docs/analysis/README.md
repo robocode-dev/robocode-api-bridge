@@ -147,4 +147,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-141 — Karolos's historical Tank Royale failure does not recur](AN-141-karolos-outcome-failure-not-reproduced.md) · `active` — Does Karolos's historical Tank Royale no-score failure recur with current matched artifacts?
 - [AN-142 — Nene's all-five Tank Royale zero-score gap is confirmed](AN-142-nene-zero-score-gap-confirmed.md) · `active` — Does Nene's Tank Royale zero-score discrepancy persist, and what does the available evidence establish about its cause?
 - [AN-143 — Eagle's historical score gap is not reproduced in current repeats](AN-143-eagle-historical-score-gap-not-reproduced.md) · `active` — Does Eagle's historical score discrepancy persist under current five-pair confirmation?
+- [AN-144 — Blade's repeated pattern-gun index error is robot-owned](AN-144-blade-pattern-gun-index-error-is-robot-owned.md) · `active` — Do Blade's historical errors recur with current artifacts, and what owns the unchecked pattern index?
 <!-- clue:index:end -->

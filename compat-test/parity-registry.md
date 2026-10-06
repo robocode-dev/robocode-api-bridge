@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 22 |
-| DISCREPANCY (errors) | 85 |
+| DISCREPANCY (errors) | 84 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 67 |
+| DISCREPANCY (outcome) | 68 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
 | PASS | 706 |
@@ -321,7 +321,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/csp.Eagle_3.30.jar | roborumble | robot | MATCHED (score noise) | 29ac380d947bfd32 | - | - |
 | roborumble/css.Delitioner_0.11.jar | roborumble | robot | PASS | 5011f2da71d38328 | - | - |
 | roborumble/cuoq.Kakera_1.0.jar | roborumble | robot | PASS | 24bb72dfc648f37c | - | - |
-| roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (errors) | 4aaeb14f0d7fe7cd | - | - |
+| roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (outcome) | c83f4cf3396ce737 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (outcome) | cebc69d8bb954e71 | - | - |
 | roborumble/cw.megas.Gridd_0.4.jar | roborumble | robot | PASS | 6f34f6ef130995c8 | - | - |
 | roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | DISCREPANCY (outcome) | 35a21885ebf299e0 | - | - |
