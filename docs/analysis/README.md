@@ -54,4 +54,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-048 — Bakery's duplicate robot properties class name aborts team staging](AN-048-bakery-duplicate-properties-classname.md) · `active` — Does the wrapper failure mean a team member is missing, or can the bridge stage the class named by the team descriptor despite stale metadata?
 - [AN-049 — SuperStrike's melee error result comes from the pinned opponent pool](AN-049-superstrike-melee-opponent-errors.md) · `active` — Do the current `amk.superstrike.SuperStrike_0.3.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-050 — NanoClone's melee error result comes from the pinned opponent pool](AN-050-nanoclone-melee-opponent-errors.md) · `active` — Do the current `amz.NanoClone_1.41.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-051 — Frederick's melee error result comes from the pinned opponent pool](AN-051-frederick-melee-opponent-errors.md) · `active` — Do the current `ap.Frederick_1.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->

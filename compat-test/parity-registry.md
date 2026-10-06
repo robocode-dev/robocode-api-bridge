@@ -38,7 +38,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | d503301e2aabbbd1 | robot-file-stream-limit | bridge |
 | meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6d59b712b5397f0e | melee-opponent-pool-contamination | harness |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | b63cca657d6cfdd5 | melee-opponent-pool-contamination | harness |
-| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 0d8c9f65ee072eec | - | - |
+| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8651c3aead3e6e8a | melee-opponent-pool-contamination | harness |
 | meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | e635d3558bfd09bc | - | - |
 | meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 21a2c4a504e912ab | - | - |
 | meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 1e651c72ac620a9e | - | - |
