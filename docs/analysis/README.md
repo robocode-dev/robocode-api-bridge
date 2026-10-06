@@ -124,4 +124,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-118 — Shooter's current score gap is confirmed across five runs](AN-118-shooter-confirmed-score-gap.md) · `active` — Does Shooter's historical score discrepancy persist with current matched artifacts?
 - [AN-119 — Cabbage's large positive score gap is confirmed across five runs](AN-119-cabbage-confirmed-score-gap.md) · `active` — Does Cabbage's historical score difference persist with current matched artifacts?
 - [AN-120 — Minerva's historical Tank Royale outcome failure does not recur](AN-120-minerva-outcome-failure-not-reproduced.md) · `active` — Does Minerva's historical Tank Royale no-score failure recur with the current matched artifacts?
+- [AN-121 — NanoStalker's large negative score gap is confirmed across five runs](AN-121-nanostalker-confirmed-score-gap.md) · `active` — Does NanoStalker's historical score discrepancy persist with current matched artifacts?
 <!-- clue:index:end -->

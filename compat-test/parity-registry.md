@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 12 |
+| CONFIRMED (score) | 13 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 70 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 702 |
-| score-review | 267 |
+| score-review | 266 |
 
 ## Subjects
 
@@ -253,7 +253,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | b36bd24ea7cdd125 | - | - |
 | roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | fad1a48dcb20e058 | - | - |
 | roborumble/boe.Minerva_0.80.jar | roborumble | robot | PASS | 06a557a257f42259 | - | - |
-| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | score-review | 7fa967a48b2bdaa3 | - | - |
+| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | CONFIRMED (score) | 5016c357e02add03 | - | - |
 | roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 72dbc427c019d828 | - | - |
 | roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | 0e8217b8963172d1 | - | - |
 | roborumble/bots.UnterExBot_1.0.jar | roborumble | robot | PASS | b21f0e7cab8945cc | - | - |
