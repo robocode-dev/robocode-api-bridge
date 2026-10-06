@@ -299,7 +299,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | 56e7d8dd5c969372 | - | - |
 | roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 08e3ebbb8e8cafec | - | - |
 | roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 76d6527ba565e6e8 | - | - |
-| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 2f903f1fb948749b | - | - |
+| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 400dfd93c4f1fa3c | - | - |
 | roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 7b75c4d17e30213b | - | - |
 | roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | d6d74c72cf5e95ab | - | - |
 | roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | score-review | 5150f5d9febe75e6 | - | - |
