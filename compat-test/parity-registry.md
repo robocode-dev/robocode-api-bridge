@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 19 |
+| CONFIRMED (score) | 20 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 68 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 17 |
 | PASS | 705 |
-| score-review | 257 |
+| score-review | 256 |
 
 ## Subjects
 
@@ -308,7 +308,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/com.spp.robocode.MostlyHarmless_010.jar | roborumble | robot | PASS | bf9624b1e5be7364 | - | - |
 | roborumble/com.syncleus.robocode.Dreadnaught_0.1.jar | roborumble | robot | PASS | 74e041fd9d303f18 | - | - |
 | roborumble/com.timothyveletta.FuzzyBot_1.1.jar | roborumble | robot | PASS | 2725e155384329ea | - | - |
-| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | score-review | d7ba964e4e43901c | - | - |
+| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 018a86452c5c224d | - | - |
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
 | roborumble/conscience.Idem_1.0a.jar | roborumble | robot | score-review | eb8ec45277d96dfd | - | - |
 | roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | a392eb662de14448 | - | - |

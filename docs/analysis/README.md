@@ -141,4 +141,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-135 — NewTest's recurring Classic errors use extracted bullet bytes as two-entry array indexes](AN-135-newtest-classic-bullet-index-errors.md) · `active` — Do NewTest's Classic-only bullet-event errors recur, and what causes their indexes?
 - [AN-136 — DestrobotMalin's negative score gap is confirmed across five runs](AN-136-destrobotmalin-confirmed-score-gap.md) · `active` — Does DestrobotMalin's historical score discrepancy persist with current matched artifacts?
 - [AN-137 — T1000's Classic zero score persists, and its bytecode ignores scanned bearing](AN-137-t1000-classic-zero-score-and-stale-bearing.md) · `active` — Does T1000's Classic zero score persist, and what behavior issue appears in its bytecode?
+- [AN-138 — Bulldozer's positive score gap is confirmed at a smaller magnitude](AN-138-bulldozer-confirmed-score-gap.md) · `active` — Does Bulldozer's historical score gap persist across current five-pair confirmation?
 <!-- clue:index:end -->
