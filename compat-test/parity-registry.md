@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 17 |
+| CONFIRMED (score) | 18 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 69 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 703 |
-| score-review | 262 |
+| score-review | 261 |
 
 ## Subjects
 
@@ -281,7 +281,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | c65434b2428d5eb5 | - | - |
 | roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | 158dc02a97104f42 | - | - |
 | roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | e5ecc6fe604d60b8 | - | - |
-| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | score-review | 4d5dd0574032c7bf | - | - |
+| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 02c8849c0009547c | - | - |
 | roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | a68f7fbc62aef405 | - | - |
 | roborumble/cb.Domogled_1.2.jar | roborumble | robot | DISCREPANCY (outcome) | 5447e9339db7eccd | - | - |
 | roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 89623ea5edf609f2 | - | - |

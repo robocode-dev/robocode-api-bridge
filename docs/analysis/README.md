@@ -130,4 +130,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-124 — Hodur's variable scores still yield a confirmed mean gap](AN-124-hodur-confirmed-score-gap-with-variation.md) · `active` — Does Hodur's historical score difference persist across five current pairs despite per-pair variation?
 - [AN-125 — Loki's smaller current score gap still clears the confirmation band](AN-125-loki-smaller-score-gap-still-confirmed.md) · `active` — Does Loki retain a score gap across five current pairs, and how does it compare with earlier runs?
 - [AN-126 — Tirunculus's current score gap is confirmed at +24.28 percent](AN-126-tirunculus-confirmed-score-gap.md) · `active` — Does Tirunculus's score gap persist across five current pairs?
+- [AN-127 — Furia Ceca's negative score gap is confirmed across five runs](AN-127-furia-ceca-confirmed-score-gap.md) · `active` — Does Furia Ceca's historical score discrepancy persist with current matched artifacts?
 <!-- clue:index:end -->
