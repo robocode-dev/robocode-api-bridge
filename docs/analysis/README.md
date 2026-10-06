@@ -149,4 +149,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-143 — Eagle's historical score gap is not reproduced in current repeats](AN-143-eagle-historical-score-gap-not-reproduced.md) · `active` — Does Eagle's historical score discrepancy persist under current five-pair confirmation?
 - [AN-144 — Blade's repeated pattern-gun index error is robot-owned](AN-144-blade-pattern-gun-index-error-is-robot-owned.md) · `active` — Do Blade's historical errors recur with current artifacts, and what owns the unchecked pattern index?
 - [AN-145 — GhostShell GT's repeated no-score run has robot-owned unchecked state](AN-145-ghostshell-repeated-no-score-has-robot-owned-errors.md) · `active` — Does GhostShell GT's historical no-score outcome recur, and which unchecked robot paths match its errors?
+- [AN-146 — Polar's historical no-score failure does not recur](AN-146-polar-no-score-failure-not-reproduced.md) · `active` — Does Polar's historical Tank Royale no-score outcome recur, and what owns its remaining error?
 <!-- clue:index:end -->

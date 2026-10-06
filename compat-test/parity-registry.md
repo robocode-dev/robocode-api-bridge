@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 22 |
 | DISCREPANCY (errors) | 84 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 68 |
+| DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
-| PASS | 706 |
+| PASS | 707 |
 | score-review | 253 |
 
 ## Subjects
@@ -324,7 +324,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (outcome) | c83f4cf3396ce737 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (outcome) | c279e9c8a178d0c0 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Gridd_0.4.jar | roborumble | robot | PASS | 6f34f6ef130995c8 | - | - |
-| roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | DISCREPANCY (outcome) | 35a21885ebf299e0 | - | - |
+| roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | PASS | 08028b163eba772a | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Silhouette_1.1.jar | roborumble | robot | PASS | 25c5e3c9db55e253 | - | - |
 | roborumble/cx.BlestPain_1.41.jar | roborumble | robot | PASS | f0e3210c128d5c6c | - | - |
 | roborumble/cx.CigaretBH_1.03.jar | roborumble | robot | PASS | b3f0624de06e9e36 | - | - |
