@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 4 |
 | DISCREPANCY (errors) | 81 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 76 |
+| DISCREPANCY (outcome) | 75 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 13 |
-| PASS | 698 |
+| PASS | 699 |
 | score-review | 276 |
 
 ## Subjects
@@ -1256,4 +1256,4 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | CONFIRMED (score) | 7bae417652f7cb81 | tank-royale-opponent-names-not-exposed | tank-royale |
 | teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (outcome) | 3c9d506cf26eda09 | robot-death-event-assumes-prior-scan | robot |
 | teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | MATCHED (score noise) | 1be38207150c4149 | classic-team-self-message-not-looped-back | bridge |
-| teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | DISCREPANCY (outcome) | d43b31dcbb90be5f | - | - |
+| teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | PASS | f30b9524f3fdf385 | team-member-properties-classname-collision | bridge |

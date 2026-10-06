@@ -242819,7 +242819,14 @@
       "status": "MATCHED (score noise)"
     },
     "teamrumble/vuen.Bakery_2.51.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "team-member-properties-classname-collision",
+          "id": "diagnosis-1",
+          "owner": "bridge",
+          "recorded_at": "2026-10-05T20:41:54Z"
+        }
+      ],
       "identity": {
         "classic_selected": "vuen.Cake 2.51",
         "division": "teamrumble",
@@ -242828,7 +242835,7 @@
         "key": "teamrumble/vuen.Bakery_2.51.jar",
         "kind": "team"
       },
-      "latest_observation": "d43b31dcbb90be5f",
+      "latest_observation": "f30b9524f3fdf385",
       "observations": [
         {
           "classic": {
@@ -243204,9 +243211,170 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 11.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 19456.0,
+            "scores": [
+              10693.0,
+              8763.0
+            ],
+            "selected": "vuen.Cake 2.51"
+          },
+          "completed_at": "2026-10-05T20:34:44Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "6fe78f0f9056f18d",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "7b9694ef4dc67d4be47e36be69a5bba55f7c9006cc43ce27afa1747857afbab3"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "1c98c6167c553747d6179b92f1e854f8520fe1a1d92e8c270afab38dfc3e2e52"
+              }
+            },
+            "bridge_commit": "0394ce03429f854d5d5fc600f45cc968a6a551aa",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "vuen.Cake 2.51",
+            "division": "teamrumble",
+            "jar": "vuen.Bakery_2.51.jar",
+            "jar_sha256": "e7b4b6eb7945f581a6feb8be489ca79859abd18efbcaf0b6127c3cb79249c367",
+            "key": "teamrumble/vuen.Bakery_2.51.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 0.0,
+            "error_count": 1,
+            "error_signatures": [],
+            "errors": [
+              "HARNESS: robots-wrapper produced 0 team entries, expected one"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 10.9,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 19120.0,
+            "scores": [
+              10742.0,
+              8378.0
+            ],
+            "selected": "vuen.Cake 2.51"
+          },
+          "completed_at": "2026-10-05T20:41:31Z",
+          "confirmation": null,
+          "delta_pct": 1.0,
+          "id": "f30b9524f3fdf385",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "7b9694ef4dc67d4be47e36be69a5bba55f7c9006cc43ce27afa1747857afbab3"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "bf5fa0ba77a8a7454a53f57dedbdf7b74cb7be3940ee806db1b490aa8a8f6b9d"
+              }
+            },
+            "bridge_commit": "b1c6ef36b734b21a86b95ab66572fe98e7f800ea",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "vuen.Cake 2.51",
+            "division": "teamrumble",
+            "jar": "vuen.Bakery_2.51.jar",
+            "jar_sha256": "e7b4b6eb7945f581a6feb8be489ca79859abd18efbcaf0b6127c3cb79249c367",
+            "key": "teamrumble/vuen.Bakery_2.51.jar",
+            "kind": "team"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 19314.0,
+            "scores": [
+              10793.0,
+              8521.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     }
   }
 }
