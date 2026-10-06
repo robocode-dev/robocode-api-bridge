@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 17 |
+| MATCHED (score noise) | 18 |
 | PASS | 706 |
-| score-review | 254 |
+| score-review | 253 |
 
 ## Subjects
 
@@ -318,7 +318,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cs.Wren_1.0.jar | roborumble | robot | PASS | 038056ec38361bd3 | - | - |
 | roborumble/cs.s2.Seraphim_2.3.1.jar | roborumble | robot | PASS | ea63d4fa2eac6c25 | - | - |
 | roborumble/csm.NthGeneration_0.04.jar | roborumble | robot | PASS | f513f892fcf3c5dc | - | - |
-| roborumble/csp.Eagle_3.30.jar | roborumble | robot | score-review | f1344f1c2958947d | - | - |
+| roborumble/csp.Eagle_3.30.jar | roborumble | robot | MATCHED (score noise) | 29ac380d947bfd32 | - | - |
 | roborumble/css.Delitioner_0.11.jar | roborumble | robot | PASS | 5011f2da71d38328 | - | - |
 | roborumble/cuoq.Kakera_1.0.jar | roborumble | robot | PASS | 24bb72dfc648f37c | - | - |
 | roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (errors) | 4aaeb14f0d7fe7cd | - | - |
