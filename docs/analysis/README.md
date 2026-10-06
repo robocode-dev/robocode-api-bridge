@@ -108,4 +108,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-102 — CodaFirst's official score gap is confirmed but its behavioral cause remains open](AN-102-codafirst-confirmed-score-gap.md) · `active` — What causes CodaFirst's confirmed score gap when the official runs have no runtime errors or skipped turns?
 - [AN-103 — ArchimedesAlpha's no-score result comes from keyboard-only controls](AN-103-archimedesalpha-keyboard-only-no-score.md) · `active` — Does ArchimedesAlpha's no-score result identify a bridge discrepancy or its interactive-only controls?
 - [AN-104 — Chicken's historical zero-score Tank Royale result does not recur with current artifacts](AN-104-chicken-old-score-gap-not-reproduced.md) · `active` — Does Chicken's historical −100% score discrepancy persist under the current matched artifact pair?
+- [AN-105 — Mijit's persistent score gap accompanies a robot-owned wave-distance index error](AN-105-mijit-wave-distance-index-and-score-gap.md) · `active` — Does Mijit's historical score gap persist with current artifacts, and what caused its current Tank Royale-only exception?
 <!-- clue:index:end -->

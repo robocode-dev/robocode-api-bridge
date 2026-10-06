@@ -7,13 +7,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 5 |
-| DISCREPANCY (errors) | 85 |
+| DISCREPANCY (errors) | 86 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 72 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
 | PASS | 698 |
-| score-review | 274 |
+| score-review | 273 |
 
 ## Subjects
 
@@ -96,7 +96,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/CharlieN.Omega.Omega_1.03.jar | roborumble | robot | PASS | 6c16b6ead3897593 | - | - |
 | roborumble/DM.Capriite_3.7.2.jar | roborumble | robot | PASS | 63eec6535e7bcdb8 | - | - |
 | roborumble/DM.Chicken_4.0.jar | roborumble | robot | MATCHED (score noise) | 1c49b86f1412a864 | - | - |
-| roborumble/DM.Mijit_.3.jar | roborumble | robot | score-review | 25e2318cd74f0417 | - | - |
+| roborumble/DM.Mijit_.3.jar | roborumble | robot | DISCREPANCY (errors) | bc9081091ba6807a | robot-unchecked-wave-distance-index | robot |
 | roborumble/DTF.Kludgy_1.2b.jar | roborumble | robot | PASS | a020ea383408d5e2 | - | - |
 | roborumble/EBBU.Sim2_1.02.jar | roborumble | robot | score-review | 82308feb917d2c0a | - | - |
 | roborumble/EE.LittleBig_1.0.jar | roborumble | robot | score-review | dd65d66b59ff8acb | - | - |
