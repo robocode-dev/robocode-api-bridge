@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 16 |
+| MATCHED (score noise) | 17 |
 | PASS | 705 |
-| score-review | 260 |
+| score-review | 259 |
 
 ## Subjects
 
@@ -295,7 +295,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cf.star.Star2_1.23.jar | roborumble | robot | PASS | f7ffd0788cc90587 | - | - |
 | roborumble/ch.rhj.rbc.RHJ1_1.0.jar | roborumble | robot | PASS | 01de6468fb9276c1 | - | - |
 | roborumble/chase.pm.Pytko_1.0.jar | roborumble | robot | PASS | f3341a46358cb3a8 | - | - |
-| roborumble/chickenfuego.UrChicken2_1.0.jar | roborumble | robot | score-review | 728bbeb46f532bf2 | - | - |
+| roborumble/chickenfuego.UrChicken2_1.0.jar | roborumble | robot | MATCHED (score noise) | ebca585aa7c5ee48 | - | - |
 | roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | 56e7d8dd5c969372 | - | - |
 | roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 08e3ebbb8e8cafec | - | - |
 | roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 76d6527ba565e6e8 | - | - |
