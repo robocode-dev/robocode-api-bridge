@@ -60,7 +60,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | 0bf6db46a5da3a18 | robot-minimum-risk-negative-index | robot |
 | meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 45eb4eef1a357641 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | bbc61c5e5c99cd4d | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | ccc68151c7d9cdd0 | - | - |
+| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | bc060964bbc23284 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | 0f4b5e123283cfed | - | - |
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 9d8c3fd37f10fca5 | - | - |
 | meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | a37eccfc435298b2 | - | - |
