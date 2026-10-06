@@ -113788,7 +113788,14 @@
       "status": "PASS"
     },
     "roborumble/ary.FourWD_1.3d.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-null-target-in-virtual-bullet-distance",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-06T20:07:33Z"
+        }
+      ],
       "identity": {
         "classic_selected": "ary.FourWD 1.3d",
         "division": "roborumble",
@@ -113797,7 +113804,7 @@
         "key": "roborumble/ary.FourWD_1.3d.jar",
         "kind": "robot"
       },
-      "latest_observation": "7b2b652b5bb199c0",
+      "latest_observation": "d809601a19bd3eed",
       "observations": [
         {
           "classic": {
@@ -114094,9 +114101,275 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.4,
+            "error_count": 67,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "ary.FourWD.run"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"pt\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"pt\" is null",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"pt\" is null",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"pt\" is null",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException",
+              "java.lang.NullPointerException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 5330.0,
+            "scores": [
+              2717.0,
+              2613.0
+            ],
+            "selected": "ary.FourWD 1.3d"
+          },
+          "completed_at": "2026-10-06T20:02:29Z",
+          "confirmation": null,
+          "delta_pct": -31.4,
+          "id": "b4dda45ef5ad5ae4",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "d213a6f0c4659367f08ebdc3ec90460a7bc42cd2",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "ary.FourWD 1.3d",
+            "division": "roborumble",
+            "jar": "ary.FourWD_1.3d.jar",
+            "jar_sha256": "bfe8768af3401df35cf4d4ec8e3e1d47d779cc5dfc284b212fda3153dbd21537",
+            "key": "roborumble/ary.FourWD_1.3d.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 20.0,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "ary.FourWD.run"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"pt\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 3656.0,
+            "scores": [
+              2046.0,
+              1610.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 5276.0
+          },
+          "completed_at": "2026-10-06T20:04:33Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -36.5,
+            "deltas": [
+              -38.0,
+              -38.5,
+              -38.5,
+              -32.2,
+              -35.3
+            ],
+            "rc_mean": 5276.0,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 3349.8
+          },
+          "delta_pct": -36.5,
+          "id": "d809601a19bd3eed",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "d213a6f0c4659367f08ebdc3ec90460a7bc42cd2",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "ary.FourWD_1.3d.jar",
+            "jar_sha256": "bfe8768af3401df35cf4d4ec8e3e1d47d779cc5dfc284b212fda3153dbd21537",
+            "key": "roborumble/ary.FourWD_1.3d.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 3349.8
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/ary.Help_1.0.jar": {
       "diagnosis_events": [],

@@ -6,8 +6,8 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 5 |
-| DISCREPANCY (errors) | 86 |
+| CONFIRMED (score) | 6 |
+| DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 73 |
 | MATCHED (failure) | 49 |
@@ -214,7 +214,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/arthord.micro.Apoptygma_0.4.jar | roborumble | robot | PASS | fcb58e94a0c3caa6 | - | - |
 | roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 1c0e50209a64265e | - | - |
 | roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 49c18c2ef7546001 | - | - |
-| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | DISCREPANCY (errors) | 7b2b652b5bb199c0 | - | - |
+| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | CONFIRMED (score) | d809601a19bd3eed | robot-null-target-in-virtual-bullet-distance | robot |
 | roborumble/ary.Help_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 3e13e72d5b4a27ae | - | - |
 | roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | 65f473a89338e12c | - | - |
 | roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | d78349c330daf18b | - | - |
