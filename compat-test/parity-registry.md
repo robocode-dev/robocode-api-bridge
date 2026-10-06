@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 12 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 71 |
+| DISCREPANCY (outcome) | 70 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
-| PASS | 701 |
+| PASS | 702 |
 | score-review | 267 |
 
 ## Subjects
@@ -252,7 +252,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/blir.nano.inch.Inchworm_1.0.jar | roborumble | robot | PASS | 7f8e4239129f32f8 | - | - |
 | roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | b36bd24ea7cdd125 | - | - |
 | roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | fad1a48dcb20e058 | - | - |
-| roborumble/boe.Minerva_0.80.jar | roborumble | robot | DISCREPANCY (outcome) | 06462108430f485c | - | - |
+| roborumble/boe.Minerva_0.80.jar | roborumble | robot | PASS | 06a557a257f42259 | - | - |
 | roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | score-review | 7fa967a48b2bdaa3 | - | - |
 | roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 72dbc427c019d828 | - | - |
 | roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | 0e8217b8963172d1 | - | - |
