@@ -7,12 +7,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 4 |
-| DISCREPANCY (errors) | 83 |
+| DISCREPANCY (errors) | 84 |
 | DISCREPANCY (no score) | 41 |
 | DISCREPANCY (outcome) | 73 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 13 |
-| PASS | 699 |
+| PASS | 698 |
 | score-review | 276 |
 
 ## Subjects
@@ -75,7 +75,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 15283ac581bc0f7c | melee-opponent-pool-contamination | harness |
 | meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cae4faa61ca1d678 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4c84d08e1bc4c3dc | melee-opponent-pool-contamination | harness |
-| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | PASS | 56d398157b8b2254 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | da15e2667ea2cc20 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | DISCREPANCY (errors) | 906407a51159bc9a | melee-opponent-pool-contamination | harness |
 | meleerumble/com.syncleus.robocode.Dreadnaught_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | e60cf1d52f296445 | harness-timeout-overrun | harness |
 | meleerumble/conscience.Electron_1.3g.jar | meleerumble | robot | DISCREPANCY (errors) | 126d349d7c0fc8be | melee-opponent-pool-contamination | harness |
