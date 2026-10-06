@@ -287,7 +287,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | fa6b9b4c0ad0f91b | robot-uninitialized-wall-rectangle | robot |
 | roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | PASS | 3b670e9d9d0dcdbf | - | - |
 | roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | MATCHED (score noise) | 9212979d0d391d93 | - | - |
-| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | a743104b456df95b | - | - |
+| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | ed60f44fa4bdb311 | robot-null-pray-in-get-stop-ticks | robot |
 | roborumble/cbot.cbot.CBot_0.8.jar | roborumble | robot | PASS | 72304543581f9b7b | - | - |
 | roborumble/cf.OldMan.OldManXP_0.1.jar | roborumble | robot | PASS | 9ee75157b4ba10a1 | - | - |
 | roborumble/cf.mini.Chiva_1.0.jar | roborumble | robot | PASS | 81ca35e884bdda0d | - | - |

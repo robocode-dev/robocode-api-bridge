@@ -135,4 +135,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-129 — Firestarter's repeated no-score outcome follows unchecked robot state](AN-129-firestarter-repeated-robot-owned-no-score.md) · `active` — Does Firestarter's Tank Royale no-score result recur, and what do its logged exceptions identify?
 - [AN-130 — RandomBot's historical Tank Royale failure does not recur](AN-130-randombot-outcome-failure-not-reproduced.md) · `active` — Does RandomBot's historical Tank Royale no-score failure recur with current matched artifacts?
 - [AN-131 — Insomnia's historical score gap does not clear the five-run confirmation band](AN-131-insomnia-score-gap-not-confirmed.md) · `active` — Does Insomnia's historical score discrepancy persist in the current five-pair confirmation?
+- [AN-132 — Nibbler's recurring Classic-only errors come from dereferencing a null Pray value](AN-132-nibbler-null-pray-classic-errors.md) · `active` — Do Nibbler's Classic-only errors recur, and what causes the logged NPE?
 <!-- clue:index:end -->
