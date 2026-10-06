@@ -33,17 +33,44 @@ def sha256_file(path: Path) -> str | None:
 
 def error_signatures(errors: list[str], log_text: str = "") -> list[dict[str, str]]:
     """Return exception class plus first legacy application frame for each distinct error."""
-    text = "\n".join(errors + ([log_text] if log_text else []))
     signatures: set[tuple[str, str]] = set()
-    for match in EXCEPTION_RE.finditer(text):
-        origin = "unknown"
-        following = text[match.end():]
-        for frame in FRAME_RE.finditer(following):
-            candidate = frame.group(1)
-            if not candidate.startswith(FRAME_NOISE_PREFIXES):
-                origin = candidate
-                break
-        signatures.add((match.group(1), origin))
+    sources = [source for source in (log_text, "\n".join(errors)) if source]
+    for source in sources:
+        pending_exception: str | None = None
+
+        def finish_pending() -> None:
+            nonlocal pending_exception
+            if pending_exception is not None:
+                signatures.add((pending_exception, "unknown"))
+                pending_exception = None
+
+        for line in source.splitlines():
+            stripped = line.strip()
+            if stripped.startswith("SYSTEM: ") and " occurred on " in stripped:
+                finish_pending()
+                continue
+
+            match = EXCEPTION_RE.search(line)
+            if match:
+                finish_pending()
+                pending_exception = match.group(1)
+                continue
+
+            if pending_exception is None:
+                continue
+            if stripped.startswith("SYSTEM: "):
+                finish_pending()
+                continue
+
+            frame = FRAME_RE.match(line)
+            if frame:
+                candidate = frame.group(1)
+                if not candidate.startswith(FRAME_NOISE_PREFIXES):
+                    signatures.add((pending_exception, candidate))
+                    pending_exception = None
+
+        finish_pending()
+
     return [
         {"exception": exception, "origin": origin}
         for exception, origin in sorted(signatures)

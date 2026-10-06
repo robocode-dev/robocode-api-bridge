@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream;
 
 /**
  * Utility class for bytecode transformation of robot classes to ensure proper termination.
- * Replaces infinite loops (while(true)) with condition-based loops (while(getEnergy() >= 0)).
+ * Replaces infinite loops in robot run methods with condition-based loops (while(getEnergy() >= 0)).
  * <p>
  * The transformation is applied at wrap time (when the bot directory is generated), and the
  * transformed class file is written into the bot directory, where it shadows the original class
@@ -111,7 +111,45 @@ public class RobotMethodReplacer {
                 return true;
             }
         }
+
+        // javac can compile a terminal `do { ... } while (true)` as a single backward GOTO,
+        // with no constant/conditional pair for the pattern above to recognize.
+        InstructionHandle lastHandle = handles[handles.length - 1];
+        if (isTerminalBackwardGoto(lastHandle)) {
+            replaceTerminalBackwardGoto(instructionList, lastHandle, cpg, className);
+            return true;
+        }
         return false;
+    }
+
+    private static boolean isTerminalBackwardGoto(InstructionHandle handle) {
+        if (!(handle.getInstruction() instanceof GOTO)) {
+            return false;
+        }
+        InstructionHandle target = ((GOTO) handle.getInstruction()).getTarget();
+        return target.getPosition() < handle.getPosition();
+    }
+
+    private static void replaceTerminalBackwardGoto(
+            InstructionList instructionList,
+            InstructionHandle backEdge,
+            ConstantPoolGen cpg,
+            String className) {
+        InstructionHandle loopStart = ((GOTO) backEdge.getInstruction()).getTarget();
+        InstructionList energyCheck = new InstructionList();
+        energyCheck.append(new ALOAD(0));
+        energyCheck.append(new INVOKEVIRTUAL(cpg.addMethodref(className, "getEnergy", "()D")));
+        energyCheck.append(new DCONST(0.0));
+        energyCheck.append(new DCMPG());
+        energyCheck.append(new IFGE(loopStart));
+        energyCheck.append(new RETURN());
+
+        InstructionHandle newStart = instructionList.insert(backEdge, energyCheck);
+        try {
+            instructionList.delete(backEdge);
+        } catch (TargetLostException e) {
+            handleLostTargets(e, newStart);
+        }
     }
 
     /**
