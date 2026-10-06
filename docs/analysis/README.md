@@ -97,4 +97,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-091 — Electron's current melee errors belong to the pinned opponent pool](AN-091-electron-melee-pool-errors.md) · `active` — Do Electron's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-092 — Grudge's current melee errors belong to the pinned opponent pool](AN-092-grudge-melee-pool-errors.md) · `active` — Do Grudge's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-093 — Wren's current melee errors belong to the pinned opponent pool](AN-093-wren-melee-pool-errors.md) · `active` — Do Wren's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
+- [AN-094 — Talon's current melee errors belong to the pinned opponent pool](AN-094-talon-melee-pool-errors.md) · `active` — Do Talon's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 <!-- clue:index:end -->
