@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 11 |
+| CONFIRMED (score) | 12 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 701 |
-| score-review | 268 |
+| score-review | 267 |
 
 ## Subjects
 
@@ -248,7 +248,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6e0ffccdcd38fada | - | - |
 | roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | 1b2a4d6c4330ef36 | - | - |
 | roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 1842fd1571b0c43b | - | - |
-| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | score-review | 242021032b8974e3 | - | - |
+| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | CONFIRMED (score) | 5d86fd97b4543fb8 | - | - |
 | roborumble/blir.nano.inch.Inchworm_1.0.jar | roborumble | robot | PASS | 7f8e4239129f32f8 | - | - |
 | roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | b36bd24ea7cdd125 | - | - |
 | roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | fad1a48dcb20e058 | - | - |
