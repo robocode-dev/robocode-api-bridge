@@ -227,7 +227,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | 10f460339be51bf0 | - | - |
 | roborumble/axeBots.HataMoto_3.09.jar | roborumble | robot | PASS | f9cf536953c45a91 | - | - |
 | roborumble/axeBots.Musashi_2.18.jar | roborumble | robot | PASS | 40e7f2ea2300c8f4 | - | - |
-| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | cf091ab89a700f92 | - | - |
+| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | abb124f1b2d515b0 | robot-unchecked-null-history-file | robot |
 | roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | 38162854ee54a334 | - | - |
 | roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | 630f1c58f42bbb9d | - | - |
 | roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | DISCREPANCY (outcome) | 90ed0c87e0e6d487 | - | - |

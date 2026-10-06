@@ -115,4 +115,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-109 — Frederick's very low randomized scores leave the engine outcome difference open](AN-109-frederick-low-score-outcome-variance.md) · `active` — Do Frederick's very low current scores establish a stable cross-engine outcome difference?
 - [AN-110 — FourWD's score gap is confirmed while its Classic null-target exception is robot-owned](AN-110-fourwd-confirmed-score-gap-and-null-target.md) · `active` — Is FourWD's score gap reproducible, and what causes its NullPointerException?
 - [AN-111 — Help's score gap confirms while its historical null-wave error is robot-owned](AN-111-help-confirmed-score-gap-and-null-wave.md) · `active` — Does Help's score gap persist with current artifacts, and what caused the historical Tank Royale exception?
+- [AN-112 — Okami's Classic-only file-read errors follow its unchecked missing-history-file path](AN-112-okami-null-history-file-errors.md) · `active` — Do Okami's Classic-only file errors recur, and how does the robot handle missing history files?
 <!-- clue:index:end -->
