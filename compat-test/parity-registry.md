@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 14 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 70 |
+| DISCREPANCY (outcome) | 69 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
-| PASS | 702 |
+| PASS | 703 |
 | score-review | 265 |
 
 ## Subjects
@@ -262,7 +262,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/brainfade.Fallen_0.63.jar | roborumble | robot | PASS | e28628d85d0c4a56 | - | - |
 | roborumble/brainfade.melee.Dusk_0.44.jar | roborumble | robot | PASS | f8ee020df517510f | - | - |
 | roborumble/bts.mega.Gnarly_1.4.jar | roborumble | robot | PASS | 867182c105c432de | - | - |
-| roborumble/bts.wiki.RipCurl_0.9b.jar | roborumble | robot | DISCREPANCY (outcome) | 1a37177249ebafea | - | - |
+| roborumble/bts.wiki.RipCurl_0.9b.jar | roborumble | robot | PASS | dc44d1fa8d4bbef2 | - | - |
 | roborumble/buba.Archivist_0.1.jar | roborumble | robot | PASS | aa1f6c80b995d2cc | - | - |
 | roborumble/buba.Buba_0.3.jar | roborumble | robot | PASS | 224194e7fcdb5495 | - | - |
 | roborumble/bumblebee.Bumblebee_1.0.jar | roborumble | robot | PASS | 43be93c102edd078 | - | - |
