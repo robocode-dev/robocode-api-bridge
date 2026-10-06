@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 14 |
+| MATCHED (score noise) | 15 |
 | PASS | 701 |
-| score-review | 270 |
+| score-review | 269 |
 
 ## Subjects
 
@@ -242,7 +242,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | 48c972a2d69181bf | - | - |
 | roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | cda71b473b262cf3 | - | - |
 | roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 8d781fc673893f81 | - | - |
-| roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | score-review | 5b3b35ee945403ba | - | - |
+| roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | MATCHED (score noise) | 02a6d347ffc7c3d8 | - | - |
 | roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 6c6d91b59c2d4dae | - | - |
 | roborumble/bk.Shooter_1.0.jar | roborumble | robot | score-review | 81e101672cb7f9c8 | - | - |
 | roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6e0ffccdcd38fada | - | - |

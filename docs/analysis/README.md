@@ -120,4 +120,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-114 — UbaRamLT's repeated score gap clears the five-run confirmation band](AN-114-ubaramlt-repeated-score-gap.md) · `active` — Does UbaRamLT's score gap persist under five official repeats with current matched artifacts?
 - [AN-115 — Squirrel's historical no-score outcome changes to a confirmed current score gap](AN-115-squirrel-confirmed-score-gap.md) · `active` — Does Squirrel's historical no-score result persist with the current matched artifacts, and is its score gap confirmed?
 - [AN-116 — RamboT's confirmed score gap depends on one unusually high-delta run](AN-116-rambo-score-confirmation-outlier-sensitivity.md) · `active` — Does RamboT's score gap persist across five pairs, and how sensitive is it to per-run variation?
+- [AN-117 — Melody's historical score gaps are not reproduced in the current confirmation](AN-117-melody-historical-score-gap-not-reproduced.md) · `active` — Do Melody's historical large score differences recur in the current five-pair confirmation?
 <!-- clue:index:end -->
