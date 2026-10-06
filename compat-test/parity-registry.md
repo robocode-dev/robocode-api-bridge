@@ -6,10 +6,10 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 6 |
+| CONFIRMED (score) | 7 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 73 |
+| DISCREPANCY (outcome) | 72 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
 | PASS | 700 |
@@ -215,7 +215,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 1c0e50209a64265e | - | - |
 | roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 49c18c2ef7546001 | - | - |
 | roborumble/ary.FourWD_1.3d.jar | roborumble | robot | CONFIRMED (score) | d809601a19bd3eed | robot-null-target-in-virtual-bullet-distance | robot |
-| roborumble/ary.Help_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 3e13e72d5b4a27ae | - | - |
+| roborumble/ary.Help_1.0.jar | roborumble | robot | CONFIRMED (score) | 802cd57fbdc37a4d | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | 65f473a89338e12c | - | - |
 | roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | d78349c330daf18b | - | - |
 | roborumble/ary.mini.Nimi_1.0.jar | roborumble | robot | PASS | 4966fdf0a4ba6ee7 | - | - |
