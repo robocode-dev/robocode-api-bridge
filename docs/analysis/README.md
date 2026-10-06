@@ -145,4 +145,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-139 — Idem's negative score gap is confirmed across five runs](AN-139-idem-confirmed-negative-score-gap.md) · `active` — Does Idem's historical score discrepancy persist with current matched artifacts?
 - [AN-140 — Suicidal's Classic zero-score result persists with no runtime errors](AN-140-suicidal-classic-zero-score-persists.md) · `active` — Does Suicidal's Classic zero-score result recur, and what behavior appears in its source?
 - [AN-141 — Karolos's historical Tank Royale failure does not recur](AN-141-karolos-outcome-failure-not-reproduced.md) · `active` — Does Karolos's historical Tank Royale no-score failure recur with current matched artifacts?
+- [AN-142 — Nene's all-five Tank Royale zero-score gap is confirmed](AN-142-nene-zero-score-gap-confirmed.md) · `active` — Does Nene's Tank Royale zero-score discrepancy persist, and what does the available evidence establish about its cause?
 <!-- clue:index:end -->
