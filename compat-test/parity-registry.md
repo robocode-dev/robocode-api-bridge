@@ -322,7 +322,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/css.Delitioner_0.11.jar | roborumble | robot | PASS | 5011f2da71d38328 | - | - |
 | roborumble/cuoq.Kakera_1.0.jar | roborumble | robot | PASS | 24bb72dfc648f37c | - | - |
 | roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (outcome) | c83f4cf3396ce737 | robot-enemy-pattern-reads-past-final-sample | robot |
-| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (outcome) | cebc69d8bb954e71 | - | - |
+| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (outcome) | c279e9c8a178d0c0 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Gridd_0.4.jar | roborumble | robot | PASS | 6f34f6ef130995c8 | - | - |
 | roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | DISCREPANCY (outcome) | 35a21885ebf299e0 | - | - |
 | roborumble/cw.megas.Silhouette_1.1.jar | roborumble | robot | PASS | 25c5e3c9db55e253 | - | - |
