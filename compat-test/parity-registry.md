@@ -70,7 +70,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (outcome) | 003a8921f174ee81 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | dc104bbcc0f75283 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 5c54d07d0c37d704 | melee-opponent-pool-contamination | harness |
-| meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6a47d423a68edb16 | melee-opponent-pool-contamination | harness |
+| meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 16e4155095f28971 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | aea5ddeab60de735 | melee-opponent-pool-contamination | harness |
 | meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cf68d47889537d83 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 28d317077e8a0d5c | melee-opponent-pool-contamination | harness |
