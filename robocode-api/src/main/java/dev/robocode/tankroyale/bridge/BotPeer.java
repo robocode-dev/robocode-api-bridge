@@ -319,17 +319,41 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             pendingTeamMessages.subList(0, messageCount).clear();
         }
         if (pending.size() == 1) {
-            PendingTeamMessage message = pending.get(0);
-            if (message.recipientId == null) {
-                bot.broadcastTeamMessage(message.transportMessage);
-            } else {
-                bot.sendTeamMessage(message.recipientId, message.transportMessage);
-            }
+            sendTeamMessage(pending.get(0));
             return;
         }
-        bot.broadcastTeamMessageBatch(pending.stream()
-                .map(message -> message.batchMessage)
-                .collect(Collectors.toList()));
+        broadcastPendingTeamMessageBatch(pending);
+    }
+
+    private void broadcastPendingTeamMessageBatch(List<PendingTeamMessage> pending) {
+        try {
+            bot.broadcastTeamMessageBatch(pending.stream()
+                    .map(message -> message.batchMessage)
+                    .collect(Collectors.toList()));
+        } catch (IllegalArgumentException exception) {
+            String message = exception.getMessage();
+            if (message == null || !message.startsWith("The team message is larger than the limit of ")) {
+                throw exception;
+            }
+
+            // The Bot API caps each encoded packet at 48 KiB. Split only that failure, retaining
+            // classic message order and routing; per-turn limits and other validation still apply.
+            if (pending.size() == 1) {
+                sendTeamMessage(pending.get(0));
+                return;
+            }
+            int midpoint = pending.size() / 2;
+            broadcastPendingTeamMessageBatch(pending.subList(0, midpoint));
+            broadcastPendingTeamMessageBatch(pending.subList(midpoint, pending.size()));
+        }
+    }
+
+    private void sendTeamMessage(PendingTeamMessage message) {
+        if (message.recipientId == null) {
+            bot.broadcastTeamMessage(message.transportMessage);
+        } else {
+            bot.sendTeamMessage(message.recipientId, message.transportMessage);
+        }
     }
 
     void dispatchStatusEvent(TickEvent tickEvent) {
