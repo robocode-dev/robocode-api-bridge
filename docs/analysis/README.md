@@ -132,4 +132,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-126 — Tirunculus's current score gap is confirmed at +24.28 percent](AN-126-tirunculus-confirmed-score-gap.md) · `active` — Does Tirunculus's score gap persist across five current pairs?
 - [AN-127 — Furia Ceca's negative score gap is confirmed across five runs](AN-127-furia-ceca-confirmed-score-gap.md) · `active` — Does Furia Ceca's historical score discrepancy persist with current matched artifacts?
 - [AN-128 — Domogled's historical Tank Royale exception does not recur](AN-128-domogled-tank-royale-error-not-reproduced.md) · `active` — Does Domogled's historical Tank Royale-only exception recur with current matched artifacts?
+- [AN-129 — Firestarter's repeated no-score outcome follows unchecked robot state](AN-129-firestarter-repeated-robot-owned-no-score.md) · `active` — Does Firestarter's Tank Royale no-score result recur, and what do its logged exceptions identify?
 <!-- clue:index:end -->

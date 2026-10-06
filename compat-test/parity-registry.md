@@ -284,7 +284,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 02c8849c0009547c | - | - |
 | roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | a68f7fbc62aef405 | - | - |
 | roborumble/cb.Domogled_1.2.jar | roborumble | robot | PASS | 81b684f912cb6069 | - | - |
-| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 89623ea5edf609f2 | - | - |
+| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | fa6b9b4c0ad0f91b | robot-uninitialized-wall-rectangle | robot |
 | roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 9f919c351f22baa4 | - | - |
 | roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | score-review | 2b65230e01814b28 | - | - |
 | roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | a743104b456df95b | - | - |

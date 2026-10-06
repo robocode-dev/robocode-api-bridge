@@ -128024,7 +128024,20 @@
       "status": "PASS"
     },
     "roborumble/cb.fire.Firestarter_2.0f.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-empty-list-index-zero",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-06T21:05:10Z"
+        },
+        {
+          "cause": "robot-uninitialized-wall-rectangle",
+          "id": "diagnosis-2",
+          "owner": "robot",
+          "recorded_at": "2026-10-06T21:05:16Z"
+        }
+      ],
       "identity": {
         "classic_selected": "cb.fire.Firestarter 2.0f",
         "division": "roborumble",
@@ -128033,7 +128046,7 @@
         "key": "roborumble/cb.fire.Firestarter_2.0f.jar",
         "kind": "robot"
       },
-      "latest_observation": "89623ea5edf609f2",
+      "latest_observation": "fa6b9b4c0ad0f91b",
       "observations": [
         {
           "classic": {
@@ -128196,6 +128209,103 @@
             "score": null,
             "scores": [],
             "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 58.5,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4397.0,
+            "scores": [
+              2613.0,
+              1784.0
+            ],
+            "selected": "cb.fire.Firestarter 2.0f"
+          },
+          "completed_at": "2026-10-06T21:02:55Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "fa6b9b4c0ad0f91b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "7e0d5840c38df36f21fab31b5007bc0fab57ab2b",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "cb.fire.Firestarter 2.0f",
+            "division": "roborumble",
+            "jar": "cb.fire.Firestarter_2.0f.jar",
+            "jar_sha256": "de45410b59fea6b8fad9463ece161e1e1656960129f1b9bc84791137d788325f",
+            "key": "roborumble/cb.fire.Firestarter_2.0f.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.IndexOutOfBoundsException",
+                "C.L.B"
+              ]
+            ],
+            "elapsed": 4.1,
+            "error_count": 5,
+            "error_signatures": [
+              {
+                "exception": "java.lang.IndexOutOfBoundsException",
+                "origin": "C.L.B"
+              },
+              {
+                "exception": "java.lang.IndexOutOfBoundsException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0",
+              "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0",
+              "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0",
+              "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
           }
         }
       ],
