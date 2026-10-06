@@ -40,7 +40,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | b63cca657d6cfdd5 | melee-opponent-pool-contamination | harness |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8651c3aead3e6e8a | melee-opponent-pool-contamination | harness |
 | meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | d051bb63b263a568 | melee-opponent-pool-contamination | harness |
-| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 21a2c4a504e912ab | - | - |
+| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 591555b5e1137e5e | melee-opponent-pool-contamination | harness |
 | meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 1e651c72ac620a9e | - | - |
 | meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | 4b092c6fc546a70d | - | - |
 | meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | 9b446497f4946220 | - | - |

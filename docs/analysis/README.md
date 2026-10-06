@@ -56,4 +56,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-050 — NanoClone's melee error result comes from the pinned opponent pool](AN-050-nanoclone-melee-opponent-errors.md) · `active` — Do the current `amz.NanoClone_1.41.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-051 — Frederick's melee error result comes from the pinned opponent pool](AN-051-frederick-melee-opponent-errors.md) · `active` — Do the current `ap.Frederick_1.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-052 — BotM's melee error result comes from the pinned opponent pool](AN-052-botm-melee-opponent-errors.md) · `active` — Do the current `apc.botM_3.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-053 — ApolloKidd's melee error result comes from the pinned opponent pool](AN-053-apollokidd-melee-opponent-errors.md) · `active` — Do the current `apollokidd.ApolloKidd_0.9.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
