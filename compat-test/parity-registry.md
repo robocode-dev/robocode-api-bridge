@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 13 |
+| CONFIRMED (score) | 14 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 70 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 702 |
-| score-review | 266 |
+| score-review | 265 |
 
 ## Subjects
 
@@ -257,7 +257,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 72dbc427c019d828 | - | - |
 | roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | 0e8217b8963172d1 | - | - |
 | roborumble/bots.UnterExBot_1.0.jar | roborumble | robot | PASS | b21f0e7cab8945cc | - | - |
-| roborumble/bp.Kuma_1.0.jar | roborumble | robot | score-review | 85f7f94a56f0d1c2 | - | - |
+| roborumble/bp.Kuma_1.0.jar | roborumble | robot | CONFIRMED (score) | 0c6594fecad7bc88 | - | - |
 | roborumble/braaropolis.Abot_1.0.jar | roborumble | robot | PASS | a2df55df8d971459 | - | - |
 | roborumble/brainfade.Fallen_0.63.jar | roborumble | robot | PASS | e28628d85d0c4a56 | - | - |
 | roborumble/brainfade.melee.Dusk_0.44.jar | roborumble | robot | PASS | f8ee020df517510f | - | - |
