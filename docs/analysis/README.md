@@ -118,4 +118,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-112 — Okami's Classic-only file-read errors follow its unchecked missing-history-file path](AN-112-okami-null-history-file-errors.md) · `active` — Do Okami's Classic-only file errors recur, and how does the robot handle missing history files?
 - [AN-113 — Ololobot's historical Tank Royale crash does not recur with current artifacts](AN-113-ololobot-old-tank-royale-crash-not-reproduced.md) · `active` — Does Ololobot's historical Tank Royale no-score failure recur with the current matched artifacts?
 - [AN-114 — UbaRamLT's repeated score gap clears the five-run confirmation band](AN-114-ubaramlt-repeated-score-gap.md) · `active` — Does UbaRamLT's score gap persist under five official repeats with current matched artifacts?
+- [AN-115 — Squirrel's historical no-score outcome changes to a confirmed current score gap](AN-115-squirrel-confirmed-score-gap.md) · `active` — Does Squirrel's historical no-score result persist with the current matched artifacts, and is its score gap confirmed?
 <!-- clue:index:end -->
