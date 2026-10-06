@@ -82,4 +82,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-076 — Tirunculus's current melee errors come from the pinned opponent pool](AN-076-tirunculus-melee-opponent-errors.md) · `active` — Do the current `bwbaugh.nano.Tirunculus_0.0.0a.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-077 — BoxCar's current melee errors come from the pinned opponent pool](AN-077-boxcar-melee-opponent-errors.md) · `active` — Do the current `bzdp.BoxCar_2.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-078 — Pansy's current melee errors come from the pinned opponent pool](AN-078-pansy-melee-opponent-errors.md) · `active` — Do the current `bzdp.Pansy_2.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-079 — Furia Ceca's current melee errors come from the pinned opponent pool](AN-079-furia-ceca-melee-opponent-errors.md) · `active` — Do the current `caimano.Furia_Ceca_0.22.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
