@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 4 |
-| DISCREPANCY (errors) | 83 |
+| DISCREPANCY (errors) | 82 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 73 |
+| DISCREPANCY (outcome) | 74 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 13 |
 | PASS | 699 |
@@ -67,7 +67,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | b4d7385895ba5fac | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 71bc3037569ffa27 | melee-opponent-pool-contamination | harness |
 | meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | bc9800bb85670d2b | melee-opponent-pool-contamination | harness |
-| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | 5d839d3648d7ed3a | initial-status-before-run | bridge |
+| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (outcome) | 003a8921f174ee81 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | abd63f20d915d381 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 491778d42b27fa0a | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6a47d423a68edb16 | melee-opponent-pool-contamination | harness |

@@ -83,4 +83,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-077 — BoxCar's current melee errors come from the pinned opponent pool](AN-077-boxcar-melee-opponent-errors.md) · `active` — Do the current `bzdp.BoxCar_2.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-078 — Pansy's current melee errors come from the pinned opponent pool](AN-078-pansy-melee-opponent-errors.md) · `active` — Do the current `bzdp.Pansy_2.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-079 — Furia Ceca's current melee errors come from the pinned opponent pool](AN-079-furia-ceca-melee-opponent-errors.md) · `active` — Do the current `caimano.Furia_Ceca_0.22.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-080 — Firestarter's oversized team-message batch is fixed; a melee fixture error remains](AN-080-firestarter-team-message-batch-size.md) · `active` — Is Firestarter's current no-score caused by the robot, bridge batching, a mismatched runner, or the pinned melee opponent pool?
 <!-- clue:index:end -->
