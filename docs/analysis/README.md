@@ -107,4 +107,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-101 — B26354's earlier Tank Royale exception does not recur with the current matched artifacts](AN-101-b26354-current-melee-result.md) · `active` — Does B26354's earlier Tank Royale-only exception recur with the current matched artifacts, and is its current score delta a confirmed gap?
 - [AN-102 — CodaFirst's official score gap is confirmed but its behavioral cause remains open](AN-102-codafirst-confirmed-score-gap.md) · `active` — What causes CodaFirst's confirmed score gap when the official runs have no runtime errors or skipped turns?
 - [AN-103 — ArchimedesAlpha's no-score result comes from keyboard-only controls](AN-103-archimedesalpha-keyboard-only-no-score.md) · `active` — Does ArchimedesAlpha's no-score result identify a bridge discrepancy or its interactive-only controls?
+- [AN-104 — Chicken's historical zero-score Tank Royale result does not recur with current artifacts](AN-104-chicken-old-score-gap-not-reproduced.md) · `active` — Does Chicken's historical −100% score discrepancy persist under the current matched artifact pair?
 <!-- clue:index:end -->
