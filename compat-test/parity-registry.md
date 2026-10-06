@@ -68,7 +68,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 71bc3037569ffa27 | melee-opponent-pool-contamination | harness |
 | meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | bc9800bb85670d2b | melee-opponent-pool-contamination | harness |
 | meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (outcome) | 003a8921f174ee81 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
-| meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | abd63f20d915d381 | melee-opponent-pool-contamination | harness |
+| meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | dc104bbcc0f75283 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 491778d42b27fa0a | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6a47d423a68edb16 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | aea5ddeab60de735 | melee-opponent-pool-contamination | harness |
