@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 18 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 69 |
+| DISCREPANCY (outcome) | 68 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
-| PASS | 703 |
+| PASS | 704 |
 | score-review | 261 |
 
 ## Subjects
@@ -283,7 +283,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | e5ecc6fe604d60b8 | - | - |
 | roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 02c8849c0009547c | - | - |
 | roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | a68f7fbc62aef405 | - | - |
-| roborumble/cb.Domogled_1.2.jar | roborumble | robot | DISCREPANCY (outcome) | 5447e9339db7eccd | - | - |
+| roborumble/cb.Domogled_1.2.jar | roborumble | robot | PASS | 81b684f912cb6069 | - | - |
 | roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 89623ea5edf609f2 | - | - |
 | roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 9f919c351f22baa4 | - | - |
 | roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | score-review | 2b65230e01814b28 | - | - |
