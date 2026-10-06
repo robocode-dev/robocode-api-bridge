@@ -151,4 +151,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-145 — GhostShell GT's repeated no-score run has robot-owned unchecked state](AN-145-ghostshell-repeated-no-score-has-robot-owned-errors.md) · `active` — Does GhostShell GT's historical no-score outcome recur, and which unchecked robot paths match its errors?
 - [AN-146 — Polar's historical no-score failure does not recur](AN-146-polar-no-score-failure-not-reproduced.md) · `active` — Does Polar's historical Tank Royale no-score outcome recur, and what owns its remaining error?
 - [AN-147 — Blur's large score gap persists, with confirmation interrupted by a robot null wave](AN-147-blur-score-gap-with-incomplete-confirmation.md) · `active` — Does Blur's historical score deficit persist, and what interrupted the five-pair confirmation?
+- [AN-148 — Spark's large positive score gap is confirmed across five pairs](AN-148-spark-positive-score-gap-confirmed.md) · `active` — Does Spark's historical Tank Royale score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
