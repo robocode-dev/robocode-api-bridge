@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 16 |
+| CONFIRMED (score) | 17 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 69 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 703 |
-| score-review | 263 |
+| score-review | 262 |
 
 ## Subjects
 
@@ -278,7 +278,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bvh.mini.Mjolnir_0.3.jar | roborumble | robot | PASS | b8b6ef9147eb54d2 | - | - |
 | roborumble/bvh.mini.Wodan_0.50.jar | roborumble | robot | PASS | ca182a611e34db8e | - | - |
 | roborumble/bvh.tyr.Tyr_1.74.jar | roborumble | robot | PASS | 5b1f84ee29ac481a | - | - |
-| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | score-review | 065a07920f011446 | - | - |
+| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | c65434b2428d5eb5 | - | - |
 | roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | 158dc02a97104f42 | - | - |
 | roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | e5ecc6fe604d60b8 | - | - |
 | roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | score-review | 4d5dd0574032c7bf | - | - |
