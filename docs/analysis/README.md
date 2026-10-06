@@ -60,4 +60,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-054 — Shera's melee error result comes from the pinned opponent pool](AN-054-shera-melee-opponent-errors.md) · `active` — Do the current `ara.Shera_0.88.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-055 — MannyPacquiao's terminal loop escaped wrapper stopping and confused error attribution](AN-055-mannypacquiao-terminal-loop.md) · `active` — Does MannyPacquiao's melee result identify a bridge loop-stop defect, a harness attribution defect, or only pinned opponent failures?
 - [AN-056 — NanoSatanMelee's current melee errors come from the pinned opponent pool](AN-056-nanosatanmelee-opponent-errors.md) · `active` — Do the current `arthord.NanoSatanMelee_Beta.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-057 — Swarm's current melee error comes from the pinned opponent pool](AN-057-swarm-melee-opponent-errors.md) · `active` — Do the current `ary.Swarm_1.1.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
