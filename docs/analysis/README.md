@@ -142,4 +142,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-136 — DestrobotMalin's negative score gap is confirmed across five runs](AN-136-destrobotmalin-confirmed-score-gap.md) · `active` — Does DestrobotMalin's historical score discrepancy persist with current matched artifacts?
 - [AN-137 — T1000's Classic zero score persists, and its bytecode ignores scanned bearing](AN-137-t1000-classic-zero-score-and-stale-bearing.md) · `active` — Does T1000's Classic zero score persist, and what behavior issue appears in its bytecode?
 - [AN-138 — Bulldozer's positive score gap is confirmed at a smaller magnitude](AN-138-bulldozer-confirmed-score-gap.md) · `active` — Does Bulldozer's historical score gap persist across current five-pair confirmation?
+- [AN-139 — Idem's negative score gap is confirmed across five runs](AN-139-idem-confirmed-negative-score-gap.md) · `active` — Does Idem's historical score discrepancy persist with current matched artifacts?
 <!-- clue:index:end -->

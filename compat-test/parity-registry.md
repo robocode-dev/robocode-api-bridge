@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 20 |
+| CONFIRMED (score) | 21 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 68 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 17 |
 | PASS | 705 |
-| score-review | 256 |
+| score-review | 255 |
 
 ## Subjects
 
@@ -310,7 +310,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/com.timothyveletta.FuzzyBot_1.1.jar | roborumble | robot | PASS | 2725e155384329ea | - | - |
 | roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 018a86452c5c224d | - | - |
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
-| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | score-review | eb8ec45277d96dfd | - | - |
+| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 1626e7b07d273141 | - | - |
 | roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | a392eb662de14448 | - | - |
 | roborumble/cre.Karolos_0.32.jar | roborumble | robot | DISCREPANCY (outcome) | 7bb15adf1502a23c | - | - |
 | roborumble/cs.Nene_1.0.5.jar | roborumble | robot | score-review | 0beaabd2346d9730 | - | - |
