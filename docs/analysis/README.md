@@ -68,4 +68,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-062 — Ololobot's old Tank Royale outcome errors do not recur on current artifacts](AN-062-ololobot-melee-outcome-recheck.md) · `active` — Does Ololobot's earlier Tank Royale-only runtime failure persist on current local artifacts?
 - [AN-063 — N's current melee errors come from the pinned opponent pool](AN-063-n-is-melee-opponent-errors.md) · `active` — Do the current `baal.nano.N_1.42.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-064 — UbaMicro's current melee errors come from the pinned opponent pool](AN-064-ubamicro-melee-opponent-errors.md) · `active` — Do the current `bayen.UbaMicro_1.4.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-065 — Squirrel's missing score repeats robot-owned indexing and null-scan errors](AN-065-squirrel-melee-robot-errors.md) · `active` — Does Squirrel's missing score identify the bridge, the subject robot, or the pinned opponent pool?
 <!-- clue:index:end -->

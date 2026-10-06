@@ -52,7 +52,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0f473f90619606e6 | melee-opponent-pool-contamination | harness |
 | meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | 981b7fc2f6749d5c | melee-opponent-pool-contamination | harness |
 | meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 5f9fc856e2e6f61a | melee-opponent-pool-contamination | harness |
-| meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | 0e555108c857e84e | - | - |
+| meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | beacf992d9a2c81c | robot-unchecked-wave-index-and-null-last-scan | robot |
 | meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 24e1c68ffaa4d90a | - | - |
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | a14785216530e193 | - | - |
 | meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | a7743ab3acf92fc8 | - | - |
