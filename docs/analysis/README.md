@@ -70,4 +70,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-064 — UbaMicro's current melee errors come from the pinned opponent pool](AN-064-ubamicro-melee-opponent-errors.md) · `active` — Do the current `bayen.UbaMicro_1.4.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-065 — Squirrel's missing score repeats robot-owned indexing and null-scan errors](AN-065-squirrel-melee-robot-errors.md) · `active` — Does Squirrel's missing score identify the bridge, the subject robot, or the pinned opponent pool?
 - [AN-066 — Stewie's current melee errors come from the pinned opponent pool](AN-066-stewie-melee-opponent-errors.md) · `active` — Do the current `bigpete.Stewie_1.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-067 — Dusk's current melee errors come from the pinned opponent pool](AN-067-dusk-melee-opponent-errors.md) · `active` — Do the current `brainfade.melee.Dusk_0.44.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
