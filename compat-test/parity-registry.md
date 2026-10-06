@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 9 |
+| CONFIRMED (score) | 10 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
 | PASS | 701 |
-| score-review | 271 |
+| score-review | 270 |
 
 ## Subjects
 
@@ -238,7 +238,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | f0b9374e244abc40 | - | - |
 | roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 2f9eb4f23c454774 | - | - |
 | roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | CONFIRMED (score) | 94e3d75e650a463c | - | - |
-| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | score-review | aca48d105b06bcde | - | - |
+| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | c468ff79790bb4bc | - | - |
 | roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | 48c972a2d69181bf | - | - |
 | roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | cda71b473b262cf3 | - | - |
 | roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 8d781fc673893f81 | - | - |
