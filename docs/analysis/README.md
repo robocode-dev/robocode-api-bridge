@@ -110,4 +110,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-104 — Chicken's historical zero-score Tank Royale result does not recur with current artifacts](AN-104-chicken-old-score-gap-not-reproduced.md) · `active` — Does Chicken's historical −100% score discrepancy persist under the current matched artifact pair?
 - [AN-105 — Mijit's persistent score gap accompanies a robot-owned wave-distance index error](AN-105-mijit-wave-distance-index-and-score-gap.md) · `active` — Does Mijit's historical score gap persist with current artifacts, and what caused its current Tank Royale-only exception?
 - [AN-106 — RandomTrackerNOREV's historical Classic zero score does not recur with current artifacts](AN-106-randomtrackernorev-zero-score-not-reproduced.md) · `active` — Does RandomTrackerNOREV's historical no-score discrepancy persist under current artifacts?
+- [AN-107 — TrackerWO's historical Classic zero score is not reproduced in the current pair](AN-107-trackerwo-zero-score-not-reproduced.md) · `active` — Does TrackerWO's historical no-score discrepancy persist under the current matched artifacts?
 <!-- clue:index:end -->
