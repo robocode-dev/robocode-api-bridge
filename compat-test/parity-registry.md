@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 4 |
-| DISCREPANCY (errors) | 82 |
+| DISCREPANCY (errors) | 83 |
 | DISCREPANCY (no score) | 41 |
-| DISCREPANCY (outcome) | 74 |
+| DISCREPANCY (outcome) | 73 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 13 |
 | PASS | 699 |
@@ -49,7 +49,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 0679565125f26395 | subject-owned-data-file-append-quota | robot |
 | meleerumble/awesomeness.Elite_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c86a5acdcda5b3a4 | melee-opponent-pool-contamination | harness |
 | meleerumble/axeBots.HataMoto_3.09.jar | meleerumble | robot | DISCREPANCY (errors) | 30002d21cb0e30ae | classic-undead-thread-stop-warning | classic |
-| meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (outcome) | 091cbdb379677185 | - | - |
+| meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0f473f90619606e6 | melee-opponent-pool-contamination | harness |
 | meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | 584cd0f3ef575185 | - | - |
 | meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 34284e784f889aa4 | - | - |
 | meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | 0e555108c857e84e | - | - |

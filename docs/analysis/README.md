@@ -65,4 +65,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-059 — Cthulhu's melee errors mix its own data-file quota output with opponent failures](AN-059-cthulhu-mixed-melee-errors.md) · `active` — Does Cthulhu's current result come from its own file writes, the bridge, or the pinned opponent pool?
 - [AN-060 — Elite's current melee errors come from the pinned opponent pool](AN-060-elite-melee-opponent-errors.md) · `active` — Do the current `awesomeness.Elite_1.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-061 — HataMoto's old outcome discrepancy no longer reproduces, but Classic logs stop warnings](AN-061-hatamoto-melee-shutdown-warnings.md) · `active` — Does the current result retain the old missing-score gap, and who owns its remaining errors?
+- [AN-062 — Ololobot's old Tank Royale outcome errors do not recur on current artifacts](AN-062-ololobot-melee-outcome-recheck.md) · `active` — Does Ololobot's earlier Tank Royale-only runtime failure persist on current local artifacts?
 <!-- clue:index:end -->
