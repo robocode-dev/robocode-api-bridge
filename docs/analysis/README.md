@@ -112,4 +112,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-106 — RandomTrackerNOREV's historical Classic zero score does not recur with current artifacts](AN-106-randomtrackernorev-zero-score-not-reproduced.md) · `active` — Does RandomTrackerNOREV's historical no-score discrepancy persist under current artifacts?
 - [AN-107 — TrackerWO's historical Classic zero score is not reproduced in the current pair](AN-107-trackerwo-zero-score-not-reproduced.md) · `active` — Does TrackerWO's historical no-score discrepancy persist under the current matched artifacts?
 - [AN-108 — Garm's Tank Royale worker failure recurs, but its originating error is unavailable](AN-108-garm-worker-class-initialization-failure-reproduced.md) · `active` — Does Garm's historical Tank Royale worker failure recur with current artifacts, and can the logs assign its cause?
+- [AN-109 — Frederick's very low randomized scores leave the engine outcome difference open](AN-109-frederick-low-score-outcome-variance.md) · `active` — Do Frederick's very low current scores establish a stable cross-engine outcome difference?
 <!-- clue:index:end -->

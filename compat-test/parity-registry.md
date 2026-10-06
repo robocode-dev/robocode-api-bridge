@@ -8,8 +8,8 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | CONFIRMED (score) | 5 |
 | DISCREPANCY (errors) | 86 |
-| DISCREPANCY (no score) | 39 |
-| DISCREPANCY (outcome) | 72 |
+| DISCREPANCY (no score) | 38 |
+| DISCREPANCY (outcome) | 73 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 14 |
 | PASS | 700 |
@@ -188,7 +188,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/amk.jointstrike.JointStrike_0.2.jar | roborumble | robot | PASS | 921d60fa06a2d0d0 | - | - |
 | roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | score-review | db8a1c3e449c274e | - | - |
 | roborumble/ao.T100_0.9.jar | roborumble | robot | score-review | dde2c0b78956ab41 | - | - |
-| roborumble/ap.Frederick_1.1.jar | roborumble | robot | DISCREPANCY (no score) | afd8cef3db9b2fa4 | - | - |
+| roborumble/ap.Frederick_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 51e3a70a7b199fd9 | - | - |
 | roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | aabd00fd8b967bed | - | - |
 | roborumble/apc.Colossus2_0.12.jar | roborumble | robot | PASS | 9c81fee190364e22 | scan-target-name-identity | bridge |
 | roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | e8c0fd36dc3876f7 | - | - |
