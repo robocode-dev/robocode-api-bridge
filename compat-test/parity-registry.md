@@ -72,7 +72,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 5c54d07d0c37d704 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 16e4155095f28971 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ee0ebe691b36443a | melee-opponent-pool-contamination | harness |
-| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cf68d47889537d83 | melee-opponent-pool-contamination | harness |
+| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 15283ac581bc0f7c | melee-opponent-pool-contamination | harness |
 | meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 28d317077e8a0d5c | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 110e8ce56bec5d9f | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | PASS | 56d398157b8b2254 | melee-opponent-pool-contamination | harness |

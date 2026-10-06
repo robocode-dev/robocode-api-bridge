@@ -88,4 +88,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-082 — RiOx's earlier scan-after-death error does not recur in the current pair](AN-082-riox-current-melee-result.md) · `active` — Does RiOx's historical `Index 9` failure recur with current artifacts, and is its score delta a confirmed gap?
 - [AN-083 — Dancer's current melee errors belong to the pinned opponent pool](AN-083-dancer-melee-pool-errors.md) · `active` — Do Dancer's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-084 — WasteOfAmmo's current melee errors belong to the pinned opponent pool](AN-084-wasteofammo-melee-pool-errors.md) · `active` — Do WasteOfAmmo's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
+- [AN-085 — LidisTron's current melee errors belong to the pinned opponent pool](AN-085-lidistron-melee-pool-errors.md) · `active` — Do LidisTron's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 <!-- clue:index:end -->
