@@ -99,4 +99,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-093 — Wren's current melee errors belong to the pinned opponent pool](AN-093-wren-melee-pool-errors.md) · `active` — Do Wren's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-094 — Talon's current melee errors belong to the pinned opponent pool](AN-094-talon-melee-pool-errors.md) · `active` — Do Talon's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 - [AN-095 — Delitioner's current melee errors belong to the pinned opponent pool](AN-095-delitioner-melee-pool-errors.md) · `active` — Do Delitioner's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
+- [AN-096 — Firsty's current melee errors belong to the pinned opponent pool](AN-096-firsty-melee-pool-errors.md) · `active` — Do Firsty's current errors belong to the subject, bridge, or pinned melee opponent fixture, and is its score delta a confirmed gap?
 <!-- clue:index:end -->
