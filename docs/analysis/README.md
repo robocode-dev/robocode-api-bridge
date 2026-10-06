@@ -71,4 +71,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-065 — Squirrel's missing score repeats robot-owned indexing and null-scan errors](AN-065-squirrel-melee-robot-errors.md) · `active` — Does Squirrel's missing score identify the bridge, the subject robot, or the pinned opponent pool?
 - [AN-066 — Stewie's current melee errors come from the pinned opponent pool](AN-066-stewie-melee-opponent-errors.md) · `active` — Do the current `bigpete.Stewie_1.0.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-067 — Dusk's current melee errors come from the pinned opponent pool](AN-067-dusk-melee-opponent-errors.md) · `active` — Do the current `brainfade.melee.Dusk_0.44.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-068 — Genghis's current melee errors come from the pinned opponent pool](AN-068-genghis-melee-opponent-errors.md) · `active` — Do the current `brainfade.melee.Genghis_0.36.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->

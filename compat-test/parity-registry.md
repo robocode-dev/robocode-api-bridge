@@ -55,7 +55,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | beacf992d9a2c81c | robot-unchecked-wave-index-and-null-last-scan | robot |
 | meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4e87fc9eef955929 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | 80f69799fd2a3214 | melee-opponent-pool-contamination | harness |
-| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | a7743ab3acf92fc8 | - | - |
+| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 300d364ec402bd8a | melee-opponent-pool-contamination | harness |
 | meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | bc55ababbbac09b4 | - | - |
 | meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | 8de5e7872b68c360 | - | - |
 | meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | bf04da4787f958fa | - | - |
