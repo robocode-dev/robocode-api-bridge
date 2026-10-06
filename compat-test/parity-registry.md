@@ -86,7 +86,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cvt.Firsty_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c00c28dde6c6d301 | melee-opponent-pool-contamination | harness |
 | meleerumble/cx.BlestPain_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | 4f879602201ee2b7 | melee-opponent-pool-contamination | harness |
 | meleerumble/cx.Princess_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b9e6b88d0f56d7ee | melee-opponent-pool-contamination | harness |
-| meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 4a67e4c959254cb4 | melee-opponent-pool-contamination | harness |
+| meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 3d2a941329d5e431 | melee-opponent-pool-contamination | harness |
 | meleerumble/dans.Cinnamon_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | b4dbfb16a2ffb2c0 | melee-opponent-pool-contamination | harness |
 | meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (outcome) | b336f45184cf831d | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | score-review | 8a4dfbfbf555deff | - | - |
