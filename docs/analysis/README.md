@@ -73,4 +73,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-067 — Dusk's current melee errors come from the pinned opponent pool](AN-067-dusk-melee-opponent-errors.md) · `active` — Do the current `brainfade.melee.Dusk_0.44.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-068 — Genghis's current melee errors come from the pinned opponent pool](AN-068-genghis-melee-opponent-errors.md) · `active` — Do the current `brainfade.melee.Genghis_0.36.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-069 — Gnarly's current melee errors come from the pinned opponent pool](AN-069-gnarly-melee-opponent-errors.md) · `active` — Do the current `bts.mega.Gnarly_1.4.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-070 — RipCurl's missing score repeats a robot-origin negative index error](AN-070-ripcurl-melee-outcome-errors.md) · `active` — Does RipCurl's missing Tank Royale score come from the bridge, the subject robot, or the pinned opponent pool?
 <!-- clue:index:end -->
