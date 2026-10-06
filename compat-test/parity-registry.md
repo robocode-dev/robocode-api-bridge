@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 18 |
+| CONFIRMED (score) | 19 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 17 |
 | PASS | 705 |
-| score-review | 259 |
+| score-review | 258 |
 
 ## Subjects
 
@@ -302,7 +302,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 400dfd93c4f1fa3c | - | - |
 | roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 7b75c4d17e30213b | - | - |
 | roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 645d204963358c18 | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
-| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | score-review | 5150f5d9febe75e6 | - | - |
+| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | ebabf39fe8cb6a4c | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | 12786f49002d3554 | - | - |
 | roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | score-review | 0f2d5c4b9089dfeb | - | - |
 | roborumble/com.spp.robocode.MostlyHarmless_010.jar | roborumble | robot | PASS | bf9624b1e5be7364 | - | - |

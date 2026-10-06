@@ -139,4 +139,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-133 — UrChicken2's historical score gap is not confirmed in current repeats](AN-133-urchicken-score-gap-not-confirmed.md) · `active` — Does UrChicken2's historical score discrepancy persist under current five-pair confirmation?
 - [AN-134 — WasteOfAmmo's Classic zero score persists without runtime errors](AN-134-wasteofammo-classic-zero-score-persists.md) · `active` — Does WasteOfAmmo's Classic zero-score result recur, and does its bytecode explain it?
 - [AN-135 — NewTest's recurring Classic errors use extracted bullet bytes as two-entry array indexes](AN-135-newtest-classic-bullet-index-errors.md) · `active` — Do NewTest's Classic-only bullet-event errors recur, and what causes their indexes?
+- [AN-136 — DestrobotMalin's negative score gap is confirmed across five runs](AN-136-destrobotmalin-confirmed-score-gap.md) · `active` — Does DestrobotMalin's historical score discrepancy persist with current matched artifacts?
 <!-- clue:index:end -->
