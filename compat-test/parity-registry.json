@@ -131474,7 +131474,14 @@
       "status": "PASS"
     },
     "roborumble/com.arsenic.NewTest_1.0.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-bullet-metadata-byte-outside-two-bucket-array",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-06T21:19:54Z"
+        }
+      ],
       "identity": {
         "classic_selected": "com.arsenic.NewTest 1.0",
         "division": "roborumble",
@@ -131483,7 +131490,7 @@
         "key": "roborumble/com.arsenic.NewTest_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "d6d74c72cf5e95ab",
+      "latest_observation": "645d204963358c18",
       "observations": [
         {
           "classic": {
@@ -131667,6 +131674,112 @@
               2709.0
             ],
             "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 1.8,
+            "error_count": 12,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "com.arsenic.NewTest.onBulletHit"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "com.arsenic.NewTest.onBulletMissed"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletHitEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 103 out of bounds for length 2",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletMissedEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index -51 out of bounds for length 2",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletHitEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index -52 out of bounds for length 2",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletHitEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index -46 out of bounds for length 2",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletMissedEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index -52 out of bounds for length 2",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.BulletMissedEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index -51 out of bounds for length 2"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 6882.0,
+            "scores": [
+              3959.0,
+              2923.0
+            ],
+            "selected": "com.arsenic.NewTest 1.0"
+          },
+          "completed_at": "2026-10-06T21:18:50Z",
+          "confirmation": null,
+          "delta_pct": -4.9,
+          "id": "645d204963358c18",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "9cfabcd821c989161f96090f795c6fb185c12007",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "com.arsenic.NewTest 1.0",
+            "division": "roborumble",
+            "jar": "com.arsenic.NewTest_1.0.jar",
+            "jar_sha256": "0a5a9d382489ace685399cf9c5d709daa70f7e545ac85d54a1b0e81bf7d3a412",
+            "key": "roborumble/com.arsenic.NewTest_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 10.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 6548.0,
+            "scores": [
+              4058.0,
+              2490.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
           }
         }
       ],

@@ -138,4 +138,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-132 — Nibbler's recurring Classic-only errors come from dereferencing a null Pray value](AN-132-nibbler-null-pray-classic-errors.md) · `active` — Do Nibbler's Classic-only errors recur, and what causes the logged NPE?
 - [AN-133 — UrChicken2's historical score gap is not confirmed in current repeats](AN-133-urchicken-score-gap-not-confirmed.md) · `active` — Does UrChicken2's historical score discrepancy persist under current five-pair confirmation?
 - [AN-134 — WasteOfAmmo's Classic zero score persists without runtime errors](AN-134-wasteofammo-classic-zero-score-persists.md) · `active` — Does WasteOfAmmo's Classic zero-score result recur, and does its bytecode explain it?
+- [AN-135 — NewTest's recurring Classic errors use extracted bullet bytes as two-entry array indexes](AN-135-newtest-classic-bullet-index-errors.md) · `active` — Do NewTest's Classic-only bullet-event errors recur, and what causes their indexes?
 <!-- clue:index:end -->

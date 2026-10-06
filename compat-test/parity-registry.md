@@ -301,7 +301,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 76d6527ba565e6e8 | - | - |
 | roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 400dfd93c4f1fa3c | - | - |
 | roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 7b75c4d17e30213b | - | - |
-| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | d6d74c72cf5e95ab | - | - |
+| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 645d204963358c18 | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
 | roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | score-review | 5150f5d9febe75e6 | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | 12786f49002d3554 | - | - |
 | roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | score-review | 0f2d5c4b9089dfeb | - | - |
