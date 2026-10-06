@@ -75,4 +75,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-069 — Gnarly's current melee errors come from the pinned opponent pool](AN-069-gnarly-melee-opponent-errors.md) · `active` — Do the current `bts.mega.Gnarly_1.4.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 - [AN-070 — RipCurl's missing score repeats a robot-origin negative index error](AN-070-ripcurl-melee-outcome-errors.md) · `active` — Does RipCurl's missing Tank Royale score come from the bridge, the subject robot, or the pinned opponent pool?
 - [AN-071 — Fenrir's current melee errors come from the pinned opponent pool](AN-071-fenrir-melee-opponent-errors.md) · `active` — Do the current `bvh.fnr.Fenrir_0.36l.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
+- [AN-072 — Freya's current melee errors come from the pinned opponent pool](AN-072-freya-melee-opponent-errors.md) · `active` — Do the current `bvh.fry.Freya_0.82.jar` errors belong to the measured robot or to the pinned melee opponent fixture?
 <!-- clue:index:end -->
