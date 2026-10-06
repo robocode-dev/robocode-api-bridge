@@ -63,7 +63,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | bc060964bbc23284 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | b9057f9d6998554c | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 3d9bd321b6612bfa | melee-opponent-pool-contamination | harness |
-| meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | a37eccfc435298b2 | - | - |
+| meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | 69cf4ecd73c9d537 | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 36c414b3475bc35a | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 99b9848bba0aaf07 | melee-opponent-pool-contamination | harness |
 | meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | ea8e5e13560f1498 | melee-opponent-pool-contamination | harness |
