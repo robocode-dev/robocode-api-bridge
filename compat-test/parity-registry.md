@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 21 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 68 |
+| DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 17 |
-| PASS | 705 |
+| PASS | 706 |
 | score-review | 255 |
 
 ## Subjects
@@ -312,7 +312,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
 | roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 1626e7b07d273141 | - | - |
 | roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | 35837038671a2a83 | - | - |
-| roborumble/cre.Karolos_0.32.jar | roborumble | robot | DISCREPANCY (outcome) | 7bb15adf1502a23c | - | - |
+| roborumble/cre.Karolos_0.32.jar | roborumble | robot | PASS | 17dab4a805d7a49e | - | - |
 | roborumble/cs.Nene_1.0.5.jar | roborumble | robot | score-review | 0beaabd2346d9730 | - | - |
 | roborumble/cs.PumpkinPie_1.0.jar | roborumble | robot | PASS | c725fb8efdc81773 | - | - |
 | roborumble/cs.Wren_1.0.jar | roborumble | robot | PASS | 038056ec38361bd3 | - | - |

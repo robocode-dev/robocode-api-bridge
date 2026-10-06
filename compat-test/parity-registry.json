@@ -133962,7 +133962,7 @@
         "key": "roborumble/cre.Karolos_0.32.jar",
         "kind": "robot"
       },
-      "latest_observation": "7bb15adf1502a23c",
+      "latest_observation": "17dab4a805d7a49e",
       "observations": [
         {
           "classic": {
@@ -134320,9 +134320,89 @@
             "scores": [],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "elapsed": 8.2,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 6457.0,
+            "scores": [
+              3071.0,
+              3386.0
+            ],
+            "selected": "cre.Karolos 0.32"
+          },
+          "completed_at": "2026-10-06T21:50:16Z",
+          "confirmation": null,
+          "delta_pct": -3.7,
+          "id": "17dab4a805d7a49e",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "b26d5a1806c36be20537717a97949d9f82fb5bc4",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "cre.Karolos 0.32",
+            "division": "roborumble",
+            "jar": "cre.Karolos_0.32.jar",
+            "jar_sha256": "9d35fbbe7c3c3a2d325d49028ea3c4be40906f0f5e919a49dd46f66ca734e7ca",
+            "key": "roborumble/cre.Karolos_0.32.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 18.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 6217.0,
+            "scores": [
+              3299.0,
+              2918.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/cs.Nene_1.0.5.jar": {
       "diagnosis_events": [],

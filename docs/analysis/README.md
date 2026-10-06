@@ -144,4 +144,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-138 — Bulldozer's positive score gap is confirmed at a smaller magnitude](AN-138-bulldozer-confirmed-score-gap.md) · `active` — Does Bulldozer's historical score gap persist across current five-pair confirmation?
 - [AN-139 — Idem's negative score gap is confirmed across five runs](AN-139-idem-confirmed-negative-score-gap.md) · `active` — Does Idem's historical score discrepancy persist with current matched artifacts?
 - [AN-140 — Suicidal's Classic zero-score result persists with no runtime errors](AN-140-suicidal-classic-zero-score-persists.md) · `active` — Does Suicidal's Classic zero-score result recur, and what behavior appears in its source?
+- [AN-141 — Karolos's historical Tank Royale failure does not recur](AN-141-karolos-outcome-failure-not-reproduced.md) · `active` — Does Karolos's historical Tank Royale no-score failure recur with current matched artifacts?
 <!-- clue:index:end -->
