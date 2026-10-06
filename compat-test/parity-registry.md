@@ -36,7 +36,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | b60725ebe22987f2 | robot-file-stream-limit | bridge |
 | meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | a7b8728491649f22 | robot-file-stream-limit | bridge |
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | d503301e2aabbbd1 | robot-file-stream-limit | bridge |
-| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 44e5d871a2089a0a | - | - |
+| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6d59b712b5397f0e | melee-opponent-pool-contamination | harness |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | 87e98511be4470ad | - | - |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 0d8c9f65ee072eec | - | - |
 | meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | e635d3558bfd09bc | - | - |
