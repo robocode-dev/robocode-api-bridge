@@ -127,4 +127,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-121 — NanoStalker's large negative score gap is confirmed across five runs](AN-121-nanostalker-confirmed-score-gap.md) · `active` — Does NanoStalker's historical score discrepancy persist with current matched artifacts?
 - [AN-122 — Kuma's large positive score gap is confirmed across five runs](AN-122-kuma-confirmed-score-gap.md) · `active` — Does Kuma's historical score discrepancy persist with current matched artifacts?
 - [AN-123 — RipCurl's historical Tank Royale failure does not recur, and its old frame is unattributed](AN-123-ripcurl-historical-outcome-not-reproduced.md) · `active` — Does RipCurl's historical Tank Royale no-score failure recur, and does its old error identify the subject?
+- [AN-124 — Hodur's variable scores still yield a confirmed mean gap](AN-124-hodur-confirmed-score-gap-with-variation.md) · `active` — Does Hodur's historical score difference persist across five current pairs despite per-pair variation?
 <!-- clue:index:end -->

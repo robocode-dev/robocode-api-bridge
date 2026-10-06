@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 14 |
+| CONFIRMED (score) | 15 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 69 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 15 |
 | PASS | 703 |
-| score-review | 265 |
+| score-review | 264 |
 
 ## Subjects
 
@@ -269,7 +269,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bvh.fnr.Fenrir_0.36l.jar | roborumble | robot | PASS | b4921a3482058324 | - | - |
 | roborumble/bvh.frg.Friga_0.112dev.jar | roborumble | robot | PASS | 76fc12ecb24aaeda | - | - |
 | roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | PASS | fe61ff5c72809b21 | packaged-data-resources | bridge |
-| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | score-review | 8a25b46b587e2378 | - | - |
+| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | CONFIRMED (score) | a7ccc21ef530f064 | - | - |
 | roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | score-review | baababf4d63efaf4 | - | - |
 | roborumble/bvh.micro.Freya_0.3.jar | roborumble | robot | PASS | cb8ffc8035b0b113 | - | - |
 | roborumble/bvh.micro.Svadilfari_0.2.jar | roborumble | robot | PASS | 31e4d17c67a09cf7 | - | - |
