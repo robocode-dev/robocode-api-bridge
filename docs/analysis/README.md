@@ -180,4 +180,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-174 — BlueBerry's Classic score advantage is confirmed](AN-174-blueberry-classic-score-advantage-confirmed.md) · `active` — Does BlueBerry's historical Classic score advantage persist with current matched artifacts?
 - [AN-175 — Aurora's Classic score advantage is confirmed](AN-175-aurora-classic-score-advantage-confirmed.md) · `active` — Does Aurora's historical Classic score advantage persist with current matched artifacts?
 - [AN-176 — Eve's Classic score advantage is confirmed](AN-176-eve-classic-score-advantage-confirmed.md) · `active` — Does Eve's historical Classic score advantage persist with current matched artifacts?
+- [AN-177 — ShinigamiKNN's Tank Royale array bounds error recurs](AN-177-shinigamiknn-tank-royale-array-bounds-error-recur.md) · `active` — Does ShinigamiKNN's Tank Royale-only array bounds failure recur with current matched artifacts?
 <!-- clue:index:end -->
