@@ -42,4 +42,4 @@ A registry scan found 70 latest observations after 2026-09-28 with a Classic `am
 
 ## M-006 handoff
 
-Continue in registry order with `meleerumble/amk.ChumbaWumba_0.3.jar` (`DISCREPANCY (errors)`).
+Continue in registry order with `meleerumble/amk.Punbot.Punbot_0.01.jar` (`DISCREPANCY (errors)`), following AN-195's ChumbaWumba retest.
