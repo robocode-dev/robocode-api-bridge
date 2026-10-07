@@ -197,4 +197,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-191 — NanoAndrew's Classic melee run still logs the opponent stream-limit error](AN-191-nanoandrew-classic-opponent-stream-error.md) · `active` — Does NanoAndrew's historical robot-file stream-limit discrepancy recur in the M-006 melee setup under current matched artifacts?
 - [AN-192 — Ice's Classic melee run still logs the opponent stream-limit error](AN-192-ice-classic-opponent-stream-error.md) · `active` — Does Ice's historical robot-file stream-limit discrepancy recur in the M-006 melee setup under current matched artifacts?
 - [AN-193 — Fermat's Tank Royale startup bounds error recurs intermittently](AN-193-fermat-tank-royale-startup-error-recurrence-intermittent.md) · `active` — Does Fermat's historical Tank Royale-only array-bounds failure recur after the initial-status-before-run repair?
+- [AN-194 — ChumbaMini's five-stream failure exposed round-boundary cleanup](AN-194-chumbamini-cross-round-stream-limit.md) · `active` — Does the Classic-only ChumbaMini stream-limit failure result from the bridge resetting open stream slots between rounds?
 <!-- clue:index:end -->

@@ -32,4 +32,4 @@ The prior `initial-status-before-run` repair did not make the Fermat-specific Ta
 
 ## M-006 handoff
 
-Continue in registry order with `meleerumble/amk.ChumbaMini_0.2.jar` (`DISCREPANCY (errors)`).
+Continue in registry order with `meleerumble/amk.ChumbaWumba_0.3.jar` (`DISCREPANCY (errors)`), following AN-194's ChumbaMini stream-limit retest.
