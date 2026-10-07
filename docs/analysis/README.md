@@ -178,4 +178,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-172 — NanoSkunk10's historical score gap is not confirmed](AN-172-nanoskunk10-historical-score-gap-not-confirmed.md) · `active` — Does NanoSkunk10's historical score discrepancy persist with current matched artifacts and the official five-pair confirmation?
 - [AN-173 — BlackDeath's Tank Royale missing-file outcome recurs](AN-173-blackdeath-tank-royale-missing-file-outcome-recur.md) · `active` — Does BlackDeath's Tank Royale missing enemy-stat file outcome recur with current matched artifacts?
 - [AN-174 — BlueBerry's Classic score advantage is confirmed](AN-174-blueberry-classic-score-advantage-confirmed.md) · `active` — Does BlueBerry's historical Classic score advantage persist with current matched artifacts?
+- [AN-175 — Aurora's Classic score advantage is confirmed](AN-175-aurora-classic-score-advantage-confirmed.md) · `active` — Does Aurora's historical Classic score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
