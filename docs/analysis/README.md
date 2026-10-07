@@ -161,4 +161,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-155 — Firebird's historical score gap is not reproduced](AN-155-firebird-score-gap-not-reproduced.md) · `active` — Does Firebird's historical score discrepancy persist with current matched artifacts and the official five-pair confirmation?
 - [AN-156 — PhoenixOS's historical Tank Royale outcome failure does not recur](AN-156-phoenixos-outcome-failure-not-reproduced.md) · `active` — Does PhoenixOS's historical Tank Royale no-score outcome recur with current matched artifacts, and do its logged null-gun errors recur?
 - [AN-157 — DuelistMicroMkII's positive score gap is confirmed across five pairs](AN-157-duelist-micro-mkii-positive-gap-confirmed.md) · `active` — Does DuelistMicroMkII's historical Tank Royale score advantage persist with current matched artifacts?
+- [AN-158 — DuelistMicro's positive score gap is confirmed across five pairs](AN-158-duelist-micro-positive-gap-confirmed.md) · `active` — Does DuelistMicro's historical Tank Royale score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
