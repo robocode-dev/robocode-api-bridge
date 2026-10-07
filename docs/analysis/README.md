@@ -153,4 +153,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-147 — Blur's large score gap persists, with confirmation interrupted by a robot null wave](AN-147-blur-score-gap-with-incomplete-confirmation.md) · `active` — Does Blur's historical score deficit persist, and what interrupted the five-pair confirmation?
 - [AN-148 — Spark's large positive score gap is confirmed across five pairs](AN-148-spark-positive-score-gap-confirmed.md) · `active` — Does Spark's historical Tank Royale score advantage persist with current matched artifacts?
 - [AN-149 — Nimrod's large positive score gap is confirmed across five pairs](AN-149-nimrod-positive-score-gap-confirmed.md) · `active` — Does Nimrod's historical Tank Royale score advantage persist with current matched artifacts?
+- [AN-150 — Smog's negative score gap is confirmed across five pairs](AN-150-smog-negative-score-gap-confirmed.md) · `active` — Does Smog's historical Classic score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
