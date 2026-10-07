@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 27 |
+| CONFIRMED (score) | 28 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
 | PASS | 707 |
-| score-review | 247 |
+| score-review | 246 |
 
 ## Subjects
 
@@ -341,7 +341,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/da.NewBGank_1.4.jar | roborumble | robot | CONFIRMED (score) | d27087a8b3f6cf55 | - | - |
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | 7e9f830806ecd028 | - | - |
 | roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 5a9273b5247b8765 | robot-unjoined-asynchronous-persistence-writer | robot |
-| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | score-review | 3ddba38f0713acc3 | - | - |
+| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | 4f7ba23630a82b1a | - | - |
 | roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | PASS | 090ad59ca3e144b7 | packaged-data-resources | bridge |

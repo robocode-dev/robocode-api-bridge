@@ -157,4 +157,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-151 — NewBGank's negative score gap is confirmed across five pairs](AN-151-newbgank-negative-score-gap-confirmed.md) · `active` — Does NewBGank's historical Classic score advantage persist with current matched artifacts?
 - [AN-152 — DizzyA's negative score gap is confirmed across five pairs](AN-152-dizzya-negative-score-gap-confirmed.md) · `active` — Does DizzyA's historical Classic score advantage persist with current matched artifacts?
 - [AN-153 — MogBot's repeated no-score outcome follows an unjoined persistence writer](AN-153-mogbot-unjoined-persistence-writer.md) · `active` — Does MogBot's Tank Royale no-score outcome recur, and what owns the file-stream failures?
+- [AN-154 — Cinnamon's negative score gap is confirmed across five pairs](AN-154-cinnamon-negative-score-gap-confirmed.md) · `active` — Does Cinnamon's historical Classic score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
