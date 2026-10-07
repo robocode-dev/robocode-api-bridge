@@ -378,7 +378,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
 | roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | MATCHED (score noise) | 1b35acfd8039eda4 | - | - |
-| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | 4fd33ccfdaf0dab3 | - | - |
+| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | bc9133dc96057591 | - | - |
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
 | roborumble/djc.Aardvark_0.3.6.jar | roborumble | robot | PASS | 0f5e762f770658d6 | - | - |
