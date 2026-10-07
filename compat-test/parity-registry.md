@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 30 |
+| CONFIRMED (score) | 32 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 19 |
+| MATCHED (score noise) | 20 |
 | PASS | 708 |
-| score-review | 243 |
+| score-review | 240 |
 
 ## Subjects
 
@@ -353,11 +353,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/davidalves.net.DuelistMini_1.1.jar | roborumble | robot | PASS | cb584316a7ba79e0 | - | - |
 | roborumble/davidalves.net.DuelistNano_1.0.jar | roborumble | robot | PASS | d29eb247c581f450 | - | - |
 | roborumble/davidalves.net.Duelist_0.1.6src.jar | roborumble | robot | PASS | a1dd12d2d41bd3da | - | - |
-| roborumble/davv.DOne_b002.jar | roborumble | robot | score-review | f60c95154076199f | - | - |
+| roborumble/davv.DOne_b002.jar | roborumble | robot | CONFIRMED (score) | 9658210601e3d8d6 | - | - |
 | roborumble/dcs.Eater_of_Worlds_1.1.3-A.jar | roborumble | robot | PASS | 6d03e404aa0e75d9 | - | - |
 | roborumble/dcs.Eater_of_Worlds_Mini_1.0.jar | roborumble | robot | PASS | 2fe91471c7f09d1a | - | - |
-| roborumble/dcs.PM.Eater_of_Worlds_PM_1.2.jar | roborumble | robot | score-review | f1ba2437b9b57a63 | - | - |
-| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | score-review | 4b2a42fea45ce2a9 | - | - |
+| roborumble/dcs.PM.Eater_of_Worlds_PM_1.2.jar | roborumble | robot | MATCHED (score noise) | a5c993bb51abfdae | - | - |
+| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | CONFIRMED (score) | f39aa7cda8ecb379 | - | - |
 | roborumble/de.simpleworks.robocode.bots.swiBot_1.0.jar | roborumble | robot | PASS | c1c1dba51c345138 | - | - |
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
