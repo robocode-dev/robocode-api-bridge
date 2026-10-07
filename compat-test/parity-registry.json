@@ -140844,7 +140844,14 @@
       "status": "CONFIRMED (score)"
     },
     "roborumble/dam.MogBot_2.9.jar": {
-      "diagnosis_events": [],
+      "diagnosis_events": [
+        {
+          "cause": "robot-unjoined-asynchronous-persistence-writer",
+          "id": "diagnosis-1",
+          "owner": "robot",
+          "recorded_at": "2026-10-07T16:05:21Z"
+        }
+      ],
       "identity": {
         "classic_selected": "dam.MogBot 2.9",
         "division": "roborumble",
@@ -140853,7 +140860,7 @@
         "key": "roborumble/dam.MogBot_2.9.jar",
         "kind": "robot"
       },
-      "latest_observation": "6003e69f1e0dcce6",
+      "latest_observation": "5a9273b5247b8765",
       "observations": [
         {
           "classic": {
@@ -141103,6 +141110,173 @@
             "score": null,
             "scores": [],
             "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 18.1,
+            "error_count": 40,
+            "error_signatures": [
+              {
+                "exception": "java.io.InvalidClassException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.io.StreamCorruptedException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.io.UTFDataFormatException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.ClassCastException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.util.zip.ZipException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.io.InvalidClassException: dam.targetting.PatternTargetting; serializable and externalizable flags conflict",
+              "java.io.StreamCorruptedException: invalid type code: 9D",
+              "java.io.InvalidClassException: dam.targetting.TargettingStrategy; invalid descriptor for field pt",
+              "java.io.StreamCorruptedException: invalid type code: 01",
+              "java.io.StreamCorruptedException: invalid type code: 3F",
+              "java.util.zip.ZipException: invalid entry size (expected 14610 but got 14871 bytes)",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.lang.ClassCastException: class dam.util.TargetInfo cannot be cast to class java.io.ObjectStreamClass (dam.util.TargetInfo is in unnamed module of loader net.sf.robocode.host.security.RobotClassLoader @3a43d133; java.io.ObjectStreamClass is in module java.base of loader 'bootstrap')",
+              "java.io.StreamCorruptedException: invalid type code: 11",
+              "java.io.StreamCorruptedException: invalid type code: BF",
+              "java.io.UTFDataFormatException",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 3F",
+              "java.io.StreamCorruptedException: invalid type code: 0D",
+              "java.util.zip.ZipException: invalid distance too far back",
+              "java.io.StreamCorruptedException: invalid type code: 47",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.UTFDataFormatException",
+              "java.io.InvalidClassException: dam.targetting.PatternTargetting; serializable and externalizable flags conflict",
+              "java.io.StreamCorruptedException: invalid type code: 9D",
+              "java.io.InvalidClassException: dam.targetting.TargettingStrategy; invalid descriptor for field pt",
+              "java.io.StreamCorruptedException: invalid type code: 01",
+              "java.io.StreamCorruptedException: invalid type code: 3F",
+              "java.util.zip.ZipException: invalid entry size (expected 14610 but got 14871 bytes)",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.lang.ClassCastException: class dam.util.TargetInfo cannot be cast to class java.io.ObjectStreamClass (dam.util.TargetInfo is in unnamed module of loader net.sf.robocode.host.security.RobotClassLoader @17ca8b92; java.io.ObjectStreamClass is in module java.base of loader 'bootstrap')",
+              "java.io.StreamCorruptedException: invalid type code: 11",
+              "java.io.StreamCorruptedException: invalid type code: BF",
+              "java.io.UTFDataFormatException",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.StreamCorruptedException: invalid type code: 3F",
+              "java.io.StreamCorruptedException: invalid type code: 0D",
+              "java.util.zip.ZipException: invalid distance too far back",
+              "java.io.StreamCorruptedException: invalid type code: 47",
+              "java.io.StreamCorruptedException: invalid type code: 00",
+              "java.io.UTFDataFormatException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 6530.0,
+            "scores": [
+              3081.0,
+              3449.0
+            ],
+            "selected": "dam.MogBot 2.9"
+          },
+          "completed_at": "2026-10-07T16:04:06Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "5a9273b5247b8765",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "839d3759bfc4d5a1171baa7b0acb252f1c340fc73aaceabcc556da2a5908e04f"
+              }
+            },
+            "bridge_commit": "d676feb40ebaef1095016ae6619b19e631292b79",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "dam.MogBot 2.9",
+            "division": "roborumble",
+            "jar": "dam.MogBot_2.9.jar",
+            "jar_sha256": "7afc716ca13e8918c6f19d5d04fb4119a1f8ce825cc44f873e48329233edc646",
+            "key": "roborumble/dam.MogBot_2.9.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.io.EOFException",
+                "unknown"
+              ],
+              [
+                "java.io.IOException",
+                "dam.MogBot.saveSettings"
+              ]
+            ],
+            "elapsed": 4.1,
+            "error_count": 5,
+            "error_signatures": [
+              {
+                "exception": "java.io.EOFException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.io.IOException",
+                "origin": "dam.MogBot.saveSettings"
+              },
+              {
+                "exception": "java.io.IOException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.io.IOException: Stream Closed",
+              "java.io.EOFException",
+              "java.io.IOException: Stream Closed",
+              "java.io.EOFException"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
           }
         }
       ],

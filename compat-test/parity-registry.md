@@ -340,7 +340,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
 | roborumble/da.NewBGank_1.4.jar | roborumble | robot | CONFIRMED (score) | d27087a8b3f6cf55 | - | - |
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | 7e9f830806ecd028 | - | - |
-| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 6003e69f1e0dcce6 | - | - |
+| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 5a9273b5247b8765 | robot-unjoined-asynchronous-persistence-writer | robot |
 | roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | score-review | 3ddba38f0713acc3 | - | - |
 | roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
