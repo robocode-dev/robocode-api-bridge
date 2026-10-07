@@ -32,4 +32,4 @@ This post-fix opponent-pool check confirms that ChumbaMini's five-stream failure
 
 ## M-006 handoff
 
-Continue in registry order with `meleerumble/arthord.MannyPacquiao_Beta.jar` (`DISCREPANCY (errors)`).
+Continue in registry order with `meleerumble/arthord.MannyPacquiao_Beta.jar` (`DISCREPANCY (errors)`), following AN-205's current-artifact retest.
