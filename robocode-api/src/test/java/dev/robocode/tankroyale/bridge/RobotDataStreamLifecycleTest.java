@@ -19,6 +19,7 @@ class RobotDataStreamLifecycleTest {
 
     @TempDir
     Path tempDir;
+    private final List<RobocodeFileOutputStream> openedStreams = new ArrayList<>();
 
     @BeforeAll
     static void ensureRobotNameIsSet() {
@@ -27,22 +28,23 @@ class RobotDataStreamLifecycleTest {
 
     @AfterEach
     void closeOpenedStreams() {
-        RobotData.closeOpenStreams();
+        for (RobocodeFileOutputStream stream : openedStreams) {
+            try {
+                stream.close();
+            } catch (IOException ignored) {
+                // The test has already made its assertion about the stream state.
+            }
+        }
     }
 
     @Test
-    @DisplayName("FIO-005 unit: between-round cleanup releases abandoned stream slots")
-    void testFIO005_UnitPositive_BetweenRoundCleanupClosesAbandonedStreams() throws IOException {
-        List<RobocodeFileOutputStream> firstRound = openStreams("first-round");
-        assertThrows(SecurityException.class, () -> open("first-round-overflow"));
+    @DisplayName("FIO-005 unit: an unclosed stream keeps its slot until the robot closes it")
+    void testFIO005_UnitPositive_UnclosedStreamKeepsItsSlot() throws IOException {
+        List<RobocodeFileOutputStream> streams = openStreams("open");
+        assertThrows(SecurityException.class, () -> open("overflow"));
 
-        RobotData.closeOpenStreams();
-
-        for (RobocodeFileOutputStream stream : firstRound) {
-            assertThrows(IOException.class, () -> stream.write(1));
-        }
-        assertDoesNotThrow(() -> openStreams("second-round"));
-        assertThrows(SecurityException.class, () -> open("second-round-overflow"));
+        streams.get(0).close();
+        assertDoesNotThrow(() -> open("after-close"));
     }
 
     private List<RobocodeFileOutputStream> openStreams(String prefix) throws IOException {
@@ -54,6 +56,8 @@ class RobotDataStreamLifecycleTest {
     }
 
     private RobocodeFileOutputStream open(String name) throws IOException {
-        return new RobocodeFileOutputStream(tempDir.resolve(name + ".dat").toFile());
+        RobocodeFileOutputStream stream = new RobocodeFileOutputStream(tempDir.resolve(name + ".dat").toFile());
+        openedStreams.add(stream);
+        return stream;
     }
 }

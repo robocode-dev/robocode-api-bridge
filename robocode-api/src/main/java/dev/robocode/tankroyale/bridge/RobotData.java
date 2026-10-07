@@ -8,10 +8,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.AccessControlException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.IdentityHashMap;
-import java.util.List;
 import java.util.Set;
 
 import robocode.RobocodeFileOutputStream;
@@ -144,20 +142,5 @@ public final class RobotData {
     /** Releases a stream reservation, including when a robot closes a stream more than once. */
     public static synchronized void unregisterStream(RobocodeFileOutputStream stream) {
         openStreams.remove(stream);
-    }
-
-    /** Closes file streams left behind by legacy worker threads before the next round starts. */
-    static void closeOpenStreams() {
-        List<RobocodeFileOutputStream> streams;
-        synchronized (RobotData.class) {
-            streams = new ArrayList<>(openStreams);
-        }
-        for (RobocodeFileOutputStream stream : streams) {
-            try {
-                stream.close();
-            } catch (IOException ignored) {
-                // Round-end cleanup has no robot callback through which to report a close failure.
-            }
-        }
     }
 }

@@ -1481,10 +1481,6 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         @Override
         public void onRoundStarted(RoundStartedEvent roundStartedEvent) {
             // no event handler for `round started` in orig. Robocode
-            // Tank Royale publishes RoundEnded to bot handlers before its internal handler has
-            // stopped and joined the previous bot thread. Close any abandoned streams here,
-            // after that stop has completed and before the next round's bot thread starts.
-            RobotData.closeOpenStreams();
             initialStatusDispatched = false;
             suppressScansThroughTurn = -1;
             synchronized (pendingSelfTeamMessages) {
