@@ -44,8 +44,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 604d74ebc39d6072 | melee-opponent-pool-contamination | harness |
 | meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | f4ffedbce4a6d5d5 | terminal-do-while-run-loop-not-transformed | wrapper |
 | meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | d923bb9c0f620792 | melee-opponent-pool-contamination | harness |
-| meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 4fca7d303ab293b5 | melee-opponent-pool-contamination | harness |
-| meleerumble/as.FrankTheTank_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | f0f45320bec4bfe4 | melee-opponent-pool-contamination | harness |
+| meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 2753872969b52c2b | melee-opponent-pool-contamination | harness |
+| meleerumble/as.FrankTheTank_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 48ea9b2a04e896bb | melee-opponent-pool-contamination | harness |
 | meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 0679565125f26395 | subject-owned-data-file-append-quota | robot |
 | meleerumble/awesomeness.Elite_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c86a5acdcda5b3a4 | melee-opponent-pool-contamination | harness |
 | meleerumble/axeBots.HataMoto_3.09.jar | meleerumble | robot | DISCREPANCY (errors) | 30002d21cb0e30ae | classic-undead-thread-stop-warning | classic |
