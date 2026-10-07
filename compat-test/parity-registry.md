@@ -59,8 +59,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | ce3b89f81e762176 | melee-opponent-pool-contamination | harness |
 | meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | ff081352701afac8 | robot-minimum-risk-negative-index | robot |
 | meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 974a56d29aa9a5f8 | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | bbc61c5e5c99cd4d | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | bc060964bbc23284 | melee-opponent-pool-contamination | harness |
+| meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | 894e5b2bebf1e1bd | melee-opponent-pool-contamination | harness |
+| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 207aa1f649e4192c | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | b9057f9d6998554c | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 3d9bd321b6612bfa | melee-opponent-pool-contamination | harness |
 | meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | 69cf4ecd73c9d537 | melee-opponent-pool-contamination | harness |
