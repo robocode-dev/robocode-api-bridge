@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 28 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 67 |
+| DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 19 |
-| PASS | 707 |
+| PASS | 708 |
 | score-review | 245 |
 
 ## Subjects
@@ -346,7 +346,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | PASS | 090ad59ca3e144b7 | packaged-data-resources | bridge |
 | roborumble/davidalves.Firebird_0.25.jar | roborumble | robot | MATCHED (score noise) | d6851b81019c356f | - | - |
-| roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | d37fc2d466f2354b | - | - |
+| roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | PASS | f47d4c3f053cdf86 | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
 | roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | score-review | 40198e0e594d02d6 | - | - |
 | roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | score-review | c28e90450fc99ae5 | - | - |
