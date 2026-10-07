@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Transform infinite loops in direct `JuniorRobot` subclasses using their `energy` field, so wrapped robots stop at round boundaries without calling a missing `getEnergy()` method.
 - Transform terminal `do-while(true)` robot run loops so the bridge can stop them cleanly at round boundaries, matching the existing stop behavior for other infinite-loop bytecode shapes.
 - Keep each compatibility error signature attached to its own stack trace so a later robot frame cannot be misattributed to an earlier exception.
 - Include living teammates in `getOthers()` and robot status, and keep that count from increasing when the robot dies.
