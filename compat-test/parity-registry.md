@@ -50,8 +50,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/awesomeness.Elite_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 2170bf23718a05bc | melee-opponent-pool-contamination | harness |
 | meleerumble/axeBots.HataMoto_3.09.jar | meleerumble | robot | DISCREPANCY (errors) | 97b04c576f4c4caa | classic-undead-thread-stop-warning | classic |
 | meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (errors) | 717e46e27dcdeb9a | melee-opponent-pool-contamination | harness |
-| meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | 981b7fc2f6749d5c | melee-opponent-pool-contamination | harness |
-| meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 5f9fc856e2e6f61a | melee-opponent-pool-contamination | harness |
+| meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | ca2b3b3a8bd537d6 | melee-opponent-pool-contamination | harness |
+| meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 441885d123c75ae0 | melee-opponent-pool-contamination | harness |
 | meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | beacf992d9a2c81c | robot-unchecked-wave-index-and-null-last-scan | robot |
 | meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4e87fc9eef955929 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | 80f69799fd2a3214 | melee-opponent-pool-contamination | harness |
