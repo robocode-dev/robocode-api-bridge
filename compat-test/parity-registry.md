@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 32 |
+| CONFIRMED (score) | 33 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 21 |
 | PASS | 708 |
-| score-review | 239 |
+| score-review | 238 |
 
 ## Subjects
 
@@ -362,7 +362,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
 | roborumble/demetrix.nano.Neutrino_0.27.jar | roborumble | robot | MATCHED (score noise) | 0b83a1386dac6d7f | - | - |
-| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | score-review | 2dd6c1ce765e2145 | - | - |
+| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 51d7d3600b6ffb0f | - | - |
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | score-review | 602f15d5ee46510e | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
 | roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | score-review | ec739c27975085dd | - | - |

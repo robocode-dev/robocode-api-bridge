@@ -166,4 +166,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-160 — Eater of Worlds PM's historical positive score gap is not reproduced](AN-160-dcs-eater-worlds-pm-score-gap-not-reproduced.md) · `active` — Does Eater of Worlds PM's historical Tank Royale score advantage persist with current matched artifacts and the official five-pair confirmation?
 - [AN-161 — Polyphemos's negative score gap is confirmed across five pairs](AN-161-polyphemos-negative-score-gap-confirmed.md) · `active` — Does Polyphemos's historical Classic score advantage persist with current matched artifacts?
 - [AN-162 — Neutrino's historical score gap does not clear the confirmation band](AN-162-neutrino-score-gap-not-confirmed.md) · `active` — Does Neutrino's historical Classic score advantage persist with current matched artifacts and the official five-pair confirmation?
+- [AN-163 — SledgeHammer's positive score gap is confirmed across five pairs](AN-163-sledgehammer-positive-score-gap-confirmed.md) · `active` — Does SledgeHammer's historical Tank Royale score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
