@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 40 |
+| CONFIRMED (score) | 41 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 24 |
 | PASS | 708 |
-| score-review | 228 |
+| score-review | 227 |
 
 ## Subjects
 
@@ -391,7 +391,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dmh.robocode.robot.PinkPanther_1.1.jar | roborumble | robot | PASS | 9b1fac585eb3cd2f | - | - |
 | roborumble/dmh.robocode.robot.YellowBird_0.12.jar | roborumble | robot | PASS | 2b6f33428c15386e | - | - |
 | roborumble/dmp.micro.Aurora_1.41.jar | roborumble | robot | CONFIRMED (score) | 9470ea89146b4bb5 | - | - |
-| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | score-review | 3931602ad25b6a06 | - | - |
+| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | CONFIRMED (score) | 02cf19f8c7dcc852 | - | - |
 | roborumble/doka.KillerRabbit_1.0.jar | roborumble | robot | PASS | cf5897bf12f1cb30 | - | - |
 | roborumble/doka.ShinigamiKNN_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 234f9c8e91875812 | - | - |
 | roborumble/doka.Shinigami_2.2.jar | roborumble | robot | PASS | 4a188800060cdb57 | - | - |
