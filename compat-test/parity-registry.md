@@ -65,8 +65,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | b289d4813ca36d4f | melee-opponent-pool-contamination | harness |
 | meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | 597475e5ecd84fba | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | e6f44c512291adf7 | melee-opponent-pool-contamination | harness |
-| meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 71bc3037569ffa27 | melee-opponent-pool-contamination | harness |
-| meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | bc9800bb85670d2b | melee-opponent-pool-contamination | harness |
+| meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 37caaf4769af3ed8 | melee-opponent-pool-contamination | harness |
+| meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | 00d3cf985f8e3cea | melee-opponent-pool-contamination | harness |
 | meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (outcome) | 003a8921f174ee81 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | dc104bbcc0f75283 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 5c54d07d0c37d704 | melee-opponent-pool-contamination | harness |
