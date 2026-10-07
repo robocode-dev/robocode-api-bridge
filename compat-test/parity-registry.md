@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 36 |
+| CONFIRMED (score) | 37 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 21 |
 | PASS | 708 |
-| score-review | 235 |
+| score-review | 234 |
 
 ## Subjects
 
@@ -369,7 +369,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 4da845144515e888 | - | - |
 | roborumble/dft.Cyanide_1.90.jar | roborumble | robot | PASS | b56d225eda383ab9 | - | - |
 | roborumble/dft.Cyprus_3.0.jar | roborumble | robot | PASS | 910fdb7758e78f46 | - | - |
-| roborumble/dft.Freddie_1.32.jar | roborumble | robot | score-review | 341a18222d734d39 | - | - |
+| roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | 987482f75234b5ca | - | - |
 | roborumble/dft.Guppy_1.0.jar | roborumble | robot | PASS | e769ffce4e573dad | - | - |
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
 | roborumble/dft.Krazy_1.5.jar | roborumble | robot | score-review | 164440b187073126 | - | - |
