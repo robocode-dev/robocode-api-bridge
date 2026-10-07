@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 44 |
+| CONFIRMED (score) | 45 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 24 |
 | PASS | 708 |
-| score-review | 224 |
+| score-review | 223 |
 
 ## Subjects
 
@@ -400,7 +400,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | CONFIRMED (score) | 1bc442cdb44483c2 | - | - |
 | roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | CONFIRMED (score) | 6651d934a7211124 | - | - |
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |
-| roborumble/drm.CobraBora_1.12.jar | roborumble | robot | score-review | 54f1d01d2403ba18 | - | - |
+| roborumble/drm.CobraBora_1.12.jar | roborumble | robot | CONFIRMED (score) | d182f0669de56c32 | - | - |
 | roborumble/drm.Magazine_0.39.jar | roborumble | robot | score-review | e8b005bbf41df0df | - | - |
 | roborumble/ds.OoV4_0.3b.jar | roborumble | robot | PASS | 1eddc4f0f49437bf | wrapper-json-encoding | wrapper |
 | roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | 6a0a47aacb2e5d1b | wrapper-json-encoding | wrapper |

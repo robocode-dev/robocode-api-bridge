@@ -184,4 +184,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-178 — Jezza's Classic score advantage is confirmed below the single-pair review threshold](AN-178-jezza-score-gap-confirmed-below-single-pair-threshold.md) · `active` — Does Jezza's historical Classic score advantage persist under the five-pair confirmation band?
 - [AN-179 — Muncho's Classic score advantage is confirmed](AN-179-muncho-classic-score-gap-confirmed.md) · `active` — Does Muncho's historical Classic score advantage persist with current matched artifacts?
 - [AN-180 — Dragonbyte Neutrino's positive score gap clears the confirmation band](AN-180-dragonbyte-neutrino-positive-score-gap-confirmed.md) · `active` — Does Dragonbyte Neutrino's historical Tank Royale score advantage persist with current matched artifacts?
+- [AN-181 — CobraBora's positive score gap is confirmed](AN-181-cobrabora-positive-score-gap-confirmed.md) · `active` — Does CobraBora's historical Tank Royale score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
