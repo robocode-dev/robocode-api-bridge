@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 28 |
+| CONFIRMED (score) | 29 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 19 |
 | PASS | 708 |
-| score-review | 245 |
+| score-review | 244 |
 
 ## Subjects
 
@@ -348,7 +348,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/davidalves.Firebird_0.25.jar | roborumble | robot | MATCHED (score noise) | d6851b81019c356f | - | - |
 | roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | PASS | f47d4c3f053cdf86 | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
-| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | score-review | 40198e0e594d02d6 | - | - |
+| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | da9175ceb5e99555 | - | - |
 | roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | score-review | c28e90450fc99ae5 | - | - |
 | roborumble/davidalves.net.DuelistMini_1.1.jar | roborumble | robot | PASS | cb584316a7ba79e0 | - | - |
 | roborumble/davidalves.net.DuelistNano_1.0.jar | roborumble | robot | PASS | d29eb247c581f450 | - | - |
