@@ -385,7 +385,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/djdjdj.NanoSkunk10_1.0.jar | roborumble | robot | MATCHED (score noise) | fea8fc4f9b3a1168 | - | - |
 | roborumble/dk.stable.Gorgatron_1.1.jar | roborumble | robot | PASS | 26892e7aeaed0062 | - | - |
 | roborumble/dks.MicroDanMK2_1.0.jar | roborumble | robot | PASS | d9aa07342e2c385f | - | - |
-| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | 5a66d8e6f151150b | - | - |
+| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | bade34a62c6dfd14 | - | - |
 | roborumble/dmh.robocode.robot.BlueBerry_0.5.jar | roborumble | robot | score-review | 41ff60750d06c66c | - | - |
 | roborumble/dmh.robocode.robot.GreenDragon_1.0.jar | roborumble | robot | PASS | bcfc6d79e390b279 | - | - |
 | roborumble/dmh.robocode.robot.PinkPanther_1.1.jar | roborumble | robot | PASS | 9b1fac585eb3cd2f | - | - |

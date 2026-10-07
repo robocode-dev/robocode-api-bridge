@@ -149404,7 +149404,7 @@
         "key": "roborumble/dmh.robocode.robot.BlackDeath_9.2.jar",
         "kind": "robot"
       },
-      "latest_observation": "5a66d8e6f151150b",
+      "latest_observation": "bade34a62c6dfd14",
       "observations": [
         {
           "classic": {
@@ -149490,6 +149490,101 @@
             "score": null,
             "scores": [],
             "skipped": null
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 3.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 4991.0,
+            "scores": [
+              2642.0,
+              2349.0
+            ],
+            "selected": "dmh.robocode.robot.BlackDeath 9.2"
+          },
+          "completed_at": "2026-10-07T17:38:25Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "bade34a62c6dfd14",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "2fe0045694b3636d99e2718216d082d32354472535de449028daf098fbf10945"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\build\\libs\\robocode-tankroyale-runner-1.4.0.jar",
+                "sha256": "53f9aae74f00d4380f7f6c100ad9d9a0c4d06d727a73e447ff7d1f88ed4dd2af"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "36c5e2aeaba1f68a786e58077a678e1a0b2e8b93",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "dmh.robocode.robot.BlackDeath 9.2",
+            "division": "roborumble",
+            "jar": "dmh.robocode.robot.BlackDeath_9.2.jar",
+            "jar_sha256": "5fc9438915d0beb53da001f7d452062375cbde35532567be7be968f459b4d4a1",
+            "key": "roborumble/dmh.robocode.robot.BlackDeath_9.2.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.io.FileNotFoundException",
+                "dmh.robocode.robot.CommandBasedRobot.loadEnemyStatsFromDataFile"
+              ]
+            ],
+            "elapsed": 4.1,
+            "error_count": 3,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "dmh.robocode.robot.CommandBasedRobot.loadEnemyStatsFromDataFile"
+              },
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\tr-bots\\dmh.robocode.robot.BlackDeath_9.2\\BlackDeath.data\\2.txt (Den angivne fil blev ikke fundet)",
+              "java.io.FileNotFoundException: C:\\Code\\robocode-api-bridge\\compat-test\\work\\tr-bots\\dmh.robocode.robot.BlackDeath_9.2-2\\BlackDeath.data\\1.txt (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
           }
         }
       ],
