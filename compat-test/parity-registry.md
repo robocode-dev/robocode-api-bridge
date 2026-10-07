@@ -36,8 +36,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | af7f1ca38b4b8b25 | robot-file-stream-limit | bridge |
 | meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 31b7de98365662fb | robot-file-stream-limit | bridge |
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 8cf06c550a92e912 | robot-file-stream-limit | bridge |
-| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6d59b712b5397f0e | melee-opponent-pool-contamination | harness |
-| meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | b63cca657d6cfdd5 | melee-opponent-pool-contamination | harness |
+| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | c1efcec566203c27 | melee-opponent-pool-contamination | harness |
+| meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | ab53268224441bab | melee-opponent-pool-contamination | harness |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8651c3aead3e6e8a | melee-opponent-pool-contamination | harness |
 | meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | d051bb63b263a568 | melee-opponent-pool-contamination | harness |
 | meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 591555b5e1137e5e | melee-opponent-pool-contamination | harness |
