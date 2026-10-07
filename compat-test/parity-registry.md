@@ -57,8 +57,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | b8bf42475f521679 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 9c60c070e27ceb74 | melee-opponent-pool-contamination | harness |
 | meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | ce3b89f81e762176 | melee-opponent-pool-contamination | harness |
-| meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | 0bf6db46a5da3a18 | robot-minimum-risk-negative-index | robot |
-| meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 45eb4eef1a357641 | melee-opponent-pool-contamination | harness |
+| meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | ff081352701afac8 | robot-minimum-risk-negative-index | robot |
+| meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 974a56d29aa9a5f8 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | bbc61c5e5c99cd4d | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | bc060964bbc23284 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | b9057f9d6998554c | melee-opponent-pool-contamination | harness |
