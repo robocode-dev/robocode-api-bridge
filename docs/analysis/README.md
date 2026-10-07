@@ -185,4 +185,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-179 — Muncho's Classic score advantage is confirmed](AN-179-muncho-classic-score-gap-confirmed.md) · `active` — Does Muncho's historical Classic score advantage persist with current matched artifacts?
 - [AN-180 — Dragonbyte Neutrino's positive score gap clears the confirmation band](AN-180-dragonbyte-neutrino-positive-score-gap-confirmed.md) · `active` — Does Dragonbyte Neutrino's historical Tank Royale score advantage persist with current matched artifacts?
 - [AN-181 — CobraBora's positive score gap is confirmed](AN-181-cobrabora-positive-score-gap-confirmed.md) · `active` — Does CobraBora's historical Tank Royale score advantage persist with current matched artifacts?
+- [AN-182 — ScalarR's historical bridge stream error does not recur on main](AN-182-scalarr-main-bridge-error-does-not-recur.md) · `active` — Does ScalarR's historical robot-file stream-limit error recur with current matched artifacts, and does the row still have an error discrepancy under C-004?
 <!-- clue:index:end -->
