@@ -34,8 +34,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | a4eea4df8525940e | robot-file-stream-limit | bridge |
 | meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | c2c9ad1070d4caa6 | robot-file-stream-limit | bridge |
 | meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | af7f1ca38b4b8b25 | robot-file-stream-limit | bridge |
-| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | a7b8728491649f22 | robot-file-stream-limit | bridge |
-| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | d503301e2aabbbd1 | robot-file-stream-limit | bridge |
+| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 31b7de98365662fb | robot-file-stream-limit | bridge |
+| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 8cf06c550a92e912 | robot-file-stream-limit | bridge |
 | meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 6d59b712b5397f0e | melee-opponent-pool-contamination | harness |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | b63cca657d6cfdd5 | melee-opponent-pool-contamination | harness |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8651c3aead3e6e8a | melee-opponent-pool-contamination | harness |
