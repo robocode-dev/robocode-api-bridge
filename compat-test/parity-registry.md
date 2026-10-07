@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 23 |
+| CONFIRMED (score) | 24 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
 | PASS | 707 |
-| score-review | 251 |
+| score-review | 250 |
 
 ## Subjects
 
@@ -335,7 +335,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | cc6837f8fd8e254d | - | - |
 | roborumble/cx.mini.BlackSwans_0.60.jar | roborumble | robot | PASS | 8ff4ff433f3d1ef6 | - | - |
 | roborumble/cx.mini.Cigaret_1.31.jar | roborumble | robot | PASS | dc070048cc9ba197 | - | - |
-| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | score-review | 79c0ff02f62c13d6 | - | - |
+| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 5410b023fd3ba1c8 | - | - |
 | roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | score-review | bc706ecbeb69a224 | - | - |
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
 | roborumble/da.NewBGank_1.4.jar | roborumble | robot | score-review | 8b25ee1671f08bbe | - | - |
