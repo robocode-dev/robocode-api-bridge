@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 21 |
+| MATCHED (score noise) | 22 |
 | PASS | 708 |
-| score-review | 234 |
+| score-review | 233 |
 
 ## Subjects
 
@@ -372,7 +372,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | 987482f75234b5ca | - | - |
 | roborumble/dft.Guppy_1.0.jar | roborumble | robot | PASS | e769ffce4e573dad | - | - |
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
-| roborumble/dft.Krazy_1.5.jar | roborumble | robot | score-review | 164440b187073126 | - | - |
+| roborumble/dft.Krazy_1.5.jar | roborumble | robot | MATCHED (score noise) | b6880d37b361d669 | - | - |
 | roborumble/dft.Virgin_1.25.jar | roborumble | robot | PASS | 36ab62179c948ed5 | - | - |
 | roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | score-review | 8c9d984fdf0efc98 | - | - |
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
