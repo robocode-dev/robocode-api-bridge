@@ -71,9 +71,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 84e586ddb595dfd0 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (outcome) | e3248f1f1b0b06a3 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 02d8559d6d924209 | melee-opponent-pool-contamination | harness |
-| meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ee0ebe691b36443a | melee-opponent-pool-contamination | harness |
-| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 15283ac581bc0f7c | melee-opponent-pool-contamination | harness |
-| meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cae4faa61ca1d678 | melee-opponent-pool-contamination | harness |
+| meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 04907df036f1704f | melee-opponent-pool-contamination | harness |
+| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87184c23266d1ad2 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 835662a02ced1697 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4c84d08e1bc4c3dc | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | da15e2667ea2cc20 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | DISCREPANCY (errors) | a8cc54533364c45f | melee-opponent-pool-contamination | harness |
