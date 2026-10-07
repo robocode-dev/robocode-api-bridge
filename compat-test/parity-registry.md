@@ -74,8 +74,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 04907df036f1704f | melee-opponent-pool-contamination | harness |
 | meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87184c23266d1ad2 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 835662a02ced1697 | melee-opponent-pool-contamination | harness |
-| meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4c84d08e1bc4c3dc | melee-opponent-pool-contamination | harness |
-| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | da15e2667ea2cc20 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9f844c4af2979bcd | melee-opponent-pool-contamination | harness |
+| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9d4f5fb91aa7eda7 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | DISCREPANCY (errors) | a8cc54533364c45f | melee-opponent-pool-contamination | harness |
 | meleerumble/com.syncleus.robocode.Dreadnaught_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | e8f05311abdf7569 | harness-timeout-overrun | harness |
 | meleerumble/conscience.Electron_1.3g.jar | meleerumble | robot | DISCREPANCY (errors) | 244529b8cc8da0fe | melee-opponent-pool-contamination | harness |
