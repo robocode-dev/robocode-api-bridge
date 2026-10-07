@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 45 |
-| DISCREPANCY (errors) | 85 |
+| DISCREPANCY (errors) | 86 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 66 |
+| DISCREPANCY (outcome) | 65 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 24 |
 | PASS | 708 |
@@ -52,8 +52,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/az.Ololobot_0.2.4.jar | meleerumble | robot | DISCREPANCY (errors) | 717e46e27dcdeb9a | melee-opponent-pool-contamination | harness |
 | meleerumble/baal.nano.N_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | ca2b3b3a8bd537d6 | melee-opponent-pool-contamination | harness |
 | meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 441885d123c75ae0 | melee-opponent-pool-contamination | harness |
-| meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (outcome) | beacf992d9a2c81c | robot-unchecked-wave-index-and-null-last-scan | robot |
-| meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4e87fc9eef955929 | melee-opponent-pool-contamination | harness |
+| meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (errors) | 62b89c98b4cc7cee | robot-unchecked-wave-index-and-null-last-scan | robot |
+| meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d6980b6975b8b028 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | 80f69799fd2a3214 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 300d364ec402bd8a | melee-opponent-pool-contamination | harness |
 | meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 6f4dd4fb18e7cdc4 | melee-opponent-pool-contamination | harness |
