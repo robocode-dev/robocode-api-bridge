@@ -30,7 +30,7 @@ The subject retains the historical `nested-team-jar-discovery` diagnosis owned b
 
 ## Finding
 
-The earlier +37.4% score advantage does not reproduce in five current official pairs. The current mean pairwise delta is +8.62%, below the 25% confirmation threshold, and the earlier observation used a different Bot API version. No current score defect is located by this retest, and no code change is indicated.
+The earlier +37.4% score advantage does not reproduce in five current official pairs. The current mean pairwise delta is +8.62%, below the 15-point five-pair confirmation band, and the earlier observation used a different Bot API version. The 25% threshold applies to single-pair review. No current score defect is located by this retest, and no code change is indicated.
 
 ## M-006 handoff
 

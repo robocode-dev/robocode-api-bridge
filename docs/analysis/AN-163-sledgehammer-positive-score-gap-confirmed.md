@@ -20,7 +20,7 @@ The read-only subject jar `demetrix.nano.SledgeHammer_0.22.jar` has SHA-256 `8ca
 
 ## What was tried
 
-Across five official pairs, the score deltas were +30.1%, +28.6%, +25.2%, +30.6%, and +31.1%. Classic averaged 10,558 points and Tank Royale averaged 13,633.6, for a +29.12% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `CONFIRMED (score)`; the mean is just above the 25% confirmation threshold.
+Across five official pairs, the score deltas were +30.1%, +28.6%, +25.2%, +30.6%, and +31.1%. Classic averaged 10,558 points and Tank Royale averaged 13,633.6, for a +29.12% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `CONFIRMED (score)`; the mean exceeds the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This is a repeated measurement of one selected RoboRumble robot, not an estimate across the full collection. The five pair deltas give the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 

@@ -20,7 +20,7 @@ The read-only subject jar `dcs.PM.Eater_of_Worlds_PM_1.2.jar` has SHA-256 `103d8
 
 ## What was tried
 
-Across five official pairs, the score deltas were −7.5%, −11.4%, −8.1%, −11.0%, and −6.0%. Classic averaged 5,220.6 points and Tank Royale averaged 4,760.6, for a −8.8% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is below the 25% confirmation threshold.
+Across five official pairs, the score deltas were −7.5%, −11.4%, −8.1%, −11.0%, and −6.0%. Classic averaged 5,220.6 points and Tank Royale averaged 4,760.6, for a −8.8% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is below the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This is a repeated measurement of one selected RoboRumble robot, not an estimate across the full collection. The five pair deltas give the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 

@@ -20,7 +20,7 @@ The read-only subject jar `dmh.robocode.robot.BlueBerry_0.5.jar` has SHA-256 `37
 
 ## What was tried
 
-Across five official pairs, the score deltas were −41.1%, −39.8%, −42.3%, −38.9%, and −30.6%. Classic averaged 5,717.8 points and Tank Royale averaged 3,506.0, for a −38.54% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 25% confirmation threshold.
+Across five official pairs, the score deltas were −41.1%, −39.8%, −42.3%, −38.9%, and −30.6%. Classic averaged 5,717.8 points and Tank Royale averaged 3,506.0, for a −38.54% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This measures one selected robot from the local RoboRumble corpus, pinned by the jar hash above, rather than the collection as a whole. The five paired deltas show the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 

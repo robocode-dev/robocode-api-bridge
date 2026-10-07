@@ -20,7 +20,7 @@ Five official teamrumble pairs used the read-only collection jar (SHA-256 `d3276
 
 ## Results
 
-The paired score deltas were +10.2%, +14.9%, +12.6%, +7.7%, and +16.1%, for a +12.3% mean. Mean team scores were 19,545.2 on classic and 21,941.8 on Tank Royale. All five pairs completed without runtime errors. The registry records `MATCHED (score noise)` in observation `de36a467e13df0c0`, below the 25% sweep threshold.
+The paired score deltas were +10.2%, +14.9%, +12.6%, +7.7%, and +16.1%, for a +12.3% mean. Mean team scores were 19,545.2 on classic and 21,941.8 on Tank Royale. All five pairs completed without runtime errors. The registry records `MATCHED (score noise)` in observation `de36a467e13df0c0`, below the 15-point five-pair confirmation band; the 25% threshold is the single-pair review trigger.
 
 Skipped-turn telemetry was captured for all repeats. Events occurred only on round 1, turn 1, in repeats 1, 2, and 4; repeats 3 and 5 recorded none. The variation does not identify a cause for the score differences.
 

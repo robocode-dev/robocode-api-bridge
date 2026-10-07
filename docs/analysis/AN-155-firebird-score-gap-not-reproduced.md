@@ -20,7 +20,7 @@ The read-only subject jar `davidalves.Firebird_0.25.jar` has SHA-256 `ecf5e584ad
 
 ## What was tried
 
-Across five official pairs, the score deltas were −10.5%, −21.4%, −16.4%, −12.8%, and −13.3%. Classic averaged 5,203.4 points and Tank Royale averaged 4,428.0, for a −14.88% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is below the 25% confirmation threshold.
+Across five official pairs, the score deltas were −10.5%, −21.4%, −16.4%, −12.8%, and −13.3%. Classic averaged 5,203.4 points and Tank Royale averaged 4,428.0, for a −14.88% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is just below the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 Earlier observations `fae39438b7bb4d8a` and `fbca028f7a468788` recorded +16.1% and +28.0% single-pair deltas without runtime errors. The earlier +28.0% result was not treated as a five-pair confirmation; the official confirmation protocol was used to assess whether it persisted.
 

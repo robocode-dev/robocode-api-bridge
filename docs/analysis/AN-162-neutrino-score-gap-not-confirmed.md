@@ -20,11 +20,11 @@ The read-only subject jar `demetrix.nano.Neutrino_0.27.jar` has SHA-256 `3ba40e8
 
 ## What was tried
 
-Across five official pairs, the score deltas were −10.9%, −10.6%, −23.3%, −10.4%, and −8.1%. Classic averaged 7,596 points and Tank Royale averaged 6,621, for a −12.66% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is below the 25% confirmation threshold.
+Across five official pairs, the score deltas were −10.9%, −10.6%, −23.3%, −10.4%, and −8.1%. Classic averaged 7,596 points and Tank Royale averaged 6,621, for a −12.66% mean delta. Both engines completed without errors, and Tank Royale captured an empty skipped-turn event list in all five runs. The registry status is `MATCHED (score noise)`; the mean is below the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This is a repeated measurement of one selected RoboRumble robot, not an estimate across the full collection. The five pair deltas give the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 
-Earlier observations `c87a4b8d228674d0` and `c6d106d809914110` recorded −17.5% and −28.2% single-pair deltas without runtime errors. The current five-pair mean remains negative but does not confirm a score discrepancy at the configured threshold.
+Earlier observations `c87a4b8d228674d0` and `c6d106d809914110` recorded −17.5% and −28.2% single-pair deltas without runtime errors. The current five-pair mean remains negative but does not confirm a score discrepancy at the 15-point confirmation band.
 
 ## Finding
 

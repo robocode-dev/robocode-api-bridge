@@ -20,7 +20,7 @@ The read-only subject jar `dmp.nano.Eve_3.41.jar` has SHA-256 `edd8e3e4a88e6abb3
 
 ## What was tried
 
-Across five official pairs, the score deltas were −57.0%, −50.2%, −41.7%, −65.1%, and −67.0%. Classic averaged 2,968.6 points and Tank Royale averaged 1,264.0, for a −56.2% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 25% confirmation threshold.
+Across five official pairs, the score deltas were −57.0%, −50.2%, −41.7%, −65.1%, and −67.0%. Classic averaged 2,968.6 points and Tank Royale averaged 1,264.0, for a −56.2% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This measures one selected robot from the local RoboRumble corpus, pinned by the jar hash above, rather than the collection as a whole. The five paired deltas show the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 

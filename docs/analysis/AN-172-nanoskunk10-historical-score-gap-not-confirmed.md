@@ -20,7 +20,7 @@ The read-only subject jar `djdjdj.NanoSkunk10_1.0.jar` has SHA-256 `fc647073a6fd
 
 ## What was tried
 
-Across five official pairs, the score deltas were −24.0%, −3.6%, −13.0%, −2.1%, and −10.6%. Classic averaged 6,525.8 points and Tank Royale averaged 5,821.2, for a −10.66% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `MATCHED (score noise)`; the mean is below the 25% confirmation threshold.
+Across five official pairs, the score deltas were −24.0%, −3.6%, −13.0%, −2.1%, and −10.6%. Classic averaged 6,525.8 points and Tank Royale averaged 5,821.2, for a −10.66% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `MATCHED (score noise)`; the mean is below the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This measures one selected robot from the local RoboRumble corpus, pinned by the jar hash above, rather than the collection as a whole. The five paired deltas show the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 

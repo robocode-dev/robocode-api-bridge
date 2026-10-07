@@ -228,6 +228,8 @@ therefore safe to run over a state file holding results from several eras.
 | `PASS` | Both ran; \|score delta\| ≤ threshold (default 25%); no TR-only errors |
 | `DISCREPANCY (score)` | Both ran, but scores diverge beyond the threshold |
 | `DISCREPANCY (errors)` | TR side threw errors the RC side didn't |
+
+Single-pair score review uses `--threshold` (default 25%). `--confirm-score` runs five pairs and classifies the mean absolute delta against the 15-point confirmation band (`REGRESSION_BAND_POINTS`): a mean above 15% is `CONFIRMED (score)`, otherwise it is `MATCHED (score noise)`, provided all five pairs complete without a bridge-only error. The manifest's `threshold` field records the single-pair review threshold, so a five-pair result can be confirmed even when its mean is below 25%.
 | `FAIL (TR)` / `FAIL (RC)` / `FAIL (both)` | The battle did not complete on that side |
 | `SKIPPED-TR` | Team jar: classic result recorded, TR skipped (wrapper has no team support yet) |
 

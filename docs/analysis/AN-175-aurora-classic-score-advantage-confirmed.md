@@ -20,7 +20,7 @@ The read-only subject jar `dmp.micro.Aurora_1.41.jar` has SHA-256 `0550ff35cc6fd
 
 ## What was tried
 
-Across five official pairs, the score deltas were −35.4%, −34.4%, −39.8%, −36.8%, and −38.7%. Classic averaged 4,457.2 points and Tank Royale averaged 2,806.6, for a −37.02% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 25% confirmation threshold.
+Across five official pairs, the score deltas were −35.4%, −34.4%, −39.8%, −36.8%, and −38.7%. Classic averaged 4,457.2 points and Tank Royale averaged 2,806.6, for a −37.02% mean delta. Both engines completed all five pairs without errors, and Tank Royale captured an empty skipped-turn event list in every run. The registry status is `CONFIRMED (score)`; the mean exceeds the 15-point five-pair confirmation band. The 25% threshold is the single-pair review trigger.
 
 This measures one selected robot from the local RoboRumble corpus, pinned by the jar hash above, rather than the collection as a whole. The five paired deltas show the observed spread; no confidence interval was calculated. The score gap is behavioral quality evidence, not a deterministic acceptance criterion.
 
