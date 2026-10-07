@@ -227,7 +227,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | 10f460339be51bf0 | - | - |
 | roborumble/axeBots.HataMoto_3.09.jar | roborumble | robot | PASS | f9cf536953c45a91 | - | - |
 | roborumble/axeBots.Musashi_2.18.jar | roborumble | robot | PASS | 40e7f2ea2300c8f4 | - | - |
-| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | abb124f1b2d515b0 | robot-unchecked-null-history-file | robot |
+| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | eebba33f96db75a8 | robot-unchecked-null-history-file | robot |
 | roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | 38162854ee54a334 | - | - |
 | roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | 630f1c58f42bbb9d | - | - |
 | roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | PASS | 694f876a9c4ba524 | - | - |
@@ -235,16 +235,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 0cf3d7725dede5d5 | - | - |
 | roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | b2c5048162694f75 | - | - |
 | roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | e3cdf960bfb9afc4 | - | - |
-| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | f0b9374e244abc40 | - | - |
+| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | 351ec7438a88bb7f | - | - |
 | roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 2f9eb4f23c454774 | - | - |
-| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | CONFIRMED (score) | 94e3d75e650a463c | - | - |
-| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | c468ff79790bb4bc | - | - |
+| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | CONFIRMED (score) | 913055fbe1b40f66 | - | - |
+| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | a6c1692a3cac5b07 | - | - |
 | roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | 48c972a2d69181bf | - | - |
 | roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | cda71b473b262cf3 | - | - |
 | roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 8d781fc673893f81 | - | - |
 | roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | MATCHED (score noise) | 02a6d347ffc7c3d8 | - | - |
 | roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 6c6d91b59c2d4dae | - | - |
-| roborumble/bk.Shooter_1.0.jar | roborumble | robot | CONFIRMED (score) | 6b24a095635bd032 | - | - |
+| roborumble/bk.Shooter_1.0.jar | roborumble | robot | CONFIRMED (score) | ac385a756b0f2146 | - | - |
 | roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6e0ffccdcd38fada | - | - |
 | roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | 1b2a4d6c4330ef36 | - | - |
 | roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 1842fd1571b0c43b | - | - |
