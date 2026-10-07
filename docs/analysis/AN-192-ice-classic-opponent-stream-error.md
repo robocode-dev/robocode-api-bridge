@@ -32,4 +32,4 @@ The current main bridge build completed the Tank Royale match without errors, co
 
 ## M-006 handoff
 
-Continue in registry order with `meleerumble/ak.Fermat_2.0.jar` (`DISCREPANCY (errors)`).
+Continue in registry order with `meleerumble/amk.ChumbaMini_0.2.jar` (`DISCREPANCY (errors)`), following AN-193's Fermat retest.
