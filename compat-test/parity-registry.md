@@ -27,7 +27,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (errors) | 9274dda799073ff0 | robot-file-stream-limit | bridge |
 | meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ec9b8d3b19f5948a | robot-file-stream-limit | bridge |
 | meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | 50580090ac2c2136 | robot-file-stream-limit | bridge |
-| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | dc8e698cbe4541f8 | initial-status-before-run | bridge |
+| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 1fcf4ed36080fdc1 | initial-status-before-run | bridge |
 | meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | 6f3ff78188a918ba | robot-file-stream-limit | bridge |
 | meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 55fdd09abb52d8f4 | robot-file-stream-limit | bridge |
 | meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | dd82d6b34b151588 | initial-status-before-run | bridge |
