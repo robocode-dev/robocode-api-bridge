@@ -190,4 +190,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-184 — Ar1's historical bridge stream error does not recur in the melee check](AN-184-ar1-melee-stream-error-does-not-recur.md) · `active` — Does Ar1's historical robot-file stream-limit error recur in the M-006 melee setup under current matched artifacts?
 - [AN-185 — Ar2's melee errors remain on the Classic side](AN-185-ar2-melee-errors-remain-classic-only.md) · `active` — Does Ar2's historical robot-file stream-limit discrepancy recur under current matched artifacts in the M-006 melee setup?
 - [AN-186 — Ar2 1.1's current melee errors come from the Classic opponent run](AN-186-ar2-11-classic-opponent-stream-errors.md) · `active` — Does Ar2 1.1's historical robot-file stream-limit discrepancy recur in the M-006 melee setup under current matched artifacts?
+- [AN-187 — Mooserwirt2's Classic-only stream error remains in the melee opponent](AN-187-mooserwirt2-classic-opponent-stream-limit.md) · `active` — Does Mooserwirt2's historical robot-file stream-limit discrepancy recur in the M-006 melee setup under current matched artifacts?
 <!-- clue:index:end -->
