@@ -32,4 +32,4 @@ This post-fix opponent-pool check confirms that ChumbaMini's five-stream failure
 
 ## M-006 handoff
 
-Continue in registry order with `meleerumble/ap.Frederick_1.1.jar` (`DISCREPANCY (errors)`).
+Continue in registry order with `meleerumble/apc.botM_3.0.jar` (`DISCREPANCY (errors)`), following AN-201's Frederick retest.

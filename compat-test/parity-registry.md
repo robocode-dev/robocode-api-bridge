@@ -38,10 +38,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 8cf06c550a92e912 | robot-file-stream-limit | bridge |
 | meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | c1efcec566203c27 | melee-opponent-pool-contamination | harness |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | ab53268224441bab | melee-opponent-pool-contamination | harness |
-| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8651c3aead3e6e8a | melee-opponent-pool-contamination | harness |
-| meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | d051bb63b263a568 | melee-opponent-pool-contamination | harness |
-| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 591555b5e1137e5e | melee-opponent-pool-contamination | harness |
-| meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 0d66c8f11c237e42 | melee-opponent-pool-contamination | harness |
+| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9ebecc7107969680 | melee-opponent-pool-contamination | harness |
+| meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87cb1a1013fc8287 | melee-opponent-pool-contamination | harness |
+| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | f0b24f00b563a266 | melee-opponent-pool-contamination | harness |
+| meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 604d74ebc39d6072 | melee-opponent-pool-contamination | harness |
 | meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | 3fe413f54fb12c10 | terminal-do-while-run-loop-not-transformed | wrapper |
 | meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | d338a164bbc2e0a1 | melee-opponent-pool-contamination | harness |
 | meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 4fca7d303ab293b5 | melee-opponent-pool-contamination | harness |
