@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 25 |
+| CONFIRMED (score) | 26 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 67 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 18 |
 | PASS | 707 |
-| score-review | 249 |
+| score-review | 248 |
 
 ## Subjects
 
@@ -338,7 +338,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 5410b023fd3ba1c8 | - | - |
 | roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | d3030c83714ebd06 | - | - |
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
-| roborumble/da.NewBGank_1.4.jar | roborumble | robot | score-review | 8b25ee1671f08bbe | - | - |
+| roborumble/da.NewBGank_1.4.jar | roborumble | robot | CONFIRMED (score) | d27087a8b3f6cf55 | - | - |
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | score-review | fce67ed0d1b04c77 | - | - |
 | roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 6003e69f1e0dcce6 | - | - |
 | roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | score-review | 3ddba38f0713acc3 | - | - |
