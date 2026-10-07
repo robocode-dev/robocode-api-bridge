@@ -173,4 +173,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-167 — Freddie's negative score gap is confirmed across five pairs](AN-167-freddie-negative-score-gap-confirmed.md) · `active` — Does Freddie's historical Classic score advantage persist with current matched artifacts?
 - [AN-168 — Krazy's historical Tank Royale zero score does not recur](AN-168-krazy-historical-zero-score-not-reproduced.md) · `active` — Does Krazy's historical zero Tank Royale score and large score discrepancy recur with current matched artifacts?
 - [AN-169 — gpBot's negative score gap is confirmed across five pairs](AN-169-gpbot-negative-score-gap-confirmed.md) · `active` — Does gpBot's historical Classic score advantage persist with current matched artifacts?
+- [AN-170 — BlindSquirl's historical score deficit is not reproduced](AN-170-blindsquirl-score-deficit-not-reproduced.md) · `active` — Does BlindSquirl's historical Tank Royale score deficit persist with current matched artifacts and the official five-pair confirmation?
 <!-- clue:index:end -->

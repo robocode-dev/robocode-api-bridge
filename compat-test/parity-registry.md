@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 22 |
+| MATCHED (score noise) | 23 |
 | PASS | 708 |
-| score-review | 232 |
+| score-review | 231 |
 
 ## Subjects
 
@@ -377,7 +377,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | e9099642a06d7564 | - | - |
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
-| roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | score-review | bd4fb0e12b986401 | - | - |
+| roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | MATCHED (score noise) | 1b35acfd8039eda4 | - | - |
 | roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | 4fd33ccfdaf0dab3 | - | - |
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
