@@ -175,4 +175,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-169 — gpBot's negative score gap is confirmed across five pairs](AN-169-gpbot-negative-score-gap-confirmed.md) · `active` — Does gpBot's historical Classic score advantage persist with current matched artifacts?
 - [AN-170 — BlindSquirl's historical score deficit is not reproduced](AN-170-blindsquirl-score-deficit-not-reproduced.md) · `active` — Does BlindSquirl's historical Tank Royale score deficit persist with current matched artifacts and the official five-pair confirmation?
 - [AN-171 — DivineBot's Classic file-load errors recur](AN-171-divinebot-classic-file-load-errors-recur.md) · `active` — Do DivineBot's Classic file-load errors recur with current matched artifacts, and is its current score gap confirmed?
+- [AN-172 — NanoSkunk10's historical score gap is not confirmed](AN-172-nanoskunk10-historical-score-gap-not-confirmed.md) · `active` — Does NanoSkunk10's historical score discrepancy persist with current matched artifacts and the official five-pair confirmation?
 <!-- clue:index:end -->

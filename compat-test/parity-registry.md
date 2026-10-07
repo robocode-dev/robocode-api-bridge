@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 23 |
+| MATCHED (score noise) | 24 |
 | PASS | 708 |
-| score-review | 231 |
+| score-review | 230 |
 
 ## Subjects
 
@@ -382,7 +382,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
 | roborumble/djc.Aardvark_0.3.6.jar | roborumble | robot | PASS | 0f5e762f770658d6 | - | - |
-| roborumble/djdjdj.NanoSkunk10_1.0.jar | roborumble | robot | score-review | 584c9f0476f1fbd5 | - | - |
+| roborumble/djdjdj.NanoSkunk10_1.0.jar | roborumble | robot | MATCHED (score noise) | fea8fc4f9b3a1168 | - | - |
 | roborumble/dk.stable.Gorgatron_1.1.jar | roborumble | robot | PASS | 26892e7aeaed0062 | - | - |
 | roborumble/dks.MicroDanMK2_1.0.jar | roborumble | robot | PASS | d9aa07342e2c385f | - | - |
 | roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | 5a66d8e6f151150b | - | - |
