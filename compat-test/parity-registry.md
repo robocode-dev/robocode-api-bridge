@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 37 |
+| CONFIRMED (score) | 38 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 22 |
 | PASS | 708 |
-| score-review | 233 |
+| score-review | 232 |
 
 ## Subjects
 
@@ -374,7 +374,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
 | roborumble/dft.Krazy_1.5.jar | roborumble | robot | MATCHED (score noise) | b6880d37b361d669 | - | - |
 | roborumble/dft.Virgin_1.25.jar | roborumble | robot | PASS | 36ab62179c948ed5 | - | - |
-| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | score-review | 8c9d984fdf0efc98 | - | - |
+| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | e9099642a06d7564 | - | - |
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
 | roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | score-review | bd4fb0e12b986401 | - | - |
