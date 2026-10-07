@@ -54,9 +54,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bayen.UbaMicro_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 441885d123c75ae0 | melee-opponent-pool-contamination | harness |
 | meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (errors) | 62b89c98b4cc7cee | robot-unchecked-wave-index-and-null-last-scan | robot |
 | meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d6980b6975b8b028 | melee-opponent-pool-contamination | harness |
-| meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | 80f69799fd2a3214 | melee-opponent-pool-contamination | harness |
-| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 300d364ec402bd8a | melee-opponent-pool-contamination | harness |
-| meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 6f4dd4fb18e7cdc4 | melee-opponent-pool-contamination | harness |
+| meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | DISCREPANCY (errors) | b8bf42475f521679 | melee-opponent-pool-contamination | harness |
+| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 9c60c070e27ceb74 | melee-opponent-pool-contamination | harness |
+| meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | ce3b89f81e762176 | melee-opponent-pool-contamination | harness |
 | meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | 0bf6db46a5da3a18 | robot-minimum-risk-negative-index | robot |
 | meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 45eb4eef1a357641 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | bbc61c5e5c99cd4d | melee-opponent-pool-contamination | harness |
