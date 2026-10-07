@@ -168,4 +168,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-162 — Neutrino's historical score gap does not clear the confirmation band](AN-162-neutrino-score-gap-not-confirmed.md) · `active` — Does Neutrino's historical Classic score advantage persist with current matched artifacts and the official five-pair confirmation?
 - [AN-163 — SledgeHammer's positive score gap is confirmed across five pairs](AN-163-sledgehammer-positive-score-gap-confirmed.md) · `active` — Does SledgeHammer's historical Tank Royale score advantage persist with current matched artifacts?
 - [AN-164 — CloudBot's negative score gap is confirmed across five pairs](AN-164-cloudbot-negative-score-gap-confirmed.md) · `active` — Does CloudBot's historical Classic score advantage persist with current matched artifacts?
+- [AN-165 — RainbowBot's negative score gap is confirmed across five pairs](AN-165-rainbowbot-negative-score-gap-confirmed.md) · `active` — Does RainbowBot's historical Classic score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
