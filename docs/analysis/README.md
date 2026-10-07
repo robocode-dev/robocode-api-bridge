@@ -182,4 +182,6 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-176 — Eve's Classic score advantage is confirmed](AN-176-eve-classic-score-advantage-confirmed.md) · `active` — Does Eve's historical Classic score advantage persist with current matched artifacts?
 - [AN-177 — ShinigamiKNN's Tank Royale array bounds error recurs](AN-177-shinigamiknn-tank-royale-array-bounds-error-recur.md) · `active` — Does ShinigamiKNN's Tank Royale-only array bounds failure recur with current matched artifacts?
 - [AN-178 — Jezza's Classic score advantage is confirmed below the single-pair review threshold](AN-178-jezza-score-gap-confirmed-below-single-pair-threshold.md) · `active` — Does Jezza's historical Classic score advantage persist under the five-pair confirmation band?
+- [AN-179 — Muncho's Classic score advantage is confirmed](AN-179-muncho-classic-score-gap-confirmed.md) · `active` — Does Muncho's historical Classic score advantage persist with current matched artifacts?
+- [AN-180 — Dragonbyte Neutrino's positive score gap clears the confirmation band](AN-180-dragonbyte-neutrino-positive-score-gap-confirmed.md) · `active` — Does Dragonbyte Neutrino's historical Tank Royale score advantage persist with current matched artifacts?
 <!-- clue:index:end -->

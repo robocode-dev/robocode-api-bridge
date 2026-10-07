@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 42 |
+| CONFIRMED (score) | 44 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 24 |
 | PASS | 708 |
-| score-review | 226 |
+| score-review | 224 |
 
 ## Subjects
 
@@ -397,8 +397,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/doka.Shinigami_2.2.jar | roborumble | robot | PASS | 4a188800060cdb57 | - | - |
 | roborumble/doka.Test_1.0.jar | roborumble | robot | PASS | a5b782b719256b2f | - | - |
 | roborumble/donjezza.Jezza_1.0.jar | roborumble | robot | CONFIRMED (score) | fe5b481d0d854565 | - | - |
-| roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | score-review | 5621bc7c9b63b9bc | - | - |
-| roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | score-review | 921a316d393ed969 | - | - |
+| roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | CONFIRMED (score) | 1bc442cdb44483c2 | - | - |
+| roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | CONFIRMED (score) | 6651d934a7211124 | - | - |
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |
 | roborumble/drm.CobraBora_1.12.jar | roborumble | robot | score-review | 54f1d01d2403ba18 | - | - |
 | roborumble/drm.Magazine_0.39.jar | roborumble | robot | score-review | e8b005bbf41df0df | - | - |
