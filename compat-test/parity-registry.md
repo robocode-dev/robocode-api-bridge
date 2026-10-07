@@ -11,9 +11,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 20 |
+| MATCHED (score noise) | 21 |
 | PASS | 708 |
-| score-review | 240 |
+| score-review | 239 |
 
 ## Subjects
 
@@ -361,7 +361,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/de.simpleworks.robocode.bots.swiBot_1.0.jar | roborumble | robot | PASS | c1c1dba51c345138 | - | - |
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
-| roborumble/demetrix.nano.Neutrino_0.27.jar | roborumble | robot | score-review | c6d106d809914110 | - | - |
+| roborumble/demetrix.nano.Neutrino_0.27.jar | roborumble | robot | MATCHED (score noise) | 0b83a1386dac6d7f | - | - |
 | roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | score-review | 2dd6c1ce765e2145 | - | - |
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | score-review | 602f15d5ee46510e | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
