@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 35 |
+| CONFIRMED (score) | 36 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 66 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 21 |
 | PASS | 708 |
-| score-review | 236 |
+| score-review | 235 |
 
 ## Subjects
 
@@ -366,7 +366,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 12d5843a8fce4435 | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
 | roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 0216591340b75295 | - | - |
-| roborumble/dft.Calliope_5.6.jar | roborumble | robot | score-review | 1922e70abf214431 | - | - |
+| roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 4da845144515e888 | - | - |
 | roborumble/dft.Cyanide_1.90.jar | roborumble | robot | PASS | b56d225eda383ab9 | - | - |
 | roborumble/dft.Cyprus_3.0.jar | roborumble | robot | PASS | 910fdb7758e78f46 | - | - |
 | roborumble/dft.Freddie_1.32.jar | roborumble | robot | score-review | 341a18222d734d39 | - | - |

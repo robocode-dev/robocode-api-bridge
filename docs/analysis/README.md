@@ -169,4 +169,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-163 — SledgeHammer's positive score gap is confirmed across five pairs](AN-163-sledgehammer-positive-score-gap-confirmed.md) · `active` — Does SledgeHammer's historical Tank Royale score advantage persist with current matched artifacts?
 - [AN-164 — CloudBot's negative score gap is confirmed across five pairs](AN-164-cloudbot-negative-score-gap-confirmed.md) · `active` — Does CloudBot's historical Classic score advantage persist with current matched artifacts?
 - [AN-165 — RainbowBot's negative score gap is confirmed across five pairs](AN-165-rainbowbot-negative-score-gap-confirmed.md) · `active` — Does RainbowBot's historical Classic score advantage persist with current matched artifacts?
+- [AN-166 — Calliope's negative score gap is confirmed across five pairs](AN-166-calliope-negative-score-gap-confirmed.md) · `active` — Does Calliope's historical Classic score advantage persist with current matched artifacts?
 <!-- clue:index:end -->
