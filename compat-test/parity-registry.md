@@ -341,23 +341,23 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/da.NewBGank_1.4.jar | roborumble | robot | DISCREPANCY (errors) | 1dbd76a05a7f3917 | - | - |
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | c8636f3c42595ce2 | - | - |
 | roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 25135646822b48a4 | robot-unjoined-asynchronous-persistence-writer | robot |
-| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | 4f7ba23630a82b1a | - | - |
+| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | 7c103fa6dbb98693 | - | - |
 | roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | PASS | 090ad59ca3e144b7 | packaged-data-resources | bridge |
 | roborumble/davidalves.Firebird_0.25.jar | roborumble | robot | MATCHED (score noise) | d6851b81019c356f | - | - |
 | roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | PASS | f47d4c3f053cdf86 | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
-| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | da9175ceb5e99555 | - | - |
-| roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | CONFIRMED (score) | 22e68bab3c4a18a0 | - | - |
+| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | 9e51d456d63a233f | - | - |
+| roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | CONFIRMED (score) | 50c4bd5434263b10 | - | - |
 | roborumble/davidalves.net.DuelistMini_1.1.jar | roborumble | robot | PASS | cb584316a7ba79e0 | - | - |
 | roborumble/davidalves.net.DuelistNano_1.0.jar | roborumble | robot | PASS | d29eb247c581f450 | - | - |
 | roborumble/davidalves.net.Duelist_0.1.6src.jar | roborumble | robot | PASS | a1dd12d2d41bd3da | - | - |
-| roborumble/davv.DOne_b002.jar | roborumble | robot | CONFIRMED (score) | 9658210601e3d8d6 | - | - |
+| roborumble/davv.DOne_b002.jar | roborumble | robot | CONFIRMED (score) | 0818c28ea7fff59b | - | - |
 | roborumble/dcs.Eater_of_Worlds_1.1.3-A.jar | roborumble | robot | PASS | 6d03e404aa0e75d9 | - | - |
 | roborumble/dcs.Eater_of_Worlds_Mini_1.0.jar | roborumble | robot | PASS | 2fe91471c7f09d1a | - | - |
 | roborumble/dcs.PM.Eater_of_Worlds_PM_1.2.jar | roborumble | robot | MATCHED (score noise) | a5c993bb51abfdae | - | - |
-| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | CONFIRMED (score) | f39aa7cda8ecb379 | - | - |
+| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | CONFIRMED (score) | 05c8c9fcba4357a2 | - | - |
 | roborumble/de.simpleworks.robocode.bots.swiBot_1.0.jar | roborumble | robot | PASS | c1c1dba51c345138 | - | - |
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
