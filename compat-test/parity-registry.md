@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 70 |
+| DISCREPANCY (errors) | 64 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 42 |
+| MATCHED (score noise) | 48 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -38,12 +38,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | MATCHED (score noise) | a6471a48671d9cbc | robot-file-stream-limit | bridge |
 | meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | MATCHED (score noise) | 3ac91ce55fdc3081 | melee-opponent-pool-contamination | harness |
 | meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | MATCHED (score noise) | 81b7c6e567ae195a | melee-opponent-pool-contamination | harness |
-| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9ebecc7107969680 | melee-opponent-pool-contamination | harness |
-| meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87cb1a1013fc8287 | melee-opponent-pool-contamination | harness |
-| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | f0b24f00b563a266 | melee-opponent-pool-contamination | harness |
-| meleerumble/ara.Shera_0.88.jar | meleerumble | robot | DISCREPANCY (errors) | 604d74ebc39d6072 | melee-opponent-pool-contamination | harness |
-| meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | f4ffedbce4a6d5d5 | terminal-do-while-run-loop-not-transformed | wrapper |
-| meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | DISCREPANCY (errors) | d923bb9c0f620792 | melee-opponent-pool-contamination | harness |
+| meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | MATCHED (score noise) | b51bbd49bb3260fb | melee-opponent-pool-contamination | harness |
+| meleerumble/apc.botM_3.0.jar | meleerumble | robot | MATCHED (score noise) | a36c35147e6d1b4d | melee-opponent-pool-contamination | harness |
+| meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | MATCHED (score noise) | 0c4d46544df00193 | melee-opponent-pool-contamination | harness |
+| meleerumble/ara.Shera_0.88.jar | meleerumble | robot | MATCHED (score noise) | 7213969079eb5b42 | melee-opponent-pool-contamination | harness |
+| meleerumble/arthord.MannyPacquiao_Beta.jar | meleerumble | robot | MATCHED (score noise) | 831f6a2a042ba252 | terminal-do-while-run-loop-not-transformed | wrapper |
+| meleerumble/arthord.NanoSatanMelee_Beta.jar | meleerumble | robot | MATCHED (score noise) | 521a2cbd739b829f | melee-opponent-pool-contamination | harness |
 | meleerumble/ary.Swarm_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 2753872969b52c2b | melee-opponent-pool-contamination | harness |
 | meleerumble/as.FrankTheTank_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | 48ea9b2a04e896bb | melee-opponent-pool-contamination | harness |
 | meleerumble/asd.Cthulhu_1.3.jar | meleerumble | robot | DISCREPANCY (errors) | da0129bb6e373bf6 | subject-owned-data-file-append-quota | robot |
