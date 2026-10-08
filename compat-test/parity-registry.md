@@ -374,19 +374,19 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
 | roborumble/dft.Krazy_1.5.jar | roborumble | robot | MATCHED (score noise) | b6880d37b361d669 | - | - |
 | roborumble/dft.Virgin_1.25.jar | roborumble | robot | PASS | 36ab62179c948ed5 | - | - |
-| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | e9099642a06d7564 | - | - |
+| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | 255126bc4a951a44 | - | - |
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
 | roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | MATCHED (score noise) | 1b35acfd8039eda4 | - | - |
-| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | bc9133dc96057591 | - | - |
+| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | 75750cf74ed4de65 | - | - |
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
 | roborumble/djc.Aardvark_0.3.6.jar | roborumble | robot | PASS | 0f5e762f770658d6 | - | - |
 | roborumble/djdjdj.NanoSkunk10_1.0.jar | roborumble | robot | MATCHED (score noise) | fea8fc4f9b3a1168 | - | - |
 | roborumble/dk.stable.Gorgatron_1.1.jar | roborumble | robot | PASS | 26892e7aeaed0062 | - | - |
 | roborumble/dks.MicroDanMK2_1.0.jar | roborumble | robot | PASS | d9aa07342e2c385f | - | - |
-| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | bade34a62c6dfd14 | - | - |
-| roborumble/dmh.robocode.robot.BlueBerry_0.5.jar | roborumble | robot | CONFIRMED (score) | 4f7f98156d9a57ca | - | - |
+| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | 706404a00e327f99 | - | - |
+| roborumble/dmh.robocode.robot.BlueBerry_0.5.jar | roborumble | robot | CONFIRMED (score) | b28966c382c77593 | - | - |
 | roborumble/dmh.robocode.robot.GreenDragon_1.0.jar | roborumble | robot | PASS | bcfc6d79e390b279 | - | - |
 | roborumble/dmh.robocode.robot.PinkPanther_1.1.jar | roborumble | robot | PASS | 9b1fac585eb3cd2f | - | - |
 | roborumble/dmh.robocode.robot.YellowBird_0.12.jar | roborumble | robot | PASS | 2b6f33428c15386e | - | - |
