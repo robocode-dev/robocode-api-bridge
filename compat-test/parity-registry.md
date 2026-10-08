@@ -278,16 +278,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bvh.mini.Mjolnir_0.3.jar | roborumble | robot | PASS | b8b6ef9147eb54d2 | - | - |
 | roborumble/bvh.mini.Wodan_0.50.jar | roborumble | robot | PASS | ca182a611e34db8e | - | - |
 | roborumble/bvh.tyr.Tyr_1.74.jar | roborumble | robot | PASS | 5b1f84ee29ac481a | - | - |
-| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | c65434b2428d5eb5 | - | - |
+| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | 7aa9ac29fe78b2f7 | - | - |
 | roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | 158dc02a97104f42 | - | - |
 | roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | e5ecc6fe604d60b8 | - | - |
-| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 02c8849c0009547c | - | - |
+| roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 9f1e620ad662a53b | - | - |
 | roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | a68f7fbc62aef405 | - | - |
 | roborumble/cb.Domogled_1.2.jar | roborumble | robot | PASS | 81b684f912cb6069 | - | - |
-| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | fa6b9b4c0ad0f91b | robot-uninitialized-wall-rectangle | robot |
+| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 2737fd38e58b8343 | robot-uninitialized-wall-rectangle | robot |
 | roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | PASS | 3b670e9d9d0dcdbf | - | - |
 | roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | MATCHED (score noise) | 9212979d0d391d93 | - | - |
-| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | ed60f44fa4bdb311 | robot-null-pray-in-get-stop-ticks | robot |
+| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | 6724285259a5f928 | robot-null-pray-in-get-stop-ticks | robot |
 | roborumble/cbot.cbot.CBot_0.8.jar | roborumble | robot | PASS | 72304543581f9b7b | - | - |
 | roborumble/cf.OldMan.OldManXP_0.1.jar | roborumble | robot | PASS | 9ee75157b4ba10a1 | - | - |
 | roborumble/cf.mini.Chiva_1.0.jar | roborumble | robot | PASS | 81ca35e884bdda0d | - | - |
@@ -299,18 +299,18 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | 56e7d8dd5c969372 | - | - |
 | roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 08e3ebbb8e8cafec | - | - |
 | roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 76d6527ba565e6e8 | - | - |
-| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 400dfd93c4f1fa3c | - | - |
+| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 951af18fa9967b7f | - | - |
 | roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 7b75c4d17e30213b | - | - |
-| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 645d204963358c18 | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
-| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | ebabf39fe8cb6a4c | - | - |
+| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 1193dbc4cad7591c | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
+| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | 93ffa72fc4b8df11 | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | 12786f49002d3554 | - | - |
-| roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | f0a71c562a4e01e4 | - | - |
+| roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | fcd94c98adebc6da | - | - |
 | roborumble/com.spp.robocode.MostlyHarmless_010.jar | roborumble | robot | PASS | bf9624b1e5be7364 | - | - |
 | roborumble/com.syncleus.robocode.Dreadnaught_0.1.jar | roborumble | robot | PASS | 74e041fd9d303f18 | - | - |
 | roborumble/com.timothyveletta.FuzzyBot_1.1.jar | roborumble | robot | PASS | 2725e155384329ea | - | - |
-| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 018a86452c5c224d | - | - |
+| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 33e68230dc8e0629 | - | - |
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
-| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 1626e7b07d273141 | - | - |
+| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 384afc9089d9e705 | - | - |
 | roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | 35837038671a2a83 | - | - |
 | roborumble/cre.Karolos_0.32.jar | roborumble | robot | PASS | 17dab4a805d7a49e | - | - |
 | roborumble/cs.Nene_1.0.5.jar | roborumble | robot | CONFIRMED (score) | f66575d199e45a40 | - | - |
