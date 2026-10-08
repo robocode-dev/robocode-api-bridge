@@ -165671,7 +165671,7 @@
         "key": "roborumble/conscience.Suicidal_1.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "35837038671a2a83",
+      "latest_observation": "7bace3e897fc3ef4",
       "observations": [
         {
           "classic": {
@@ -165896,6 +165896,86 @@
             "scores": [
               1080.0,
               1020.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 1.9,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 0.0,
+            "scores": [
+              0.0,
+              0.0
+            ],
+            "selected": "conscience.Suicidal 1.1"
+          },
+          "completed_at": "2026-10-08T14:16:20Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "7bace3e897fc3ef4",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "conscience.Suicidal 1.1",
+            "division": "roborumble",
+            "jar": "conscience.Suicidal_1.1.jar",
+            "jar_sha256": "4650b8e8b5705e0fafb87fb4ffdcda77597f168c7c1c9272abae80691ad4f3d6",
+            "key": "roborumble/conscience.Suicidal_1.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (no score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 10.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 2080.0,
+            "scores": [
+              1100.0,
+              980.0
             ],
             "skipped": null,
             "skipped_turn_telemetry": {
@@ -166369,7 +166449,7 @@
         "key": "roborumble/cs.Nene_1.0.5.jar",
         "kind": "robot"
       },
-      "latest_observation": "f66575d199e45a40",
+      "latest_observation": "03d40c32c811f41e",
       "observations": [
         {
           "classic": {
@@ -166596,6 +166676,104 @@
             "official_parameters": true,
             "robocode_version": "1.11.1",
             "tank_royale_commit": "ac4c4cc8e1ebe5be25e6527addfbdbfe2de557b9",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "cs.Nene_1.0.5.jar",
+            "jar_sha256": "9615be8f8f2bdf4f42a38f74b4b81d0944e86f06311582915a78af06d529e856",
+            "key": "roborumble/cs.Nene_1.0.5.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 0.0
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 4721.2
+          },
+          "completed_at": "2026-10-08T14:19:56Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -100.0,
+            "deltas": [
+              -100.0,
+              -100.0,
+              -100.0,
+              -100.0,
+              -100.0
+            ],
+            "rc_mean": 4721.2,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 0.0
+          },
+          "delta_pct": -100.0,
+          "id": "03d40c32c811f41e",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
             "threshold": 25.0
           },
           "retest": null,
@@ -167900,7 +168078,7 @@
         "key": "roborumble/cw.megas.Blade_0.8.jar",
         "kind": "robot"
       },
-      "latest_observation": "c83f4cf3396ce737",
+      "latest_observation": "c61c09256a05f53b",
       "observations": [
         {
           "classic": {
@@ -168234,9 +168412,89 @@
               "status": "incomplete"
             }
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.6,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 5091.0,
+            "scores": [
+              2529.0,
+              2562.0
+            ],
+            "selected": "cw.megas.Blade 0.8"
+          },
+          "completed_at": "2026-10-08T14:20:46Z",
+          "confirmation": null,
+          "delta_pct": 8.9,
+          "id": "c61c09256a05f53b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "cw.megas.Blade 0.8",
+            "division": "roborumble",
+            "jar": "cw.megas.Blade_0.8.jar",
+            "jar_sha256": "4a50333c16fd0bdc02aca8c152e7017ede5c8e763ceaba42319867a5b256f830",
+            "key": "roborumble/cw.megas.Blade_0.8.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 18.0,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 5545.0,
+            "scores": [
+              3095.0,
+              2450.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/cw.megas.GhostShell_GT.jar": {
       "diagnosis_events": [
@@ -168267,7 +168525,7 @@
         "key": "roborumble/cw.megas.GhostShell_GT.jar",
         "kind": "robot"
       },
-      "latest_observation": "c279e9c8a178d0c0",
+      "latest_observation": "8d7ad09d673c7d73",
       "observations": [
         {
           "classic": {
@@ -169157,9 +169415,325 @@
               "status": "incomplete"
             }
           }
+        },
+        {
+          "classic": {
+            "elapsed": 2.4,
+            "error_count": 596,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "cw.megas.GhostShell.chooseLocation"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "cw.megas.GhostShell.doMovement"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.StringIndexOutOfBoundsException",
+                "origin": "cw.megas.GhostShell.patternGun"
+              },
+              {
+                "exception": "java.lang.StringIndexOutOfBoundsException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 33",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 34",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 35",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 36",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 37",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 38",
+              "SYSTEM: java.lang.StringIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.StringIndexOutOfBoundsException: String index out of range: 39",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"p\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"p\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"p\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"p\" is null",
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.ScannedRobotEvent",
+              "java.lang.NullPointerException: Cannot invoke \"java.awt.geom.Point2D.getX()\" because \"p\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 8285.0,
+            "scores": [
+              3582.0,
+              4703.0
+            ],
+            "selected": "cw.megas.GhostShell GT"
+          },
+          "completed_at": "2026-10-08T14:21:27Z",
+          "confirmation": null,
+          "delta_pct": -9.4,
+          "id": "8d7ad09d673c7d73",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "cw.megas.GhostShell GT",
+            "division": "roborumble",
+            "jar": "cw.megas.GhostShell_GT.jar",
+            "jar_sha256": "f75b19028ba3d181ae70d87a380370cf53e535b49e87f9060069a8591bc5888a",
+            "key": "roborumble/cw.megas.GhostShell_GT.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 12.2,
+            "error_count": 1036,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "cw.megas.GhostShell.chooseLocation"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "cw.megas.GhostShell.run"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null",
+              "java.lang.NullPointerException: Cannot read field \"origin\" because \"w\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 7505.0,
+            "scores": [
+              4035.0,
+              3470.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "DISCREPANCY (errors)"
     },
     "roborumble/cw.megas.Gridd_0.4.jar": {
       "diagnosis_events": [],
@@ -170562,7 +171136,7 @@
         "key": "roborumble/cx.micro.Blur_0.2.jar",
         "kind": "robot"
       },
-      "latest_observation": "df6757b238884587",
+      "latest_observation": "09cdaa1dbaada460",
       "observations": [
         {
           "classic": {
@@ -170810,9 +171384,107 @@
             "ok": false,
             "score": 1885.3333333333333
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 7569.0
+          },
+          "completed_at": "2026-10-08T14:23:34Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -74.78,
+            "deltas": [
+              -77.6,
+              -76.1,
+              -73.2,
+              -70.8,
+              -76.2
+            ],
+            "rc_mean": 7569.0,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 1905.6
+          },
+          "delta_pct": -74.78,
+          "id": "09cdaa1dbaada460",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "cx.micro.Blur_0.2.jar",
+            "jar_sha256": "a1d62b084d88196ff938d3f189e0f7a84f89e7f034bd21f83a8afb0bc20ba979",
+            "key": "roborumble/cx.micro.Blur_0.2.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 1905.6
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/cx.micro.Smoke_0.96.jar": {
       "diagnosis_events": [],
@@ -170990,7 +171662,7 @@
         "key": "roborumble/cx.micro.Spark_0.6.jar",
         "kind": "robot"
       },
-      "latest_observation": "cc6837f8fd8e254d",
+      "latest_observation": "fb18b8405b2642fd",
       "observations": [
         {
           "classic": {
@@ -171239,6 +171911,665 @@
             "errors": [],
             "ok": true,
             "score": 11723.6
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 4824.6
+          },
+          "completed_at": "2026-10-08T14:25:27Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 164.68,
+            "deltas": [
+              169.7,
+              164.4,
+              172.5,
+              160.0,
+              156.8
+            ],
+            "rc_mean": 4824.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 31
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 32
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 33
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 34
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 35
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 36
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 37
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 38
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 39
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 40
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 41
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 42
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 43
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 44
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 45
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 46
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 47
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 48
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 49
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 50
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 51
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 52
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 53
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 54
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 55
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 56
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 57
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 58
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 59
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 60
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 61
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 62
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 63
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 64
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 65
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 66
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 67
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 68
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 69
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 70
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 71
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 72
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 73
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 74
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 75
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 76
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 77
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 78
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 79
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 80
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 81
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 82
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 83
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 84
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 85
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 86
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 87
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 88
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 89
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 90
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 91
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 92
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 93
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 94
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 95
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 96
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 97
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 98
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 99
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 100
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 101
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 102
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 103
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 104
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 105
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 106
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 107
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 108
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 109
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 110
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 12,
+                    "turn": 111
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 2
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 3
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 4
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 5
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 6
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 7
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 8
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 10
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 11
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 12
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 13
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 14
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 15
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 16
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 17
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 18
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 19
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 20
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 21
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 22
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 23
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 24
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 25
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 26
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 27
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 28
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 29
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 30
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 13,
+                    "turn": 31
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 12770.8
+          },
+          "delta_pct": 164.68,
+          "id": "fb18b8405b2642fd",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "ad1b8b818512d466fdf419caf51c0887e86405d3",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "cx.micro.Spark_0.6.jar",
+            "jar_sha256": "dfcbbb2bb08ae6028e68178c3d9f80c0b1d0058ced7ab90bab2cade92f615d18",
+            "key": "roborumble/cx.micro.Spark_0.6.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 12770.8
           }
         }
       ],

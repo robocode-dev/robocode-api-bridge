@@ -6,13 +6,13 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 45 |
+| CONFIRMED (score) | 46 |
 | DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 66 |
+| DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 24 |
-| PASS | 708 |
+| PASS | 709 |
 | score-review | 223 |
 
 ## Subjects
@@ -311,9 +311,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 33e68230dc8e0629 | - | - |
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
 | roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 384afc9089d9e705 | - | - |
-| roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | 35837038671a2a83 | - | - |
+| roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | 7bace3e897fc3ef4 | - | - |
 | roborumble/cre.Karolos_0.32.jar | roborumble | robot | PASS | 17dab4a805d7a49e | - | - |
-| roborumble/cs.Nene_1.0.5.jar | roborumble | robot | CONFIRMED (score) | f66575d199e45a40 | - | - |
+| roborumble/cs.Nene_1.0.5.jar | roborumble | robot | CONFIRMED (score) | 03d40c32c811f41e | - | - |
 | roborumble/cs.PumpkinPie_1.0.jar | roborumble | robot | PASS | c725fb8efdc81773 | - | - |
 | roborumble/cs.Wren_1.0.jar | roborumble | robot | PASS | 038056ec38361bd3 | - | - |
 | roborumble/cs.s2.Seraphim_2.3.1.jar | roborumble | robot | PASS | ea63d4fa2eac6c25 | - | - |
@@ -321,8 +321,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/csp.Eagle_3.30.jar | roborumble | robot | MATCHED (score noise) | 29ac380d947bfd32 | - | - |
 | roborumble/css.Delitioner_0.11.jar | roborumble | robot | PASS | 5011f2da71d38328 | - | - |
 | roborumble/cuoq.Kakera_1.0.jar | roborumble | robot | PASS | 24bb72dfc648f37c | - | - |
-| roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | DISCREPANCY (outcome) | c83f4cf3396ce737 | robot-enemy-pattern-reads-past-final-sample | robot |
-| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (outcome) | c279e9c8a178d0c0 | robot-enemy-pattern-reads-past-final-sample | robot |
+| roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | PASS | c61c09256a05f53b | robot-enemy-pattern-reads-past-final-sample | robot |
+| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (errors) | 8d7ad09d673c7d73 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Gridd_0.4.jar | roborumble | robot | PASS | 6f34f6ef130995c8 | - | - |
 | roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | PASS | 08028b163eba772a | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Silhouette_1.1.jar | roborumble | robot | PASS | 25c5e3c9db55e253 | - | - |
@@ -330,9 +330,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.CigaretBH_1.03.jar | roborumble | robot | PASS | b3f0624de06e9e36 | - | - |
 | roborumble/cx.Lacrimas_1.36.jar | roborumble | robot | PASS | 539ae590fae08967 | - | - |
 | roborumble/cx.Princess_1.0.jar | roborumble | robot | PASS | 5d92f19933b9dea0 | - | - |
-| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | DISCREPANCY (errors) | df6757b238884587 | robot-null-surf-wave-on-hit-by-bullet | robot |
+| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | CONFIRMED (score) | 09cdaa1dbaada460 | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/cx.micro.Smoke_0.96.jar | roborumble | robot | PASS | 22c757bf2c791a1c | - | - |
-| roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | cc6837f8fd8e254d | - | - |
+| roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | fb18b8405b2642fd | - | - |
 | roborumble/cx.mini.BlackSwans_0.60.jar | roborumble | robot | PASS | 8ff4ff433f3d1ef6 | - | - |
 | roborumble/cx.mini.Cigaret_1.31.jar | roborumble | robot | PASS | dc070048cc9ba197 | - | - |
 | roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 5410b023fd3ba1c8 | - | - |
