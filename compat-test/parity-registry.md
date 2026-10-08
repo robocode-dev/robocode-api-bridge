@@ -390,13 +390,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dmh.robocode.robot.GreenDragon_1.0.jar | roborumble | robot | PASS | bcfc6d79e390b279 | - | - |
 | roborumble/dmh.robocode.robot.PinkPanther_1.1.jar | roborumble | robot | PASS | 9b1fac585eb3cd2f | - | - |
 | roborumble/dmh.robocode.robot.YellowBird_0.12.jar | roborumble | robot | PASS | 2b6f33428c15386e | - | - |
-| roborumble/dmp.micro.Aurora_1.41.jar | roborumble | robot | CONFIRMED (score) | 9470ea89146b4bb5 | - | - |
-| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | CONFIRMED (score) | 02cf19f8c7dcc852 | - | - |
+| roborumble/dmp.micro.Aurora_1.41.jar | roborumble | robot | CONFIRMED (score) | 98f37e0587cbb865 | - | - |
+| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | CONFIRMED (score) | 154df2b2813a62bd | - | - |
 | roborumble/doka.KillerRabbit_1.0.jar | roborumble | robot | PASS | cf5897bf12f1cb30 | - | - |
-| roborumble/doka.ShinigamiKNN_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | bb3fa0181618c564 | - | - |
+| roborumble/doka.ShinigamiKNN_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 1fc2149178754052 | - | - |
 | roborumble/doka.Shinigami_2.2.jar | roborumble | robot | PASS | 4a188800060cdb57 | - | - |
 | roborumble/doka.Test_1.0.jar | roborumble | robot | PASS | a5b782b719256b2f | - | - |
-| roborumble/donjezza.Jezza_1.0.jar | roborumble | robot | CONFIRMED (score) | fe5b481d0d854565 | - | - |
+| roborumble/donjezza.Jezza_1.0.jar | roborumble | robot | CONFIRMED (score) | 5d30c62d6d296153 | - | - |
 | roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | CONFIRMED (score) | 1bc442cdb44483c2 | - | - |
 | roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | CONFIRMED (score) | 6651d934a7211124 | - | - |
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |

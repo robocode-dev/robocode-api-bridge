@@ -31,3 +31,7 @@ NewBGank's Classic score advantage persists across the four completed pairs, but
 ## M-006 handoff
 
 Continue in registry order with `roborumble/daemons.DizzyA_1.0.jar` (`score-review`).
+
+## Follow-up bytecode inspection
+
+Read-only bytecode inspection of the subject jar found the likely robot-owned bounds error. Its static target-statistics table has dimensions `[2][5][5][3][4][2][31]`. In `onScannedRobot`, the second index is computed as `round(distance / (n / 5))`, where `n` is capped battlefield diagonal minus 36, but the result is not clamped to the table's valid indices 0–4. On an 800×600 field, sufficiently long diagonal scan distances can round to 5 and throw `ArrayIndexOutOfBoundsException`. The recorded exception frame is the robot's own callback, consistent with this unsafe index. `BotPeer` maps the scan event and invokes the callback through its exception-reporting boundary; this evidence does not indicate a bridge mapping defect. The read-only rumble jar is left unchanged.
