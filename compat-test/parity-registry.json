@@ -31772,7 +31772,7 @@
         "key": "meleerumble/ags.Glacier_0.2.11.jar",
         "kind": "robot"
       },
-      "latest_observation": "50580090ac2c2136",
+      "latest_observation": "295268a47bfef84f",
       "observations": [
         {
           "classic": {
@@ -33582,9 +33582,294 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 114226.0
+          },
+          "completed_at": "2026-10-08T18:09:54Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -2.0,
+            "deltas": [
+              -1.9,
+              -2.9,
+              -1.0,
+              -1.4,
+              -2.8
+            ],
+            "rc_mean": 114226.0,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 111932.0
+          },
+          "delta_pct": -2.0,
+          "id": "295268a47bfef84f",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ags.Glacier_0.2.11.jar",
+            "jar_sha256": "37122320b1f4f8572edd27b8fa5549af5b55b89738e855945cb69ff0713cb8b0",
+            "key": "meleerumble/ags.Glacier_0.2.11.jar",
+            "kind": "robot"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 111932.0
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "MATCHED (score noise)"
     },
     "meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar": {
       "diagnosis_events": [
@@ -33605,6 +33890,12 @@
           "id": "diagnosis-3",
           "owner": "bridge",
           "recorded_at": "2026-09-29T14:30:21Z"
+        },
+        {
+          "cause": "opponent-iterator-invalidated-by-scan-callback",
+          "id": "diagnosis-4",
+          "owner": "robot",
+          "recorded_at": "2026-10-08T18:15:05Z"
         }
       ],
       "identity": {
@@ -33615,7 +33906,7 @@
         "key": "meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "1fcf4ed36080fdc1",
+      "latest_observation": "76f7a7897e8e6c2e",
       "observations": [
         {
           "classic": {
@@ -35730,6 +36021,237 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": 113594.66666666667
+          },
+          "completed_at": "2026-10-08T18:13:46Z",
+          "confirmation": {
+            "attempts": 4,
+            "bridge_only_signatures": [
+              [
+                "java.util.ConcurrentModificationException",
+                "amk.ShizzleStiX.Navigator.run"
+              ]
+            ],
+            "delta_mean": -3.1666666666666665,
+            "deltas": [
+              -3.8,
+              -3.6,
+              -2.1
+            ],
+            "rc_mean": 113594.66666666667,
+            "samples": 3,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": 110035.0
+          },
+          "delta_pct": -3.1666666666666665,
+          "id": "76f7a7897e8e6c2e",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ags.surreptitious.MiniSurreptitious_0.0.1.jar",
+            "jar_sha256": "0c1cdf2e268c5e96d3a24063df946d694c879d499bf2df55a987539cdfbc18ad",
+            "key": "meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": 110035.0
+          }
         }
       ],
       "status": "DISCREPANCY (errors)"
@@ -35757,7 +36279,7 @@
         "key": "meleerumble/ahf.NanoAndrew_.4.jar",
         "kind": "robot"
       },
-      "latest_observation": "cc9294ca7a8f8a7f",
+      "latest_observation": "0494542588361931",
       "observations": [
         {
           "classic": {
@@ -37587,9 +38109,252 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 115427.2
+          },
+          "completed_at": "2026-10-08T18:19:01Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -2.2199999999999998,
+            "deltas": [
+              -2.9,
+              -1.6,
+              -1.9,
+              -2.7,
+              -2.0
+            ],
+            "rc_mean": 115427.2,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 112871.0
+          },
+          "delta_pct": -2.2199999999999998,
+          "id": "0494542588361931",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ahf.NanoAndrew_.4.jar",
+            "jar_sha256": "667ad546b341badd93276d9de63623cf8ddd42918f46a2a04b23dbe114bacf2d",
+            "key": "meleerumble/ahf.NanoAndrew_.4.jar",
+            "kind": "robot"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 112871.0
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "MATCHED (score noise)"
     },
     "meleerumble/ahr.ice.Ice_1.0.2.jar": {
       "diagnosis_events": [
@@ -37614,7 +38379,7 @@
         "key": "meleerumble/ahr.ice.Ice_1.0.2.jar",
         "kind": "robot"
       },
-      "latest_observation": "be2f27c5669782f3",
+      "latest_observation": "fbd4f382798b98fc",
       "observations": [
         {
           "classic": {
@@ -39797,9 +40562,395 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 114343.6
+          },
+          "completed_at": "2026-10-08T18:23:22Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -1.54,
+            "deltas": [
+              -2.1,
+              -1.1,
+              -0.8,
+              -2.7,
+              -1.0
+            ],
+            "rc_mean": 114343.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 10
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 11
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 19
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 20
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 21
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 4
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 5
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 7
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 8
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 10
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 6
+                  }
+                ],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 112584.8
+          },
+          "delta_pct": -1.54,
+          "id": "fbd4f382798b98fc",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ahr.ice.Ice_1.0.2.jar",
+            "jar_sha256": "46da6577681b39d9a472ff9559a8e29fa9fa0dde914b2854b22dde5c4d89a507",
+            "key": "meleerumble/ahr.ice.Ice_1.0.2.jar",
+            "kind": "robot"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 112584.8
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "MATCHED (score noise)"
     },
     "meleerumble/ak.Fermat_2.0.jar": {
       "diagnosis_events": [
@@ -39830,7 +40981,7 @@
         "key": "meleerumble/ak.Fermat_2.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "2607328840a47861",
+      "latest_observation": "929ae1ab14c7ed06",
       "observations": [
         {
           "classic": {
@@ -42543,6 +43694,456 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": null
+          },
+          "completed_at": "2026-10-08T18:24:39Z",
+          "confirmation": {
+            "attempts": 1,
+            "bridge_only_signatures": [
+              [
+                "java.lang.ArrayIndexOutOfBoundsException",
+                "ak.RobotBody.getDirection"
+              ]
+            ],
+            "delta_mean": null,
+            "deltas": [],
+            "rc_mean": null,
+            "samples": 0,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": null
+          },
+          "delta_pct": null,
+          "id": "a06ae57aca23bd50",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "meleerumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": null
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": 114889.0
+          },
+          "completed_at": "2026-10-08T18:27:10Z",
+          "confirmation": {
+            "attempts": 3,
+            "bridge_only_signatures": [
+              [
+                "java.lang.ArrayIndexOutOfBoundsException",
+                "ak.RobotBody.getDirection"
+              ]
+            ],
+            "delta_mean": -2.35,
+            "deltas": [
+              -2.7,
+              -2.0
+            ],
+            "rc_mean": 114889.0,
+            "samples": 2,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 2
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 3
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 4
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 5
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 6
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 7
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 8
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 14,
+                    "turn": 10
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": 112242.5
+          },
+          "delta_pct": -2.35,
+          "id": "929ae1ab14c7ed06",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "ak.Fermat_2.0.jar",
+            "jar_sha256": "814688bbe0f93cf5cc6a6be42ab0e69ad0259c54cba8547b20ddb4b1bd7107b3",
+            "key": "meleerumble/ak.Fermat_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": 112242.5
+          }
         }
       ],
       "status": "DISCREPANCY (errors)"
@@ -42570,7 +44171,7 @@
         "key": "meleerumble/amk.ChumbaMini_0.2.jar",
         "kind": "robot"
       },
-      "latest_observation": "a4eea4df8525940e",
+      "latest_observation": "6ee9a1185b69b57b",
       "observations": [
         {
           "classic": {
@@ -44632,9 +46233,207 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 114252.8
+          },
+          "completed_at": "2026-10-08T18:31:19Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -1.06,
+            "deltas": [
+              -1.8,
+              -0.5,
+              -1.7,
+              -0.6,
+              -0.7
+            ],
+            "rc_mean": 114252.8,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 3,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 113055.6
+          },
+          "delta_pct": -1.06,
+          "id": "6ee9a1185b69b57b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "amk.ChumbaMini_0.2.jar",
+            "jar_sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b",
+            "key": "meleerumble/amk.ChumbaMini_0.2.jar",
+            "kind": "robot"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 113055.6
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "MATCHED (score noise)"
     },
     "meleerumble/amk.ChumbaWumba_0.3.jar": {
       "diagnosis_events": [
@@ -44659,7 +46458,7 @@
         "key": "meleerumble/amk.ChumbaWumba_0.3.jar",
         "kind": "robot"
       },
-      "latest_observation": "c2c9ad1070d4caa6",
+      "latest_observation": "3be61e15a26a2e8f",
       "observations": [
         {
           "classic": {
@@ -46474,9 +48273,248 @@
               "status": "captured"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 114263.6
+          },
+          "completed_at": "2026-10-08T18:34:43Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -0.8800000000000001,
+            "deltas": [
+              -1.6,
+              -0.9,
+              -1.3,
+              -0.1,
+              -0.5
+            ],
+            "rc_mean": 114263.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 10,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 113277.0
+          },
+          "delta_pct": -0.8800000000000001,
+          "id": "3be61e15a26a2e8f",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "1c00eeebdab2c4e3f93a2fd115235b6bdd66e4a8",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "meleerumble",
+            "jar": "amk.ChumbaWumba_0.3.jar",
+            "jar_sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9",
+            "key": "meleerumble/amk.ChumbaWumba_0.3.jar",
+            "kind": "robot"
+          },
+          "status": "MATCHED (score noise)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 113277.0
+          }
         }
       ],
-      "status": "DISCREPANCY (errors)"
+      "status": "MATCHED (score noise)"
     },
     "meleerumble/amk.Punbot.Punbot_0.01.jar": {
       "diagnosis_events": [

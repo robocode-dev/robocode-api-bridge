@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 80 |
+| DISCREPANCY (errors) | 75 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 32 |
+| MATCHED (score noise) | 37 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -26,13 +26,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | MATCHED (score noise) | 7a57fed4fd42ca62 | robot-file-stream-limit | bridge |
 | meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | MATCHED (score noise) | dc2cf09b55f8a671 | robot-file-stream-limit | bridge |
 | meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2556e61118388713 | robot-file-stream-limit | bridge |
-| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | 50580090ac2c2136 | robot-file-stream-limit | bridge |
-| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 1fcf4ed36080fdc1 | initial-status-before-run | bridge |
-| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | cc9294ca7a8f8a7f | robot-file-stream-limit | bridge |
-| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | DISCREPANCY (errors) | be2f27c5669782f3 | robot-file-stream-limit | bridge |
-| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 2607328840a47861 | initial-status-before-run | bridge |
-| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | a4eea4df8525940e | robot-file-stream-limit | bridge |
-| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | c2c9ad1070d4caa6 | robot-file-stream-limit | bridge |
+| meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | MATCHED (score noise) | 295268a47bfef84f | robot-file-stream-limit | bridge |
+| meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 76f7a7897e8e6c2e | opponent-iterator-invalidated-by-scan-callback | robot |
+| meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | MATCHED (score noise) | 0494542588361931 | robot-file-stream-limit | bridge |
+| meleerumble/ahr.ice.Ice_1.0.2.jar | meleerumble | robot | MATCHED (score noise) | fbd4f382798b98fc | robot-file-stream-limit | bridge |
+| meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 929ae1ab14c7ed06 | initial-status-before-run | bridge |
+| meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | MATCHED (score noise) | 6ee9a1185b69b57b | robot-file-stream-limit | bridge |
+| meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | MATCHED (score noise) | 3be61e15a26a2e8f | robot-file-stream-limit | bridge |
 | meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | af7f1ca38b4b8b25 | robot-file-stream-limit | bridge |
 | meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 31b7de98365662fb | robot-file-stream-limit | bridge |
 | meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 8cf06c550a92e912 | robot-file-stream-limit | bridge |
