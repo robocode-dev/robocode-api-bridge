@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 45 |
-| DISCREPANCY (errors) | 86 |
+| CONFIRMED (score) | 43 |
+| DISCREPANCY (errors) | 85 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 24 |
+| MATCHED (score noise) | 27 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -19,8 +19,8 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
-| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | DISCREPANCY (errors) | aab77f2fc23d346a | robot-file-stream-limit | bridge |
-| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | f26439e4738d1a27 | team-message-nonserializable-payload | bridge |
+| meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
+| meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
 | meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | c8e2e2f4ab93c568 | robot-file-stream-limit | bridge |
 | meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 13073da22acc8ddc | robot-file-stream-limit | bridge |
 | meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 2fe9f5126c07fd92 | robot-file-stream-limit | bridge |
@@ -397,10 +397,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/doka.Shinigami_2.2.jar | roborumble | robot | PASS | 4a188800060cdb57 | - | - |
 | roborumble/doka.Test_1.0.jar | roborumble | robot | PASS | a5b782b719256b2f | - | - |
 | roborumble/donjezza.Jezza_1.0.jar | roborumble | robot | CONFIRMED (score) | 5d30c62d6d296153 | - | - |
-| roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | CONFIRMED (score) | 1bc442cdb44483c2 | - | - |
-| roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | CONFIRMED (score) | 6651d934a7211124 | - | - |
+| roborumble/donjezza.Muncho_1.0.jar | roborumble | robot | CONFIRMED (score) | 511dd2d96dbfe90f | - | - |
+| roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | MATCHED (score noise) | b8b1156914dcf0d2 | - | - |
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |
-| roborumble/drm.CobraBora_1.12.jar | roborumble | robot | CONFIRMED (score) | d182f0669de56c32 | - | - |
+| roborumble/drm.CobraBora_1.12.jar | roborumble | robot | DISCREPANCY (errors) | bf3c09f87efa7f8a | robot-unguarded-enemy-history-index | robot |
 | roborumble/drm.Magazine_0.39.jar | roborumble | robot | score-review | e8b005bbf41df0df | - | - |
 | roborumble/ds.OoV4_0.3b.jar | roborumble | robot | PASS | 1eddc4f0f49437bf | wrapper-json-encoding | wrapper |
 | roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | 6a0a47aacb2e5d1b | wrapper-json-encoding | wrapper |
