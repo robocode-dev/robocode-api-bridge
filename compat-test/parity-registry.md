@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 85 |
+| DISCREPANCY (errors) | 80 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 27 |
+| MATCHED (score noise) | 32 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -21,11 +21,11 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---|---|---|---|---|---|
 | meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
 | meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
-| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | c8e2e2f4ab93c568 | robot-file-stream-limit | bridge |
-| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 13073da22acc8ddc | robot-file-stream-limit | bridge |
-| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 2fe9f5126c07fd92 | robot-file-stream-limit | bridge |
-| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | DISCREPANCY (errors) | 9274dda799073ff0 | robot-file-stream-limit | bridge |
-| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ec9b8d3b19f5948a | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | MATCHED (score noise) | 9ec2c336d8d76bbf | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.0.jar | meleerumble | robot | MATCHED (score noise) | 53a0ed9d128c019b | robot-file-stream-limit | bridge |
+| meleerumble/adt.Ar2_1.1.jar | meleerumble | robot | MATCHED (score noise) | 7a57fed4fd42ca62 | robot-file-stream-limit | bridge |
+| meleerumble/agd.Mooserwirt2_2.7.jar | meleerumble | robot | MATCHED (score noise) | dc2cf09b55f8a671 | robot-file-stream-limit | bridge |
+| meleerumble/agrach.Dalek_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2556e61118388713 | robot-file-stream-limit | bridge |
 | meleerumble/ags.Glacier_0.2.11.jar | meleerumble | robot | DISCREPANCY (errors) | 50580090ac2c2136 | robot-file-stream-limit | bridge |
 | meleerumble/ags.surreptitious.MiniSurreptitious_0.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 1fcf4ed36080fdc1 | initial-status-before-run | bridge |
 | meleerumble/ahf.NanoAndrew_.4.jar | meleerumble | robot | DISCREPANCY (errors) | cc9294ca7a8f8a7f | robot-file-stream-limit | bridge |
