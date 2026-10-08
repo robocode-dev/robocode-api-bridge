@@ -6,8 +6,8 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 46 |
-| DISCREPANCY (errors) | 85 |
+| CONFIRMED (score) | 45 |
+| DISCREPANCY (errors) | 86 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
@@ -335,12 +335,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | fb18b8405b2642fd | - | - |
 | roborumble/cx.mini.BlackSwans_0.60.jar | roborumble | robot | PASS | 8ff4ff433f3d1ef6 | - | - |
 | roborumble/cx.mini.Cigaret_1.31.jar | roborumble | robot | PASS | dc070048cc9ba197 | - | - |
-| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 5410b023fd3ba1c8 | - | - |
-| roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | d3030c83714ebd06 | - | - |
+| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | ab38af2088cdb14c | - | - |
+| roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | aaa29eea6c1e1e43 | - | - |
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
-| roborumble/da.NewBGank_1.4.jar | roborumble | robot | CONFIRMED (score) | d27087a8b3f6cf55 | - | - |
-| roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | 7e9f830806ecd028 | - | - |
-| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 5a9273b5247b8765 | robot-unjoined-asynchronous-persistence-writer | robot |
+| roborumble/da.NewBGank_1.4.jar | roborumble | robot | DISCREPANCY (errors) | 1dbd76a05a7f3917 | - | - |
+| roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | c8636f3c42595ce2 | - | - |
+| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 25135646822b48a4 | robot-unjoined-asynchronous-persistence-writer | robot |
 | roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | 4f7ba23630a82b1a | - | - |
 | roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
