@@ -362,14 +362,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
 | roborumble/demetrix.nano.Neutrino_0.27.jar | roborumble | robot | MATCHED (score noise) | 0b83a1386dac6d7f | - | - |
-| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 51d7d3600b6ffb0f | - | - |
-| roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 12d5843a8fce4435 | - | - |
+| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 6570d180c7dffe97 | - | - |
+| roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 25cefe78b8eec2ca | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
-| roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 0216591340b75295 | - | - |
-| roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 4da845144515e888 | - | - |
+| roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 6dbff24d35f87faf | - | - |
+| roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 1392767dac32c816 | - | - |
 | roborumble/dft.Cyanide_1.90.jar | roborumble | robot | PASS | b56d225eda383ab9 | - | - |
 | roborumble/dft.Cyprus_3.0.jar | roborumble | robot | PASS | 910fdb7758e78f46 | - | - |
-| roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | 987482f75234b5ca | - | - |
+| roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | c8a969cda214e030 | - | - |
 | roborumble/dft.Guppy_1.0.jar | roborumble | robot | PASS | e769ffce4e573dad | - | - |
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
 | roborumble/dft.Krazy_1.5.jar | roborumble | robot | MATCHED (score noise) | b6880d37b361d669 | - | - |
