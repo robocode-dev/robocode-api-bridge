@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 75 |
+| DISCREPANCY (errors) | 70 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 37 |
+| MATCHED (score noise) | 42 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -33,11 +33,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/ak.Fermat_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 929ae1ab14c7ed06 | initial-status-before-run | bridge |
 | meleerumble/amk.ChumbaMini_0.2.jar | meleerumble | robot | MATCHED (score noise) | 6ee9a1185b69b57b | robot-file-stream-limit | bridge |
 | meleerumble/amk.ChumbaWumba_0.3.jar | meleerumble | robot | MATCHED (score noise) | 3be61e15a26a2e8f | robot-file-stream-limit | bridge |
-| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | DISCREPANCY (errors) | af7f1ca38b4b8b25 | robot-file-stream-limit | bridge |
-| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | DISCREPANCY (errors) | 31b7de98365662fb | robot-file-stream-limit | bridge |
-| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 8cf06c550a92e912 | robot-file-stream-limit | bridge |
-| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | c1efcec566203c27 | melee-opponent-pool-contamination | harness |
-| meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | DISCREPANCY (errors) | ab53268224441bab | melee-opponent-pool-contamination | harness |
+| meleerumble/amk.Punbot.Punbot_0.01.jar | meleerumble | robot | MATCHED (score noise) | 572c678f43f12cf1 | robot-file-stream-limit | bridge |
+| meleerumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | meleerumble | robot | MATCHED (score noise) | 5c8796a2eec65cf0 | robot-file-stream-limit | bridge |
+| meleerumble/amk.jointstrike.JointStrike_0.2.jar | meleerumble | robot | MATCHED (score noise) | a6471a48671d9cbc | robot-file-stream-limit | bridge |
+| meleerumble/amk.superstrike.SuperStrike_0.3.jar | meleerumble | robot | MATCHED (score noise) | 3ac91ce55fdc3081 | melee-opponent-pool-contamination | harness |
+| meleerumble/amz.NanoClone_1.41.jar | meleerumble | robot | MATCHED (score noise) | 81b7c6e567ae195a | melee-opponent-pool-contamination | harness |
 | meleerumble/ap.Frederick_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9ebecc7107969680 | melee-opponent-pool-contamination | harness |
 | meleerumble/apc.botM_3.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87cb1a1013fc8287 | melee-opponent-pool-contamination | harness |
 | meleerumble/apollokidd.ApolloKidd_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | f0b24f00b563a266 | melee-opponent-pool-contamination | harness |

@@ -22,7 +22,7 @@ The read-only subject jar SHA-256 and the nine selected opponent jar hashes are 
 
 Across five pairs, Classic averaged 114,263.6 points and Tank Royale averaged 113,277.0, for a −0.88% mean delta. Pair deltas were −1.6%, −0.9%, −1.3%, −0.1%, and −0.5%. Neither engine reported errors in any pair, and the registry status is `MATCHED (score noise)`.
 
-The previous latest observation `c2c9ad1070d4caa6` recorded 100 Classic errors and 29 Tank Royale errors, including the selected melee opponent `amk.ChumbaMini_0.2.jar`'s data-file failure. The current five-pair run did not reproduce that imbalance. Skipped-turn telemetry was captured in all five pairs, with event counts 1, 5, 4, 0, and 0; the registry records bot IDs but this finding does not attribute the events to ChumbaWumba.
+The previous latest observation `c2c9ad1070d4caa6` recorded 548 Classic errors and 29 Tank Royale errors, including the selected melee opponent `amk.ChumbaMini_0.2.jar`'s data-file failure. The current five-pair run did not reproduce that imbalance. Skipped-turn telemetry was captured in all five pairs, with event counts 1, 5, 4, 0, and 0; the registry records bot IDs but this finding does not attribute the events to ChumbaWumba.
 
 ## Finding
 
