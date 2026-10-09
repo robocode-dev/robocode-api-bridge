@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 62 |
-| DISCREPANCY (errors) | 35 |
+| CONFIRMED (score) | 64 |
+| DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 88 |
+| MATCHED (score noise) | 89 |
 | PASS | 709 |
-| score-review | 197 |
+| score-review | 195 |
 
 ## Subjects
 
@@ -212,22 +212,22 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/arthord.NanoSatanMelee_Beta.jar | roborumble | robot | PASS | 30a57ba1dde53f1c | - | - |
 | roborumble/arthord.NanoSatan_Mu.jar | roborumble | robot | PASS | 98d37c469c94e71c | - | - |
 | roborumble/arthord.micro.Apoptygma_0.4.jar | roborumble | robot | PASS | fcb58e94a0c3caa6 | - | - |
-| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 1c0e50209a64265e | - | - |
+| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | CONFIRMED (score) | ccf0c7887fd81260 | - | - |
 | roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 49c18c2ef7546001 | - | - |
-| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | CONFIRMED (score) | d809601a19bd3eed | robot-null-target-in-virtual-bullet-distance | robot |
-| roborumble/ary.Help_1.0.jar | roborumble | robot | CONFIRMED (score) | 802cd57fbdc37a4d | robot-null-surf-wave-on-hit-by-bullet | robot |
+| roborumble/ary.FourWD_1.3d.jar | roborumble | robot | CONFIRMED (score) | 4bb77aad64541dde | robot-null-target-in-virtual-bullet-distance | robot |
+| roborumble/ary.Help_1.0.jar | roborumble | robot | CONFIRMED (score) | 511ed58efabfda38 | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | 65f473a89338e12c | - | - |
 | roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | d78349c330daf18b | - | - |
 | roborumble/ary.mini.Nimi_1.0.jar | roborumble | robot | PASS | 4966fdf0a4ba6ee7 | - | - |
 | roborumble/ary.nano.AceSurf_1.2.jar | roborumble | robot | PASS | b559364dc3bed001 | - | - |
 | roborumble/ary.nano.ColorNanoP_1.1.jar | roborumble | robot | PASS | 4191bf3cb5bc4b66 | - | - |
-| roborumble/as.xbots_1.0.jar | roborumble | robot | score-review | 533a30f3b2272199 | - | - |
+| roborumble/as.xbots_1.0.jar | roborumble | robot | CONFIRMED (score) | b89feb1de05779a5 | - | - |
 | roborumble/asd.Cthulhu_1.2.jar | roborumble | robot | PASS | 1d42acb3db0ccb77 | - | - |
 | roborumble/asm.Statistas_0.1.jar | roborumble | robot | PASS | 352c974a6d94c789 | - | - |
 | roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | 10f460339be51bf0 | - | - |
 | roborumble/axeBots.HataMoto_3.09.jar | roborumble | robot | PASS | f9cf536953c45a91 | - | - |
 | roborumble/axeBots.Musashi_2.18.jar | roborumble | robot | PASS | 40e7f2ea2300c8f4 | - | - |
-| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | DISCREPANCY (errors) | eebba33f96db75a8 | robot-unchecked-null-history-file | robot |
+| roborumble/axeBots.Okami_1.04.jar | roborumble | robot | MATCHED (score noise) | 69238d48f87da978 | robot-unchecked-null-history-file | robot |
 | roborumble/axeBots.SilverSurfer_2.53.33fix.jar | roborumble | robot | PASS | 38162854ee54a334 | - | - |
 | roborumble/ayk.WallHugger_1.0.jar | roborumble | robot | PASS | 630f1c58f42bbb9d | - | - |
 | roborumble/az.Ololobot_0.2.4.jar | roborumble | robot | PASS | 694f876a9c4ba524 | - | - |
