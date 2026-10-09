@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 55 |
+| CONFIRMED (score) | 60 |
 | DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 87 |
 | PASS | 709 |
-| score-review | 206 |
+| score-review | 201 |
 
 ## Subjects
 
@@ -168,8 +168,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ags.polished.PolishedRuby_1.jar | roborumble | robot | MATCHED (score noise) | 2616514817a66037 | - | - |
 | roborumble/ags.rougedc.RougeDC_willow.jar | roborumble | robot | MATCHED (score noise) | 0ed9111e59d00bde | - | - |
 | roborumble/ahf.Acero_1.0.jar | roborumble | robot | PASS | 80165f95df2a985d | - | - |
-| roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | score-review | f6526bb51480d4f5 | - | - |
-| roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | score-review | a2becfd0a85b24db | - | - |
+| roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | CONFIRMED (score) | 3b567af0a7d8619b | - | - |
+| roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | CONFIRMED (score) | 7b3f5ff082286194 | - | - |
 | roborumble/ahr.ice.Ice_1.0.jar | roborumble | robot | PASS | 3a76f56e636e4829 | - | - |
 | roborumble/ak.Fermat_2.0.jar | roborumble | robot | PASS | dcb3bec37ae6637b | legacy-worker-stream-leak | bridge |
 | roborumble/alex.Diabolo5_1.1.jar | roborumble | robot | PASS | bf426b80c7e5c3f8 | - | - |
@@ -178,9 +178,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/amarok.Rookie_1.1.jar | roborumble | robot | PASS | c094847b79433e8f | - | - |
 | roborumble/amc.ROBv202_1.01.jar | roborumble | robot | PASS | 39aea9433cd721c8 | - | - |
 | roborumble/amc.ROBv203_1.0.jar | roborumble | robot | PASS | 2cc236c1d03f3e06 | - | - |
-| roborumble/amc.ROBv300_1.1.jar | roborumble | robot | score-review | d1b48fa6a62b3b67 | - | - |
-| roborumble/amc.ROBv301_1.1.jar | roborumble | robot | score-review | ebbef7fc4153c8ab | - | - |
-| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | score-review | b4df957b9784537d | - | - |
+| roborumble/amc.ROBv300_1.1.jar | roborumble | robot | CONFIRMED (score) | 577ca9519440c1a0 | - | - |
+| roborumble/amc.ROBv301_1.1.jar | roborumble | robot | CONFIRMED (score) | db2e474505c89859 | - | - |
+| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | CONFIRMED (score) | ac18eb3a339e9db2 | - | - |
 | roborumble/amk.ChumbaMini_0.2.jar | roborumble | robot | PASS | 05156dda8b04e557 | - | - |
 | roborumble/amk.ChumbaWumba_0.3.jar | roborumble | robot | PASS | 4bffd0fc5046055a | - | - |
 | roborumble/amk.Punbot.Punbot_0.01.jar | roborumble | robot | PASS | 5d74b515d19e7bd9 | - | - |
