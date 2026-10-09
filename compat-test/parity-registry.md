@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 64 |
+| CONFIRMED (score) | 63 |
 | DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 89 |
+| MATCHED (score noise) | 90 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -235,20 +235,20 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 0cf3d7725dede5d5 | - | - |
 | roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | b2c5048162694f75 | - | - |
 | roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | e3cdf960bfb9afc4 | - | - |
-| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | 351ec7438a88bb7f | - | - |
+| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | dd63ea259e657b36 | - | - |
 | roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 2f9eb4f23c454774 | - | - |
-| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | CONFIRMED (score) | 913055fbe1b40f66 | - | - |
-| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | a6c1692a3cac5b07 | - | - |
+| roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | MATCHED (score noise) | 3804988fab768e63 | - | - |
+| roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | cd41c475dc12cb16 | - | - |
 | roborumble/bbo.TheRoof_1.4.3.jar | roborumble | robot | PASS | 48c972a2d69181bf | - | - |
 | roborumble/benhorner.PureAggression_0.2.6.jar | roborumble | robot | PASS | cda71b473b262cf3 | - | - |
 | roborumble/bigpete.Stewie_1.0.jar | roborumble | robot | PASS | 8d781fc673893f81 | - | - |
 | roborumble/bing2.Melody_1.3.1.jar | roborumble | robot | MATCHED (score noise) | 02a6d347ffc7c3d8 | - | - |
 | roborumble/bjl.LoneDragon_0.5.jar | roborumble | robot | PASS | 6c6d91b59c2d4dae | - | - |
-| roborumble/bk.Shooter_1.0.jar | roborumble | robot | CONFIRMED (score) | ac385a756b0f2146 | - | - |
+| roborumble/bk.Shooter_1.0.jar | roborumble | robot | CONFIRMED (score) | 3791db92f68beded | - | - |
 | roborumble/blir.micro.blixi.Blixi_1.2.jar | roborumble | robot | PASS | 6e0ffccdcd38fada | - | - |
 | roborumble/blir.mini.oops.Splooshlu_2.0.jar | roborumble | robot | PASS | 1b2a4d6c4330ef36 | - | - |
 | roborumble/blir.nano.Bruce_R1.0.0.jar | roborumble | robot | PASS | 1842fd1571b0c43b | - | - |
-| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | CONFIRMED (score) | 3e06224b7006e720 | - | - |
+| roborumble/blir.nano.Cabbage_R1.0.1.jar | roborumble | robot | CONFIRMED (score) | 7e6074445726042b | - | - |
 | roborumble/blir.nano.inch.Inchworm_1.0.jar | roborumble | robot | PASS | 7f8e4239129f32f8 | - | - |
 | roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | b36bd24ea7cdd125 | - | - |
 | roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | fad1a48dcb20e058 | - | - |
