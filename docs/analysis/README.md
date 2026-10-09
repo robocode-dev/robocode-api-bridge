@@ -458,4 +458,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-458 — Aurora's Classic score advantage persists with a slightly smaller gap](AN-458-aurora-classic-gap-reconfirmed.md) · `active` — Does Aurora's Classic score advantage persist, and has its mean magnitude changed?
 - [AN-459 — Eve's Classic score advantage persists with a slightly larger gap](AN-459-eve-classic-gap-reconfirmed.md) · `active` — Does Eve's Classic score advantage persist, and has its mean magnitude changed?
 - [AN-460 — ShinigamiKNN again produces no score from either engine](AN-460-shinigamiknn-no-score-recur.md) · `active` — Does the Tank Royale array-bounds signature recur, and does the retry yield comparable scores?
+- [AN-461 — Jezza's Classic score advantage persists at a similar magnitude](AN-461-jezza-classic-gap-reconfirmed.md) · `active` — Does Jezza's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-462 — Muncho's Classic score advantage persists at a similar magnitude](AN-462-muncho-classic-gap-reconfirmed.md) · `active` — Does Muncho's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-463 — CobraBora's Tank Royale score advantage is confirmed again](AN-463-cobrabora-score-gap-reconfirmed.md) · `active` — Does CobraBora's Tank Royale score advantage persist, and does its previous no-score failure recur?
+- [AN-464 — ColdBreath's zero-score outcome persists with current artifacts](AN-464-coldbreath-zero-score-reconfirmed.md) · `active` — Does ColdBreath's zero-score outcome persist under current matched artifacts?
+- [AN-465 — Omni still produces no score under current artifacts](AN-465-omni-current-no-score-error.md) · `active` — Does Omni's no-score outcome persist, and does its earlier runtime failure recur?
 <!-- clue:index:end -->
