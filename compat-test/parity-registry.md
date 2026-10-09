@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 65 |
-| DISCREPANCY (errors) | 32 |
+| DISCREPANCY (errors) | 33 |
 | DISCREPANCY (no score) | 35 |
-| DISCREPANCY (outcome) | 60 |
+| DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 93 |
 | PASS | 709 |
@@ -385,15 +385,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/djdjdj.NanoSkunk10_1.0.jar | roborumble | robot | MATCHED (score noise) | fea8fc4f9b3a1168 | - | - |
 | roborumble/dk.stable.Gorgatron_1.1.jar | roborumble | robot | PASS | 26892e7aeaed0062 | - | - |
 | roborumble/dks.MicroDanMK2_1.0.jar | roborumble | robot | PASS | d9aa07342e2c385f | - | - |
-| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (outcome) | 706404a00e327f99 | - | - |
-| roborumble/dmh.robocode.robot.BlueBerry_0.5.jar | roborumble | robot | CONFIRMED (score) | b28966c382c77593 | - | - |
+| roborumble/dmh.robocode.robot.BlackDeath_9.2.jar | roborumble | robot | DISCREPANCY (errors) | ae9af3e4b726f382 | - | - |
+| roborumble/dmh.robocode.robot.BlueBerry_0.5.jar | roborumble | robot | CONFIRMED (score) | 7b974e064aa3c422 | - | - |
 | roborumble/dmh.robocode.robot.GreenDragon_1.0.jar | roborumble | robot | PASS | bcfc6d79e390b279 | - | - |
 | roborumble/dmh.robocode.robot.PinkPanther_1.1.jar | roborumble | robot | PASS | 9b1fac585eb3cd2f | - | - |
 | roborumble/dmh.robocode.robot.YellowBird_0.12.jar | roborumble | robot | PASS | 2b6f33428c15386e | - | - |
-| roborumble/dmp.micro.Aurora_1.41.jar | roborumble | robot | CONFIRMED (score) | 98f37e0587cbb865 | - | - |
-| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | CONFIRMED (score) | 154df2b2813a62bd | - | - |
+| roborumble/dmp.micro.Aurora_1.41.jar | roborumble | robot | CONFIRMED (score) | 11f1c8a7b9ccc028 | - | - |
+| roborumble/dmp.nano.Eve_3.41.jar | roborumble | robot | CONFIRMED (score) | dcd21d8f5a627505 | - | - |
 | roborumble/doka.KillerRabbit_1.0.jar | roborumble | robot | PASS | cf5897bf12f1cb30 | - | - |
-| roborumble/doka.ShinigamiKNN_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 1fc2149178754052 | - | - |
+| roborumble/doka.ShinigamiKNN_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 2aebb8eaa24e3e3a | - | - |
 | roborumble/doka.Shinigami_2.2.jar | roborumble | robot | PASS | 4a188800060cdb57 | - | - |
 | roborumble/doka.Test_1.0.jar | roborumble | robot | PASS | a5b782b719256b2f | - | - |
 | roborumble/donjezza.Jezza_1.0.jar | roborumble | robot | CONFIRMED (score) | 5d30c62d6d296153 | - | - |

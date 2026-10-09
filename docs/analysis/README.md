@@ -453,4 +453,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-452 — Freddie's Classic score advantage persists with a slightly larger gap](AN-452-freddie-negative-gap-reconfirmed.md) · `active` — Does Freddie's Classic score advantage persist, and has its mean magnitude changed?
 - [AN-453 — gpBot's Classic score advantage persists with a slightly smaller gap](AN-453-gpbot-negative-gap-reconfirmed.md) · `active` — Does gpBot's Classic score advantage persist, and has its mean magnitude changed?
 - [AN-454 — DivineBot's earlier Classic errors do not recur and scores remain matched](AN-454-divinebot-errors-not-reproduced-score-noise.md) · `active` — Do DivineBot's earlier Classic file-load errors recur, and are current score pairs materially different?
+- [AN-455 — BlackDeath again produces no score from either engine](AN-455-blackdeath-no-score-errors-recur.md) · `active` — Does the Tank Royale missing-file outcome recur, and does the retry produce comparable scores?
+- [AN-456 — BlueBerry's Classic score advantage persists with a smaller gap](AN-456-blueberry-classic-gap-reconfirmed.md) · `active` — Does BlueBerry's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-458 — Aurora's Classic score advantage persists with a slightly smaller gap](AN-458-aurora-classic-gap-reconfirmed.md) · `active` — Does Aurora's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-459 — Eve's Classic score advantage persists with a slightly larger gap](AN-459-eve-classic-gap-reconfirmed.md) · `active` — Does Eve's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-460 — ShinigamiKNN again produces no score from either engine](AN-460-shinigamiknn-no-score-recur.md) · `active` — Does the Tank Royale array-bounds signature recur, and does the retry yield comparable scores?
 <!-- clue:index:end -->
