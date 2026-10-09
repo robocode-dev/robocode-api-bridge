@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 63 |
-| DISCREPANCY (errors) | 34 |
-| DISCREPANCY (no score) | 37 |
+| CONFIRMED (score) | 64 |
+| DISCREPANCY (errors) | 33 |
+| DISCREPANCY (no score) | 36 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 90 |
+| MATCHED (score noise) | 91 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -284,10 +284,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 9f1e620ad662a53b | - | - |
 | roborumble/casey.Flee_1.0.jar | roborumble | robot | PASS | a68f7fbc62aef405 | - | - |
 | roborumble/cb.Domogled_1.2.jar | roborumble | robot | PASS | 81b684f912cb6069 | - | - |
-| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (outcome) | 2737fd38e58b8343 | robot-uninitialized-wall-rectangle | robot |
+| roborumble/cb.fire.Firestarter_2.0f.jar | roborumble | robot | DISCREPANCY (errors) | 98d48bf0c0834536 | robot-uninitialized-wall-rectangle | robot |
 | roborumble/cb.mega.RandomBot_1.0.jar | roborumble | robot | PASS | 3b670e9d9d0dcdbf | - | - |
 | roborumble/cb.nano.Insomnia_1.0.jar | roborumble | robot | MATCHED (score noise) | 9212979d0d391d93 | - | - |
-| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | DISCREPANCY (errors) | 6724285259a5f928 | robot-null-pray-in-get-stop-ticks | robot |
+| roborumble/cbot.agile.Nibbler_0.2.jar | roborumble | robot | CONFIRMED (score) | 7dd92f53687e5c8b | robot-null-pray-in-get-stop-ticks | robot |
 | roborumble/cbot.cbot.CBot_0.8.jar | roborumble | robot | PASS | 72304543581f9b7b | - | - |
 | roborumble/cf.OldMan.OldManXP_0.1.jar | roborumble | robot | PASS | 9ee75157b4ba10a1 | - | - |
 | roborumble/cf.mini.Chiva_1.0.jar | roborumble | robot | PASS | 81ca35e884bdda0d | - | - |
@@ -299,10 +299,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cjk.Merkava_0.1.1.jar | roborumble | robot | PASS | 56e7d8dd5c969372 | - | - |
 | roborumble/cjm.Che_1.2.jar | roborumble | robot | PASS | 08e3ebbb8e8cafec | - | - |
 | roborumble/cli.Dancer_1.1.jar | roborumble | robot | PASS | 76d6527ba565e6e8 | - | - |
-| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 951af18fa9967b7f | - | - |
+| roborumble/cli.WasteOfAmmo_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 45c4885e7622ace2 | - | - |
 | roborumble/codemojo.nano.Woot_1.0.jar | roborumble | robot | PASS | 7b75c4d17e30213b | - | - |
-| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 1193dbc4cad7591c | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
-| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | 93ffa72fc4b8df11 | - | - |
+| roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | MATCHED (score noise) | c23d42ee4b04fd93 | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
+| roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | 7164e2e014081c91 | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | 12786f49002d3554 | - | - |
 | roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | fcd94c98adebc6da | - | - |
 | roborumble/com.spp.robocode.MostlyHarmless_010.jar | roborumble | robot | PASS | bf9624b1e5be7364 | - | - |
