@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 43 |
+| CONFIRMED (score) | 46 |
 | DISCREPANCY (errors) | 33 |
-| DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (no score) | 37 |
+| DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 82 |
 | PASS | 709 |
-| score-review | 223 |
+| score-review | 220 |
 
 ## Subjects
 
@@ -92,16 +92,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
-| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 3120c221c1dbfb93 | robot-keyboard-input-required-for-activity | robot |
+| roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | b516b54363b416df | robot-keyboard-input-required-for-activity | robot |
 | roborumble/CharlieN.Omega.Omega_1.03.jar | roborumble | robot | PASS | 6c16b6ead3897593 | - | - |
 | roborumble/DM.Capriite_3.7.2.jar | roborumble | robot | PASS | 63eec6535e7bcdb8 | - | - |
 | roborumble/DM.Chicken_4.0.jar | roborumble | robot | MATCHED (score noise) | 1c49b86f1412a864 | - | - |
-| roborumble/DM.Mijit_.3.jar | roborumble | robot | DISCREPANCY (errors) | bc9081091ba6807a | robot-unchecked-wave-distance-index | robot |
+| roborumble/DM.Mijit_.3.jar | roborumble | robot | DISCREPANCY (errors) | 8c54544f3807ac30 | robot-unchecked-wave-distance-index | robot |
 | roborumble/DTF.Kludgy_1.2b.jar | roborumble | robot | PASS | a020ea383408d5e2 | - | - |
-| roborumble/EBBU.Sim2_1.02.jar | roborumble | robot | score-review | 82308feb917d2c0a | - | - |
-| roborumble/EE.LittleBig_1.0.jar | roborumble | robot | score-review | dd65d66b59ff8acb | - | - |
+| roborumble/EBBU.Sim2_1.02.jar | roborumble | robot | CONFIRMED (score) | 0919dd220714d432 | - | - |
+| roborumble/EE.LittleBig_1.0.jar | roborumble | robot | CONFIRMED (score) | d9238a50e829bd57 | - | - |
 | roborumble/EFD.AdvancedEFD_0.4.5a.jar | roborumble | robot | PASS | 595afba07d52e536 | - | - |
-| roborumble/EH.Fusion_0.32.jar | roborumble | robot | score-review | 96dd484b2b911c5d | - | - |
+| roborumble/EH.Fusion_0.32.jar | roborumble | robot | CONFIRMED (score) | b7e342ce95ccdf91 | - | - |
 | roborumble/EH.Pegasus_0.113.jar | roborumble | robot | PASS | 2696bc59852c8d21 | - | - |
 | roborumble/EH.kms.LightningStorm_0.11B.jar | roborumble | robot | PASS | 1ef751e58aaba9b3 | - | - |
 | roborumble/EH.mini.Panther_0.2.jar | roborumble | robot | PASS | 871fe99089163f17 | - | - |

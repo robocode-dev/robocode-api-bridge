@@ -18,7 +18,7 @@ Whether `cx.Princess_1.0.jar`'s historical melee error imbalance persists under 
 
 The population is this single eligible M-006 registry row, `meleerumble/cx.Princess_1.0.jar`, selected because its prior status was `DISCREPANCY (errors)`. The subject jar is read-only and has SHA-256 `8a5137dcb2d3075bf8b4aa5ec609d499a981f1ed6650641a10e3c95cfe2e7cec`; the run manifest records the selected opponent jars and hashes. The five-pair confirmation `3680ca758a5e0f49` completed on 2026-10-09 with Classic Robocode 1.11.1, bridge commit `b79eed85b7c70bbd5b003af9e7f5c14011ca4132`, and local Tank Royale commit `8bb5ba1f0bbc11cf007150ac0f4f966238d7a734`. The local bridge API and wrapper jars and Tank Royale API 1.4.0 and runner jar are identified by hashes in `compat-test/parity-registry.json`. It ran in a prepared Windows PowerShell environment with 10 participants, 35 rounds, and a 1000×1000 arena; this result does not demonstrate clean-checkout reproducibility. The run record does not preserve the exact Java executable selected for Classic.
 
-The eligible sample was the official five-pair confirmation under the registry's current setup. All five attempts produced samples; none were excluded. This is a repeated measurement of one subject and one opponent setup, not a population-wide estimate. No confidence interval or significance test was calculated. The registry's 25% threshold is a screening boundary; the measured score delta is a quality observation, not a deterministic acceptance criterion.
+The eligible sample was the official five-pair confirmation under the registry's current setup. All five attempts produced samples; none were excluded. This is a repeated measurement of one subject and one opponent setup, not a population-wide estimate. No confidence interval or significance test was calculated. The confirmation classification uses `REGRESSION_BAND_POINTS = 15.0` percentage points against the mean delta; the manifest's `threshold: 25.0` records the regular sweep setting and is not the five-pair confirmation gate. The measured score delta is a quality observation, not a deterministic acceptance criterion.
 
 ## What was tried
 
@@ -32,7 +32,7 @@ The historical counts were not treated as proof that Princess needs a bridge wor
 
 ## Finding
 
-Princess's prior error imbalance did not recur in this five-pair run, and its mean score delta remains inside the registry's score-noise threshold. This result does not establish why the earlier errors occurred and does not independently prove broad compatibility. No bridge code or rumble-jar change is indicated.
+Princess's prior error imbalance did not recur in this five-pair run, and its mean score delta remains inside the confirmation's 15.0-point score-noise band. This result does not establish why the earlier errors occurred and does not independently prove broad compatibility. No bridge code or rumble-jar change is indicated.
 
 ## M-006 handoff
 

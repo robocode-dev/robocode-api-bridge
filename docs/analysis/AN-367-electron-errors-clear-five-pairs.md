@@ -18,7 +18,7 @@ Whether `conscience.Electron_1.3g.jar`'s historical melee error imbalance persis
 
 The population is this single eligible M-006 registry row, `meleerumble/conscience.Electron_1.3g.jar`, selected because its prior status was `DISCREPANCY (errors)`. The subject jar is read-only and has SHA-256 `a8d12ab9530cd0f748593ac3d04cd2cf0b563713905457257c3395b7ab7aaf9b`; the run manifest records the selected opponent jars and hashes. The five-pair confirmation `bcbe50fc0e92605e` completed on 2026-10-09 with Classic Robocode 1.11.1, bridge commit `ce11db7e8e357113686351dd333e4ad3a918849d`, and local Tank Royale commit `8bb5ba1f0bbc11cf007150ac0f4f966238d7a734`. The local bridge API and wrapper jars and Tank Royale API 1.4.0 and runner jar are identified by hashes in `compat-test/parity-registry.json`. It ran in a prepared Windows PowerShell environment with 10 participants, 35 rounds, and a 1000×1000 arena; this result does not demonstrate clean-checkout reproducibility. The run record does not preserve the exact Java executable selected for Classic.
 
-The eligible sample was the official five-pair confirmation under the registry's current setup. All five attempts produced samples; none were excluded. This is a repeated measurement of one subject and one opponent setup, not a population-wide estimate. No confidence interval or significance test was calculated. The registry's 25% threshold is a screening boundary; the measured score delta is a quality observation, not a deterministic acceptance criterion.
+The eligible sample was the official five-pair confirmation under the registry's current setup. All five attempts produced samples; none were excluded. This is a repeated measurement of one subject and one opponent setup, not a population-wide estimate. No confidence interval or significance test was calculated. The confirmation classification uses `REGRESSION_BAND_POINTS = 15.0` percentage points against the mean delta; the manifest's `threshold: 25.0` records the regular sweep setting and is not the five-pair confirmation gate. The measured score delta is a quality observation, not a deterministic acceptance criterion.
 
 ## What was tried
 
@@ -32,7 +32,7 @@ The historical counts were not treated as proof that Electron needs a bridge wor
 
 ## Finding
 
-Electron's prior error imbalance did not recur in this five-pair run, and its mean score delta remains inside the registry's score-noise threshold. This result does not establish why the earlier errors occurred and does not independently prove broad compatibility. No bridge code or rumble-jar change is indicated.
+Electron's prior error imbalance did not recur in this five-pair run, and its mean score delta remains inside the confirmation's 15.0-point score-noise band. This result does not establish why the earlier errors occurred and does not independently prove broad compatibility. No bridge code or rumble-jar change is indicated.
 
 ## M-006 handoff
 
