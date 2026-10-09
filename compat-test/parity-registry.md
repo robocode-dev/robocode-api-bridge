@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 46 |
-| DISCREPANCY (errors) | 33 |
+| CONFIRMED (score) | 48 |
+| DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
-| DISCREPANCY (outcome) | 62 |
+| DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 82 |
+| MATCHED (score noise) | 84 |
 | PASS | 709 |
-| score-review | 220 |
+| score-review | 216 |
 
 ## Subjects
 
@@ -120,17 +120,17 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/KiraNL.SpaceKees_0.1.jar | roborumble | robot | PASS | 51a7d06b9bd85bee | - | - |
 | roborumble/Krabb.fe4r.Fe4r_0.4.jar | roborumble | robot | PASS | 974a69b8c7986c2a | - | - |
 | roborumble/Krabb.krabby.Krabby_1.18b.jar | roborumble | robot | PASS | 1f6ea5fdbb0c8d06 | - | - |
-| roborumble/Krabb.sliNk.Garm_0.9u.jar | roborumble | robot | DISCREPANCY (outcome) | 2e935b12cefc0443 | - | - |
+| roborumble/Krabb.sliNk.Garm_0.9u.jar | roborumble | robot | DISCREPANCY (errors) | 67f68575c5e513be | - | - |
 | roborumble/Legend.Biogon_1.5.jar | roborumble | robot | PASS | 182b54a548d2d2a1 | - | - |
 | roborumble/Legend.BoulderZY_1.4.9.jar | roborumble | robot | PASS | 2bb7dd7a316d3f30 | - | - |
-| roborumble/Legend.Qetro_1.6.jar | roborumble | robot | score-review | 198ccdef7a8da62a | - | - |
+| roborumble/Legend.Qetro_1.6.jar | roborumble | robot | CONFIRMED (score) | 4702209b416d22e1 | - | - |
 | roborumble/Legend.X_FireFly_1.3.jar | roborumble | robot | PASS | fdefe32978cfaead | - | - |
 | roborumble/Lo_Ian.Gandalf_V4_4.0.jar | roborumble | robot | PASS | 8890f7a46ab1884b | - | - |
-| roborumble/McS.Spanky_test_0.1a.jar | roborumble | robot | score-review | 97acd28e075752eb | - | - |
+| roborumble/McS.Spanky_test_0.1a.jar | roborumble | robot | CONFIRMED (score) | e055789a3565f7f9 | - | - |
 | roborumble/NDH.GuessFactor_1.0.jar | roborumble | robot | PASS | db031b6a71c48044 | - | - |
 | roborumble/NG.LegatusLegionis_1.2.jar | roborumble | robot | PASS | e7e8907e9e62c644 | - | - |
-| roborumble/Noran.BitchingElk_0.054.jar | roborumble | robot | score-review | 9d8e0d7d6484cf4e | - | - |
-| roborumble/Noran.RandomTargeting_0.02.jar | roborumble | robot | score-review | e012f27fbf629333 | - | - |
+| roborumble/Noran.BitchingElk_0.054.jar | roborumble | robot | MATCHED (score noise) | 2175d4ee60bc3c4a | - | - |
+| roborumble/Noran.RandomTargeting_0.02.jar | roborumble | robot | MATCHED (score noise) | a156e5486b03b328 | - | - |
 | roborumble/PK.Twardy_0.4.2.jar | roborumble | robot | PASS | 4f826576c4961d6b | - | - |
 | roborumble/PSW.Relentless_0.1.jar | roborumble | robot | PASS | 48e3b8645ab60a02 | - | - |
 | roborumble/PkKillers.PkAssassin_1.0.jar | roborumble | robot | score-review | e6c14288e7ce7aad | - | - |
