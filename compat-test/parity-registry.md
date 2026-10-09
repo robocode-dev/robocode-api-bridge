@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 52 |
+| CONFIRMED (score) | 55 |
 | DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 85 |
+| MATCHED (score noise) | 87 |
 | PASS | 709 |
-| score-review | 211 |
+| score-review | 206 |
 
 ## Subjects
 
@@ -151,22 +151,22 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/abud.ThirdRobo_1.0.jar | roborumble | robot | CONFIRMED (score) | 1153e1e8f3883bad | - | - |
 | roborumble/acid.Bl4ck_1.0.jar | roborumble | robot | CONFIRMED (score) | 999a01a924ee9307 | - | - |
 | roborumble/acid.Null_1.0.jar | roborumble | robot | PASS | 6653b72b8099b103 | - | - |
-| roborumble/acid.Syzygy_1.0.4.jar | roborumble | robot | score-review | 6aa7029a15000fcf | - | - |
+| roborumble/acid.Syzygy_1.0.4.jar | roborumble | robot | CONFIRMED (score) | 8e92162159ca7418 | - | - |
 | roborumble/ad.Quest_0.10.jar | roborumble | robot | PASS | ed5607f735d17e3f | - | - |
 | roborumble/ad.last.Bottom_1.0.jar | roborumble | robot | PASS | e5b74746ffa765be | - | - |
 | roborumble/adt.Ar1_2.1.jar | roborumble | robot | PASS | dc30e55fda4f71f3 | - | - |
 | roborumble/adt.Ar2_1.0.jar | roborumble | robot | PASS | 50bd0c5dc7d1d237 | - | - |
 | roborumble/aetos.AetosFirstBot_1.0.jar | roborumble | robot | PASS | fb18442d99e5c6e3 | - | - |
 | roborumble/ag.Gir_0.99.jar | roborumble | robot | PASS | a6c8859641c3bbaf | round-end-stream-close-race | bridge |
-| roborumble/agd.Mooserwirt2_2.7.jar | roborumble | robot | score-review | 103589457c330e19 | - | - |
-| roborumble/agrach.Dalek_1.0.jar | roborumble | robot | score-review | 5bdc9d1e03ddbbfd | - | - |
+| roborumble/agd.Mooserwirt2_2.7.jar | roborumble | robot | CONFIRMED (score) | a6e1afa669bb7157 | - | - |
+| roborumble/agrach.Dalek_1.0.jar | roborumble | robot | CONFIRMED (score) | 52df99cd293c33fa | - | - |
 | roborumble/agrach.MicroDalek_1.0.jar | roborumble | robot | PASS | 3406205b8980f6c5 | - | - |
 | roborumble/agrach.RobotSlayer_1.0.jar | roborumble | robot | PASS | 91a43d1a02bcfa21 | - | - |
 | roborumble/ags.Glacier_0.3.2.jar | roborumble | robot | PASS | 549c82c9d62d3593 | - | - |
 | roborumble/ags.Midboss_1q.fast.jar | roborumble | robot | PASS | 8fbe6c98e30835c0 | - | - |
 | roborumble/ags.micro.Carpet_1.1.jar | roborumble | robot | PASS | 6558fc42dc0997e7 | - | - |
-| roborumble/ags.polished.PolishedRuby_1.jar | roborumble | robot | score-review | 3e2eef0ec2101e8b | - | - |
-| roborumble/ags.rougedc.RougeDC_willow.jar | roborumble | robot | score-review | 238cfb36d8d14310 | - | - |
+| roborumble/ags.polished.PolishedRuby_1.jar | roborumble | robot | MATCHED (score noise) | 2616514817a66037 | - | - |
+| roborumble/ags.rougedc.RougeDC_willow.jar | roborumble | robot | MATCHED (score noise) | 0ed9111e59d00bde | - | - |
 | roborumble/ahf.Acero_1.0.jar | roborumble | robot | PASS | 80165f95df2a985d | - | - |
 | roborumble/ahf.NanoAndrew_.4.jar | roborumble | robot | score-review | f6526bb51480d4f5 | - | - |
 | roborumble/ahf.r2d2.R2d2_0.86.jar | roborumble | robot | score-review | a2becfd0a85b24db | - | - |
