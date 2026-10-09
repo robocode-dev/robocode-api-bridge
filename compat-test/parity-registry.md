@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 53 |
+| DISCREPANCY (errors) | 50 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 63 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 60 |
+| MATCHED (score noise) | 63 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -60,11 +60,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (errors) | fc84d31d9e9918ca | robot-minimum-risk-negative-index | robot |
 | meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | cacbff4a4509fc49 | robot-arithmetic-exception-in-subject-Doel-setInfo | robot |
 | meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | MATCHED (score noise) | bb37d5929e1cd5b3 | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 207aa1f649e4192c | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | e860386ee4b78a6d | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | b289d4813ca36d4f | melee-opponent-pool-contamination | harness |
-| meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | DISCREPANCY (errors) | 597475e5ecd84fba | melee-opponent-pool-contamination | harness |
-| meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | e6f44c512291adf7 | melee-opponent-pool-contamination | harness |
+| meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | MATCHED (score noise) | 64f4bce30a1379d3 | melee-opponent-pool-contamination | harness |
+| meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | 037a67f46844027f | robot-arithmetic-exception-in-subject-Fenrir-Doel-setInfo | robot |
+| meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | MATCHED (score noise) | dcd82ace10b4580a | melee-opponent-pool-contamination | harness |
+| meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | MATCHED (score noise) | 45597d1954330abb | melee-opponent-pool-contamination | harness |
+| meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | c22e441df6157b44 | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 37caaf4769af3ed8 | melee-opponent-pool-contamination | harness |
 | meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | 00d3cf985f8e3cea | melee-opponent-pool-contamination | harness |
 | meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | cd98c79f3f81b699 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
