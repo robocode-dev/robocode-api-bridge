@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 44 |
+| DISCREPANCY (errors) | 40 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 70 |
+| MATCHED (score noise) | 74 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -75,11 +75,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | MATCHED (score noise) | 65d164c9474fbed3 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 296b8b5363eb2eb2 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | MATCHED (score noise) | 5776133d1aaf465e | melee-opponent-pool-contamination | harness |
-| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9d4f5fb91aa7eda7 | melee-opponent-pool-contamination | harness |
-| meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | DISCREPANCY (errors) | 8cde5901af756fec | melee-opponent-pool-contamination | harness |
-| meleerumble/com.syncleus.robocode.Dreadnaught_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 7504f3f0550a9a51 | harness-timeout-overrun | harness |
-| meleerumble/conscience.Electron_1.3g.jar | meleerumble | robot | DISCREPANCY (errors) | 9fe148d04d9e314a | melee-opponent-pool-contamination | harness |
-| meleerumble/cs.Grudge_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 17580fcdda9a3a94 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | MATCHED (score noise) | a7c7fd20d4700a16 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | MATCHED (score noise) | c568c94da63c497f | melee-opponent-pool-contamination | harness |
+| meleerumble/com.syncleus.robocode.Dreadnaught_0.1.jar | meleerumble | robot | MATCHED (score noise) | 338c113931e578be | harness-timeout-overrun | harness |
+| meleerumble/conscience.Electron_1.3g.jar | meleerumble | robot | MATCHED (score noise) | bcbe50fc0e92605e | melee-opponent-pool-contamination | harness |
+| meleerumble/cs.Grudge_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | a01a9ab9b8056a98 | melee-opponent-pool-contamination | harness |
 | meleerumble/cs.Wren_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | f33ed69c769eca7b | melee-opponent-pool-contamination | harness |
 | meleerumble/cs.sheldor.Talon_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | a2a927f67a45ea34 | melee-opponent-pool-contamination | harness |
 | meleerumble/css.Delitioner_0.11.jar | meleerumble | robot | DISCREPANCY (errors) | 4ffc2a51192c3e63 | melee-opponent-pool-contamination | harness |
