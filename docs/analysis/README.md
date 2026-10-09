@@ -443,4 +443,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-442 — MogBot's no-score failure recurs while the EOF source remains unknown](AN-442-mogbot-no-score-eof-unassigned.md) · `active` — Does MogBot's no-score failure persist, and does the current EOF evidence establish its source?
 - [AN-443 — Cinnamon's lower Tank Royale score persists in five current pairs](AN-443-cinnamon-negative-gap-reconfirmed.md) · `active` — Does Cinnamon's negative score gap persist under current artifacts, and has its magnitude changed?
 - [AN-444 — DuelistMicroMkII's positive score gap persists across five current pairs](AN-444-duelistmicromkii-positive-gap-reconfirmed.md) · `active` — Does DuelistMicroMkII's positive Tank Royale score gap persist under current artifacts?
+- [AN-445 — DuelistMicro's positive score gap persists at a stable magnitude](AN-445-duelistmicro-positive-gap-reconfirmed.md) · `active` — Does DuelistMicro's positive score gap persist, and has its magnitude changed?
+- [AN-446 — DOne's lower Tank Royale score persists after the wrapper fix](AN-446-done-negative-gap-after-wrapper-fix.md) · `active` — Does DOne's Classic score advantage persist after the wrapper correction, and does its earlier failure recur?
+- [AN-447 — Polyphemos's lower Tank Royale score persists with a smaller mean gap](AN-447-polyphemos-negative-gap-reconfirmed.md) · `active` — Does Polyphemos's Classic score advantage persist, and has its magnitude changed?
+- [AN-448 — SledgeHammer's positive Tank Royale score gap persists](AN-448-sledgehammer-positive-gap-reconfirmed.md) · `active` — Does SledgeHammer's positive score gap persist, and has its magnitude changed?
+- [AN-449 — CloudBot's negative Tank Royale score gap persists](AN-449-cloudbot-negative-gap-reconfirmed.md) · `active` — Does CloudBot's Classic score advantage persist, and has its magnitude changed?
 <!-- clue:index:end -->

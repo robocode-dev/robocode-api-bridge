@@ -349,21 +349,21 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | PASS | f47d4c3f053cdf86 | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
 | roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | 938fa352a900198e | - | - |
-| roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | CONFIRMED (score) | 50c4bd5434263b10 | - | - |
+| roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | CONFIRMED (score) | b599bed5880f0ee4 | - | - |
 | roborumble/davidalves.net.DuelistMini_1.1.jar | roborumble | robot | PASS | cb584316a7ba79e0 | - | - |
 | roborumble/davidalves.net.DuelistNano_1.0.jar | roborumble | robot | PASS | d29eb247c581f450 | - | - |
 | roborumble/davidalves.net.Duelist_0.1.6src.jar | roborumble | robot | PASS | a1dd12d2d41bd3da | - | - |
-| roborumble/davv.DOne_b002.jar | roborumble | robot | CONFIRMED (score) | 0818c28ea7fff59b | - | - |
+| roborumble/davv.DOne_b002.jar | roborumble | robot | CONFIRMED (score) | 61935a5be5641c6a | - | - |
 | roborumble/dcs.Eater_of_Worlds_1.1.3-A.jar | roborumble | robot | PASS | 6d03e404aa0e75d9 | - | - |
 | roborumble/dcs.Eater_of_Worlds_Mini_1.0.jar | roborumble | robot | PASS | 2fe91471c7f09d1a | - | - |
 | roborumble/dcs.PM.Eater_of_Worlds_PM_1.2.jar | roborumble | robot | MATCHED (score noise) | a5c993bb51abfdae | - | - |
-| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | CONFIRMED (score) | 05c8c9fcba4357a2 | - | - |
+| roborumble/de.erdega.robocode.Polyphemos_0.4.jar | roborumble | robot | CONFIRMED (score) | 263c4ec47cfdcfe4 | - | - |
 | roborumble/de.simpleworks.robocode.bots.swiBot_1.0.jar | roborumble | robot | PASS | c1c1dba51c345138 | - | - |
 | roborumble/deith.Czolgzilla_0.11.jar | roborumble | robot | PASS | 6a14a50736d181ca | - | - |
 | roborumble/demetrix.ForceMajeure_0.75.jar | roborumble | robot | PASS | c99da6d0b2acb9c2 | - | - |
 | roborumble/demetrix.nano.Neutrino_0.27.jar | roborumble | robot | MATCHED (score noise) | 0b83a1386dac6d7f | - | - |
-| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 6570d180c7dffe97 | - | - |
-| roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 25cefe78b8eec2ca | - | - |
+| roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 85b7a7a84ba63c5d | - | - |
+| roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 5e2bf263f51f0eba | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
 | roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 6dbff24d35f87faf | - | - |
 | roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 1392767dac32c816 | - | - |
