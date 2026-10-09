@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 48 |
+| CONFIRMED (score) | 52 |
 | DISCREPANCY (errors) | 34 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 84 |
+| MATCHED (score noise) | 85 |
 | PASS | 709 |
-| score-review | 216 |
+| score-review | 211 |
 
 ## Subjects
 
@@ -133,10 +133,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/Noran.RandomTargeting_0.02.jar | roborumble | robot | MATCHED (score noise) | a156e5486b03b328 | - | - |
 | roborumble/PK.Twardy_0.4.2.jar | roborumble | robot | PASS | 4f826576c4961d6b | - | - |
 | roborumble/PSW.Relentless_0.1.jar | roborumble | robot | PASS | 48e3b8645ab60a02 | - | - |
-| roborumble/PkKillers.PkAssassin_1.0.jar | roborumble | robot | score-review | e6c14288e7ce7aad | - | - |
+| roborumble/PkKillers.PkAssassin_1.0.jar | roborumble | robot | CONFIRMED (score) | 4737f78f5e2f8ee6 | - | - |
 | roborumble/Polkwane.Piyane_0.7b.jar | roborumble | robot | PASS | fe24d73d806767ce | - | - |
 | roborumble/Queens_teamrobot.UltraRazor_1.0.jar | roborumble | robot | PASS | 43c2efac1cd80368 | - | - |
-| roborumble/RobotMarco.MarcoV_0.1.jar | roborumble | robot | score-review | 4ce94ab4ed71983a | - | - |
+| roborumble/RobotMarco.MarcoV_0.1.jar | roborumble | robot | CONFIRMED (score) | 67aa520ee2f223ee | - | - |
 | roborumble/SFS.SamsSecondRobot_1.0.jar | roborumble | robot | PASS | 6bb607869c096bf7 | - | - |
 | roborumble/SHAM.WOW_1.4.jar | roborumble | robot | PASS | 7845776cc1f2e35d | - | - |
 | roborumble/SK.SimpleKiller_1.0.jar | roborumble | robot | PASS | f9c353d1c835ef68 | - | - |
@@ -146,10 +146,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/WarfaJibril.Jibril_Warfa_Andromeda_1.11.jar | roborumble | robot | PASS | 954146b5ca6c4071 | - | - |
 | roborumble/WdV.Lesserbee_0.01.jar | roborumble | robot | PASS | 3ceca4f5146d5ae1 | - | - |
 | roborumble/a.FreyaOS_1.0.jar | roborumble | robot | PASS | 9e1e7bb327ea3434 | - | - |
-| roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | score-review | 1999b8e05dea9d75 | - | - |
+| roborumble/aaa.r.ScalarR_0.005h.053.jar | roborumble | robot | MATCHED (score noise) | 57078fe1295c4db3 | - | - |
 | roborumble/ab.DengerousRoBatra_1.3.jar | roborumble | robot | PASS | b308807f77b31226 | - | - |
-| roborumble/abud.ThirdRobo_1.0.jar | roborumble | robot | score-review | ed9b79a036d61bd5 | - | - |
-| roborumble/acid.Bl4ck_1.0.jar | roborumble | robot | score-review | c227ddb44177ae63 | - | - |
+| roborumble/abud.ThirdRobo_1.0.jar | roborumble | robot | CONFIRMED (score) | 1153e1e8f3883bad | - | - |
+| roborumble/acid.Bl4ck_1.0.jar | roborumble | robot | CONFIRMED (score) | 999a01a924ee9307 | - | - |
 | roborumble/acid.Null_1.0.jar | roborumble | robot | PASS | 6653b72b8099b103 | - | - |
 | roborumble/acid.Syzygy_1.0.4.jar | roborumble | robot | score-review | 6aa7029a15000fcf | - | - |
 | roborumble/ad.Quest_0.10.jar | roborumble | robot | PASS | ed5607f735d17e3f | - | - |
