@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 64 |
-| DISCREPANCY (errors) | 33 |
-| DISCREPANCY (no score) | 36 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (errors) | 32 |
+| DISCREPANCY (no score) | 35 |
+| DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 91 |
+| MATCHED (score noise) | 92 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -304,16 +304,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/com.arsenic.NewTest_1.0.jar | roborumble | robot | MATCHED (score noise) | c23d42ee4b04fd93 | robot-bullet-metadata-byte-outside-two-bucket-array | robot |
 | roborumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | roborumble | robot | CONFIRMED (score) | 7164e2e014081c91 | - | - |
 | roborumble/com.cohesiva.robocode.ManOwaR_1.0.jar | roborumble | robot | PASS | 12786f49002d3554 | - | - |
-| roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | fcd94c98adebc6da | - | - |
+| roborumble/com.sociesc.T1000_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | d1599f3b55efae4f | - | - |
 | roborumble/com.spp.robocode.MostlyHarmless_010.jar | roborumble | robot | PASS | bf9624b1e5be7364 | - | - |
 | roborumble/com.syncleus.robocode.Dreadnaught_0.1.jar | roborumble | robot | PASS | 74e041fd9d303f18 | - | - |
 | roborumble/com.timothyveletta.FuzzyBot_1.1.jar | roborumble | robot | PASS | 2725e155384329ea | - | - |
-| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 33e68230dc8e0629 | - | - |
+| roborumble/conscience.Bulldozer_1.0a.jar | roborumble | robot | CONFIRMED (score) | 13a9433e843618a4 | - | - |
 | roborumble/conscience.Electron_1.3g.jar | roborumble | robot | PASS | 19908c53a430749d | - | - |
-| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 384afc9089d9e705 | - | - |
-| roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (no score) | 7bace3e897fc3ef4 | - | - |
+| roborumble/conscience.Idem_1.0a.jar | roborumble | robot | CONFIRMED (score) | 3c2f3da4821aaed3 | - | - |
+| roborumble/conscience.Suicidal_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 05d3aa694b97dc42 | - | - |
 | roborumble/cre.Karolos_0.32.jar | roborumble | robot | PASS | 17dab4a805d7a49e | - | - |
-| roborumble/cs.Nene_1.0.5.jar | roborumble | robot | CONFIRMED (score) | 03d40c32c811f41e | - | - |
+| roborumble/cs.Nene_1.0.5.jar | roborumble | robot | CONFIRMED (score) | dd56443772ac0c6e | - | - |
 | roborumble/cs.PumpkinPie_1.0.jar | roborumble | robot | PASS | c725fb8efdc81773 | - | - |
 | roborumble/cs.Wren_1.0.jar | roborumble | robot | PASS | 038056ec38361bd3 | - | - |
 | roborumble/cs.s2.Seraphim_2.3.1.jar | roborumble | robot | PASS | ea63d4fa2eac6c25 | - | - |
@@ -322,7 +322,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/css.Delitioner_0.11.jar | roborumble | robot | PASS | 5011f2da71d38328 | - | - |
 | roborumble/cuoq.Kakera_1.0.jar | roborumble | robot | PASS | 24bb72dfc648f37c | - | - |
 | roborumble/cw.megas.Blade_0.8.jar | roborumble | robot | PASS | c61c09256a05f53b | robot-enemy-pattern-reads-past-final-sample | robot |
-| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | DISCREPANCY (errors) | 8d7ad09d673c7d73 | robot-enemy-pattern-reads-past-final-sample | robot |
+| roborumble/cw.megas.GhostShell_GT.jar | roborumble | robot | MATCHED (score noise) | 79dde5e15d5d3484 | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Gridd_0.4.jar | roborumble | robot | PASS | 6f34f6ef130995c8 | - | - |
 | roborumble/cw.megas.Polar_3.2.jar | roborumble | robot | PASS | 08028b163eba772a | robot-enemy-pattern-reads-past-final-sample | robot |
 | roborumble/cw.megas.Silhouette_1.1.jar | roborumble | robot | PASS | 25c5e3c9db55e253 | - | - |
