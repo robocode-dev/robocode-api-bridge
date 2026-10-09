@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 60 |
-| DISCREPANCY (errors) | 34 |
+| CONFIRMED (score) | 62 |
+| DISCREPANCY (errors) | 35 |
 | DISCREPANCY (no score) | 37 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 87 |
+| MATCHED (score noise) | 88 |
 | PASS | 709 |
-| score-review | 201 |
+| score-review | 197 |
 
 ## Subjects
 
@@ -186,14 +186,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/amk.Punbot.Punbot_0.01.jar | roborumble | robot | PASS | 5d74b515d19e7bd9 | - | - |
 | roborumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | roborumble | robot | PASS | c618df752edf4a89 | - | - |
 | roborumble/amk.jointstrike.JointStrike_0.2.jar | roborumble | robot | PASS | 921d60fa06a2d0d0 | - | - |
-| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | score-review | db8a1c3e449c274e | - | - |
-| roborumble/ao.T100_0.9.jar | roborumble | robot | score-review | dde2c0b78956ab41 | - | - |
-| roborumble/ap.Frederick_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 51e3a70a7b199fd9 | - | - |
+| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | CONFIRMED (score) | 0c86e6f067e03527 | - | - |
+| roborumble/ao.T100_0.9.jar | roborumble | robot | MATCHED (score noise) | c59c37aeb3ab4bdf | - | - |
+| roborumble/ap.Frederick_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | c21a140fa78952d5 | - | - |
 | roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | aabd00fd8b967bed | - | - |
 | roborumble/apc.Colossus2_0.12.jar | roborumble | robot | PASS | 9c81fee190364e22 | scan-target-name-identity | bridge |
 | roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | e8c0fd36dc3876f7 | - | - |
 | roborumble/apc.botM_3.0.jar | roborumble | robot | PASS | a47d3ba08bb6086f | - | - |
-| roborumble/apollokidd.ApolloKidd_0.9.jar | roborumble | robot | score-review | bcbade73beb02c58 | - | - |
+| roborumble/apollokidd.ApolloKidd_0.9.jar | roborumble | robot | CONFIRMED (score) | 8111258761f78e68 | - | - |
 | roborumble/apv.AspidReloaded_0.6.jar | roborumble | robot | PASS | 688a0cfa64404e92 | - | - |
 | roborumble/apv.Aspid_1.7.jar | roborumble | robot | PASS | 77ebbfd405a05a87 | - | - |
 | roborumble/apv.LauLectrik_1.2.jar | roborumble | robot | PASS | 2bc639b2fd4a5e1e | - | - |
@@ -205,7 +205,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/apv.test.Virus_0.6.1.jar | roborumble | robot | PASS | 8f66f63fe3488646 | - | - |
 | roborumble/ar.QuantumChromodynamics_1.2.1.jar | roborumble | robot | PASS | 5a42afc5493f80c3 | - | - |
 | roborumble/ar.TheoryOfEverything_1.2.1.jar | roborumble | robot | PASS | dfa914ac6eb69f9a | - | - |
-| roborumble/ar.horizon.Horizon_1.2.2.jar | roborumble | robot | score-review | 65fd65676bd7db2f | - | - |
+| roborumble/ar.horizon.Horizon_1.2.2.jar | roborumble | robot | DISCREPANCY (errors) | 7c9cfdb1a0ddd7f9 | - | - |
 | roborumble/ara.Shera_0.88.jar | roborumble | robot | PASS | e29ee3195aab9bde | - | - |
 | roborumble/areb.Union_1.06.jar | roborumble | robot | PASS | 2f50bd8d2633f8ee | - | - |
 | roborumble/arthord.KostyaTszyu_Beta2.jar | roborumble | robot | PASS | 7f550a50c453aa2f | - | - |
