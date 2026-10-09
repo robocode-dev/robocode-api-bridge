@@ -438,4 +438,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-437 — Spark's large positive score gap persists without the earlier skipped-turn burst](AN-437-spark-gap-persists-skipped-burst-clears.md) · `active` — Does Spark's large score gap persist, and does its prior skipped-turn burst recur?
 - [AN-438 — Nimrod's large positive score gap persists across five current pairs](AN-438-nimrod-positive-gap-reconfirmed.md) · `active` — Does Nimrod's positive score gap persist under current artifacts?
 - [AN-439 — Smog's lower Tank Royale score persists across five current pairs](AN-439-smog-negative-gap-reconfirmed.md) · `active` — Does Smog's negative score gap persist under current artifacts, and has its magnitude changed?
+- [AN-440 — NewBGank's score gap is confirmed and its callback error does not recur](AN-440-newbgank-error-clears-score-gap-persists.md) · `active` — Does NewBGank's score gap persist, and does the prior scan-callback exception recur?
+- [AN-441 — DizzyA's large lower Tank Royale score persists across five current pairs](AN-441-dizzya-negative-gap-reconfirmed.md) · `active` — Does DizzyA's lower Tank Royale score persist under current artifacts, and has its magnitude changed?
+- [AN-442 — MogBot's no-score failure recurs while the EOF source remains unknown](AN-442-mogbot-no-score-eof-unassigned.md) · `active` — Does MogBot's no-score failure persist, and does the current EOF evidence establish its source?
+- [AN-443 — Cinnamon's lower Tank Royale score persists in five current pairs](AN-443-cinnamon-negative-gap-reconfirmed.md) · `active` — Does Cinnamon's negative score gap persist under current artifacts, and has its magnitude changed?
+- [AN-444 — DuelistMicroMkII's positive score gap persists across five current pairs](AN-444-duelistmicromkii-positive-gap-reconfirmed.md) · `active` — Does DuelistMicroMkII's positive Tank Royale score gap persist under current artifacts?
 <!-- clue:index:end -->

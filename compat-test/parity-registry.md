@@ -6,10 +6,10 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 64 |
+| CONFIRMED (score) | 65 |
 | DISCREPANCY (errors) | 32 |
 | DISCREPANCY (no score) | 35 |
-| DISCREPANCY (outcome) | 62 |
+| DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 92 |
 | PASS | 709 |
@@ -338,17 +338,17 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 507b97aeca90e5dc | - | - |
 | roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | 440a62d4e632af1c | - | - |
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
-| roborumble/da.NewBGank_1.4.jar | roborumble | robot | DISCREPANCY (errors) | 1dbd76a05a7f3917 | - | - |
-| roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | c8636f3c42595ce2 | - | - |
-| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (outcome) | 25135646822b48a4 | robot-unjoined-asynchronous-persistence-writer | robot |
-| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | 7c103fa6dbb98693 | - | - |
+| roborumble/da.NewBGank_1.4.jar | roborumble | robot | CONFIRMED (score) | d255fabb61eba853 | - | - |
+| roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | a8342f198b07b331 | - | - |
+| roborumble/dam.MogBot_2.9.jar | roborumble | robot | DISCREPANCY (errors) | 980544819abcf29d | robot-unjoined-asynchronous-persistence-writer | robot |
+| roborumble/dans.Cinnamon_1.2.jar | roborumble | robot | CONFIRMED (score) | eb1f5a99b8ce416a | - | - |
 | roborumble/darkcanuck.Gaff_1.50.jar | roborumble | robot | PASS | ecc0cfdcfe4481ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Holden_1.13a.jar | roborumble | robot | PASS | 4f682a9bd6d654ee | packaged-data-resources | bridge |
 | roborumble/darkcanuck.Pris_0.92.jar | roborumble | robot | PASS | 090ad59ca3e144b7 | packaged-data-resources | bridge |
 | roborumble/davidalves.Firebird_0.25.jar | roborumble | robot | MATCHED (score noise) | d6851b81019c356f | - | - |
 | roborumble/davidalves.PhoenixOS_1.1.jar | roborumble | robot | PASS | f47d4c3f053cdf86 | - | - |
 | roborumble/davidalves.Phoenix_1.02.jar | roborumble | robot | PASS | d15696e56af7ec73 | - | - |
-| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | 9e51d456d63a233f | - | - |
+| roborumble/davidalves.net.DuelistMicroMkII_1.1.jar | roborumble | robot | CONFIRMED (score) | 938fa352a900198e | - | - |
 | roborumble/davidalves.net.DuelistMicro_1.22.jar | roborumble | robot | CONFIRMED (score) | 50c4bd5434263b10 | - | - |
 | roborumble/davidalves.net.DuelistMini_1.1.jar | roborumble | robot | PASS | cb584316a7ba79e0 | - | - |
 | roborumble/davidalves.net.DuelistNano_1.0.jar | roborumble | robot | PASS | d29eb247c581f450 | - | - |
