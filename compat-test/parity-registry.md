@@ -9,9 +9,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 65 |
 | DISCREPANCY (errors) | 32 |
 | DISCREPANCY (no score) | 35 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (outcome) | 60 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 92 |
+| MATCHED (score noise) | 93 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -365,20 +365,20 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/demetrix.nano.SledgeHammer_0.22.jar | roborumble | robot | CONFIRMED (score) | 85b7a7a84ba63c5d | - | - |
 | roborumble/deo.CloudBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 5e2bf263f51f0eba | - | - |
 | roborumble/deo.FlowerBot_1.0.jar | roborumble | robot | PASS | 906c3cf350cdb490 | - | - |
-| roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 6dbff24d35f87faf | - | - |
-| roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 1392767dac32c816 | - | - |
+| roborumble/deo.virtual.RainbowBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 42fdcb3b699a3f0d | - | - |
+| roborumble/dft.Calliope_5.6.jar | roborumble | robot | CONFIRMED (score) | 64da92b71e68ee68 | - | - |
 | roborumble/dft.Cyanide_1.90.jar | roborumble | robot | PASS | b56d225eda383ab9 | - | - |
 | roborumble/dft.Cyprus_3.0.jar | roborumble | robot | PASS | 910fdb7758e78f46 | - | - |
-| roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | c8a969cda214e030 | - | - |
+| roborumble/dft.Freddie_1.32.jar | roborumble | robot | CONFIRMED (score) | 8760de6fc7cb579a | - | - |
 | roborumble/dft.Guppy_1.0.jar | roborumble | robot | PASS | e769ffce4e573dad | - | - |
 | roborumble/dft.Immortal_1.40.jar | roborumble | robot | PASS | 1d36afbb67c11346 | - | - |
 | roborumble/dft.Krazy_1.5.jar | roborumble | robot | MATCHED (score noise) | b6880d37b361d669 | - | - |
 | roborumble/dft.Virgin_1.25.jar | roborumble | robot | PASS | 36ab62179c948ed5 | - | - |
-| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | 255126bc4a951a44 | - | - |
+| roborumble/dggp.haiku.gpBot_0_1.1.jar | roborumble | robot | CONFIRMED (score) | ba887680d551e74f | - | - |
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
 | roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | MATCHED (score noise) | 1b35acfd8039eda4 | - | - |
-| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | 75750cf74ed4de65 | - | - |
+| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | MATCHED (score noise) | 48195cd5a303998c | - | - |
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
 | roborumble/djc.Aardvark_0.3.6.jar | roborumble | robot | PASS | 0f5e762f770658d6 | - | - |

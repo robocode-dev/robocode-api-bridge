@@ -448,4 +448,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-447 — Polyphemos's lower Tank Royale score persists with a smaller mean gap](AN-447-polyphemos-negative-gap-reconfirmed.md) · `active` — Does Polyphemos's Classic score advantage persist, and has its magnitude changed?
 - [AN-448 — SledgeHammer's positive Tank Royale score gap persists](AN-448-sledgehammer-positive-gap-reconfirmed.md) · `active` — Does SledgeHammer's positive score gap persist, and has its magnitude changed?
 - [AN-449 — CloudBot's negative Tank Royale score gap persists](AN-449-cloudbot-negative-gap-reconfirmed.md) · `active` — Does CloudBot's Classic score advantage persist, and has its magnitude changed?
+- [AN-450 — RainbowBot's Classic score advantage remains confirmed](AN-450-rainbowbot-negative-gap-reconfirmed.md) · `active` — Does RainbowBot's Classic score advantage persist, and has its magnitude changed?
+- [AN-451 — Calliope's Classic score advantage persists at a slightly smaller gap](AN-451-calliope-negative-gap-reconfirmed.md) · `active` — Does Calliope's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-452 — Freddie's Classic score advantage persists with a slightly larger gap](AN-452-freddie-negative-gap-reconfirmed.md) · `active` — Does Freddie's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-453 — gpBot's Classic score advantage persists with a slightly smaller gap](AN-453-gpbot-negative-gap-reconfirmed.md) · `active` — Does gpBot's Classic score advantage persist, and has its mean magnitude changed?
+- [AN-454 — DivineBot's earlier Classic errors do not recur and scores remain matched](AN-454-divinebot-errors-not-reproduced-score-noise.md) · `active` — Do DivineBot's earlier Classic file-load errors recur, and are current score pairs materially different?
 <!-- clue:index:end -->
