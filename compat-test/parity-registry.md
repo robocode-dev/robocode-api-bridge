@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 50 |
+| DISCREPANCY (errors) | 48 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 63 |
+| DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 63 |
+| MATCHED (score noise) | 66 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -65,11 +65,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | MATCHED (score noise) | dcd82ace10b4580a | melee-opponent-pool-contamination | harness |
 | meleerumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | meleerumble | robot | MATCHED (score noise) | 45597d1954330abb | melee-opponent-pool-contamination | harness |
 | meleerumble/bzdp.BoxCar_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | c22e441df6157b44 | melee-opponent-pool-contamination | harness |
-| meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 37caaf4769af3ed8 | melee-opponent-pool-contamination | harness |
-| meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | DISCREPANCY (errors) | 00d3cf985f8e3cea | melee-opponent-pool-contamination | harness |
-| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | cd98c79f3f81b699 | bridge-team-message-batch-exceeds-encoded-message-limit | bridge |
-| meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 84e586ddb595dfd0 | melee-opponent-pool-contamination | harness |
-| meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (outcome) | e3248f1f1b0b06a3 | melee-opponent-pool-contamination | harness |
+| meleerumble/bzdp.Pansy_2.1.jar | meleerumble | robot | MATCHED (score noise) | 1134bd5bc0cd2e7d | melee-opponent-pool-contamination | harness |
+| meleerumble/caimano.Furia_Ceca_0.22.jar | meleerumble | robot | MATCHED (score noise) | 3ec414ac84060d6b | melee-opponent-pool-contamination | harness |
+| meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | baf263e9cdc11760 | robot-empty-history-index-in-Firestarter-C.L.B | robot |
+| meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | MATCHED (score noise) | b32a6d34fb545e08 | melee-opponent-pool-contamination | harness |
+| meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 268099c2e1c14c3f | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 02d8559d6d924209 | melee-opponent-pool-contamination | harness |
 | meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 04907df036f1704f | melee-opponent-pool-contamination | harness |
 | meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87184c23266d1ad2 | melee-opponent-pool-contamination | harness |
