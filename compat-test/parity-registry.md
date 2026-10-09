@@ -330,13 +330,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/cx.CigaretBH_1.03.jar | roborumble | robot | PASS | b3f0624de06e9e36 | - | - |
 | roborumble/cx.Lacrimas_1.36.jar | roborumble | robot | PASS | 539ae590fae08967 | - | - |
 | roborumble/cx.Princess_1.0.jar | roborumble | robot | PASS | 5d92f19933b9dea0 | - | - |
-| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | CONFIRMED (score) | 09cdaa1dbaada460 | robot-null-surf-wave-on-hit-by-bullet | robot |
+| roborumble/cx.micro.Blur_0.2.jar | roborumble | robot | CONFIRMED (score) | 4bd0450682006c1a | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/cx.micro.Smoke_0.96.jar | roborumble | robot | PASS | 22c757bf2c791a1c | - | - |
-| roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | fb18b8405b2642fd | - | - |
+| roborumble/cx.micro.Spark_0.6.jar | roborumble | robot | CONFIRMED (score) | 9165f23f42418645 | - | - |
 | roborumble/cx.mini.BlackSwans_0.60.jar | roborumble | robot | PASS | 8ff4ff433f3d1ef6 | - | - |
 | roborumble/cx.mini.Cigaret_1.31.jar | roborumble | robot | PASS | dc070048cc9ba197 | - | - |
-| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | ab38af2088cdb14c | - | - |
-| roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | aaa29eea6c1e1e43 | - | - |
+| roborumble/cx.mini.Nimrod_0.55.jar | roborumble | robot | CONFIRMED (score) | 507b97aeca90e5dc | - | - |
+| roborumble/cx.nano.Smog_2.6.jar | roborumble | robot | CONFIRMED (score) | 440a62d4e632af1c | - | - |
 | roborumble/cyragia.Bot_1.1.jar | roborumble | robot | PASS | 21d0dade19312424 | - | - |
 | roborumble/da.NewBGank_1.4.jar | roborumble | robot | DISCREPANCY (errors) | 1dbd76a05a7f3917 | - | - |
 | roborumble/daemons.DizzyA_1.0.jar | roborumble | robot | CONFIRMED (score) | c8636f3c42595ce2 | - | - |
