@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 55 |
+| DISCREPANCY (errors) | 53 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 64 |
+| DISCREPANCY (outcome) | 63 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 57 |
+| MATCHED (score noise) | 60 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -55,11 +55,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/bayen.nut.Squirrel_1.615.jar | meleerumble | robot | DISCREPANCY (errors) | acd823109782f334 | robot-unchecked-wave-index-and-null-last-scan | robot |
 | meleerumble/bigpete.Stewie_1.0.jar | meleerumble | robot | MATCHED (score noise) | e8e6b7ba48365a79 | melee-opponent-pool-contamination | harness |
 | meleerumble/brainfade.melee.Dusk_0.44.jar | meleerumble | robot | MATCHED (score noise) | 7344ea01a3f1e60a | melee-opponent-pool-contamination | harness |
-| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | DISCREPANCY (errors) | 9c60c070e27ceb74 | melee-opponent-pool-contamination | harness |
-| meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | ce3b89f81e762176 | melee-opponent-pool-contamination | harness |
-| meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (outcome) | ff081352701afac8 | robot-minimum-risk-negative-index | robot |
-| meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | 974a56d29aa9a5f8 | melee-opponent-pool-contamination | harness |
-| meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | DISCREPANCY (errors) | 894e5b2bebf1e1bd | melee-opponent-pool-contamination | harness |
+| meleerumble/brainfade.melee.Genghis_0.36.jar | meleerumble | robot | MATCHED (score noise) | 3a1ed3c2d1294556 | melee-opponent-pool-contamination | harness |
+| meleerumble/bts.mega.Gnarly_1.4.jar | meleerumble | robot | MATCHED (score noise) | 5d0b10a000736054 | melee-opponent-pool-contamination | harness |
+| meleerumble/bts.wiki.RipCurl_0.9b.jar | meleerumble | robot | DISCREPANCY (errors) | fc84d31d9e9918ca | robot-minimum-risk-negative-index | robot |
+| meleerumble/bvh.fnr.Fenrir_0.36l.jar | meleerumble | robot | DISCREPANCY (errors) | cacbff4a4509fc49 | robot-arithmetic-exception-in-subject-Doel-setInfo | robot |
+| meleerumble/bvh.fry.Freya_0.82.jar | meleerumble | robot | MATCHED (score noise) | bb37d5929e1cd5b3 | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.micro.Freya_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 207aa1f649e4192c | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Fenrir_0.39.jar | meleerumble | robot | DISCREPANCY (errors) | e860386ee4b78a6d | melee-opponent-pool-contamination | harness |
 | meleerumble/bvh.mini.Freya_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | b289d4813ca36d4f | melee-opponent-pool-contamination | harness |
