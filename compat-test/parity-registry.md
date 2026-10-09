@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 48 |
+| DISCREPANCY (errors) | 44 |
 | DISCREPANCY (no score) | 38 |
 | DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 66 |
+| MATCHED (score noise) | 70 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -70,11 +70,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cb.fire.Firestarter_2.0f.jar | meleerumble | robot | DISCREPANCY (errors) | baf263e9cdc11760 | robot-empty-history-index-in-Firestarter-C.L.B | robot |
 | meleerumble/cb.nano.Insomnia_1.0.jar | meleerumble | robot | MATCHED (score noise) | b32a6d34fb545e08 | melee-opponent-pool-contamination | harness |
 | meleerumble/cf.RiO.RiOx_4.2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 268099c2e1c14c3f | melee-opponent-pool-contamination | harness |
-| meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 02d8559d6d924209 | melee-opponent-pool-contamination | harness |
-| meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 04907df036f1704f | melee-opponent-pool-contamination | harness |
-| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 87184c23266d1ad2 | melee-opponent-pool-contamination | harness |
-| meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 835662a02ced1697 | melee-opponent-pool-contamination | harness |
-| meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9f844c4af2979bcd | melee-opponent-pool-contamination | harness |
+| meleerumble/cli.Dancer_1.1.jar | meleerumble | robot | MATCHED (score noise) | 59a556b7a5118a1e | melee-opponent-pool-contamination | harness |
+| meleerumble/cli.WasteOfAmmo_1.0.jar | meleerumble | robot | MATCHED (score noise) | ac04f3df48585a60 | melee-opponent-pool-contamination | harness |
+| meleerumble/co.edu.usb.rc.LidisTron_1.0.jar | meleerumble | robot | MATCHED (score noise) | 65d164c9474fbed3 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.blogspot.malinkody.DestrobotMalin_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 296b8b5363eb2eb2 | melee-opponent-pool-contamination | harness |
+| meleerumble/com.cgarias.rc.AdvancedTrackerII_1.0.jar | meleerumble | robot | MATCHED (score noise) | 5776133d1aaf465e | melee-opponent-pool-contamination | harness |
 | meleerumble/com.cohesiva.robocode.ManOwaR_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9d4f5fb91aa7eda7 | melee-opponent-pool-contamination | harness |
 | meleerumble/com.spp.robocode.MostlyHarmless_010.jar | meleerumble | robot | DISCREPANCY (errors) | 8cde5901af756fec | melee-opponent-pool-contamination | harness |
 | meleerumble/com.syncleus.robocode.Dreadnaught_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 7504f3f0550a9a51 | harness-timeout-overrun | harness |
