@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 43 |
-| DISCREPANCY (errors) | 35 |
+| DISCREPANCY (errors) | 33 |
 | DISCREPANCY (no score) | 38 |
-| DISCREPANCY (outcome) | 62 |
+| DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 79 |
+| MATCHED (score noise) | 82 |
 | PASS | 709 |
 | score-review | 223 |
 
@@ -85,11 +85,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/css.Delitioner_0.11.jar | meleerumble | robot | MATCHED (score noise) | 4cd4409dabf14b6f | melee-opponent-pool-contamination | harness |
 | meleerumble/cvt.Firsty_1.0.jar | meleerumble | robot | MATCHED (score noise) | 50c94b8e4cbb7655 | melee-opponent-pool-contamination | harness |
 | meleerumble/cx.BlestPain_1.41.jar | meleerumble | robot | MATCHED (score noise) | c88f5a2766259c97 | melee-opponent-pool-contamination | harness |
-| meleerumble/cx.Princess_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | fa7070f07b20d104 | melee-opponent-pool-contamination | harness |
-| meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | DISCREPANCY (errors) | 2c47e2c1e6569b32 | melee-opponent-pool-contamination | harness |
-| meleerumble/dans.Cinnamon_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 68a19df6119cb9ac | melee-opponent-pool-contamination | harness |
-| meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (outcome) | 326a1db9fec4d3c7 | robot-null-point-in-darkcanuck-m-a | robot |
-| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 1085f87da4e7117f | - | - |
+| meleerumble/cx.Princess_1.0.jar | meleerumble | robot | MATCHED (score noise) | 3680ca758a5e0f49 | melee-opponent-pool-contamination | harness |
+| meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | MATCHED (score noise) | 4c542f596559390b | melee-opponent-pool-contamination | harness |
+| meleerumble/dans.Cinnamon_1.2.jar | meleerumble | robot | MATCHED (score noise) | e77675dcb81697e3 | melee-opponent-pool-contamination | harness |
+| meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (errors) | 9f3a2c9cbfc35a90 | robot-null-point-in-darkcanuck-m-a | robot |
+| roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
 | roborumble/ArchAlpha.ArchimedesAlpha_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 3120c221c1dbfb93 | robot-keyboard-input-required-for-activity | robot |
