@@ -253,11 +253,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/blr.Chicken001_0.1.jar | roborumble | robot | PASS | b36bd24ea7cdd125 | - | - |
 | roborumble/bndl.LostLion_1.2.jar | roborumble | robot | PASS | fad1a48dcb20e058 | - | - |
 | roborumble/boe.Minerva_0.80.jar | roborumble | robot | PASS | 06a557a257f42259 | - | - |
-| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | CONFIRMED (score) | 0e40287063d26abe | - | - |
+| roborumble/bons.NanoStalker_1.2.jar | roborumble | robot | CONFIRMED (score) | 4f44528661f929b7 | - | - |
 | roborumble/bots.UberBot_1.2c.jar | roborumble | robot | PASS | 72dbc427c019d828 | - | - |
 | roborumble/bots.UnterBot_1.0.jar | roborumble | robot | PASS | 0e8217b8963172d1 | - | - |
 | roborumble/bots.UnterExBot_1.0.jar | roborumble | robot | PASS | b21f0e7cab8945cc | - | - |
-| roborumble/bp.Kuma_1.0.jar | roborumble | robot | CONFIRMED (score) | e042013c498f7fd6 | - | - |
+| roborumble/bp.Kuma_1.0.jar | roborumble | robot | CONFIRMED (score) | 3772195e7ddcb610 | - | - |
 | roborumble/braaropolis.Abot_1.0.jar | roborumble | robot | PASS | a2df55df8d971459 | - | - |
 | roborumble/brainfade.Fallen_0.63.jar | roborumble | robot | PASS | e28628d85d0c4a56 | - | - |
 | roborumble/brainfade.melee.Dusk_0.44.jar | roborumble | robot | PASS | f8ee020df517510f | - | - |
@@ -269,8 +269,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bvh.fnr.Fenrir_0.36l.jar | roborumble | robot | PASS | b4921a3482058324 | - | - |
 | roborumble/bvh.frg.Friga_0.112dev.jar | roborumble | robot | PASS | 76fc12ecb24aaeda | - | - |
 | roborumble/bvh.fry.Freya_0.82.jar | roborumble | robot | PASS | fe61ff5c72809b21 | packaged-data-resources | bridge |
-| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | CONFIRMED (score) | adb2f9284090ba51 | - | - |
-| roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | CONFIRMED (score) | a55ce96dfe4ea4be | - | - |
+| roborumble/bvh.hdr.Hodur_0.4.jar | roborumble | robot | CONFIRMED (score) | 676cd1ce3c1c1cd7 | - | - |
+| roborumble/bvh.loki.Loki_0.5.jar | roborumble | robot | CONFIRMED (score) | 19f14a1f3023bff4 | - | - |
 | roborumble/bvh.micro.Freya_0.3.jar | roborumble | robot | PASS | cb8ffc8035b0b113 | - | - |
 | roborumble/bvh.micro.Svadilfari_0.2.jar | roborumble | robot | PASS | 31e4d17c67a09cf7 | - | - |
 | roborumble/bvh.mini.Fenrir_0.39.jar | roborumble | robot | PASS | a6a855c07fd9da46 | - | - |
@@ -278,7 +278,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/bvh.mini.Mjolnir_0.3.jar | roborumble | robot | PASS | b8b6ef9147eb54d2 | - | - |
 | roborumble/bvh.mini.Wodan_0.50.jar | roborumble | robot | PASS | ca182a611e34db8e | - | - |
 | roborumble/bvh.tyr.Tyr_1.74.jar | roborumble | robot | PASS | 5b1f84ee29ac481a | - | - |
-| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | 7aa9ac29fe78b2f7 | - | - |
+| roborumble/bwbaugh.nano.Tirunculus_0.0.0a.jar | roborumble | robot | CONFIRMED (score) | 1a0cf6f284b60cd1 | - | - |
 | roborumble/bzdp.BoxCar_2.0.jar | roborumble | robot | PASS | 158dc02a97104f42 | - | - |
 | roborumble/bzdp.Pansy_2.1.jar | roborumble | robot | PASS | e5ecc6fe604d60b8 | - | - |
 | roborumble/caimano.Furia_Ceca_0.22.jar | roborumble | robot | CONFIRMED (score) | 9f1e620ad662a53b | - | - |
