@@ -34,4 +34,4 @@ Trinity's large Classic score advantage persists under current matched artifacts
 
 ## M-006 handoff
 
-Skip `roborumble/hirataatsushi.Neo_1.6.jar` (`PASS`). Record `roborumble/hirataatsushi.Trinity_0.003.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/hlavko.micro.Flex_1.5.jar` (`score-review`).
+Skip `roborumble/hirataatsushi.Neo_1.6.jar` (`PASS`). Record `roborumble/hirataatsushi.Trinity_0.003.jar` as `CONFIRMED (score)`. Record `roborumble/hlavko.micro.Flex_1.5.jar` as `DISCREPANCY (errors)`. Skip `roborumble/hlavko.nano.Phoenix_1.0.jar` and `roborumble/hlavko.nano.Ringo_1.0d.jar` (`PASS`). Continue in registry order with `roborumble/hlavko.nano.Ringo_2.0.jar` (`score-review`).

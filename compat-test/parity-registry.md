@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 74 |
-| DISCREPANCY (errors) | 35 |
+| CONFIRMED (score) | 78 |
+| DISCREPANCY (errors) | 36 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 112 |
 | PASS | 709 |
-| score-review | 192 |
+| score-review | 187 |
 
 ## Subjects
 
@@ -522,16 +522,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/hfgrobots.HFG_1.0.jar | roborumble | robot | CONFIRMED (score) | e38a09008f3f491e | - | - |
 | roborumble/hirataatsushi.Neo_1.6.jar | roborumble | robot | PASS | 1a0cfd2f9819f9a5 | - | - |
 | roborumble/hirataatsushi.Trinity_0.003.jar | roborumble | robot | CONFIRMED (score) | f47bb42d3849a190 | - | - |
-| roborumble/hlavko.micro.Flex_1.5.jar | roborumble | robot | score-review | c7bbcab70575bea1 | - | - |
+| roborumble/hlavko.micro.Flex_1.5.jar | roborumble | robot | DISCREPANCY (errors) | eabcc96b5dbe2f34 | - | - |
 | roborumble/hlavko.nano.Phoenix_1.0.jar | roborumble | robot | PASS | c439627c649a2174 | - | - |
 | roborumble/hlavko.nano.Ringo_1.0d.jar | roborumble | robot | PASS | db5b621b966317d5 | - | - |
-| roborumble/hlavko.nano.Ringo_2.0.jar | roborumble | robot | score-review | 9924522cdf6df090 | - | - |
+| roborumble/hlavko.nano.Ringo_2.0.jar | roborumble | robot | CONFIRMED (score) | 2beb568a28576490 | - | - |
 | roborumble/homerbots.h1_1.0.jar | roborumble | robot | PASS | 02c3317ae696df0a | - | - |
 | roborumble/hp.Athena_0.1.jar | roborumble | robot | PASS | 07e6a55f655750ec | - | - |
-| roborumble/hs.SimpleHBot_1.3.jar | roborumble | robot | score-review | c9d49e297432faa4 | - | - |
-| roborumble/hvilela.HVilela_0.9.jar | roborumble | robot | score-review | 5e7d6ba86fc06b0e | - | - |
+| roborumble/hs.SimpleHBot_1.3.jar | roborumble | robot | CONFIRMED (score) | 714b7b122eb07e1d | - | - |
+| roborumble/hvilela.HVilela_0.9.jar | roborumble | robot | CONFIRMED (score) | ed26b8f3d91a78f2 | - | - |
 | roborumble/infovk.s_schwarzm16.silverbird_1.0.jar | roborumble | robot | PASS | e9631ba098d70dcb | - | - |
-| roborumble/ins.MobyNano_0.8.jar | roborumble | robot | score-review | 41a4925ee8539ff3 | - | - |
+| roborumble/ins.MobyNano_0.8.jar | roborumble | robot | CONFIRMED (score) | 7f494fe14c54f109 | - | - |
 | roborumble/intruder.PrairieWolf_2.61.jar | roborumble | robot | PASS | a0d663f150aa09e7 | - | - |
 | roborumble/is.fon.rs.FonDestroyer3084_1.0.jar | roborumble | robot | PASS | fb46403241162b0e | - | - |
 | roborumble/is.fon.rs.Kamikaza_1.0.jar | roborumble | robot | PASS | 5e11553e3a29aca5 | - | - |
