@@ -36,4 +36,4 @@ Evader's five-pair sample confirms a 132.56% Tank Royale score advantage, compar
 
 ## M-006 handoff
 
-Continue with `roborumble/ntc.Knowledge_1.1.jar` (`score-review`) in AN-582.
+Knowledge is recorded in [AN-582](AN-582-knowledge-tank-royale-score-advantage-confirmed.md) at +26.64% for Tank Royale, just above threshold. Continue with `roborumble/nz.jdc.micro.HedgehogGF_1.5.jar` (`score-review`) in AN-583.
