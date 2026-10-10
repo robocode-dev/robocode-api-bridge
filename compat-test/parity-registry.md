@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 66 |
+| CONFIRMED (score) | 67 |
 | DISCREPANCY (errors) | 33 |
-| DISCREPANCY (no score) | 34 |
-| DISCREPANCY (outcome) | 59 |
+| DISCREPANCY (no score) | 29 |
+| DISCREPANCY (outcome) | 60 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 93 |
+| MATCHED (score noise) | 96 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -430,7 +430,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/eem.EvBotNG_v12.8.jar | roborumble | robot | PASS | 7ebb64d148b85617 | - | - |
 | roborumble/eem.EvBot_v4.6.4.jar | roborumble | robot | PASS | f3b0485111bec962 | - | - |
 | roborumble/eem.IWillFireNoBullet_v2.4.jar | roborumble | robot | score-review | 7cdf1837d55623fb | - | - |
-| roborumble/eem.awful_v1.2.jar | roborumble | robot | DISCREPANCY (no score) | 59537630aafb178b | - | - |
+| roborumble/eem.awful_v1.2.jar | roborumble | robot | DISCREPANCY (outcome) | 2591efac30b6fa62 | - | - |
 | roborumble/eem.zapper_v4.17.jar | roborumble | robot | PASS | 9739522025a54af6 | - | - |
 | roborumble/ej.ChocolateBar_1.1.jar | roborumble | robot | score-review | b47ad477d6bd24cb | - | - |
 | roborumble/el.Attackr_0.1.jar | roborumble | robot | PASS | f2944dcec0666d53 | - | - |
@@ -466,7 +466,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/fire219.cymba.Cymba_1.8.jar | roborumble | robot | MATCHED (failure) | 131ec84edafe270b | - | - |
 | roborumble/florent.FloatingTadpole_1.2.6.jar | roborumble | robot | MATCHED (failure) | 82b4ce7fc5742beb | - | - |
 | roborumble/florent.XSeries.X2_0.17.jar | roborumble | robot | MATCHED (failure) | c9a80321ef9eab53 | - | - |
-| roborumble/florent.small.LittleAngel_1.8.jar | roborumble | robot | DISCREPANCY (no score) | 3f8326a84f0bd900 | - | - |
+| roborumble/florent.small.LittleAngel_1.8.jar | roborumble | robot | MATCHED (score noise) | 7d84993039ca74df | - | - |
 | roborumble/florent.test.Toad_0.14t.jar | roborumble | robot | MATCHED (failure) | 13e6e0cdc1395289 | - | - |
 | roborumble/fm.claire_1.7.jar | roborumble | robot | MATCHED (failure) | 70de3507acc20c29 | - | - |
 | roborumble/fm.mammillarias_1.3.jar | roborumble | robot | MATCHED (failure) | d0cd14dbbf73d88b | - | - |
@@ -489,9 +489,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/geep.mini.GPBotA_1.0.jar | roborumble | robot | MATCHED (failure) | 0d25e3d2ded7c752 | - | - |
 | roborumble/geep.mini.GPBotB_1.1.jar | roborumble | robot | MATCHED (failure) | 962021716e3e7eaf | - | - |
 | roborumble/genprog.Gajeel_1.0.jar | roborumble | robot | MATCHED (failure) | ff92ee797e807b9c | - | - |
-| roborumble/genprog.Rinmorikazu_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e8721bfe1878ce0b | - | - |
-| roborumble/genprog.Zafaran_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 1945c190c76e6150 | - | - |
-| roborumble/germ.TheMind_.2.jar | roborumble | robot | DISCREPANCY (no score) | f6001e8b572533b4 | - | - |
+| roborumble/genprog.Rinmorikazu_1.0.jar | roborumble | robot | MATCHED (score noise) | 2f6d9af766f83837 | - | - |
+| roborumble/genprog.Zafaran_1.0.jar | roborumble | robot | MATCHED (score noise) | 74315af4cf163c6f | - | - |
+| roborumble/germ.TheMind_.2.jar | roborumble | robot | CONFIRMED (score) | f8d2937ab9528993 | - | - |
 | roborumble/gf.Centaur.Centaur_0.6.7.jar | roborumble | robot | DISCREPANCY (no score) | 64630a3acc5ad08d | - | - |
 | roborumble/gg.Squaraus_0.6.jar | roborumble | robot | DISCREPANCY (no score) | af5d371fd0d8ebc8 | - | - |
 | roborumble/gg.Wolverine_2.0.jar | roborumble | robot | DISCREPANCY (no score) | 5a1633d8ea1a8831 | - | - |

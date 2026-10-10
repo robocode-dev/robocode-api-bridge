@@ -463,4 +463,9 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-463 — CobraBora's Tank Royale score advantage is confirmed again](AN-463-cobrabora-score-gap-reconfirmed.md) · `active` — Does CobraBora's Tank Royale score advantage persist, and does its previous no-score failure recur?
 - [AN-464 — ColdBreath's zero-score outcome persists with current artifacts](AN-464-coldbreath-zero-score-reconfirmed.md) · `active` — Does ColdBreath's zero-score outcome persist under current matched artifacts?
 - [AN-465 — Omni still produces no score under current artifacts](AN-465-omni-current-no-score-error.md) · `active` — Does Omni's no-score outcome persist, and does its earlier runtime failure recur?
+- [AN-466 — EEM.awful still produces no scores under current artifacts](AN-466-awful-zero-score-current-artifacts.md) · `active` — Does EEM.awful's zero-score outcome persist, and do its earlier null-pointer errors recur?
+- [AN-467 — LittleAngel's earlier zero-score result is not reproduced](AN-467-littleangel-zero-score-not-reproduced.md) · `active` — Does LittleAngel's historical Classic zero-score outcome persist under current matched artifacts?
+- [AN-468 — Rinmorikazu's earlier Classic zero score is not reproduced](AN-468-rinmorikazu-zero-score-not-reproduced.md) · `active` — Does Rinmorikazu's historical Classic zero-score result persist under current matched artifacts?
+- [AN-469 — Zafaran's earlier Classic zero score is not reproduced](AN-469-zafaran-zero-score-not-reproduced.md) · `active` — Does Zafaran's historical Classic zero-score result persist under current matched artifacts?
+- [AN-470 — TheMind's earlier no-score result is replaced by a confirmed score gap](AN-470-themind-no-score-becomes-score-gap.md) · `active` — Does TheMind's historical Classic zero-score result persist, and does the current five-pair run confirm a score difference?
 <!-- clue:index:end -->
