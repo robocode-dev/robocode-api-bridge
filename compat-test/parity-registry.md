@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 178 |
+| CONFIRMED (score) | 182 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 129 |
+| MATCHED (score noise) | 130 |
 | PASS | 709 |
-| score-review | 66 |
+| score-review | 61 |
 
 ## Subjects
 
@@ -970,16 +970,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/sgp.SleepingGoat_1.1.jar | roborumble | robot | PASS | 719e881d80dac4dd | - | - |
 | roborumble/sgp.nano.FurryLeech_1.0.jar | roborumble | robot | PASS | 0beaaf5d752a8fc0 | - | - |
 | roborumble/sheldor.melee.nano.TestMelee_0.1.jar | roborumble | robot | PASS | 7b3dfdb88d5308dc | - | - |
-| roborumble/sheldor.micro.EpeeistMicro_2.1.0.jar | roborumble | robot | score-review | 89631887b05fc716 | - | - |
+| roborumble/sheldor.micro.EpeeistMicro_2.1.0.jar | roborumble | robot | CONFIRMED (score) | 280040947c4cf309 | - | - |
 | roborumble/sheldor.micro.FoilistMicro_1.2.0.jar | roborumble | robot | PASS | 41c445c3ceb46c03 | - | - |
 | roborumble/sheldor.nano.Epeeist_1.1.0.jar | roborumble | robot | PASS | 48a5fc29962fb5be | - | - |
 | roborumble/sheldor.nano.Foilist_2.0.0.jar | roborumble | robot | PASS | a9291baebe7ee188 | - | - |
 | roborumble/sheldor.nano.PointInLineRRAL_1.0.0.jar | roborumble | robot | PASS | cb7a7868e85b40de | - | - |
-| roborumble/sheldor.nano.PointInLine_1.0.jar | roborumble | robot | score-review | 2c5b6a6a1a2c23b4 | - | - |
+| roborumble/sheldor.nano.PointInLine_1.0.jar | roborumble | robot | CONFIRMED (score) | 236b79514c4166f9 | - | - |
 | roborumble/sheldor.nano.Retreat_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 140da97590563c7c | - | - |
 | roborumble/sheldor.nano.Sabreur_1.1.2.jar | roborumble | robot | PASS | b29f723fa1835966 | - | - |
 | roborumble/sheldor.nano.Sabreuse_1.0.0.jar | roborumble | robot | PASS | 6dd278eb62af9c3c | - | - |
-| roborumble/shinh.Entangled_0.3.jar | roborumble | robot | score-review | 9a69cae89c4de3ec | - | - |
+| roborumble/shinh.Entangled_0.3.jar | roborumble | robot | MATCHED (score noise) | 3ebeb4714b4ce94b | - | - |
 | roborumble/shrub.Silver_v048.jar | roborumble | robot | PASS | cd4d057bb7d5e85c | - | - |
 | roborumble/shrub.Vapour_v159.jar | roborumble | robot | PASS | f8d04f7031f24f7f | - | - |
 | roborumble/shu.nitro.LENIN_.T34.jar | roborumble | robot | PASS | 8a9ad8559b04d0a4 | - | - |
@@ -990,8 +990,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/simonton.micro.GFMicro_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 869b933ce21be1eb | - | - |
 | roborumble/simonton.micro.WeeklongObsession_3.4.1.jar | roborumble | robot | PASS | a8a467451a62a1c9 | - | - |
 | roborumble/simonton.mini.WeeksOnEnd_1.10.4.jar | roborumble | robot | PASS | b9b55071acd0439d | - | - |
-| roborumble/simonton.nano.WeekendObsession_S_1.7.jar | roborumble | robot | score-review | e102e3ed5887efb7 | - | - |
-| roborumble/skm.PateranBotlock2_1.0.jar | roborumble | robot | score-review | 8d348df275a40416 | - | - |
+| roborumble/simonton.nano.WeekendObsession_S_1.7.jar | roborumble | robot | CONFIRMED (score) | 2e84f65fb5b5dcd2 | - | - |
+| roborumble/skm.PateranBotlock2_1.0.jar | roborumble | robot | CONFIRMED (score) | 96b49543c9a04586 | - | - |
 | roborumble/skm.Ryubot_1.0.jar | roborumble | robot | score-review | 9760adb4f4d94d58 | - | - |
 | roborumble/slugzilla.Basilisk_3.9.jar | roborumble | robot | PASS | ba84fc1c9a260097 | - | - |
 | roborumble/slugzilla.Basilite_0.13.jar | roborumble | robot | PASS | a294ba800f43d4e8 | - | - |

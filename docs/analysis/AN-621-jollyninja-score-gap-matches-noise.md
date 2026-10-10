@@ -36,4 +36,4 @@ JollyNinja's five-pair sample shows a 4.70% Classic score lead, within the recor
 
 ## M-006 handoff
 
-Continue with `roborumble/sheldor.micro.EpeeistMicro_2.1.0.jar` (`score-review`) in AN-622.
+The EpeeistMicro retest is recorded in AN-622; continue with `roborumble/sheldor.nano.PointInLine_1.0.jar` (`score-review`) in AN-623.
