@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 105 |
-| DISCREPANCY (errors) | 37 |
+| CONFIRMED (score) | 109 |
+| DISCREPANCY (errors) | 38 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 115 |
 | PASS | 709 |
-| score-review | 156 |
+| score-review | 151 |
 
 ## Subjects
 
@@ -658,27 +658,27 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/lion.Kresnanano_1.0.jar | roborumble | robot | PASS | 48ed3b0e1c077d70 | - | - |
 | roborumble/lk.nano.Avesnar_1.1.jar | roborumble | robot | CONFIRMED (score) | 5aa459e8e50f0311 | - | - |
 | roborumble/lmk.ACPFinal_0.2.jar | roborumble | robot | PASS | c387423c5cc4d80c | - | - |
-| roborumble/logiblocs.Fire_1.0.jar | roborumble | robot | score-review | 4a263e819ee273fa | - | - |
+| roborumble/logiblocs.Fire_1.0.jar | roborumble | robot | CONFIRMED (score) | 7e8b0c1cf09cf105 | - | - |
 | roborumble/logiblocs.SittingDroid_1.0.jar | roborumble | robot | DISCREPANCY (no score) | aad8e7c68a03e5dd | - | - |
-| roborumble/lorneswork.Predator_1.0.jar | roborumble | robot | score-review | 93c5ace4d4087b33 | - | - |
+| roborumble/lorneswork.Predator_1.0.jar | roborumble | robot | CONFIRMED (score) | 22f412f7bb9b7d89 | - | - |
 | roborumble/lrem.Spectre_0.4.4.jar | roborumble | robot | PASS | 1d0e2d5ce38f97d9 | - | - |
 | roborumble/lrem.magic.TormentedAngel_Antiquitie.jar | roborumble | robot | DISCREPANCY (outcome) | 1a3635553148abba | - | - |
 | roborumble/lrem.micro.FalseProphet_Alpha.jar | roborumble | robot | PASS | 4b8e46bd1fa2a17e | - | - |
 | roborumble/lrem.micro.MoggFanatic_0.2.jar | roborumble | robot | PASS | b7960b67823865c0 | - | - |
-| roborumble/lrem.quickhack.QuickHack_1.0.jar | roborumble | robot | score-review | 28eb9e453aea91dd | - | - |
+| roborumble/lrem.quickhack.QuickHack_1.0.jar | roborumble | robot | DISCREPANCY (errors) | b310cceee4e6b092 | - | - |
 | roborumble/lucasslf.Dodger_1.0.jar | roborumble | robot | PASS | 7239cc6c0c46a0c8 | - | - |
 | roborumble/lucasslf.HariSeldon_0.2.1.jar | roborumble | robot | DISCREPANCY (errors) | 28509d8468b5a013 | - | - |
 | roborumble/lucasslf.Wiggins_0.6.jar | roborumble | robot | PASS | b50943d38ca71c98 | - | - |
 | roborumble/lunchie.Lunchbox_0.93.jar | roborumble | robot | PASS | b31d8ac9eebc5fa9 | - | - |
 | roborumble/lundal.Mark8_2012.09.15.jar | roborumble | robot | PASS | d458f8fa15325d61 | - | - |
-| roborumble/lw.LuthersTest_0.1.jar | roborumble | robot | score-review | 11df5e06936f47fb | - | - |
+| roborumble/lw.LuthersTest_0.1.jar | roborumble | robot | CONFIRMED (score) | 2ab527f324ab2835 | - | - |
 | roborumble/lxx.ConceptA_0.8.jar | roborumble | robot | PASS | b533f0655584641d | - | - |
 | roborumble/lxx.Emerald_0.6.5.jar | roborumble | robot | PASS | e1f2d59c5739168c | - | - |
 | roborumble/lxx.Tomcat_3.68.jar | roborumble | robot | DISCREPANCY (errors) | e788aec118e82732 | - | - |
 | roborumble/m3thos.Eva00_1.1.jar | roborumble | robot | PASS | dd5208c15051255e | - | - |
 | roborumble/m3thos.Eva02_0.7.1.jar | roborumble | robot | DISCREPANCY (outcome) | fac5aed9195e2513 | wrapper-json-encoding | wrapper |
 | roborumble/m3thos.mini.Eva01_0.5.5.jar | roborumble | robot | DISCREPANCY (outcome) | 47eb30ecf7fb1625 | wrapper-json-encoding | wrapper |
-| roborumble/ma.is.fon.rs.RobotA_0.01.jar | roborumble | robot | score-review | a074520b2159b864 | - | - |
+| roborumble/ma.is.fon.rs.RobotA_0.01.jar | roborumble | robot | CONFIRMED (score) | 34183125d25062aa | - | - |
 | roborumble/madmath.Cow_0.1.1.jar | roborumble | robot | score-review | 25cbd1ecf5367e95 | - | - |
 | roborumble/mae.Mae1_1.1.jar | roborumble | robot | PASS | a5d90777e3acda8b | - | - |
 | roborumble/mahrgell.mahrram_1.3.jar | roborumble | robot | score-review | 8a064582ce83895d | - | - |

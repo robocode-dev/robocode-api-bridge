@@ -34,4 +34,4 @@ Avesnar's Classic score advantage persists under current matched artifacts. Its 
 
 ## M-006 handoff
 
-Continue with `roborumble/logiblocs.Fire_1.0.jar` (`score-review`) in AN-532.
+Record `roborumble/logiblocs.Fire_1.0.jar` as `CONFIRMED (score)` in AN-532, then continue with `roborumble/lorneswork.Predator_1.0.jar` (`score-review`) in AN-533.
