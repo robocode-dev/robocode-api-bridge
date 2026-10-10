@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 120 |
-| DISCREPANCY (errors) | 38 |
+| CONFIRMED (score) | 123 |
+| DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 119 |
+| MATCHED (score noise) | 120 |
 | PASS | 709 |
-| score-review | 136 |
+| score-review | 131 |
 
 ## Subjects
 
@@ -401,11 +401,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dragonbyte.Neutrino_4.jar | roborumble | robot | MATCHED (score noise) | b8b1156914dcf0d2 | - | - |
 | roborumble/drd.Dreadknoght_0.9.jar | roborumble | robot | PASS | fd5b89183aea86e8 | - | - |
 | roborumble/drm.CobraBora_1.12.jar | roborumble | robot | CONFIRMED (score) | 404a1a3263c998a2 | robot-unguarded-enemy-history-index | robot |
-| roborumble/drm.Magazine_0.39.jar | roborumble | robot | score-review | e8b005bbf41df0df | - | - |
+| roborumble/drm.Magazine_0.39.jar | roborumble | robot | DISCREPANCY (errors) | bb3e2079100cbf81 | - | - |
 | roborumble/ds.OoV4_0.3b.jar | roborumble | robot | PASS | 1eddc4f0f49437bf | wrapper-json-encoding | wrapper |
-| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | 6a0a47aacb2e5d1b | wrapper-json-encoding | wrapper |
+| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | CONFIRMED (score) | 64f84effd3693f9c | wrapper-json-encoding | wrapper |
 | roborumble/dsekercioglu.mega.Raven_3.56j8.jar | roborumble | robot | PASS | a90d58c1d2d60969 | - | - |
-| roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar | roborumble | robot | score-review | 4d83ffe42a94379f | - | - |
+| roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar | roborumble | robot | CONFIRMED (score) | 333b0839033e2c5e | - | - |
 | roborumble/dsekercioglu.mini.Partial_0.1.3.jar | roborumble | robot | PASS | 5984357cffc8ce26 | - | - |
 | roborumble/dsekercioglu.shield.ColdBreath_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 7769b1cda91deff2 | - | - |
 | roborumble/dsw.StaticD_1.0.jar | roborumble | robot | PASS | cb3c6574d929e48d | - | - |
@@ -415,7 +415,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dummy.micro.HummingBird_2.14.jar | roborumble | robot | PASS | 6a5102214fb7d514 | - | - |
 | roborumble/dummy.micro.Sparrow_2.5.jar | roborumble | robot | PASS | b33016494688992d | - | - |
 | roborumble/dummy.mini.Parakeet_2.40.jar | roborumble | robot | PASS | 861ff6f63daa9ac5 | - | - |
-| roborumble/dvogon.GangBang_1.0.jar | roborumble | robot | score-review | 8e3f284de332c1dd | - | - |
+| roborumble/dvogon.GangBang_1.0.jar | roborumble | robot | MATCHED (score noise) | 40506d20c2be9f51 | - | - |
 | roborumble/dy.LevelOne_2.0.jar | roborumble | robot | PASS | 046a7885151acf3d | - | - |
 | roborumble/dz.Caedo_1.4.jar | roborumble | robot | PASS | dd2709df3eee05f8 | - | - |
 | roborumble/dz.GalbaMicro_0.11.jar | roborumble | robot | PASS | 9533cf29aaf81031 | - | - |
@@ -425,7 +425,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dz.OthoMini_0.15.jar | roborumble | robot | PASS | 1bf733ce688bea50 | - | - |
 | roborumble/e32.Omni_0.04.jar | roborumble | robot | DISCREPANCY (errors) | 2aaa137503d409dc | - | - |
 | roborumble/eat.HumblePieLite_1.0.jar | roborumble | robot | PASS | a85c70974ba48767 | - | - |
-| roborumble/ebo.Sparse_0.02.jar | roborumble | robot | score-review | 9da95784397a1e18 | - | - |
+| roborumble/ebo.Sparse_0.02.jar | roborumble | robot | CONFIRMED (score) | 226776907c09cc68 | - | - |
 | roborumble/ebo.Tahoe_1.1.79.jar | roborumble | robot | PASS | 681b5afe8a64b645 | - | - |
 | roborumble/eem.EvBotNG_v12.8.jar | roborumble | robot | PASS | 7ebb64d148b85617 | - | - |
 | roborumble/eem.EvBot_v4.6.4.jar | roborumble | robot | PASS | f3b0485111bec962 | - | - |

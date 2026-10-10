@@ -36,4 +36,4 @@ LittleBlackBook's Tank Royale score advantage persists and grows in the five-pai
 
 ## M-006 handoff
 
-Continue with `roborumble/drm.Magazine_0.39.jar` (`score-review`) in AN-552.
+Magazine is recorded in [AN-552](AN-552-magazine-score-retest-stops-on-runtime-error.md) with a runtime error after one valid pair. Continue with `roborumble/ds.Versatile_RB1.0.1.jar` (`score-review`) in AN-553.
