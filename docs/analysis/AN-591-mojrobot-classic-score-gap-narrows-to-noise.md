@@ -36,4 +36,4 @@ MojRobot's Classic score lead narrowed from 28.2% to 14.1%, and the registry now
 
 ## M-006 handoff
 
-Continue with `roborumble/panzer.Panzer_0.2.jar` (`score-review`) in AN-592.
+Panzer is recorded in [AN-592](AN-592-panzer-classic-score-advantage-confirmed-again.md) with a -25.68% Classic score advantage. Continue with `roborumble/paolord.TheHulk_1.0.jar` (`score-review`) in AN-593.

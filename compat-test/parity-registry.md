@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 151 |
+| CONFIRMED (score) | 155 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 127 |
+| MATCHED (score noise) | 128 |
 | PASS | 709 |
-| score-review | 96 |
+| score-review | 91 |
 
 ## Subjects
 
@@ -821,12 +821,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/pak.Dargon_1.0b.jar | roborumble | robot | PASS | 44af6a60fc0162fe | - | - |
 | roborumble/pak.JakeTheTestingRobot_.1b.jar | roborumble | robot | PASS | 5b008fd5bb01cda0 | - | - |
 | roborumble/paket.MojRobot_1.0.jar | roborumble | robot | MATCHED (score noise) | 8de8152264b74656 | - | - |
-| roborumble/panzer.Panzer_0.2.jar | roborumble | robot | score-review | 7e05b530409e3827 | - | - |
-| roborumble/paolord.TheHulk_1.0.jar | roborumble | robot | score-review | b69ddb01a016a30b | - | - |
+| roborumble/panzer.Panzer_0.2.jar | roborumble | robot | CONFIRMED (score) | 9255968a5e462655 | - | - |
+| roborumble/paolord.TheHulk_1.0.jar | roborumble | robot | CONFIRMED (score) | 6e06b3e1e59d805f | - | - |
 | roborumble/patson.PatsonTestBot_1.0.jar | roborumble | robot | DISCREPANCY (errors) | bcae170fb126b98c | - | - |
-| roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | score-review | 95adbd22ba62453c | - | - |
+| roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | MATCHED (score noise) | 2b28d79fd166a8d8 | - | - |
 | roborumble/pb.Oscillator_1.0.jar | roborumble | robot | PASS | 7df2b921a4b28b34 | - | - |
-| roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | score-review | b97a060c77e8cbd9 | - | - |
+| roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | CONFIRMED (score) | 0b8011888814fd78 | - | - |
 | roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | e8764db70e70af0a | - | - |
 | roborumble/pe.SandboxLump_1.52.jar | roborumble | robot | PASS | ff93d22a269cfb72 | - | - |
 | roborumble/pe.mini.SandboxMini_1.2.jar | roborumble | robot | PASS | 1930cd48c43fab7b | - | - |
@@ -837,7 +837,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/pez.frankie.Frankie_0.9.6.1.jar | roborumble | robot | PASS | 301d808b9534b3ce | - | - |
 | roborumble/pez.gloom.GloomyDark_0.9.2.jar | roborumble | robot | PASS | 47368d0adc4dbcb9 | - | - |
 | roborumble/pez.mako.Mako_1.5.jar | roborumble | robot | PASS | 380eb9cba52e3299 | - | - |
-| roborumble/pez.micro.Aristocles_0.3.7.jar | roborumble | robot | score-review | 93c7e32da7211492 | - | - |
+| roborumble/pez.micro.Aristocles_0.3.7.jar | roborumble | robot | CONFIRMED (score) | 5e8b242c176cb863 | - | - |
 | roborumble/pez.mini.ChironexFleckeri_0.5.jar | roborumble | robot | score-review | d54f346f46c249a3 | - | - |
 | roborumble/pez.mini.Gouldingi_1.5.jar | roborumble | robot | PASS | 4470ef719a8aef66 | - | - |
 | roborumble/pez.mini.Pugilist_2.5.1f.jar | roborumble | robot | PASS | 01a8e04a2e883aa8 | - | - |
