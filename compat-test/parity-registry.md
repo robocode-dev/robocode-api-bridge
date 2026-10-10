@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 182 |
+| CONFIRMED (score) | 187 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 130 |
 | PASS | 709 |
-| score-review | 61 |
+| score-review | 56 |
 
 ## Subjects
 
@@ -992,14 +992,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/simonton.mini.WeeksOnEnd_1.10.4.jar | roborumble | robot | PASS | b9b55071acd0439d | - | - |
 | roborumble/simonton.nano.WeekendObsession_S_1.7.jar | roborumble | robot | CONFIRMED (score) | 2e84f65fb5b5dcd2 | - | - |
 | roborumble/skm.PateranBotlock2_1.0.jar | roborumble | robot | CONFIRMED (score) | 96b49543c9a04586 | - | - |
-| roborumble/skm.Ryubot_1.0.jar | roborumble | robot | score-review | 9760adb4f4d94d58 | - | - |
+| roborumble/skm.Ryubot_1.0.jar | roborumble | robot | CONFIRMED (score) | 97f5bb8e7b36c1f2 | - | - |
 | roborumble/slugzilla.Basilisk_3.9.jar | roborumble | robot | PASS | ba84fc1c9a260097 | - | - |
 | roborumble/slugzilla.Basilite_0.13.jar | roborumble | robot | PASS | a294ba800f43d4e8 | - | - |
-| roborumble/slugzilla.ButtHead_2.0.jar | roborumble | robot | score-review | 068ed7ab5d4b7278 | - | - |
-| roborumble/slugzilla.OrbitGF_1.0.jar | roborumble | robot | score-review | a55bf86c02ca0eec | - | - |
-| roborumble/slugzilla.OrbitLinear_1.1.jar | roborumble | robot | score-review | b6deabce2414a73c | - | - |
+| roborumble/slugzilla.ButtHead_2.0.jar | roborumble | robot | CONFIRMED (score) | ccb3d7fd7d4384ac | - | - |
+| roborumble/slugzilla.OrbitGF_1.0.jar | roborumble | robot | CONFIRMED (score) | 6dafb8d31eb71732 | - | - |
+| roborumble/slugzilla.OrbitLinear_1.1.jar | roborumble | robot | CONFIRMED (score) | 1e64e74dd7c79bb4 | - | - |
 | roborumble/slugzilla.OrbitPattern_1.1.jar | roborumble | robot | PASS | 45f4fad21f8c02af | - | - |
-| roborumble/slugzilla.OscillateGF_1.0.jar | roborumble | robot | score-review | 686937fbcc8bc3e6 | - | - |
+| roborumble/slugzilla.OscillateGF_1.0.jar | roborumble | robot | CONFIRMED (score) | 02ac4c98a5e817a5 | - | - |
 | roborumble/slugzilla.OscillateLinear_1.0.jar | roborumble | robot | score-review | 41fdb3b690b35884 | - | - |
 | roborumble/slugzilla.OscillatePattern_1.0.jar | roborumble | robot | score-review | 7d03231691754ccd | - | - |
 | roborumble/slugzilla.Parallax_0.1.jar | roborumble | robot | PASS | 07f591be42f2a0fe | - | - |

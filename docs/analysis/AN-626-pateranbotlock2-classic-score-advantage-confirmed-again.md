@@ -36,4 +36,4 @@ PateranBotlock2's five-pair sample confirms a 31.66% Classic score advantage: Cl
 
 ## M-006 handoff
 
-Continue with `roborumble/skm.Ryubot_1.0.jar` (`score-review`) in AN-627.
+The Ryubot retest is recorded in AN-627; continue with `roborumble/slugzilla.ButtHead_2.0.jar` (`score-review`) in AN-628.
