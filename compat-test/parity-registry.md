@@ -8,10 +8,10 @@ This generated table is the reviewed index of the append-only observations in `p
 |---|---:|
 | CONFIRMED (score) | 70 |
 | DISCREPANCY (errors) | 35 |
-| DISCREPANCY (no score) | 16 |
+| DISCREPANCY (no score) | 11 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 106 |
+| MATCHED (score noise) | 111 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -508,11 +508,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/goblin.Bender_2.4.jar | roborumble | robot | MATCHED (score noise) | 0c1c46af75f0f591 | - | - |
 | roborumble/gre.svman4.Leonidas_1.3.2.jar | roborumble | robot | MATCHED (score noise) | a6e727109c432d29 | - | - |
 | roborumble/gre.svman4.Morfeas_1.4.3.jar | roborumble | robot | DISCREPANCY (errors) | fc42d0b71fbdb716 | - | - |
-| roborumble/grybgoofy.GoofyBot_0.10.jar | roborumble | robot | DISCREPANCY (no score) | 8ca01ec24f3ecc76 | - | - |
-| roborumble/gtf.robocode.Strafer_2.1.1.jar | roborumble | robot | DISCREPANCY (no score) | 1b9743c2f5eaa391 | - | - |
-| roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | DISCREPANCY (no score) | 7c0c54c5c13d5050 | - | - |
-| roborumble/gwah.GBotMarkIV_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 8b1a6bdf876ed094 | - | - |
-| roborumble/gwah.GerryBotMkII_1.5.1.jar | roborumble | robot | DISCREPANCY (no score) | f10a31cfcd02142e | - | - |
+| roborumble/grybgoofy.GoofyBot_0.10.jar | roborumble | robot | MATCHED (score noise) | 442cfb38bbd3cd70 | - | - |
+| roborumble/gtf.robocode.Strafer_2.1.1.jar | roborumble | robot | MATCHED (score noise) | db72830f8d901278 | - | - |
+| roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | MATCHED (score noise) | c4b627b58ce4741e | - | - |
+| roborumble/gwah.GBotMarkIV_1.0.jar | roborumble | robot | MATCHED (score noise) | f232dc945ea37964 | - | - |
+| roborumble/gwah.GerryBotMkII_1.5.1.jar | roborumble | robot | MATCHED (score noise) | 0c876193c2ebc876 | - | - |
 | roborumble/ha2.T2_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 1bece4ef2e0c4719 | - | - |
 | roborumble/ha2.T2b_0.2b.jar | roborumble | robot | DISCREPANCY (no score) | 15ea51b55ba7e79a | - | - |
 | roborumble/ha2.T3_0.1.jar | roborumble | robot | PASS | 2c1320bf09ac71d5 | - | - |

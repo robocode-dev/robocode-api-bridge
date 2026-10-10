@@ -34,4 +34,4 @@ Morfeas's Tank Royale `ConcurrentModificationException` recurred under current m
 
 ## M-006 handoff
 
-Skip `roborumble/gre.svman4.Leonidas_1.3.2.jar` (`MATCHED (score noise)`). Record `roborumble/gre.svman4.Morfeas_1.4.3.jar` as `DISCREPANCY (errors)`. Continue in registry order with `roborumble/grybgoofy.GoofyBot_0.10.jar` (`DISCREPANCY (no score)`).
+Skip `roborumble/gre.svman4.Leonidas_1.3.2.jar` (`MATCHED (score noise)`). Record `roborumble/gre.svman4.Morfeas_1.4.3.jar` as `DISCREPANCY (errors)`. Skip `roborumble/grybgoofy.GoofyBot_0.10.jar` (`MATCHED (score noise)`). Continue in registry order with `roborumble/gtf.robocode.Strafer_2.1.1.jar` (`DISCREPANCY (no score)`).
