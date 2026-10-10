@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 133 |
+| CONFIRMED (score) | 136 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 120 |
+| MATCHED (score noise) | 122 |
 | PASS | 709 |
-| score-review | 121 |
+| score-review | 116 |
 
 ## Subjects
 
@@ -732,15 +732,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/morbid.MorbidPriest_1.0.jar | roborumble | robot | PASS | fc177c15b82ca872 | - | - |
 | roborumble/mrm.MightyMoose_.2.jar | roborumble | robot | CONFIRMED (score) | 0ad79f747f3724ca | - | - |
 | roborumble/ms.Ares_0.19.jar | roborumble | robot | PASS | d8663236bffd6ec7 | - | - |
-| roborumble/mue.Ascendant_1.2.27.jar | roborumble | robot | score-review | 5707fc085104a700 | - | - |
-| roborumble/mue.Hyperion_0.8.jar | roborumble | robot | score-review | 46f8b66bc9b65f98 | - | - |
+| roborumble/mue.Ascendant_1.2.27.jar | roborumble | robot | MATCHED (score noise) | 126ed3c66b9a2a23 | - | - |
+| roborumble/mue.Hyperion_0.8.jar | roborumble | robot | MATCHED (score noise) | c3a65d6650652ec9 | - | - |
 | roborumble/muf.CrazyKitten_0.9.jar | roborumble | robot | PASS | 24ebb83f1f83c891 | - | - |
-| roborumble/mwj.A1176183_1.0.jar | roborumble | robot | score-review | 4e51a38a4bc47576 | - | - |
+| roborumble/mwj.A1176183_1.0.jar | roborumble | robot | CONFIRMED (score) | 62db8d0d584e5c57 | - | - |
 | roborumble/myl.micro.Avipes_1.00.jar | roborumble | robot | PASS | 032e896324fbf636 | - | - |
 | roborumble/myl.micro.NekoNinja_1.30.jar | roborumble | robot | PASS | 9d230e4afbe3b6b4 | - | - |
 | roborumble/myl.micro.Predator_1.50.jar | roborumble | robot | PASS | 0b94d58e2efb335f | - | - |
-| roborumble/myl.micro.Troodon_1.10.jar | roborumble | robot | score-review | 7e319cec019dd57c | - | - |
-| roborumble/myl.nano.Graviton_1.10.jar | roborumble | robot | score-review | 42f21d05faa46521 | - | - |
+| roborumble/myl.micro.Troodon_1.10.jar | roborumble | robot | CONFIRMED (score) | 2a3890d39c97d883 | - | - |
+| roborumble/myl.nano.Graviton_1.10.jar | roborumble | robot | CONFIRMED (score) | cf68b0f16fc6e434 | - | - |
 | roborumble/myl.nano.Kakuru_1.20.jar | roborumble | robot | PASS | e3aebeeba9256a4e | - | - |
 | roborumble/myl.nano.KomoriNinja_1.1.jar | roborumble | robot | score-review | 6a75615f456acc97 | - | - |
 | roborumble/mym.EdgeStalker_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 032038ab1ca0e462 | - | - |

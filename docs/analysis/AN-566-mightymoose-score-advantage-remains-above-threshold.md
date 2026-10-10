@@ -36,4 +36,4 @@ MightyMoose's Tank Royale score advantage remains above the recorded 25.0% thres
 
 ## M-006 handoff
 
-Continue with `roborumble/mue.Ascendant_1.2.27.jar` (`score-review`) in AN-567.
+Ascendant is recorded in [AN-567](AN-567-ascendant-score-gap-narrows-to-noise.md); its earlier +28.0% Tank Royale score difference is now within noise at -6.34%. Continue with `roborumble/mue.Hyperion_0.8.jar` (`score-review`) in AN-568.
