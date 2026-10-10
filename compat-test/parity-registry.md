@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 70 |
+| CONFIRMED (score) | 74 |
 | DISCREPANCY (errors) | 35 |
-| DISCREPANCY (no score) | 11 |
+| DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 111 |
+| MATCHED (score noise) | 112 |
 | PASS | 709 |
-| score-review | 195 |
+| score-review | 192 |
 
 ## Subjects
 
@@ -513,15 +513,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | MATCHED (score noise) | c4b627b58ce4741e | - | - |
 | roborumble/gwah.GBotMarkIV_1.0.jar | roborumble | robot | MATCHED (score noise) | f232dc945ea37964 | - | - |
 | roborumble/gwah.GerryBotMkII_1.5.1.jar | roborumble | robot | MATCHED (score noise) | 0c876193c2ebc876 | - | - |
-| roborumble/ha2.T2_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 1bece4ef2e0c4719 | - | - |
-| roborumble/ha2.T2b_0.2b.jar | roborumble | robot | DISCREPANCY (no score) | 15ea51b55ba7e79a | - | - |
+| roborumble/ha2.T2_0.2.jar | roborumble | robot | CONFIRMED (score) | 301d91ff252d7fe7 | - | - |
+| roborumble/ha2.T2b_0.2b.jar | roborumble | robot | MATCHED (score noise) | 3ad015881eb94925 | - | - |
 | roborumble/ha2.T3_0.1.jar | roborumble | robot | PASS | 2c1320bf09ac71d5 | - | - |
-| roborumble/ha2.T3_0.2.jar | roborumble | robot | score-review | d16bed013eca821a | - | - |
+| roborumble/ha2.T3_0.2.jar | roborumble | robot | CONFIRMED (score) | 74e526c4b8b9225d | - | - |
 | roborumble/hamilton.Hamilton_1.0.jar | roborumble | robot | PASS | 11c09b304e986c4d | - | - |
 | roborumble/hapiel.Spiral_0.1.jar | roborumble | robot | PASS | fdb4c259f116e43f | - | - |
-| roborumble/hfgrobots.HFG_1.0.jar | roborumble | robot | score-review | 6421835506f37155 | - | - |
+| roborumble/hfgrobots.HFG_1.0.jar | roborumble | robot | CONFIRMED (score) | e38a09008f3f491e | - | - |
 | roborumble/hirataatsushi.Neo_1.6.jar | roborumble | robot | PASS | 1a0cfd2f9819f9a5 | - | - |
-| roborumble/hirataatsushi.Trinity_0.003.jar | roborumble | robot | score-review | acff8e25afd66c29 | - | - |
+| roborumble/hirataatsushi.Trinity_0.003.jar | roborumble | robot | CONFIRMED (score) | f47bb42d3849a190 | - | - |
 | roborumble/hlavko.micro.Flex_1.5.jar | roborumble | robot | score-review | c7bbcab70575bea1 | - | - |
 | roborumble/hlavko.nano.Phoenix_1.0.jar | roborumble | robot | PASS | c439627c649a2174 | - | - |
 | roborumble/hlavko.nano.Ringo_1.0d.jar | roborumble | robot | PASS | db5b621b966317d5 | - | - |

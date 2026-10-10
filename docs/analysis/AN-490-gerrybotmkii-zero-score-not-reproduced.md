@@ -34,4 +34,4 @@ GerryBotMkII's earlier Classic zero-score result did not recur under current mat
 
 ## M-006 handoff
 
-Skip `roborumble/gwah.GerryBotMkII_1.5.1.jar` (`MATCHED (score noise)`). Continue in registry order with `roborumble/ha2.T2_0.2.jar` (`DISCREPANCY (no score)`).
+Skip `roborumble/gwah.GerryBotMkII_1.5.1.jar`. Record `roborumble/ha2.T2_0.2.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/ha2.T2b_0.2b.jar` (`DISCREPANCY (no score)`).
