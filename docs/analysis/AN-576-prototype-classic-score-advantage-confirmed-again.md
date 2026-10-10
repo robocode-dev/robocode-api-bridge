@@ -36,4 +36,4 @@ Prototype's five-pair sample confirms a 53.94% Classic score advantage, compared
 
 ## M-006 handoff
 
-Continue with `roborumble/nexus.Two_0.2.jar` (`score-review`) in AN-577.
+Nexus.Two is recorded in [AN-577](AN-577-nexus-two-classic-score-advantage-confirmed-again.md) with a -34.82% Classic score advantage. Continue with `roborumble/ngf.nano.Sparky_0.1.5.jar` (`score-review`) in AN-578.

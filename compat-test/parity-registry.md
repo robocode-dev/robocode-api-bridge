@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 139 |
+| CONFIRMED (score) | 144 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 124 |
 | PASS | 709 |
-| score-review | 111 |
+| score-review | 106 |
 
 ## Subjects
 
@@ -765,17 +765,17 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/nexus.Experimental_0.2.jar | roborumble | robot | PASS | c7a8e0fdd71f81b9 | - | - |
 | roborumble/nexus.One_1.0.jar | roborumble | robot | PASS | be225d1536d87a30 | - | - |
 | roborumble/nexus.Prototype_1.0.jar | roborumble | robot | CONFIRMED (score) | e8c397e05691471c | - | - |
-| roborumble/nexus.Two_0.2.jar | roborumble | robot | score-review | faf8e5dab6252c46 | - | - |
-| roborumble/ngf.nano.Sparky_0.1.5.jar | roborumble | robot | score-review | b634538fb008be6f | - | - |
+| roborumble/nexus.Two_0.2.jar | roborumble | robot | CONFIRMED (score) | c509dddd7b2fb06a | - | - |
+| roborumble/ngf.nano.Sparky_0.1.5.jar | roborumble | robot | CONFIRMED (score) | 6734d0a265e50ab8 | - | - |
 | roborumble/nic.Nicator_2.4.jar | roborumble | robot | DISCREPANCY (outcome) | 67338d8403618fc6 | - | - |
-| roborumble/nic.SnippetBot_1.0.jar | roborumble | robot | score-review | 0c261ee7291c16e5 | - | - |
-| roborumble/nkn.mini.Jskr0_0.1.jar | roborumble | robot | score-review | c273fc1b4d424de2 | - | - |
+| roborumble/nic.SnippetBot_1.0.jar | roborumble | robot | CONFIRMED (score) | 07e68693c1d82d07 | - | - |
+| roborumble/nkn.mini.Jskr0_0.1.jar | roborumble | robot | CONFIRMED (score) | 87af65218e56ed31 | - | - |
 | roborumble/non.mega.NaN_0.1.jar | roborumble | robot | PASS | 8a21454d7a135902 | - | - |
 | roborumble/non.mega.NoName_0.0.jar | roborumble | robot | PASS | 41bc7d5ccd53bdbf | - | - |
 | roborumble/nosteel.Welby_0.0.3.jar | roborumble | robot | PASS | ca4d97b1dc09be6c | - | - |
 | roborumble/nova.Snow_1.0.jar | roborumble | robot | PASS | 6e203ee5f5f8269e | - | - |
 | roborumble/ntc.Cannon_1.12test.jar | roborumble | robot | PASS | 36e5089f4b6cb63d | - | - |
-| roborumble/ntc.Evader_1.2.jar | roborumble | robot | score-review | 3f731c8a8747c5cf | - | - |
+| roborumble/ntc.Evader_1.2.jar | roborumble | robot | CONFIRMED (score) | 05d750b7cc80f541 | - | - |
 | roborumble/ntc.Knowledge_1.1.jar | roborumble | robot | score-review | 9452daca84f0292a | - | - |
 | roborumble/ntc.Lasers.Lasers_0.9.jar | roborumble | robot | PASS | 36926b65fbedc235 | - | - |
 | roborumble/ntc.Plains_0.9.jar | roborumble | robot | PASS | 77ac0912a1c577e5 | - | - |
