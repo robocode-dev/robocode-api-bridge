@@ -36,4 +36,4 @@ Chord's five-pair sample confirms a 30.96% Classic score advantage: Classic aver
 
 ## M-006 handoff
 
-Continue with `roborumble/stelo.MirrorMicro_1.1.jar` (`score-review`) in AN-642.
+The MirrorMicro retest is recorded in AN-642; continue with `roborumble/stelo.MirrorNano_1.4.jar` (`score-review`) in AN-643.

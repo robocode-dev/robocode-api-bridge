@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 195 |
+| CONFIRMED (score) | 198 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 132 |
+| MATCHED (score noise) | 134 |
 | PASS | 709 |
-| score-review | 46 |
+| score-review | 41 |
 
 ## Subjects
 
@@ -1036,14 +1036,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/stelo.MatchupMicro_1.2.jar | roborumble | robot | PASS | 44b4234cdd229266 | - | - |
 | roborumble/stelo.MatchupMini_1.1.jar | roborumble | robot | PASS | 02bb9c6fd9075b86 | - | - |
 | roborumble/stelo.MatchupWS_1.2c.jar | roborumble | robot | PASS | 806000fa021cba86 | - | - |
-| roborumble/stelo.MirrorMicro_1.1.jar | roborumble | robot | score-review | 05d8191a63ab4f92 | - | - |
-| roborumble/stelo.MirrorNano_1.4.jar | roborumble | robot | score-review | 954d91c27cca3cb6 | - | - |
+| roborumble/stelo.MirrorMicro_1.1.jar | roborumble | robot | MATCHED (score noise) | 1336907fce498c3b | - | - |
+| roborumble/stelo.MirrorNano_1.4.jar | roborumble | robot | CONFIRMED (score) | 22eada5743e33ef3 | - | - |
 | roborumble/stelo.Mirror_1.1.jar | roborumble | robot | PASS | ca0b224ceadc65f1 | - | - |
 | roborumble/stelo.MoojukNano_1.2.jar | roborumble | robot | PASS | 5aea32191bb43a03 | - | - |
-| roborumble/stelo.PatternRobot_1.0.jar | roborumble | robot | score-review | d1abf12fd69afec8 | - | - |
-| roborumble/stelo.PianistNano_1.3.jar | roborumble | robot | score-review | dfbed6096848bdd9 | - | - |
+| roborumble/stelo.PatternRobot_1.0.jar | roborumble | robot | CONFIRMED (score) | 84a16dd9ac0e23a1 | - | - |
+| roborumble/stelo.PianistNano_1.3.jar | roborumble | robot | CONFIRMED (score) | 9b9c4a647063a506 | - | - |
 | roborumble/stelo.RamTrackSurfer_1.2.jar | roborumble | robot | PASS | 2435f292d4571cb8 | - | - |
-| roborumble/stelo.Randomness_1.1.jar | roborumble | robot | score-review | 9fd868a5044a5de0 | - | - |
+| roborumble/stelo.Randomness_1.1.jar | roborumble | robot | MATCHED (score noise) | f35506df150bdb0d | - | - |
 | roborumble/stelo.SteloTestNano_1.0.jar | roborumble | robot | score-review | 11d2bb55a6b34db5 | - | - |
 | roborumble/stelo.UnfoolableNano_1.0.jar | roborumble | robot | score-review | 18ffe1f130b14c1a | - | - |
 | roborumble/stelo.UntouchableNano_1.4.jar | roborumble | robot | PASS | d7e07b1217de2e3a | - | - |
