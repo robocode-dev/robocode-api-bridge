@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 155 |
+| CONFIRMED (score) | 160 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 128 |
 | PASS | 709 |
-| score-review | 91 |
+| score-review | 86 |
 
 ## Subjects
 
@@ -838,7 +838,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/pez.gloom.GloomyDark_0.9.2.jar | roborumble | robot | PASS | 47368d0adc4dbcb9 | - | - |
 | roborumble/pez.mako.Mako_1.5.jar | roborumble | robot | PASS | 380eb9cba52e3299 | - | - |
 | roborumble/pez.micro.Aristocles_0.3.7.jar | roborumble | robot | CONFIRMED (score) | 5e8b242c176cb863 | - | - |
-| roborumble/pez.mini.ChironexFleckeri_0.5.jar | roborumble | robot | score-review | d54f346f46c249a3 | - | - |
+| roborumble/pez.mini.ChironexFleckeri_0.5.jar | roborumble | robot | CONFIRMED (score) | 2088c66adc8f05e8 | - | - |
 | roborumble/pez.mini.Gouldingi_1.5.jar | roborumble | robot | PASS | 4470ef719a8aef66 | - | - |
 | roborumble/pez.mini.Pugilist_2.5.1f.jar | roborumble | robot | PASS | 01a8e04a2e883aa8 | - | - |
 | roborumble/pez.mini.Tityus_0.9.1.jar | roborumble | robot | PASS | af8172dd9b69c545 | - | - |
@@ -853,12 +853,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ph.mini.Archer_0.6.6.jar | roborumble | robot | PASS | b67bbd0aa9215a21 | - | - |
 | roborumble/ph.musketeer.Musketeer_0.6.jar | roborumble | robot | PASS | 006748d27a56ed1e | - | - |
 | roborumble/pi.Dark_10.jar | roborumble | robot | DISCREPANCY (outcome) | c9a7deac846369c3 | - | - |
-| roborumble/pkbots.BoyTDSurfer_1.0.jar | roborumble | robot | score-review | 239b4d3d4a600a82 | - | - |
+| roborumble/pkbots.BoyTDSurfer_1.0.jar | roborumble | robot | CONFIRMED (score) | f36ea0f1ff97b1cb | - | - |
 | roborumble/pkdeken.Paladin_1.0.jar | roborumble | robot | PASS | df3fd2527b19c874 | - | - |
 | roborumble/pl.Drum_0.1.jar | roborumble | robot | PASS | 3ab0fa6eae4876cc | - | - |
 | roborumble/pl.Patton.GeneralPatton_1.54.jar | roborumble | robot | PASS | 50b34594d8537b8d | - | - |
-| roborumble/pl.mskiba.Hilton_0.4.jar | roborumble | robot | score-review | 661c265540cacf47 | - | - |
-| roborumble/pl.robocode.Pacyfista_1.0.jar | roborumble | robot | score-review | af26d7550c0ed446 | - | - |
+| roborumble/pl.mskiba.Hilton_0.4.jar | roborumble | robot | CONFIRMED (score) | f6d9f91e640b74ee | - | - |
+| roborumble/pl.robocode.Pacyfista_1.0.jar | roborumble | robot | CONFIRMED (score) | 62da792908ae9389 | - | - |
 | roborumble/pla.Memnoch_0.5.jar | roborumble | robot | PASS | 654408afadf40ae8 | - | - |
 | roborumble/pmc.SniperBot_1.0.jar | roborumble | robot | PASS | cc881d77fad08633 | - | - |
 | roborumble/populations.TrainStoopidbot_0.01.jar | roborumble | robot | PASS | ec721b1668bbc24a | - | - |
@@ -866,7 +866,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/povik.nano.Smilee_0.2.1.jar | roborumble | robot | PASS | 18b6dfe4fc2675c5 | - | - |
 | roborumble/projectx.ProjectNano_2.0.jar | roborumble | robot | PASS | e08aa037caf32846 | - | - |
 | roborumble/projectx.TestNano_1.0.jar | roborumble | robot | PASS | 79d837009a36dbf4 | - | - |
-| roborumble/pulsar.Nanis_0.3.jar | roborumble | robot | score-review | e9e6347eb3a19302 | - | - |
+| roborumble/pulsar.Nanis_0.3.jar | roborumble | robot | CONFIRMED (score) | 2e20d2ad493ab8e7 | - | - |
 | roborumble/pulsar.PulsarMax_0.8.9.jar | roborumble | robot | PASS | 53a325a70ceede0f | - | - |
 | roborumble/pulsar.PulsarNano_0.2.4.jar | roborumble | robot | score-review | 53dbc59e2685a77b | - | - |
 | roborumble/qohnil.blot.BlotBot_3.61.jar | roborumble | robot | PASS | 12dcc17301ebb46b | - | - |

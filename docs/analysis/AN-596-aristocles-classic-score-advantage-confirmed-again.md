@@ -36,4 +36,4 @@ Aristocles' five-pair sample confirms a 68.42% Classic score advantage, compared
 
 ## M-006 handoff
 
-Continue with `roborumble/pez.mini.ChironexFleckeri_0.5.jar` (`score-review`) in AN-597.
+ChironexFleckeri is recorded in [AN-597](AN-597-chironexfleckeri-classic-score-advantage-confirmed-again.md) with a -55.74% Classic score advantage. Continue with `roborumble/pkbots.BoyTDSurfer_1.0.jar` (`score-review`) in AN-598.
