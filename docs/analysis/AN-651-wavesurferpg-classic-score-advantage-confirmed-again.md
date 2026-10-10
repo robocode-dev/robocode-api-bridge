@@ -36,4 +36,4 @@ WaveSurferPG's five-pair sample confirms a 63.78% Classic score advantage: Class
 
 ## M-006 handoff
 
-Continue with `roborumble/suh.nano.MirrorL_1.00.jar` (`score-review`) in AN-652.
+The MirrorL retest is recorded in AN-652; continue with `roborumble/sul.Bicephal_1.2.jar` (`score-review`) in AN-653.

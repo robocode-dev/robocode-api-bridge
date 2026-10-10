@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 203 |
+| CONFIRMED (score) | 208 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 134 |
 | PASS | 709 |
-| score-review | 36 |
+| score-review | 31 |
 
 ## Subjects
 
@@ -1066,7 +1066,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/suh.nano.CrossH_1.00.jar | roborumble | robot | PASS | 2ec68234ab872c7d | - | - |
 | roborumble/suh.nano.CrossL_1.00.jar | roborumble | robot | PASS | dcf16cb442c321eb | - | - |
 | roborumble/suh.nano.MirrorH_1.01.jar | roborumble | robot | PASS | cc4c6f2a362c05ef | - | - |
-| roborumble/suh.nano.MirrorL_1.00.jar | roborumble | robot | score-review | d11c0c11fe5784cf | - | - |
+| roborumble/suh.nano.MirrorL_1.00.jar | roborumble | robot | CONFIRMED (score) | 94dcaabd7586fa01 | - | - |
 | roborumble/suh.nano.MyFirstAdvancedRobot_1.00.jar | roborumble | robot | PASS | d60893882f7b6653 | - | - |
 | roborumble/suh.nano.OscillatorL_1.00.jar | roborumble | robot | PASS | d8e670aca92a6405 | - | - |
 | roborumble/suh.nano.RammingC_1.00.jar | roborumble | robot | PASS | b1747d10befd7b00 | - | - |
@@ -1077,8 +1077,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/suh.nano.TargetL_1.00.jar | roborumble | robot | PASS | e9d42bb929e25d9f | - | - |
 | roborumble/suh.nano.TargetR_1.00.jar | roborumble | robot | PASS | f83026b90d87da70 | - | - |
 | roborumble/suh.nano.Worst_1.02.jar | roborumble | robot | DISCREPANCY (no score) | 5fe1ac3884e8bb3a | - | - |
-| roborumble/sul.Bicephal_1.2.jar | roborumble | robot | score-review | 76e39a0c93333f46 | - | - |
-| roborumble/sul.BlueBot_1.0.jar | roborumble | robot | score-review | 64d4a7f3b70e43e7 | - | - |
+| roborumble/sul.Bicephal_1.2.jar | roborumble | robot | CONFIRMED (score) | ea90c81159402c73 | - | - |
+| roborumble/sul.BlueBot_1.0.jar | roborumble | robot | CONFIRMED (score) | edd71e5c2412a197 | - | - |
 | roborumble/sul.NanoR2_1.32.jar | roborumble | robot | PASS | 20cdad7b00c03ba7 | - | - |
 | roborumble/sul.Pinkbot_1.1.jar | roborumble | robot | PASS | c459c9c5b1b4a0e6 | - | - |
 | roborumble/supersample.SuperBoxBot_1.0.jar | roborumble | robot | PASS | 7738e93552ec227a | - | - |
@@ -1086,12 +1086,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/supersample.SuperMercutio_1.0.jar | roborumble | robot | PASS | 98b321a2d49dd008 | - | - |
 | roborumble/supersample.SuperRamFire_1.0.jar | roborumble | robot | PASS | 0241ee9884b5a0e3 | - | - |
 | roborumble/supersample.SuperSpinBot_1.0.jar | roborumble | robot | PASS | b746540ce1ec858b | - | - |
-| roborumble/supersample.SuperTrackFire_1.0.jar | roborumble | robot | score-review | a1533dd1f66ec02e | - | - |
+| roborumble/supersample.SuperTrackFire_1.0.jar | roborumble | robot | CONFIRMED (score) | d19b117d85a54926 | - | - |
 | roborumble/supersample.SuperTracker_1.0.jar | roborumble | robot | PASS | dfdc197d7c56cdd8 | - | - |
 | roborumble/supersample.SuperWalls_1.0.jar | roborumble | robot | PASS | 56cd96ff1a1380f1 | - | - |
 | roborumble/suzushin7.nano.Galaxy01_1.01.jar | roborumble | robot | DISCREPANCY (no score) | a394261125eaff21 | - | - |
 | roborumble/suzushin7.nano.Galaxy02_1.01.jar | roborumble | robot | PASS | 6175968fee4da756 | - | - |
-| roborumble/suzushin7.nano.Galaxy03_1.01.jar | roborumble | robot | score-review | 2e76da0c6d40e9f0 | - | - |
+| roborumble/suzushin7.nano.Galaxy03_1.01.jar | roborumble | robot | CONFIRMED (score) | 42856daabd4d2055 | - | - |
 | roborumble/suzushin7.nano.TargetC_1.00.jar | roborumble | robot | PASS | 413c450b19fa855b | - | - |
 | roborumble/syl.Centipede_0.5.jar | roborumble | robot | PASS | f66ba72fbf46d41c | - | - |
 | roborumble/synapse.Geomancy_15.jar | roborumble | robot | DISCREPANCY (outcome) | bea0a9c36cec6503 | - | - |
