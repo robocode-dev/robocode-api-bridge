@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 82 |
+| CONFIRMED (score) | 87 |
 | DISCREPANCY (errors) | 36 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 113 |
 | PASS | 709 |
-| score-review | 182 |
+| score-review | 177 |
 
 ## Subjects
 
@@ -558,15 +558,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jcs.Seth_1.8.jar | roborumble | robot | DISCREPANCY (outcome) | 7cbbe2b6780c0995 | - | - |
 | roborumble/jcw.ArcherOne_1.0.jar | roborumble | robot | CONFIRMED (score) | 19691b662a7eb6f1 | - | - |
 | roborumble/jcz.linio.Linio_2.0.H.jar | roborumble | robot | PASS | a1f75e443bb759cf | - | - |
-| roborumble/jdw.Hornet_1.0.jar | roborumble | robot | score-review | f6b616930407a978 | - | - |
+| roborumble/jdw.Hornet_1.0.jar | roborumble | robot | CONFIRMED (score) | 926d9ddd20d1fece | - | - |
 | roborumble/jekl.DarkHallow_.90.9.jar | roborumble | robot | PASS | ef19377660a16a9a | - | - |
 | roborumble/jekl.Jekyl_.70.jar | roborumble | robot | PASS | 746f7ebb593a6006 | - | - |
-| roborumble/jekl.mini.BlackPearl_.91.jar | roborumble | robot | score-review | f83b97c8b3cce583 | - | - |
-| roborumble/jep.Terrible_0.4.1.jar | roborumble | robot | score-review | 610b809670c3c242 | - | - |
+| roborumble/jekl.mini.BlackPearl_.91.jar | roborumble | robot | CONFIRMED (score) | 03df9c6af2f761f1 | - | - |
+| roborumble/jep.Terrible_0.4.1.jar | roborumble | robot | CONFIRMED (score) | 5c346080c3a4aaf6 | - | - |
 | roborumble/jep.nano.Hawkwing_0.4.1.jar | roborumble | robot | PASS | 46f42695e1a7f118 | - | - |
 | roborumble/jep.nano.Hotspur_0.1.jar | roborumble | robot | PASS | c2e419d7c5f31be0 | - | - |
-| roborumble/jeremyreeder.Bully_1.jar | roborumble | robot | score-review | cfd4f9ecc5b1e9c5 | - | - |
-| roborumble/jeremyreeder.Vincent_2011.12.09.jar | roborumble | robot | score-review | 5937f2ce8280ffed | - | - |
+| roborumble/jeremyreeder.Bully_1.jar | roborumble | robot | CONFIRMED (score) | d01aac574464e6b4 | - | - |
+| roborumble/jeremyreeder.Vincent_2011.12.09.jar | roborumble | robot | CONFIRMED (score) | d98d82188fcb5e34 | - | - |
 | roborumble/jeremyreeder.collective.Prophet_5.jar | roborumble | robot | score-review | 184353f9c23e961e | - | - |
 | roborumble/jf.Dodger_1.3.jar | roborumble | robot | score-review | 92b831520dd0868f | - | - |
 | roborumble/jgap.JGAP12584_1.0.jar | roborumble | robot | PASS | be1d9435f1ab4e2a | - | - |

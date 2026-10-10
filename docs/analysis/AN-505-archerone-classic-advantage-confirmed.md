@@ -34,4 +34,4 @@ ArcherOne's large Classic score advantage persists under current matched artifac
 
 ## M-006 handoff
 
-Record `roborumble/jcw.ArcherOne_1.0.jar` as `CONFIRMED (score)`. Skip `roborumble/jcz.linio.Linio_2.0.H.jar` (`PASS`). Continue in registry order with `roborumble/jdw.Hornet_1.0.jar` (`score-review`).
+Record `roborumble/jcw.ArcherOne_1.0.jar` as `CONFIRMED (score)`. Skip `roborumble/jcz.linio.Linio_2.0.H.jar` (`PASS`). Record `roborumble/jdw.Hornet_1.0.jar` as `CONFIRMED (score)`. Skip `roborumble/jekl.DarkHallow_.90.9.jar` and `roborumble/jekl.Jekyl_.70.jar` (`PASS`). Continue in registry order with `roborumble/jekl.mini.BlackPearl_.91.jar` (`score-review`).
