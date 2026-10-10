@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 174 |
+| CONFIRMED (score) | 178 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 128 |
+| MATCHED (score noise) | 129 |
 | PASS | 709 |
-| score-review | 71 |
+| score-review | 66 |
 
 ## Subjects
 
@@ -945,7 +945,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/sample.Corners_1.0.jar | roborumble | robot | CONFIRMED (score) | 16a08e0e6fbde79f | - | - |
 | roborumble/sample.Crazy_1.0.jar | roborumble | robot | PASS | 4ae3b689554154fc | - | - |
 | roborumble/sample.Fire_1.0.jar | roborumble | robot | PASS | b43af86d4766195b | - | - |
-| roborumble/sample.MyFirstJuniorRobot_1.0.jar | roborumble | robot | score-review | 2a7678ff8a5e14a9 | - | - |
+| roborumble/sample.MyFirstJuniorRobot_1.0.jar | roborumble | robot | CONFIRMED (score) | 909e005571acff44 | - | - |
 | roborumble/sample.MyFirstRobot_1.0.jar | roborumble | robot | PASS | c6e2c8081614135b | - | - |
 | roborumble/sample.RamFire_1.0.jar | roborumble | robot | PASS | ec9da3f14d24ab34 | - | - |
 | roborumble/sample.SittingDuck_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 07fdadbcc4be79a6 | - | - |
@@ -953,10 +953,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/sample.Target_1.0.jar | roborumble | robot | PASS | 24dc7015b6b09ccd | - | - |
 | roborumble/sample.TrackFire_1.0.jar | roborumble | robot | PASS | 24c9fa1ec5ca3bb0 | - | - |
 | roborumble/sample.Tracker_1.0.jar | roborumble | robot | PASS | a2fdcbaf4c1d4b78 | - | - |
-| roborumble/sample.VelociRobot_1.0.jar | roborumble | robot | score-review | 5d0fc0dbc14c49c6 | - | - |
-| roborumble/sample.Walls_1.0.jar | roborumble | robot | score-review | bbdf1b95f6084538 | - | - |
+| roborumble/sample.VelociRobot_1.0.jar | roborumble | robot | CONFIRMED (score) | 7ddbc4b3ba978c9a | - | - |
+| roborumble/sample.Walls_1.0.jar | roborumble | robot | CONFIRMED (score) | 46c814b46cdc8663 | - | - |
 | roborumble/sanyi.mikrobi.Roberto_1.0.jar | roborumble | robot | PASS | 7415abddd9e7a6cf | - | - |
-| roborumble/satan.R0_0.2.jar | roborumble | robot | score-review | 61afc6337d7d111f | - | - |
+| roborumble/satan.R0_0.2.jar | roborumble | robot | CONFIRMED (score) | db739388d08ad461 | - | - |
 | roborumble/satan.White_0.26.jar | roborumble | robot | PASS | 3c7d82cc0daa89f4 | - | - |
 | roborumble/sch.Simone_0.3d.jar | roborumble | robot | PASS | b39798e5a56ca596 | - | - |
 | roborumble/seed.Anastasia_1.0.jar | roborumble | robot | PASS | a24a754eeda697a6 | - | - |
@@ -964,7 +964,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/serenity.moonlightBat_1.17.jar | roborumble | robot | DISCREPANCY (outcome) | 44eb7eaacb59beb0 | - | - |
 | roborumble/serenity.nonSense_1.39.jar | roborumble | robot | PASS | e7b9e2fb0928a518 | - | - |
 | roborumble/serenity.serenityFire_1.29.jar | roborumble | robot | PASS | 4d3b5c23395b4c05 | - | - |
-| roborumble/sgp.JollyNinja_3.53.jar | roborumble | robot | score-review | fb3b063e3ea768d0 | - | - |
+| roborumble/sgp.JollyNinja_3.53.jar | roborumble | robot | MATCHED (score noise) | 8fca901a457ee51e | - | - |
 | roborumble/sgp.MadHatter_4.13.jar | roborumble | robot | PASS | 124413cdb1d864a5 | - | - |
 | roborumble/sgp.ShiningBeetle_1.1.jar | roborumble | robot | PASS | a6e716db052d2df1 | - | - |
 | roborumble/sgp.SleepingGoat_1.1.jar | roborumble | robot | PASS | 719e881d80dac4dd | - | - |

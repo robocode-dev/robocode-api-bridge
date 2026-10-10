@@ -36,4 +36,4 @@ Corners' five-pair sample confirms a 41.62% Classic score advantage: Classic ave
 
 ## M-006 handoff
 
-Continue with `roborumble/sample.MyFirstJuniorRobot_1.0.jar` (`score-review`) in AN-617.
+The MyFirstJuniorRobot retest is recorded in AN-617; continue with `roborumble/sample.VelociRobot_1.0.jar` (`score-review`) in AN-618.
