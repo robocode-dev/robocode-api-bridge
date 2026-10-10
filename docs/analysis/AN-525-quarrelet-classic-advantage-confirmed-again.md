@@ -34,4 +34,4 @@ Quarrelet's Classic score advantage persists under current matched artifacts. Th
 
 ## M-006 handoff
 
-Record `roborumble/kinsen.nano.Quarrelet_1.0.jar` as `CONFIRMED (score)`. Skip `roborumble/kinsen.nano.Senticous_1.0.jar`, `roborumble/kjc.Karaykan_1.0.jar`, `roborumble/kjc.MailManX_2.0.jar`, and `roborumble/kjc.etc.Dharok_1.0.jar` (`PASS`). The intervening `roborumble/klein.GottesKrieger_1.1.jar` remains `DISCREPANCY (outcome)` and is outside this score-review sequence. Continue with `roborumble/kms.Golden_0.10.jar` (`score-review`).
+Record `roborumble/kms.Golden_0.10.jar` as `CONFIRMED (score)` in AN-526. Skip `roborumble/kms.Royal_0.15M.jar` and `roborumble/knackibot.KnackOnOne_0.8.1.jar` (`PASS`), then continue with `roborumble/kneels.ToNoone_0.2.jar` (`score-review`) in AN-527.

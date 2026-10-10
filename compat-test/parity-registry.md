@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 100 |
-| DISCREPANCY (errors) | 36 |
+| CONFIRMED (score) | 105 |
+| DISCREPANCY (errors) | 37 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 115 |
 | PASS | 709 |
-| score-review | 162 |
+| score-review | 156 |
 
 ## Subjects
 
@@ -638,11 +638,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kjc.MailManX_2.0.jar | roborumble | robot | PASS | a82056c6ad2ad5d3 | - | - |
 | roborumble/kjc.etc.Dharok_1.0.jar | roborumble | robot | PASS | 6e18ec5d5036e689 | - | - |
 | roborumble/klein.GottesKrieger_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | ca30b7c68b5b10fc | - | - |
-| roborumble/kms.Golden_0.10.jar | roborumble | robot | score-review | b5d6900c92396f8b | - | - |
+| roborumble/kms.Golden_0.10.jar | roborumble | robot | CONFIRMED (score) | 07727aa519a8593b | - | - |
 | roborumble/kms.Royal_0.15M.jar | roborumble | robot | PASS | eab60f1e9e2e0f3e | - | - |
 | roborumble/knackibot.KnackOnOne_0.8.1.jar | roborumble | robot | PASS | 624c9c4b63456f1e | - | - |
-| roborumble/kneels.ToNoone_0.2.jar | roborumble | robot | score-review | ae62db4724a7b736 | - | - |
-| roborumble/kneels.nano.Derp_0.2.jar | roborumble | robot | score-review | cd4748fb78080dd6 | - | - |
+| roborumble/kneels.ToNoone_0.2.jar | roborumble | robot | CONFIRMED (score) | c5e140a867a73077 | - | - |
+| roborumble/kneels.nano.Derp_0.2.jar | roborumble | robot | DISCREPANCY (errors) | e3d45273ae8f712f | - | - |
 | roborumble/krillr.mega.Psyche_0.0.3.jar | roborumble | robot | PASS | 3809aeaf0c65634c | - | - |
 | roborumble/krillr.mini.JointStrike_2.0.0.jar | roborumble | robot | PASS | cd44968f3f411b9a | - | - |
 | roborumble/kronenthaler.Basilisk_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 499659efa710a968 | wrapper-json-encoding | wrapper |
@@ -653,10 +653,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/lazarecki.mega.PinkerStinker_0.7.jar | roborumble | robot | PASS | 0e61361043708c08 | - | - |
 | roborumble/leb.ShootAnArrow_0.1.jar | roborumble | robot | PASS | 0698c06f0e3f3ad6 | - | - |
 | roborumble/lechu.Ala_0.0.4.jar | roborumble | robot | PASS | 59668a0f570ebada | - | - |
-| roborumble/lechu.Lechu_1.1.jar | roborumble | robot | score-review | f47bc92c4d2ff2ae | - | - |
-| roborumble/lessonz.robocode.Oz_0.5.0.jar | roborumble | robot | score-review | 3f66cee1b6bf3c7a | - | - |
+| roborumble/lechu.Lechu_1.1.jar | roborumble | robot | CONFIRMED (score) | 85931b36a6d41da8 | - | - |
+| roborumble/lessonz.robocode.Oz_0.5.0.jar | roborumble | robot | CONFIRMED (score) | 523f6f50e6466de4 | - | - |
 | roborumble/lion.Kresnanano_1.0.jar | roborumble | robot | PASS | 48ed3b0e1c077d70 | - | - |
-| roborumble/lk.nano.Avesnar_1.1.jar | roborumble | robot | score-review | 43dd6d385a5afa38 | - | - |
+| roborumble/lk.nano.Avesnar_1.1.jar | roborumble | robot | CONFIRMED (score) | 5aa459e8e50f0311 | - | - |
 | roborumble/lmk.ACPFinal_0.2.jar | roborumble | robot | PASS | c387423c5cc4d80c | - | - |
 | roborumble/logiblocs.Fire_1.0.jar | roborumble | robot | score-review | 4a263e819ee273fa | - | - |
 | roborumble/logiblocs.SittingDroid_1.0.jar | roborumble | robot | DISCREPANCY (no score) | aad8e7c68a03e5dd | - | - |
