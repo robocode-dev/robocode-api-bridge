@@ -36,4 +36,4 @@ The five-pair sample confirms a 35.76% Tank Royale score advantage, compared wit
 
 ## M-006 handoff
 
-Continue with `roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar` (`score-review`) in AN-562.
+LittleBlackBook 1.0 is recorded in [AN-562](AN-562-littleblackbook-1-tank-royale-advantage-grows.md) at +413.1% for Tank Royale. Continue with `roborumble/mme.NikeEnhanced_2.0.jar` (`score-review`) in AN-563.

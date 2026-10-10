@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 128 |
+| CONFIRMED (score) | 133 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 120 |
 | PASS | 709 |
-| score-review | 126 |
+| score-review | 121 |
 
 ## Subjects
 
@@ -720,17 +720,17 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/mld.LittleBlackBook_1.69e.jar | roborumble | robot | CONFIRMED (score) | 5941c490fca5a7bb | - | - |
 | roborumble/mld.Moebius_2.9.3.jar | roborumble | robot | PASS | a8e588a36ad8a74b | - | - |
 | roborumble/mld.Wisdom_1.0.jar | roborumble | robot | CONFIRMED (score) | 97762731ca62cb56 | - | - |
-| roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar | roborumble | robot | score-review | 2ec30f004042b332 | - | - |
+| roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar | roborumble | robot | CONFIRMED (score) | 5ff652da3d5affbc | - | - |
 | roborumble/mmb.Roskilde_0.5.jar | roborumble | robot | PASS | b23b95ce6ce7c9bf | - | - |
-| roborumble/mme.NikeEnhanced_2.0.jar | roborumble | robot | score-review | 82d3439e0edbe4b4 | - | - |
+| roborumble/mme.NikeEnhanced_2.0.jar | roborumble | robot | CONFIRMED (score) | 996b77c1db70ca8f | - | - |
 | roborumble/mn.Combat_3.25.0.jar | roborumble | robot | DISCREPANCY (outcome) | ec1cce937bc29b09 | - | - |
 | roborumble/mn.micro.perceptual.Mimic_1.0.0.jar | roborumble | robot | PASS | fa21dbaf21a76e1c | - | - |
 | roborumble/mn.nano.SkippedTurns_1.1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 6575d76867504d26 | - | - |
-| roborumble/mn.nano.perceptual.Impact_1.3.0.jar | roborumble | robot | score-review | 3eaffb97ae957a2d | - | - |
-| roborumble/mnt.AHEB_0.6a.jar | roborumble | robot | score-review | f17bdd7a3c104b3c | - | - |
+| roborumble/mn.nano.perceptual.Impact_1.3.0.jar | roborumble | robot | CONFIRMED (score) | 1313dd2e1df9f6bf | - | - |
+| roborumble/mnt.AHEB_0.6a.jar | roborumble | robot | CONFIRMED (score) | 488a04379aea3ddd | - | - |
 | roborumble/mnt.SurferBot_0.2.5.jar | roborumble | robot | DISCREPANCY (outcome) | 47a1e08efb5ca58c | - | - |
 | roborumble/morbid.MorbidPriest_1.0.jar | roborumble | robot | PASS | fc177c15b82ca872 | - | - |
-| roborumble/mrm.MightyMoose_.2.jar | roborumble | robot | score-review | 87529bbdc6c32027 | - | - |
+| roborumble/mrm.MightyMoose_.2.jar | roborumble | robot | CONFIRMED (score) | 0ad79f747f3724ca | - | - |
 | roborumble/ms.Ares_0.19.jar | roborumble | robot | PASS | d8663236bffd6ec7 | - | - |
 | roborumble/mue.Ascendant_1.2.27.jar | roborumble | robot | score-review | 5707fc085104a700 | - | - |
 | roborumble/mue.Hyperion_0.8.jar | roborumble | robot | score-review | 46f8b66bc9b65f98 | - | - |
