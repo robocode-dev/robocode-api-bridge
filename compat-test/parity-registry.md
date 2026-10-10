@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 214 |
+| CONFIRMED (score) | 219 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 138 |
 | PASS | 709 |
-| score-review | 21 |
+| score-review | 16 |
 
 ## Subjects
 
@@ -1114,22 +1114,22 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/testantiswapgun.AntiSwap_1.0.jar | roborumble | robot | PASS | 7efb12702de04526 | - | - |
 | roborumble/tex.Longbot_0.4.jar | roborumble | robot | PASS | 8c0df9a5304fb375 | - | - |
 | roborumble/throxbot.ThroxBot_0.1.jar | roborumble | robot | PASS | f562e62e29cb6bf8 | - | - |
-| roborumble/tide.pear.Pear_0.62.1.jar | roborumble | robot | score-review | c1e37ab1650b02a6 | - | - |
+| roborumble/tide.pear.Pear_0.62.1.jar | roborumble | robot | CONFIRMED (score) | 667a07f97f94d008 | - | - |
 | roborumble/timmit.TimmiT_0.22.jar | roborumble | robot | PASS | 7586b5ffa32a85d5 | - | - |
 | roborumble/timmit.micro.TimXJ_0.22.jar | roborumble | robot | PASS | c53a11703a9a7b14 | - | - |
 | roborumble/timmit.mini.TimVA_0.43.jar | roborumble | robot | PASS | ae20e402d06bf044 | - | - |
-| roborumble/timmit.nano.TimCat_0.13.jar | roborumble | robot | score-review | 79745ba32e2f25fe | - | - |
+| roborumble/timmit.nano.TimCat_0.13.jar | roborumble | robot | CONFIRMED (score) | 3f89adff122501de | - | - |
 | roborumble/timmit.nano.TimDog_0.33.jar | roborumble | robot | PASS | 00b253e2a5b6569e | - | - |
 | roborumble/tjk.AFlatNatural_1.0.jar | roborumble | robot | PASS | 85d1d52f7c5fbfa9 | - | - |
 | roborumble/tjk.deBroglie_rev0108.jar | roborumble | robot | PASS | dad5f10f813b5490 | - | - |
 | roborumble/tk.BotOX_0.3.jar | roborumble | robot | PASS | 7b47033a9aecb9c6 | - | - |
-| roborumble/tkt.RedShift_1.1.CS.0.jar | roborumble | robot | score-review | 249cd620a2f886b0 | - | - |
+| roborumble/tkt.RedShift_1.1.CS.0.jar | roborumble | robot | CONFIRMED (score) | f4becc55740f5781 | - | - |
 | roborumble/tlp.ThreeLeggedPig_1.jar | roborumble | robot | PASS | e5e607b23d018f71 | - | - |
 | roborumble/tm.Yuugao_1.0.jar | roborumble | robot | PASS | 601f0e21d66845b9 | - | - |
 | roborumble/tobe.Fusion_1.0.jar | roborumble | robot | PASS | c20f9ad4a4b53987 | wrapper-json-encoding | wrapper |
 | roborumble/tobe.Relativity_3.9.jar | roborumble | robot | PASS | 6b507b00b578c9fe | wrapper-json-encoding | wrapper |
 | roborumble/tobe.Saturn_lambda.jar | roborumble | robot | PASS | c2e40bc12ae1c728 | wrapper-json-encoding | wrapper |
-| roborumble/tobe.calypso.Calypso_4.1.jar | roborumble | robot | score-review | 70a448fb51b746c6 | - | - |
+| roborumble/tobe.calypso.Calypso_4.1.jar | roborumble | robot | CONFIRMED (score) | 6a0f7795c653b21d | - | - |
 | roborumble/tobe.mini.Charon_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | 1c814f1bf301289d | wrapper-json-encoding | wrapper |
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
@@ -1140,7 +1140,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |
 | roborumble/tzu.TheArtOfWar_1.2.jar | roborumble | robot | PASS | 258a5b71bf9c7445 | - | - |
 | roborumble/ua.kiiv.kosyak.robocode.tn1.Tn1_2.0.jar | roborumble | robot | PASS | 19cc7a468b88eecc | - | - |
-| roborumble/uccc.Dorito_1.12.jar | roborumble | robot | score-review | c35b75e47d35f25a | - | - |
+| roborumble/uccc.Dorito_1.12.jar | roborumble | robot | CONFIRMED (score) | 86dcc9bebac134a4 | - | - |
 | roborumble/uccc.MilkyWay_1.01.jar | roborumble | robot | score-review | 41f6d0786fd3e5ce | - | - |
 | roborumble/uccc.RingDing_1.12.jar | roborumble | robot | PASS | 695e293ccdd362a3 | - | - |
 | roborumble/uccc.Scrapple_1.0.jar | roborumble | robot | score-review | fe4ed74105911c2d | - | - |

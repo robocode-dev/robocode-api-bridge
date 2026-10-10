@@ -36,4 +36,4 @@ Podgy's five-pair sample records a 88.76% Tank Royale score lead: Classic averag
 
 ## M-006 handoff
 
-Continue with `roborumble/tide.pear.Pear_0.62.1.jar` (`score-review`) in AN-672.
+The Pear retest is recorded in AN-672; continue with `roborumble/timmit.nano.TimCat_0.13.jar` (`score-review`) in AN-673.
