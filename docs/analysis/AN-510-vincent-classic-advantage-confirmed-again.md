@@ -34,4 +34,4 @@ Vincent's Classic score advantage persists under current matched artifacts. The 
 
 ## M-006 handoff
 
-Record `roborumble/jeremyreeder.Vincent_2011.12.09.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/jeremyreeder.collective.Prophet_5.jar` (`score-review`).
+Record `roborumble/jeremyreeder.Vincent_2011.12.09.jar` as `CONFIRMED (score)`. Record `roborumble/jeremyreeder.collective.Prophet_5.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/jf.Dodger_1.3.jar` (`score-review`).

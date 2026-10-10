@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 87 |
+| CONFIRMED (score) | 91 |
 | DISCREPANCY (errors) | 36 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 113 |
+| MATCHED (score noise) | 114 |
 | PASS | 709 |
-| score-review | 177 |
+| score-review | 172 |
 
 ## Subjects
 
@@ -567,14 +567,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jep.nano.Hotspur_0.1.jar | roborumble | robot | PASS | c2e419d7c5f31be0 | - | - |
 | roborumble/jeremyreeder.Bully_1.jar | roborumble | robot | CONFIRMED (score) | d01aac574464e6b4 | - | - |
 | roborumble/jeremyreeder.Vincent_2011.12.09.jar | roborumble | robot | CONFIRMED (score) | d98d82188fcb5e34 | - | - |
-| roborumble/jeremyreeder.collective.Prophet_5.jar | roborumble | robot | score-review | 184353f9c23e961e | - | - |
-| roborumble/jf.Dodger_1.3.jar | roborumble | robot | score-review | 92b831520dd0868f | - | - |
+| roborumble/jeremyreeder.collective.Prophet_5.jar | roborumble | robot | CONFIRMED (score) | ba6b774a264b4ef9 | - | - |
+| roborumble/jf.Dodger_1.3.jar | roborumble | robot | MATCHED (score noise) | 1e77bf3c9fd5c9f9 | - | - |
 | roborumble/jgap.JGAP12584_1.0.jar | roborumble | robot | PASS | be1d9435f1ab4e2a | - | - |
 | roborumble/jgap.JGAP130166_1.0.jar | roborumble | robot | PASS | 6683dc1cc9cc5218 | - | - |
-| roborumble/jgap.JGAP23423_1.0.jar | roborumble | robot | score-review | 898e764b76e36455 | - | - |
-| roborumble/jgap.JGAP6139_1.0.jar | roborumble | robot | score-review | 9d36b13a51ac844a | - | - |
+| roborumble/jgap.JGAP23423_1.0.jar | roborumble | robot | CONFIRMED (score) | 05fc142df3a2c192 | - | - |
+| roborumble/jgap.JGAP6139_1.0.jar | roborumble | robot | CONFIRMED (score) | 3944712c56995b56 | - | - |
 | roborumble/jgap.JGAP7247_2_1.0.jar | roborumble | robot | DISCREPANCY (errors) | e199f80ecc172fca | - | - |
-| roborumble/jgap.JGAP7958_1.0.jar | roborumble | robot | score-review | 68d33e4907c12469 | - | - |
+| roborumble/jgap.JGAP7958_1.0.jar | roborumble | robot | CONFIRMED (score) | 803007ad223f04a3 | - | - |
 | roborumble/jje.BagPuss_1.2.jar | roborumble | robot | score-review | 48caa85e1e1f702b | - | - |
 | roborumble/jk.mega.DrussGT_3.1.7.jar | roborumble | robot | PASS | 7bd03a5c78b1cf12 | - | - |
 | roborumble/jk.melee.Neuromancer_7.12.jar | roborumble | robot | PASS | a3becdc000776726 | - | - |
