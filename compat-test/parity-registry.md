@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 192 |
+| CONFIRMED (score) | 195 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 130 |
+| MATCHED (score noise) | 132 |
 | PASS | 709 |
-| score-review | 51 |
+| score-review | 46 |
 
 ## Subjects
 
@@ -1016,19 +1016,19 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/sos.SOS_1.0.jar | roborumble | robot | DISCREPANCY (errors) | 8dcd655cb77ed8d2 | - | - |
 | roborumble/sp.AstherNano_1.0.jar | roborumble | robot | PASS | b5ff43ddfe84ad64 | - | - |
 | roborumble/spartancompany.Spartan2_1.0.jar | roborumble | robot | PASS | 4aaaad05305dbba1 | - | - |
-| roborumble/spinnercat.CopyKat_1.2.3.jar | roborumble | robot | score-review | 9e93aa13f6c201c0 | - | - |
+| roborumble/spinnercat.CopyKat_1.2.3.jar | roborumble | robot | MATCHED (score noise) | 91ea166d899e1b2d | - | - |
 | roborumble/spinnercat.Kitten_1.6.jar | roborumble | robot | PASS | 18491cc2f34ef597 | - | - |
 | roborumble/spinnercat.Limit_.01.jar | roborumble | robot | PASS | 01c48428522f5744 | - | - |
 | roborumble/spinnercat.Robovirus_2.718.jar | roborumble | robot | DISCREPANCY (errors) | 5e13bc795dc2d038 | - | - |
 | roborumble/spinnercat.haiku.Refrigerator_1.1.jar | roborumble | robot | PASS | 61940867361d7826 | - | - |
 | roborumble/spinnercat.mega.Tardis_1.2.jar | roborumble | robot | PASS | 027e7e543c67499c | - | - |
-| roborumble/sqTank.waveSurfing.LionWWSVMvoid_0.01.jar | roborumble | robot | score-review | 5ee51a0234856dfe | - | - |
-| roborumble/squidM.SquidmanNano_1.0.jar | roborumble | robot | score-review | ac88679d96137e1a | - | - |
-| roborumble/squidM.SurfinUSA_1.0.jar | roborumble | robot | score-review | ad4ac858d82c9144 | - | - |
+| roborumble/sqTank.waveSurfing.LionWWSVMvoid_0.01.jar | roborumble | robot | CONFIRMED (score) | 2e3f8ce266be0b51 | - | - |
+| roborumble/squidM.SquidmanNano_1.0.jar | roborumble | robot | CONFIRMED (score) | 7d708f7c41a5f9bb | - | - |
+| roborumble/squidM.SurfinUSA_1.0.jar | roborumble | robot | MATCHED (score noise) | 414b2d644c5b6ce0 | - | - |
 | roborumble/starpkg.StarViewerZ_1.26.jar | roborumble | robot | PASS | 9ab989c332dabcb9 | - | - |
 | roborumble/staticline.whiskey.Whiskey_0.6.jar | roborumble | robot | PASS | d7a4afc809726a3f | - | - |
 | roborumble/stefw.Tigger_0.0.23.jar | roborumble | robot | PASS | 75cc32356ead100e | - | - |
-| roborumble/stelo.Chord_1.0.jar | roborumble | robot | score-review | 58f620cc6ccc9488 | - | - |
+| roborumble/stelo.Chord_1.0.jar | roborumble | robot | CONFIRMED (score) | 3ebfd728ad4673d8 | - | - |
 | roborumble/stelo.FretNano_1.1.jar | roborumble | robot | PASS | e0c012a8f8adc65b | - | - |
 | roborumble/stelo.Liblix_0.3.1.jar | roborumble | robot | PASS | 044f196d7b50d879 | - | - |
 | roborumble/stelo.Lifestealer_1.0.jar | roborumble | robot | PASS | cd422646c602bded | - | - |

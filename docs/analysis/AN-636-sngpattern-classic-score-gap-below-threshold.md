@@ -36,4 +36,4 @@ SNGPattern's five-pair sample shows a 17.52% Classic score lead, below the recor
 
 ## M-006 handoff
 
-Continue with `roborumble/spinnercat.CopyKat_1.2.3.jar` (`score-review`) in AN-637.
+The CopyKat retest is recorded in AN-637; continue with `roborumble/sqTank.waveSurfing.LionWWSVMvoid_0.01.jar` (`score-review`) in AN-638.
