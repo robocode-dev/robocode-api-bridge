@@ -36,4 +36,4 @@ BasicGFSurfer's five-pair sample confirms a 43.02% Classic score advantage: Clas
 
 ## M-006 handoff
 
-Continue with `roborumble/wiki.SuperSampleBot.SuperSittingDuck_1.0.jar` (`score-review`) in AN-682.
+The SuperSittingDuck retest is recorded in AN-682; continue with `roborumble/wiki.Wolverine_2.1.jar` (`score-review`) in AN-683.

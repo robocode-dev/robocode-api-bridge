@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 224 |
+| CONFIRMED (score) | 227 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 138 |
+| MATCHED (score noise) | 140 |
 | PASS | 709 |
-| score-review | 11 |
+| score-review | 6 |
 
 ## Subjects
 
@@ -1174,9 +1174,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/whitesquare.robots.SkynetAdvanced_1.1.jar | roborumble | robot | PASS | d800deef22298358 | - | - |
 | roborumble/wiki.BasicBulletShielder_1.0.jar | roborumble | robot | DISCREPANCY (no score) | dd6ced352a0852bc | - | - |
 | roborumble/wiki.BasicGFSurfer_1.02.jar | roborumble | robot | CONFIRMED (score) | 3a936cdc19b26a9b | - | - |
-| roborumble/wiki.SuperSampleBot.SuperSittingDuck_1.0.jar | roborumble | robot | score-review | 4547e0802306f2d7 | - | - |
+| roborumble/wiki.SuperSampleBot.SuperSittingDuck_1.0.jar | roborumble | robot | CONFIRMED (score) | 60c1e57e6a950dcd | - | - |
 | roborumble/wiki.WaveRammer_1.0.jar | roborumble | robot | PASS | 3b3b8452bc947744 | - | - |
-| roborumble/wiki.Wolverine_2.1.jar | roborumble | robot | score-review | be3e497fc833ee7f | - | - |
+| roborumble/wiki.Wolverine_2.1.jar | roborumble | robot | CONFIRMED (score) | ce70fa586d6da895 | - | - |
 | roborumble/wiki.mako.MakoHT_1.2.2.1.jar | roborumble | robot | PASS | 663d83ffd3e65f78 | - | - |
 | roborumble/wiki.mini.BlackDestroyer_0.9.0.jar | roborumble | robot | PASS | ddb597dc74556b13 | - | - |
 | roborumble/wiki.mini.GouldingiHT_1.0.jar | roborumble | robot | PASS | 60c5a099592b863c | - | - |
@@ -1184,9 +1184,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/wiki.mini.Sedan_1.0.jar | roborumble | robot | PASS | 34c56f752963d190 | - | - |
 | roborumble/wiki.nano.DevilFISH_1.0.jar | roborumble | robot | PASS | dbfca7e5defd5feb | - | - |
 | roborumble/wiki.nano.RaikoNano_1.1.jar | roborumble | robot | PASS | f9646d636f024672 | - | - |
-| roborumble/wilson.Chameleon_0.91.jar | roborumble | robot | score-review | 91b838943f37afae | - | - |
-| roborumble/winamp32.micro.MicroMacro_1.0.jar | roborumble | robot | score-review | 859b669e24953d5f | - | - |
-| roborumble/wit.Chuliath_1.0.jar | roborumble | robot | score-review | 8de4ab4e3ebebf75 | - | - |
+| roborumble/wilson.Chameleon_0.91.jar | roborumble | robot | CONFIRMED (score) | 9226e5e501c357ec | - | - |
+| roborumble/winamp32.micro.MicroMacro_1.0.jar | roborumble | robot | MATCHED (score noise) | d31847c5b8039d14 | - | - |
+| roborumble/wit.Chuliath_1.0.jar | roborumble | robot | MATCHED (score noise) | 4066d37f0444687b | - | - |
 | roborumble/wit.Deep7_2.0.jar | roborumble | robot | PASS | 882dce9bf917da9c | - | - |
 | roborumble/wompi.Kowari_1.6.jar | roborumble | robot | score-review | aee185f8772f9bc8 | - | - |
 | roborumble/wompi.Numbat_1.9.jar | roborumble | robot | DISCREPANCY (outcome) | 48f1b34993000752 | - | - |
