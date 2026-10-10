@@ -34,4 +34,4 @@ JGAP7958's Classic score advantage persists under current matched artifacts. The
 
 ## M-006 handoff
 
-Record `roborumble/jgap.JGAP7958_1.0.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/jje.BagPuss_1.2.jar` (`score-review`).
+Record `roborumble/jgap.JGAP7958_1.0.jar` as `CONFIRMED (score)`. Record `roborumble/jje.BagPuss_1.2.jar` as `MATCHED (score noise)`. Skip `roborumble/jk.mega.DrussGT_3.1.7.jar`, `roborumble/jk.melee.Neuromancer_7.12.jar`, `roborumble/jk.micro.Cotillion_0.8.jar`, `roborumble/jk.mini.CunobelinDC_1.2.jar`, `roborumble/jk.nano.Machete_2.0.jar`, `roborumble/jk.precise.EnergyDome_1.6.jar`, `roborumble/jk.precise.Wintermute_0.8.jar`, `roborumble/jk.sheldor.nano.Yatagan_1.2.3.jar`, `roborumble/jmcd.BeoWulf_2.8.jar`, `roborumble/joe.ADinosaur_1.0.jar`, `roborumble/josago.Jorgito_0.16.jar`, `roborumble/jp.Perpy_16.0.jar`, and `roborumble/jp.SineWall_1.0.jar` (`PASS`). Continue in registry order with `roborumble/jrm.Test0_1.0.jar` (`score-review`).
