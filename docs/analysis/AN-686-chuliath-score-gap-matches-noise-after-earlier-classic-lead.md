@@ -36,4 +36,4 @@ Chuliath's five-pair sample has a 10.02% Classic score lead, within the recorded
 
 ## M-006 handoff
 
-Continue with `roborumble/wompi.Kowari_1.6.jar` (`score-review`) in AN-687.
+The Kowari retest is recorded in AN-687; continue with `roborumble/yagami.Tidus_0.11.jar` (`score-review`) in AN-688.

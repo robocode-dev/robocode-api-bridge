@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 227 |
+| CONFIRMED (score) | 232 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
 | PASS | 709 |
-| score-review | 6 |
+| score-review | 1 |
 
 ## Subjects
 
@@ -1188,11 +1188,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/winamp32.micro.MicroMacro_1.0.jar | roborumble | robot | MATCHED (score noise) | d31847c5b8039d14 | - | - |
 | roborumble/wit.Chuliath_1.0.jar | roborumble | robot | MATCHED (score noise) | 4066d37f0444687b | - | - |
 | roborumble/wit.Deep7_2.0.jar | roborumble | robot | PASS | 882dce9bf917da9c | - | - |
-| roborumble/wompi.Kowari_1.6.jar | roborumble | robot | score-review | aee185f8772f9bc8 | - | - |
+| roborumble/wompi.Kowari_1.6.jar | roborumble | robot | CONFIRMED (score) | 13138d68545ea672 | - | - |
 | roborumble/wompi.Numbat_1.9.jar | roborumble | robot | DISCREPANCY (outcome) | 48f1b34993000752 | - | - |
 | roborumble/xiongan.Xiongan_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 24644411e022565b | - | - |
 | roborumble/yabot.YaBot_0.1.jar | roborumble | robot | PASS | 4dd28cfef1345daa | - | - |
-| roborumble/yagami.Tidus_0.11.jar | roborumble | robot | score-review | 0885ba495b5a215b | - | - |
+| roborumble/yagami.Tidus_0.11.jar | roborumble | robot | CONFIRMED (score) | b688c77e8e4d7f4e | - | - |
 | roborumble/yarghard.Y101_1.0.jar | roborumble | robot | PASS | ec491d81b2bc43a0 | - | - |
 | roborumble/yarhoslav.YaroBot_1.2.jar | roborumble | robot | PASS | 7f93bbeaa0bc6d18 | - | - |
 | roborumble/yk.JahMicro_1.0.jar | roborumble | robot | PASS | 44e11069bf6dccee | - | - |
@@ -1208,12 +1208,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/zyx.micro.Ant_1.1.jar | roborumble | robot | PASS | 58b16c25647a3fca | - | - |
 | roborumble/zyx.nano.Ant_1.1.jar | roborumble | robot | PASS | 805aa68fcec2251e | - | - |
 | roborumble/zyx.nano.EscherichiaColi_1.0.jar | roborumble | robot | PASS | 7d74db622dc673a4 | - | - |
-| roborumble/zyx.nano.RedBull_1.0.jar | roborumble | robot | score-review | 8ffa9617eece147d | - | - |
+| roborumble/zyx.nano.RedBull_1.0.jar | roborumble | robot | CONFIRMED (score) | fe2534cf80dd935e | - | - |
 | roborumble/zzx.Gron_1.14.jar | roborumble | robot | PASS | 55fb646fb1b531a7 | - | - |
 | roborumble/zzx.Ignohis_8.0.jar | roborumble | robot | PASS | 0b66e37ab9b2b032 | - | - |
-| roborumble/zzx.Serunyr_2.0.2.jar | roborumble | robot | score-review | 961eb834cc4c139b | - | - |
+| roborumble/zzx.Serunyr_2.0.2.jar | roborumble | robot | CONFIRMED (score) | c999172e28a84b01 | - | - |
 | roborumble/zzx.StormHead_1.0.1.jar | roborumble | robot | PASS | 46e1b1c082fd54c6 | - | - |
-| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 6b043758c4fcae5a | - | - |
+| teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 92ef250f2d6ed85e | - | - |
 | teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 5e806f4254aa254d | - | - |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | c265ba7a00f77e4c | - | - |
 | teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | 3cfb581b7e09446b | - | - |
