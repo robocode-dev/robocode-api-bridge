@@ -36,4 +36,4 @@ Gladius's five-pair sample confirms a 37.82% Classic score advantage, compared w
 
 ## M-006 handoff
 
-Continue with `roborumble/radnor.RamRod_1.0.jar` (`score-review`) in AN-607.
+The RamRod retest is recorded in AN-607; continue with `roborumble/ratosh.Nobo_0.21.jar` (`score-review`) in AN-608.

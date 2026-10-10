@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 165 |
+| CONFIRMED (score) | 170 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 128 |
 | PASS | 709 |
-| score-review | 81 |
+| score-review | 76 |
 
 ## Subjects
 
@@ -877,13 +877,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/racso.Crono_1.0.jar | roborumble | robot | PASS | 41dd322115289fd2 | - | - |
 | roborumble/racso.Frog_0.9.jar | roborumble | robot | PASS | 77bb74558ca8c2af | - | - |
 | roborumble/radnor.DoctorBob_1.42.jar | roborumble | robot | PASS | 1770ddbe110b4cd6 | - | - |
-| roborumble/radnor.RamRod_1.0.jar | roborumble | robot | score-review | 07aea9e5eed6cba3 | - | - |
+| roborumble/radnor.RamRod_1.0.jar | roborumble | robot | CONFIRMED (score) | 2218134393469f6f | - | - |
 | roborumble/rampancy.Durandal_2.2d.jar | roborumble | robot | PASS | fbcd0e141e6dec7b | - | - |
 | roborumble/rampancy.micro.Epiphron_1.0.jar | roborumble | robot | PASS | cdedca81cc5993f8 | - | - |
 | roborumble/rapture.Rapture_2.13.jar | roborumble | robot | PASS | dfdedb24c525a0ad | - | - |
-| roborumble/ratosh.Nobo_0.21.jar | roborumble | robot | score-review | b6122ed051a7f694 | - | - |
-| roborumble/ratosh.Wesco_1.4.jar | roborumble | robot | score-review | ab25aa8ecc284d91 | - | - |
-| roborumble/ratosh.nano.Debo_1.36.jar | roborumble | robot | score-review | d37082504a361deb | - | - |
+| roborumble/ratosh.Nobo_0.21.jar | roborumble | robot | CONFIRMED (score) | 92dc25c0e370d949 | - | - |
+| roborumble/ratosh.Wesco_1.4.jar | roborumble | robot | CONFIRMED (score) | 4fe00f5f6ac9b4b6 | - | - |
+| roborumble/ratosh.nano.Debo_1.36.jar | roborumble | robot | CONFIRMED (score) | 868c9dc4842a0435 | - | - |
 | roborumble/rc.RCBot_2.0.jar | roborumble | robot | DISCREPANCY (errors) | f49b68636e97d3a6 | - | - |
 | roborumble/rc.yoda.Yoda_1.0.6c.fix.jar | roborumble | robot | PASS | b60c7c436f46bc9a | - | - |
 | roborumble/rcb.Vanessa03_0.jar | roborumble | robot | PASS | fe61a29a3efcbaac | - | - |
@@ -923,7 +923,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/romz.robot.circular.WildRabbit_0.9.6.jar | roborumble | robot | PASS | 320581acfab18570 | - | - |
 | roborumble/romz.robot.guessfactor.TeasingFox_0.2.jar | roborumble | robot | PASS | f02031538056ba50 | - | - |
 | roborumble/rsalesc.mega.Knight_0.6.28.jar | roborumble | robot | DISCREPANCY (outcome) | e0e5b9d788f4ec0e | - | - |
-| roborumble/rsim.micro.uCatcher_0.1.jar | roborumble | robot | score-review | e47dc8233c05ce71 | - | - |
+| roborumble/rsim.micro.uCatcher_0.1.jar | roborumble | robot | CONFIRMED (score) | d8c43299c5876751 | - | - |
 | roborumble/rsim.mini.BulletCatcher_0.4.jar | roborumble | robot | PASS | 782cca12c41b465a | - | - |
 | roborumble/rsk1.RSK1_4.0.jar | roborumble | robot | PASS | 000d22607abdab9c | - | - |
 | roborumble/ruc.nano.Zealot_0.2.jar | roborumble | robot | PASS | 59feda052eabd1ad | - | - |
