@@ -36,4 +36,4 @@ Graviton's Tank Royale score advantage grew from +281.5% to +308.82% in the five
 
 ## M-006 handoff
 
-Continue with `roborumble/myl.nano.KomoriNinja_1.1.jar` (`score-review`) in AN-572.
+KomoriNinja is recorded in [AN-572](AN-572-komorininja-classic-score-advantage-confirmed-again.md) with a 28.3% Classic score advantage. Continue with `roborumble/nammyung.ModelT_0.23.jar` (`score-review`) in AN-573.
