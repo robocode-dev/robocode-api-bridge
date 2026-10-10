@@ -34,4 +34,4 @@ FloodMicro's Classic advantage persists under current matched artifacts, but its
 
 ## M-006 handoff
 
-Record `roborumble/kawigi.sbf.FloodMicro_1.5.jar` as `CONFIRMED (score)`. Skip `roborumble/kawigi.sbf.FloodMini_1.4.jar` (`PASS`). Continue in registry order with `roborumble/kawigi.sbf.FloodNano_1.2.jar` (`score-review`).
+Record `roborumble/kawigi.sbf.FloodMicro_1.5.jar` as `CONFIRMED (score)`. Skip `roborumble/kawigi.sbf.FloodMini_1.4.jar` (`PASS`). Record `roborumble/kawigi.sbf.FloodNano_1.2.jar` as `CONFIRMED (score)`. The intervening `roborumble/kawigi.sbf.FloodSonnet_0.9.jar`, `roborumble/kc.mega.BeepBoop_1.21.jar`, and `roborumble/kc.micro.WaveShark_0.4.jar` remain `DISCREPANCY (outcome)` and are outside this score-review sequence. Skip `roborumble/kawigi.sbf.Teancum_1.3.jar`, `roborumble/kawigi.spare.SpareParts_0.7.6nosnd.jar`, `roborumble/kc.micro.Needle_0.101.jar`, and `roborumble/kc.micro.Thorn_1.252.jar` (`PASS`). Continue with `roborumble/kc.micro.rammer.MaxRisk_0.6.jar` (`score-review`).

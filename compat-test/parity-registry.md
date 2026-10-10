@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 95 |
+| CONFIRMED (score) | 100 |
 | DISCREPANCY (errors) | 36 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 115 |
 | PASS | 709 |
-| score-review | 167 |
+| score-review | 162 |
 
 ## Subjects
 
@@ -610,7 +610,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kawigi.sbf.FloodHT_0.9.2.jar | roborumble | robot | PASS | dadcf7bf4e0ecb8c | - | - |
 | roborumble/kawigi.sbf.FloodMicro_1.5.jar | roborumble | robot | CONFIRMED (score) | 9ecc1bff459df2f2 | - | - |
 | roborumble/kawigi.sbf.FloodMini_1.4.jar | roborumble | robot | PASS | 30197c435377ba69 | - | - |
-| roborumble/kawigi.sbf.FloodNano_1.2.jar | roborumble | robot | score-review | 117a6d40be35854c | - | - |
+| roborumble/kawigi.sbf.FloodNano_1.2.jar | roborumble | robot | CONFIRMED (score) | 77d03b46f1a6dbc2 | - | - |
 | roborumble/kawigi.sbf.FloodSonnet_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | 01421e46ea8b0558 | - | - |
 | roborumble/kawigi.sbf.Teancum_1.3.jar | roborumble | robot | PASS | 48f06e2fa8400492 | - | - |
 | roborumble/kawigi.spare.SpareParts_0.7.6nosnd.jar | roborumble | robot | PASS | e6f5801c8dbb526a | - | - |
@@ -618,7 +618,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kc.micro.Needle_0.101.jar | roborumble | robot | PASS | 08a9125a7c4f78c8 | - | - |
 | roborumble/kc.micro.Thorn_1.252.jar | roborumble | robot | PASS | 0c021dbb724f9eae | - | - |
 | roborumble/kc.micro.WaveShark_0.4.jar | roborumble | robot | DISCREPANCY (outcome) | 754ffb2e50872664 | wrapper-json-encoding | wrapper |
-| roborumble/kc.micro.rammer.MaxRisk_0.6.jar | roborumble | robot | score-review | 1d7f127258dd610c | - | - |
+| roborumble/kc.micro.rammer.MaxRisk_0.6.jar | roborumble | robot | CONFIRMED (score) | 54e43201c25fe3cf | - | - |
 | roborumble/kc.mini.Vyper_0.311.jar | roborumble | robot | PASS | 2a4e8fb340184b39 | - | - |
 | roborumble/kc.nano.Splinter_1.2.jar | roborumble | robot | PASS | b397c0bf2d8d3823 | - | - |
 | roborumble/kc.serpent.Hydra_0.21.jar | roborumble | robot | PASS | 040ddc882beec0c8 | - | - |
@@ -628,11 +628,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kenran.Bakko_v1.0.1.jar | roborumble | robot | PASS | cac1aa587d78087c | - | - |
 | roborumble/kenran.mega.Pantheist_1.1.jar | roborumble | robot | PASS | 484f8c7a96a8da34 | - | - |
 | roborumble/kid.Gladiator_.7.2.jar | roborumble | robot | PASS | 8b525bd3f6b28dfa | - | - |
-| roborumble/kid.Toa_.0.5.jar | roborumble | robot | score-review | fba256d882f5f68e | - | - |
+| roborumble/kid.Toa_.0.5.jar | roborumble | robot | CONFIRMED (score) | 499c535ef9f66477 | - | - |
 | roborumble/kinsen.melee.Angsaichmophobia_1.8c.jar | roborumble | robot | PASS | 0ed7850cf0a262d8 | - | - |
-| roborumble/kinsen.nano.Charp_1.0.jar | roborumble | robot | score-review | 16fb9f8a0566af3d | - | - |
+| roborumble/kinsen.nano.Charp_1.0.jar | roborumble | robot | CONFIRMED (score) | c2b1d590dc56f4eb | - | - |
 | roborumble/kinsen.nano.Hoplomachy_1.6.jar | roborumble | robot | PASS | 1bee697b81a6f927 | - | - |
-| roborumble/kinsen.nano.Quarrelet_1.0.jar | roborumble | robot | score-review | 392cc7b5ec68cfab | - | - |
+| roborumble/kinsen.nano.Quarrelet_1.0.jar | roborumble | robot | CONFIRMED (score) | d2497a7692e897a8 | - | - |
 | roborumble/kinsen.nano.Senticous_1.0.jar | roborumble | robot | PASS | 2a603412d14a06c4 | - | - |
 | roborumble/kjc.Karaykan_1.0.jar | roborumble | robot | PASS | 9fff8d83189d2ec9 | - | - |
 | roborumble/kjc.MailManX_2.0.jar | roborumble | robot | PASS | a82056c6ad2ad5d3 | - | - |
