@@ -232071,7 +232071,7 @@
         "key": "roborumble/eem.IWillFireNoBullet_v2.4.jar",
         "kind": "robot"
       },
-      "latest_observation": "7cdf1837d55623fb",
+      "latest_observation": "3523bc0befc6246a",
       "observations": [
         {
           "classic": {
@@ -232147,9 +232147,254 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 634.6
+          },
+          "completed_at": "2026-10-10T18:02:42Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 266.1,
+            "deltas": [
+              288.4,
+              273.2,
+              442.1,
+              124.3,
+              202.5
+            ],
+            "rc_mean": 634.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 9,
+                    "turn": 1250
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 2
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 2
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 3
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 3
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 4
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 4
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 5
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 5
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 6
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 6
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 7
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 7
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 8
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 8
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 9
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 10
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 10
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 11
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 11
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 12
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 12
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 13
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 13
+                  },
+                  {
+                    "bot_id": 1,
+                    "round": 3,
+                    "turn": 14
+                  },
+                  {
+                    "bot_id": 2,
+                    "round": 3,
+                    "turn": 14
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 2172.8
+          },
+          "delta_pct": 266.1,
+          "id": "3523bc0befc6246a",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "4d232d88c0f1ed9aaba2d1b11c3761cacfcea235",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "eem.IWillFireNoBullet_v2.4.jar",
+            "jar_sha256": "2f4ba80edb9f95aabd5e69487de2d2cdf84243d80e0da18a6cac2b06c1da1609",
+            "key": "roborumble/eem.IWillFireNoBullet_v2.4.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 2172.8
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/eem.awful_v1.2.jar": {
       "diagnosis_events": [],
@@ -232585,7 +232830,7 @@
         "key": "roborumble/ej.ChocolateBar_1.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "b47ad477d6bd24cb",
+      "latest_observation": "55997df09ab76651",
       "observations": [
         {
           "classic": {
@@ -232661,9 +232906,107 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 4730.8
+          },
+          "completed_at": "2026-10-10T18:04:18Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -55.879999999999995,
+            "deltas": [
+              -60.4,
+              -62.0,
+              -54.4,
+              -43.3,
+              -59.3
+            ],
+            "rc_mean": 4730.8,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 2044.8
+          },
+          "delta_pct": -55.879999999999995,
+          "id": "55997df09ab76651",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "4d232d88c0f1ed9aaba2d1b11c3761cacfcea235",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "ej.ChocolateBar_1.1.jar",
+            "jar_sha256": "9ebfcc8e298c6fad8045e8e3f44418be6f2c5c74322fb6d50f71e698005e4a52",
+            "key": "roborumble/ej.ChocolateBar_1.1.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 2044.8
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/el.Attackr_0.1.jar": {
       "diagnosis_events": [],
@@ -232855,7 +233198,7 @@
         "key": "roborumble/el33t.EL33tGangstarr2_2.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "791e673951bd2014",
+      "latest_observation": "065e3e334711f348",
       "observations": [
         {
           "classic": {
@@ -232931,9 +233274,107 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 4190.8
+          },
+          "completed_at": "2026-10-10T18:05:41Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -36.339999999999996,
+            "deltas": [
+              -40.3,
+              -38.6,
+              -26.6,
+              -39.3,
+              -36.9
+            ],
+            "rc_mean": 4190.8,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 2663.2
+          },
+          "delta_pct": -36.339999999999996,
+          "id": "065e3e334711f348",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "4d232d88c0f1ed9aaba2d1b11c3761cacfcea235",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "el33t.EL33tGangstarr2_2.0.jar",
+            "jar_sha256": "26ab583db98602ea0d29fc8c0f242166417ca16e218e21c91ad3ee1de45293f4",
+            "key": "roborumble/el33t.EL33tGangstarr2_2.0.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 2663.2
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/eld.Hmm_1.0.jar": {
       "diagnosis_events": [],
@@ -233035,7 +233476,7 @@
         "key": "roborumble/element.Earth_1.1.jar",
         "kind": "robot"
       },
-      "latest_observation": "e9a5d46ed04f0534",
+      "latest_observation": "0d2e486780f4b69c",
       "observations": [
         {
           "classic": {
@@ -233111,9 +233552,107 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 6321.2
+          },
+          "completed_at": "2026-10-10T18:07:23Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -38.94,
+            "deltas": [
+              -37.2,
+              -32.6,
+              -43.9,
+              -40.3,
+              -40.7
+            ],
+            "rc_mean": 6321.2,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 3852.8
+          },
+          "delta_pct": -38.94,
+          "id": "0d2e486780f4b69c",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "4d232d88c0f1ed9aaba2d1b11c3761cacfcea235",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "element.Earth_1.1.jar",
+            "jar_sha256": "cc1684fb62819ceb6fcfcb6bee7281ec76ea054e542a5a5ba324fa19fb8904f5",
+            "key": "roborumble/element.Earth_1.1.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 3852.8
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/elloco.Flower_0.1r1.jar": {
       "diagnosis_events": [],
@@ -269152,7 +269691,7 @@
         "key": "roborumble/mld.Wisdom_1.0.jar",
         "kind": "robot"
       },
-      "latest_observation": "47a73446157b9ff6",
+      "latest_observation": "97762731ca62cb56",
       "observations": [
         {
           "classic": {
@@ -269229,9 +269768,107 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 2183.6
+          },
+          "completed_at": "2026-10-10T18:08:34Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 35.760000000000005,
+            "deltas": [
+              73.2,
+              23.3,
+              19.0,
+              54.7,
+              8.6
+            ],
+            "rc_mean": 2183.6,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 2885.4
+          },
+          "delta_pct": 35.760000000000005,
+          "id": "97762731ca62cb56",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "4d232d88c0f1ed9aaba2d1b11c3761cacfcea235",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "mld.Wisdom_1.0.jar",
+            "jar_sha256": "f98eb1af9da5861e0afad2df1afff07642377ab8cea81a09c2860e489e186544",
+            "key": "roborumble/mld.Wisdom_1.0.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 2885.4
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar": {
       "diagnosis_events": [],

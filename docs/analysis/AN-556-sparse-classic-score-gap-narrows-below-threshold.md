@@ -36,4 +36,4 @@ Sparse's five-pair sample shows a 24.16% Classic score lead, down from 34.3% in 
 
 ## M-006 handoff
 
-Continue with `roborumble/eem.IWillFireNoBullet_v2.4.jar` (`score-review`) in AN-557.
+IWillFireNoBullet is recorded in [AN-557](AN-557-iwillfirenobullet-tank-royale-advantage-confirmed-again.md) with a +266.1% Tank Royale score advantage. Continue with `roborumble/ej.ChocolateBar_1.1.jar` (`score-review`) in AN-558.

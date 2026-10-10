@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 123 |
+| CONFIRMED (score) | 128 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 120 |
 | PASS | 709 |
-| score-review | 131 |
+| score-review | 126 |
 
 ## Subjects
 
@@ -429,15 +429,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/ebo.Tahoe_1.1.79.jar | roborumble | robot | PASS | 681b5afe8a64b645 | - | - |
 | roborumble/eem.EvBotNG_v12.8.jar | roborumble | robot | PASS | 7ebb64d148b85617 | - | - |
 | roborumble/eem.EvBot_v4.6.4.jar | roborumble | robot | PASS | f3b0485111bec962 | - | - |
-| roborumble/eem.IWillFireNoBullet_v2.4.jar | roborumble | robot | score-review | 7cdf1837d55623fb | - | - |
+| roborumble/eem.IWillFireNoBullet_v2.4.jar | roborumble | robot | CONFIRMED (score) | 3523bc0befc6246a | - | - |
 | roborumble/eem.awful_v1.2.jar | roborumble | robot | DISCREPANCY (outcome) | 2591efac30b6fa62 | - | - |
 | roborumble/eem.zapper_v4.17.jar | roborumble | robot | PASS | 9739522025a54af6 | - | - |
-| roborumble/ej.ChocolateBar_1.1.jar | roborumble | robot | score-review | b47ad477d6bd24cb | - | - |
+| roborumble/ej.ChocolateBar_1.1.jar | roborumble | robot | CONFIRMED (score) | 55997df09ab76651 | - | - |
 | roborumble/el.Attackr_0.1.jar | roborumble | robot | PASS | f2944dcec0666d53 | - | - |
 | roborumble/el.JumpShoot_0.2.jar | roborumble | robot | PASS | 795d56a26238569f | - | - |
-| roborumble/el33t.EL33tGangstarr2_2.0.jar | roborumble | robot | score-review | 791e673951bd2014 | - | - |
+| roborumble/el33t.EL33tGangstarr2_2.0.jar | roborumble | robot | CONFIRMED (score) | 065e3e334711f348 | - | - |
 | roborumble/eld.Hmm_1.0.jar | roborumble | robot | PASS | 6429e35e8dc9bb33 | - | - |
-| roborumble/element.Earth_1.1.jar | roborumble | robot | score-review | e9a5d46ed04f0534 | - | - |
+| roborumble/element.Earth_1.1.jar | roborumble | robot | CONFIRMED (score) | 0d2e486780f4b69c | - | - |
 | roborumble/elloco.Flower_0.1r1.jar | roborumble | robot | PASS | dc5eb966fb783139 | - | - |
 | roborumble/elloco.Kabuto_0.2r.jar | roborumble | robot | PASS | 5558a61657f168c0 | - | - |
 | roborumble/elvbot.ElverionBot_0.3.jar | roborumble | robot | PASS | 71e2df5b73f1ffcc | - | - |
@@ -719,7 +719,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/mld.Infinity_2.2.jar | roborumble | robot | CONFIRMED (score) | c9d981b08e239794 | - | - |
 | roborumble/mld.LittleBlackBook_1.69e.jar | roborumble | robot | CONFIRMED (score) | 5941c490fca5a7bb | - | - |
 | roborumble/mld.Moebius_2.9.3.jar | roborumble | robot | PASS | a8e588a36ad8a74b | - | - |
-| roborumble/mld.Wisdom_1.0.jar | roborumble | robot | score-review | 47a73446157b9ff6 | - | - |
+| roborumble/mld.Wisdom_1.0.jar | roborumble | robot | CONFIRMED (score) | 97762731ca62cb56 | - | - |
 | roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar | roborumble | robot | score-review | 2ec30f004042b332 | - | - |
 | roborumble/mmb.Roskilde_0.5.jar | roborumble | robot | PASS | b23b95ce6ce7c9bf | - | - |
 | roborumble/mme.NikeEnhanced_2.0.jar | roborumble | robot | score-review | 82d3439e0edbe4b4 | - | - |
