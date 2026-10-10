@@ -34,4 +34,4 @@ GrypRepetyf's earlier Classic zero-score result did not recur under current matc
 
 ## M-006 handoff
 
-Skip `roborumble/gh.GrypRepetyf_0.13.jar` (`MATCHED (score noise)`). Continue in registry order with `roborumble/gh.micro.Grinnik_1.0.jar` (`DISCREPANCY (no score)`).
+Skip `roborumble/gh.GrypRepetyf_0.13.jar` (`MATCHED (score noise)`). Record `roborumble/gh.micro.Grinnik_1.0.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/gh.mini.Grimmig_0.3.6.jar` (`DISCREPANCY (no score)`).

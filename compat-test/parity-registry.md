@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 68 |
-| DISCREPANCY (errors) | 33 |
-| DISCREPANCY (no score) | 24 |
-| DISCREPANCY (outcome) | 60 |
+| CONFIRMED (score) | 70 |
+| DISCREPANCY (errors) | 34 |
+| DISCREPANCY (no score) | 20 |
+| DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 100 |
+| MATCHED (score noise) | 102 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -498,11 +498,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/gh.GresSuffurd_0.4.13.jar | roborumble | robot | MATCHED (score noise) | 63f441c7f23f1686 | - | - |
 | roborumble/gh.GrubbmGrb_1.2.4.jar | roborumble | robot | PASS | 5ec4a9ed6e45a26d | packaged-data-resources | bridge |
 | roborumble/gh.GrypRepetyf_0.13.jar | roborumble | robot | MATCHED (score noise) | da8a7a95529c0412 | - | - |
-| roborumble/gh.micro.Grinnik_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e524b4d483d0635e | - | - |
-| roborumble/gh.mini.Grimmig_0.3.6.jar | roborumble | robot | DISCREPANCY (no score) | 5f21e7bfd82d02e0 | - | - |
-| roborumble/gh.nano.Grofvuil_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 2d26131918c382a7 | - | - |
-| roborumble/ghent.ArthurPanzergon_1.0.0.jar | roborumble | robot | DISCREPANCY (outcome) | dfa7800f0f04cab3 | - | - |
-| roborumble/gimp.GimpBot_0.1.jar | roborumble | robot | DISCREPANCY (no score) | 971d83252cd783ae | - | - |
+| roborumble/gh.micro.Grinnik_1.0.jar | roborumble | robot | CONFIRMED (score) | 69601c2cf35d8711 | - | - |
+| roborumble/gh.mini.Grimmig_0.3.6.jar | roborumble | robot | CONFIRMED (score) | 683ca4da925939e8 | - | - |
+| roborumble/gh.nano.Grofvuil_0.2.jar | roborumble | robot | MATCHED (score noise) | 0a0b9e779f49b529 | - | - |
+| roborumble/ghent.ArthurPanzergon_1.0.0.jar | roborumble | robot | DISCREPANCY (errors) | 70d54fe2622e752d | - | - |
+| roborumble/gimp.GimpBot_0.1.jar | roborumble | robot | MATCHED (score noise) | 48e17d7f501f2155 | - | - |
 | roborumble/gio.RealGioBot_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 5e1535e7c64aba59 | - | - |
 | roborumble/gjr.Cephalosporin_0.2.jar | roborumble | robot | DISCREPANCY (no score) | db03f6ffc0fe3874 | - | - |
 | roborumble/goblin.Bender_2.4.jar | roborumble | robot | DISCREPANCY (no score) | c974dc2f04983d30 | - | - |
