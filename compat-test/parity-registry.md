@@ -7,11 +7,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 70 |
-| DISCREPANCY (errors) | 34 |
-| DISCREPANCY (no score) | 20 |
-| DISCREPANCY (outcome) | 59 |
+| DISCREPANCY (errors) | 35 |
+| DISCREPANCY (no score) | 16 |
+| DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 102 |
+| MATCHED (score noise) | 106 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -503,11 +503,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/gh.nano.Grofvuil_0.2.jar | roborumble | robot | MATCHED (score noise) | 0a0b9e779f49b529 | - | - |
 | roborumble/ghent.ArthurPanzergon_1.0.0.jar | roborumble | robot | DISCREPANCY (errors) | 70d54fe2622e752d | - | - |
 | roborumble/gimp.GimpBot_0.1.jar | roborumble | robot | MATCHED (score noise) | 48e17d7f501f2155 | - | - |
-| roborumble/gio.RealGioBot_1.0.jar | roborumble | robot | DISCREPANCY (no score) | 5e1535e7c64aba59 | - | - |
-| roborumble/gjr.Cephalosporin_0.2.jar | roborumble | robot | DISCREPANCY (no score) | db03f6ffc0fe3874 | - | - |
-| roborumble/goblin.Bender_2.4.jar | roborumble | robot | DISCREPANCY (no score) | c974dc2f04983d30 | - | - |
-| roborumble/gre.svman4.Leonidas_1.3.2.jar | roborumble | robot | DISCREPANCY (no score) | 58b0a10a9eac6c89 | - | - |
-| roborumble/gre.svman4.Morfeas_1.4.3.jar | roborumble | robot | DISCREPANCY (outcome) | 414e70d87bc5aa3d | - | - |
+| roborumble/gio.RealGioBot_1.0.jar | roborumble | robot | MATCHED (score noise) | 6a3edb974087b449 | - | - |
+| roborumble/gjr.Cephalosporin_0.2.jar | roborumble | robot | MATCHED (score noise) | c24d1cb6c982e2b6 | - | - |
+| roborumble/goblin.Bender_2.4.jar | roborumble | robot | MATCHED (score noise) | 0c1c46af75f0f591 | - | - |
+| roborumble/gre.svman4.Leonidas_1.3.2.jar | roborumble | robot | MATCHED (score noise) | a6e727109c432d29 | - | - |
+| roborumble/gre.svman4.Morfeas_1.4.3.jar | roborumble | robot | DISCREPANCY (errors) | fc42d0b71fbdb716 | - | - |
 | roborumble/grybgoofy.GoofyBot_0.10.jar | roborumble | robot | DISCREPANCY (no score) | 8ca01ec24f3ecc76 | - | - |
 | roborumble/gtf.robocode.Strafer_2.1.1.jar | roborumble | robot | DISCREPANCY (no score) | 1b9743c2f5eaa391 | - | - |
 | roborumble/gu.MicroScoob_1.3.jar | roborumble | robot | DISCREPANCY (no score) | 7c0c54c5c13d5050 | - | - |

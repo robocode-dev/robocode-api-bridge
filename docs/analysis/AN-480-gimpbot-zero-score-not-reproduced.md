@@ -34,4 +34,4 @@ GimpBot's earlier Classic zero-score result did not recur under current matched 
 
 ## M-006 handoff
 
-Skip `roborumble/gimp.GimpBot_0.1.jar` (`MATCHED (score noise)`). Continue in registry order with `roborumble/gio.RealGioBot_1.0.jar` (`DISCREPANCY (no score)`).
+Skip `roborumble/gimp.GimpBot_0.1.jar` and `roborumble/gio.RealGioBot_1.0.jar` (`MATCHED (score noise)`). Continue in registry order with `roborumble/gjr.Cephalosporin_0.2.jar` (`DISCREPANCY (no score)`).
