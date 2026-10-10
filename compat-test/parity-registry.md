@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 219 |
+| CONFIRMED (score) | 224 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 138 |
 | PASS | 709 |
-| score-review | 16 |
+| score-review | 11 |
 
 ## Subjects
 
@@ -1141,9 +1141,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/tzu.TheArtOfWar_1.2.jar | roborumble | robot | PASS | 258a5b71bf9c7445 | - | - |
 | roborumble/ua.kiiv.kosyak.robocode.tn1.Tn1_2.0.jar | roborumble | robot | PASS | 19cc7a468b88eecc | - | - |
 | roborumble/uccc.Dorito_1.12.jar | roborumble | robot | CONFIRMED (score) | 86dcc9bebac134a4 | - | - |
-| roborumble/uccc.MilkyWay_1.01.jar | roborumble | robot | score-review | 41f6d0786fd3e5ce | - | - |
+| roborumble/uccc.MilkyWay_1.01.jar | roborumble | robot | CONFIRMED (score) | 786951b2a58fa25a | - | - |
 | roborumble/uccc.RingDing_1.12.jar | roborumble | robot | PASS | 695e293ccdd362a3 | - | - |
-| roborumble/uccc.Scrapple_1.0.jar | roborumble | robot | score-review | fe4ed74105911c2d | - | - |
+| roborumble/uccc.Scrapple_1.0.jar | roborumble | robot | CONFIRMED (score) | 584d104d6c03ac46 | - | - |
 | roborumble/ultra.Defender_1.2.jar | roborumble | robot | PASS | b9430bdc2d8e8a41 | - | - |
 | roborumble/unarmedlad.nano.VirginSteele_2.2.jar | roborumble | robot | PASS | 0fd56cde022a08f0 | - | - |
 | roborumble/ur4n0.UR4NO_1.0.jar | roborumble | robot | PASS | 9676cdeeebec7f97 | - | - |
@@ -1158,13 +1158,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/voidious.Diamond_1.8.22.jar | roborumble | robot | PASS | 4146412ffe28ac43 | - | - |
 | roborumble/voidious.Dookious_1.573c.jar | roborumble | robot | PASS | 0e8186501813d9fe | - | - |
 | roborumble/voidious.micro.Jen_1.11.jar | roborumble | robot | PASS | 81755654920b97cd | - | - |
-| roborumble/voidious.mini.Komarious_1.88.jar | roborumble | robot | score-review | c4341bb65734df04 | - | - |
+| roborumble/voidious.mini.Komarious_1.88.jar | roborumble | robot | CONFIRMED (score) | 019cc87b660f6171 | - | - |
 | roborumble/voidious.perceptual.RetroGirl_1.0.0.jar | roborumble | robot | PASS | efc81fba9fb6e2f2 | - | - |
 | roborumble/vort.Chaser_0.0.3.jar | roborumble | robot | PASS | 7093732e1715be6e | - | - |
 | roborumble/vuen.Fractal_0.55.jar | roborumble | robot | PASS | 164ba6952c0c5fb0 | - | - |
 | roborumble/wcsv.Engineer.Engineer_0.5.4.jar | roborumble | robot | PASS | 0aac6c0b40d0237b | - | - |
 | roborumble/wcsv.PowerHouse.PowerHouse_1.7e3.jar | roborumble | robot | PASS | 631ef8496e7b90a4 | - | - |
-| roborumble/wcsv.Stampede2.Stampede2_1.1.0.jar | roborumble | robot | score-review | b9408606ff177d2e | - | - |
+| roborumble/wcsv.Stampede2.Stampede2_1.1.0.jar | roborumble | robot | CONFIRMED (score) | c95b79b74ad88178 | - | - |
 | roborumble/wcsv.Stampede_1.3.3.jar | roborumble | robot | PASS | 1e9b3cfa9b68a98d | - | - |
 | roborumble/wcsv.mega.PowerHouse2_0.2.jar | roborumble | robot | PASS | 05a4b5f06306fef8 | - | - |
 | roborumble/whind.Constitution_0.7.1.jar | roborumble | robot | PASS | bb9897a9c2456833 | - | - |
@@ -1173,7 +1173,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/whind.Wisdom_0.5.1.jar | roborumble | robot | PASS | 196334f342150a41 | - | - |
 | roborumble/whitesquare.robots.SkynetAdvanced_1.1.jar | roborumble | robot | PASS | d800deef22298358 | - | - |
 | roborumble/wiki.BasicBulletShielder_1.0.jar | roborumble | robot | DISCREPANCY (no score) | dd6ced352a0852bc | - | - |
-| roborumble/wiki.BasicGFSurfer_1.02.jar | roborumble | robot | score-review | dafb3b5a37488156 | - | - |
+| roborumble/wiki.BasicGFSurfer_1.02.jar | roborumble | robot | CONFIRMED (score) | 3a936cdc19b26a9b | - | - |
 | roborumble/wiki.SuperSampleBot.SuperSittingDuck_1.0.jar | roborumble | robot | score-review | 4547e0802306f2d7 | - | - |
 | roborumble/wiki.WaveRammer_1.0.jar | roborumble | robot | PASS | 3b3b8452bc947744 | - | - |
 | roborumble/wiki.Wolverine_2.1.jar | roborumble | robot | score-review | be3e497fc833ee7f | - | - |

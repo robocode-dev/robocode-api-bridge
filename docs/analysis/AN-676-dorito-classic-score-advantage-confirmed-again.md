@@ -36,4 +36,4 @@ Dorito's five-pair sample confirms a 38.94% Classic score advantage: Classic ave
 
 ## M-006 handoff
 
-Continue with `roborumble/uccc.MilkyWay_1.01.jar` (`score-review`) in AN-677.
+The MilkyWay retest is recorded in AN-677; continue with `roborumble/uccc.Scrapple_1.0.jar` (`score-review`) in AN-678.
