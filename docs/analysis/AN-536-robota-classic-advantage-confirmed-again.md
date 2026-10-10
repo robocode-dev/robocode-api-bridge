@@ -2,7 +2,7 @@
 id: AN-536
 type: analysis
 status: active
-links: [P-001, CAP-005, CAP-007, C-002, C-004]
+links: [P-001, PDR-001, CAP-005, CAP-007, C-002, C-004]
 title: RobotA's Classic score advantage is confirmed again
 provenance: inferred
 reversal-cost: low
@@ -20,6 +20,10 @@ The read-only subject jar has SHA-256 `4462fc6c458c7a65d32345b0940116241c43416c7
 
 All five pairs produced samples; neither engine reported errors and no bridge-only signatures were recorded. Classic averaged 12,971.8 points and Tank Royale averaged 6,806.2 points. Pair deltas were −49.5%, −48.1%, −46.7%, −46.0%, and −47.4%, for a −47.54% mean. Skipped-turn telemetry was captured in all five Tank Royale attempts, with no events. The registry status is `CONFIRMED (score)`.
 
+## Population and sampling boundary
+
+The versioned campaign source was `compat-test/parity-registry.json` at starting commit `64bf710b3b8c5dadbbe8742a213d5f3fdc5f4ef3`. The considered population was its `roborumble` robot rows; this subject was eligible because its starting status was `score-review` and it was selected in registry order. The official five-pair method is the sample; all valid pairs were retained, while failed or incomplete attempts are reported separately for error-stopped subjects. Pair deltas show observed spread, but no confidence interval was computed. Under [PDR-001](../decisions/PDR-001-three-tier-evidence-strategy.md), this is statistical sweep quality evidence rather than deterministic acceptance proof.
+
 ## What was tried
 
 The earlier observation `a074520b2159b864` recorded a −43.2% delta. The current five-pair mean confirms a similar Classic score advantage at −47.54%.
@@ -34,4 +38,4 @@ RobotA's Classic score advantage persists under current matched artifacts. Its m
 
 ## M-006 handoff
 
-Continue with `roborumble/madmath.Cow_0.1.1.jar` (`score-review`) in AN-537.
+Record `roborumble/madmath.Cow_0.1.1.jar` as `MATCHED (score noise)` in AN-537, then continue with `roborumble/mahrgell.mahrram_1.3.jar` (`score-review`) in AN-538.

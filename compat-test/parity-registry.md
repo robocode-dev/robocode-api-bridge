@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 109 |
+| CONFIRMED (score) | 112 |
 | DISCREPANCY (errors) | 38 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 115 |
+| MATCHED (score noise) | 117 |
 | PASS | 709 |
-| score-review | 151 |
+| score-review | 146 |
 
 ## Subjects
 
@@ -679,15 +679,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/m3thos.Eva02_0.7.1.jar | roborumble | robot | DISCREPANCY (outcome) | fac5aed9195e2513 | wrapper-json-encoding | wrapper |
 | roborumble/m3thos.mini.Eva01_0.5.5.jar | roborumble | robot | DISCREPANCY (outcome) | 47eb30ecf7fb1625 | wrapper-json-encoding | wrapper |
 | roborumble/ma.is.fon.rs.RobotA_0.01.jar | roborumble | robot | CONFIRMED (score) | 34183125d25062aa | - | - |
-| roborumble/madmath.Cow_0.1.1.jar | roborumble | robot | score-review | 25cbd1ecf5367e95 | - | - |
+| roborumble/madmath.Cow_0.1.1.jar | roborumble | robot | MATCHED (score noise) | 9b9af6bfe586fa97 | - | - |
 | roborumble/mae.Mae1_1.1.jar | roborumble | robot | PASS | a5d90777e3acda8b | - | - |
-| roborumble/mahrgell.mahrram_1.3.jar | roborumble | robot | score-review | 8a064582ce83895d | - | - |
+| roborumble/mahrgell.mahrram_1.3.jar | roborumble | robot | CONFIRMED (score) | 742db3b4b7f9d8ac | - | - |
 | roborumble/marcinek.TopGun_1.3.jar | roborumble | robot | PASS | 1753ac81f37305a4 | - | - |
-| roborumble/maribo.FollowFire_1.11.jar | roborumble | robot | score-review | 8c3f1a7c4da1872b | - | - |
+| roborumble/maribo.FollowFire_1.11.jar | roborumble | robot | CONFIRMED (score) | 53ddf6d2a090587d | - | - |
 | roborumble/maribo.IotaCT_1.0.jar | roborumble | robot | PASS | 99e8e67f560ef782 | - | - |
-| roborumble/maribo.Omicron_1.0.jar | roborumble | robot | score-review | 531052ecdf1582a2 | - | - |
+| roborumble/maribo.Omicron_1.0.jar | roborumble | robot | CONFIRMED (score) | 293511f94a2c00ba | - | - |
 | roborumble/maribo.melee.BMV_0.1.jar | roborumble | robot | PASS | cd6390b2871f4e30 | - | - |
-| roborumble/marksteam.Phoenix_1.0.jar | roborumble | robot | score-review | a07937e0978e74f3 | - | - |
+| roborumble/marksteam.Phoenix_1.0.jar | roborumble | robot | MATCHED (score noise) | 563d89364f21559d | - | - |
 | roborumble/matt.BlueMind_0.8.00.jar | roborumble | robot | PASS | 6a9e51857545b3d5 | - | - |
 | roborumble/matt.UnderDark3_2.4.34.jar | roborumble | robot | score-review | c992e509cf71f004 | - | - |
 | roborumble/matt.UnderDark4_0.4.00.jar | roborumble | robot | PASS | 8ea191b9dc12b10f | - | - |
