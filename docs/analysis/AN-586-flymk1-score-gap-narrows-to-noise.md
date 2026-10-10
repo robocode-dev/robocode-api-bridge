@@ -36,4 +36,4 @@ FlyMk1's Classic score lead narrowed from 50.7% to 8.72%, and the registry now c
 
 ## M-006 handoff
 
-Continue with `roborumble/ola.Puffin_1.0.jar` (`score-review`) in AN-587.
+Puffin is recorded in [AN-587](AN-587-puffin-classic-score-advantage-confirmed-again.md) with a -29.20% Classic score advantage. Continue with `roborumble/oog.melee.Capulet_1.2.jar` (`score-review`) in AN-588.

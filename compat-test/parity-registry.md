@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 147 |
+| CONFIRMED (score) | 151 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 126 |
+| MATCHED (score noise) | 127 |
 | PASS | 709 |
-| score-review | 101 |
+| score-review | 96 |
 
 ## Subjects
 
@@ -795,18 +795,18 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/nzeemin.Izh_0.5.jar | roborumble | robot | PASS | 5fff4d895921e0de | - | - |
 | roborumble/oa.weak.BotherBot_0.1.jar | roborumble | robot | MATCHED (score noise) | 7d0638f3d875176a | - | - |
 | roborumble/oa.weak.FlyMk1_0.1.jar | roborumble | robot | MATCHED (score noise) | 83a90fd5093314b1 | - | - |
-| roborumble/ola.Puffin_1.0.jar | roborumble | robot | score-review | 375de569515bb7cd | - | - |
+| roborumble/ola.Puffin_1.0.jar | roborumble | robot | CONFIRMED (score) | e217d1a8681b68e4 | - | - |
 | roborumble/omens.CannonfodderMicro_1.4.jar | roborumble | robot | PASS | 4affc00289d4e403 | - | - |
 | roborumble/omens.CannonfodderNano_1.4.jar | roborumble | robot | PASS | 4c9e2969bb78ff22 | - | - |
 | roborumble/oog.PricklyPear_1.0.6.jar | roborumble | robot | PASS | ecd3a11a4717e1d3 | - | - |
-| roborumble/oog.melee.Capulet_1.2.jar | roborumble | robot | score-review | ee56d3e5562790dc | - | - |
-| roborumble/oog.melee.Mercutio_1.0.jar | roborumble | robot | score-review | 1b8ff814bf573b6a | - | - |
+| roborumble/oog.melee.Capulet_1.2.jar | roborumble | robot | CONFIRMED (score) | 368fca069c9d26ee | - | - |
+| roborumble/oog.melee.Mercutio_1.0.jar | roborumble | robot | CONFIRMED (score) | e36bac2855593c50 | - | - |
 | roborumble/oog.micro.Claudius_1.11.jar | roborumble | robot | PASS | 6166b36569a952be | - | - |
 | roborumble/oog.micro.MagicD3_0.41.jar | roborumble | robot | PASS | 62a49ca736d28393 | - | - |
 | roborumble/oog.micro.Maui_1.2.jar | roborumble | robot | PASS | 6f68728f1ef2bcf9 | - | - |
 | roborumble/oog.micro.SavantMicro_1.1.jar | roborumble | robot | PASS | f8d72a8e50bff547 | - | - |
 | roborumble/oog.mini.AlphaDragon_0.1.jar | roborumble | robot | PASS | 56f8fd8ae159ed77 | - | - |
-| roborumble/oog.nano.Caligula_1.15.jar | roborumble | robot | score-review | 7b3cf58b7581110e | - | - |
+| roborumble/oog.nano.Caligula_1.15.jar | roborumble | robot | CONFIRMED (score) | 47fb8891b3046b2e | - | - |
 | roborumble/oog.nano.Fuatisha_1.1.jar | roborumble | robot | PASS | 2e21b63faa23e8b9 | - | - |
 | roborumble/oog.nano.MagicD2_2.4.jar | roborumble | robot | PASS | 450fd1b982143f77 | - | - |
 | roborumble/oog.nano.SavantVS_1.1.jar | roborumble | robot | PASS | f8fe4ba967e59210 | - | - |
@@ -820,7 +820,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/pac.ABC_2.1.jar | roborumble | robot | PASS | dd2bdd747ab9f593 | wrapper-json-encoding | wrapper |
 | roborumble/pak.Dargon_1.0b.jar | roborumble | robot | PASS | 44af6a60fc0162fe | - | - |
 | roborumble/pak.JakeTheTestingRobot_.1b.jar | roborumble | robot | PASS | 5b008fd5bb01cda0 | - | - |
-| roborumble/paket.MojRobot_1.0.jar | roborumble | robot | score-review | b8e28e1790c20bc0 | - | - |
+| roborumble/paket.MojRobot_1.0.jar | roborumble | robot | MATCHED (score noise) | 8de8152264b74656 | - | - |
 | roborumble/panzer.Panzer_0.2.jar | roborumble | robot | score-review | 7e05b530409e3827 | - | - |
 | roborumble/paolord.TheHulk_1.0.jar | roborumble | robot | score-review | b69ddb01a016a30b | - | - |
 | roborumble/patson.PatsonTestBot_1.0.jar | roborumble | robot | DISCREPANCY (errors) | bcae170fb126b98c | - | - |
