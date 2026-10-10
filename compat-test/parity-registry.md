@@ -6,12 +6,12 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 67 |
+| CONFIRMED (score) | 68 |
 | DISCREPANCY (errors) | 33 |
-| DISCREPANCY (no score) | 29 |
+| DISCREPANCY (no score) | 24 |
 | DISCREPANCY (outcome) | 60 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 96 |
+| MATCHED (score noise) | 100 |
 | PASS | 709 |
 | score-review | 195 |
 
@@ -492,12 +492,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/genprog.Rinmorikazu_1.0.jar | roborumble | robot | MATCHED (score noise) | 2f6d9af766f83837 | - | - |
 | roborumble/genprog.Zafaran_1.0.jar | roborumble | robot | MATCHED (score noise) | 74315af4cf163c6f | - | - |
 | roborumble/germ.TheMind_.2.jar | roborumble | robot | CONFIRMED (score) | f8d2937ab9528993 | - | - |
-| roborumble/gf.Centaur.Centaur_0.6.7.jar | roborumble | robot | DISCREPANCY (no score) | 64630a3acc5ad08d | - | - |
-| roborumble/gg.Squaraus_0.6.jar | roborumble | robot | DISCREPANCY (no score) | af5d371fd0d8ebc8 | - | - |
-| roborumble/gg.Wolverine_2.0.jar | roborumble | robot | DISCREPANCY (no score) | 5a1633d8ea1a8831 | - | - |
-| roborumble/gh.GresSuffurd_0.4.13.jar | roborumble | robot | DISCREPANCY (no score) | 422163e3feada153 | - | - |
+| roborumble/gf.Centaur.Centaur_0.6.7.jar | roborumble | robot | MATCHED (score noise) | c74a61dc683e4a20 | - | - |
+| roborumble/gg.Squaraus_0.6.jar | roborumble | robot | MATCHED (score noise) | 9bbe6ec81e06507d | - | - |
+| roborumble/gg.Wolverine_2.0.jar | roborumble | robot | CONFIRMED (score) | 0532eb6413763975 | - | - |
+| roborumble/gh.GresSuffurd_0.4.13.jar | roborumble | robot | MATCHED (score noise) | 63f441c7f23f1686 | - | - |
 | roborumble/gh.GrubbmGrb_1.2.4.jar | roborumble | robot | PASS | 5ec4a9ed6e45a26d | packaged-data-resources | bridge |
-| roborumble/gh.GrypRepetyf_0.13.jar | roborumble | robot | DISCREPANCY (no score) | 43c8214c070a00fd | - | - |
+| roborumble/gh.GrypRepetyf_0.13.jar | roborumble | robot | MATCHED (score noise) | da8a7a95529c0412 | - | - |
 | roborumble/gh.micro.Grinnik_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e524b4d483d0635e | - | - |
 | roborumble/gh.mini.Grimmig_0.3.6.jar | roborumble | robot | DISCREPANCY (no score) | 5f21e7bfd82d02e0 | - | - |
 | roborumble/gh.nano.Grofvuil_0.2.jar | roborumble | robot | DISCREPANCY (no score) | 2d26131918c382a7 | - | - |

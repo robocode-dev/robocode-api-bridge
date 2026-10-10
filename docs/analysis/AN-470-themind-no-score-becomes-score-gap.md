@@ -34,4 +34,4 @@ TheMind's earlier Classic zero-score outcome did not recur. The current five pai
 
 ## M-006 handoff
 
-Record `roborumble/germ.TheMind_.2.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/gf.Centaur.Centaur_0.6.7.jar` (`DISCREPANCY (no score)`).
+Record `roborumble/germ.TheMind_.2.jar` as `CONFIRMED (score)`. Continue in registry order with `roborumble/gf.Centaur.Centaur_0.6.7.jar` (`MATCHED (score noise)`). Then retest `roborumble/gg.Squaraus_0.6.jar` (`DISCREPANCY (no score)`).
