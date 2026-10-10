@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 187 |
+| CONFIRMED (score) | 192 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 130 |
 | PASS | 709 |
-| score-review | 56 |
+| score-review | 51 |
 
 ## Subjects
 
@@ -1000,15 +1000,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/slugzilla.OrbitLinear_1.1.jar | roborumble | robot | CONFIRMED (score) | 1e64e74dd7c79bb4 | - | - |
 | roborumble/slugzilla.OrbitPattern_1.1.jar | roborumble | robot | PASS | 45f4fad21f8c02af | - | - |
 | roborumble/slugzilla.OscillateGF_1.0.jar | roborumble | robot | CONFIRMED (score) | 02ac4c98a5e817a5 | - | - |
-| roborumble/slugzilla.OscillateLinear_1.0.jar | roborumble | robot | score-review | 41fdb3b690b35884 | - | - |
-| roborumble/slugzilla.OscillatePattern_1.0.jar | roborumble | robot | score-review | 7d03231691754ccd | - | - |
+| roborumble/slugzilla.OscillateLinear_1.0.jar | roborumble | robot | CONFIRMED (score) | 080a54358e5536b6 | - | - |
+| roborumble/slugzilla.OscillatePattern_1.0.jar | roborumble | robot | CONFIRMED (score) | c849313f84c8fd0c | - | - |
 | roborumble/slugzilla.Parallax_0.1.jar | roborumble | robot | PASS | 07f591be42f2a0fe | - | - |
 | roborumble/slugzilla.RandomGF_1.0.jar | roborumble | robot | PASS | e1f3bffc68b3ca8a | - | - |
 | roborumble/slugzilla.RandomLinear_1.0.jar | roborumble | robot | PASS | 9fbc9aebedbd8263 | - | - |
 | roborumble/slugzilla.RandomPattern_1.0.jar | roborumble | robot | PASS | af8f3260a79f224a | - | - |
-| roborumble/slugzilla.SNGGF_1.0.jar | roborumble | robot | score-review | 59e11cc69421f1f9 | - | - |
-| roborumble/slugzilla.SNGLinear_1.0.jar | roborumble | robot | score-review | 89f43f1876681f37 | - | - |
-| roborumble/slugzilla.SNGPattern_1.0.jar | roborumble | robot | score-review | 141e9cd7503cd2af | - | - |
+| roborumble/slugzilla.SNGGF_1.0.jar | roborumble | robot | CONFIRMED (score) | ba1de6cba741dedd | - | - |
+| roborumble/slugzilla.SNGLinear_1.0.jar | roborumble | robot | CONFIRMED (score) | 51f505b5c55952f0 | - | - |
+| roborumble/slugzilla.SNGPattern_1.0.jar | roborumble | robot | CONFIRMED (score) | e3a183275b408502 | - | - |
 | roborumble/slugzilla.SquirmyToad_3.9.jar | roborumble | robot | PASS | ec0739c158029a04 | - | - |
 | roborumble/sm.Devil_7.3.jar | roborumble | robot | PASS | 2c963819bc71ae95 | - | - |
 | roborumble/sng.arco.Arco_0.0.jar | roborumble | robot | PASS | 0dfcbad07786f103 | - | - |

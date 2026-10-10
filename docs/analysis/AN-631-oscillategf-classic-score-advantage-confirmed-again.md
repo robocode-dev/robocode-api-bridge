@@ -36,4 +36,4 @@ OscillateGF's five-pair sample confirms a 50.02% Classic score advantage: Classi
 
 ## M-006 handoff
 
-Continue with `roborumble/slugzilla.OscillateLinear_1.0.jar` (`score-review`) in AN-632.
+The OscillateLinear retest is recorded in AN-632; continue with `roborumble/slugzilla.OscillatePattern_1.0.jar` (`score-review`) in AN-633.
