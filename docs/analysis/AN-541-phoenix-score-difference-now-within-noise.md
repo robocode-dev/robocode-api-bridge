@@ -36,4 +36,4 @@ Phoenix's earlier Tank Royale score advantage did not recur at a material size u
 
 ## M-006 handoff
 
-Continue with `roborumble/matt.UnderDark3_2.4.34.jar` (`score-review`) in AN-542.
+Record `roborumble/matt.UnderDark3_2.4.34.jar` as `MATCHED (score noise)` in AN-542, then continue with `roborumble/mb.Monte_0.1.0.jar` (`score-review`) in AN-543.

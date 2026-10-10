@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 112 |
+| CONFIRMED (score) | 115 |
 | DISCREPANCY (errors) | 38 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 117 |
+| MATCHED (score noise) | 119 |
 | PASS | 709 |
-| score-review | 146 |
+| score-review | 141 |
 
 ## Subjects
 
@@ -689,23 +689,23 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/maribo.melee.BMV_0.1.jar | roborumble | robot | PASS | cd6390b2871f4e30 | - | - |
 | roborumble/marksteam.Phoenix_1.0.jar | roborumble | robot | MATCHED (score noise) | 563d89364f21559d | - | - |
 | roborumble/matt.BlueMind_0.8.00.jar | roborumble | robot | PASS | 6a9e51857545b3d5 | - | - |
-| roborumble/matt.UnderDark3_2.4.34.jar | roborumble | robot | score-review | c992e509cf71f004 | - | - |
+| roborumble/matt.UnderDark3_2.4.34.jar | roborumble | robot | MATCHED (score noise) | 13c1b33439d43382 | - | - |
 | roborumble/matt.UnderDark4_0.4.00.jar | roborumble | robot | PASS | 8ea191b9dc12b10f | - | - |
 | roborumble/matt.advanced.Katana_1.0.jar | roborumble | robot | PASS | 86798553d9132d2c | - | - |
 | roborumble/maye.SlashBot_1.0.jar | roborumble | robot | PASS | d823d1afaaf2dcff | - | - |
 | roborumble/mb.Beast_0.4.1.jar | roborumble | robot | PASS | 2d62fbf2e5074786 | - | - |
-| roborumble/mb.Monte_0.1.0.jar | roborumble | robot | score-review | f52fa9153bebc76b | - | - |
+| roborumble/mb.Monte_0.1.0.jar | roborumble | robot | CONFIRMED (score) | fbc3b510903834bb | - | - |
 | roborumble/mbh.Mbh_0.1.jar | roborumble | robot | PASS | f93e22ed603d13d0 | - | - |
 | roborumble/mbro.BelajarBot_0.0.3.jar | roborumble | robot | PASS | 533868a7667753bd | - | - |
 | roborumble/mbro.Detektor3_0.1.1.jar | roborumble | robot | PASS | ee61ca6f09d190f8 | - | - |
-| roborumble/mc.Messapia_0.1.8.jar | roborumble | robot | score-review | d02c8b3b9aa53fe9 | - | - |
+| roborumble/mc.Messapia_0.1.8.jar | roborumble | robot | CONFIRMED (score) | 8dc86c57e7a67d8b | - | - |
 | roborumble/mc2.enemy.Original_0.9.jar | roborumble | robot | DISCREPANCY (outcome) | d61d43fd7ce16b88 | - | - |
 | roborumble/mcb.Audace_1.3.jar | roborumble | robot | PASS | 279a31189d233c25 | - | - |
 | roborumble/md.November_1.0.jar | roborumble | robot | PASS | 7c7d30be72480d9b | - | - |
 | roborumble/md.Pasta_1.1.jar | roborumble | robot | PASS | 7b288b050cf6c12e | - | - |
 | roborumble/md.VelociRaptor_1.3.jar | roborumble | robot | PASS | 57957c6dff810321 | - | - |
-| roborumble/mdouet.BotKicker_2.0.jar | roborumble | robot | score-review | 40c16d77c8c88342 | - | - |
-| roborumble/metal.small.MCool_1.21.jar | roborumble | robot | score-review | 2f3bc23f806cf0b6 | - | - |
+| roborumble/mdouet.BotKicker_2.0.jar | roborumble | robot | MATCHED (score noise) | 411c47d5037587e9 | - | - |
+| roborumble/metal.small.MCool_1.21.jar | roborumble | robot | CONFIRMED (score) | 102fb4fda9a00875 | - | - |
 | roborumble/metal.small.dna2.MCoolDNA_1.5.jar | roborumble | robot | DISCREPANCY (outcome) | 0f8532e1d0c50b95 | - | - |
 | roborumble/microtestbotpack.MicroTestBot_1.0.jar | roborumble | robot | PASS | ce815daa6d066802 | - | - |
 | roborumble/mjhjd.MattHussey1_1.1.jar | roborumble | robot | PASS | 475b611d09ac7594 | - | - |
