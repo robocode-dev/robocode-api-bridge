@@ -36,4 +36,4 @@ Galaxy03's five-pair sample confirms a 25.34% Tank Royale score advantage: Class
 
 ## M-006 handoff
 
-Continue with `roborumble/synapse.rsim.GeomancyBS_0.11.jar` (`score-review`) in AN-657.
+The GeomancyBS retest is recorded in AN-662; continue with `roborumble/synnalagma.NeuralPremier_0.51.jar` (`score-review`) in AN-663.

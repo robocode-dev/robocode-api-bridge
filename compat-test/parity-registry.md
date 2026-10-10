@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 208 |
+| CONFIRMED (score) | 212 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 134 |
+| MATCHED (score noise) | 135 |
 | PASS | 709 |
-| score-review | 31 |
+| score-review | 26 |
 
 ## Subjects
 
@@ -1095,13 +1095,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/suzushin7.nano.TargetC_1.00.jar | roborumble | robot | PASS | 413c450b19fa855b | - | - |
 | roborumble/syl.Centipede_0.5.jar | roborumble | robot | PASS | f66ba72fbf46d41c | - | - |
 | roborumble/synapse.Geomancy_15.jar | roborumble | robot | DISCREPANCY (outcome) | bea0a9c36cec6503 | - | - |
-| roborumble/synapse.rsim.GeomancyBS_0.11.jar | roborumble | robot | score-review | 315c584dc2afb693 | - | - |
-| roborumble/synnalagma.NeuralPremier_0.51.jar | roborumble | robot | score-review | 1078dbb5bc70fa17 | - | - |
+| roborumble/synapse.rsim.GeomancyBS_0.11.jar | roborumble | robot | CONFIRMED (score) | 91eb9045b8d949f2 | - | - |
+| roborumble/synnalagma.NeuralPremier_0.51.jar | roborumble | robot | CONFIRMED (score) | fdc5a12216b8054c | - | - |
 | roborumble/synnalagma.test.MiniNeural_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | 59a1db3597e37770 | - | - |
-| roborumble/t3.Ripper_1.0.jar | roborumble | robot | score-review | 805d2e1260db693b | - | - |
+| roborumble/t3.Ripper_1.0.jar | roborumble | robot | CONFIRMED (score) | 498fb26975e0a196 | - | - |
 | roborumble/tad.Dalek98_0.98.jar | roborumble | robot | PASS | e30890eadbb32b0f | - | - |
-| roborumble/takeBot.SpinSpiral_1.2.jar | roborumble | robot | score-review | 871912878b912f9b | - | - |
-| roborumble/takeBot.SpiralCrash_1.0.jar | roborumble | robot | score-review | fc13dea89be82484 | - | - |
+| roborumble/takeBot.SpinSpiral_1.2.jar | roborumble | robot | CONFIRMED (score) | 023a9d3cfb301fd6 | - | - |
+| roborumble/takeBot.SpiralCrash_1.0.jar | roborumble | robot | MATCHED (score noise) | 0f793ac9c4bae831 | - | - |
 | roborumble/takeBot.WeavingWiggle_1.1.jar | roborumble | robot | score-review | abb81ddb48d816a8 | - | - |
 | roborumble/tango.Recrimpo_2.51.jar | roborumble | robot | PASS | 3e8f4473a36ede89 | - | - |
 | roborumble/taqho.taqbot_1.0.jar | roborumble | robot | score-review | 6ec301502f0dfec6 | - | - |
