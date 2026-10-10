@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 115 |
+| CONFIRMED (score) | 120 |
 | DISCREPANCY (errors) | 38 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 119 |
 | PASS | 709 |
-| score-review | 141 |
+| score-review | 136 |
 
 ## Subjects
 
@@ -711,13 +711,13 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/mjhjd.MattHussey1_1.1.jar | roborumble | robot | PASS | 475b611d09ac7594 | - | - |
 | roborumble/mk.Alpha_0.2.1.jar | roborumble | robot | PASS | 71b934ed45a01855 | - | - |
 | roborumble/mladjo.AIR_0.7.jar | roborumble | robot | PASS | 6861dd6a51c0545e | - | - |
-| roborumble/mladjo.GnuKlub_0.1.jar | roborumble | robot | score-review | 23029b18ae3acd53 | - | - |
-| roborumble/mladjo.Grrrrr_0.9.jar | roborumble | robot | score-review | 0323d04c91b510a4 | - | - |
+| roborumble/mladjo.GnuKlub_0.1.jar | roborumble | robot | CONFIRMED (score) | c46a2f9228235bd2 | - | - |
+| roborumble/mladjo.Grrrrr_0.9.jar | roborumble | robot | CONFIRMED (score) | 3aed7f36ccc6147a | - | - |
 | roborumble/mladjo.Startko_1.0.jar | roborumble | robot | PASS | 6b642e781008ae25 | - | - |
-| roborumble/mladjo.iRobot_0.3.jar | roborumble | robot | score-review | 38dccf41ca9f4c06 | - | - |
+| roborumble/mladjo.iRobot_0.3.jar | roborumble | robot | CONFIRMED (score) | 88b7e3e05b72f51e | - | - |
 | roborumble/mld.DustBunny_3.8.jar | roborumble | robot | PASS | 0f2a548789a3aab5 | - | - |
-| roborumble/mld.Infinity_2.2.jar | roborumble | robot | score-review | e5b845799f252102 | - | - |
-| roborumble/mld.LittleBlackBook_1.69e.jar | roborumble | robot | score-review | 2974701ea33707c7 | - | - |
+| roborumble/mld.Infinity_2.2.jar | roborumble | robot | CONFIRMED (score) | c9d981b08e239794 | - | - |
+| roborumble/mld.LittleBlackBook_1.69e.jar | roborumble | robot | CONFIRMED (score) | 5941c490fca5a7bb | - | - |
 | roborumble/mld.Moebius_2.9.3.jar | roborumble | robot | PASS | a8e588a36ad8a74b | - | - |
 | roborumble/mld.Wisdom_1.0.jar | roborumble | robot | score-review | 47a73446157b9ff6 | - | - |
 | roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar | roborumble | robot | score-review | 2ec30f004042b332 | - | - |

@@ -36,4 +36,4 @@ MCool's Tank Royale advantage persists in the five-pair sample at +22.62%, sligh
 
 ## M-006 handoff
 
-Continue with `roborumble/mladjo.GnuKlub_0.1.jar` (`score-review`) in AN-547.
+GnuKlub is recorded in [AN-547](AN-547-gnuklub-classic-score-advantage-confirmed-again.md). Continue with `roborumble/mladjo.Grrrrr_0.9.jar` (`score-review`) in AN-548.
