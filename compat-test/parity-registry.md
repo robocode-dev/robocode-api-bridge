@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 212 |
+| CONFIRMED (score) | 214 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 135 |
+| MATCHED (score noise) | 138 |
 | PASS | 709 |
-| score-review | 26 |
+| score-review | 21 |
 
 ## Subjects
 
@@ -1102,15 +1102,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/tad.Dalek98_0.98.jar | roborumble | robot | PASS | e30890eadbb32b0f | - | - |
 | roborumble/takeBot.SpinSpiral_1.2.jar | roborumble | robot | CONFIRMED (score) | 023a9d3cfb301fd6 | - | - |
 | roborumble/takeBot.SpiralCrash_1.0.jar | roborumble | robot | MATCHED (score noise) | 0f793ac9c4bae831 | - | - |
-| roborumble/takeBot.WeavingWiggle_1.1.jar | roborumble | robot | score-review | abb81ddb48d816a8 | - | - |
+| roborumble/takeBot.WeavingWiggle_1.1.jar | roborumble | robot | CONFIRMED (score) | 25aa7a2e1fac3a85 | - | - |
 | roborumble/tango.Recrimpo_2.51.jar | roborumble | robot | PASS | 3e8f4473a36ede89 | - | - |
-| roborumble/taqho.taqbot_1.0.jar | roborumble | robot | score-review | 6ec301502f0dfec6 | - | - |
+| roborumble/taqho.taqbot_1.0.jar | roborumble | robot | MATCHED (score noise) | 5b997989306dd7cd | - | - |
 | roborumble/tcf.Drifter_29.jar | roborumble | robot | PASS | 130805a6a6f49274 | - | - |
 | roborumble/tcf.Repat3_2.jar | roborumble | robot | DISCREPANCY (errors) | 552afce98b4a69a2 | - | - |
 | roborumble/techdude.Class2C.Class2C_0.1.jar | roborumble | robot | DISCREPANCY (outcome) | b0d5a71172c4dced | - | - |
-| roborumble/techdude.kombat.FlamingKombat_1.5.jar | roborumble | robot | score-review | 0094f8d67f9249b8 | - | - |
-| roborumble/test.Fuzzer_1.0.1.jar | roborumble | robot | score-review | 3c7ff8aefc109aa0 | - | - |
-| roborumble/test.Podgy_4.0.jar | roborumble | robot | score-review | fbc9e6ea567d3568 | - | - |
+| roborumble/techdude.kombat.FlamingKombat_1.5.jar | roborumble | robot | MATCHED (score noise) | ad6322e6860f4889 | - | - |
+| roborumble/test.Fuzzer_1.0.1.jar | roborumble | robot | MATCHED (score noise) | b0a932ebbf882e6e | - | - |
+| roborumble/test.Podgy_4.0.jar | roborumble | robot | CONFIRMED (score) | 27a49fad42e73de2 | - | - |
 | roborumble/testantiswapgun.AntiSwap_1.0.jar | roborumble | robot | PASS | 7efb12702de04526 | - | - |
 | roborumble/tex.Longbot_0.4.jar | roborumble | robot | PASS | 8c0df9a5304fb375 | - | - |
 | roborumble/throxbot.ThroxBot_0.1.jar | roborumble | robot | PASS | f562e62e29cb6bf8 | - | - |

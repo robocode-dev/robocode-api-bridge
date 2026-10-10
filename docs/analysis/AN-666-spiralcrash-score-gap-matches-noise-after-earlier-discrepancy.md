@@ -36,4 +36,4 @@ SpiralCrash's five-pair sample has a 2.04% Tank Royale score lead, within the re
 
 ## M-006 handoff
 
-Continue with `roborumble/takeBot.WeavingWiggle_1.1.jar` (`score-review`) in AN-667.
+The WeavingWiggle retest is recorded in AN-667; continue with `roborumble/taqho.taqbot_1.0.jar` (`score-review`) in AN-668.
