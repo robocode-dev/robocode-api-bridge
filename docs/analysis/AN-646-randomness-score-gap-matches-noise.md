@@ -36,4 +36,4 @@ Randomness' five-pair sample shows a 7.18% Classic score lead, within the record
 
 ## M-006 handoff
 
-Continue with `roborumble/stelo.SteloTestNano_1.0.jar` (`score-review`) in AN-647.
+The SteloTestNano retest is recorded in AN-647; continue with `roborumble/stelo.UnfoolableNano_1.0.jar` (`score-review`) in AN-648.

@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 198 |
+| CONFIRMED (score) | 203 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 134 |
 | PASS | 709 |
-| score-review | 41 |
+| score-review | 36 |
 
 ## Subjects
 
@@ -1044,19 +1044,19 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/stelo.PianistNano_1.3.jar | roborumble | robot | CONFIRMED (score) | 9b9c4a647063a506 | - | - |
 | roborumble/stelo.RamTrackSurfer_1.2.jar | roborumble | robot | PASS | 2435f292d4571cb8 | - | - |
 | roborumble/stelo.Randomness_1.1.jar | roborumble | robot | MATCHED (score noise) | f35506df150bdb0d | - | - |
-| roborumble/stelo.SteloTestNano_1.0.jar | roborumble | robot | score-review | 11d2bb55a6b34db5 | - | - |
-| roborumble/stelo.UnfoolableNano_1.0.jar | roborumble | robot | score-review | 18ffe1f130b14c1a | - | - |
+| roborumble/stelo.SteloTestNano_1.0.jar | roborumble | robot | CONFIRMED (score) | 540c8e0bf5a6a4af | - | - |
+| roborumble/stelo.UnfoolableNano_1.0.jar | roborumble | robot | CONFIRMED (score) | 2200f118b5ae7633 | - | - |
 | roborumble/stelo.UntouchableNano_1.4.jar | roborumble | robot | PASS | d7e07b1217de2e3a | - | - |
 | roborumble/step.NanoBidu_1.0.jar | roborumble | robot | PASS | b4b24069c0200fe4 | - | - |
-| roborumble/step.nanoPri_1.0.jar | roborumble | robot | score-review | 9485f074e69490f3 | - | - |
+| roborumble/step.nanoPri_1.0.jar | roborumble | robot | CONFIRMED (score) | 73d25f3e01d15318 | - | - |
 | roborumble/stf.PanzerGeneral_0.1.jar | roborumble | robot | PASS | 4ae3b2213f277234 | - | - |
 | roborumble/stordy.StordyBot_1.0.jar | roborumble | robot | PASS | 833fad64a48e390f | - | - |
 | roborumble/stranger.nano.TestBot_1.0.jar | roborumble | robot | PASS | 0a6e1fec08a87839 | - | - |
 | roborumble/strider.Festis_1.2.1.jar | roborumble | robot | PASS | e51b547ab2b1acfb | - | - |
 | roborumble/strider.Mer_1.1.0.jar | roborumble | robot | PASS | a3c8b04eee54adcc | - | - |
 | roborumble/stuff.Vlad_0.1.jar | roborumble | robot | PASS | adb6530a5ea5e2f9 | - | - |
-| roborumble/suh.mega.WaveSurferGF_1.04.jar | roborumble | robot | score-review | d964e8f33ee413f0 | - | - |
-| roborumble/suh.mega.WaveSurferPG_1.06.jar | roborumble | robot | score-review | 663308f1025d87ed | - | - |
+| roborumble/suh.mega.WaveSurferGF_1.04.jar | roborumble | robot | CONFIRMED (score) | 0ceab6dc1382f004 | - | - |
+| roborumble/suh.mega.WaveSurferPG_1.06.jar | roborumble | robot | CONFIRMED (score) | e4be097207cb7d70 | - | - |
 | roborumble/suh.micro.MirrorPM_1.00.jar | roborumble | robot | PASS | 950022fbee88c1b3 | - | - |
 | roborumble/suh.micro.WallPM_1.00.jar | roborumble | robot | PASS | c29ea1a9486a82ac | - | - |
 | roborumble/suh.nano.AngularMirrorC_1.00.jar | roborumble | robot | PASS | 603c4b17840a5982 | - | - |
