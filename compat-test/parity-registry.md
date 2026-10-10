@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 160 |
+| CONFIRMED (score) | 165 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 128 |
 | PASS | 709 |
-| score-review | 86 |
+| score-review | 81 |
 
 ## Subjects
 
@@ -868,7 +868,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/projectx.TestNano_1.0.jar | roborumble | robot | PASS | 79d837009a36dbf4 | - | - |
 | roborumble/pulsar.Nanis_0.3.jar | roborumble | robot | CONFIRMED (score) | 2e20d2ad493ab8e7 | - | - |
 | roborumble/pulsar.PulsarMax_0.8.9.jar | roborumble | robot | PASS | 53a325a70ceede0f | - | - |
-| roborumble/pulsar.PulsarNano_0.2.4.jar | roborumble | robot | score-review | 53dbc59e2685a77b | - | - |
+| roborumble/pulsar.PulsarNano_0.2.4.jar | roborumble | robot | CONFIRMED (score) | e0fc6a73a1161201 | - | - |
 | roborumble/qohnil.blot.BlotBot_3.61.jar | roborumble | robot | PASS | 12dcc17301ebb46b | - | - |
 | roborumble/quietus.Invader_0.1.jar | roborumble | robot | DISCREPANCY (no score) | 79b91ac9f73612f3 | - | - |
 | roborumble/quietus.NarrowRadar_0.1.jar | roborumble | robot | PASS | 7e791e22a8207507 | - | - |
@@ -887,7 +887,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rc.RCBot_2.0.jar | roborumble | robot | DISCREPANCY (errors) | f49b68636e97d3a6 | - | - |
 | roborumble/rc.yoda.Yoda_1.0.6c.fix.jar | roborumble | robot | PASS | b60c7c436f46bc9a | - | - |
 | roborumble/rcb.Vanessa03_0.jar | roborumble | robot | PASS | fe61a29a3efcbaac | - | - |
-| roborumble/rcp.Kuramatron_1.0.jar | roborumble | robot | score-review | df589c8a22ff8a7b | - | - |
+| roborumble/rcp.Kuramatron_1.0.jar | roborumble | robot | CONFIRMED (score) | e89c457e3dcba86a | - | - |
 | roborumble/rdm.Dueler_0.4x.jar | roborumble | robot | PASS | 2a13158c7bf55e1e | - | - |
 | roborumble/rdm.Grasshopper_0.5e.jar | roborumble | robot | PASS | cefebaf39e896bdf | - | - |
 | roborumble/rdm.WallRider_0.5c.jar | roborumble | robot | PASS | 47633f811952ad32 | - | - |
@@ -896,8 +896,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rdt.Wraith.Wraith_0.3.jar | roborumble | robot | PASS | e28e3cfe5aead322 | - | - |
 | roborumble/rdt199.Warlord_0.73.jar | roborumble | robot | PASS | 18f64c21237fa90a | - | - |
 | roborumble/reaper.Reaper_1.1.jar | roborumble | robot | PASS | f4bba268b339f3f5 | - | - |
-| roborumble/reeder.caden.Elmo_1.jar | roborumble | robot | score-review | 00c317704679bf87 | - | - |
-| roborumble/reeder.caden.Grover_1.0.jar | roborumble | robot | score-review | a627c76b25dd0572 | - | - |
+| roborumble/reeder.caden.Elmo_1.jar | roborumble | robot | CONFIRMED (score) | 382ba68123717c13 | - | - |
+| roborumble/reeder.caden.Grover_1.0.jar | roborumble | robot | CONFIRMED (score) | 05fa2aeca590261e | - | - |
 | roborumble/reeder.colin.WallGuy3_1.0.jar | roborumble | robot | PASS | f8e3999191dc1097 | - | - |
 | roborumble/repositorio.NanoStep_1.0.jar | roborumble | robot | PASS | 059db986b461cff6 | - | - |
 | roborumble/rfj.Sunburn_1.1.jar | roborumble | robot | PASS | f5755f9ce15aabaa | - | - |
@@ -905,7 +905,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rijteam.SmartDodge_1.1.jar | roborumble | robot | PASS | e897b76080e4b88a | - | - |
 | roborumble/rjw.RabidWombat_0.71.jar | roborumble | robot | PASS | 1f3ecef2f898b958 | - | - |
 | roborumble/robar.haiku.Spike_1.0.jar | roborumble | robot | PASS | b83504ae06b3089a | - | - |
-| roborumble/robar.micro.Gladius_1.15.jar | roborumble | robot | score-review | 918966dc8677fee6 | - | - |
+| roborumble/robar.micro.Gladius_1.15.jar | roborumble | robot | CONFIRMED (score) | 7103bba601322fc5 | - | - |
 | roborumble/robar.micro.Kirbyi_1.0.jar | roborumble | robot | PASS | df48bf50099070d4 | - | - |
 | roborumble/robar.micro.Topaz_0.25.jar | roborumble | robot | PASS | bbc5fd68ad099a1b | - | - |
 | roborumble/robar.nano.Assertive_0.3.jar | roborumble | robot | PASS | 833fc238672c534e | - | - |

@@ -36,4 +36,4 @@ Nanis's five-pair sample shows a 15.32% Classic score lead, down from 30.8% and 
 
 ## M-006 handoff
 
-Continue with `roborumble/pulsar.PulsarNano_0.2.4.jar` (`score-review`) in AN-602.
+PulsarNano is recorded in [AN-602](AN-602-pulsarnano-classic-score-gap-below-threshold.md) at -24.52% for Classic, below the threshold despite its CONFIRMED registry status. Continue with `roborumble/rcp.Kuramatron_1.0.jar` (`score-review`) in AN-603.
