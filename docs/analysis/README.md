@@ -684,4 +684,5 @@ An incident where the corpus was green but later evidence contradicted it carrie
 - [AN-689 — RedBull's Tank Royale score advantage confirmed again](AN-689-redbull-tank-royale-score-advantage-confirmed-again.md) · `active` — Does RedBull's earlier score difference persist under current matched artifacts, and has its magnitude changed?
 - [AN-690 — Serunyr's Classic score advantage confirmed again](AN-690-serunyr-classic-score-advantage-confirmed-again.md) · `active` — Does Serunyr's earlier score difference persist under current matched artifacts, and has its magnitude changed?
 - [AN-691 — OmegaTeam's Tank Royale team score advantage confirmed](AN-691-omegateam-tank-royale-team-score-advantage-confirmed.md) · `active` — Does OmegaTeam's earlier score difference persist under current matched artifacts, and has its magnitude changed?
+- [AN-692 — BuggerHive's Classic team score advantage confirmed](AN-692-buggerhive-classic-team-score-advantage-confirmed.md) · `active` — Does BuggerHive's earlier team score difference persist under current matched artifacts, and has its magnitude changed?
 <!-- clue:index:end -->

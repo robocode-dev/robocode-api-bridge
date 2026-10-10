@@ -346338,7 +346338,7 @@
         "key": "teamrumble/bugger.BuggerHive_1.0.jar",
         "kind": "team"
       },
-      "latest_observation": "d964a1c4da7e73fa",
+      "latest_observation": "220a730263470dc4",
       "observations": [
         {
           "classic": {
@@ -347023,9 +347023,155 @@
             ],
             "skipped": null
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 19630.2
+          },
+          "completed_at": "2026-10-10T22:16:32Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": -40.32,
+            "deltas": [
+              -38.1,
+              -47.6,
+              -36.6,
+              -40.5,
+              -38.8
+            ],
+            "rc_mean": 19630.2,
+            "samples": 5,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 2,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 7,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 4,
+                "events": [
+                  {
+                    "bot_id": 1,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 5,
+                "events": [],
+                "status": "captured"
+              }
+            ],
+            "tr_mean": 11714.6
+          },
+          "delta_pct": -40.32,
+          "id": "220a730263470dc4",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "e5d8fb31d88fc9c9db71763e591f1182afcdb0ad3cb2ba9d35ae655ba91d696a"
+              }
+            },
+            "bridge_commit": "338c1f72cb5feadd921266288476d748badc2090",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "8bb5ba1f0bbc11cf007150ac0f4f966238d7a734",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "bugger.BuggerHive_1.0.jar",
+            "jar_sha256": "9a1c7c53e4e00d9332ea92c2750d4c5bf6d50ccbf23e412575e7ae3d18c7f765",
+            "key": "teamrumble/bugger.BuggerHive_1.0.jar",
+            "kind": "team"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 11714.6
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "teamrumble/bvh.team.Valkiries_1.0.jar": {
       "diagnosis_events": [

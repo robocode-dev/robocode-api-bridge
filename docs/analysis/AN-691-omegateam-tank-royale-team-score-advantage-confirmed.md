@@ -36,4 +36,4 @@ OmegaTeam's five-pair sample confirms a 44.44% Tank Royale score advantage: Clas
 
 ## M-006 handoff
 
-Continue with `teamrumble/bugger.BuggerHive_1.0.jar` (`score-review`) in AN-692.
+The BuggerHive retest is recorded in AN-692; no further `score-review` rows remain in the registry.

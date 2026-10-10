@@ -6,14 +6,13 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 232 |
+| CONFIRMED (score) | 233 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
 | PASS | 709 |
-| score-review | 1 |
 
 ## Subjects
 
@@ -1219,7 +1218,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | 3cfb581b7e09446b | - | - |
 | teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | 3c112507fe15db93 | - | - |
 | teamrumble/apvteam.MambaTeam_0.7.5.jar | teamrumble | team | DISCREPANCY (outcome) | b781be282cf00232 | - | - |
-| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | score-review | d964a1c4da7e73fa | - | - |
+| teamrumble/bugger.BuggerHive_1.0.jar | teamrumble | team | CONFIRMED (score) | 220a730263470dc4 | - | - |
 | teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | MATCHED (score noise) | ec40d37777c4769c | nested-team-jar-discovery | wrapper |
 | teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 79f11250acee04e4 | robot-unguarded-empty-wave-candidates | robot |
 | teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | 6141b626a28b54b0 | unresolved-confirmed-team-score-gap | unknown |
