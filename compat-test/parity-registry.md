@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 170 |
+| CONFIRMED (score) | 174 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 58 |
+| DISCREPANCY (outcome) | 59 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 128 |
 | PASS | 709 |
-| score-review | 76 |
+| score-review | 71 |
 
 ## Subjects
 
@@ -928,8 +928,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rsk1.RSK1_4.0.jar | roborumble | robot | PASS | 000d22607abdab9c | - | - |
 | roborumble/ruc.nano.Zealot_0.2.jar | roborumble | robot | PASS | 59feda052eabd1ad | - | - |
 | roborumble/ry.LightningBug_1.0.jar | roborumble | robot | PASS | 1c9f13b5ed4ef479 | - | - |
-| roborumble/ry.VirtualGunExperiment_1.2.0.jar | roborumble | robot | score-review | f36ba837fe0038af | - | - |
-| roborumble/ry.Worst_1.0.jar | roborumble | robot | score-review | 946be774c812e808 | - | - |
+| roborumble/ry.VirtualGunExperiment_1.2.0.jar | roborumble | robot | CONFIRMED (score) | d3f0d06a0033e413 | - | - |
+| roborumble/ry.Worst_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | be77bbd172b354b4 | - | - |
 | roborumble/rz.Aleph_0.34.jar | roborumble | robot | DISCREPANCY (outcome) | 3b2c004742d9703c | - | - |
 | roborumble/rz.Apollon_0.23.jar | roborumble | robot | PASS | 4e77ac25614feb65 | - | - |
 | roborumble/rz.Artist_0.2.jar | roborumble | robot | PASS | 28a588776203af18 | - | - |
@@ -937,12 +937,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/rz.GlowBlowMelee_1.4.jar | roborumble | robot | PASS | b33aa13d56e2a759 | - | - |
 | roborumble/rz.GlowBlow_2.31.jar | roborumble | robot | PASS | 59b518e2468133e4 | - | - |
 | roborumble/rz.HawkOnFire_0.1.jar | roborumble | robot | PASS | aec194fd7547e7cc | - | - |
-| roborumble/rz.SmallDevil_1.502.jar | roborumble | robot | score-review | c2e642ac1ff7d1a8 | - | - |
+| roborumble/rz.SmallDevil_1.502.jar | roborumble | robot | CONFIRMED (score) | 0e79fc2fa86b754a | - | - |
 | roborumble/sL300.Mozart_life.jar | roborumble | robot | PASS | a39f6dbfb2b90619 | - | - |
 | roborumble/sadoner.killer_0.2.jar | roborumble | robot | PASS | f271d8c933ecd8d3 | - | - |
-| roborumble/sam.ChipmunkDuelist_1.0.jar | roborumble | robot | score-review | ddeb136fccccaf47 | - | - |
+| roborumble/sam.ChipmunkDuelist_1.0.jar | roborumble | robot | CONFIRMED (score) | 60d3261c32ba29b3 | - | - |
 | roborumble/sam.Samspin_1.0.jar | roborumble | robot | PASS | 684a3443b50ac99f | - | - |
-| roborumble/sample.Corners_1.0.jar | roborumble | robot | score-review | 2d5107dbd6d0ded4 | - | - |
+| roborumble/sample.Corners_1.0.jar | roborumble | robot | CONFIRMED (score) | 16a08e0e6fbde79f | - | - |
 | roborumble/sample.Crazy_1.0.jar | roborumble | robot | PASS | 4ae3b689554154fc | - | - |
 | roborumble/sample.Fire_1.0.jar | roborumble | robot | PASS | b43af86d4766195b | - | - |
 | roborumble/sample.MyFirstJuniorRobot_1.0.jar | roborumble | robot | score-review | 2a7678ff8a5e14a9 | - | - |

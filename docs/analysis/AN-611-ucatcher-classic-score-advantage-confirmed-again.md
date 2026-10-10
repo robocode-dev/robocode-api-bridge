@@ -36,4 +36,4 @@ uCatcher's five-pair sample confirms a 38.92% Classic score advantage: Classic a
 
 ## M-006 handoff
 
-Continue with `roborumble/ry.VirtualGunExperiment_1.2.0.jar` (`score-review`) in AN-612.
+The VirtualGunExperiment retest is recorded in AN-612; continue with `roborumble/ry.Worst_1.0.jar` (`score-review`) in AN-613.
