@@ -225,6 +225,7 @@ public class Main {
     static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
                                     String teamAuthor, List<String> memberDirNames) throws IOException {
         File file = createOrOverwriteFile(teamDir, teamBaseName + ".json");
+        String author = teamAuthor == null ? null : teamAuthor.trim();
 
         var membersJson = new StringBuilder();
         for (int i = 0; i < memberDirNames.size(); i++) {
@@ -238,7 +239,7 @@ public class Main {
             writer.write("{\n" +
                     "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
-                    "  \"authors\": [\"" + escape(replaceIfBlank(teamAuthor, "[n/a]")) + "\"],\n" +
+                    "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"platform\": \"JVM\",\n" +
                     "  \"language\": \"Java\",\n" +
                     "  \"teamMembers\": [" + membersJson + "]\n" +
@@ -367,6 +368,7 @@ public class Main {
         if (author == null || author.isBlank()) {
             author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
         }
+        author = author.trim();
 
         try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +

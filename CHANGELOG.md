@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Trim legacy robot and team author metadata in generated bot JSON so it matches the Bot API's canonical author identity and does not block bot startup.
 - Transform infinite loops in direct `JuniorRobot` subclasses using their `energy` field, so wrapped robots stop at round boundaries without calling a missing `getEnergy()` method.
 - Transform terminal `do-while(true)` robot run loops so the bridge can stop them cleanly at round boundaries, matching the existing stop behavior for other infinite-loop bytecode shapes.
 - Keep each compatibility error signature attached to its own stack trace so a later robot frame cannot be misattributed to an earlier exception.
