@@ -4445,6 +4445,11 @@ claims:
       state: reserved
       prefix: ROUTE
       component: "12"
+    - id: ROUTE-013
+      kind: numeric
+      state: reserved
+      prefix: ROUTE
+      component: "13"
     - id: TASKS-001
       kind: numeric
       state: reserved
@@ -4551,11 +4556,11 @@ high-water:
       state: reserved
       prefix: CAP
       component: "8"
-    - id: CH-019
+    - id: CH-020
       kind: numeric
       state: reserved
       prefix: CH
-      component: "19"
+      component: "20"
     - id: CRIT-008
       kind: numeric
       state: reserved
