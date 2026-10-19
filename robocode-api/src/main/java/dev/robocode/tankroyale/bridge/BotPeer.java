@@ -806,13 +806,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public void stop(boolean overwrite) {
         log("stop()");
-        if (overwrite) {
-            // flemming-n-larsen: I don't expect any bots to use this functionality, and hence it is not supported (yet)
-            // in Robocode Tank Royale.
-            throw new UnsupportedOperationException(
-                    "stop(overwrite=true) is unsupported. Contact Robocode Tank Royale author for support");
-        }
-        bot.stop();
+        bot.stop(overwrite);
     }
 
     @Override

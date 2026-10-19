@@ -7,11 +7,10 @@ import org.junit.jupiter.api.Test;
 import static java.lang.Math.toRadians;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Acceptance evidence for ROUTE-005 — the {@code IStandardRobotPeer} surface: stopping,
+ * Acceptance evidence for ROUTE-013 — the {@code IStandardRobotPeer} surface: stopping,
  * resuming, turning the radar, and the three independence flags.
  *
  * The flags are the interesting part. Each decouples one component from another's rotation,
@@ -33,10 +32,11 @@ class StandardPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-005 positive: stopping and resuming route to their Bot API calls")
-    void testROUTE005_UnitPositive_RoutesStopAndResume() {
+    @DisplayName("ROUTE-013 positive: stopping and resuming route to their Bot API calls")
+    void testROUTE013_UnitPositive_RoutesStopAndResume() {
         peer.stop(false);
         assertTrue(bot.called("stop"), bot.names());
+        assertEquals(Boolean.FALSE, bot.onlyCall("stop").args[0]);
 
         bot.clear();
         peer.resume();
@@ -44,26 +44,34 @@ class StandardPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-005 negative: stop with overwrite is refused rather than silently downgraded")
-    void testROUTE005_UnitNegative_RefusesStopWithOverwriteRatherThanIgnoringIt() {
-        // Tank Royale has no equivalent. Refusing is the honest answer: quietly treating it as
-        // an ordinary stop would discard the robot's saved movement state, and the robot would
-        // resume into a different action than the one it stopped.
-        assertThrows(UnsupportedOperationException.class, () -> peer.stop(true));
-        assertFalse(bot.called("stop"), "the unsupported call must not reach the bot: " + bot.names());
+    @DisplayName("ROUTE-013 positive: stop overwrite reaches the Bot API with its argument")
+    void testROUTE013_UnitPositive_RoutesStopOverwriteArgument() {
+        peer.stop(true);
+
+        assertEquals(Boolean.TRUE, bot.onlyCall("stop").args[0]);
     }
 
     @Test
-    @DisplayName("ROUTE-005 positive: turning the radar reaches the radar call in degrees")
-    void testROUTE005_UnitPositive_RoutesRadarTurnInDegrees() {
+    @DisplayName("ROUTE-013 negative: stop overwrite does not call a neighboring Bot API method")
+    void testROUTE013_UnitNegative_DoesNotCallAnotherStopAction() {
+        peer.stop(true);
+
+        assertEquals(1, bot.calls().size(), bot.names());
+        assertEquals("stop", bot.calls().get(0).name);
+        assertEquals(Boolean.TRUE, bot.calls().get(0).args[0]);
+    }
+
+    @Test
+    @DisplayName("ROUTE-013 positive: turning the radar reaches the radar call in degrees")
+    void testROUTE013_UnitPositive_RoutesRadarTurnInDegrees() {
         peer.turnRadar(toRadians(120));
 
         assertEquals(120.0, bot.onlyCall("turnRadarRight").doubleArg(0), EPSILON);
     }
 
     @Test
-    @DisplayName("ROUTE-005 positive: each independence flag reaches its own Bot API setter")
-    void testROUTE005_UnitPositive_RoutesEachIndependenceFlagToItsOwnSetter() {
+    @DisplayName("ROUTE-013 positive: each independence flag reaches its own Bot API setter")
+    void testROUTE013_UnitPositive_RoutesEachIndependenceFlagToItsOwnSetter() {
         peer.setAdjustGunForBodyTurn(true);
         assertEquals(true, bot.onlyCall("setAdjustGunForBodyTurn").args[0]);
 
@@ -77,8 +85,8 @@ class StandardPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-005 negative: setting one independence flag sets no other")
-    void testROUTE005_UnitNegative_SettingOneIndependenceFlagLeavesTheOthersAlone() {
+    @DisplayName("ROUTE-013 negative: setting one independence flag sets no other")
+    void testROUTE013_UnitNegative_SettingOneIndependenceFlagLeavesTheOthersAlone() {
         peer.setAdjustRadarForGunTurn(true);
 
         assertFalse(bot.called("setAdjustGunForBodyTurn"), bot.names());
@@ -86,8 +94,8 @@ class StandardPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-005 positive: the flag value is passed through rather than assumed true")
-    void testROUTE005_UnitPositive_PassesTheFlagValueThroughRatherThanAssumingTrue() {
+    @DisplayName("ROUTE-013 positive: the flag value is passed through rather than assumed true")
+    void testROUTE013_UnitPositive_PassesTheFlagValueThroughRatherThanAssumingTrue() {
         // A routing that ignored its argument would pass every test that only ever sets true,
         // and would leave a robot unable to turn the independence off again.
         peer.setAdjustGunForBodyTurn(false);
@@ -96,8 +104,8 @@ class StandardPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-005 positive: reading an independence flag reads the matching Bot API flag")
-    void testROUTE005_UnitPositive_ReadsEachIndependenceFlagFromItsOwnSource() {
+    @DisplayName("ROUTE-013 positive: reading an independence flag reads the matching Bot API flag")
+    void testROUTE013_UnitPositive_ReadsEachIndependenceFlagFromItsOwnSource() {
         bot.returning("isAdjustGunForBodyTurn", true)
            .returning("isAdjustRadarForGunTurn", false)
            .returning("isAdjustRadarForBodyTurn", true);

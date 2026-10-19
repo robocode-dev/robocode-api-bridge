@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 135 |
+| DISCREPANCY (errors) | 136 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 71 |
+| DISCREPANCY (outcome) | 70 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -168,7 +168,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/jab.DiamondStealer_5.jar | meleerumble | robot | DISCREPANCY (errors) | fae68a2757f1e40a | melee-opponent-pool-contamination | harness |
 | meleerumble/jangs.ns51_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | f6f5b19abc44f9b5 | melee-opponent-pool-contamination | harness |
 | meleerumble/jaybot.adv.bots.JayBot_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 737e8e86d63ba6d5 | melee-opponent-pool-contamination | harness |
-| meleerumble/jaybot.bots.Oddball_4.0.jar | meleerumble | robot | DISCREPANCY (outcome) | e15d719a76e461c3 | classic-stop-overwrite-explicitly-rejected-by-bridge | bridge |
+| meleerumble/jaybot.bots.Oddball_4.0.jar | meleerumble | robot | DISCREPANCY (errors) | 50ea318f51f84718 | melee-opponent-pool-contamination | harness |
 | meleerumble/jcs.Seth_1.8.jar | meleerumble | robot | DISCREPANCY (errors) | 9b9138a2f5fc680b | melee-opponent-pool-contamination | harness |
 | meleerumble/jdw.Hurricane_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0c2ae0cbac2e6851 | melee-opponent-pool-contamination | harness |
 | meleerumble/jekl.StoneGhost_0.7.jar | meleerumble | robot | DISCREPANCY (errors) | 8de300b1a4e97d53 | melee-opponent-pool-contamination | harness |
