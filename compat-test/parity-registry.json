@@ -383521,7 +383521,7 @@
         "key": "teamrumble/rz.GlowingHawks_0.2.jar",
         "kind": "team"
       },
-      "latest_observation": "c88aa80da0c0d8b1",
+      "latest_observation": "3b6964d09b8049d7",
       "observations": [
         {
           "classic": {
@@ -384084,6 +384084,204 @@
             "errors": [],
             "ok": false,
             "score": 21160.0
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 5.4,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": false,
+            "ok": true,
+            "score": 22082.0,
+            "scores": [
+              13017.0,
+              9065.0
+            ],
+            "selected": "rz.GHMember [0.2]"
+          },
+          "completed_at": "2026-10-19T17:04:32Z",
+          "confirmation": null,
+          "delta_pct": 28.0,
+          "id": "7e1ce73adba714e3",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "360802619d518aea9895bdcc87175262620c3fa0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "b952543aa604de43545f003d62488ef07271e08d",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "rz.GHMember [0.2]",
+            "division": "teamrumble",
+            "jar": "rz.GlowingHawks_0.2.jar",
+            "jar_sha256": "9aed0826521a57def3253fa9b220bae37b5b8f2261604e842c08f8d54a5b77ce",
+            "key": "teamrumble/rz.GlowingHawks_0.2.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 16.1,
+            "error_count": 0,
+            "error_signatures": [],
+            "errors": [],
+            "has_log": true,
+            "ok": true,
+            "score": 28267.0,
+            "scores": [
+              15813.0,
+              12454.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": 21774.5
+          },
+          "completed_at": "2026-10-19T17:05:34Z",
+          "confirmation": {
+            "attempts": 3,
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "rz.GHMember.onRobotDeath"
+              ]
+            ],
+            "delta_mean": 32.6,
+            "deltas": [
+              35.6,
+              29.6
+            ],
+            "rc_mean": 21774.5,
+            "samples": 2,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": [
+                  {
+                    "bot_id": 4,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 5,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 6,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 8,
+                    "round": 1,
+                    "turn": 1
+                  },
+                  {
+                    "bot_id": 9,
+                    "round": 1,
+                    "turn": 1
+                  }
+                ],
+                "status": "captured"
+              },
+              {
+                "attempt": 2,
+                "events": [],
+                "status": "captured"
+              },
+              {
+                "attempt": 3,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": 28866.5
+          },
+          "delta_pct": 32.6,
+          "id": "3b6964d09b8049d7",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "360802619d518aea9895bdcc87175262620c3fa0",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "b952543aa604de43545f003d62488ef07271e08d",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "rz.GlowingHawks_0.2.jar",
+            "jar_sha256": "9aed0826521a57def3253fa9b220bae37b5b8f2261604e842c08f8d54a5b77ce",
+            "key": "teamrumble/rz.GlowingHawks_0.2.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": 28866.5
           }
         }
       ],

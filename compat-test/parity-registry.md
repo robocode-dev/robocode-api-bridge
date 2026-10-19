@@ -1249,7 +1249,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/pedersen.ImWithStupidTeam_1.3.jar | teamrumble | team | MATCHED (score noise) | 88173d72acfab9ca | nested-team-jar-discovery | wrapper |
 | teamrumble/radnor.RadnorMedSchool_1.0.jar | teamrumble | team | PASS | 2c658128e3f16dec | - | - |
 | teamrumble/rz.AlephTeam_0.34.jar | teamrumble | team | PASS | 318881e18dc34010 | robot-enemy-pattern-reads-past-final-sample | robot |
-| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | DISCREPANCY (errors) | c88aa80da0c0d8b1 | robot-death-event-assumes-prior-scan | robot |
+| teamrumble/rz.GlowingHawks_0.2.jar | teamrumble | team | DISCREPANCY (errors) | 3b6964d09b8049d7 | robot-death-event-assumes-prior-scan | robot |
 | teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | MATCHED (score noise) | 5edb03c136b94cda | tank-royale-team-survival-scoring | tank-royale |
 | teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | 2bf376bbcfb874ad | - | - |
 | teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | 0265440c2520dc55 | - | - |
