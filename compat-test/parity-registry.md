@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 67 |
+| DISCREPANCY (errors) | 68 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 64 |
+| DISCREPANCY (outcome) | 63 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -118,7 +118,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/ds.Oo_2.2.jar | meleerumble | robot | DISCREPANCY (errors) | 2d60f3abb4b7c5a0 | melee-opponent-pool-contamination | harness |
 | meleerumble/dsw.StaticD_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4ba669ba5e853bab | melee-opponent-pool-contamination | harness |
 | meleerumble/dummy.micro.Sparrow_2.5.jar | meleerumble | robot | DISCREPANCY (errors) | 20c938450907fb8f | melee-opponent-pool-contamination | harness |
-| meleerumble/dummy.mini.Scimitar_1.01.jar | meleerumble | robot | DISCREPANCY (outcome) | 4d0abb7de50e3270 | legacy-author-metadata-exceeds-bot-api-limit | bridge |
+| meleerumble/dummy.mini.Scimitar_1.01.jar | meleerumble | robot | DISCREPANCY (errors) | 2c542a15bbdd1705 | legacy-author-metadata-exceeds-bot-api-limit | bridge |
 | meleerumble/dylanb.xyz_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | ae9a57a94097642c | classic-robot-absent-from-configured-home | harness |
 | meleerumble/edu.otg.spr.TheTeacher_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 29c89ad280f4d5b8 | melee-opponent-pool-contamination | harness |
 | meleerumble/eem.EvBot_v4.6.16.jar | meleerumble | robot | DISCREPANCY (errors) | 877d86ecbfa73af4 | melee-opponent-pool-contamination | harness |
