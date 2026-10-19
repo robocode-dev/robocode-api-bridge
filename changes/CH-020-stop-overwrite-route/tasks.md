@@ -6,5 +6,3 @@
 - [x] Update the CAP-008 design and `CHANGELOG.md` to describe the restored Classic behavior.
 - [x] Run `./gradlew :robocode-api:test` and build the bridge and wrapper jars.
 - [x] Retest `jaybot.bots.Oddball` with official Melee parameters, record repair-linked evidence in the parity registry, and diagnose the remaining opponent-pool difference.
-- [ ] Run the required Cliewen validation and review loop on the committed candidate.
-- [ ] Digest the accepted capability and registry changes, then remove this change workspace.
