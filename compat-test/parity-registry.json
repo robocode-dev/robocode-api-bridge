@@ -367956,7 +367956,7 @@
         "key": "teamrumble/lxx.ConceptATeam_0.8.jar",
         "kind": "team"
       },
-      "latest_observation": "02701f091eea7032",
+      "latest_observation": "b818d2e9de1c6023",
       "observations": [
         {
           "classic": {
@@ -368880,6 +368880,289 @@
               ],
               "status": "captured"
             }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 4.6,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "lxx.util.CaUtils.getNonZeroLateralDirection"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.NullPointerException occurred on robocode.StatusEvent",
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 21794.0,
+            "scores": [
+              11160.0,
+              10634.0
+            ],
+            "selected": "lxx.ConceptA 0.8"
+          },
+          "completed_at": "2026-10-19T17:00:39Z",
+          "confirmation": null,
+          "delta_pct": 38.2,
+          "id": "5adc1d1cfb39859b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "4c2ba05e3468ab9f09ffb48c0549b17994984753",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "b952543aa604de43545f003d62488ef07271e08d",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": "lxx.ConceptA 0.8",
+            "division": "teamrumble",
+            "jar": "lxx.ConceptATeam_0.8.jar",
+            "jar_sha256": "8ed86d05ddbe64e77cc93352da90d53afed21a832a43f40f1525f1b67f1264aa",
+            "key": "teamrumble/lxx.ConceptATeam_0.8.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (score)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 14.1,
+            "error_count": 1,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "lxx.util.CaUtils.getNonZeroLateralDirection"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.NullPointerException: Cannot invoke \"lxx.model.CaRobot.getSpeed()\" because \"robot\" is null"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 30116.0,
+            "scores": [
+              15682.0,
+              14434.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 5,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 2
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 2
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": false,
+            "score": null
+          },
+          "completed_at": "2026-10-19T17:01:17Z",
+          "confirmation": {
+            "attempts": 1,
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "lxx.util.CaUtils.getNonZeroLateralDirection"
+              ]
+            ],
+            "delta_mean": null,
+            "deltas": [],
+            "rc_mean": null,
+            "samples": 0,
+            "skipped_turn_telemetry_runs": [
+              {
+                "attempt": 1,
+                "events": null,
+                "status": "incomplete"
+              }
+            ],
+            "tr_mean": null
+          },
+          "delta_pct": null,
+          "id": "b818d2e9de1c6023",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "4c2ba05e3468ab9f09ffb48c0549b17994984753",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "b952543aa604de43545f003d62488ef07271e08d",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1200,
+            "participants": 2,
+            "rounds": 10,
+            "team": true,
+            "width": 1200
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "teamrumble",
+            "jar": "lxx.ConceptATeam_0.8.jar",
+            "jar_sha256": "8ed86d05ddbe64e77cc93352da90d53afed21a832a43f40f1525f1b67f1264aa",
+            "key": "teamrumble/lxx.ConceptATeam_0.8.jar",
+            "kind": "team"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "errors": [],
+            "ok": false,
+            "score": null
           }
         }
       ],

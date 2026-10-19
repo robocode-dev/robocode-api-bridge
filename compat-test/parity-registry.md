@@ -1237,7 +1237,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | PASS | b5f4b749ab64fd9a | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | PASS | 1c265b098fb762c5 | - | - |
 | teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 8e0dbf52523fefa2 | - | - |
-| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | DISCREPANCY (errors) | 02701f091eea7032 | robot-null-previous-duel-opponent-on-wave-callback | robot |
+| teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | DISCREPANCY (errors) | b818d2e9de1c6023 | robot-null-previous-duel-opponent-on-wave-callback | robot |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 15d61e66e8f76f48 | symmetric-robot-runtime-failure-zero-score | robot |
 | teamrumble/mn.nano.perceptual.ImpactTeam_1.3.0.jar | teamrumble | team | CONFIRMED (score) | d6c0e206a3083e6a | unresolved-confirmed-team-score-gap | unknown |
