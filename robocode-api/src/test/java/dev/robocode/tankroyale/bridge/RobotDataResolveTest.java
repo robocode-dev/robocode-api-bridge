@@ -3,12 +3,17 @@ package dev.robocode.tankroyale.bridge;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.security.AccessControlException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit coverage for {@link RobotData}'s resolver, the mechanism behind FIO-001's redirection.
@@ -36,6 +41,39 @@ class RobotDataResolveTest {
     void testFIO001_UnitPositive_PlainNameResolvesInsideDirectory() {
         File resolved = RobotData.resolve(DIRECTORY, "plain.txt");
         assertEquals(new File(DIRECTORY, "plain.txt"), resolved);
+    }
+
+    @Test
+    @DisplayName("FIO-001 unit positive: a missing data file is created in the robot data directory")
+    void testFIO001_UnitPositive_CreatesMissingDataFile(@TempDir Path tempDirectory) {
+        File dataDirectory = tempDirectory.resolve("Robot.data").toFile();
+        File resolved = RobotData.resolveAndCreate(dataDirectory, "state.dat");
+
+        assertTrue(resolved.isFile());
+        assertEquals(0L, resolved.length());
+        assertEquals(dataDirectory.getAbsoluteFile(), resolved.getParentFile().getAbsoluteFile());
+    }
+
+    @Test
+    @DisplayName("FIO-001 unit positive: a bundled data file is copied into the robot data directory")
+    void testFIO001_UnitPositive_CopiesBundledDataFile(@TempDir Path tempDirectory) throws Exception {
+        File dataDirectory = tempDirectory.resolve("Robot.data").toFile();
+        File resolved = RobotData.resolveAndCreate(dataDirectory, "bundled.txt", RobotDataResolveTest.class);
+
+        assertTrue(resolved.isFile());
+        assertEquals("bundled-state", Files.readString(resolved.toPath()).trim());
+    }
+
+    @Test
+    @DisplayName("FIO-001 unit negative: a missing external absolute path is not created")
+    void testFIO001_UnitNegative_DoesNotCreateExternalAbsoluteFile(@TempDir Path tempDirectory) {
+        File dataDirectory = tempDirectory.resolve("Robot.data").toFile();
+        File externalFile = tempDirectory.resolve("outside.dat").toFile();
+
+        File resolved = RobotData.resolveAndCreate(dataDirectory, externalFile.getAbsolutePath());
+
+        assertFalse(externalFile.exists());
+        assertFalse(resolved.exists());
     }
 
     @Test

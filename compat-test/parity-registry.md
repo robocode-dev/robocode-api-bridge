@@ -7,12 +7,12 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 51 |
+| DISCREPANCY (errors) | 55 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 61 |
+| DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
-| MATCHED (score noise) | 140 |
-| PASS | 710 |
+| MATCHED (score noise) | 139 |
+| PASS | 711 |
 
 ## Subjects
 
@@ -102,6 +102,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/de.simpleworks.robocode.bots.swiBot_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 3822e80155fbc0f2 | melee-opponent-pool-contamination | harness |
 | meleerumble/deewiant.Anomaly_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 37e73588fd8db1d3 | melee-opponent-pool-contamination | harness |
 | meleerumble/dft.Calliope_5.6.jar | meleerumble | robot | DISCREPANCY (errors) | 20692844329cb18c | melee-opponent-pool-contamination | harness |
+| meleerumble/disan.Chair_2.2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9d2d08224f17ba10 | melee-opponent-pool-contamination | harness |
+| meleerumble/divineomega.DivineBot_1.9.4.5.jar | meleerumble | robot | DISCREPANCY (errors) | c6fcf50c923b6795 | classic-getdatafile-initializes-missing-file | bridge |
+| meleerumble/divineomega.TrialBot_0.003.jar | meleerumble | robot | DISCREPANCY (errors) | cd5718f998744dce | melee-opponent-pool-contamination | harness |
+| meleerumble/djc.DynaBot_0.1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | cba46e68692acc3d | robot-unchecked-gun-wave-feature-index | robot |
+| meleerumble/djdjdj.NanoSkunk10_1.0.jar | meleerumble | robot | PASS | 1a860ff80273cde6 | - | - |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
@@ -392,7 +397,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/disan.Chair_2.2.0.jar | roborumble | robot | PASS | 208f62fdfb38e29f | - | - |
 | roborumble/disan.Ghost_.01.jar | roborumble | robot | PASS | 939017536d62cb1b | - | - |
 | roborumble/dittman.BlindSquirl_Retired.jar | roborumble | robot | MATCHED (score noise) | 1b35acfd8039eda4 | - | - |
-| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | MATCHED (score noise) | 48195cd5a303998c | - | - |
+| roborumble/divineomega.DivineBot_1.9.5.jar | roborumble | robot | DISCREPANCY (errors) | d5067ec49924631a | classic-getdatafile-initializes-missing-file | bridge |
 | roborumble/divineomega.PatrollerBot_1.0.jar | roborumble | robot | PASS | f0329aed308430d6 | - | - |
 | roborumble/divineomega.TrialBot_0.003.jar | roborumble | robot | PASS | 9e9013ee655ba929 | - | - |
 | roborumble/djc.Aardvark_0.3.6.jar | roborumble | robot | PASS | 0f5e762f770658d6 | - | - |

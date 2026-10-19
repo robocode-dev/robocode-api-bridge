@@ -1102,7 +1102,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public File getDataFile(String filename) {
         log("getDataFile()");
-        return RobotData.getDataFile(filename);
+        return RobotData.getDataFile(filename, robot.getClass());
     }
 
     @Override

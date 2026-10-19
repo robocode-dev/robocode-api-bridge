@@ -4,6 +4,7 @@ import dev.robocode.tankroyale.botapi.BotException;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -62,7 +63,52 @@ public final class RobotData {
      *                                 {@code AdvancedRobotProxy.getDataFile}.
      */
     public static File getDataFile(String filename) {
-        return resolve(getDataDirectory(), filename);
+        return resolveAndCreate(getDataDirectory(), filename, null);
+    }
+
+    static File getDataFile(String filename, Class<?> robotClass) {
+        return resolveAndCreate(getDataDirectory(), filename, robotClass);
+    }
+
+    /**
+     * Resolves a robot-supplied name, copies a matching bundled data resource when present, and
+     * otherwise creates the empty file Classic returns for a missing resource.
+     */
+    static File resolveAndCreate(File directory, String filename) {
+        return resolveAndCreate(directory, filename, null);
+    }
+
+    static File resolveAndCreate(File directory, String filename, Class<?> robotClass) {
+        File file = resolve(directory, filename);
+        try {
+            if (!directory.exists() && !directory.mkdirs()) {
+                return file;
+            }
+            if (!file.exists()) {
+                Path relativePath = relativePathInside(directory, file);
+                if (relativePath != null) {
+                    String resourcePath = robotClass == null ? null : robotClass.getName().replace('.', '/')
+                            + ".data/" + relativePath.toString().replace(File.separatorChar, '/');
+                    InputStream bundledFile = resourcePath == null ? null : robotClass.getResourceAsStream("/" + resourcePath);
+                    if (bundledFile == null) {
+                        file.createNewFile();
+                    } else {
+                        try (bundledFile) {
+                            Files.copy(bundledFile, file.toPath());
+                        }
+                    }
+                }
+            }
+        } catch (IOException ignored) {
+            // Classic logs creation failures but still returns the File; the later I/O reports them.
+        }
+        return file;
+    }
+
+    private static Path relativePathInside(File directory, File file) throws IOException {
+        Path root = directory.getCanonicalFile().toPath();
+        Path resolved = file.getCanonicalFile().toPath();
+        return !resolved.equals(root) && resolved.startsWith(root) ? root.relativize(resolved) : null;
     }
 
     /**
