@@ -7,7 +7,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 46 |
+| DISCREPANCY (errors) | 51 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
@@ -97,6 +97,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/davidalves.net.DuelistMicroMelee_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 6834c78739a83de5 | melee-opponent-pool-contamination | harness |
 | meleerumble/davidalves.net.DuelistMiniMelee_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | db38b2a7024f249c | melee-opponent-pool-contamination | harness |
 | meleerumble/davidalves.net.DuelistNanoMelee_1.01.jar | meleerumble | robot | DISCREPANCY (errors) | f1b5b1526b20b1ba | melee-opponent-pool-contamination | harness |
+| meleerumble/dcs.Eater_of_Worlds_1.1.3-A.jar | meleerumble | robot | DISCREPANCY (errors) | ea5b525ec25bdc13 | melee-opponent-pool-contamination | harness |
+| meleerumble/de.simpleworks.robocode.bots.swiBot_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b565fd3d5b47dab0 | melee-opponent-pool-contamination | harness |
+| meleerumble/de.simpleworks.robocode.bots.swiBot_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 3822e80155fbc0f2 | melee-opponent-pool-contamination | harness |
+| meleerumble/deewiant.Anomaly_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 37e73588fd8db1d3 | melee-opponent-pool-contamination | harness |
+| meleerumble/dft.Calliope_5.6.jar | meleerumble | robot | DISCREPANCY (errors) | 20692844329cb18c | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
