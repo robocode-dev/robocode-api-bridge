@@ -1,3 +1,8 @@
+---
+type: index
+title: Decisions
+---
+
 # Decisions
 
 Why future changes are constrained — each future-shaping choice is routed by subject to exactly one concise record.

@@ -1,3 +1,8 @@
+---
+type: index
+title: Architecture
+---
+
 # Architecture
 
 The shape of the whole: structure, actors, module boundaries, technology commitments — the things that are expensive to change.

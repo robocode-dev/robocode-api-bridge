@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 233 |
 | DISCREPANCY (errors) | 39 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 59 |
+| DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
-| PASS | 709 |
+| PASS | 710 |
 
 ## Subjects
 
@@ -644,7 +644,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kneels.nano.Derp_0.2.jar | roborumble | robot | DISCREPANCY (errors) | e3d45273ae8f712f | - | - |
 | roborumble/krillr.mega.Psyche_0.0.3.jar | roborumble | robot | PASS | 3809aeaf0c65634c | - | - |
 | roborumble/krillr.mini.JointStrike_2.0.0.jar | roborumble | robot | PASS | cd44968f3f411b9a | - | - |
-| roborumble/kronenthaler.Basilisk_1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 499659efa710a968 | wrapper-json-encoding | wrapper |
+| roborumble/kronenthaler.Basilisk_1.0.jar | roborumble | robot | PASS | efd34ca162c83b99 | wrapper-author-whitespace-normalization | wrapper |
 | roborumble/krzysiek.robbo2.Robbo_1.0.0.jar | roborumble | robot | PASS | f3397e3639521b5d | - | - |
 | roborumble/kvk.HebusLeTroll_0.41.jar | roborumble | robot | PASS | a603f37930217598 | - | - |
 | roborumble/labg.Cataclysm_2.05.jar | roborumble | robot | PASS | a9a0290c0e4c2314 | - | - |

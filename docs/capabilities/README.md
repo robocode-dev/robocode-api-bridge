@@ -1,3 +1,8 @@
+---
+type: index
+title: Capabilities
+---
+
 # Capabilities
 
 CAP-xxx: what the system can do — one folder per capability, and the anchor of the requirements thread.

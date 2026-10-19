@@ -1,3 +1,8 @@
+---
+type: index
+title: Design
+---
+
 # Design
 
 How the bridge works, capability by capability.

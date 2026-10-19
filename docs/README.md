@@ -1,3 +1,8 @@
+---
+type: index
+title: The corpus
+---
+
 # The corpus
 
 This directory is the **system-of-record**: the permanent, durable truth about the system. Full Cliewen changes are transient deltas on branches that get **digested** into this corpus at merge — `git log docs/` is the audit trail. Entry point for humans and agents alike; agents treat this tree as working memory when a change affects product or methodology meaning. Simple work uses no Cliewen workspace but still leaves any corpus surface it touches truthful.
