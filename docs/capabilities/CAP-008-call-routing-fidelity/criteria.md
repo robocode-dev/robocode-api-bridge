@@ -48,13 +48,21 @@ Feature: Bot API call-routing fidelity
     Then each value comes from the corresponding Bot API value, converted into Robocode's frame
     And no getter returns a neighbouring component's value
 
-  @ROUTE-005
+  @ROUTE-005 @retired
   Scenario: Stopping, resuming, and the independence flags route individually
     Test-type: Unit
     Given a robot that stops, resumes, or sets one independence flag
     When the call is routed
     Then it reaches that call alone, carrying its argument rather than an assumed value
     And an unsupported variant is refused rather than silently downgraded
+
+  @ROUTE-013
+  Scenario: Stopping, resuming, overwrite, and independence flags route individually
+    Test-type: Unit
+    Given a robot that stops with an overwrite flag, resumes, or sets one independence flag
+    When the call is routed
+    Then it reaches the matching Bot API call alone, carrying its argument rather than an assumed value
+    And stop(overwrite) reaches IBot.stop(overwrite) with the boolean preserved
 
   @ROUTE-006
   Scenario: A queued command is queued, not executed

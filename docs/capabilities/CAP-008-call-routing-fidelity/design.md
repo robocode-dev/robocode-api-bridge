@@ -32,6 +32,8 @@ Not "the call succeeded". Each names the Bot API method reached and the argument
 
 That negative half is doing most of the work. A method that routes to the wrong neighbour still compiles, still runs, and still produces a battle; only an assertion that the neighbour was untouched distinguishes it.
 
+`Robot.stop(boolean)` preserves its overwrite flag by calling the matching `IBot.stop(boolean)` overload. The routing tests check the `true` flag reaches that overload and that no neighbouring stop or resume call is made.
+
 ## Completeness, and why it is enforced rather than reviewed
 
 `PeerSurfaceCoverageTest` walks the peer interfaces reflectively from `ITeamRobotPeer` and `IJuniorRobotPeer`, and fails naming any method no routing test calls.

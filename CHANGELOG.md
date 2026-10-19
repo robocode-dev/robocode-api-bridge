@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Route legacy `Robot.stop(boolean)` overwrite calls to the matching Tank Royale API, preserving saved movement when the robot calls `stop(true)`.
 - Truncate legacy robot and team author metadata to the Bot API's 50-character limit so long author names do not prevent wrapped bots from starting.
 - Trim legacy robot and team author metadata in generated bot JSON so it matches the Bot API's canonical author identity and does not block bot startup.
 - Copy a robot's bundled data file when `getDataFile()` resolves it, and create an empty file when no bundled resource exists, matching Classic's file initialization behavior.
