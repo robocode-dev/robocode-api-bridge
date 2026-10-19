@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Defer a bullet-hit callback until `fireBullet()` callers can register the returned bullet, matching Classic's callback ordering and preventing legacy robots from failing on same-turn hits.
 - Route legacy `Robot.stop(boolean)` overwrite calls to the matching Tank Royale API, preserving saved movement when the robot calls `stop(true)`.
 - Truncate legacy robot and team author metadata to the Bot API's 50-character limit so long author names do not prevent wrapped bots from starting.
 - Trim legacy robot and team author metadata in generated bot JSON so it matches the Bot API's canonical author identity and does not block bot startup.

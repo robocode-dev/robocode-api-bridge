@@ -49,6 +49,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     private final IBot bot;
     private final Set<BulletPeer> firedBullets = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private final Map<Integer, BulletPeer> mappedBullets = new ConcurrentHashMap<>();
+    private final Object deferredBulletHitLock = new Object();
+    private final Set<BulletPeer> bulletsAwaitingCallerRegistration =
+            Collections.newSetFromMap(new IdentityHashMap<>());
+    private final List<BulletHitBotEvent> deferredBulletHitEvents = new ArrayList<>();
     private volatile int initialOtherCount = -1;
     private final Set<Integer> deadOtherBots = ConcurrentHashMap.newKeySet();
     private final Graphics2D graphics2D = new Graphics2DImpl();
@@ -303,6 +307,11 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     @Override
     public void execute() {
+        dispatchDeferredBulletHitEvents();
+        executeRobotTurn();
+    }
+
+    private void executeRobotTurn() {
         log("execute()");
         flushTeamMessages();
         bot.go();
@@ -464,9 +473,32 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     private void dispatchBulletHitEvent(BotEvent botEvent) {
-        dispatchPendingSelfTeamMessagesBefore(botEvent);
-        log("-> onBulletHit");
         var bulletHitBotEvent = (BulletHitBotEvent) botEvent;
+        var bulletId = bulletHitBotEvent.getBullet().getBulletId();
+        synchronized (deferredBulletHitLock) {
+            var bullet = mappedBullets.get(bulletId);
+            if (bullet != null && bulletsAwaitingCallerRegistration.contains(bullet)) {
+                deferredBulletHitEvents.add(bulletHitBotEvent);
+                return;
+            }
+        }
+        dispatchBulletHitEventNow(bulletHitBotEvent);
+    }
+
+    private void dispatchDeferredBulletHitEvents() {
+        List<BulletHitBotEvent> events;
+        synchronized (deferredBulletHitLock) {
+            if (bulletsAwaitingCallerRegistration.isEmpty()) return;
+            bulletsAwaitingCallerRegistration.clear();
+            events = new ArrayList<>(deferredBulletHitEvents);
+            deferredBulletHitEvents.clear();
+        }
+        events.forEach(this::dispatchBulletHitEventNow);
+    }
+
+    private void dispatchBulletHitEventNow(BulletHitBotEvent bulletHitBotEvent) {
+        dispatchPendingSelfTeamMessagesBefore(bulletHitBotEvent);
+        log("-> onBulletHit");
         var bulletState = bulletHitBotEvent.getBullet();
         var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bulletHitBotEvent.getVictimId());
         var bullet = BulletMapper.map(bulletState, victimName, bot);
@@ -711,8 +743,16 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     @Override
     public Bullet fire(double power) {
         log("fire()");
+        dispatchDeferredBulletHitEvents();
         var bullet = setFire(power);
-        execute();
+        if (bullet instanceof BulletPeer) {
+            synchronized (deferredBulletHitLock) {
+                // Classic returns the bullet before delivering its hit callback, giving callers
+                // such as fireBullet() time to register the returned object.
+                bulletsAwaitingCallerRegistration.add((BulletPeer) bullet);
+            }
+        }
+        executeRobotTurn();
         return bullet;
     }
 
@@ -1483,6 +1523,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             activeSelfTeamMessageEvents.clear();
             firedBullets.clear();
             mappedBullets.clear();
+            synchronized (deferredBulletHitLock) {
+                bulletsAwaitingCallerRegistration.clear();
+                deferredBulletHitEvents.clear();
+            }
             initialOtherCount = -1;
             deadOtherBots.clear();
         }
