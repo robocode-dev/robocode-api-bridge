@@ -411,6 +411,406 @@
       ],
       "status": "DISCREPANCY (errors)"
     },
+    "meleerumble/DBall.NUKE_0.1.jar": {
+      "diagnosis_events": [
+        {
+          "cause": "melee-opponent-pool-contamination",
+          "id": "diagnosis-1",
+          "owner": "harness",
+          "recorded_at": "2026-10-19T17:23:45Z"
+        }
+      ],
+      "identity": {
+        "classic_selected": "DBall.NUKE 0.1",
+        "division": "meleerumble",
+        "jar": "DBall.NUKE_0.1.jar",
+        "jar_sha256": "35760f27c33795de15cf2b4a23e25375052b381701ba6504881862f5074c37d5",
+        "key": "meleerumble/DBall.NUKE_0.1.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "f776562776805d1d",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 5.6,
+            "error_count": 400,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 115015.0,
+            "scores": [
+              12851.0,
+              12016.0,
+              13524.0,
+              8892.0,
+              11930.0,
+              8070.0,
+              11240.0,
+              11532.0,
+              7872.0,
+              17088.0
+            ],
+            "selected": "DBall.NUKE 0.1"
+          },
+          "completed_at": "2026-10-19T17:23:25Z",
+          "confirmation": null,
+          "delta_pct": -4.2,
+          "id": "f776562776805d1d",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "1c5d51d27c5f194e3ea0837e3eafc07339b4876e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee7df6fef3b59383cc5783879441016854f7f2ce",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "DBall.NUKE 0.1",
+            "division": "meleerumble",
+            "jar": "DBall.NUKE_0.1.jar",
+            "jar_sha256": "35760f27c33795de15cf2b4a23e25375052b381701ba6504881862f5074c37d5",
+            "key": "meleerumble/DBall.NUKE_0.1.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 30.1,
+            "error_count": 30,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 110149.0,
+            "scores": [
+              18851.0,
+              14531.0,
+              11104.0,
+              11060.0,
+              10677.0,
+              10505.0,
+              9542.0,
+              8491.0,
+              8484.0,
+              6904.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 10,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
     "meleerumble/Krabb.sliNk.Garm_0.9u.jar": {
       "diagnosis_events": [
         {
@@ -154001,6 +154401,1490 @@
         }
       ],
       "status": "DISCREPANCY (outcome)"
+    },
+    "meleerumble/davidalves.Phoenix_0.54.jar": {
+      "diagnosis_events": [],
+      "identity": {
+        "classic_selected": "davidalves.Phoenix 0.54",
+        "division": "meleerumble",
+        "jar": "davidalves.Phoenix_0.54.jar",
+        "jar_sha256": "949e85553e857da7b1e1640f1723d97f1b45ec74d1072e7135033e315eb39cd9",
+        "key": "meleerumble/davidalves.Phoenix_0.54.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "8886c50b55a9ad6b",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 9.5,
+            "error_count": 172,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 114044.0,
+            "scores": [
+              23463.0,
+              10926.0,
+              12386.0,
+              8812.0,
+              10179.0,
+              7814.0,
+              8117.0,
+              10808.0,
+              7193.0,
+              14346.0
+            ],
+            "selected": "davidalves.Phoenix 0.54"
+          },
+          "completed_at": "2026-10-19T17:22:48Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "8886c50b55a9ad6b",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "1c5d51d27c5f194e3ea0837e3eafc07339b4876e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee7df6fef3b59383cc5783879441016854f7f2ce",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "davidalves.Phoenix 0.54",
+            "division": "meleerumble",
+            "jar": "davidalves.Phoenix_0.54.jar",
+            "jar_sha256": "949e85553e857da7b1e1640f1723d97f1b45ec74d1072e7135033e315eb39cd9",
+            "key": "meleerumble/davidalves.Phoenix_0.54.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.lang.NullPointerException",
+                "davidalves.A.A.B.A"
+              ]
+            ],
+            "elapsed": 4.3,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "davidalves.A.A.B.A"
+              },
+              {
+                "exception": "java.lang.NullPointerException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "java.lang.NullPointerException: Cannot read field \"K\" because \"<parameter1>\" is null"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        }
+      ],
+      "status": "DISCREPANCY (outcome)"
+    },
+    "meleerumble/davidalves.net.DuelistMicroMelee_1.4.jar": {
+      "diagnosis_events": [
+        {
+          "cause": "melee-opponent-pool-contamination",
+          "id": "diagnosis-1",
+          "owner": "harness",
+          "recorded_at": "2026-10-19T17:23:43Z"
+        }
+      ],
+      "identity": {
+        "classic_selected": "davidalves.net.DuelistMicroMelee 1.4",
+        "division": "meleerumble",
+        "jar": "davidalves.net.DuelistMicroMelee_1.4.jar",
+        "jar_sha256": "8772028ac36b914222887c49af92230fb70ea6370134449e162679f474293229",
+        "key": "meleerumble/davidalves.net.DuelistMicroMelee_1.4.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "6834c78739a83de5",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 5.7,
+            "error_count": 304,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.WinEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 114042.0,
+            "scores": [
+              15778.0,
+              10606.0,
+              13454.0,
+              11073.0,
+              9008.0,
+              8382.0,
+              11746.0,
+              11676.0,
+              6172.0,
+              16147.0
+            ],
+            "selected": "davidalves.net.DuelistMicroMelee 1.4"
+          },
+          "completed_at": "2026-10-19T17:21:14Z",
+          "confirmation": null,
+          "delta_pct": -3.8,
+          "id": "6834c78739a83de5",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "1c5d51d27c5f194e3ea0837e3eafc07339b4876e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee7df6fef3b59383cc5783879441016854f7f2ce",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "davidalves.net.DuelistMicroMelee 1.4",
+            "division": "meleerumble",
+            "jar": "davidalves.net.DuelistMicroMelee_1.4.jar",
+            "jar_sha256": "8772028ac36b914222887c49af92230fb70ea6370134449e162679f474293229",
+            "key": "meleerumble/davidalves.net.DuelistMicroMelee_1.4.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 30.1,
+            "error_count": 29,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 109740.0,
+            "scores": [
+              15625.0,
+              14117.0,
+              12105.0,
+              11824.0,
+              11445.0,
+              10195.0,
+              10151.0,
+              9631.0,
+              7334.0,
+              7313.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 3,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 4,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
+    "meleerumble/davidalves.net.DuelistMiniMelee_1.2.jar": {
+      "diagnosis_events": [
+        {
+          "cause": "melee-opponent-pool-contamination",
+          "id": "diagnosis-1",
+          "owner": "harness",
+          "recorded_at": "2026-10-19T17:23:50Z"
+        }
+      ],
+      "identity": {
+        "classic_selected": "davidalves.net.DuelistMiniMelee 1.2",
+        "division": "meleerumble",
+        "jar": "davidalves.net.DuelistMiniMelee_1.2.jar",
+        "jar_sha256": "29ef73702786f80246622064d11cbc28625e0cbe454c008d7cc979bc9cf5179f",
+        "key": "meleerumble/davidalves.net.DuelistMiniMelee_1.2.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "db38b2a7024f249c",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 6.1,
+            "error_count": 498,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 113871.0,
+            "scores": [
+              18382.0,
+              11014.0,
+              11174.0,
+              6683.0,
+              10842.0,
+              9028.0,
+              9739.0,
+              10980.0,
+              8017.0,
+              18012.0
+            ],
+            "selected": "davidalves.net.DuelistMiniMelee 1.2"
+          },
+          "completed_at": "2026-10-19T17:21:52Z",
+          "confirmation": null,
+          "delta_pct": -3.8,
+          "id": "db38b2a7024f249c",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "1c5d51d27c5f194e3ea0837e3eafc07339b4876e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee7df6fef3b59383cc5783879441016854f7f2ce",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "davidalves.net.DuelistMiniMelee 1.2",
+            "division": "meleerumble",
+            "jar": "davidalves.net.DuelistMiniMelee_1.2.jar",
+            "jar_sha256": "29ef73702786f80246622064d11cbc28625e0cbe454c008d7cc979bc9cf5179f",
+            "key": "meleerumble/davidalves.net.DuelistMiniMelee_1.2.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 30.1,
+            "error_count": 30,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 109596.0,
+            "scores": [
+              18921.0,
+              12537.0,
+              12470.0,
+              11641.0,
+              11598.0,
+              11126.0,
+              10359.0,
+              8937.0,
+              7544.0,
+              4463.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 2,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 6,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 8,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
+    },
+    "meleerumble/davidalves.net.DuelistNanoMelee_1.01.jar": {
+      "diagnosis_events": [
+        {
+          "cause": "melee-opponent-pool-contamination",
+          "id": "diagnosis-1",
+          "owner": "harness",
+          "recorded_at": "2026-10-19T17:23:44Z"
+        }
+      ],
+      "identity": {
+        "classic_selected": "davidalves.net.DuelistNanoMelee 1.01",
+        "division": "meleerumble",
+        "jar": "davidalves.net.DuelistNanoMelee_1.01.jar",
+        "jar_sha256": "1fd7630392f605185810135d39ca53e11956cf275a130c2b649855acf5c4c1d0",
+        "key": "meleerumble/davidalves.net.DuelistNanoMelee_1.01.jar",
+        "kind": "robot"
+      },
+      "latest_observation": "f1b5b1526b20b1ba",
+      "observations": [
+        {
+          "classic": {
+            "elapsed": 6.1,
+            "error_count": 92,
+            "error_signatures": [
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "amk.guns.Aristocles.prepare"
+              },
+              {
+                "exception": "java.lang.ArrayIndexOutOfBoundsException",
+                "origin": "unknown"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.SecurityException occurred on robocode.DeathEvent",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 7",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException",
+              "SYSTEM: java.lang.ArrayIndexOutOfBoundsException occurred on robocode.ScannedRobotEvent",
+              "java.lang.ArrayIndexOutOfBoundsException"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 114474.0,
+            "scores": [
+              16271.0,
+              14045.0,
+              11913.0,
+              7488.0,
+              11048.0,
+              8707.0,
+              9930.0,
+              9120.0,
+              8361.0,
+              17591.0
+            ],
+            "selected": "davidalves.net.DuelistNanoMelee 1.01"
+          },
+          "completed_at": "2026-10-19T17:22:32Z",
+          "confirmation": null,
+          "delta_pct": -3.2,
+          "id": "f1b5b1526b20b1ba",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "9c138de51e4da4c31d1319086add068c178277d2433923e22ecc458b4eafd8ba"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "30672d56c45d70b3ba3189681522a6a7cfd30626fa580d042b5847ad3da90dd0"
+              }
+            },
+            "bridge_commit": "1c5d51d27c5f194e3ea0837e3eafc07339b4876e",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "ee7df6fef3b59383cc5783879441016854f7f2ce",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 1000,
+            "opponent_pool": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              },
+              {
+                "jar": "ara.Shera_0.88.jar",
+                "sha256": "9474b68598ae5e71010b835259467b6dc35427e2826ace23e484a6a11160a040"
+              },
+              {
+                "jar": "arthord.NanoSatanMelee_Beta.jar",
+                "sha256": "a0737bc6d25f6b89618c119a6df62ae89a44d9a2a7d662056dddefdde04f37fe"
+              },
+              {
+                "jar": "axeBots.HataMoto_3.09.jar",
+                "sha256": "293a92846b40195a5de25c7379f72e0dcb08297f79d2b6fffd7d3a95b50afb2c"
+              }
+            ],
+            "opponents": [
+              {
+                "jar": "adt.Ar1_2.1.jar",
+                "sha256": "37857b3fe3d082f121da8dd8ca81a5ea58edcab65fad3c552d71dfa65f58b14e"
+              },
+              {
+                "jar": "adt.Ar2_1.0.jar",
+                "sha256": "2adf54760aefa12c1e79667c064a9529b85aed2218e8a7457c335fb91153394e"
+              },
+              {
+                "jar": "amk.ChumbaMini_0.2.jar",
+                "sha256": "5770270c23f9223e4df93f5455fcf461ecd30309fc318f3d53cbbdf93e133d6b"
+              },
+              {
+                "jar": "amk.ChumbaWumba_0.3.jar",
+                "sha256": "f7594cdfa02419ae112013ec923387736a89840712162020ecb899e39d6127e9"
+              },
+              {
+                "jar": "amk.Punbot.Punbot_0.01.jar",
+                "sha256": "44e10755757c7cb523ad7f6a746f5524f6a054fe7d047528da8330829284b389"
+              },
+              {
+                "jar": "amk.ShizzleStiX.ShizzleStiX_0.6.jar",
+                "sha256": "3e93e50b7380b8b2f98ab1c30911bc56a98c6eb27ccb5125d1aa8cbbc5987850"
+              },
+              {
+                "jar": "amk.jointstrike.JointStrike_0.2.jar",
+                "sha256": "3f45fd832f7bb6b6ceb3841c1ab108583ba11b49ba06cbde2f8e61637dc28297"
+              },
+              {
+                "jar": "ap.Frederick_1.1.jar",
+                "sha256": "d7f1709e4ea064f0662f383c339f57390977292fdd921933adc36e305a375899"
+              },
+              {
+                "jar": "apc.botM_3.0.jar",
+                "sha256": "9348a9b3c2e0f175bacf361dc3b20a0842f186c228564bcafd8b6d853d345d94"
+              }
+            ],
+            "participants": 10,
+            "rounds": 35,
+            "width": 1000
+          },
+          "source_identity": {
+            "classic_selected": "davidalves.net.DuelistNanoMelee 1.01",
+            "division": "meleerumble",
+            "jar": "davidalves.net.DuelistNanoMelee_1.01.jar",
+            "jar_sha256": "1fd7630392f605185810135d39ca53e11956cf275a130c2b649855acf5c4c1d0",
+            "key": "meleerumble/davidalves.net.DuelistNanoMelee_1.01.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (errors)",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 32.1,
+            "error_count": 30,
+            "error_signatures": [
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "amk.ChumbaMini.saveData"
+              },
+              {
+                "exception": "java.lang.SecurityException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time.",
+              "java.lang.SecurityException: You may only have 5 streams open at a time."
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 110842.0,
+            "scores": [
+              17620.0,
+              13229.0,
+              12372.0,
+              11472.0,
+              11309.0,
+              10529.0,
+              10440.0,
+              8866.0,
+              7713.0,
+              7292.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [
+                {
+                  "bot_id": 1,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 7,
+                  "round": 1,
+                  "turn": 1
+                },
+                {
+                  "bot_id": 9,
+                  "round": 1,
+                  "turn": 1
+                }
+              ],
+              "status": "captured"
+            }
+          }
+        }
+      ],
+      "status": "DISCREPANCY (errors)"
     },
     "meleerumble/logiblocs.SittingDroid_1.0.jar": {
       "diagnosis_events": [

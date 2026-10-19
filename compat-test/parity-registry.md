@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 42 |
+| DISCREPANCY (errors) | 46 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 60 |
+| DISCREPANCY (outcome) | 61 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
 | PASS | 710 |
@@ -19,6 +19,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | Subject | Division | Kind | Status | Latest observation | Cause | Owner |
 |---|---|---|---|---|---|---|
 | meleerumble/DBall.Anarchy_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6841d9203fe3ae10 | melee-opponent-pool-contamination | harness |
+| meleerumble/DBall.NUKE_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | f776562776805d1d | melee-opponent-pool-contamination | harness |
 | meleerumble/Krabb.sliNk.Garm_0.9u.jar | meleerumble | robot | DISCREPANCY (errors) | 0935de29b327fe56 | melee-opponent-pool-contamination | harness |
 | meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
 | meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
@@ -92,6 +93,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (errors) | 9f3a2c9cbfc35a90 | robot-null-point-in-darkcanuck-m-a | robot |
 | meleerumble/darkcanuck.Leon_1.01.jar | meleerumble | robot | DISCREPANCY (errors) | f4a83aa624293f22 | melee-opponent-pool-contamination | harness |
 | meleerumble/darwinsnightmare.DNGEN474UI85390C20S0R528_1.0.jar | meleerumble | robot | DISCREPANCY (outcome) | 20c0889df641babe | melee-opponent-pool-contamination | harness |
+| meleerumble/davidalves.Phoenix_0.54.jar | meleerumble | robot | DISCREPANCY (outcome) | 8886c50b55a9ad6b | - | - |
+| meleerumble/davidalves.net.DuelistMicroMelee_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 6834c78739a83de5 | melee-opponent-pool-contamination | harness |
+| meleerumble/davidalves.net.DuelistMiniMelee_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | db38b2a7024f249c | melee-opponent-pool-contamination | harness |
+| meleerumble/davidalves.net.DuelistNanoMelee_1.01.jar | meleerumble | robot | DISCREPANCY (errors) | f1b5b1526b20b1ba | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
