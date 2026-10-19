@@ -40,4 +40,4 @@ Keep the RoboRumble Garm outcome open until the worker exposes its first initial
 
 ## M-006 handoff
 
-Continue with the next undiagnosed discrepancy in registry order: `roborumble/ap.Frederick_1.1.jar`.
+Continue M-006 collection coverage with the first unregistered MeleeRumble jar, `meleerumble/DBall.Anarchy_0.1.jar`; AN-700 records the current inventory gap.
