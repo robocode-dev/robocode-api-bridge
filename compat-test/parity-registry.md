@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 114 |
+| DISCREPANCY (errors) | 135 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 67 |
+| DISCREPANCY (outcome) | 71 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -172,6 +172,31 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/jcs.Seth_1.8.jar | meleerumble | robot | DISCREPANCY (errors) | 9b9138a2f5fc680b | melee-opponent-pool-contamination | harness |
 | meleerumble/jdw.Hurricane_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0c2ae0cbac2e6851 | melee-opponent-pool-contamination | harness |
 | meleerumble/jekl.StoneGhost_0.7.jar | meleerumble | robot | DISCREPANCY (errors) | 8de300b1a4e97d53 | melee-opponent-pool-contamination | harness |
+| meleerumble/jeremyreeder.Vincent_2011.12.09.jar | meleerumble | robot | DISCREPANCY (errors) | a51019f4ff093045 | melee-opponent-pool-contamination | harness |
+| meleerumble/jeremyreeder.collective.Prophet_5.jar | meleerumble | robot | DISCREPANCY (outcome) | 2976078efabb2005 | robot-null-bogey-on-hit-by-bullet | robot |
+| meleerumble/jje.BagPuss_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 0c80bdbf02ec0933 | melee-opponent-pool-contamination | harness |
+| meleerumble/jk.melee.Neuromancer_7.12.jar | meleerumble | robot | DISCREPANCY (errors) | 4a76798761349b22 | melee-opponent-pool-contamination | harness |
+| meleerumble/jlm.javaDisturbance_0.59.jar | meleerumble | robot | DISCREPANCY (errors) | 8588bd6f6e47e264 | melee-opponent-pool-contamination | harness |
+| meleerumble/joe.ADinosaur_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ad8a902aab769b48 | melee-opponent-pool-contamination | harness |
+| meleerumble/jok.PheonixM_0.1.2.jar | meleerumble | robot | DISCREPANCY (errors) | effbe58fa3425e05 | melee-opponent-pool-contamination | harness |
+| meleerumble/josago.Jorgito_0.16.jar | meleerumble | robot | DISCREPANCY (errors) | 134d013f3bcb0b96 | melee-opponent-pool-contamination | harness |
+| meleerumble/jp.Perpy_16.0.jar | meleerumble | robot | DISCREPANCY (errors) | a72d0e96bc2e3ae2 | melee-opponent-pool-contamination | harness |
+| meleerumble/jrm.Test0_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 52f9317661f34e57 | melee-opponent-pool-contamination | harness |
+| meleerumble/js.PinBall_1.6.jar | meleerumble | robot | DISCREPANCY (errors) | 42b5ad731df4a428 | melee-opponent-pool-contamination | harness |
+| meleerumble/jsal.Jsalbot_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | bd9f341663821e78 | melee-opponent-pool-contamination | harness |
+| meleerumble/justin.DemonicRage_3.4.jar | meleerumble | robot | DISCREPANCY (outcome) | 80f8139df582db22 | robot-null-enemy-list-in-dynamic-locking | robot |
+| meleerumble/justin.Mallais_14.0.jar | meleerumble | robot | DISCREPANCY (errors) | f980960c5dc3e09d | melee-opponent-pool-contamination | harness |
+| meleerumble/jwst.DAD.DarkAndDarker_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | d2c4370c1dbb45c5 | melee-opponent-pool-contamination | harness |
+| meleerumble/kano.gamma.KanoGamma_1.8.jar | meleerumble | robot | DISCREPANCY (errors) | f751db50cf964a31 | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.micro.Shiz_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | b567f641d2656803 | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.mini.Coriantumr_1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | aa8bbd8871b02a20 | robot-negative-index-in-on-scanned-robot | robot |
+| meleerumble/kawigi.mini.Fhqwhgads_1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 39b129124bacb94a | robot-negative-index-in-on-scanned-robot | robot |
+| meleerumble/kawigi.nano.Lib_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 263d15721d96638f | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.robot.Girl_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | a27e820d0c16a28a | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.sbf.FloodHT_0.9.2.jar | meleerumble | robot | DISCREPANCY (errors) | c7432c91b68c31c2 | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.sbf.FloodSonnet_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 651933edd2985b74 | robot-security-exception-on-classic-win-callback | robot |
+| meleerumble/kawigi.spare.SpareParts_0.7.6nosnd.jar | meleerumble | robot | DISCREPANCY (errors) | c65e660b00b66b57 | melee-opponent-pool-contamination | harness |
+| meleerumble/kc.melee.Logic_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9ba5cce78d805a4a | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
