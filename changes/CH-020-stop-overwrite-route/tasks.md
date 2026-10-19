@@ -5,6 +5,6 @@
 - [x] Add focused positive and negative unit evidence for overwrite-stop routing and prove no neighboring peer call is used.
 - [x] Update the CAP-008 design and `CHANGELOG.md` to describe the restored Classic behavior.
 - [x] Run `./gradlew :robocode-api:test` and build the bridge and wrapper jars.
-- [ ] Retest `jaybot.bots.Oddball` with official Melee parameters, record repair-linked evidence in the parity registry, and diagnose any remaining difference.
+- [x] Retest `jaybot.bots.Oddball` with official Melee parameters, record repair-linked evidence in the parity registry, and diagnose the remaining opponent-pool difference.
 - [ ] Run the required Cliewen validation and review loop on the committed candidate.
 - [ ] Digest the accepted capability and registry changes, then remove this change workspace.
