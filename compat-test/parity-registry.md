@@ -7,7 +7,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 39 |
+| DISCREPANCY (errors) | 40 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 58 |
 | MATCHED (failure) | 49 |
@@ -88,6 +88,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/cx.mini.Nimrod_0.55.jar | meleerumble | robot | MATCHED (score noise) | 4c542f596559390b | melee-opponent-pool-contamination | harness |
 | meleerumble/dans.Cinnamon_1.2.jar | meleerumble | robot | MATCHED (score noise) | e77675dcb81697e3 | melee-opponent-pool-contamination | harness |
 | meleerumble/darkcanuck.B26354_1.06.jar | meleerumble | robot | DISCREPANCY (errors) | 9f3a2c9cbfc35a90 | robot-null-point-in-darkcanuck-m-a | robot |
+| meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
@@ -658,7 +659,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/lk.nano.Avesnar_1.1.jar | roborumble | robot | CONFIRMED (score) | 5aa459e8e50f0311 | - | - |
 | roborumble/lmk.ACPFinal_0.2.jar | roborumble | robot | PASS | c387423c5cc4d80c | - | - |
 | roborumble/logiblocs.Fire_1.0.jar | roborumble | robot | CONFIRMED (score) | 7e8b0c1cf09cf105 | - | - |
-| roborumble/logiblocs.SittingDroid_1.0.jar | roborumble | robot | DISCREPANCY (no score) | aad8e7c68a03e5dd | - | - |
+| roborumble/logiblocs.SittingDroid_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e5b4367763d790d7 | solo-droid-zero-score | robot |
 | roborumble/lorneswork.Predator_1.0.jar | roborumble | robot | CONFIRMED (score) | 22f412f7bb9b7d89 | - | - |
 | roborumble/lrem.Spectre_0.4.4.jar | roborumble | robot | PASS | 1d0e2d5ce38f97d9 | - | - |
 | roborumble/lrem.magic.TormentedAngel_Antiquitie.jar | roborumble | robot | DISCREPANCY (outcome) | 1a3635553148abba | - | - |
@@ -1235,7 +1236,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/kawigi.micro.ArmyOfShiz_1.1.jar | teamrumble | team | PASS | d191b3cc728cc41d | nested-team-jar-discovery | wrapper |
 | teamrumble/kawigi.sbf.TidalWave_0.8.jar | teamrumble | team | PASS | b5f4b749ab64fd9a | bot-assumes-target-exists-before-first-scan | robot |
 | teamrumble/kid.team.OmegaSquad_.0.2.jar | teamrumble | team | PASS | 1c265b098fb762c5 | - | - |
-| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 61afa98612b51fb6 | - | - |
+| teamrumble/logiblocs.SittingDroidTeam_1.0.jar | teamrumble | team | CONFIRMED (score) | 8e0dbf52523fefa2 | - | - |
 | teamrumble/lxx.ConceptATeam_0.8.jar | teamrumble | team | DISCREPANCY (errors) | 02701f091eea7032 | robot-null-previous-duel-opponent-on-wave-callback | robot |
 | teamrumble/mn.CombatTeam_3.25.0.jar | teamrumble | team | MATCHED (score noise) | 5f85b23d94a6826a | tank-royale-duplicate-bullet-outcomes | tank-royale |
 | teamrumble/mn.SuperSittingDuckTeam_1.0.2.jar | teamrumble | team | DISCREPANCY (no score) | 15d61e66e8f76f48 | symmetric-robot-runtime-failure-zero-score | robot |
