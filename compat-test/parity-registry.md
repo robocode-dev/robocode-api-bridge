@@ -7,7 +7,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 54 |
+| DISCREPANCY (errors) | 59 |
 | DISCREPANCY (no score) | 9 |
 | DISCREPANCY (outcome) | 62 |
 | MATCHED (failure) | 49 |
@@ -107,6 +107,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/divineomega.TrialBot_0.003.jar | meleerumble | robot | DISCREPANCY (errors) | cd5718f998744dce | melee-opponent-pool-contamination | harness |
 | meleerumble/djc.DynaBot_0.1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | cba46e68692acc3d | robot-unchecked-gun-wave-feature-index | robot |
 | meleerumble/djdjdj.NanoSkunk10_1.0.jar | meleerumble | robot | PASS | 1a860ff80273cde6 | - | - |
+| meleerumble/dl.BetterWalls_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 023be8768a3f4dfb | melee-opponent-pool-contamination | harness |
+| meleerumble/dmh.robocode.robot.BlackDeath_9.2.jar | meleerumble | robot | DISCREPANCY (errors) | ead284379be1a309 | melee-opponent-pool-contamination | harness |
+| meleerumble/dmh.robocode.robot.RedDwarf_0.4.jar | meleerumble | robot | DISCREPANCY (errors) | 5a782f7cfb2d9e70 | melee-opponent-pool-contamination | harness |
+| meleerumble/donjezza.Jezza_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 084a2d5fe3e180b1 | melee-opponent-pool-contamination | harness |
+| meleerumble/donjezza.Muncho_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 701f3829bece0594 | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
