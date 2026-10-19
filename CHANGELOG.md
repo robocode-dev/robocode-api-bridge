@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Truncate legacy robot and team author metadata to the Bot API's 50-character limit so long author names do not prevent wrapped bots from starting.
 - Trim legacy robot and team author metadata in generated bot JSON so it matches the Bot API's canonical author identity and does not block bot startup.
 - Copy a robot's bundled data file when `getDataFile()` resolves it, and create an empty file when no bundled resource exists, matching Classic's file initialization behavior.
 - Transform infinite loops in direct `JuniorRobot` subclasses using their `energy` field, so wrapped robots stop at round boundaries without calling a missing `getEnergy()` method.

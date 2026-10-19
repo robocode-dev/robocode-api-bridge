@@ -17,6 +17,9 @@ import org.apache.bcel.classfile.ClassParser;
 
 public class Main {
 
+    // Keep generated metadata within Tank Royale BotInfo.MAX_AUTHOR_LENGTH.
+    private static final int MAX_AUTHOR_LENGTH = 50;
+
     static final String JAVA_WRAPPER = "Wrapper.java";
 
     public static void main(String[] args) throws IOException {
@@ -225,7 +228,7 @@ public class Main {
     static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
                                     String teamAuthor, List<String> memberDirNames) throws IOException {
         File file = createOrOverwriteFile(teamDir, teamBaseName + ".json");
-        String author = teamAuthor == null ? null : teamAuthor.trim();
+        String author = normalizeAuthor(teamAuthor);
 
         var membersJson = new StringBuilder();
         for (int i = 0; i < memberDirNames.size(); i++) {
@@ -368,7 +371,7 @@ public class Main {
         if (author == null || author.isBlank()) {
             author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
         }
-        author = author.trim();
+        author = normalizeAuthor(author);
 
         try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
@@ -479,6 +482,22 @@ public class Main {
 
     static String replaceIfBlank(String str, String replacement) {
         return (str == null || str.isBlank()) ? replacement : str;
+    }
+
+    static String normalizeAuthor(String author) {
+        if (author == null) {
+            return "";
+        }
+        String normalized = author.trim();
+        if (normalized.length() <= MAX_AUTHOR_LENGTH) {
+            return normalized;
+        }
+        int end = MAX_AUTHOR_LENGTH;
+        if (Character.isHighSurrogate(normalized.charAt(end - 1))
+                && Character.isLowSurrogate(normalized.charAt(end))) {
+            end--;
+        }
+        return normalized.substring(0, end);
     }
 
     static String escape(String str) {

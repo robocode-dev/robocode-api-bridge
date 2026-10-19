@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 64 |
+| DISCREPANCY (errors) | 67 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 62 |
+| DISCREPANCY (outcome) | 64 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -21,6 +21,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/DBall.Anarchy_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 6841d9203fe3ae10 | melee-opponent-pool-contamination | harness |
 | meleerumble/DBall.NUKE_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | f776562776805d1d | melee-opponent-pool-contamination | harness |
 | meleerumble/DTF.Kludgy_1.2b.jar | meleerumble | robot | DISCREPANCY (errors) | 2fc5d6dcd3a4232f | melee-opponent-pool-contamination | harness |
+| meleerumble/EBBU.Sim2_1.02.jar | meleerumble | robot | DISCREPANCY (errors) | 65d40cafb44f6327 | melee-opponent-pool-contamination | harness |
 | meleerumble/Krabb.sliNk.Garm_0.9u.jar | meleerumble | robot | DISCREPANCY (errors) | 0935de29b327fe56 | melee-opponent-pool-contamination | harness |
 | meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
 | meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
@@ -117,6 +118,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/ds.Oo_2.2.jar | meleerumble | robot | DISCREPANCY (errors) | 2d60f3abb4b7c5a0 | melee-opponent-pool-contamination | harness |
 | meleerumble/dsw.StaticD_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4ba669ba5e853bab | melee-opponent-pool-contamination | harness |
 | meleerumble/dummy.micro.Sparrow_2.5.jar | meleerumble | robot | DISCREPANCY (errors) | 20c938450907fb8f | melee-opponent-pool-contamination | harness |
+| meleerumble/dummy.mini.Scimitar_1.01.jar | meleerumble | robot | DISCREPANCY (outcome) | 4d0abb7de50e3270 | legacy-author-metadata-exceeds-bot-api-limit | bridge |
+| meleerumble/dylanb.xyz_2.0.jar | meleerumble | robot | DISCREPANCY (outcome) | ae9a57a94097642c | classic-robot-absent-from-configured-home | harness |
+| meleerumble/edu.otg.spr.TheTeacher_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 29c89ad280f4d5b8 | melee-opponent-pool-contamination | harness |
+| meleerumble/eem.EvBot_v4.6.16.jar | meleerumble | robot | DISCREPANCY (errors) | 877d86ecbfa73af4 | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
