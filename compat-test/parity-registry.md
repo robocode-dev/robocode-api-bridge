@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 136 |
+| DISCREPANCY (errors) | 159 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 70 |
+| DISCREPANCY (outcome) | 72 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -27,7 +27,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/Grystrion.RandomTrackerNOREV_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | bc789f0f9ae32bb6 | melee-opponent-pool-contamination | harness |
 | meleerumble/Grystrion.TrackerWO_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | eddb66edc993a764 | melee-opponent-pool-contamination | harness |
 | meleerumble/ICS4U1.Patrick_White_Schrodinger_1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | 2466ccadbe807831 | melee-opponent-pool-contamination | harness |
+| meleerumble/KiraNL.Chupacabra_0.4.jar | meleerumble | robot | DISCREPANCY (errors) | 0a6bf2235728c84a | melee-opponent-pool-contamination | harness |
+| meleerumble/Krabb.akim2.Akim2_1.1b.jar | meleerumble | robot | DISCREPANCY (errors) | c7690f424ff30e82 | melee-opponent-pool-contamination | harness |
 | meleerumble/Krabb.sliNk.Garm_0.9u.jar | meleerumble | robot | DISCREPANCY (errors) | 0935de29b327fe56 | melee-opponent-pool-contamination | harness |
+| meleerumble/Lo_Ian.Gandalf_V4_4.0.jar | meleerumble | robot | DISCREPANCY (errors) | 0aa2fef151f51df3 | robot-null-enemy-in-get-shot-power | robot |
 | meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
 | meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
 | meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | MATCHED (score noise) | 9ec2c336d8d76bbf | robot-file-stream-limit | bridge |
@@ -197,7 +200,29 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/kawigi.sbf.FloodSonnet_0.9.jar | meleerumble | robot | DISCREPANCY (errors) | 651933edd2985b74 | robot-security-exception-on-classic-win-callback | robot |
 | meleerumble/kawigi.spare.SpareParts_0.7.6nosnd.jar | meleerumble | robot | DISCREPANCY (errors) | c65e660b00b66b57 | melee-opponent-pool-contamination | harness |
 | meleerumble/kc.melee.Logic_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9ba5cce78d805a4a | melee-opponent-pool-contamination | harness |
+| meleerumble/kid.Gladiator_.7.2.jar | meleerumble | robot | DISCREPANCY (errors) | 2feff0ca26312f93 | melee-opponent-pool-contamination | harness |
+| meleerumble/kid.test.NightFox_.2.jar | meleerumble | robot | DISCREPANCY (errors) | 5864a0c6801979e3 | melee-opponent-pool-contamination | harness |
+| meleerumble/kinsen.melee.Angsaichmophobia_1.8c.jar | meleerumble | robot | DISCREPANCY (errors) | b2e1101a9f9adda5 | melee-opponent-pool-contamination | harness |
+| meleerumble/krillr.mini.JointStrike_2.0.0.jar | meleerumble | robot | DISCREPANCY (errors) | be65483ec0e0b357 | melee-opponent-pool-contamination | harness |
+| meleerumble/kurios.DOSexe_.9a.jar | meleerumble | robot | DISCREPANCY (errors) | 77dc9b637db47ce7 | melee-opponent-pool-contamination | harness |
+| meleerumble/kurios.DOSexe_.9b.jar | meleerumble | robot | DISCREPANCY (errors) | be58de9b259f18ed | melee-opponent-pool-contamination | harness |
+| meleerumble/kvk.HebusLeTroll_0.35.jar | meleerumble | robot | DISCREPANCY (errors) | a133cc4de8fbf126 | melee-opponent-pool-contamination | harness |
+| meleerumble/labg.Cataclysm_2.05.jar | meleerumble | robot | DISCREPANCY (outcome) | 984664e21c1047c1 | harness-aborted-on-caught-robot-eof | harness |
+| meleerumble/lambdaxy.TBot_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | d9244a071be46a46 | melee-opponent-pool-contamination | harness |
+| meleerumble/lessonz.robocode.Oz_0.5.0.jar | meleerumble | robot | DISCREPANCY (errors) | b3e35009b6e7609a | melee-opponent-pool-contamination | harness |
+| meleerumble/lmk.ACPFinal_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 196c44298ce4d381 | melee-opponent-pool-contamination | harness |
 | meleerumble/logiblocs.SittingDroid_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | d4d685f491e15ea1 | melee-opponent-pool-contamination | harness |
+| meleerumble/lorneswork.Predator_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 4dea1f7f4e33ceed | melee-opponent-pool-contamination | harness |
+| meleerumble/lrem.Spectre_0.4.4.jar | meleerumble | robot | DISCREPANCY (errors) | f60c13c465748004 | melee-opponent-pool-contamination | harness |
+| meleerumble/lrem.micro.MoggFanatic_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | b1b7158a214275ea | melee-opponent-pool-contamination | harness |
+| meleerumble/lrem.micro.SpikeSoldier_0.4.jar | meleerumble | robot | DISCREPANCY (errors) | 830993461985f2aa | robot-null-position-entry-on-robot-death | robot |
+| meleerumble/lunchie.Lunchbox_0.93.jar | meleerumble | robot | DISCREPANCY (errors) | 7efa62e08ea9bbd8 | melee-opponent-pool-contamination | harness |
+| meleerumble/lxx.ConceptA_0.8.jar | meleerumble | robot | DISCREPANCY (outcome) | a4e27eb515b632db | robot-null-model-entry-in-ca-utils-lateral-direction | robot |
+| meleerumble/m3thos.Eva00_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 9d86f332cb925904 | melee-opponent-pool-contamination | harness |
+| meleerumble/m3thos.Eva02_0.7.1.jar | meleerumble | robot | DISCREPANCY (errors) | a070af93757476a8 | melee-opponent-pool-contamination | harness |
+| meleerumble/m3thos.mini.Eva01_0.5.5.jar | meleerumble | robot | DISCREPANCY (errors) | b76e066ed92dca70 | melee-opponent-pool-contamination | harness |
+| meleerumble/maribo.FollowFire_1.jar | meleerumble | robot | DISCREPANCY (errors) | 6f112082ef6d64ba | melee-opponent-pool-contamination | harness |
+| meleerumble/maribo.IotaCT_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | b177bd5e14f7589f | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |
