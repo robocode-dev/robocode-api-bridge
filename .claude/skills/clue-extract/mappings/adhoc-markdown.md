@@ -1,3 +1,8 @@
+---
+type: skill-reference
+title: "clue-extract mapping: ad-hoc markdown"
+---
+
 # clue-extract mapping: ad-hoc markdown
 
 Source mapping for [clue-extract](../skill.md) — the target contract in `skill.md` governs; this file only says what maps where for a repository whose specification corpus is ordinary project markdown rather than a structured format.

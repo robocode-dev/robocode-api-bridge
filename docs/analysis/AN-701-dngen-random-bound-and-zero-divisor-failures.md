@@ -2,7 +2,7 @@
 id: AN-701
 type: analysis
 status: active
-links: [P-001, PDR-001, PDR-003, PDR-015, AN-015, C-007]
+links: [P-001, PDR-001, PDR-003, AN-015, C-007]
 title: DNGEN's generated callback code throws invalid-bound and divide-by-zero failures
 provenance: inferred
 reversal-cost: low

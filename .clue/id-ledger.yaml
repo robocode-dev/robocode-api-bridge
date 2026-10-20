@@ -114,7 +114,7 @@ events:
     - {id: ROUTE-002, kind: numeric, state: live, prefix: ROUTE, component: "2"}
     - {id: ROUTE-003, kind: numeric, state: live, prefix: ROUTE, component: "3"}
     - {id: ROUTE-004, kind: numeric, state: live, prefix: ROUTE, component: "4"}
-    - {id: ROUTE-005, kind: numeric, state: live, prefix: ROUTE, component: "5"}
+    - {id: ROUTE-005, kind: numeric, state: retired, prefix: ROUTE, component: "5"}
     - {id: ROUTE-006, kind: numeric, state: live, prefix: ROUTE, component: "6"}
     - {id: ROUTE-007, kind: numeric, state: live, prefix: ROUTE, component: "7"}
     - {id: ROUTE-008, kind: numeric, state: live, prefix: ROUTE, component: "8"}
@@ -1616,6 +1616,13 @@ events:
     - {id: ROUTE-013, kind: numeric, state: reserved, prefix: ROUTE, component: "13"}
     - {id: ROUTE-013, kind: numeric, state: live, prefix: ROUTE, component: "13"}
     - {id: CH-020, kind: numeric, state: live, prefix: CH, component: "20"}
+    - {id: AN-209, kind: numeric, state: live, prefix: AN, component: "209"}
+    - {id: AN-211, kind: numeric, state: live, prefix: AN, component: "211"}
+    - {id: AN-215, kind: numeric, state: live, prefix: AN, component: "215"}
+    - {id: AN-217, kind: numeric, state: live, prefix: AN, component: "217"}
+    - {id: AN-218, kind: numeric, state: live, prefix: AN, component: "218"}
+    - {id: AN-220, kind: numeric, state: live, prefix: AN, component: "220"}
+    - {id: AN-222, kind: numeric, state: live, prefix: AN, component: "222"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}

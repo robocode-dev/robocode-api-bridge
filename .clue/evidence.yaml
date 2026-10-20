@@ -1,0 +1,1331 @@
+{
+  "version": 1,
+  "producers": [
+    {
+      "id": "bridge-junit",
+      "framework": "JUnit",
+      "language": "Java",
+      "include": [
+        "*/build.gradle.kts",
+        "*/src/test/java/**/*.java",
+        ".clue/evidence/aggregate.py",
+        ".clue/evidence/junit_producer.py",
+        ".clue/evidence/producers.json",
+        "build.gradle.kts"
+      ],
+      "exclude": [],
+      "inputs": [
+        {
+          "path": ".clue/evidence/aggregate.py",
+          "sha256": "cf20a3f9d5a1072a7b2d3ddfc4bc9e25575b2cbd27441aba61e9d83d9ac4768c"
+        },
+        {
+          "path": ".clue/evidence/junit_producer.py",
+          "sha256": "dce6d0dcc589d04168037782b67ff222539d0fd5ad40c376a3e55ac9c2e8f58d"
+        },
+        {
+          "path": ".clue/evidence/producers.json",
+          "sha256": "dcd2d3e60148a7c2b28908e05fadd327ab12e11e37bcbe2b375a6f5be74f28e9"
+        },
+        {
+          "path": "build.gradle.kts",
+          "sha256": "48d3ed845800ce8287bf650176d273727d15df103b7ad2491f6f733d6f9235c9"
+        },
+        {
+          "path": "conformance-test/build.gradle.kts",
+          "sha256": "32afe5322e7e89f3bfe96e3e19274f202f80e9e4b549022e3042379f67c17cff"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BattleOutcome.java",
+          "sha256": "2ee0603487172005168176fcca34be03a06cbd6473bf5cb36a15e0e870324d84"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingScanConformanceTest.java",
+          "sha256": "e0fc37f7af129a5b07a644fc5b68a2627b22274ce4b8f7268936e759cf52fafd"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ConformanceHarness.java",
+          "sha256": "07549a2e6da09e0ee6af086907465375569aaf58fa094b7d55150314d33b7e2b"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ConformanceTestBase.java",
+          "sha256": "f944acc7b85b09be3740ea645c7c52757e0dbc34c07e785292c6269a8ae5f3b2"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/CustomEventsConformanceTest.java",
+          "sha256": "c52a3c83535af8668e46637896783c2c8f75254d941c974f81bd621b343015de"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/Engine.java",
+          "sha256": "873b802f6ba634f2b1e85ba26b1a2223f2bf856c5b57cb3326f362117913d587"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/EventPriorityConformanceTest.java",
+          "sha256": "27aaf6a53b9ebb759ef5a74d3e549bd26c0eb7d626a6a35fde3eb1f399067e8b"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileQuotaConformanceTest.java",
+          "sha256": "8244b970fa996b265bafc51d316f46e6bcdb867046ef795c300410078e06aab5"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileRedirectionConformanceTest.java",
+          "sha256": "ffbb161e3111b7d0127b2211a2491ae429ab5fde0ed4cb45292f1ec88ff39c80"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileStreamLimitConformanceTest.java",
+          "sha256": "837ccd1c6ee0800576b407be72c27ada41587fee400aa8ba0c46b50026cf7f2a"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InitialStatusConformanceTest.java",
+          "sha256": "b0a8fb2bb7745daa5f62e283f057137a34d091187ec7f7938fbc1f921e50e7a1"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InterruptibleEventConformanceTest.java",
+          "sha256": "4f366af70e40e302373bddce5161ad6eb9f5a7c04dd29dc70eca22569020c697"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/Json.java",
+          "sha256": "e8a1cce9750afd700dca7d2a685a189eabe7d0f6c8f19da45ee4572e4c7d33df"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/MeleeScanConformanceTest.java",
+          "sha256": "81fd36f91b507e3fbab8cf8b007ee39eb4b29013663a4b7572d4163c9eb36461"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RobotDeathEventsConformanceTest.java",
+          "sha256": "c87ca50a6d03257e1248ff0da1c84fc3ec9b23e819e08738c9c72731c3d31afa"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "sha256": "43d841cd3ca322e09df65847c0a6489e8c938d4db56088cadb67e393fd112d0a"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnTelemetryConformanceTest.java",
+          "sha256": "216e7d5b555f227cf085e0b2df5ff8c1ef57bd6166e2492c2bafdf68254e8d44"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnsConformanceTest.java",
+          "sha256": "d79abf599742a62a486eb12e154d465ba56ff3986506e2357041e4b0f850ab77"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "sha256": "44d6149759d0953a67c4c2d5d8295ca7ea56d6d7fec511864012323595e22b93"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ThrowingConformanceTest.java",
+          "sha256": "4d968c3f01664af2e59cdfc4aa7c11d33f2c299b10e46e5d0f403541ea2bdbc9"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TurnBoundaryConformanceTest.java",
+          "sha256": "4988f575fb2f47908c8b09445fa6cc86089e5b0b8774f6a2cec505eef782e3c9"
+        },
+        {
+          "path": "robocode-api/build.gradle.kts",
+          "sha256": "3cfb16a68b747ecaa61114c985d8a7de78d82b069ee0584012883e8c85656966"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "sha256": "b406134f9aa5c86295435f1ffb0fec9c741c90ebc7ce5bb170fa184998c732aa"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java",
+          "sha256": "795845db97cb4b99f3e59070435cc02062c2ddaf35375c2655604133d0f7a9ba"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "sha256": "3c719e5d371c9dbab58ecaacc09079e6f8f5d4a7b038dc9e0c43ba116545f788"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BotPeerDroidSelectionTest.java",
+          "sha256": "f59b9f4e66c08e8ac82d5880a5d29a8c21c1d62fd6397be643f60761bd675e51"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "sha256": "81060df80d0ad7b015af6279cc801c2a610de30f9c2d44e9a105c92753b7d025"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
+          "sha256": "2e9c9a11160f540e199b6e8a101bca74b243e96efc48acb6b8609480c196189a"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java",
+          "sha256": "76f991a5f2955ba346149d539d0acd875e278f6fa0f988a10b460147bedaa2e8"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "sha256": "1693c95198cbd13ed51b879b86f1ae2e518b606bbac1336c485bdd88070ad084"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "sha256": "791483e5badc095fd2dec32408242fd5736922a5847fb9de666e830dfffb0cad"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/PeerSurfaceCoverageTest.java",
+          "sha256": "7ea6b4b95fbb97e299dadcd0a536950ef4a190e697ad8ab9d3547fe88e71069c"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RecordingBot.java",
+          "sha256": "2e86db281e80acc43278ce01f495444d875175a4b6decb162565f64b2a34fc15"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java",
+          "sha256": "7077afb780940b20d26ed2fce3725f4548bc9cc362703ac35e01677fcaf22de8"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "sha256": "537667f9d71d6edf63756f1246f1eb14511f45f40e41e9c599ab4c113a82fbc1"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataStreamLifecycleTest.java",
+          "sha256": "75970ae73e7dc75cd373b2823cbb0e7d5d019b0ae0d3ba22263617a760811dfb"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
+          "sha256": "2c07c7510ba8ed9f89bd726f8b83d471161faff492552530378bbe49922ba7e8"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "sha256": "b261cead9cd1cbe4cf57ada40a6d515969a94f8ce27de7f55f42ddd18697b42f"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "sha256": "988fd92a2741888166fcb39cbcbead3d162ef056f17812a96c6fd7172d2424ff"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StubRobot.java",
+          "sha256": "d8e0792a46d93b1c2ebf5e936587b002aac4f4973d22faa8be56b5d5cb2e5c91"
+        },
+        {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "sha256": "4284411f4cc9712ad571a87e7ad8cb88446ce63f15a35b5a28ffa7d7f908b4f1"
+        },
+        {
+          "path": "robots-wrapper/build.gradle.kts",
+          "sha256": "ffad5e5b114493537d6a12848e2c491a9cf0a92e094791441e9fb78f53f3ba90"
+        }
+      ],
+      "references": [
+        {
+          "id": "EVT-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingScanConformanceTest.java",
+          "subject": "BlockingScanConformanceTest.testEVT002_IntegrationNegative_BridgeDoesNotDiscardPendingScans",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingScanConformanceTest.java",
+          "subject": "BlockingScanConformanceTest.testEVT002_IntegrationPositive_PendingScansSurviveBlockingHandler",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-006",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/CustomEventsConformanceTest.java",
+          "subject": "CustomEventsConformanceTest.testEVT006_IntegrationNegative_RemovedCustomEventDoesNotRepeat",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-006",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/CustomEventsConformanceTest.java",
+          "subject": "CustomEventsConformanceTest.testEVT006_IntegrationPositive_ClassicCustomEventsDispatch",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-006",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/CustomEventsConformanceTest.java",
+          "subject": "CustomEventsConformanceTest.testEVT006_IntegrationPositive_RemovedCustomEventStopsFiring",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-015",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/EventPriorityConformanceTest.java",
+          "subject": "EventPriorityConformanceTest.testEVT015_IntegrationNegative_BridgeDoesNotReportAScanClassicDidNotSee",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-015",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/EventPriorityConformanceTest.java",
+          "subject": "EventPriorityConformanceTest.testEVT015_IntegrationPositive_LowerPriorityScanIsSuppressedOnBothEngines",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-003",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileQuotaConformanceTest.java",
+          "subject": "FileQuotaConformanceTest.testFIO003_IntegrationNegative_TheRefusedChunkDoesNotAlsoReportSuccess",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-003",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileQuotaConformanceTest.java",
+          "subject": "FileQuotaConformanceTest.testFIO003_IntegrationPositive_ReplacedBytesDoNotAccumulateQuota",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-003",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileQuotaConformanceTest.java",
+          "subject": "FileQuotaConformanceTest.testFIO003_IntegrationPositive_WritePastQuotaIsRefused",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-001",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileRedirectionConformanceTest.java",
+          "subject": "FileRedirectionConformanceTest.testFIO001_IntegrationNegative_NothingIsWrittenAtTheNamedPath",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-001",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileRedirectionConformanceTest.java",
+          "subject": "FileRedirectionConformanceTest.testFIO001_IntegrationPositive_RootRelativePathIsRedirectedIntoDataDirectory",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileRedirectionConformanceTest.java",
+          "subject": "FileRedirectionConformanceTest.testFIO002_IntegrationNegative_DirectoryListingReportsNoUnwrittenFile",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileRedirectionConformanceTest.java",
+          "subject": "FileRedirectionConformanceTest.testFIO002_IntegrationPositive_DataFileAndDataDirectoryAgree",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-005",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileStreamLimitConformanceTest.java",
+          "subject": "FileStreamLimitConformanceTest.testFIO005_IntegrationNegative_ClosedStreamCanBeReopened",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-005",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/FileStreamLimitConformanceTest.java",
+          "subject": "FileStreamLimitConformanceTest.testFIO005_IntegrationPositive_SixthStreamIsRefused",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-005",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InitialStatusConformanceTest.java",
+          "subject": "InitialStatusConformanceTest.testEVT005_IntegrationPositive_InitialStatusPrecedesRun",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-013",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InterruptibleEventConformanceTest.java",
+          "subject": "InterruptibleEventConformanceTest.testEVT013_IntegrationNegative_DispatchingAnInterruptedHandlerThrowsOnNeitherEngine",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-013",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InterruptibleEventConformanceTest.java",
+          "subject": "InterruptibleEventConformanceTest.testEVT013_IntegrationNegative_DoesNotReportAScanClassicDidNotSee",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-013",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/InterruptibleEventConformanceTest.java",
+          "subject": "InterruptibleEventConformanceTest.testEVT013_IntegrationPositive_ScanHandlerIsEnteredFromWithinTheWallHandler",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-010",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/MeleeScanConformanceTest.java",
+          "subject": "MeleeScanConformanceTest.testEVT010_IntegrationNegative_MeleeScanCountsStayWithinParticipantBound",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-010",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/MeleeScanConformanceTest.java",
+          "subject": "MeleeScanConformanceTest.testEVT010_IntegrationPositive_OfficialMeleeDeliversScanCounts",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-014",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RobotDeathEventsConformanceTest.java",
+          "subject": "RobotDeathEventsConformanceTest.testEVT014_IntegrationNegative_SurvivorDoesNotReceiveDuplicateDeathNotifications",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-014",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RobotDeathEventsConformanceTest.java",
+          "subject": "RobotDeathEventsConformanceTest.testEVT014_IntegrationPositive_SurvivorReceivesAnotherRobotsDeath",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-004",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT004_IntegrationNegative_DeathHandlerDoesNotRepeatWithinRounds",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-004",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT004_IntegrationPositive_OwnDeathReachesTheDeathHandler",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-011",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT011_IntegrationNegative_RoundCompletionIsNotReportedMoreThanOncePerRound",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-011",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT011_IntegrationPositive_RoundAndBattleCompletionReachTheirHandlers",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-012",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT012_IntegrationNegative_WinHandlerDoesNotRepeatWithinRounds",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-012",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/RoundOutcomeEventsConformanceTest.java",
+          "subject": "RoundOutcomeEventsConformanceTest.testEVT012_IntegrationPositive_WinningARoundReachesTheWinHandler",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "HARN-008",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnTelemetryConformanceTest.java",
+          "subject": "SkippedTurnTelemetryConformanceTest.testHARN008_IntegrationNegative_DistinguishesMissingCaptureStates",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "HARN-008",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnTelemetryConformanceTest.java",
+          "subject": "SkippedTurnTelemetryConformanceTest.testHARN008_IntegrationNegative_PersistsNonCapturedStates",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "HARN-008",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnTelemetryConformanceTest.java",
+          "subject": "SkippedTurnTelemetryConformanceTest.testHARN008_IntegrationPositive_PreservesCallbacksAndCompletedZeroCapture",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-008",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnsConformanceTest.java",
+          "subject": "SkippedTurnsConformanceTest.testEVT008_IntegrationNegative_SkippedTurnsDoNotDuplicateWithoutBound",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-008",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/SkippedTurnsConformanceTest.java",
+          "subject": "SkippedTurnsConformanceTest.testEVT008_IntegrationPositive_SkippedTurnsReachTheRobot",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "TEAM-001",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM001_IntegrationNegative_TeamEntryDoesNotCollapseMembers",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "TEAM-001",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM001_IntegrationPositive_TeamEntryBootsEveryMember",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "TEAM-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM002_IntegrationNegative_DirectedMessageIsNotBroadcast",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "TEAM-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM002_IntegrationPositive_ExposesClassicNamesAndResolvesThem",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "TEAM-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM002_IntegrationPositive_TeammateMessagesReachIntendedMembers",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "TEAM-003",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM003_IntegrationNegative_DroidNeverReceivesOwnScan",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "TEAM-003",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TeamSupportConformanceTest.java",
+          "subject": "TeamSupportConformanceTest.testTEAM003_IntegrationPositive_DroidReceivesTeammateInformationWithoutScans",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-009",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ThrowingConformanceTest.java",
+          "subject": "ThrowingConformanceTest.testEVT009_IntegrationNegative_HandlerFailureKeepsClassicExceptionType",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-009",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ThrowingConformanceTest.java",
+          "subject": "ThrowingConformanceTest.testEVT009_IntegrationPositive_HandlerExceptionIsReported",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "EVT-005",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TurnBoundaryConformanceTest.java",
+          "subject": "TurnBoundaryConformanceTest.testEVT005_IntegrationNegative_StatusDispatchDoesNotEmitMalformedTurn",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "EVT-005",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/TurnBoundaryConformanceTest.java",
+          "subject": "TurnBoundaryConformanceTest.testEVT005_IntegrationPositive_NewTurnStatusUsesCurrentTurn",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE006_UnitNegative_QueuedCommandsDoNotCompleteTheTurn",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE006_UnitNegative_TreatsNaNAsZero",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE006_UnitPositive_RoutesEachQueuedCommandToItsOwnSetter",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE006_UnitPositive_RoutesQueuedStopResumeAndRateLimits",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE007_UnitNegative_RemovingAnUnregisteredConditionIsNotForwarded",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE007_UnitPositive_RemovesTheSameConditionItAdded",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE007_UnitPositive_RoutesClearAllEvents",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE007_UnitPositive_RoutesEventPriorityByMappedClass",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "AdvancedPeerRoutingTest.testROUTE007_UnitPositive_RoutesWaitForWithACondition",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "must.testROUTE007_UnitNegative_IgnoresTheUnsupportedPaintEventPriority",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "must.testROUTE007_UnitPositive_RoutesSetInterruptible",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "must.testROUTE008_UnitNegative_ReadingEventsDoesNotClearThem",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "must.testROUTE008_UnitPositive_ReportsTheClassicDataQuota",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
+          "subject": "must.testROUTE008_UnitPositive_ResolvesDataFileInsideTheDataDirectory",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java",
+          "subject": "AngleConverterTest.testAPI001_UnitNegative_DoesNotReflectAnglesAcrossTheDiscontinuity",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java",
+          "subject": "AngleConverterTest.testAPI001_UnitNegative_TreatsCoterminalInputsAsEqual",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java",
+          "subject": "AngleConverterTest.testAPI001_UnitPositive_ConvertsBearingsByReversingTheWindingDirection",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AngleConverterTest.java",
+          "subject": "AngleConverterTest.testAPI001_UnitPositive_ConvertsCardinalDirectionsToRobocodeHeadings",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitNegative_DoesNotCrossMovementAndTurnChannels",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitNegative_ReadingStateIssuesNoCommand",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitPositive_ConvertsAFullCircleRatherThanPassingRadiansThrough",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitPositive_PreservesTurnDirection",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitPositive_RoutesBlockingMovementAndTurnsInDegrees",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE001_UnitPositive_RoutesExecuteAndRescan",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE002_UnitNegative_FiringTouchesNoMovementCall",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE002_UnitPositive_IgnoresNaNQueuedFire",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE002_UnitPositive_RoutesFiringWithPowerUnchanged",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE003_UnitNegative_SettingOneColourLeavesTheOthersAlone",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE003_UnitPositive_RoutesEachColourToItsOwnSetter",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE004_UnitNegative_DoesNotConfuseBodyGunAndRadarHeadings",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE004_UnitPositive_ConvertsHeadingsIntoTheRobocodeFrame",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE004_UnitPositive_ConvertsRemainingTurnAmountsWithoutCrossingThem",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE004_UnitPositive_ProvidesGraphicsWithoutCallingTheBotApi",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BasicPeerRoutingTest.java",
+          "subject": "BasicPeerRoutingTest.testROUTE004_UnitPositive_ReadsStateFromTheMatchingBotApiValue",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "subject": "BulletMapperTest.testAPI004_UnitNegative_MapsABulletThatHasNotHitAnything",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "subject": "BulletMapperTest.testAPI004_UnitNegative_MapsABulletWhoseOwnerHasLeftTheBattle",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "subject": "BulletMapperTest.testAPI004_UnitNegative_NormalisesAnOutOfRangeDirection",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "subject": "BulletMapperTest.testAPI004_UnitPositive_ConvertsDirectionToARobocodeHeading",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-004",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
+          "subject": "BulletMapperTest.testAPI004_UnitPositive_PreservesPowerPositionAndIdentity",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
+          "subject": "ColorMapperTest.testAPI002_UnitNegative_DoesNotLetAlphaAffectTheColourChannels",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
+          "subject": "ColorMapperTest.testAPI002_UnitNegative_DoesNotSubstituteADefaultForAnAbsentColour",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
+          "subject": "ColorMapperTest.testAPI002_UnitPositive_PreservesChannelExtremesInOrder",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
+          "subject": "ColorMapperTest.testAPI002_UnitPositive_PreservesRgbComponents",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java",
+          "subject": "EventClassMapperTest.testAPI006_UnitNegative_RefusesAnEventWithNoCounterpart",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java",
+          "subject": "EventClassMapperTest.testAPI006_UnitPositive_KeepsOwnDeathDistinctFromAnotherRobotsDeath",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java",
+          "subject": "EventClassMapperTest.testAPI006_UnitPositive_MapsCorrespondingEventNames",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventClassMapperTest.java",
+          "subject": "EventClassMapperTest.testAPI006_UnitPositive_MapsDivergentlyNamedEventsByMeaning",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE002_UnitPositive_BlockingFireRoutesToTheBotApi",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-002",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE002_UnitPositive_IgnoresNaNBlockingFireAndCompletesTurn",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-007",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE007_UnitPositive_ReadsEventPriorityByMappedClass",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitNegative_AskingForEventsDoesNotConsumeTheQueue",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitPositive_AnswersEveryPerTypeEventList",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitPositive_ContainsOnlyLateCallbackTickErrors",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitPositive_MapsPendingTickWithoutStatusSnapshot",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitPositive_ReadsGunCoolingRate",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "EventListRoutingTest.testROUTE008_UnitPositive_RebasesRoundNumberingToClassic",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventListRoutingTest.java",
+          "subject": "name.testROUTE008_UnitNegative_AcceptsADebugPropertyWithoutRoutingIt",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitNegative_KeepsTheSignOfANegativeRemainingTurn",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitNegative_RebasesRoundNumberAndReportsNoSentries",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitPositive_CarriesScalarStateAcrossUnchanged",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitPositive_ConvertsEachHeadingWithoutInterchangingThem",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
+          "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitPositive_ConvertsRemainingTurnAmountsToRadians",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-011",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/PeerSurfaceCoverageTest.java",
+          "subject": "PeerSurfaceCoverageTest.testROUTE011_UnitNegative_EveryExemptionNamesAMethodThatStillExists",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-011",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/PeerSurfaceCoverageTest.java",
+          "subject": "PeerSurfaceCoverageTest.testROUTE011_UnitNegative_TheCheckWouldNoticeAMissingTest",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-011",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/PeerSurfaceCoverageTest.java",
+          "subject": "PeerSurfaceCoverageTest.testROUTE011_UnitPositive_EveryPeerMethodIsExercisedByARoutingTest",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java",
+          "subject": "ResultsMapperTest.testAPI003_UnitNegative_DoesNotTruncateFractionalScores",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java",
+          "subject": "ResultsMapperTest.testAPI003_UnitNegative_MapsAScorelessParticipantToZeroes",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java",
+          "subject": "ResultsMapperTest.testAPI003_UnitPositive_MapsEachScoreComponentToItsClassicField",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-003",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ResultsMapperTest.java",
+          "subject": "ResultsMapperTest.testAPI003_UnitPositive_UsesTheSuppliedTeamLeadName",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitNegative_AsteriskAdjacentTraversalIsRejectedOnceStripped",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitNegative_DoesNotCreateExternalAbsoluteFile",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitNegative_LiteralTraversalIsRejected",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitPositive_CopiesBundledDataFile",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitPositive_CreatesMissingDataFile",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-001",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataResolveTest.java",
+          "subject": "RobotDataResolveTest.testFIO001_UnitPositive_PlainNameResolvesInsideDirectory",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "FIO-005",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/RobotDataStreamLifecycleTest.java",
+          "subject": "RobotDataStreamLifecycleTest.testFIO005_UnitPositive_UnclosedStreamKeepsItsSlot",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
+          "subject": "ScannedRobotEventMapperTest.testAPI006_UnitPositive_PreservesFallbackTargetNameIdentity",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "API-006",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
+          "subject": "ScannedRobotEventMapperTest.testAPI006_UnitPositive_PreservesStableClassicTargetNameIdentity",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitNegative_DoesNotCallAnotherStopAction",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitNegative_SettingOneIndependenceFlagLeavesTheOthersAlone",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_PassesTheFlagValueThroughRatherThanAssumingTrue",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_ReadsEachIndependenceFlagFromItsOwnSource",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_RoutesEachIndependenceFlagToItsOwnSetter",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_RoutesRadarTurnInDegrees",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_RoutesStopAndResume",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-013",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
+          "subject": "StandardPeerRoutingTest.testROUTE013_UnitPositive_RoutesStopOverwriteArgument",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_ARightTurnIsPositiveOnBothPaths",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_RemainingTurnsAgreeInSignNotJustMagnitude",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_TimeStaysAtDeliveredTickUntilNextStatus",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitPositive_HeadingsAgreeAcrossBothPaths",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitPositive_MapsFirstTankRoyaleTurnToZeroBasedClassicTime",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitPositive_ScalarStateAgreesAcrossBothPaths",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitPositive_TimeRoundAndSentryStateAgreesAcrossBothPaths",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_HidesDirectedMessageFromOtherTeammates",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_PreservesLegacySerializationFailure",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_RefusesAnUnaddressableTeammateName",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_ReportsAbsentTeammatesAsNull",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_TreatsAnUnparseableNameAsNotATeammate",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_AddressesASingleTeammateByNumericId",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_AddressesTeammateByClassicName",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_BatchesMultipleMessagesInOrder",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ChecksTeammateByClassicName",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ChecksTeammateByNumericId",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ExpandsAnOrderedBatchForItsRecipient",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_FallsBackToNumericTeammateIds",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_FallsBackWhenNameMapApiIsUnavailable",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_MapsMessageSenderToClassicName",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_PreservesOrderAcrossSenderBatches",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_PreservesTheSingleBroadcastCall",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ReadsMessageEventsFromTheBotApi",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ReportsClassicBotName",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ReportsTeammatesAsNames",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-010",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE010_UnitNegative_DoesNotPassTheAngleThroughAsRadians",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-010",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE010_UnitPositive_RoutesTheJuniorTurnAndMove",
+          "type": "Unit",
+          "direction": "positive"
+        }
+      ]
+    }
+  ]
+}

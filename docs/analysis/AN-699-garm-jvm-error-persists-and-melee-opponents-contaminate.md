@@ -2,7 +2,7 @@
 id: AN-699
 type: analysis
 status: active
-links: [P-001, PDR-001, PDR-003, PDR-015, AN-015, AN-108, AN-385, C-007]
+links: [P-001, PDR-001, PDR-003, AN-015, AN-108, AN-385, C-007]
 title: Garm's worker error persists across JDKs while its melee result is opponent-contaminated
 provenance: inferred
 reversal-cost: low

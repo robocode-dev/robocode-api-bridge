@@ -1,0 +1,17 @@
+{
+  "producers": [
+    {
+      "id": "bridge-junit",
+      "framework": "JUnit",
+      "language": "Java",
+      "include": [
+        ".clue/evidence/aggregate.py",
+        ".clue/evidence/junit_producer.py",
+        "build.gradle.kts",
+        "*/build.gradle.kts",
+        "*/src/test/java/**/*.java"
+      ],
+      "command": ["python", ".clue/evidence/junit_producer.py"]
+    }
+  ]
+}
