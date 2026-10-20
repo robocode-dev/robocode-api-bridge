@@ -18,10 +18,10 @@ permissions:
 jobs:
   validate:
     name: validate
-    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@831166b796c9e524fe3265df2910ef88799840d5
+    uses: cliewen/cliewen/.github/workflows/clue-validation.yml@v0.32.0
     with:
       runner: '["ubuntu-latest"]'
-      clue-version: 0.26.0
+      clue-version: 0.32.0
       # release rather than vendored: the binary is downloaded and its checksum
       # verified per run, so a multi-megabyte executable stays out of a repository
       # whose whole purpose is comparing robot behaviour. The version is pinned

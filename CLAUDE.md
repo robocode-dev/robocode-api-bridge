@@ -1,3 +1,8 @@
+---
+type: agent-hub
+title: Claude Code entry point
+---
+
 # Claude Code entry point
 
 This repository's agent instructions live in [`AGENTS.md`](AGENTS.md), which is the cross-agent standard and the file to edit. This file exists only because Claude Code loads `CLAUDE.md` and not `AGENTS.md`, so without it the routing hub never reaches the session.

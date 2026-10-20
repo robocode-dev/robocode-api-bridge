@@ -1,3 +1,8 @@
+---
+type: index
+title: AN-004 — pinned extraction inputs
+---
+
 # AN-004 — pinned extraction inputs
 
 The two pinned files [`AN-004`](../AN-004-cliewen-extraction-report.md) was derived from. They live here rather than in the change workspace because the workspace is deleted at the digest and these outlive it: the report's mapping table is rendered from the manifest by `clue report`, and `clue validate` re-renders that region and fails on any difference. Delete the manifest and the report can no longer be checked against anything.

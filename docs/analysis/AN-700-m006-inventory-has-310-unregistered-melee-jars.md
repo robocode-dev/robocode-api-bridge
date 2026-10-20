@@ -4,7 +4,7 @@ type: analysis
 status: active
 links: [P-001, PDR-003, C-007, AN-699]
 title: The current M-006 inventory has 310 unregistered MeleeRumble jars
-provenance: observed
+provenance: inferred
 reversal-cost: low
 ---
 
