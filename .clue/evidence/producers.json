@@ -11,7 +11,18 @@
         "*/build.gradle.kts",
         "*/src/test/java/**/*.java"
       ],
-      "command": ["python", ".clue/evidence/junit_producer.py"]
+      "command": [
+        "python",
+        ".clue/evidence/junit_producer.py"
+      ],
+      "exclude": [
+        ".agents",
+        ".claude",
+        ".git",
+        ".gradle",
+        "**/build",
+        "**/.gradle"
+      ]
     }
   ]
 }

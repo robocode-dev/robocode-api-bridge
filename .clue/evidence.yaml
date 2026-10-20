@@ -13,7 +13,14 @@
         ".clue/evidence/producers.json",
         "build.gradle.kts"
       ],
-      "exclude": [],
+      "exclude": [
+        "**/.gradle",
+        "**/build",
+        ".agents",
+        ".claude",
+        ".git",
+        ".gradle"
+      ],
       "inputs": [
         {
           "path": ".clue/evidence/aggregate.py",
@@ -25,7 +32,7 @@
         },
         {
           "path": ".clue/evidence/producers.json",
-          "sha256": "dcd2d3e60148a7c2b28908e05fadd327ab12e11e37bcbe2b375a6f5be74f28e9"
+          "sha256": "dc52a855f15381ab082d2f53c0e9ab4238bbca906fa502f6ae4182886d2ba1bf"
         },
         {
           "path": "build.gradle.kts",
