@@ -77,7 +77,7 @@ class EventListRoutingTest {
 
         assertEquals(1, events.size());
         assertTrue(events.get(0) instanceof StatusEvent, events.toString());
-        assertEquals(7, ((StatusEvent) events.get(0)).getStatus().getTime());
+        assertEquals(6, ((StatusEvent) events.get(0)).getStatus().getTime());
     }
 
     @Test

@@ -88,10 +88,23 @@ class StatusAndPeerAgreementTest {
         peer.dispatchStatusEvent(new TickEvent(97, 8, null, List.of(), List.of()));
         bot.returning("getTurnNumber", 98);
 
-        assertEquals(97L, peer.getTime(), "WebSocket receipt alone does not advance robot time");
+        assertEquals(96L, peer.getTime(), "WebSocket receipt alone does not advance robot time");
 
         peer.dispatchStatusEvent(new TickEvent(98, 8, null, List.of(), List.of()));
-        assertEquals(98L, peer.getTime(), "the delivered status advances robot time");
+        assertEquals(97L, peer.getTime(), "the delivered status advances robot time");
+    }
+
+    @Test
+    @DisplayName("ROUTE-012 positive: Tank Royale's first turn is Classic robot time zero")
+    void testROUTE012_UnitPositive_MapsFirstTankRoyaleTurnToZeroBasedClassicTime() {
+        bot.returning("getTurnNumber", 1);
+
+        assertEquals(0L, peer.getTime(), "the first Classic robot turn is zero");
+        assertEquals(0L, IBotToRobotStatusMapper.map(bot.asBot()).getTime(),
+                "the initial status snapshot uses the same zero-based clock");
+
+        peer.dispatchStatusEvent(new TickEvent(1, 8, null, List.of(), List.of()));
+        assertEquals(0L, peer.getTime(), "the delivered first tick remains Classic robot time zero");
     }
 
     @Test

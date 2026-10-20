@@ -13,7 +13,12 @@ final class IBotToRobotStatusMapper {
     }
 
     public static robocode.RobotStatus map(IBot bot) {
-        return map(bot, bot.getTurnNumber());
+        return map(bot, toRobocodeTime(bot.getTurnNumber()));
+    }
+
+    static long toRobocodeTime(long tankRoyaleTurn) {
+        // Tank Royale starts turn numbers at 1; Classic's first robot time is 0.
+        return Math.max(0, tankRoyaleTurn - 1);
     }
 
     public static robocode.RobotStatus map(IBot bot, long time) {

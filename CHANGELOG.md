@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Map Tank Royale's one-based turns to Classic's zero-based robot time, so startup logic and status snapshots observe the same turn as Classic.
 - Defer a bullet-hit callback until `fireBullet()` callers can register the returned bullet, matching Classic's callback ordering and preventing legacy robots from failing on same-turn hits.
 - Route legacy `Robot.stop(boolean)` overwrite calls to the matching Tank Royale API, preserving saved movement when the robot calls `stop(true)`.
 - Truncate legacy robot and team author metadata to the Bot API's 50-character limit so long author names do not prevent wrapped bots from starting.

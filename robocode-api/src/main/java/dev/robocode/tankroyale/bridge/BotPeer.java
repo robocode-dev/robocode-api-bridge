@@ -171,7 +171,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public long getTime() {
         log("getTime()");
         if (initialStatusCallbackActive) return 0;
-        return deliveredTurn >= 0 ? deliveredTurn : bot.getTurnNumber();
+        long turn = deliveredTurn >= 0 ? deliveredTurn : bot.getTurnNumber();
+        return IBotToRobotStatusMapper.toRobocodeTime(turn);
     }
 
     @Override
@@ -382,7 +383,8 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         }
 
         // Save robot status snapshot for event handlers needing robot status
-        RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, tickEvent.getTurnNumber());
+        RobotStatus robotStatus = IBotToRobotStatusMapper.map(
+                bot, IBotToRobotStatusMapper.toRobocodeTime(tickEvent.getTurnNumber()));
         currentRobotStatus.set(robotStatus);
 
         // Update fired bullets

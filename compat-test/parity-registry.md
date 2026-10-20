@@ -7,9 +7,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | Status | Subjects |
 |---|---:|
 | CONFIRMED (score) | 233 |
-| DISCREPANCY (errors) | 204 |
+| DISCREPANCY (errors) | 228 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 77 |
+| DISCREPANCY (outcome) | 78 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
 | PASS | 712 |
@@ -32,6 +32,9 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/Krabb.sliNk.Garm_0.9u.jar | meleerumble | robot | DISCREPANCY (errors) | 0935de29b327fe56 | melee-opponent-pool-contamination | harness |
 | meleerumble/Lo_Ian.Gandalf_V4_4.0.jar | meleerumble | robot | DISCREPANCY (errors) | 0aa2fef151f51df3 | robot-null-enemy-in-get-shot-power | robot |
 | meleerumble/Noran.BitchingElk_0.054.jar | meleerumble | robot | DISCREPANCY (errors) | 13362d3498c54f12 | melee-opponent-pool-contamination | harness |
+| meleerumble/PSW.Relentless_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 962267e0390d3f07 | melee-opponent-pool-contamination | harness |
+| meleerumble/Polkwane.SmashMelee_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b991310961b4644b | melee-opponent-pool-contamination | harness |
+| meleerumble/Queens_teamrobot.UltraRazor_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | cd5d74ad2833ce3f | melee-opponent-pool-contamination | harness |
 | meleerumble/aaa.r.ScalarR_0.005g.047.jar | meleerumble | robot | MATCHED (score noise) | 908d6e21c1367208 | robot-file-stream-limit | bridge |
 | meleerumble/abud.ThirdRobo_1.0.jar | meleerumble | robot | MATCHED (score noise) | 2b91198a0feb5be7 | robot-nonserializable-team-message-payload | robot |
 | meleerumble/adt.Ar1_2.1.jar | meleerumble | robot | MATCHED (score noise) | 9ec2c336d8d76bbf | robot-file-stream-limit | bridge |
@@ -273,6 +276,28 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/pe.SandboxDT_2.71m.jar | meleerumble | robot | DISCREPANCY (outcome) | 827375ccbe487df5 | tank-royale-opponent-name-privacy | tank-royale |
 | meleerumble/pe.SandboxLump_1.52.jar | meleerumble | robot | DISCREPANCY (errors) | 15110c7a303dab7f | melee-opponent-pool-contamination | harness |
 | meleerumble/pe.minimelee.SandboxMiniMelee_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 95d91c711287e9d2 | melee-opponent-pool-contamination | harness |
+| meleerumble/pedersen.Grishnakh_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c25b6355c7684b85 | melee-opponent-pool-contamination | harness |
+| meleerumble/pedersen.Moron_2.0.jar | meleerumble | robot | DISCREPANCY (errors) | e22fe64a9b142209 | melee-opponent-pool-contamination | harness |
+| meleerumble/pedersen.Ugluk_1.1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 1dc8065e87f8eefd | melee-opponent-pool-contamination | harness |
+| meleerumble/pez.mini.ChironexFleckeri_0.5.jar | meleerumble | robot | DISCREPANCY (errors) | f15107c111cea092 | melee-opponent-pool-contamination | harness |
+| meleerumble/pfvicm.Sobieski_7.2.3b.jar | meleerumble | robot | DISCREPANCY (errors) | aa37927ac82c6d05 | melee-opponent-pool-contamination | harness |
+| meleerumble/ph.melee.ArcherME_0.3.jar | meleerumble | robot | DISCREPANCY (errors) | 7c4712014e8a4c84 | melee-opponent-pool-contamination | harness |
+| meleerumble/positive.Portia_1.26e.jar | meleerumble | robot | DISCREPANCY (errors) | 0e9b13dc8285c83d | robot-own-array-index-error | robot |
+| meleerumble/pulsar.PulsarMax_0.8.9.jar | meleerumble | robot | DISCREPANCY (errors) | 754b7ad41095adc8 | melee-opponent-pool-contamination | harness |
+| meleerumble/qohnil.blot.BlotBot_3.61.jar | meleerumble | robot | DISCREPANCY (errors) | 1e9548708c2d57de | robot-missing-statistics-file | robot |
+| meleerumble/qualidafial.MajorDick_1.0.1.jar | meleerumble | robot | DISCREPANCY (errors) | 22696599f32f6177 | melee-opponent-pool-contamination | harness |
+| meleerumble/radnor.DoctorBob_1.42.jar | meleerumble | robot | DISCREPANCY (errors) | f084cca6fdc21bb2 | melee-opponent-pool-contamination | harness |
+| meleerumble/rampancy.Durandal_2.1d.jar | meleerumble | robot | DISCREPANCY (errors) | dd75034ea2bc560c | melee-opponent-pool-contamination | harness |
+| meleerumble/ratosh.Nobo_0.21.jar | meleerumble | robot | DISCREPANCY (errors) | 6d30fc7ad6f70772 | melee-opponent-pool-contamination | harness |
+| meleerumble/ratosh.Wesco_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | e722a5690183f91b | melee-opponent-pool-contamination | harness |
+| meleerumble/rdm.Dueler_0.4x.jar | meleerumble | robot | DISCREPANCY (errors) | f21e7e289107ac2b | melee-opponent-pool-contamination | harness |
+| meleerumble/rdt199.Warlord_0.73.jar | meleerumble | robot | DISCREPANCY (errors) | e638f0a71ef01440 | melee-opponent-pool-contamination | harness |
+| meleerumble/repositorio.NanoStep_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | e9176c9175861474 | melee-opponent-pool-contamination | harness |
+| meleerumble/robar.nano.Assertive_Melee_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | fe767447d826efe1 | melee-opponent-pool-contamination | harness |
+| meleerumble/rtk.Tachikoma_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 044f441135c06186 | melee-opponent-pool-contamination | harness |
+| meleerumble/rz.Aleph_0.34.jar | meleerumble | robot | DISCREPANCY (outcome) | b556036286bbc035 | robot-pattern-index-out-of-bounds | robot |
+| meleerumble/rz.GlowBlowMelee_1.4.jar | meleerumble | robot | DISCREPANCY (errors) | adeb2122f44c57c7 | melee-opponent-pool-contamination | harness |
+| meleerumble/rz.HawkOnFire_0.1.jar | meleerumble | robot | DISCREPANCY (errors) | a49757f29f3462ef | melee-opponent-pool-contamination | harness |
 | roborumble/AD.CodaFirst_1.1.jar | roborumble | robot | CONFIRMED (score) | 8ec3738de55d89e1 | - | - |
 | roborumble/AIR.iRobot_1.0.jar | roborumble | robot | PASS | 8cdfe3039b4b63e0 | - | - |
 | roborumble/And.BasicSurfer_FF1.6.jar | roborumble | robot | PASS | 25437532193e134b | - | - |

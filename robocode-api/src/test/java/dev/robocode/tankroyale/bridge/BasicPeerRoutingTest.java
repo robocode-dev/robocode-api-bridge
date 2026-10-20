@@ -157,7 +157,7 @@ class BasicPeerRoutingTest {
         assertEquals(340.0, peer.getY(), EPSILON);
         assertEquals(7.5, peer.getVelocity(), EPSILON, "velocity reads the Bot API's speed");
         assertEquals(1.25, peer.getGunHeat(), EPSILON);
-        assertEquals(91L, peer.getTime());
+        assertEquals(90L, peer.getTime());
         assertEquals(6, peer.getOthers());
         assertEquals(1000.0, peer.getBattleFieldWidth(), EPSILON);
         assertEquals(800.0, peer.getBattleFieldHeight(), EPSILON);

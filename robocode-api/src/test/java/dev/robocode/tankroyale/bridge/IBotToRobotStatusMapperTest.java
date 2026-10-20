@@ -50,6 +50,7 @@ class IBotToRobotStatusMapperTest {
         assertEquals(42.0, status.getDistanceRemaining(), EPSILON);
         assertEquals(1.75, status.getGunHeat(), EPSILON);
         assertEquals(4, status.getOthers());
+        assertEquals(316, status.getTime(), "Tank Royale turn 317 is Classic robot time 316");
     }
 
     @Test
