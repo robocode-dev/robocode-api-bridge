@@ -1,6 +1,10 @@
 package dev.robocode.tankroyale.bridge;
 
+import dev.robocode.tankroyale.botapi.BotState;
+import dev.robocode.tankroyale.botapi.events.BotDeathEvent;
+import dev.robocode.tankroyale.botapi.events.ScannedBotEvent;
 import dev.robocode.tankroyale.botapi.events.TickEvent;
+import dev.robocode.tankroyale.botapi.graphics.Color;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +13,8 @@ import robocode.RobotStatus;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Acceptance evidence for ROUTE-012 — the two paths a robot can read its own state through
@@ -95,6 +101,30 @@ class StatusAndPeerAgreementTest {
     }
 
     @Test
+    @DisplayName("ROUTE-012 negative: getOthers stays aligned with the delivered tick")
+    void testROUTE012_UnitNegative_OthersStaysAtDeliveredTickUntilNextStatus() {
+        peer.dispatchStatusEvent(
+                new TickEvent(97, 8, botStateWithEnemyCount(5), List.of(), List.of()));
+        bot.returning("getEnemyCount", 1);
+
+        assertEquals(5, peer.getOthers(), "a newer live tick must not change the delivered count");
+
+        peer.dispatchStatusEvent(
+                new TickEvent(98, 8, botStateWithEnemyCount(2), List.of(), List.of()));
+        assertEquals(2, peer.getOthers(), "the next delivered status advances the count");
+    }
+
+    @Test
+    @DisplayName("ROUTE-012 negative: stale scans do not survive a robot death")
+    void testROUTE012_UnitNegative_DropsScansAfterTheScannedBotDies() {
+        peer.dispatchStatusEvent(new TickEvent(
+                97, 8, botStateWithEnemyCount(2), List.of(), List.of(new BotDeathEvent(97, 42))));
+
+        assertTrue(peer.shouldSuppressScannedEvent(scannedBot(42)), "a dead target's scan is stale");
+        assertFalse(peer.shouldSuppressScannedEvent(scannedBot(43)), "a living target remains scannable");
+    }
+
+    @Test
     @DisplayName("ROUTE-012 positive: Tank Royale's first turn is Classic robot time zero")
     void testROUTE012_UnitPositive_MapsFirstTankRoyaleTurnToZeroBasedClassicTime() {
         bot.returning("getTurnNumber", 1);
@@ -149,5 +179,25 @@ class StatusAndPeerAgreementTest {
                 "the peer must report a right turn as positive");
         assertEquals(Math.toRadians(90), status.getTurnRemainingRadians(), EPSILON,
                 "and so must the status");
+    }
+
+    private static BotState botStateWithEnemyCount(int enemyCount) {
+        return new BotState(
+                false,
+                71.5, 133.25, 466.75, 12.0, 34.0, 56.0, 78.0,
+                5.5, 21.0, 43.0, 65.0, 2.25,
+                enemyCount,
+                Color.fromRgb(1, 2, 3),
+                Color.fromRgb(4, 5, 6),
+                Color.fromRgb(7, 8, 9),
+                Color.fromRgb(10, 11, 12),
+                Color.fromRgb(13, 14, 15),
+                Color.fromRgb(16, 17, 18),
+                Color.fromRgb(19, 20, 21),
+                true);
+    }
+
+    private static ScannedBotEvent scannedBot(int botId) {
+        return new ScannedBotEvent(97, 1, botId, 88.0, 100.0, 200.0, 37.0, 4.5);
     }
 }

@@ -54,6 +54,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             Collections.newSetFromMap(new IdentityHashMap<>());
     private final List<BulletHitBotEvent> deferredBulletHitEvents = new ArrayList<>();
     private volatile int initialOtherCount = -1;
+    private volatile int deliveredEnemyCount = -1;
     private final Set<Integer> deadOtherBots = ConcurrentHashMap.newKeySet();
     private final Graphics2D graphics2D = new Graphics2DImpl();
 
@@ -245,7 +246,9 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public int getOthers() {
         log("getOthers()");
         var teammates = bot.getTeammateIds();
-        if (teammates == null || teammates.isEmpty()) return bot.getEnemyCount();
+        if (teammates == null || teammates.isEmpty()) {
+            return deliveredEnemyCount >= 0 ? deliveredEnemyCount : bot.getEnemyCount();
+        }
         if (initialOtherCount < 0) {
             initialOtherCount = bot.getEnemyCount() + teammates.size();
         }
@@ -369,16 +372,18 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     void dispatchStatusEvent(TickEvent tickEvent) {
         log("-> onStatus");
 
+        if (tickEvent.getBotState() != null) {
+            deliveredEnemyCount = tickEvent.getBotState().getEnemyCount();
+        }
+
         var teammates = bot.getTeammateIds();
-        if (teammates != null && !teammates.isEmpty()) {
-            if (initialOtherCount < 0) {
-                initialOtherCount = tickEvent.getBotState().getEnemyCount() + teammates.size();
-            }
-            for (var event : tickEvent.getEvents()) {
-                if (event instanceof BotDeathEvent) {
-                    var victimId = ((BotDeathEvent) event).getVictimId();
-                    if (victimId != bot.getMyId()) deadOtherBots.add(victimId);
-                }
+        if (teammates != null && !teammates.isEmpty() && initialOtherCount < 0) {
+            initialOtherCount = tickEvent.getBotState().getEnemyCount() + teammates.size();
+        }
+        for (var event : tickEvent.getEvents()) {
+            if (event instanceof BotDeathEvent) {
+                var victimId = ((BotDeathEvent) event).getVictimId();
+                if (victimId != bot.getMyId()) deadOtherBots.add(victimId);
             }
         }
 
@@ -416,6 +421,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         // user code, which may inspect the pending event list or block on execute().
         initialStatusDispatched = true;
         deliveredTurn = bot.getTurnNumber();
+        deliveredEnemyCount = bot.getEnemyCount();
         RobotStatus robotStatus = IBotToRobotStatusMapper.map(bot, 0);
         currentRobotStatus.set(robotStatus);
         dispatchStatusCallback(robotStatus, true);
@@ -444,13 +450,15 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     }
 
     /**
-     * Classic expires lower-priority scan events while a higher-priority wall handler is
-     * blocked on a radar turn. The Bot API queue can retain those events until the handler
-     * returns, so the bridge must discard only events from that blocked interval rather than
-     * allowing them to cross the classic API boundary afterwards.
+     * Classic drops scans after their target dies and expires lower-priority scans while a
+     * higher-priority wall handler is blocked on a radar turn. The Bot API queue can retain
+     * those events, so the bridge discards the stale scans here.
      */
-    private boolean shouldSuppressScannedEvent(ScannedBotEvent scannedBotEvent) {
+    boolean shouldSuppressScannedEvent(ScannedBotEvent scannedBotEvent) {
         if (hitWallHandlerActive && hitWallHandlerBlocked && suppressScansForBlockedWallHandler) {
+            return true;
+        }
+        if (deadOtherBots.contains(scannedBotEvent.getScannedBotId())) {
             return true;
         }
         int throughTurn = suppressScansThroughTurn;
@@ -1530,6 +1538,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 deferredBulletHitEvents.clear();
             }
             initialOtherCount = -1;
+            deliveredEnemyCount = -1;
             deadOtherBots.clear();
         }
 
