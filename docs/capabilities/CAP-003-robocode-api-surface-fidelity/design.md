@@ -43,7 +43,7 @@ Both had unit tests before `AN-007`, both passed, and neither looked at the othe
 
 ## Event time shares Classic status time
 
-Tank Royale turn numbers start at one, while Classic robot time starts at zero. Status and every Classic-facing event must use the same conversion for the same turn; otherwise a scan and a teammate message can describe the same battle moment with different timestamps, and a legacy robot that combines those records can process them in the wrong order.
+Tank Royale turn numbers start at one, while Classic round time starts at zero. Classic's `EventManager` stamps each queued event with the robot's current round time. The bridge applies the same conversion to status and event timestamps so `Event.getTime()` and `getTime()` agree for the same turn.
 
 ## Why the conversions are the natural test seam
 
