@@ -35,7 +35,8 @@ class BulletMapperTest {
         assertEquals(2.5, mapped.getPower(), EPSILON);
         assertEquals(120.0, mapped.getX(), EPSILON);
         assertEquals(340.0, mapped.getY(), EPSILON);
-        assertEquals("42", mapped.getName(), "the owner is carried across as its bot id");
+        assertEquals("tankroyale.anonymous.Bot42 1.0", mapped.getName(),
+                "the anonymous owner alias preserves its bot id");
         assertEquals("Target", mapped.getVictim());
     }
 
@@ -65,11 +66,12 @@ class BulletMapperTest {
     @DisplayName("API-004 negative: a bullet whose owner has left the battle still maps")
     void testAPI004_UnitNegative_MapsABulletWhoseOwnerHasLeftTheBattle() {
         // BulletMapper.map has no roster to check the owner id against, so a departed
-        // owner's id is indistinguishable from any other -- it is carried across as-is.
+        // owner's id remains represented by the same anonymous alias as any unmapped id.
         Bullet mapped = BulletMapper.map(bullet(11, 999, 3.0, 5.0, 6.0, 0), "Target");
 
         assertNotNull(mapped, "a bullet whose owner has left the battle must still map");
-        assertEquals("999", mapped.getName(), "the departed owner's id is carried across unchanged");
+        assertEquals("tankroyale.anonymous.Bot999 1.0", mapped.getName(),
+                "the departed owner's id remains represented by its alias");
     }
 
     @Test

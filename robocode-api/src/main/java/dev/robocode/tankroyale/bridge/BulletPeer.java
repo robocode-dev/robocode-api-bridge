@@ -17,7 +17,7 @@ final class BulletPeer extends Bullet {
         this.power = power;
         this.x = bot.getX();
         this.y = bot.getY();
-        this.ownerName = TankRoyaleBotNameResolver.getNameOrId(bot, bot.getMyId());
+        this.ownerName = TankRoyaleBotNameResolver.getNameOrAlias(bot, bot.getMyId());
         this.isActive = true;
         this.bulletId = NEXT_LEGACY_ID.incrementAndGet();
     }

@@ -12,7 +12,7 @@ final class RobotDeathEventMapper {
     public static RobotDeathEvent map(BotDeathEvent botDeathEvent, Object bot) {
         if (botDeathEvent == null) return null;
 
-        var name = TankRoyaleBotNameResolver.getNameOrId(bot, botDeathEvent.getVictimId());
+        var name = TankRoyaleBotNameResolver.getNameOrAlias(bot, botDeathEvent.getVictimId());
 
         var event = new RobotDeathEvent(name);
         event.setTime(botDeathEvent.getTurnNumber());

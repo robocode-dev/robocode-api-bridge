@@ -510,7 +510,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         dispatchPendingSelfTeamMessagesBefore(bulletHitBotEvent);
         log("-> onBulletHit");
         var bulletState = bulletHitBotEvent.getBullet();
-        var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bulletHitBotEvent.getVictimId());
+        var victimName = TankRoyaleBotNameResolver.getNameOrAlias(bot, bulletHitBotEvent.getVictimId());
         var bullet = BulletMapper.map(bulletState, victimName, bot);
 
         var robocodeEvent = new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
@@ -525,7 +525,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         BulletState bullet = hitByBulletEvent.getBullet();
         double bearing = toRobocodeBearingRad(bot.bearingTo(bullet.getX(), bullet.getY()));
         var robocodeEvent = new robocode.HitByBulletEvent(
-                bearing, map(bullet, TankRoyaleBotNameResolver.getNameOrId(bot, bot.getMyId()), bot));
+                bearing, map(bullet, TankRoyaleBotNameResolver.getNameOrAlias(bot, bot.getMyId()), bot));
         robocodeEvent.setTime(hitByBulletEvent.getTurnNumber());
         dispatchRobotCallback(() -> basicEvents.onHitByBullet(robocodeEvent));
     }
@@ -563,7 +563,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         double bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
         var robocodeEvent = new robocode.HitRobotEvent(
-                TankRoyaleBotNameResolver.getNameOrId(bot, hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
+                TankRoyaleBotNameResolver.getNameOrAlias(bot, hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
         );
         dispatchRobotCallback(() -> basicEvents.onHitRobot(robocodeEvent));
     }
@@ -574,7 +574,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (botDeathEvent.getVictimId() != bot.getMyId()) {
             deadOtherBots.add(botDeathEvent.getVictimId());
         }
-        var robocodeEvent = new robocode.RobotDeathEvent(TankRoyaleBotNameResolver.getNameOrId(bot, botDeathEvent.getVictimId()));
+        var robocodeEvent = new robocode.RobotDeathEvent(TankRoyaleBotNameResolver.getNameOrAlias(bot, botDeathEvent.getVictimId()));
         dispatchRobotCallback(() -> basicEvents.onRobotDeath(robocodeEvent));
     }
 
@@ -1175,7 +1175,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         log("getTeammates()");
         var teammates = bot.getTeammateIds();
         return (teammates != null)
-                ? teammates.stream().map(id -> TankRoyaleBotNameResolver.getNameOrId(bot, id)).toArray(String[]::new)
+                ? teammates.stream().map(id -> TankRoyaleBotNameResolver.getNameOrAlias(bot, id)).toArray(String[]::new)
                 : null;
     }
 
@@ -1251,7 +1251,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var teammateIds = bot.getTeammateIds();
         if (teammateIds == null) return null;
         return teammateIds.stream()
-                .filter(id -> name.equals(TankRoyaleBotNameResolver.getNameOrId(bot, id)))
+                .filter(id -> name.equals(TankRoyaleBotNameResolver.getNameOrAlias(bot, id)))
                 .findFirst()
                 .orElse(null);
     }

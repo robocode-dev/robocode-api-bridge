@@ -6,14 +6,15 @@ import org.junit.jupiter.api.Test;
 import robocode.ScannedRobotEvent;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-/** Acceptance evidence for API-006 — scan events retain classic target names across callbacks. */
+/** Acceptance evidence for API-007 — scan events retain visible names and alias unnamed targets. */
 class ScannedRobotEventMapperTest {
 
     @Test
-    @DisplayName("API-006 positive: repeated scans reuse the classic name-map string")
-    void testAPI006_UnitPositive_PreservesStableClassicTargetNameIdentity() {
+    @DisplayName("API-007 negative: a visible name is preserved instead of being replaced by an alias")
+    void testAPI007_UnitNegative_PreservesVisibleClassicTargetName() {
         String classicName = new String("apc.Colossus2 0.12 (2)");
         RecordingBot bot = RecordingBot.create().named(27, classicName);
 
@@ -21,20 +22,21 @@ class ScannedRobotEventMapperTest {
         ScannedRobotEvent second = map(bot, 27);
 
         assertEquals(classicName, first.getName());
-        assertSame(first.getName(), second.getName(),
-                "legacy robots can identify a repeatedly scanned target by the same String reference");
+        assertSame(first.getName(), second.getName(), "the visible name remains stable across scans");
     }
 
     @Test
-    @DisplayName("API-006 positive: the numeric fallback is also stable when the name map is absent")
-    void testAPI006_UnitPositive_PreservesFallbackTargetNameIdentity() {
+    @DisplayName("API-007 positive: an unnamed target gets a stable Classic-shaped alias")
+    void testAPI007_UnitPositive_AliasesAnUnmappedTargetWithClassicNameShape() {
         RecordingBot bot = RecordingBot.createWithoutNameMap();
 
         ScannedRobotEvent first = map(bot, 27);
         ScannedRobotEvent second = map(bot, 27);
+        ScannedRobotEvent differentBot = map(bot, 28);
 
-        assertEquals("27", first.getName());
+        assertEquals("tankroyale.anonymous.Bot27 1.0", first.getName());
         assertSame(first.getName(), second.getName());
+        assertNotEquals(first.getName(), differentBot.getName());
     }
 
     private static ScannedRobotEvent map(RecordingBot bot, int botId) {

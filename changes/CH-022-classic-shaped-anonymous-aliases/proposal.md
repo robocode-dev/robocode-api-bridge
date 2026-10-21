@@ -10,7 +10,7 @@ title: Classic-shaped anonymous names for hidden Tank Royale opponents
 
 M-006 measures legacy robots against Classic Robocode and repairs bridge or Tank Royale discrepancies that the measurements identify. Tank Royale intentionally omits opponent names from a bot's name map, so the bridge currently puts a bare numeric ID into Classic event names. Several legacy robots parse those names as package, class, and version strings and crash before they can fight.
 
-This change adds a stable, non-identifying Classic-shaped alias for an ID whose real name is unavailable. A proposed form is `tankroyale.anonymous.Bot<id> 1.0`, where `<id>` is the decimal Tank Royale bot ID. Names supplied by Tank Royale remain unchanged. The alias makes no claim about the opponent's real robot class or version and cannot reproduce behavior that depends on recognizing a particular opponent.
+This change adds a stable, non-identifying Classic-shaped alias for an ID whose real name is unavailable. The form is `tankroyale.anonymous.Bot<id> 1.0`, where `<id>` is the decimal Tank Royale bot ID. Names supplied by Tank Royale remain unchanged. The alias makes no claim about the opponent's real robot class or version and cannot reproduce behavior that depends on recognizing a particular opponent.
 
 ## Commitment challenge
 

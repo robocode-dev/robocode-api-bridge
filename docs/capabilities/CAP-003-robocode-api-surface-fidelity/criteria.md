@@ -68,4 +68,14 @@ Feature: Robocode API surface fidelity
     When it is mapped for a robot
     Then it becomes the Robocode event class a classic robot would have received
     And an event with no Robocode counterpart does not become an unrelated class
+
+  @API-007
+  Scenario: Available bot names stay unchanged and unavailable names receive stable aliases
+    Test-type: Unit
+    Given the Tank Royale bot-name map provides a name for one bot ID and no name for another
+    When the bridge maps both IDs into Classic bot-name fields
+    Then it uses the provided name unchanged
+    And the unavailable name has the form `tankroyale.anonymous.Bot<id> 1.0`
+    And repeated uses of the same unmapped ID produce the same alias
+    And different unmapped IDs produce different aliases
 ```
