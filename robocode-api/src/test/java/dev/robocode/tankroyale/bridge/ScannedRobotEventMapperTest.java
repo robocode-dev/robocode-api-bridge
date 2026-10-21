@@ -28,15 +28,26 @@ class ScannedRobotEventMapperTest {
     @Test
     @DisplayName("API-007 positive: an unnamed target gets a stable Classic-shaped alias")
     void testAPI007_UnitPositive_AliasesAnUnmappedTargetWithClassicNameShape() {
-        RecordingBot bot = RecordingBot.createWithoutNameMap();
+        String classicName = new String("apc.Colossus2 0.12 (2)");
+        RecordingBot bot = RecordingBot.create().named(27, classicName);
 
-        ScannedRobotEvent first = map(bot, 27);
-        ScannedRobotEvent second = map(bot, 27);
-        ScannedRobotEvent differentBot = map(bot, 28);
+        ScannedRobotEvent visible = map(bot, 27);
+        ScannedRobotEvent first = map(bot, 28);
+        ScannedRobotEvent second = map(bot, 28);
+        ScannedRobotEvent differentBot = map(bot, 29);
 
-        assertEquals("tankroyale.anonymous.Bot27 1.0", first.getName());
+        assertEquals(classicName, visible.getName());
+        assertEquals("tankroyale.anonymous.Bot28 1.0", first.getName());
         assertSame(first.getName(), second.getName());
         assertNotEquals(first.getName(), differentBot.getName());
+    }
+
+    @Test
+    @DisplayName("The anonymous alias fallback works when the optional name-map method is absent")
+    void fallsBackWhenTheNameMapMethodIsUnavailable() {
+        RecordingBot bot = RecordingBot.createWithoutNameMap();
+
+        assertEquals("tankroyale.anonymous.Bot27 1.0", map(bot, 27).getName());
     }
 
     private static ScannedRobotEvent map(RecordingBot bot, int botId) {
