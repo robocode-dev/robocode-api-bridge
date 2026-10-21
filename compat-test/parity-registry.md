@@ -1139,7 +1139,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | MATCHED (score noise) | 2b28d79fd166a8d8 | - | - |
 | roborumble/pb.Oscillator_1.0.jar | roborumble | robot | PASS | 7df2b921a4b28b34 | - | - |
 | roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | CONFIRMED (score) | 0b8011888814fd78 | - | - |
-| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | dee6b1081c995cb2 | - | - |
+| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | dee6b1081c995cb2 | tank-royale-opponent-name-privacy | tank-royale |
 | roborumble/pe.SandboxLump_1.52.jar | roborumble | robot | PASS | ff93d22a269cfb72 | - | - |
 | roborumble/pe.mini.SandboxMini_1.2.jar | roborumble | robot | PASS | 1930cd48c43fab7b | - | - |
 | roborumble/pe.minimelee.SandboxMiniMelee_1.1.jar | roborumble | robot | PASS | 7b272700364a7c9c | - | - |
@@ -1406,7 +1406,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/suzushin7.nano.Galaxy03_1.01.jar | roborumble | robot | CONFIRMED (score) | 42856daabd4d2055 | - | - |
 | roborumble/suzushin7.nano.TargetC_1.00.jar | roborumble | robot | PASS | 413c450b19fa855b | - | - |
 | roborumble/syl.Centipede_0.5.jar | roborumble | robot | PASS | f66ba72fbf46d41c | - | - |
-| roborumble/synapse.Geomancy_15.jar | roborumble | robot | DISCREPANCY (outcome) | 3febf83978c6ecdf | - | - |
+| roborumble/synapse.Geomancy_15.jar | roborumble | robot | DISCREPANCY (outcome) | 3febf83978c6ecdf | tank-royale-opponent-name-privacy | tank-royale |
 | roborumble/synapse.rsim.GeomancyBS_0.11.jar | roborumble | robot | CONFIRMED (score) | 91eb9045b8d949f2 | - | - |
 | roborumble/synnalagma.NeuralPremier_0.51.jar | roborumble | robot | CONFIRMED (score) | fdc5a12216b8054c | - | - |
 | roborumble/synnalagma.test.MiniNeural_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | f18b94ca58c14579 | - | - |
