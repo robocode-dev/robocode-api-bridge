@@ -25,8 +25,10 @@ final class AllEventsMapper {
             Event event = null;
             if (botEvent instanceof WonRoundEvent) {
                 event = new robocode.WinEvent();
+                event.setTime(IBotToRobotStatusMapper.toRobocodeTime(botEvent.getTurnNumber()));
             } else if (botEvent instanceof SkippedTurnEvent) {
                 event = new robocode.SkippedTurnEvent(botEvent.getTurnNumber());
+                event.setTime(IBotToRobotStatusMapper.toRobocodeTime(botEvent.getTurnNumber()));
             } else if (botEvent instanceof TickEvent) {
                 // A first tick can be queued before BotPeer dispatches its onStatus callback.
                 // Classic still exposes that tick through getAllEvents(), so build the same

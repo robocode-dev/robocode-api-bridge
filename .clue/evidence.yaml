@@ -163,6 +163,10 @@
           "sha256": "1693c95198cbd13ed51b879b86f1ae2e518b606bbac1336c485bdd88070ad084"
         },
         {
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventTimeMappingTest.java",
+          "sha256": "15cb8fdbd8ab00b8f8dd774d576b19335f2efe9813c154667cef5eff0f4d6311"
+        },
+        {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
           "sha256": "791483e5badc095fd2dec32408242fd5736922a5847fb9de666e830dfffb0cad"
         },
@@ -196,7 +200,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
-          "sha256": "988fd92a2741888166fcb39cbcbead3d162ef056f17812a96c6fd7172d2424ff"
+          "sha256": "704ceba4894cbe930a30272fe4e18e0dafa5507fff9bb90ceba7f91e47bf7c01"
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StubRobot.java",
@@ -934,6 +938,20 @@
           "direction": "negative"
         },
         {
+          "id": "API-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventTimeMappingTest.java",
+          "subject": "EventTimeMappingTest.testAPI008_UnitNegative_DoesNotExposeOneBasedTimeOnFirstTurn",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "API-008",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/EventTimeMappingTest.java",
+          "subject": "EventTimeMappingTest.testAPI008_UnitPositive_MapsScansAndMessagesToClassicTime",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
           "id": "API-005",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/IBotToRobotStatusMapperTest.java",
           "subject": "IBotToRobotStatusMapperTest.testAPI005_UnitNegative_KeepsTheSignOfANegativeRemainingTurn",
@@ -1140,6 +1158,20 @@
           "id": "ROUTE-012",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
           "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_ARightTurnIsPositiveOnBothPaths",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_DropsScansAfterTheScannedBotDies",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-012",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StatusAndPeerAgreementTest.java",
+          "subject": "StatusAndPeerAgreementTest.testROUTE012_UnitNegative_OthersStaysAtDeliveredTickUntilNextStatus",
           "type": "Unit",
           "direction": "negative"
         },

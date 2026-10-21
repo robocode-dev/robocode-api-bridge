@@ -4,6 +4,7 @@
 
 - Keep `getOthers()` aligned with the delivered turn and drop scans after their target dies, matching Classic event delivery and preventing legacy bots from indexing an empty opponent list.
 - Map Tank Royale's one-based turns to Classic's zero-based robot time, so startup logic and status snapshots observe the same turn as Classic.
+- Map Tank Royale event timestamps onto Classic's zero-based time as well, keeping scans and teammate messages in sync and preventing legacy team history from crashing on mixed turn values.
 - Defer a bullet-hit callback until `fireBullet()` callers can register the returned bullet, matching Classic's callback ordering and preventing legacy robots from failing on same-turn hits.
 - Route legacy `Robot.stop(boolean)` overwrite calls to the matching Tank Royale API, preserving saved movement when the robot calls `stop(true)`.
 - Truncate legacy robot and team author metadata to the Bot API's 50-character limit so long author names do not prevent wrapped bots from starting.

@@ -16,7 +16,7 @@ final class BulletHitEventMapper {
         var bullet = BulletMapper.map(bulletHitBotEvent.getBullet(), victimName, bot);
 
         var event = new BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
-        event.setTime(bulletHitBotEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(bulletHitBotEvent.getTurnNumber()));
 
         return event;
     }
