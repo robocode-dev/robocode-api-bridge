@@ -200,8 +200,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/jwst.DAD.DarkAndDarker_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | d2c4370c1dbb45c5 | melee-opponent-pool-contamination | harness |
 | meleerumble/kano.gamma.KanoGamma_1.8.jar | meleerumble | robot | DISCREPANCY (errors) | f751db50cf964a31 | melee-opponent-pool-contamination | harness |
 | meleerumble/kawigi.micro.Shiz_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | b567f641d2656803 | melee-opponent-pool-contamination | harness |
-| meleerumble/kawigi.mini.Coriantumr_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | ffd120c1004663d9 | melee-opponent-pool-contamination | harness |
-| meleerumble/kawigi.mini.Fhqwhgads_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | a3c935775b85a55d | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.mini.Coriantumr_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 5a16a69e4078fab2 | melee-opponent-pool-contamination | harness |
+| meleerumble/kawigi.mini.Fhqwhgads_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | cce96daa9aac9246 | melee-opponent-pool-contamination | harness |
 | meleerumble/kawigi.nano.Lib_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 263d15721d96638f | melee-opponent-pool-contamination | harness |
 | meleerumble/kawigi.robot.Girl_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | a27e820d0c16a28a | melee-opponent-pool-contamination | harness |
 | meleerumble/kawigi.sbf.FloodHT_0.9.2.jar | meleerumble | robot | DISCREPANCY (errors) | c7432c91b68c31c2 | melee-opponent-pool-contamination | harness |
@@ -913,8 +913,8 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kawam.kmBot9_1.0.jar | roborumble | robot | PASS | acc0a8de12e6e0eb | - | - |
 | roborumble/kawigi.f.FhqwhgadsMicro_1.0.jar | roborumble | robot | PASS | 939360d33239dc93 | - | - |
 | roborumble/kawigi.micro.Shiz_1.1.jar | roborumble | robot | CONFIRMED (score) | 6b91a284f4e4ecf7 | - | - |
-| roborumble/kawigi.mini.Coriantumr_1.1.jar | roborumble | robot | PASS | b50c6fa799ac5d7d | - | - |
-| roborumble/kawigi.mini.Fhqwhgads_1.1.jar | roborumble | robot | PASS | 377241abf95bde9f | - | - |
+| roborumble/kawigi.mini.Coriantumr_1.1.jar | roborumble | robot | PASS | 37506ed9c7556a32 | - | - |
+| roborumble/kawigi.mini.Fhqwhgads_1.1.jar | roborumble | robot | PASS | bfe55da581bf3de0 | - | - |
 | roborumble/kawigi.nano.FunkyChicken_1.1.jar | roborumble | robot | PASS | 291eab4972832579 | - | - |
 | roborumble/kawigi.nano.ThnikkaBot_0.9.jar | roborumble | robot | PASS | 038ecd73c09d8b0d | - | - |
 | roborumble/kawigi.robot.Girl_1.2.jar | roborumble | robot | PASS | 7395d4249b4a692e | - | - |
