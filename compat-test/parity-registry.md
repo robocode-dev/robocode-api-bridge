@@ -9,11 +9,11 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 232 |
 | DISCREPANCY (errors) | 327 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 54 |
+| DISCREPANCY (outcome) | 52 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
-| PASS | 732 |
-| score-review | 8 |
+| PASS | 733 |
+| score-review | 9 |
 
 ## Subjects
 
@@ -270,14 +270,14 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/oog.melee.Capulet_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 12c1b5eb0c539f78 | melee-opponent-pool-contamination | harness |
 | meleerumble/oog.melee.Corsair_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c318c75a85dd4c7c | melee-opponent-pool-contamination | harness |
 | meleerumble/oog.melee.Mercutio_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | ed2ec1247684ee9e | melee-opponent-pool-contamination | harness |
-| meleerumble/origin.SleepSiphon_1.7b.jar | meleerumble | robot | DISCREPANCY (errors) | e3f8130c2a800517 | melee-opponent-pool-contamination | harness |
+| meleerumble/origin.SleepSiphon_1.7b.jar | meleerumble | robot | DISCREPANCY (errors) | bbe1f6b1a14885ad | melee-opponent-pool-contamination | harness |
 | meleerumble/pa.Improved_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | b91c861aa707780c | melee-opponent-pool-contamination | harness |
 | meleerumble/pac.ABC_2.1.jar | meleerumble | robot | DISCREPANCY (errors) | 8be6af79fad85423 | melee-opponent-pool-contamination | harness |
 | meleerumble/panzer.Panzer_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 45b0dcc495a48316 | melee-opponent-pool-contamination | harness |
 | meleerumble/patson.PatsonTestBot_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c6fe2ec954aea160 | melee-opponent-pool-contamination | harness |
 | meleerumble/pbg.NinjaX_1.2.jar | meleerumble | robot | DISCREPANCY (errors) | 3060b56c2db894f1 | melee-opponent-pool-contamination | harness |
 | meleerumble/pbg.R2D2_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | 18b39aac6197e6d6 | melee-opponent-pool-contamination | harness |
-| meleerumble/pe.SandboxDT_2.71m.jar | meleerumble | robot | DISCREPANCY (outcome) | 827375ccbe487df5 | tank-royale-opponent-name-privacy | tank-royale |
+| meleerumble/pe.SandboxDT_2.71m.jar | meleerumble | robot | DISCREPANCY (outcome) | 5cac579278111d4e | tank-royale-opponent-name-privacy | tank-royale |
 | meleerumble/pe.SandboxLump_1.52.jar | meleerumble | robot | DISCREPANCY (errors) | 15110c7a303dab7f | melee-opponent-pool-contamination | harness |
 | meleerumble/pe.minimelee.SandboxMiniMelee_1.1.jar | meleerumble | robot | DISCREPANCY (errors) | 95d91c711287e9d2 | melee-opponent-pool-contamination | harness |
 | meleerumble/pedersen.Grishnakh_1.0.jar | meleerumble | robot | DISCREPANCY (errors) | c25b6355c7684b85 | melee-opponent-pool-contamination | harness |
@@ -1139,7 +1139,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | MATCHED (score noise) | 2b28d79fd166a8d8 | - | - |
 | roborumble/pb.Oscillator_1.0.jar | roborumble | robot | PASS | 7df2b921a4b28b34 | - | - |
 | roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | CONFIRMED (score) | 0b8011888814fd78 | - | - |
-| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | dee6b1081c995cb2 | tank-royale-opponent-name-privacy | tank-royale |
+| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | ae065ed6336a9f15 | tank-royale-opponent-name-privacy | tank-royale |
 | roborumble/pe.SandboxLump_1.52.jar | roborumble | robot | PASS | ff93d22a269cfb72 | - | - |
 | roborumble/pe.mini.SandboxMini_1.2.jar | roborumble | robot | PASS | 1930cd48c43fab7b | - | - |
 | roborumble/pe.minimelee.SandboxMiniMelee_1.1.jar | roborumble | robot | PASS | 7b272700364a7c9c | - | - |
@@ -1234,7 +1234,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/romz.robot.Test_0.1.0.jar | roborumble | robot | PASS | e03a33b9230e79f9 | - | - |
 | roborumble/romz.robot.circular.WildRabbit_0.9.6.jar | roborumble | robot | PASS | 320581acfab18570 | - | - |
 | roborumble/romz.robot.guessfactor.TeasingFox_0.2.jar | roborumble | robot | PASS | f02031538056ba50 | - | - |
-| roborumble/rsalesc.mega.Knight_0.6.28.jar | roborumble | robot | DISCREPANCY (outcome) | e0e5b9d788f4ec0e | - | - |
+| roborumble/rsalesc.mega.Knight_0.6.28.jar | roborumble | robot | DISCREPANCY (outcome) | 6798a8007fea78d0 | - | - |
 | roborumble/rsim.micro.uCatcher_0.1.jar | roborumble | robot | CONFIRMED (score) | d8c43299c5876751 | - | - |
 | roborumble/rsim.mini.BulletCatcher_0.4.jar | roborumble | robot | PASS | 782cca12c41b465a | - | - |
 | roborumble/rsk1.RSK1_4.0.jar | roborumble | robot | PASS | 000d22607abdab9c | - | - |
@@ -1406,7 +1406,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/suzushin7.nano.Galaxy03_1.01.jar | roborumble | robot | CONFIRMED (score) | 42856daabd4d2055 | - | - |
 | roborumble/suzushin7.nano.TargetC_1.00.jar | roborumble | robot | PASS | 413c450b19fa855b | - | - |
 | roborumble/syl.Centipede_0.5.jar | roborumble | robot | PASS | f66ba72fbf46d41c | - | - |
-| roborumble/synapse.Geomancy_15.jar | roborumble | robot | DISCREPANCY (outcome) | 3febf83978c6ecdf | tank-royale-opponent-name-privacy | tank-royale |
+| roborumble/synapse.Geomancy_15.jar | roborumble | robot | PASS | 0b9b2ebe6bddbb52 | tank-royale-opponent-name-privacy | tank-royale |
 | roborumble/synapse.rsim.GeomancyBS_0.11.jar | roborumble | robot | CONFIRMED (score) | 91eb9045b8d949f2 | - | - |
 | roborumble/synnalagma.NeuralPremier_0.51.jar | roborumble | robot | CONFIRMED (score) | fdc5a12216b8054c | - | - |
 | roborumble/synnalagma.test.MiniNeural_1.1.jar | roborumble | robot | DISCREPANCY (outcome) | f18b94ca58c14579 | - | - |
@@ -1446,7 +1446,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
 | roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
-| roborumble/traker.Eraser_1.jar | roborumble | robot | DISCREPANCY (outcome) | c9d1efbd8a113ad9 | tank-royale-opponent-name-privacy | tank-royale |
+| roborumble/traker.Eraser_1.jar | roborumble | robot | score-review | b8bec2890402ba3a | tank-royale-opponent-name-privacy | tank-royale |
 | roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
 | roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
 | roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |

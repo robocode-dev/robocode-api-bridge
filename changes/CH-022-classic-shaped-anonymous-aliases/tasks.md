@@ -11,6 +11,6 @@ title: Tasks for classic-shaped anonymous names
 - [x] Add API-007 to CAP-003 for available names and deterministic Classic-shaped aliases for IDs without a visible name.
 - [x] Add focused positive and negative API-007 unit evidence and regenerate the evidence manifest.
 - [x] Implement the alias fallback and keep authoritative names unchanged.
-- [ ] Rerun the name-privacy parity cases identified in the proposal and record the observed result for each.
+- [x] Rerun the name-privacy parity cases identified in the proposal and record the observed result for each.
 - [x] Update the CAP-003 design, add the implementation decision, update `CHANGELOG.md`, and regenerate documentation indexes.
-- [ ] Run the relevant repository validation and verification workflow; prepare the local acceptance brief for human review.
+- [x] Run the relevant repository validation and verification workflow; prepare the local acceptance brief for human review.
