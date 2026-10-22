@@ -6,14 +6,13 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 223 |
-| DISCREPANCY (errors) | 327 |
+| CONFIRMED (score) | 235 |
+| DISCREPANCY (errors) | 331 |
 | DISCREPANCY (no score) | 10 |
-| DISCREPANCY (outcome) | 52 |
+| DISCREPANCY (outcome) | 51 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
 | PASS | 734 |
-| score-review | 15 |
 
 ## Subjects
 
@@ -492,15 +491,15 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/amc.ROBv203_1.0.jar | roborumble | robot | PASS | 2cc236c1d03f3e06 | - | - |
 | roborumble/amc.ROBv300_1.1.jar | roborumble | robot | PASS | 49c711d305be2f08 | - | - |
 | roborumble/amc.ROBv301_1.1.jar | roborumble | robot | CONFIRMED (score) | 386cd4dc728512ae | - | - |
-| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | score-review | 7cac7dd1592b20bd | - | - |
+| roborumble/amc.ROBv400_1.0.jar | roborumble | robot | CONFIRMED (score) | 31042d8051424633 | - | - |
 | roborumble/amk.ChumbaMini_0.2.jar | roborumble | robot | PASS | 05156dda8b04e557 | - | - |
 | roborumble/amk.ChumbaWumba_0.3.jar | roborumble | robot | PASS | 4bffd0fc5046055a | - | - |
 | roborumble/amk.Punbot.Punbot_0.01.jar | roborumble | robot | PASS | 5d74b515d19e7bd9 | - | - |
 | roborumble/amk.ShizzleStiX.ShizzleStiX_0.6.jar | roborumble | robot | PASS | c618df752edf4a89 | - | - |
 | roborumble/amk.jointstrike.JointStrike_0.2.jar | roborumble | robot | PASS | 921d60fa06a2d0d0 | - | - |
-| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | score-review | 9e7170abfb43c85b | - | - |
+| roborumble/amk.superstrike.SuperStrike_0.3.jar | roborumble | robot | CONFIRMED (score) | 111d498bc0ecfa1f | - | - |
 | roborumble/ao.T100_0.9.jar | roborumble | robot | MATCHED (score noise) | c59c37aeb3ab4bdf | - | - |
-| roborumble/ap.Frederick_1.1.jar | roborumble | robot | score-review | 9290737746102640 | - | - |
+| roborumble/ap.Frederick_1.1.jar | roborumble | robot | CONFIRMED (score) | d6688fd1f3f6aac4 | - | - |
 | roborumble/apc.Caan_1.0.jar | roborumble | robot | PASS | aabd00fd8b967bed | - | - |
 | roborumble/apc.Colossus2_0.12.jar | roborumble | robot | PASS | 31f8c41611ef5db1 | scan-target-name-identity | bridge |
 | roborumble/apc.LeeroyJenkins2_1.0.jar | roborumble | robot | PASS | e8c0fd36dc3876f7 | - | - |
@@ -524,16 +523,16 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/arthord.NanoSatanMelee_Beta.jar | roborumble | robot | PASS | 30a57ba1dde53f1c | - | - |
 | roborumble/arthord.NanoSatan_Mu.jar | roborumble | robot | PASS | 98d37c469c94e71c | - | - |
 | roborumble/arthord.micro.Apoptygma_0.4.jar | roborumble | robot | PASS | fcb58e94a0c3caa6 | - | - |
-| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | score-review | 864425884ed37246 | - | - |
+| roborumble/arthord.micro.Muffin_0.6.1.jar | roborumble | robot | CONFIRMED (score) | e5b792379158caba | - | - |
 | roborumble/ary.Crisis_1.0.jar | roborumble | robot | PASS | 49c18c2ef7546001 | - | - |
 | roborumble/ary.FourWD_1.3d.jar | roborumble | robot | DISCREPANCY (errors) | e7db11552fd273db | robot-null-target-in-virtual-bullet-distance | robot |
-| roborumble/ary.Help_1.0.jar | roborumble | robot | score-review | 5d26f1da1ea4e534 | robot-null-surf-wave-on-hit-by-bullet | robot |
+| roborumble/ary.Help_1.0.jar | roborumble | robot | CONFIRMED (score) | 1d8ed1159bcd1f4f | robot-null-surf-wave-on-hit-by-bullet | robot |
 | roborumble/ary.SMG_1.01.jar | roborumble | robot | PASS | 65f473a89338e12c | - | - |
 | roborumble/ary.micro.Weak_1.2.jar | roborumble | robot | PASS | d78349c330daf18b | - | - |
 | roborumble/ary.mini.Nimi_1.0.jar | roborumble | robot | PASS | 4966fdf0a4ba6ee7 | - | - |
 | roborumble/ary.nano.AceSurf_1.2.jar | roborumble | robot | PASS | b559364dc3bed001 | - | - |
 | roborumble/ary.nano.ColorNanoP_1.1.jar | roborumble | robot | PASS | 4191bf3cb5bc4b66 | - | - |
-| roborumble/as.xbots_1.0.jar | roborumble | robot | score-review | 7186f7df0078f81d | - | - |
+| roborumble/as.xbots_1.0.jar | roborumble | robot | CONFIRMED (score) | 23a0620ee795bd4b | - | - |
 | roborumble/asd.Cthulhu_1.2.jar | roborumble | robot | PASS | 1d42acb3db0ccb77 | - | - |
 | roborumble/asm.Statistas_0.1.jar | roborumble | robot | PASS | 352c974a6d94c789 | - | - |
 | roborumble/awl.Locutus_1.5.jar | roborumble | robot | PASS | 10f460339be51bf0 | - | - |
@@ -547,7 +546,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/banshee.mini.Nexus6_0.2.0.jar | roborumble | robot | PASS | 0cf3d7725dede5d5 | - | - |
 | roborumble/barontrozo.BaronTrozo_1.7.6.jar | roborumble | robot | PASS | b2c5048162694f75 | - | - |
 | roborumble/bayen.UbaMicro_1.4.jar | roborumble | robot | PASS | e3cdf960bfb9afc4 | - | - |
-| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | score-review | fc02e1fb87b6ab45 | - | - |
+| roborumble/bayen.UbaRamLT_1.0.jar | roborumble | robot | CONFIRMED (score) | 97c641f8bd4f4bc5 | - | - |
 | roborumble/bayen.nano.Squirrel_0.2.jar | roborumble | robot | PASS | 2f9eb4f23c454774 | - | - |
 | roborumble/bayen.nut.Squirrel_1.621.jar | roborumble | robot | MATCHED (score noise) | 3804988fab768e63 | - | - |
 | roborumble/bbo.RamboT_0.3.jar | roborumble | robot | CONFIRMED (score) | cd41c475dc12cb16 | - | - |
@@ -715,7 +714,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/drm.CobraBora_1.12.jar | roborumble | robot | CONFIRMED (score) | 404a1a3263c998a2 | robot-unguarded-enemy-history-index | robot |
 | roborumble/drm.Magazine_0.39.jar | roborumble | robot | DISCREPANCY (errors) | bb3e2079100cbf81 | - | - |
 | roborumble/ds.OoV4_0.3b.jar | roborumble | robot | PASS | 1eddc4f0f49437bf | wrapper-json-encoding | wrapper |
-| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | score-review | 66a70dfaac2b3d55 | wrapper-json-encoding | wrapper |
+| roborumble/ds.Versatile_RB1.0.1.jar | roborumble | robot | CONFIRMED (score) | bb587bc6a7894846 | wrapper-json-encoding | wrapper |
 | roborumble/dsekercioglu.mega.Raven_3.56j8.jar | roborumble | robot | PASS | a90d58c1d2d60969 | - | - |
 | roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar | roborumble | robot | CONFIRMED (score) | 333b0839033e2c5e | - | - |
 | roborumble/dsekercioglu.mini.Partial_0.1.3.jar | roborumble | robot | PASS | 5984357cffc8ce26 | - | - |
@@ -862,7 +861,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/jaw.KarenCain_0.11.jar | roborumble | robot | PASS | a6b474d3d5900dca | - | - |
 | roborumble/jaw.Mouse_0.11.jar | roborumble | robot | PASS | 5bdee286f6b42607 | - | - |
 | roborumble/jaybot.adv.bots.JayBot_2.0.jar | roborumble | robot | PASS | 7ee52bd421251e91 | - | - |
-| roborumble/jaybot.bots.Oddball_4.0.jar | roborumble | robot | score-review | 08197274aa95d0f8 | - | - |
+| roborumble/jaybot.bots.Oddball_4.0.jar | roborumble | robot | CONFIRMED (score) | ee51261612d20aee | - | - |
 | roborumble/jbot.Rabbit2_1.1.jar | roborumble | robot | PASS | 21054c5022752597 | - | - |
 | roborumble/jcs.AutoBot_4.2.1.jar | roborumble | robot | MATCHED (score noise) | 5ee2e2bab0ec6d12 | - | - |
 | roborumble/jcs.Decepticon_2.5.3.jar | roborumble | robot | PASS | 9f21384be184c5c1 | - | - |
@@ -923,7 +922,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/kawigi.sbf.FloodMicro_1.5.jar | roborumble | robot | CONFIRMED (score) | 9ecc1bff459df2f2 | - | - |
 | roborumble/kawigi.sbf.FloodMini_1.4.jar | roborumble | robot | PASS | 30197c435377ba69 | - | - |
 | roborumble/kawigi.sbf.FloodNano_1.2.jar | roborumble | robot | CONFIRMED (score) | 77d03b46f1a6dbc2 | - | - |
-| roborumble/kawigi.sbf.FloodSonnet_0.9.jar | roborumble | robot | score-review | 004099d9ba343554 | - | - |
+| roborumble/kawigi.sbf.FloodSonnet_0.9.jar | roborumble | robot | CONFIRMED (score) | b64d90b9add1dcf1 | - | - |
 | roborumble/kawigi.sbf.Teancum_1.3.jar | roborumble | robot | PASS | 48f06e2fa8400492 | - | - |
 | roborumble/kawigi.spare.SpareParts_0.7.6nosnd.jar | roborumble | robot | PASS | e6f5801c8dbb526a | - | - |
 | roborumble/kc.mega.BeepBoop_1.21.jar | roborumble | robot | PASS | d2163421ffa01c66 | - | - |
@@ -974,7 +973,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/logiblocs.SittingDroid_1.0.jar | roborumble | robot | DISCREPANCY (no score) | e5b4367763d790d7 | solo-droid-zero-score | robot |
 | roborumble/lorneswork.Predator_1.0.jar | roborumble | robot | CONFIRMED (score) | 22f412f7bb9b7d89 | - | - |
 | roborumble/lrem.Spectre_0.4.4.jar | roborumble | robot | PASS | 1d0e2d5ce38f97d9 | - | - |
-| roborumble/lrem.magic.TormentedAngel_Antiquitie.jar | roborumble | robot | score-review | 9c68a512f2a43096 | - | - |
+| roborumble/lrem.magic.TormentedAngel_Antiquitie.jar | roborumble | robot | DISCREPANCY (errors) | dfbd4da4c430f6a7 | - | - |
 | roborumble/lrem.micro.FalseProphet_Alpha.jar | roborumble | robot | PASS | 4b8e46bd1fa2a17e | - | - |
 | roborumble/lrem.micro.MoggFanatic_0.2.jar | roborumble | robot | PASS | b7960b67823865c0 | - | - |
 | roborumble/lrem.quickhack.QuickHack_1.0.jar | roborumble | robot | DISCREPANCY (errors) | b310cceee4e6b092 | - | - |
@@ -1055,7 +1054,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/myl.nano.Graviton_1.10.jar | roborumble | robot | CONFIRMED (score) | cf68b0f16fc6e434 | - | - |
 | roborumble/myl.nano.Kakuru_1.20.jar | roborumble | robot | PASS | e3aebeeba9256a4e | - | - |
 | roborumble/myl.nano.KomoriNinja_1.1.jar | roborumble | robot | CONFIRMED (score) | 40eb9defa2457be6 | - | - |
-| roborumble/mym.EdgeStalker_1.0.jar | roborumble | robot | score-review | 7a0d35b5d3e85418 | - | - |
+| roborumble/mym.EdgeStalker_1.0.jar | roborumble | robot | CONFIRMED (score) | 0401ba135f2bdf1e | - | - |
 | roborumble/mz.AdeptBSB_1.03.jar | roborumble | robot | PASS | 25ee22f1da166676 | - | - |
 | roborumble/mz.Adept_2.65.jar | roborumble | robot | PASS | e3afcb98c1cb92f6 | - | - |
 | roborumble/mz.Movement_1.8.jar | roborumble | robot | PASS | 4f0a6caf21085d4b | - | - |
@@ -1123,7 +1122,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/oog.nano.MagicD2_2.4.jar | roborumble | robot | PASS | 450fd1b982143f77 | - | - |
 | roborumble/oog.nano.SavantVS_1.1.jar | roborumble | robot | PASS | f8fe4ba967e59210 | - | - |
 | roborumble/oog.nano.SavantWS_0.1.jar | roborumble | robot | PASS | 4cc5ab9eac671a38 | - | - |
-| roborumble/origin.SleepSiphon_1.7b.jar | roborumble | robot | score-review | cd9f8f1b6b4b66c5 | - | - |
+| roborumble/origin.SleepSiphon_1.7b.jar | roborumble | robot | CONFIRMED (score) | c1e41e907965960f | - | - |
 | roborumble/ouroboros.Dragon_0.0.3.jar | roborumble | robot | PASS | 860711bdb5c86ce5 | - | - |
 | roborumble/pa.Improved_1.1.jar | roborumble | robot | PASS | 9f39058ff327c11d | - | - |
 | roborumble/pa3k.Manta_1.20.jar | roborumble | robot | PASS | 19969a6d8f9d6553 | - | - |
@@ -1446,7 +1445,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
 | roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
-| roborumble/traker.Eraser_1.jar | roborumble | robot | DISCREPANCY (outcome) | c9d1efbd8a113ad9 | tank-royale-opponent-name-privacy | tank-royale |
+| roborumble/traker.Eraser_1.jar | roborumble | robot | DISCREPANCY (errors) | aedb7dc312db0e0e | classic-shaped-anonymous-opponent-alias | bridge |
 | roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
 | roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
 | roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |
@@ -1535,10 +1534,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/bvh.team.Valkiries_1.0.jar | teamrumble | team | MATCHED (score noise) | ec40d37777c4769c | nested-team-jar-discovery | wrapper |
 | teamrumble/cb.fire.FirestarterTeam_2.0.jar | teamrumble | team | DISCREPANCY (outcome) | 4256c4d5ad52fb86 | robot-unguarded-empty-wave-candidates | robot |
 | teamrumble/cx.mini.DemoniacNimrods_0.50.jar | teamrumble | team | CONFIRMED (score) | 6141b626a28b54b0 | unresolved-confirmed-team-score-gap | unknown |
-| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | score-review | ca7c4d32021fd93f | unresolved-phoenix-melee-position-history | unknown |
+| teamrumble/davidalves.PhoenixTeam_0.54.jar | teamrumble | team | DISCREPANCY (errors) | 91adef9c7d2db95a | unresolved-phoenix-melee-position-history | unknown |
 | teamrumble/dummy_team.BlindFighters_1.01.jar | teamrumble | team | MATCHED (score noise) | de36a467e13df0c0 | - | - |
 | teamrumble/ethdsy.MalackaTeam_1.2.jar | teamrumble | team | MATCHED (score noise) | cbb87704154d6859 | bridge-bullet-identity-and-blocking-fire | bridge |
-| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | score-review | 0a617229957f13f7 | robot-null-bullet-on-team-message | robot |
+| teamrumble/florent.XSeries.Xmen_0.9.jar | teamrumble | team | DISCREPANCY (errors) | 2ee3a1f0b90db364 | robot-null-bullet-on-team-message | robot |
 | teamrumble/gh.mini.GrubbmGroup_0.4.jar | teamrumble | team | MATCHED (score noise) | 664f2cb7d8684621 | nested-team-jar-discovery | wrapper |
 | teamrumble/gh.nano.GrofGroup_1.1.jar | teamrumble | team | MATCHED (score noise) | ae0e37bf27a31ebc | - | - |
 | teamrumble/gimp.GimpTeam_0.1.jar | teamrumble | team | DISCREPANCY (errors) | be52cefcf409116c | robot-unchecked-death-event-target-lookup | robot |
