@@ -179,6 +179,14 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
+    @DisplayName("ROUTE-009 negative: an empty teammate set reports absence as null")
+    void testROUTE009_UnitNegative_ReportsEmptyTeammateSetAsNull() {
+        bot.returning("getTeammateIds", Set.of());
+
+        assertNull(peer.getTeammates());
+    }
+
+    @Test
     @DisplayName("ROUTE-009 positive: a teammate check routes by id")
     void testROUTE009_UnitPositive_ChecksTeammateByNumericId() {
         bot.returning("isTeammate", true);

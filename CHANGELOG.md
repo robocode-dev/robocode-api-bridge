@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Return `null` from `getTeammates()` when a legacy solo robot has no teammate IDs, matching Classic and preventing bots from indexing an empty array.
 - Keep `getOthers()` aligned with the delivered turn and drop scans after their target dies, matching Classic event delivery and preventing legacy bots from indexing an empty opponent list.
 - Map Tank Royale's one-based turns to Classic's zero-based robot time, so startup logic and status snapshots observe the same turn as Classic.
 - Defer a bullet-hit callback until `fireBullet()` callers can register the returned bullet, matching Classic's callback ordering and preventing legacy robots from failing on same-turn hits.

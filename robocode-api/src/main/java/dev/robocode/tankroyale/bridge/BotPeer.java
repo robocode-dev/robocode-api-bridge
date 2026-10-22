@@ -1174,7 +1174,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
     public String[] getTeammates() {
         log("getTeammates()");
         var teammates = bot.getTeammateIds();
-        return (teammates != null)
+        return (teammates != null && !teammates.isEmpty())
                 ? teammates.stream().map(id -> TankRoyaleBotNameResolver.getNameOrId(bot, id)).toArray(String[]::new)
                 : null;
     }
