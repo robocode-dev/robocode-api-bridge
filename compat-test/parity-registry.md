@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 232 |
 | DISCREPANCY (errors) | 327 |
 | DISCREPANCY (no score) | 9 |
-| DISCREPANCY (outcome) | 54 |
+| DISCREPANCY (outcome) | 53 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 139 |
-| PASS | 732 |
+| PASS | 733 |
 | score-review | 8 |
 
 ## Subjects
@@ -1035,7 +1035,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/mld.jdc.nano.LittleBlackBook_1.0.jar | roborumble | robot | CONFIRMED (score) | 5ff652da3d5affbc | - | - |
 | roborumble/mmb.Roskilde_0.5.jar | roborumble | robot | PASS | b23b95ce6ce7c9bf | - | - |
 | roborumble/mme.NikeEnhanced_2.0.jar | roborumble | robot | CONFIRMED (score) | 996b77c1db70ca8f | - | - |
-| roborumble/mn.Combat_3.25.0.jar | roborumble | robot | DISCREPANCY (outcome) | 7859b98b828a773f | - | - |
+| roborumble/mn.Combat_3.25.0.jar | roborumble | robot | PASS | 86bfcbf40b7cf963 | classic-no-team-null-mapping | bridge |
 | roborumble/mn.micro.perceptual.Mimic_1.0.0.jar | roborumble | robot | PASS | fa21dbaf21a76e1c | - | - |
 | roborumble/mn.nano.SkippedTurns_1.1.0.jar | roborumble | robot | DISCREPANCY (outcome) | 6575d76867504d26 | - | - |
 | roborumble/mn.nano.perceptual.Impact_1.3.0.jar | roborumble | robot | CONFIRMED (score) | 1313dd2e1df9f6bf | - | - |
