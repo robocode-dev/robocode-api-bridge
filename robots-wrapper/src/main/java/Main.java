@@ -397,8 +397,8 @@ public class Main {
                     "import robocode.robotinterfaces.IBasicRobot;\n\n" +
                     "public class Wrapper {\n" +
                     "\tpublic static void main(String[] args) throws Exception {\n" +
-                    "\t\t// Load the robot class. If the wrapper transformed the class (replacing `while(true)`\n" +
-                    "\t\t// with `while(getEnergy() >= 0)` in run()), the transformed class file in this bot\n" +
+                    "\t\t// Load the robot class. If the wrapper transformed the class to check robot energy\n" +
+                    "\t\t// in run(), the transformed class file in this bot\n" +
                     "\t\t// directory shadows the one in the robot jar, as it comes first on the classpath.\n" +
                     "\t\tClass<?> robotClass = Class.forName(\"" + robotClass + "\");\n" +
                     "\t\t\n" +
@@ -414,8 +414,8 @@ public class Main {
     }
 
     /**
-     * Transforms the robot class to replace `while(true)` with `while(getEnergy() >= 0)` in the
-     * run() method, and writes the transformed class file into the bot directory, where it shadows
+     * Transforms recognized infinite loops in the robot's run() method to check robot energy, and
+     * writes the transformed class file into the bot directory, where it shadows
      * the original class by preceding it on the classpath in the boot script.
      */
     static void createTransformedClassFile(Path robotPath, Path botDir, String className) {
@@ -433,7 +433,7 @@ public class Main {
                 Files.createDirectories(classFile.getParent());
             }
             Files.write(classFile, transformedBytes);
-            System.out.println("  transformed run(): 'while(true)' replaced with 'while(getEnergy() >= 0)'");
+            System.out.println("  transformed run(): infinite loop now exits when robot energy is negative");
         } catch (Exception ex) {
             System.err.println("Could not transform robot class " + className + ": " + ex.getMessage());
         }

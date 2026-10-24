@@ -67,7 +67,9 @@ public class RobotMethodReplacer {
             if (isRunMethod(method)) {
                 MethodGen methodGen = new MethodGen(method, className, cpg);
                 boolean useJuniorRobotEnergyField = usesJuniorRobotEnergyField(classGen);
-                boolean modified = replaceInfiniteLoops(methodGen, cpg, className, useJuniorRobotEnergyField);
+                boolean useCurrentRobotPeerEnergy = usesCurrentRobotPeerEnergy(classGen);
+                boolean modified = replaceInfiniteLoops(
+                        methodGen, cpg, className, useJuniorRobotEnergyField, useCurrentRobotPeerEnergy);
 
                 if (modified) {
                     // Update the method with the modified instruction list
@@ -83,6 +85,18 @@ public class RobotMethodReplacer {
 
     private static boolean usesJuniorRobotEnergyField(ClassGen classGen) {
         if (!"robocode.JuniorRobot".equals(classGen.getSuperclassName())) {
+            return false;
+        }
+        for (Method method : classGen.getJavaClass().getMethods()) {
+            if (method.getName().equals("getEnergy") && method.getSignature().equals("()D")) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean usesCurrentRobotPeerEnergy(ClassGen classGen) {
+        if (!"java.lang.Object".equals(classGen.getSuperclassName())) {
             return false;
         }
         for (Method method : classGen.getJavaClass().getMethods()) {
@@ -112,7 +126,8 @@ public class RobotMethodReplacer {
      * @return True if any loops were replaced, false otherwise
      */
     private static boolean replaceInfiniteLoops(
-            MethodGen methodGen, ConstantPoolGen cpg, String className, boolean useJuniorRobotEnergyField) {
+            MethodGen methodGen, ConstantPoolGen cpg, String className,
+            boolean useJuniorRobotEnergyField, boolean useCurrentRobotPeerEnergy) {
         InstructionList instructionList = methodGen.getInstructionList();
         if (instructionList == null) {
             return false; // abstract or native method that has no code
@@ -122,7 +137,8 @@ public class RobotMethodReplacer {
         for (int i = 0; i < handles.length - 1; i++) {
             if (isInfiniteLoopPattern(handles[i], handles[i + 1])) {
                 replaceWithEnergyCheck(
-                        instructionList, handles[i], handles[i + 1], cpg, className, useJuniorRobotEnergyField);
+                        instructionList, handles[i], handles[i + 1], cpg, className,
+                        useJuniorRobotEnergyField, useCurrentRobotPeerEnergy);
                 return true;
             }
         }
@@ -131,7 +147,8 @@ public class RobotMethodReplacer {
         // with no constant/conditional pair for the pattern above to recognize.
         InstructionHandle lastHandle = handles[handles.length - 1];
         if (isTerminalBackwardGoto(lastHandle)) {
-            replaceTerminalBackwardGoto(instructionList, lastHandle, cpg, className, useJuniorRobotEnergyField);
+            replaceTerminalBackwardGoto(instructionList, lastHandle, cpg, className,
+                    useJuniorRobotEnergyField, useCurrentRobotPeerEnergy);
             return true;
         }
         return false;
@@ -150,10 +167,12 @@ public class RobotMethodReplacer {
             InstructionHandle backEdge,
             ConstantPoolGen cpg,
             String className,
-            boolean useJuniorRobotEnergyField) {
+            boolean useJuniorRobotEnergyField,
+            boolean useCurrentRobotPeerEnergy) {
         InstructionHandle loopStart = ((GOTO) backEdge.getInstruction()).getTarget();
         InstructionList energyCheck = new InstructionList();
-        appendEnergyValue(energyCheck, cpg, className, useJuniorRobotEnergyField);
+        appendEnergyValue(energyCheck, cpg, className,
+                useJuniorRobotEnergyField, useCurrentRobotPeerEnergy);
         energyCheck.append(new DCONST(0.0));
         energyCheck.append(new DCMPG());
         energyCheck.append(new IFGE(loopStart));
@@ -201,10 +220,12 @@ public class RobotMethodReplacer {
             InstructionHandle nextHandle,
             ConstantPoolGen cpg,
             String className,
-            boolean useJuniorRobotEnergyField) {
+            boolean useJuniorRobotEnergyField,
+            boolean useCurrentRobotPeerEnergy) {
 
         InstructionList newInstructions = createEnergyCheckInstructions(
-                cpg, className, useJuniorRobotEnergyField, (IfInstruction) nextHandle.getInstruction());
+                cpg, className, useJuniorRobotEnergyField, useCurrentRobotPeerEnergy,
+                (IfInstruction) nextHandle.getInstruction());
 
         // Insert the replacement before deleting the old instructions, so that branch
         // instructions targeting the old instructions (the loop back edge) can be
@@ -226,12 +247,14 @@ public class RobotMethodReplacer {
      * @return A new instruction list with the energy check
      */
     private static InstructionList createEnergyCheckInstructions(
-            ConstantPoolGen cpg, String className, boolean useJuniorRobotEnergyField,
+            ConstantPoolGen cpg, String className,
+            boolean useJuniorRobotEnergyField, boolean useCurrentRobotPeerEnergy,
             IfInstruction ifInstruction) {
 
         InstructionList newInstructions = new InstructionList();
 
-        appendEnergyValue(newInstructions, cpg, className, useJuniorRobotEnergyField);
+        appendEnergyValue(newInstructions, cpg, className,
+                useJuniorRobotEnergyField, useCurrentRobotPeerEnergy);
 
         // Compare with 0.0
         newInstructions.append(new DCONST(0.0));
@@ -252,12 +275,16 @@ public class RobotMethodReplacer {
 
     private static void appendEnergyValue(
             InstructionList instructions, ConstantPoolGen cpg, String className,
-            boolean useJuniorRobotEnergyField) {
-        instructions.append(new ALOAD(0)); // load 'this'
+            boolean useJuniorRobotEnergyField, boolean useCurrentRobotPeerEnergy) {
         if (useJuniorRobotEnergyField) {
+            instructions.append(new ALOAD(0)); // load 'this'
             instructions.append(new GETFIELD(cpg.addFieldref("robocode.JuniorRobot", "energy", "I")));
             instructions.append(new I2D());
+        } else if (useCurrentRobotPeerEnergy) {
+            instructions.append(new INVOKESTATIC(cpg.addMethodref(
+                    "dev.robocode.tankroyale.bridge.BotPeer", "getCurrentRobotEnergy", "()D")));
         } else {
+            instructions.append(new ALOAD(0)); // load 'this'
             instructions.append(new INVOKEVIRTUAL(cpg.addMethodref(className, "getEnergy", "()D")));
         }
     }

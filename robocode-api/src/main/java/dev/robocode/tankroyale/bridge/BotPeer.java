@@ -35,6 +35,7 @@ import static robocode.util.Utils.normalRelativeAngle;
 
 public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
+    private static final ThreadLocal<BotPeer> CURRENT_ROBOT_PEER = new ThreadLocal<>();
     private static final int MESSAGE_EVENT_PRIORITY = 75;
     private static final String SKIPPED_TURN_TELEMETRY_PROPERTY =
             "robocode.bridge.skippedTurnTelemetry";
@@ -186,6 +187,15 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             return -1;
         }
         return bot.getEnergy();
+    }
+
+    /** Returns the energy for a transformed interface robot running on the current bot thread. */
+    public static double getCurrentRobotEnergy() {
+        BotPeer peer = CURRENT_ROBOT_PEER.get();
+        if (peer == null) {
+            throw new IllegalStateException("No robot peer is bound to the current robot thread");
+        }
+        return peer.getEnergy();
     }
 
     @Override
@@ -1386,7 +1396,17 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
             Runnable runnable = robot.getRobotRunnable();
             if (runnable != null) {
-                runnable.run();
+                BotPeer previousPeer = CURRENT_ROBOT_PEER.get();
+                CURRENT_ROBOT_PEER.set(BotPeer.this);
+                try {
+                    runnable.run();
+                } finally {
+                    if (previousPeer == null) {
+                        CURRENT_ROBOT_PEER.remove();
+                    } else {
+                        CURRENT_ROBOT_PEER.set(previousPeer);
+                    }
+                }
             }
 
             // Like in classic Robocode, a robot whose run() method returns must keep executing
