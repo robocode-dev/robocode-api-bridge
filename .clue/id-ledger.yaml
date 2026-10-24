@@ -1633,6 +1633,13 @@ events:
     - {id: CH-022-open-questions, kind: opaque, state: live}
     - {id: API-007, kind: numeric, state: live, prefix: API, component: "7"}
     - {id: IDR-009, kind: numeric, state: live, prefix: IDR, component: "9"}
+    - {id: AN-706, kind: numeric, state: reserved, prefix: AN, component: "706"}
+    - {id: API-007, kind: numeric, state: reserved, prefix: API, component: "7"}
+    - {id: API-008, kind: numeric, state: reserved, prefix: API, component: "8"}
+    - {id: CH-022, kind: numeric, state: reserved, prefix: CH, component: "22"}
+    - {id: CH-023, kind: numeric, state: reserved, prefix: CH, component: "23"}
+    - {id: IDR-009, kind: numeric, state: reserved, prefix: IDR, component: "9"}
+    - {id: AN-706, kind: numeric, state: live, prefix: AN, component: "706"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}
@@ -1657,3 +1664,6 @@ high-water:
     - {id: OQ-007, kind: numeric, state: reserved, prefix: OQ, component: "7"}
     - {id: AN-457, kind: numeric, state: reserved, prefix: AN, component: "457"}
     - {id: AN-693, kind: numeric, state: reserved, prefix: AN, component: "693"}
+    - {id: API-008, kind: numeric, state: reserved, prefix: API, component: "8"}
+    - {id: CH-023, kind: numeric, state: reserved, prefix: CH, component: "23"}
+    - {id: IDR-009, kind: numeric, state: reserved, prefix: IDR, component: "9"}
