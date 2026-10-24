@@ -121,7 +121,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | meleerumble/deewiant.Anomaly_0.2.jar | meleerumble | robot | DISCREPANCY (errors) | 37e73588fd8db1d3 | melee-opponent-pool-contamination | harness |
 | meleerumble/dft.Calliope_5.6.jar | meleerumble | robot | DISCREPANCY (errors) | 20692844329cb18c | melee-opponent-pool-contamination | harness |
 | meleerumble/disan.Chair_2.2.0.jar | meleerumble | robot | DISCREPANCY (errors) | 9d2d08224f17ba10 | melee-opponent-pool-contamination | harness |
-| meleerumble/divineomega.DivineBot_1.9.4.5.jar | meleerumble | robot | DISCREPANCY (errors) | 695bae0ec6c966bb | classic-getdatafile-initializes-missing-file | bridge |
+| meleerumble/divineomega.DivineBot_1.9.4.5.jar | meleerumble | robot | DISCREPANCY (errors) | 0f53263ec129e22a | classic-getdatafile-initializes-missing-file | bridge |
 | meleerumble/divineomega.TrialBot_0.003.jar | meleerumble | robot | DISCREPANCY (errors) | cd5718f998744dce | melee-opponent-pool-contamination | harness |
 | meleerumble/djc.DynaBot_0.1.1.jar | meleerumble | robot | DISCREPANCY (outcome) | babb7bbca3270c44 | robot-unchecked-gun-wave-feature-index | robot |
 | meleerumble/djdjdj.NanoSkunk10_1.0.jar | meleerumble | robot | PASS | 1a860ff80273cde6 | - | - |
