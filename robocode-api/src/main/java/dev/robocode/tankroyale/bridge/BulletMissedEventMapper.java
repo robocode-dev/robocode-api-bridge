@@ -15,7 +15,7 @@ final class BulletMissedEventMapper {
         var bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null, bot);
 
         var event = new BulletMissedEvent(bullet);
-        event.setTime(bulletHitWallEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(bulletHitWallEvent.getTurnNumber()));
 
         return event;
     }

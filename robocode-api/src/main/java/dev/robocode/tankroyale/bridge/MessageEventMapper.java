@@ -35,7 +35,9 @@ final class MessageEventMapper {
             if (!(message instanceof Serializable)) {
                 throw new BotException("MessageEventMapper.map: Team messages in Robocode is expected to implement the Serializable interface");
             }
-            events.add(new MessageEvent(sender, (Serializable) message));
+            var event = new MessageEvent(sender, (Serializable) message);
+            event.setTime(IBotToRobotStatusMapper.toRobocodeTime(teamMessageEvent.getTurnNumber()));
+            events.add(event);
         }
         return events;
     }

@@ -14,7 +14,7 @@ final class CustomEventMapper {
         };
 
         var event = new robocode.CustomEvent(condition);
-        event.setTime(customEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(customEvent.getTurnNumber()));
 
         return event;
     }

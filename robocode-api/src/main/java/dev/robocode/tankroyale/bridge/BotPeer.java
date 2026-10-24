@@ -478,7 +478,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var bulletHitWallEvent = (BulletHitWallEvent) botEvent;
         Bullet bullet = BulletMapper.map(bulletHitWallEvent.getBullet(), null, bot);
         var robocodeEvent = new robocode.BulletMissedEvent(bullet);
-        robocodeEvent.setTime(bulletHitWallEvent.getTurnNumber());
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(bulletHitWallEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onBulletMissed(robocodeEvent));
     }
 
@@ -514,7 +514,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var bullet = BulletMapper.map(bulletState, victimName, bot);
 
         var robocodeEvent = new robocode.BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
-        robocodeEvent.setTime(bulletHitBotEvent.getTurnNumber());
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(bulletHitBotEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onBulletHit(robocodeEvent));
     }
 
@@ -526,18 +526,20 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         double bearing = toRobocodeBearingRad(bot.bearingTo(bullet.getX(), bullet.getY()));
         var robocodeEvent = new robocode.HitByBulletEvent(
                 bearing, map(bullet, TankRoyaleBotNameResolver.getNameOrAlias(bot, bot.getMyId()), bot));
-        robocodeEvent.setTime(hitByBulletEvent.getTurnNumber());
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(hitByBulletEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onHitByBullet(robocodeEvent));
     }
 
     private void dispatchHitWallEvent(BotEvent botEvent) {
         dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onHitWall");
+        var hitWallEvent = (dev.robocode.tankroyale.botapi.events.HitWallEvent) botEvent;
         hitWallHandlerActive = true;
         hitWallHandlerBlocked = false;
         suppressScansForBlockedWallHandler = scansHaveLowerPriorityThanWall();
         try {
             var robocodeEvent = new robocode.HitWallEvent(calcBearingToWallRadians(bot.getDirection()));
+            robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(hitWallEvent.getTurnNumber()));
             dispatchRobotCallback(() -> basicEvents.onHitWall(robocodeEvent));
         } finally {
             if (hitWallHandlerBlocked && suppressScansForBlockedWallHandler) {
@@ -565,6 +567,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         var robocodeEvent = new robocode.HitRobotEvent(
                 TankRoyaleBotNameResolver.getNameOrAlias(bot, hitBotEvent.getVictimId()), bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed()
         );
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(hitBotEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onHitRobot(robocodeEvent));
     }
 
@@ -575,6 +578,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             deadOtherBots.add(botDeathEvent.getVictimId());
         }
         var robocodeEvent = new robocode.RobotDeathEvent(TankRoyaleBotNameResolver.getNameOrAlias(bot, botDeathEvent.getVictimId()));
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(botDeathEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onRobotDeath(robocodeEvent));
     }
 
@@ -590,6 +594,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             }
         }
         var robocodeEvent = new robocode.SkippedTurnEvent(skippedTurnEvent.getTurnNumber());
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(skippedTurnEvent.getTurnNumber()));
         dispatchRobotCallback(() -> advancedEvents.onSkippedTurn(robocodeEvent));
     }
 
@@ -609,12 +614,14 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         dispatchPendingSelfTeamMessagesBefore(botEvent);
         log("-> onDeath");
         var robocodeEvent = new robocode.DeathEvent();
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(botEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onDeath(robocodeEvent));
     }
 
-    private void dispatchWinEvent() {
+    private void dispatchWinEvent(WonRoundEvent wonRoundEvent) {
         log("-> onWin");
         var robocodeEvent = new robocode.WinEvent();
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(wonRoundEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onWin(robocodeEvent));
     }
 
@@ -626,7 +633,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         Bullet hitBullet = BulletMapper.map(bulletHitBulletEvent.getHitBullet(), null, bot);
 
         var robocodeEvent = new robocode.BulletHitBulletEvent(bullet, hitBullet);
-        robocodeEvent.setTime(bulletHitBulletEvent.getTurnNumber());
+        robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(bulletHitBulletEvent.getTurnNumber()));
         dispatchRobotCallback(() -> basicEvents.onBulletHitBullet(robocodeEvent));
     }
 
@@ -642,6 +649,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
         if (optCondition.isPresent()) {
             robocode.Condition condition = optCondition.get().getKey();
             var robocodeEvent = new robocode.CustomEvent(condition);
+            robocodeEvent.setTime(IBotToRobotStatusMapper.toRobocodeTime(customEvent.getTurnNumber()));
             dispatchRobotCallback(() -> advancedEvents.onCustomEvent(robocodeEvent));
         }
     }
@@ -714,6 +722,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         for (var message : ready) {
             var event = new MessageEvent(message.senderName, message.message);
+            event.setTime(IBotToRobotStatusMapper.toRobocodeTime(nextTurn));
             activeSelfTeamMessageEvents.add(event);
             try {
                 dispatchRobotCallback(() -> ((ITeamEvents) robot).onMessageReceived(event));
@@ -1480,7 +1489,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         @Override
         public void onWonRound(WonRoundEvent wonRoundEvent) {
-            dispatchWinEvent();
+            dispatchWinEvent(wonRoundEvent);
         }
 
         @Override
@@ -1516,9 +1525,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             flushSkippedTurnTelemetry();
             log("-> onBattleEnded");
             if (basicEvents instanceof IBasicEvents2) {
-                ((IBasicEvents2) basicEvents).onBattleEnded(new robocode.BattleEndedEvent(
-                        false, map(gameEndedEvent.getResults(), String.valueOf(getMyId())))
-                );
+                var event = new robocode.BattleEndedEvent(false,
+                        map(gameEndedEvent.getResults(), String.valueOf(getMyId())));
+                event.setTime(IBotToRobotStatusMapper.toRobocodeTime(bot.getTurnNumber()));
+                ((IBasicEvents2) basicEvents).onBattleEnded(event);
             }
         }
 
@@ -1550,8 +1560,10 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
                 int newTotalTurns = totalTurns.addAndGet(turnNumber);
 
                 if (basicEvents instanceof IBasicEvents3) {
-                    ((IBasicEvents3) basicEvents).onRoundEnded(
-                            new robocode.RoundEndedEvent(roundEndedEvent.getRoundNumber() - 1, turnNumber, newTotalTurns));
+                    var event = new robocode.RoundEndedEvent(
+                            roundEndedEvent.getRoundNumber() - 1, turnNumber, newTotalTurns);
+                    event.setTime(IBotToRobotStatusMapper.toRobocodeTime(roundEndedEvent.getTurnNumber()));
+                    ((IBasicEvents3) basicEvents).onRoundEnded(event);
                 }
             } finally {
                 robot.stopThread();

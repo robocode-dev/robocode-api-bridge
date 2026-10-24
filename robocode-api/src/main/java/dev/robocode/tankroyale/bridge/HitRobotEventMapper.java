@@ -15,7 +15,7 @@ final class HitRobotEventMapper {
         var bearing = toRobocodeBearingRad(bot.bearingTo(hitBotEvent.getX(), hitBotEvent.getY()));
 
         var event = new HitRobotEvent(name, bearing, hitBotEvent.getEnergy(), hitBotEvent.isRammed());
-        event.setTime(hitBotEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(hitBotEvent.getTurnNumber()));
 
         return event;
     }

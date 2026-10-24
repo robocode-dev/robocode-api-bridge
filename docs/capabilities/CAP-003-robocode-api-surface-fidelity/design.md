@@ -47,6 +47,10 @@ A robot can read its own state through the peer's getters or through the `RobotS
 
 Both had unit tests before `AN-007`, both passed, and neither looked at the other — which is precisely how they came to disagree. A test written from an implementation's behaviour confirms that implementation; the guard that matters is therefore not a better test of either path but a test that the two agree. That guard now exists and compares signed values field by field, with a distinct value per field so that agreement by coincidence fails too.
 
+## Event time shares Classic status time
+
+Tank Royale turn numbers start at one, while Classic round time starts at zero. Classic's `EventManager` stamps each queued event with the robot's current round time. The bridge applies the same conversion to status and event timestamps so `Event.getTime()` and `getTime()` agree for the same turn.
+
 ## Why the conversions are the natural test seam
 
 `ARCH-002` divides the module into a frozen `robocode.*` surface and a free implementation behind it. The mappers are the narrowest point of that implementation — everything a robot observes passes through one — so testing them covers a large surface with small tests.

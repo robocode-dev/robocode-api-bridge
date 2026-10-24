@@ -69,6 +69,14 @@ Feature: Robocode API surface fidelity
     Then it becomes the Robocode event class a classic robot would have received
     And an event with no Robocode counterpart does not become an unrelated class
 
+  @API-008
+  Scenario: Scans and teammate messages use Classic event time
+    Test-type: Unit
+    Given a Tank Royale scan and teammate message from the same one-based turn
+    When the bridge maps them for a robot
+    Then both events report the matching zero-based Classic time
+    And the first Tank Royale turn is reported as Classic time zero
+
   @API-007
   Scenario: Available bot names stay unchanged and unavailable names receive stable aliases
     Test-type: Unit

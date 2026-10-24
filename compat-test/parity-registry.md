@@ -1526,7 +1526,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/zzx.Serunyr_2.0.2.jar | roborumble | robot | score-review | 5853e5c5da8f85aa | - | - |
 | roborumble/zzx.StormHead_1.0.1.jar | roborumble | robot | PASS | 46e1b1c082fd54c6 | - | - |
 | teamrumble/CharlieN.OmegaTeam.OmegaTeam_1.0.jar | teamrumble | team | score-review | 02959fafa1c1c4f7 | - | - |
-| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 8952b4bd260d7733 | - | - |
+| teamrumble/Krabb.sliNk.SlartibartfassTeam_0.5.jar | teamrumble | team | DISCREPANCY (outcome) | 8952b4bd260d7733 | robot-unchecked-older-team-stat-history | robot |
 | teamrumble/Polkwane.PTeam_1.0.jar | teamrumble | team | DISCREPANCY (outcome) | 153efe939f86d788 | - | - |
 | teamrumble/ags.polylunar.Polylunar_1.6.jar | teamrumble | team | PASS | fe2369dad2052b2f | - | - |
 | teamrumble/amz.TeamDeathTeam_1.jar | teamrumble | team | PASS | f0da0a5ebe8de87a | - | - |

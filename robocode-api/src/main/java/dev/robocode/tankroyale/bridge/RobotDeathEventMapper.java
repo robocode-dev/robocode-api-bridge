@@ -15,7 +15,7 @@ final class RobotDeathEventMapper {
         var name = TankRoyaleBotNameResolver.getNameOrAlias(bot, botDeathEvent.getVictimId());
 
         var event = new RobotDeathEvent(name);
-        event.setTime(botDeathEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(botDeathEvent.getTurnNumber()));
 
         return event;
     }

@@ -14,7 +14,7 @@ final class HitWallEventMapper {
         var bearing = toRobocodeBearingRad(bot.calcBearing(calcDirectionNearestToWall(bot)));
 
         var event = new robocode.HitWallEvent(bearing);
-        event.setTime(hitWallEvent.getTurnNumber());
+        event.setTime(IBotToRobotStatusMapper.toRobocodeTime(hitWallEvent.getTurnNumber()));
 
         return event;
     }
