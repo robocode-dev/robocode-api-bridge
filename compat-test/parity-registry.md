@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 21 |
 | DISCREPANCY (errors) | 309 |
 | DISCREPANCY (no score) | 13 |
-| DISCREPANCY (outcome) | 54 |
+| DISCREPANCY (outcome) | 53 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
-| PASS | 775 |
+| PASS | 776 |
 | score-review | 189 |
 
 ## Subjects
@@ -735,7 +735,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/dz.MostlyHarmlessNano_2.1.jar | roborumble | robot | PASS | 222b3c3860e9be2e | - | - |
 | roborumble/dz.OthoMicro_0.12.jar | roborumble | robot | PASS | 87a618756a32d658 | - | - |
 | roborumble/dz.OthoMini_0.15.jar | roborumble | robot | PASS | 1bf733ce688bea50 | - | - |
-| roborumble/e32.Omni_0.04.jar | roborumble | robot | DISCREPANCY (outcome) | 1208432bdf2a8eec | wrapper-run-loop-rewrite-calls-missing-get-energy | wrapper |
+| roborumble/e32.Omni_0.04.jar | roborumble | robot | PASS | 01b23359332d5475 | wrapper-run-loop-rewrite-calls-missing-get-energy | wrapper |
 | roborumble/eat.HumblePieLite_1.0.jar | roborumble | robot | PASS | a85c70974ba48767 | - | - |
 | roborumble/ebo.Sparse_0.02.jar | roborumble | robot | score-review | 1f7b0108530b4bab | - | - |
 | roborumble/ebo.Tahoe_1.1.79.jar | roborumble | robot | PASS | 681b5afe8a64b645 | - | - |
