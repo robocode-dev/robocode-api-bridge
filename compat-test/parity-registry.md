@@ -9,10 +9,10 @@ This generated table is the reviewed index of the append-only observations in `p
 | CONFIRMED (score) | 21 |
 | DISCREPANCY (errors) | 309 |
 | DISCREPANCY (no score) | 13 |
-| DISCREPANCY (outcome) | 53 |
+| DISCREPANCY (outcome) | 52 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
-| PASS | 776 |
+| PASS | 777 |
 | score-review | 189 |
 
 ## Subjects
@@ -1139,7 +1139,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/paulk.PaulV3_1.7.jar | roborumble | robot | MATCHED (score noise) | 2b28d79fd166a8d8 | - | - |
 | roborumble/pb.Oscillator_1.0.jar | roborumble | robot | PASS | 7df2b921a4b28b34 | - | - |
 | roborumble/pbg.NinjaX_1.2.jar | roborumble | robot | score-review | 6c139ca3bec3fb06 | - | - |
-| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | DISCREPANCY (outcome) | 1056d01ee6cfb265 | classic-shaped-anonymous-opponent-alias | bridge |
+| roborumble/pe.SandboxDT_3.02.jar | roborumble | robot | PASS | e8496a11fd3f6c86 | classic-getdatafile-preserves-pre-1.8.2-missing-file | bridge |
 | roborumble/pe.SandboxLump_1.52.jar | roborumble | robot | PASS | ff93d22a269cfb72 | - | - |
 | roborumble/pe.mini.SandboxMini_1.2.jar | roborumble | robot | PASS | 1930cd48c43fab7b | - | - |
 | roborumble/pe.minimelee.SandboxMiniMelee_1.1.jar | roborumble | robot | PASS | 7b272700364a7c9c | - | - |

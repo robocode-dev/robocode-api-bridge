@@ -438914,6 +438914,12 @@
           "id": "diagnosis-2",
           "owner": "bridge",
           "recorded_at": "2026-10-24T11:38:55Z"
+        },
+        {
+          "cause": "classic-getdatafile-preserves-pre-1.8.2-missing-file",
+          "id": "diagnosis-3",
+          "owner": "bridge",
+          "recorded_at": "2026-10-24T21:22:36Z"
         }
       ],
       "identity": {
@@ -438924,7 +438930,7 @@
         "key": "roborumble/pe.SandboxDT_3.02.jar",
         "kind": "robot"
       },
-      "latest_observation": "1056d01ee6cfb265",
+      "latest_observation": "e8496a11fd3f6c86",
       "observations": [
         {
           "classic": {
@@ -439764,9 +439770,236 @@
               "status": "disabled"
             }
           }
+        },
+        {
+          "classic": {
+            "elapsed": 10.3,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-alias-main-retests-20261024\\work\\rc-robots\\.data\\pe\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)",
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-alias-main-retests-20261024\\work\\rc-robots\\.data\\pe\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 5032.0,
+            "scores": [
+              3031.0,
+              2001.0
+            ],
+            "selected": "pe.SandboxDT 3.02"
+          },
+          "completed_at": "2026-10-24T21:16:50Z",
+          "confirmation": null,
+          "delta_pct": null,
+          "id": "db2510f18997bb21",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "7989e598eeac4a4fc7be2f411273c419be31da3e5eeb4dc51699082e367a3934"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "d9732913f270a9057d6182bf6b3c32abfee30dc228377a879063afffa1f362c8"
+              }
+            },
+            "bridge_commit": "4ca2e39",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "supplied": {
+              "artifactSha256": {
+                "bot_api_jar": {
+                  "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                  "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+                },
+                "bridge_api_jar": {
+                  "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                  "sha256": "7989e598eeac4a4fc7be2f411273c419be31da3e5eeb4dc51699082e367a3934"
+                },
+                "runner_jar": {
+                  "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                  "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+                },
+                "wrapper_jar": {
+                  "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                  "sha256": "d9732913f270a9057d6182bf6b3c32abfee30dc228377a879063afffa1f362c8"
+                }
+              },
+              "bridgeCommit": "4ca2e39",
+              "tankRoyaleCommit": "02639872ea90b0d8cc7e487eb89607935d341e9a"
+            },
+            "tank_royale_commit": "02639872ea90b0d8cc7e487eb89607935d341e9a",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "classic-shaped-anonymous-opponent-alias",
+            "diagnosis_id": "diagnosis-2",
+            "owner": "bridge",
+            "repair": "6732460"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "pe.SandboxDT 3.02",
+            "division": "roborumble",
+            "jar": "pe.SandboxDT_3.02.jar",
+            "jar_sha256": "3635d6856c1a754c82bb24fcc9a2863244766f3dfec34f40a6fff34fee615feb",
+            "key": "roborumble/pe.SandboxDT_3.02.jar",
+            "kind": "robot"
+          },
+          "status": "DISCREPANCY (outcome)",
+          "tank_royale": {
+            "bridge_only_signatures": [
+              [
+                "java.io.EOFException",
+                "unknown"
+              ]
+            ],
+            "elapsed": 4.2,
+            "error_count": 3,
+            "error_signatures": [
+              {
+                "exception": "java.io.EOFException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "HARNESS: worker produced no result (exit code -1)",
+              "IOException trying to read: java.io.EOFException",
+              "IOException trying to read: java.io.EOFException"
+            ],
+            "has_log": true,
+            "ok": false,
+            "score": null,
+            "scores": [],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": null,
+              "status": "incomplete"
+            }
+          }
+        },
+        {
+          "classic": {
+            "elapsed": 10.6,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-sandbox-fix-evidence\\post-fix\\work\\rc-robots\\.data\\pe\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)",
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-sandbox-fix-evidence\\post-fix\\work\\rc-robots\\.data\\pe\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 4912.0,
+            "scores": [
+              2961.0,
+              1951.0
+            ],
+            "selected": "pe.SandboxDT 3.02"
+          },
+          "completed_at": "2026-10-24T21:23:33Z",
+          "confirmation": null,
+          "delta_pct": -2.8,
+          "id": "e8496a11fd3f6c86",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "0ca98a89022b0e08dbcfcf6f28fe23380dbd131ec32df75b5f5d3f732c752c39"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "9caa34b387c91cdede543809ef3dedc157aadb0051e1e094a18715098ee8c640"
+              }
+            },
+            "bridge_commit": "ac95ec8ab4f9deea2eac8fa692c54fb0a45e1dc7",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "02639872ea90b0d8cc7e487eb89607935d341e9a",
+            "threshold": 25.0
+          },
+          "retest": {
+            "cause": "classic-getdatafile-preserves-pre-1.8.2-missing-file",
+            "diagnosis_id": "diagnosis-3",
+            "owner": "bridge",
+            "repair": "ac95ec8"
+          },
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": "pe.SandboxDT 3.02",
+            "division": "roborumble",
+            "jar": "pe.SandboxDT_3.02.jar",
+            "jar_sha256": "3635d6856c1a754c82bb24fcc9a2863244766f3dfec34f40a6fff34fee615feb",
+            "key": "roborumble/pe.SandboxDT_3.02.jar",
+            "kind": "robot"
+          },
+          "status": "PASS",
+          "tank_royale": {
+            "bridge_only_signatures": null,
+            "elapsed": 18.0,
+            "error_count": 2,
+            "error_signatures": [
+              {
+                "exception": "java.io.FileNotFoundException",
+                "origin": "unknown"
+              }
+            ],
+            "errors": [
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-sandbox-fix-evidence\\post-fix\\work\\tr-bots\\pe.SandboxDT_3.02\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)",
+              "IOException trying to read: java.io.FileNotFoundException: C:\\Users\\flemm\\AppData\\Local\\Temp\\robocode-sandbox-fix-evidence\\post-fix\\work\\tr-bots\\pe.SandboxDT_3.02-2\\SandboxDT.data\\enemystats.dat (Den angivne fil blev ikke fundet)"
+            ],
+            "has_log": true,
+            "ok": true,
+            "score": 4774.0,
+            "scores": [
+              2640.0,
+              2134.0
+            ],
+            "skipped": null,
+            "skipped_turn_telemetry": {
+              "events": [],
+              "status": "captured"
+            }
+          }
         }
       ],
-      "status": "DISCREPANCY (outcome)"
+      "status": "PASS"
     },
     "roborumble/pe.SandboxLump_1.52.jar": {
       "diagnosis_events": [],
