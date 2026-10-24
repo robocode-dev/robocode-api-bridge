@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Preserve Classic's missing-data-file behavior for robots compiled before Robocode 1.8.2, so older bots do not read an empty file where Classic reports the file missing.
 - Use the active bridge peer's energy when transforming terminal run loops in interface-based robots, so classes without `getEnergy()` can finish cleanly at round boundaries.
 - Return `null` from `getTeammates()` when a legacy solo robot has no teammate IDs, matching Classic and preventing bots from indexing an empty array.
 - Keep `getOthers()` aligned with the delivered turn and drop scans after their target dies, matching Classic event delivery and preventing legacy bots from indexing an empty opponent list.

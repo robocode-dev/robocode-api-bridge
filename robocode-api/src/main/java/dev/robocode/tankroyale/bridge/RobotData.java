@@ -11,6 +11,7 @@ import java.nio.file.Paths;
 import java.security.AccessControlException;
 import java.util.Collections;
 import java.util.IdentityHashMap;
+import java.util.Properties;
 import java.util.Set;
 
 import robocode.RobocodeFileOutputStream;
@@ -24,6 +25,22 @@ public final class RobotData {
     /** The classic filesystem quota, documented in {@link robocode.RobocodeFileOutputStream} and enforced here. */
     private static final long MAX_QUOTA = 200_000L;
     private static final int MAX_OPEN_STREAMS = 5;
+    private static final ClassValue<Boolean> LEGACY_MISSING_FILE_BEHAVIOR = new ClassValue<>() {
+        @Override
+        protected Boolean computeValue(Class<?> robotClass) {
+            String propertiesPath = "/" + robotClass.getName().replace('.', '/') + ".properties";
+            try (InputStream propertiesStream = robotClass.getResourceAsStream(propertiesPath)) {
+                if (propertiesStream == null) {
+                    return false;
+                }
+                Properties properties = new Properties();
+                properties.load(propertiesStream);
+                return isBeforeRobocodeVersion(properties.getProperty("robocode.version"), 1, 8, 2, 0);
+            } catch (IOException ignored) {
+                return false;
+            }
+        }
+    };
 
     private static final Path dataDirPath;
     private static long quotaUsed;
@@ -72,7 +89,8 @@ public final class RobotData {
 
     /**
      * Resolves a robot-supplied name, copies a matching bundled data resource when present, and
-     * otherwise creates the empty file Classic returns for a missing resource.
+     * otherwise creates the empty file Classic returns for a missing resource, except for robots compiled before
+     * Robocode 1.8.2.0, which retain Classic's earlier FileNotFoundException behavior.
      */
     static File resolveAndCreate(File directory, String filename) {
         return resolveAndCreate(directory, filename, null);
@@ -91,7 +109,9 @@ public final class RobotData {
                             + ".data/" + relativePath.toString().replace(File.separatorChar, '/');
                     InputStream bundledFile = resourcePath == null ? null : robotClass.getResourceAsStream("/" + resourcePath);
                     if (bundledFile == null) {
-                        file.createNewFile();
+                        if (robotClass == null || !LEGACY_MISSING_FILE_BEHAVIOR.get(robotClass)) {
+                            file.createNewFile();
+                        }
                     } else {
                         try (bundledFile) {
                             Files.copy(bundledFile, file.toPath());
@@ -103,6 +123,27 @@ public final class RobotData {
             // Classic logs creation failures but still returns the File; the later I/O reports them.
         }
         return file;
+    }
+
+    private static boolean isBeforeRobocodeVersion(String version, int... threshold) {
+        if (version == null || version.isBlank()) {
+            return false;
+        }
+        String[] components = version.split("\\.");
+        int componentCount = Math.max(components.length, threshold.length);
+        for (int i = 0; i < componentCount; i++) {
+            int versionComponent;
+            try {
+                versionComponent = i < components.length ? Integer.parseInt(components[i]) : 0;
+            } catch (NumberFormatException ignored) {
+                return false;
+            }
+            int thresholdComponent = i < threshold.length ? threshold[i] : 0;
+            if (versionComponent != thresholdComponent) {
+                return versionComponent < thresholdComponent;
+            }
+        }
+        return false;
     }
 
     private static Path relativePathInside(File directory, File file) throws IOException {
