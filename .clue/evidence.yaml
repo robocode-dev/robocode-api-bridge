@@ -204,7 +204,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
-          "sha256": "4cd73b772b13d3d86982eac4f06d212773c9a77f616c9bb2c5ff01c564a9d650"
+          "sha256": "21af614165e30976d85051b5f2ca454d793aa8eaa1368d3d9a599c804e48e609"
         },
         {
           "path": "robots-wrapper/build.gradle.kts",
@@ -1224,6 +1224,13 @@
           "id": "ROUTE-009",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
           "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_ReportsAbsentTeammatesAsNull",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_ReportsEmptyTeammateSetAsNull",
           "type": "Unit",
           "direction": "negative"
         },
