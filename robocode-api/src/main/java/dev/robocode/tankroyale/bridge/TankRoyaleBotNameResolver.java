@@ -25,9 +25,14 @@ final class TankRoyaleBotNameResolver {
         }
     }
 
-    static String getNameOrId(Object bot, int botId) {
+    static String getNameOrAlias(Object bot, int botId) {
         var name = getName(bot, botId);
-        return (name != null ? name : String.valueOf(botId)).intern();
+        return (name != null ? name : anonymousName(botId)).intern();
+    }
+
+    private static String anonymousName(int botId) {
+        var id = botId < 0 ? "N" + -(long) botId : String.valueOf(botId);
+        return "tankroyale.anonymous.Bot" + id + " 1.0";
     }
 
     private static java.lang.reflect.Method getMethod(Object bot) {

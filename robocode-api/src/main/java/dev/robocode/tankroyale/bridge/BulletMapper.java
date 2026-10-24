@@ -25,7 +25,7 @@ final class BulletMapper {
                 bullet.getX(),
                 bullet.getY(),
                 bullet.getPower(),
-                TankRoyaleBotNameResolver.getNameOrId(bot, bullet.getOwnerId()),
+                TankRoyaleBotNameResolver.getNameOrAlias(bot, bullet.getOwnerId()),
                 victimName,
                 false,
                 bullet.getBulletId()

@@ -1624,6 +1624,15 @@ events:
     - {id: AN-220, kind: numeric, state: live, prefix: AN, component: "220"}
     - {id: AN-222, kind: numeric, state: live, prefix: AN, component: "222"}
     - {id: CH-021, kind: numeric, state: reserved, prefix: CH, component: "21"}
+    - {id: CH-022, kind: numeric, state: reserved, prefix: CH, component: "22"}
+    - {id: API-007, kind: numeric, state: reserved, prefix: API, component: "7"}
+    - {id: IDR-009, kind: numeric, state: reserved, prefix: IDR, component: "9"}
+    - {id: CH-022, kind: numeric, state: live, prefix: CH, component: "22"}
+    - {id: CH-022-proposal, kind: opaque, state: live}
+    - {id: CH-022-tasks, kind: opaque, state: live}
+    - {id: CH-022-open-questions, kind: opaque, state: live}
+    - {id: API-007, kind: numeric, state: live, prefix: API, component: "7"}
+    - {id: IDR-009, kind: numeric, state: live, prefix: IDR, component: "9"}
     - {id: AN-706, kind: numeric, state: reserved, prefix: AN, component: "706"}
     - {id: API-007, kind: numeric, state: reserved, prefix: API, component: "7"}
     - {id: API-008, kind: numeric, state: reserved, prefix: API, component: "8"}

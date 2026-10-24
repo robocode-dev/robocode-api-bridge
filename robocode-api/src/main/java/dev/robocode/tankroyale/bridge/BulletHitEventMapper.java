@@ -12,7 +12,7 @@ final class BulletHitEventMapper {
     public static BulletHitEvent map(BulletHitBotEvent bulletHitBotEvent, Object bot) {
         if (bulletHitBotEvent == null) return null;
 
-        var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bulletHitBotEvent.getVictimId());
+        var victimName = TankRoyaleBotNameResolver.getNameOrAlias(bot, bulletHitBotEvent.getVictimId());
         var bullet = BulletMapper.map(bulletHitBotEvent.getBullet(), victimName, bot);
 
         var event = new BulletHitEvent(victimName, bulletHitBotEvent.getEnergy(), bullet);
