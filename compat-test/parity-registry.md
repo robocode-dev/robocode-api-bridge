@@ -6,14 +6,14 @@ This generated table is the reviewed index of the append-only observations in `p
 
 | Status | Subjects |
 |---|---:|
-| CONFIRMED (score) | 21 |
+| CONFIRMED (score) | 22 |
 | DISCREPANCY (errors) | 309 |
 | DISCREPANCY (no score) | 13 |
 | DISCREPANCY (outcome) | 52 |
 | MATCHED (failure) | 49 |
 | MATCHED (score noise) | 140 |
 | PASS | 777 |
-| score-review | 189 |
+| score-review | 188 |
 
 ## Subjects
 
@@ -1446,7 +1446,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
 | roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
-| roborumble/traker.Eraser_1.jar | roborumble | robot | score-review | 71def7b49aa6ae03 | classic-shaped-anonymous-opponent-alias | bridge |
+| roborumble/traker.Eraser_1.jar | roborumble | robot | CONFIRMED (score) | 74c9b538353fdc92 | classic-shaped-anonymous-opponent-alias | bridge |
 | roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
 | roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
 | roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |

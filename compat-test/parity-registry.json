@@ -497664,7 +497664,7 @@
         "key": "roborumble/traker.Eraser_1.jar",
         "kind": "robot"
       },
-      "latest_observation": "71def7b49aa6ae03",
+      "latest_observation": "74c9b538353fdc92",
       "observations": [
         {
           "classic": {
@@ -498276,9 +498276,80 @@
               "status": "disabled"
             }
           }
+        },
+        {
+          "classic": {
+            "errors": [],
+            "ok": true,
+            "score": 1956.2
+          },
+          "completed_at": "2026-10-24T22:28:56Z",
+          "confirmation": {
+            "attempts": 5,
+            "bridge_only_signatures": [],
+            "delta_mean": 77.64,
+            "deltas": [
+              85.8,
+              79.6,
+              88.4,
+              57.0,
+              77.4
+            ],
+            "rc_mean": 1956.2,
+            "samples": 5,
+            "tr_mean": 3471.6
+          },
+          "delta_pct": 77.64,
+          "id": "74c9b538353fdc92",
+          "manifest": {
+            "artifacts": {
+              "bot_api_jar": {
+                "path": "C:\\Code\\tank-royale\\bot-api\\java\\build\\libs\\robocode-tankroyale-bot-api-1.4.0.jar",
+                "sha256": "ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752"
+              },
+              "bridge_api_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robocode-api\\build\\libs\\robocode-api-0.5.0.jar",
+                "sha256": "0ca98a89022b0e08dbcfcf6f28fe23380dbd131ec32df75b5f5d3f732c752c39"
+              },
+              "runner_jar": {
+                "path": "C:\\Code\\tank-royale\\runner\\examples\\lib\\robocode-tankroyale-runner.jar",
+                "sha256": "4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc"
+              },
+              "wrapper_jar": {
+                "path": "C:\\Code\\robocode-api-bridge\\robots-wrapper\\build\\libs\\robots-wrapper-0.3.1.jar",
+                "sha256": "9caa34b387c91cdede543809ef3dedc157aadb0051e1e094a18715098ee8c640"
+              }
+            },
+            "bridge_commit": "bc47f805f9a6b37381d8171c3df965cad8737656",
+            "official_parameters": true,
+            "robocode_version": "1.11.1",
+            "tank_royale_commit": "02639872ea90b0d8cc7e487eb89607935d341e9a",
+            "threshold": 25.0
+          },
+          "retest": null,
+          "setup": {
+            "height": 600,
+            "participants": 2,
+            "rounds": 35,
+            "width": 800
+          },
+          "source_identity": {
+            "classic_selected": null,
+            "division": "roborumble",
+            "jar": "traker.Eraser_1.jar",
+            "jar_sha256": "cb5db64763078480a174f8204bf2f3c7c678118ba5011763d75d63131f7a4f3d",
+            "key": "roborumble/traker.Eraser_1.jar",
+            "kind": "robot"
+          },
+          "status": "CONFIRMED (score)",
+          "tank_royale": {
+            "errors": [],
+            "ok": true,
+            "score": 3471.6
+          }
         }
       ],
-      "status": "score-review"
+      "status": "CONFIRMED (score)"
     },
     "roborumble/tvv.micro.Antares_1.1.1.jar": {
       "diagnosis_events": [],
