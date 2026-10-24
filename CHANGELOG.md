@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Return `null` from `getTeammates()` when a legacy solo robot has no teammate IDs, matching Classic and preventing bots from indexing an empty array.
 - Keep `getOthers()` aligned with the delivered turn and drop scans after their target dies, matching Classic event delivery and preventing legacy bots from indexing an empty opponent list.
 - Map Tank Royale's one-based turns to Classic's zero-based robot time, so startup logic and status snapshots observe the same turn as Classic.
 - Map Tank Royale event timestamps onto Classic's zero-based round time, so event callbacks and robot status report the same time for a turn.
@@ -17,6 +18,7 @@
 - Preserve the bullet object and hash code returned by firing when delivering later bullet events, so legacy robots can retrieve statistics stored under that bullet.
 - Register blocking fire commands before advancing the turn, and return null when the gun cannot fire instead of returning an untracked bullet.
 - Keep known classic bot names consistent across scans, team messages, bullets, collisions, and robot-death events so legacy robots can match events to their recorded teammates.
+- Give unmapped Tank Royale bots stable Classic-shaped anonymous names in legacy events while preserving names the Bot API provides, so robots that parse package, class, or version fields can keep running when opponent names are hidden.
 - Fixed a Windows compatibility-sweep crash when process cleanup failed, so the harness retains cleanup diagnostics and records the battle result.
 - Preserve projectile callback timestamps so legacy robots can match bullet outcomes to the turn when they occurred.
 - Batch multiple team messages sent in one turn while preserving their order and directed recipients, and retain the existing transport for a single message.

@@ -2,7 +2,7 @@
 id: DES-003
 type: design
 status: active
-links: [CAP-003, ARCH-002, PDR-001]
+links: [CAP-003, ARCH-002, PDR-001, IDR-009]
 title: Robocode API surface fidelity — design
 provenance: inferred
 reversal-cost: low
@@ -15,6 +15,12 @@ reversal-cost: low
 The translation layer is a set of small, mostly stateless mappers in `dev.robocode.tankroyale.bridge`, each owning one conversion: angles, colours, bullets, results, bot state to robot status, and one mapper per event type behind a dispatching class mapper.
 
 They are deliberately plain. A mapper takes values and returns values, holds no reference to a battle or a peer where it can avoid one, and does no I/O. That is what makes the unit tier possible, and the property is worth protecting: a mapper that acquires a dependency on live battle state stops being testable without an engine and quietly moves its criteria from `active` to something that needs a battle to check.
+
+## Names the Bot API keeps private
+
+Tank Royale provides a bot-name map for a robot and its teammates but omits opponents. The bridge keeps every name the map supplies. When an ID has no mapped name, the shared resolver returns `tankroyale.anonymous.Bot<id> 1.0`, using a dotted package, class-like ID, and version field in the shape legacy Robocode names use.
+
+The alias is stable for the same ID and distinct across IDs, so scans, collisions, bullets, and death events use one spelling for the same unmapped bot. It does not reveal or reproduce the opponent's real class or version; a robot that chooses tactics by actual opponent name can still behave differently from Classic. `AN-045` records the evidence that exposed this boundary, and `IDR-009` records the bridge's alias policy.
 
 ## The angle rule: a heading and a rotation are not the same conversion
 

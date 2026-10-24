@@ -161,11 +161,11 @@ class TeamAndJuniorPeerRoutingTest {
     }
 
     @Test
-    @DisplayName("ROUTE-009 positive: teammate ids remain a fallback when the name map is unavailable")
-    void testROUTE009_UnitPositive_FallsBackToNumericTeammateIds() {
+    @DisplayName("ROUTE-009 positive: unmapped teammate ids receive stable aliases")
+    void testROUTE009_UnitPositive_FallsBackToAnonymousTeammateAliases() {
         bot.returning("getTeammateIds", Set.of(4));
 
-        assertArrayEquals(new String[] { "4" }, peer.getTeammates());
+        assertArrayEquals(new String[] { "tankroyale.anonymous.Bot4 1.0" }, peer.getTeammates());
     }
 
     @Test
@@ -175,6 +175,14 @@ class TeamAndJuniorPeerRoutingTest {
 
         // Classic returns null for a robot with no team, and robots branch on it. An empty
         // array would tell a lone robot it is in a team of nobody.
+        assertNull(peer.getTeammates());
+    }
+
+    @Test
+    @DisplayName("ROUTE-009 negative: an empty teammate set reports absence as null")
+    void testROUTE009_UnitNegative_ReportsEmptyTeammateSetAsNull() {
+        bot.returning("getTeammateIds", Set.of());
+
         assertNull(peer.getTeammates());
     }
 

@@ -148,7 +148,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/BulletMapperTest.java",
-          "sha256": "81060df80d0ad7b015af6279cc801c2a610de30f9c2d44e9a105c92753b7d025"
+          "sha256": "4e332f922635394958b58c4ecfbed5160e8c50dff830e11e792dbc39338dfac8"
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ColorMapperTest.java",
@@ -192,7 +192,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
-          "sha256": "2c07c7510ba8ed9f89bd726f8b83d471161faff492552530378bbe49922ba7e8"
+          "sha256": "20109191c2e77449ed60aaf542f613edabad193da98b13593696f0138a225d80"
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/StandardPeerRoutingTest.java",
@@ -208,7 +208,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
-          "sha256": "4284411f4cc9712ad571a87e7ad8cb88446ce63f15a35b5a28ffa7d7f908b4f1"
+          "sha256": "21af614165e30976d85051b5f2ca454d793aa8eaa1368d3d9a599c804e48e609"
         },
         {
           "path": "robots-wrapper/build.gradle.kts",
@@ -1085,16 +1085,16 @@
           "direction": "positive"
         },
         {
-          "id": "API-006",
+          "id": "API-007",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
-          "subject": "ScannedRobotEventMapperTest.testAPI006_UnitPositive_PreservesFallbackTargetNameIdentity",
+          "subject": "ScannedRobotEventMapperTest.testAPI007_UnitNegative_PreservesVisibleClassicTargetName",
           "type": "Unit",
-          "direction": "positive"
+          "direction": "negative"
         },
         {
-          "id": "API-006",
+          "id": "API-007",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/ScannedRobotEventMapperTest.java",
-          "subject": "ScannedRobotEventMapperTest.testAPI006_UnitPositive_PreservesStableClassicTargetNameIdentity",
+          "subject": "ScannedRobotEventMapperTest.testAPI007_UnitPositive_AliasesAnUnmappedTargetWithClassicNameShape",
           "type": "Unit",
           "direction": "positive"
         },
@@ -1248,6 +1248,13 @@
         {
           "id": "ROUTE-009",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_ReportsEmptyTeammateSetAsNull",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
           "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitNegative_TreatsAnUnparseableNameAsNotATeammate",
           "type": "Unit",
           "direction": "negative"
@@ -1297,7 +1304,7 @@
         {
           "id": "ROUTE-009",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
-          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_FallsBackToNumericTeammateIds",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_FallsBackToAnonymousTeammateAliases",
           "type": "Unit",
           "direction": "positive"
         },

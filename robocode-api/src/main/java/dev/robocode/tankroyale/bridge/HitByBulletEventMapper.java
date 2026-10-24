@@ -10,7 +10,7 @@ final class HitByBulletEventMapper {
     public static robocode.HitByBulletEvent map(HitByBulletEvent hitByBulletEvent, IBot bot) {
         if (hitByBulletEvent == null) return null;
 
-        var victimName = TankRoyaleBotNameResolver.getNameOrId(bot, bot.getMyId());
+        var victimName = TankRoyaleBotNameResolver.getNameOrAlias(bot, bot.getMyId());
         var bulletState = hitByBulletEvent.getBullet();
 
         var bearing = toRobocodeBearingRad(bot.bearingTo(bulletState.getX(), bulletState.getY()));

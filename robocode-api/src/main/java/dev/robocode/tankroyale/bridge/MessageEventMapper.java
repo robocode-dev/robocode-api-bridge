@@ -13,7 +13,7 @@ import java.util.List;
 final class MessageEventMapper {
 
     public static List<MessageEvent> map(TeamMessageEvent teamMessageEvent, IBot bot) {
-        var sender = TankRoyaleBotNameResolver.getNameOrId(bot, teamMessageEvent.getSenderId());
+        var sender = TankRoyaleBotNameResolver.getNameOrAlias(bot, teamMessageEvent.getSenderId());
 
         Object payload = teamMessageEvent.getMessage();
         List<?> payloads = payload instanceof TeamMessageBatch

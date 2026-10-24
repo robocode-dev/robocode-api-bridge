@@ -76,4 +76,14 @@ Feature: Robocode API surface fidelity
     When the bridge maps them for a robot
     Then both events report the matching zero-based Classic time
     And the first Tank Royale turn is reported as Classic time zero
+
+  @API-007
+  Scenario: Available bot names stay unchanged and unavailable names receive stable aliases
+    Test-type: Unit
+    Given the Tank Royale bot-name map provides a name for one bot ID and no name for another
+    When the bridge maps both IDs into Classic bot-name fields
+    Then it uses the provided name unchanged
+    And the unavailable name has the form `tankroyale.anonymous.Bot<id> 1.0`
+    And repeated uses of the same unmapped ID produce the same alias
+    And different unmapped IDs produce different aliases
 ```

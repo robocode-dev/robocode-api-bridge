@@ -12,7 +12,7 @@ final class ScannedRobotEventMapper {
     public static ScannedRobotEvent map(ScannedBotEvent scannedBotEvent, IBot bot) {
         if (scannedBotEvent == null) return null;
 
-        var name = TankRoyaleBotNameResolver.getNameOrId(bot, scannedBotEvent.getScannedBotId());
+        var name = TankRoyaleBotNameResolver.getNameOrAlias(bot, scannedBotEvent.getScannedBotId());
         var energy = scannedBotEvent.getEnergy();
         var x = scannedBotEvent.getX();
         var y = scannedBotEvent.getY();

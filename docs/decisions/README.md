@@ -40,4 +40,5 @@ A decision that changes a methodology contract inventories every live carrier th
 - [IDR-008 — Preserve arbitrary classic Serializable team messages through a bridge envelope](IDR-008-preserve-serializable-team-messages.md) · `inferred` — Non-primitive legacy team messages use a bridge-owned Java-serialization envelope because Tank Royale's JSON serializer cannot reflect into every classic message type.
 - [PDR-003 — Treat every rumble subject as a versioned parity case against classic Robocode](PDR-003-versioned-parity-registry.md) · `inferred` — The compatibility harness keeps an append-only, tracked parity registry for every robot jar and team.
 - [PDR-004 — Measure melee subjects against a pinned fixed opponent pool](PDR-004-fixed-melee-opponent-pool.md) · `verified` — Official melee evidence uses a tracked twelve-jar pool and nine selected opponents per subject.
+- [IDR-009 — Give unmapped bot IDs Classic-shaped anonymous names](IDR-009-classic-shaped-anonymous-bot-names.md) · `inferred` — Tank Royale's bot-name map omits opponents, while legacy Robocode event names use a package, class, and optional version form.
 <!-- clue:index:end -->
