@@ -50,23 +50,13 @@ public final class PreviewMain {
                 roots = SourceDiscovery.remembered(state);
                 if (roots.isEmpty()) {
                     List<Path> candidates = SourceDiscovery.candidates(Path.of(""), Path.of(System.getProperty("user.home")), System.getenv("SystemDrive"));
-                    if (candidates.size() == 1) {
-                        out.println("Found robot source: " + candidates.get(0));
-                        roots = SourceDiscovery.resolve(candidates.get(0));
-                    } else {
-                        Console console = System.console();
-                        if (console == null) throw new IllegalArgumentException("No unambiguous robot source. Supply a robot directory or Classic installation as the first argument.");
+                    Console console = System.console();
+                    Path chosen = SourceDiscovery.selectCandidate(candidates, console == null ? null : () -> {
                         for (int i = 0; i < candidates.size(); i++) out.println((i + 1) + ": " + candidates.get(i));
-                        String selected = console.readLine("Robot directory or Classic installation%s: ", candidates.isEmpty() ? "" : " (or candidate number)");
-                        if (selected == null || selected.isBlank()) throw new IllegalArgumentException("No robot source selected");
-                        Path chosen;
-                        if (selected.matches("[0-9]+")) {
-                            int index = Integer.parseInt(selected) - 1;
-                            if (index < 0 || index >= candidates.size()) throw new IllegalArgumentException("Invalid candidate number");
-                            chosen = candidates.get(index);
-                        } else chosen = Path.of(selected.trim());
-                        roots = SourceDiscovery.resolve(chosen);
-                    }
+                        return console.readLine("Robot directory or Classic installation%s: ", candidates.isEmpty() ? "" : " (or candidate number)");
+                    });
+                    if (candidates.size() == 1) out.println("Found robot source: " + chosen);
+                    roots = SourceDiscovery.resolve(chosen);
                 }
             }
             out.println("Robot sources: " + roots);

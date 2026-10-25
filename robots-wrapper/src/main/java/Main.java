@@ -43,7 +43,7 @@ public class Main {
 
     static Map<String, Path> processJar(Path jarPath) {
         try {
-            return processJarInternal(jarPath, false, 0);
+            return processJarInternal(jarPath, false, 0, new HashSet<>());
         } catch (Exception ex) {
             System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
             return new HashMap<>();
@@ -51,14 +51,14 @@ public class Main {
     }
 
     static Map<String, Path> processJarStrict(Path jarPath) throws IOException {
-        Map<String, Path> bots = processJarInternal(jarPath, true, 0);
+        Map<String, Path> bots = processJarInternal(jarPath, true, 0, new HashSet<>());
         if (bots.isEmpty()) {
             throw new IOException("No robot metadata found in " + jarPath.getFileName());
         }
         return bots;
     }
 
-    private static Map<String, Path> processJarInternal(Path jarPath, boolean strict, int depth) throws IOException {
+    private static Map<String, Path> processJarInternal(Path jarPath, boolean strict, int depth, Set<String> archiveClasses) throws IOException {
         if (depth > 8) {
             throw new IOException("Nested robot archives exceed eight levels");
         }
@@ -84,7 +84,7 @@ public class Main {
                         } else {
                             nestedJar = stageNestedJar(jarPath, zipFile, zipEntry);
                         }
-                        classToBotDir.putAll(processJarInternal(nestedJar, strict, depth + 1));
+                        classToBotDir.putAll(processJarInternal(nestedJar, strict, depth + 1, archiveClasses));
                     } else if (filename.toLowerCase().endsWith(".properties")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
@@ -96,8 +96,8 @@ public class Main {
                                 if (zipFile.getEntry(robotProps.classname.replace('.', '/') + ".class") == null) {
                                     throw new IOException("Robot class missing from archive: " + robotProps.classname);
                                 }
-                                if (classToBotDir.containsKey(robotProps.classname)) {
-                                    throw new IOException("Duplicate robot class: " + robotProps.classname);
+                                if (!archiveClasses.add(robotProps.classname)) {
+                                    throw new IOException("Ambiguous robot class across archive tree: " + robotProps.classname);
                                 }
                             }
                             Path botDir = createBotDir(jarPath, jarFile.getName(), robotProps);
@@ -204,6 +204,7 @@ public class Main {
         }
 
         if (memberDirNames.isEmpty()) {
+            if (strict) throw new IOException("Team has no resolvable members: " + teamEntryName);
             System.err.println("Team has no resolvable members: " + teamEntryName);
             return;
         }

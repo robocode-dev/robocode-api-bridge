@@ -12,6 +12,22 @@ final class SourceDiscovery {
 
     private SourceDiscovery() { }
 
+    static Path selectCandidate(List<Path> candidates, java.util.function.Supplier<String> prompt) {
+        if (candidates.size() == 1) return candidates.get(0);
+        if (prompt == null) throw new IllegalArgumentException("No unambiguous robot source. Supply a robot directory or Classic installation as the first argument");
+        String selected = prompt.get();
+        if (selected == null || selected.isBlank()) throw new IllegalArgumentException("No robot source selected");
+        selected = selected.trim();
+        if (selected.matches("[0-9]+")) {
+            int index;
+            try { index = Integer.parseInt(selected) - 1; }
+            catch (NumberFormatException invalid) { throw new IllegalArgumentException("Invalid candidate number"); }
+            if (index < 0 || index >= candidates.size()) throw new IllegalArgumentException("Invalid candidate number");
+            return candidates.get(index);
+        }
+        return Path.of(selected);
+    }
+
     static List<Path> resolve(Path supplied) throws IOException {
         Path root = PreviewFiles.canonical(supplied);
         if (!Files.isDirectory(root)) throw new IOException("Robot directory does not exist: " + root);

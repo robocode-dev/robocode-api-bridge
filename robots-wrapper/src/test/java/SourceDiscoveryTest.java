@@ -32,6 +32,23 @@ class SourceDiscoveryTest {
     }
 
     @Test
+    void testPKG002_UnitPositive_SelectsTheRequestedCandidateOrManualPath() {
+        Path first = temp.resolve("first");
+        Path second = temp.resolve("second");
+        assertEquals(second, SourceDiscovery.selectCandidate(List.of(first, second), () -> "2"));
+        assertEquals(first, SourceDiscovery.selectCandidate(List.of(), first::toString));
+        assertEquals(first, SourceDiscovery.selectCandidate(List.of(first), () -> { throw new AssertionError("An unambiguous source must not prompt"); }));
+    }
+
+    @Test
+    void testPKG002_UnitNegative_RequiresAChoiceWithoutAnInteractivePrompt() {
+        assertThrows(IllegalArgumentException.class, () -> SourceDiscovery.selectCandidate(List.of(temp, temp.resolve("other")), null));
+        assertThrows(IllegalArgumentException.class, () -> SourceDiscovery.selectCandidate(List.of(), null));
+        assertThrows(IllegalArgumentException.class, () -> SourceDiscovery.selectCandidate(List.of(), () -> "3"));
+        assertThrows(IllegalArgumentException.class, () -> SourceDiscovery.selectCandidate(List.of(), () -> ""));
+    }
+
+    @Test
     void testPKG002_UnitNegative_DoesNotHideAmbiguousOrMissingSources() throws Exception {
         Path user = Files.createDirectories(temp.resolve("user/robocode/robots"));
         Path other = Files.createDirectories(temp.resolve("other/robots"));

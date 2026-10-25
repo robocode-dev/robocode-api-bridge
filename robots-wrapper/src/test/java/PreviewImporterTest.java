@@ -82,6 +82,54 @@ class PreviewImporterTest {
     }
 
     @Test
+    void testPKG004_IntegrationNegative_RejectsDelimiterOnlyTeamsWithoutReplacingAnInstalledBot() throws Exception {
+        Path home = PreviewTestSupport.unpack(temp.resolve("package"));
+        Path valid = Files.createDirectories(temp.resolve("valid"));
+        PreviewTestSupport.robotJar(valid, "original.jar", "learned data", null);
+        Path output = temp.resolve("bots");
+        assertEquals(0, PreviewTestSupport.importer(home, output).importSources(List.of(valid)));
+        Map<String, String> installed = PreviewTestSupport.snapshot(output.resolve("sample.Bot_1.0"));
+        int index = 0;
+        for (String members : List.of(",", " , , ")) {
+            Path bad = Files.createDirectories(temp.resolve("bad-team-" + index++));
+            PreviewTestSupport.robotJar(bad, "bad.jar", "replacement", members);
+            assertEquals(1, PreviewTestSupport.importer(home, output).importSources(List.of(bad)));
+            assertEquals(installed, PreviewTestSupport.snapshot(output.resolve("sample.Bot_1.0")));
+            assertFalse(Files.exists(output.resolve("FixtureTeam")));
+        }
+    }
+
+    @Test
+    void testPKG004_IntegrationNegative_RejectsAmbiguousNestedClassesAcrossVersions() throws Exception {
+        Path home = PreviewTestSupport.unpack(temp.resolve("package"));
+        Path inputs = Files.createDirectories(temp.resolve("nested inputs"));
+        Path one = PreviewTestSupport.robotJar(inputs, "one.jar", "first implementation", null);
+        Path two = inputs.resolve("two.jar");
+        try (var input = new java.util.zip.ZipFile(one.toFile());
+             var result = new java.util.jar.JarOutputStream(Files.newOutputStream(two))) {
+            var entries = input.entries();
+            while (entries.hasMoreElements()) {
+                var entry = entries.nextElement();
+                byte[] data = input.getInputStream(entry).readAllBytes();
+                if (entry.getName().endsWith(".properties")) data = new String(data, java.nio.charset.StandardCharsets.UTF_8)
+                        .replace("robot.version=1.0", "robot.version=2.0").getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                PreviewTestSupport.entry(result, entry.getName(), data);
+            }
+        }
+        Path source = Files.createDirectories(temp.resolve("source"));
+        try (var jar = new java.util.jar.JarOutputStream(Files.newOutputStream(source.resolve("ambiguous-team.jar")))) {
+            PreviewTestSupport.entry(jar, "one.jar", Files.readAllBytes(one));
+            PreviewTestSupport.entry(jar, "two.jar", Files.readAllBytes(two));
+            PreviewTestSupport.entry(jar, "Ambiguous.team", "team.members=sample.Bot 1.0,sample.Bot 2.0\n".getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        }
+        Path output = temp.resolve("bots");
+        assertEquals(1, PreviewTestSupport.importer(home, output).importSources(List.of(source)));
+        assertFalse(Files.exists(output.resolve("sample.Bot_1.0")));
+        assertFalse(Files.exists(output.resolve("sample.Bot_2.0")));
+        assertFalse(Files.exists(output.resolve("Ambiguous")));
+    }
+
+    @Test
     void testPKG004_IntegrationPositive_SeparatesTeamIdentityFromItsMultilineDescription() throws Exception {
         Path team = Files.createDirectories(temp.resolve("ActualTeam"));
         String description = "   A sample team.\nA long description that is not a team identity.";
