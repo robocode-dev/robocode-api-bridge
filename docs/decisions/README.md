@@ -41,4 +41,6 @@ A decision that changes a methodology contract inventories every live carrier th
 - [PDR-003 — Treat every rumble subject as a versioned parity case against classic Robocode](PDR-003-versioned-parity-registry.md) · `inferred` — The compatibility harness keeps an append-only, tracked parity registry for every robot jar and team.
 - [PDR-004 — Measure melee subjects against a pinned fixed opponent pool](PDR-004-fixed-melee-opponent-pool.md) · `verified` — Official melee evidence uses a tracked twelve-jar pool and nine selected opponents per subject.
 - [IDR-009 — Give unmapped bot IDs Classic-shaped anonymous names](IDR-009-classic-shaped-anonymous-bot-names.md) · `inferred` — Tank Royale's bot-name map omits opponents, while legacy Robocode event names use a package, class, and optional version form.
+- [PDR-005 — Deliver an installable preview before comprehensive parity closure](PDR-005-preview-before-comprehensive-parity-closure.md) · `inferred` — Prioritize the distribution plan's package, first-battle documentation, and preview installation evidence before the next broad parity batch.
+- [PDR-006 — Treat real-opponent-identity dependence as a robot limitation](PDR-006-opponent-identity-dependence-is-a-robot-limitation.md) · `inferred` — Preserve Tank Royale's opponent anonymity.
 <!-- clue:index:end -->

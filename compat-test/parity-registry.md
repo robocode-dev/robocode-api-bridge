@@ -1446,7 +1446,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | roborumble/toz.Gnome_1.1.jar | roborumble | robot | PASS | 286a569177a937f1 | - | - |
 | roborumble/trab.Crusader_0.1.7.jar | roborumble | robot | PASS | 50debfacc95c26af | - | - |
 | roborumble/trab.nano.AinippeNano_1.3.jar | roborumble | robot | PASS | bb121df4141d1cec | - | - |
-| roborumble/traker.Eraser_1.jar | roborumble | robot | CONFIRMED (score) | 74c9b538353fdc92 | classic-shaped-anonymous-opponent-alias | bridge |
+| roborumble/traker.Eraser_1.jar | roborumble | robot | CONFIRMED (score) | 74c9b538353fdc92 | opponent-identity-dependent-strategy | robot |
 | roborumble/tvv.micro.Antares_1.1.1.jar | roborumble | robot | PASS | cf279065275d9a3f | - | - |
 | roborumble/tvv.nano.Polaris_1.2.jar | roborumble | robot | PASS | 9e1383f34b5a1d20 | - | - |
 | roborumble/tw.Exterminator_1.0.jar | roborumble | robot | PASS | ca3704b90c6fabde | - | - |
@@ -1565,7 +1565,7 @@ This generated table is the reviewed index of the append-only observations in `p
 | teamrumble/rz.HOFSwarm_1.1.jar | teamrumble | team | MATCHED (score noise) | 5edb03c136b94cda | tank-royale-team-survival-scoring | tank-royale |
 | teamrumble/sampleteam.MyFirstTeam_1.0.jar | teamrumble | team | PASS | a37554eed40145c3 | - | - |
 | teamrumble/sgp.DrunkenTeam_1.12.jar | teamrumble | team | PASS | e9cc64ea58ea6420 | - | - |
-| teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | score-review | b3bd03ef73c91ec6 | tank-royale-opponent-names-not-exposed | tank-royale |
+| teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar | teamrumble | team | score-review | b3bd03ef73c91ec6 | opponent-identity-dependent-strategy | robot |
 | teamrumble/tmnr.TMNR_1.01.jar | teamrumble | team | DISCREPANCY (outcome) | 4fb3eb4379e7168c | robot-death-event-assumes-prior-scan | robot |
 | teamrumble/ustimaw.NightmareTeam_3.3.jar | teamrumble | team | MATCHED (score noise) | 1be38207150c4149 | classic-team-self-message-not-looped-back | bridge |
 | teamrumble/vuen.Bakery_2.51.jar | teamrumble | team | PASS | f30b9524f3fdf385 | team-member-properties-classname-collision | bridge |

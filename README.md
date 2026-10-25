@@ -51,8 +51,7 @@ command without any need of pre-compiling (from Java 11).
 
 #### Robocode API adapter library
 
-The provided adapter library for the Robocode API is 100% identical to the one from the original Robocode, meaning that
-the robot will not be able to tell the difference.
+The adapter reproduces the Classic Robocode API used by compiled Java robots and translates calls, state, and events to Tank Royale. Compatibility is still being improved: a completed battle does not guarantee identical Classic behavior or scores.
 
 The adapter library is calling the Tank Royale Bot API for Java, which takes care of all the communication with the
 server via WebSockets.
@@ -91,6 +90,8 @@ for Tank Royale bots, and we might be able to incorporate "orig. Robocode specif
 allows better backwards compatibility.
 
 ### 🤕 Expect issues with legacy robots
+
+Opponent identities may be anonymous. A robot can use the anonymous name to track an opponent, but a strategy that depends on the opponent's real class, package, or version can behave differently. The bridge provides stable Classic-shaped aliases; it cannot reconstruct hidden identities.
 
 Some legacy bots might not be possible (or at least easy) to run via the Robocode bridge for one or the other reason.
 E.g. because it uses some internal Java classes (e.g. Sun classes), give classloader problems due to obfuscation, has
