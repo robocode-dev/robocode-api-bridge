@@ -12,4 +12,4 @@ title: Implement and exercise the installable preview
 - [x] Implement discovery, selection, staged imports, collision handling and data preservation (PKG-002, PKG-003, PKG-004).
 - [x] Assemble the revision-pinned archive, notices, launchers, provenance and checksums (PKG-001, PKG-005).
 - [x] Write and exercise the first-battle and troubleshooting guide; connect root and module READMEs (PKG-005).
-- [ ] Run final package, wrapper, adapter and published-runtime evidence; record platform and runtime limits (PKG-001 through PKG-005).
+- [x] Run final package, wrapper, adapter and published-runtime evidence; record platform and runtime limits (PKG-001 through PKG-005).

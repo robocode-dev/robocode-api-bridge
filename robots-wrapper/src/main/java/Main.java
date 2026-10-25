@@ -513,7 +513,7 @@ public class Main {
             if (fileExt.equalsIgnoreCase(".cmd")) {
                 javaCommand = "@echo off\r\nsetlocal DisableDelayedExpansion\r\ncd /d \"%~dp0\"\r\n"
                         + "set \"BRIDGE_JAVA=java\"\r\nif defined JAVA_HOME set \"BRIDGE_JAVA=%JAVA_HOME%\\bin\\java.exe\"\r\n"
-                        + "\"%BRIDGE_JAVA%\" -cp \"" + classpath + "\" " + JAVA_WRAPPER + " >nul\r\nexit /b %errorlevel%\r\n";
+                        + "\"%BRIDGE_JAVA%\" -cp \"" + classpath + "\" " + JAVA_WRAPPER + " >nul\r\n";
             } else {
                 javaCommand = "#!/bin/sh\ncd -- \"$(dirname -- \"$0\")\" || exit 1\n"
                         + "if [ -n \"${JAVA_HOME:-}\" ]; then BRIDGE_JAVA=\"$JAVA_HOME/bin/java\"; else BRIDGE_JAVA=java; fi\n"

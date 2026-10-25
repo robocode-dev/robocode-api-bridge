@@ -11,7 +11,7 @@ Classic Robocode does not need to be installed or running. A Classic installatio
 - [Robocode Tank Royale](https://github.com/robocode-dev/tank-royale/releases), minimum 1.4.0 for this package. Newer stable 1.x versions are expected compatible; a new major version needs a fresh compatibility assessment. Use the GUI for the first battle. The [1.4.0 release](https://github.com/robocode-dev/tank-royale/releases/tag/v1.4.0) provides a reproducible starting point.
 - Existing Java robot jars, such as your LiteRumble collection. This package does not download or redistribute other authors' robots.
 
-Windows is the first supported installation path. The package includes a shell launcher for Linux and macOS, but those platforms need their own installation evidence before preview support is advertised. The package's release evidence states the Java and Tank Royale versions actually tested; compatibility within 1.x is an expectation, not a claim that every future release has been tested.
+This candidate documents Windows installation. Package setup and Java-source launching have been exercised with Oracle JDK 11.0.27 and Eclipse Temurin JDK 25.0.1 on Windows, using the published Tank Royale 1.4.0 runtime for focused battles. The package includes a shell launcher for Linux and macOS, but those platforms need their own installation evidence before preview support is advertised. Compatibility within 1.x is an expectation, not a claim that every future release has been tested.
 
 Open PowerShell and check:
 
@@ -114,6 +114,8 @@ For a [bridge issue](https://github.com/robocode-dev/robocode-api-bridge/issues)
 ## Compatibility limits
 
 A completed battle does not establish identical Classic behavior or scores. Compatibility is still being improved. Tank Royale hides opponents' real identities; a robot that depends on an opponent's real class, package or version can behave differently even when anonymous tracking names work correctly. Teammate identities and messaging are supported separately.
+
+Focused Windows checks with the public Tank Royale 1.4.0 runner booted every member of two five-member MyFirstTeam entries, but some completed runs returned zero-valued team results and rank zero. Other runs returned ranked results. The cause remains under investigation; do not use those zero rows as a compatibility or ranking verdict. The full preview-readiness assessment remains open.
 
 The bridge implements the Classic file APIs reached through `getDataFile` and `getDataDirectory`. It does not reproduce the entire Classic sandbox for raw Java file access, threads, reflection or sockets. Run jars you trust. Legacy internal-JDK dependencies and .NET robots from the old Classic plugin are outside the supported Java-jar path.
 
