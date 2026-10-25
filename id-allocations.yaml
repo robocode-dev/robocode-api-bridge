@@ -3875,6 +3875,11 @@ claims:
       state: reserved
       prefix: CRIT
       component: "8"
+    - id: CRIT-009
+      kind: numeric
+      state: reserved
+      prefix: CRIT
+      component: "9"
     - id: DES-001
       kind: numeric
       state: reserved
@@ -4651,11 +4656,11 @@ high-water:
       state: reserved
       prefix: C
       component: "7"
-    - id: CAP-008
+    - id: CAP-009
       kind: numeric
       state: reserved
       prefix: CAP
-      component: "8"
+      component: "9"
     - id: CH-025
       kind: numeric
       state: reserved
