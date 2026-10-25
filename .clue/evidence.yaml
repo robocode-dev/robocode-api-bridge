@@ -224,7 +224,7 @@
         },
         {
           "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
-          "sha256": "21941d2b57cbc12f9c0668cf2f664292ceb38cfff40dd515850c87814ca20d2c"
+          "sha256": "1b2489796e2c79fe0dac316cc7bb2ed334979ae9ebc07496e66f8dcbe3745f3d"
         },
         {
           "path": "robots-wrapper/src/test/java/PreviewTestSupport.java",
@@ -1458,6 +1458,13 @@
           "id": "PKG-004",
           "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
           "subject": "PreviewImporterTest.testPKG004_IntegrationPositive_ImportsCompleteRepeatedMemberTeam",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-004",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG004_IntegrationPositive_SeparatesTeamIdentityFromItsMultilineDescription",
           "type": "Integration",
           "direction": "positive"
         },

@@ -64,7 +64,8 @@ class PreviewImporterTest {
                 Assumptions.assumeTrue(junction.code == 0, "Creating symlinks and junctions is unavailable: " + junction.text);
             } else Assumptions.assumeTrue(false, "Creating symbolic links is unavailable: " + denied.getMessage());
         }
-        assertThrows(java.io.IOException.class, () -> PreviewFiles.rejectLinks(link.resolve("bot/file")));
+        try { assertThrows(java.io.IOException.class, () -> PreviewFiles.rejectLinks(link.resolve("bot/file"))); }
+        finally { Files.deleteIfExists(link); }
     }
 
     @Test
@@ -78,6 +79,16 @@ class PreviewImporterTest {
         Path output = temp.resolve("bots");
         assertEquals(1, PreviewTestSupport.importer(home, output).importSources(List.of(source)));
         assertFalse(Files.exists(temp.resolve("outside.class")));
+    }
+
+    @Test
+    void testPKG004_IntegrationPositive_SeparatesTeamIdentityFromItsMultilineDescription() throws Exception {
+        Path team = Files.createDirectories(temp.resolve("ActualTeam"));
+        String description = "   A sample team.\nA long description that is not a team identity.";
+        Main.createTeamJsonFile(team, "ActualTeam", description, "9.7", "Team author", List.of("member"));
+        String json = Files.readString(team.resolve("ActualTeam.json"));
+        assertTrue(json.contains("\"name\": \"ActualTeam\""));
+        assertTrue(json.contains("\"description\": \"" + Main.escape(description) + "\""));
     }
 
     @Test

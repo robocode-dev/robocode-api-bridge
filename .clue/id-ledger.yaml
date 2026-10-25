@@ -1689,6 +1689,8 @@ events:
     - {id: PKG-004, kind: numeric, state: live, prefix: PKG, component: "4"}
     - {id: PKG-005, kind: numeric, state: live, prefix: PKG, component: "5"}
     - {id: IDR-010, kind: numeric, state: live, prefix: IDR, component: "10"}
+    - {id: AN-714, kind: numeric, state: reserved, prefix: AN, component: "714"}
+    - {id: AN-714, kind: numeric, state: live, prefix: AN, component: "714"}
 high-water:
     - {id: ADR-002, kind: numeric, state: reserved, prefix: ADR, component: "2"}
     - {id: AN-014, kind: numeric, state: reserved, prefix: AN, component: "14"}

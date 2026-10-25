@@ -8,8 +8,6 @@ import java.util.zip.ZipOutputStream;
 
 /** Assembles an offline-use archive; publication is deliberately a separate operation. */
 public final class PreviewArchive {
-    private static final long ZIP_TIME = 315532800000L;
-
     public static void main(String[] args) throws Exception {
         Path root = Path.of(args[0]);
         requireClean(root, false);

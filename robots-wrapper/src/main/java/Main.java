@@ -270,7 +270,7 @@ public class Main {
         return copy;
     }
 
-    static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
+    static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamDescription, String teamVersion,
                                     String teamAuthor, List<String> memberDirNames) throws IOException {
         File file = createOrOverwriteFile(teamDir, teamBaseName + ".json");
         String author = normalizeAuthor(teamAuthor);
@@ -285,7 +285,8 @@ public class Main {
 
         try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
-                    "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
+                    "  \"name\": \"" + escape(teamBaseName) + "\",\n" +
+                    "  \"description\": \"" + escape(replaceIfBlank(teamDescription, "")) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
                     "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"platform\": \"JVM\",\n" +
