@@ -83,6 +83,7 @@ The corpus splits the goal into promises. They are not arbitrary; each sits at a
 | `CAP-006` team robot support | Inside the wrapper and harness: one team jar becomes grouped per-member processes; wrapper, peer, and team-battle-staging are implemented. |
 | `CAP-005` score parity | The whole picture, end to end. Detects; does not localise. |
 | `CAP-007` the harness | The apparatus itself, which has been wrong in ways mistaken for the bridge being wrong. |
+| `CAP-009` installable preview | Before the battle: the packaged command locates an existing collection and stages unchanged jars into a separate, managed Tank Royale bot root. |
 
 `CAP-003` and `CAP-008` are the two halves of one boundary and are worth holding apart: a value can convert correctly and arrive at the wrong call, which is `AN-005`, and a call can route correctly while the value it carries has the wrong handedness, which is `AN-007`.
 

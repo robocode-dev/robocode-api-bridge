@@ -24,4 +24,5 @@ A whole capability whose extracted criteria are not ready may stay `status: draf
 - [CAP-006 — Team robot support](CAP-006-team-robot-support/README.md) · `draft` — Grouped teams, classic names, messaging, and droid behavior pass with the published 1.4.0 pair; corpus activation requirements remain open.
 - [CAP-007 — The compatibility harness](CAP-007-compatibility-harness/README.md) · `draft` — The instrument itself, which has been wrong in ways mistaken for the bridge being wrong.
 - [CAP-008-call-routing-fidelity/](CAP-008-call-routing-fidelity/README.md)
+- [CAP-009-installable-preview/](CAP-009-installable-preview/README.md)
 <!-- clue:index:end -->

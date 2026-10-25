@@ -1,6 +1,6 @@
 ---
-id: CH-025-proposal
-type: change-proposal
+id: CH-025
+type: change
 status: open
 links: [P-002, M-145, M-146, G-003, G-001]
 title: Ship an installable bridge preview and its first-battle guide

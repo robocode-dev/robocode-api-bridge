@@ -48,6 +48,8 @@ tasks {
     }
 
     jar {
+        isPreserveFileTimestamps = false
+        isReproducibleFileOrder = true
         manifest {
             attributes["Implementation-Title"] = "Robocode API for Robocode Tank Royale"
             attributes["Implementation-Version"] = archiveVersion

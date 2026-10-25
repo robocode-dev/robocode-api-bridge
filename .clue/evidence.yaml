@@ -128,7 +128,7 @@
         },
         {
           "path": "robocode-api/build.gradle.kts",
-          "sha256": "3cfb16a68b747ecaa61114c985d8a7de78d82b069ee0584012883e8c85656966"
+          "sha256": "24bea7f9e01aa3f0f3e9d744e87882dac243cbd7badffd938badd64c138d4035"
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/AdvancedPeerRoutingTest.java",
@@ -212,7 +212,27 @@
         },
         {
           "path": "robots-wrapper/build.gradle.kts",
-          "sha256": "ffad5e5b114493537d6a12848e2c491a9cf0a92e094791441e9fb78f53f3ba90"
+          "sha256": "a1c7ae114875fe75b8a04b715f7975a9a32bffdf5c32a8b73b87e7f2b44da718"
+        },
+        {
+          "path": "robots-wrapper/src/test/java/PreviewArchiveTest.java",
+          "sha256": "9dc9b3c9226efad076080a7c5f1459871da9c89190e2ee019095fb4c89f5f9cf"
+        },
+        {
+          "path": "robots-wrapper/src/test/java/PreviewCommandTest.java",
+          "sha256": "81d8faad5ffa1c8af76b437f7162f52d3479cb03735833add8f15de63b5158d2"
+        },
+        {
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "sha256": "21941d2b57cbc12f9c0668cf2f664292ceb38cfff40dd515850c87814ca20d2c"
+        },
+        {
+          "path": "robots-wrapper/src/test/java/PreviewTestSupport.java",
+          "sha256": "69668aa2dbfdfb609ece2cab9168f747ee462c73f2ec22865d51f937a2523fe5"
+        },
+        {
+          "path": "robots-wrapper/src/test/java/SourceDiscoveryTest.java",
+          "sha256": "93146b03b38a36d784c8fc117211f596c2012ed0b59bb0f0b9198f36b86e8ff9"
         }
       ],
       "references": [
@@ -1368,6 +1388,97 @@
           "id": "ROUTE-010",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
           "subject": "TeamAndJuniorPeerRoutingTest.testROUTE010_UnitPositive_RoutesTheJuniorTurnAndMove",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-001",
+          "path": "robots-wrapper/src/test/java/PreviewArchiveTest.java",
+          "subject": "PreviewArchiveTest.testPKG001_IntegrationNegative_RejectsDirtyInputsLocalOverridesAndStaleNotices",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-001",
+          "path": "robots-wrapper/src/test/java/PreviewArchiveTest.java",
+          "subject": "PreviewArchiveTest.testPKG001_IntegrationPositive_ContainsCompletePayloadAndVerifiableHashes",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-005",
+          "path": "robots-wrapper/src/test/java/PreviewCommandTest.java",
+          "subject": "PreviewCommandTest.testPKG005_IntegrationNegative_ReportsBadArgumentsMissingJavaAndChangedLibraries",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-005",
+          "path": "robots-wrapper/src/test/java/PreviewCommandTest.java",
+          "subject": "PreviewCommandTest.testPKG005_IntegrationPositive_UsesUnpackedCommandAndSourceLauncherFromPathsWithSpaces",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-003",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG003_IntegrationNegative_RejectsOverlapAndUnmanagedReplacement",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-003",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG003_IntegrationNegative_RejectsSymbolicLinkDestinations",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-003",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG003_IntegrationPositive_StagesDeduplicatedInputsAndPreservesTeamDataOnUpgrade",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-004",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG004_IntegrationNegative_RejectsClassNamesThatCouldEscapeStaging",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-004",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG004_IntegrationNegative_RejectsIncompleteInvalidAndConflictingJars",
+          "type": "Integration",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-004",
+          "path": "robots-wrapper/src/test/java/PreviewImporterTest.java",
+          "subject": "PreviewImporterTest.testPKG004_IntegrationPositive_ImportsCompleteRepeatedMemberTeam",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-002",
+          "path": "robots-wrapper/src/test/java/SourceDiscoveryTest.java",
+          "subject": "SourceDiscoveryTest.testPKG002_UnitNegative_DoesNotHideAmbiguousOrMissingSources",
+          "type": "Unit",
+          "direction": "negative"
+        },
+        {
+          "id": "PKG-002",
+          "path": "robots-wrapper/src/test/java/SourceDiscoveryTest.java",
+          "subject": "SourceDiscoveryTest.testPKG002_UnitPositive_DiscoversConventionalHomesAndRemembersSources",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "PKG-002",
+          "path": "robots-wrapper/src/test/java/SourceDiscoveryTest.java",
+          "subject": "SourceDiscoveryTest.testPKG002_UnitPositive_ResolvesRelativeAndAbsoluteRumbleRepositories",
           "type": "Unit",
           "direction": "positive"
         }

@@ -33,6 +33,7 @@ The bridge is a translator sitting between two engines that disagree about almos
 | `CAP-005` score parity | [design](../capabilities/CAP-005-score-parity/design.md) | Self-play, the three shapes a finding takes, and what makes a baseline honest |
 | `CAP-006` team robot support | [design](../capabilities/CAP-006-team-robot-support/design.md) | Native team grouping, per-member staging, message routing, and droid behavior |
 | `CAP-007` the compatibility harness | [design](../capabilities/CAP-007-compatibility-harness/design.md) | Python orchestration over Java workers, per-instance logs, and why that split costs what it does |
+| `CAP-009` installable preview | [design](../capabilities/CAP-009-installable-preview/design.md) | Finding existing sources, staging unchanged jars into a separate root, preserving data and identifying packaged dependencies |
 
 ## The decisions that cut across them
 

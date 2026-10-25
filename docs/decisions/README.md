@@ -43,4 +43,5 @@ A decision that changes a methodology contract inventories every live carrier th
 - [IDR-009 — Give unmapped bot IDs Classic-shaped anonymous names](IDR-009-classic-shaped-anonymous-bot-names.md) · `inferred` — Tank Royale's bot-name map omits opponents, while legacy Robocode event names use a package, class, and optional version form.
 - [PDR-005 — Deliver an installable preview before comprehensive parity closure](PDR-005-preview-before-comprehensive-parity-closure.md) · `inferred` — Prioritize the distribution plan's package, first-battle documentation, and preview installation evidence before the next broad parity batch.
 - [PDR-006 — Treat real-opponent-identity dependence as a robot limitation](PDR-006-opponent-identity-dependence-is-a-robot-limitation.md) · `inferred` — Preserve Tank Royale's opponent anonymity.
+- [IDR-010 — Stage existing collections in a separate managed bot root](IDR-010-stage-collections-in-a-managed-bot-root.md) · `inferred` — The packaged Java command reads existing LiteRumble collections or Classic installations and stages unchanged jars into a separate managed bot root.
 <!-- clue:index:end -->

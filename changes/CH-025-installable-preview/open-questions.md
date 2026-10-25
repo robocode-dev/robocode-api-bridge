@@ -2,7 +2,7 @@
 id: CH-025-open-questions
 type: open-questions
 status: resolved
-links: [CH-025-proposal]
+links: [CH-025]
 title: Preview implementation decisions
 ---
 
