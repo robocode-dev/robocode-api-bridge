@@ -22,9 +22,13 @@ The versioned campaign source was `compat-test/parity-registry.json` at starting
 
 All five pairs produced samples; neither engine reported errors and no bridge-only signatures were recorded. Classic averaged 10,572.8 points and Tank Royale averaged 16,816.0 points. Pair deltas were +59.9%, +57.9%, +55.4%, +61.5%, +60.6%, for a +59.06% mean (Tank Royale leads by 59.06%). The confirmation manifest's threshold is 25.0%; the registry status is `CONFIRMED (score)`. Skipped-turn telemetry was captured for all five Tank Royale attempts; every attempt recorded no skipped-turn events.
 
+The latest five-pair confirmation `2587b5d31382f5d1` completed on 2026-10-25 in the prepared Windows PowerShell environment, using Classic Robocode 1.11.1, bridge commit `7d61d5214b62f9a5df322d591c2d4f8564a378ac`, and local Tank Royale commit `094bea25df50b33f3b9bafcb1fee7eb66883a27a`. The locally built bridge API, wrapper, Bot API, and runner hashes were `c72d38a2c469d947569035b8058480517ae59eb818665e4f254fdea0b74fe421`, `af06a5274cfbd497edde304f6d576f03a79810a0f6af65249644921df9a8e5bf`, `ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752`, and `4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc`. It again used two participants, 35 rounds, and an 800×600 arena; the exact Java executable and selected-name field were not retained.
+
+All five latest pairs produced samples without engine errors or bridge-only signatures. Classic averaged 10,577.8 points and Tank Royale 16,885.2 points. Pair deltas were +58.3%, +58.6%, +63.3%, +59.2%, and +58.9%, for a +59.66% mean. All five Tank Royale attempts captured skipped-turn telemetry and recorded no skipped turns. This is prepared-environment statistical quality evidence, not deterministic acceptance proof; no confidence interval was computed.
+
 ## What was tried
 
-The earlier observation `3eaffb97ae957a2d` recorded a +56.70% delta. The current five-pair mean is +59.06%; the registry reports `CONFIRMED (score)`.
+The earlier observation `3eaffb97ae957a2d` recorded +56.70%, and confirmation `1313dd2e1df9f6bf` recorded +59.06%. The latest confirmation `2587b5d31382f5d1` records +59.66%; the registry reports `CONFIRMED (score)`.
 
 ## What was not pursued
 
@@ -32,7 +36,7 @@ The retest confirms the score difference but does not explain its cause or chang
 
 ## Finding
 
-The five-pair sample confirms a 59.06% Tank Royale score advantage, compared with 56.7% in the earlier observation. The sample had no runtime errors or bridge-only signatures.
+The latest five-pair sample confirms a 59.66% Tank Royale score advantage, compared with 59.06% in the previous confirmation. The sample had no runtime errors or bridge-only signatures, and skipped-turn telemetry recorded none.
 
 ## M-006 handoff
 

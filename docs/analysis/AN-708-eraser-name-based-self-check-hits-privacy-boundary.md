@@ -38,4 +38,4 @@ Keep the five-pair `CONFIRMED (score)` result and the existing Tank Royale oppon
 
 ## M-006 handoff
 
-Retest `meleerumble/divineomega.DivineBot_1.9.4.5.jar` after the version-aware `RobotData.getDataFile` correction, linking the observation to `classic-getdatafile-initializes-missing-file` and repair `ac95ec8`. Keep any remaining ChumbaMini or Aristocles signatures attributed to the fixed opponent pool.
+The repair-linked official retest for `meleerumble/divineomega.DivineBot_1.9.4.5.jar` completed as observation `0f53263ec129e22a`: Classic scored 115,372 and Tank Royale scored 111,421 (−3.4%). Both engines reported the robot's caught `EOFException` from `divineomega.FileManager.load`; Tank Royale's remaining `SecurityException` came from the fixed `amk.ChumbaMini` opponent. The version-aware `RobotData.getDataFile` correction therefore removed the bridge-only missing-file behavior, while the registry retains the opponent-pool error discrepancy. Continue with `roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar` (`score-review`) in AN-554.

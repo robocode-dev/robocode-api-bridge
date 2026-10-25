@@ -20,19 +20,21 @@ The read-only subject jar `dvogon.GangBang_1.0.jar` has SHA-256 `a40fb9832331574
 
 The versioned campaign source was `compat-test/parity-registry.json` at starting commit `859c7d5edac22146c3acb21f13e89144f6ed9163`; the population was its `roborumble` robot rows, and this subject was eligible because its starting status was `score-review` and it was next in registry order. All 5 valid pairs were retained; no samples were excluded. Pair deltas show observed spread, but no confidence interval was computed. As described in [PDR-001](../decisions/PDR-001-three-tier-evidence-strategy.md), this sweep is statistical quality evidence rather than deterministic acceptance proof.
 
-All five pairs produced samples; neither engine reported errors and no bridge-only signatures were recorded. Classic averaged 4,824.8 points and Tank Royale averaged 5,534.2 points. Pair deltas were +30.4%, +31.7%, -0.3%, -1.8%, +14.8%, for a +14.96% mean (Tank Royale leads by 14.96%). The confirmation manifest's threshold is 25.0%; the registry status is nevertheless `MATCHED (score noise)`, recorded without inferring the classifier's reason. Skipped-turn telemetry was captured for all five Tank Royale attempts; every attempt recorded no skipped-turn events.
+The new official retest `f8921cff3e782147` completed on 2026-10-25 with Classic Robocode 1.11.1, bridge commit `7d61d5214b62f9a5df322d591c2d4f8564a378ac`, and local Tank Royale commit `96bdfd7957f0506cd5a84043ec93d3fd7fd1cd4a`. The read-only robot jar SHA-256 is `a40fb98323315743723be8b3153d3fbca76a18889ca3a3a22ec70d18826e730c`; the locally built bridge API, wrapper, Bot API, and runner hashes are respectively `c72d38a2c469d947569035b8058480517ae59eb818665e4f254fdea0b74fe421`, `af06a5274cfbd497edde304f6d576f03a79810a0f6af65249644921df9a8e5bf`, `ab65c4d5cec1808adeb71375adae6d15341ae250def89a6c10fc9da879de0752`, and `4f208f8047d0f0d49d119255fc713b042fb9c34fb1d01c585fcfa8730cb940fc`. It used the official two-participant, 35-round, 800×600 setup. The observation does not retain the exact Java executable or Classic selected-name field.
+
+All five pairs in the new retest produced samples; neither engine reported errors and no bridge-only signatures were recorded. Classic averaged 4,622.8 points and Tank Royale averaged 6,055.2 points. The pair deltas were +31.4%, +87.3%, +10.8%, +19.2%, and +21.0%; their mean is +33.94%. The registry therefore changes from `MATCHED (score noise)` to `CONFIRMED (score)`. This retest did not enable skipped-turn or scan-event telemetry.
 
 ## What was tried
 
-The earlier observation `8e3f284de332c1dd` recorded a +32.80% delta. The current five-pair mean is +14.96%; the registry reports `MATCHED (score noise)`.
+The earlier observation `8e3f284de332c1dd` recorded +32.80%, and `40506d20c2be9f51` recorded +14.96%. The latest five-pair observation `f8921cff3e782147` records a +33.94% mean and changes the registry status to `CONFIRMED (score)`.
 
 ## What was not pursued
 
-The retest shows the score gap narrowed into the registry noise band but does not explain the change. No controlled trace or source comparison was made, and no code or rumble-jar change was made.
+The current retest confirms a score gap but does not explain its size or spread. Read-only inspection found that GangBang uses blocking `turnGunRight` in its main loop and calls `execute()` from `onScannedRobot`, `onHitRobot`, and `onHitWall`; this source behavior alone does not identify a bridge mismatch. The five samples include one +87.3% pair and four smaller positive gaps. No controlled trace, bridge code change, or rumble-jar change was made.
 
 ## Finding
 
-GangBang's Tank Royale advantage narrowed from +32.8% to +14.96%, and the registry now classifies it as `MATCHED (score noise)`. The five-pair sample had no runtime errors or bridge-only signatures.
+GangBang's current five-pair Tank Royale advantage averages +33.94%, so it is once again `CONFIRMED (score)` under the registry threshold. The sample had no runtime errors or bridge-only signatures; its score spread remains large and the source review has not isolated a bridge cause.
 
 ## M-006 handoff
 
