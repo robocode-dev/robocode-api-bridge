@@ -41,3 +41,5 @@
 - Echo direct team messages addressed to the sending robot back to its message callback, matching Classic Robocode.
 - Resolve a team member's class from its matching archive entry when duplicated robot properties metadata would otherwise stop team staging.
 - Added supported integration evidence that checks skipped-turn telemetry, including warm-up events and completed empty captures, in the persisted parity registry.
+- Include each staged bot's display name with skipped-turn telemetry, so captured turn events can be attributed without reconstructing bot IDs from process logs.
+- Add class-filtered opt-in scan-event telemetry with turn, event time, peer time, and scanned bot ID to diagnose intermittent startup ordering failures without instrumenting every bot.

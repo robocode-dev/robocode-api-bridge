@@ -931,6 +931,28 @@ def staged_log_dirs(bot_dirs):
     return list(dict.fromkeys(expanded))
 
 
+def staged_bot_name(directory: Path):
+    """Returns the display name from a staged bot descriptor, when it is available."""
+    config = directory / f"{directory.name}.json"
+    try:
+        data = json.loads(config.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+    if not isinstance(data, dict):
+        return None
+
+    name = data.get("name")
+    version = data.get("version")
+    if isinstance(name, str) and name.strip():
+        name = name.strip()
+        if isinstance(version, str) and version.strip():
+            return f"{name} {version.strip()}"
+        return name
+
+    member_name = data.get("teamMemberName")
+    return member_name.strip() if isinstance(member_name, str) and member_name.strip() else None
+
+
 def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
     """Reads the opt-in bridge markers without treating a missing marker as zero skips."""
     if not enabled:
@@ -939,6 +961,7 @@ def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
         return {"status": "incomplete", "events": None}
 
     ready_bot_ids = set()
+    bot_names = {}
     completed_event_counts = {}
     events = set()
     directories = staged_log_dirs(bot_dirs)
@@ -952,7 +975,11 @@ def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
                     line = line.rstrip("\r\n")
                     ready_match = SKIPPED_TURN_READY_RE.fullmatch(line)
                     if ready_match:
-                        ready_bot_ids.add(int(ready_match.group(1)))
+                        bot_id = int(ready_match.group(1))
+                        ready_bot_ids.add(bot_id)
+                        bot_name = staged_bot_name(directory)
+                        if bot_name:
+                            bot_names[bot_id] = bot_name
                         continue
                     complete_match = SKIPPED_TURN_COMPLETE_RE.fullmatch(line)
                     if complete_match:
@@ -983,11 +1010,13 @@ def skipped_turn_telemetry(bot_dirs, enabled, completed, expected_bots):
            for bot_id in ready_bot_ids):
         return {"status": "incomplete", "events": None}
 
-    ordered_events = [
-        {"bot_id": bot_id, "round": round_number, "turn": turn_number}
-        for bot_id, round_number, turn_number in sorted(
-            events, key=lambda event: (event[1], event[2], event[0]))
-    ]
+    ordered_events = []
+    for bot_id, round_number, turn_number in sorted(
+            events, key=lambda event: (event[1], event[2], event[0])):
+        event = {"bot_id": bot_id, "round": round_number, "turn": turn_number}
+        if bot_id in bot_names:
+            event["bot_name"] = bot_names[bot_id]
+        ordered_events.append(event)
     return {"status": "captured", "events": ordered_events}
 
 

@@ -41,6 +41,13 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             "robocode.bridge.skippedTurnTelemetry";
     private static final boolean SKIPPED_TURN_TELEMETRY_ENABLED =
             Boolean.getBoolean(SKIPPED_TURN_TELEMETRY_PROPERTY);
+    private static final String SCAN_TELEMETRY_PROPERTY = "robocode.bridge.scanTelemetry";
+    private static final boolean SCAN_TELEMETRY_ENABLED = Boolean.getBoolean(SCAN_TELEMETRY_PROPERTY);
+    private static final String SCAN_TELEMETRY_ROBOT_CLASS_PROPERTY =
+            "robocode.bridge.scanTelemetryRobotClass";
+    private static final String SCAN_TELEMETRY_ROBOT_CLASS =
+            System.getProperty(SCAN_TELEMETRY_ROBOT_CLASS_PROPERTY, "");
+    private static final int MAX_SCAN_TELEMETRY_RECORDS = 16;
 
     private volatile IBasicRobot robot;
     private volatile IBasicEvents basicEvents;
@@ -76,6 +83,7 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             ? new ArrayList<>() : Collections.emptyList();
     private final Set<String> skippedTurnTelemetryEventRecords = SKIPPED_TURN_TELEMETRY_ENABLED
             ? new HashSet<>() : Collections.emptySet();
+    private final AtomicInteger scanTelemetryRecordCount = new AtomicInteger();
     private final List<PendingTeamMessage> pendingTeamMessages = new ArrayList<>();
     private final List<PendingSelfTeamMessage> pendingSelfTeamMessages = new ArrayList<>();
     private final List<MessageEvent> activeSelfTeamMessageEvents = new ArrayList<>();
@@ -456,6 +464,16 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
             return;
         }
         var scannedRobotEvent = ScannedRobotEventMapper.map(scannedBotEvent, bot);
+        if (SCAN_TELEMETRY_ENABLED
+                && (SCAN_TELEMETRY_ROBOT_CLASS.isEmpty()
+                || SCAN_TELEMETRY_ROBOT_CLASS.equals(robot.getClass().getName()))
+                && scanTelemetryRecordCount.getAndIncrement() < MAX_SCAN_TELEMETRY_RECORDS) {
+            System.out.println("BRIDGE_SCAN_EVENT botId=" + bot.getMyId()
+                    + " eventTurn=" + scannedBotEvent.getTurnNumber()
+                    + " eventTime=" + scannedRobotEvent.getTime()
+                    + " peerTime=" + getTime()
+                    + " targetBotId=" + scannedBotEvent.getScannedBotId());
+        }
         dispatchRobotCallback(() -> basicEvents.onScannedRobot(scannedRobotEvent));
     }
 
