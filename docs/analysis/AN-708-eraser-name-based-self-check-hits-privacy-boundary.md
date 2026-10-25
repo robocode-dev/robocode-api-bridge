@@ -2,7 +2,7 @@
 id: AN-708
 type: analysis
 status: active
-links: [P-001, CAP-003, CAP-005, API-007, IDR-009, AN-045, C-003, C-007]
+links: [P-001, CAP-003, CAP-005, API-007, IDR-009, AN-045, C-003, C-007, PDR-006]
 title: Eraser confirms a score gap at the anonymous-name boundary
 provenance: inferred
 reversal-cost: low
@@ -39,3 +39,7 @@ Keep the five-pair `CONFIRMED (score)` result and the existing Tank Royale oppon
 ## M-006 handoff
 
 The repair-linked official retest for `meleerumble/divineomega.DivineBot_1.9.4.5.jar` completed as observation `0f53263ec129e22a`: Classic scored 115,372 and Tank Royale scored 111,421 (−3.4%). Both engines reported the robot's caught `EOFException` from `divineomega.FileManager.load`; Tank Royale's remaining `SecurityException` came from the fixed `amk.ChumbaMini` opponent. The version-aware `RobotData.getDataFile` correction therefore removed the bridge-only missing-file behavior, while the registry retains the opponent-pool error discrepancy. Continue with `roborumble/dsekercioglu.mega.WhiteFang_2.8.1.jar` (`score-review`) in AN-554.
+
+## Current disposition under the anonymity policy
+
+The historical score observations and diagnoses remain unchanged. [The subsequent anonymity policy](../decisions/PDR-006-opponent-identity-dependence-is-a-robot-limitation.md) classifies Eraser's demonstrated same-name strategy as a robot compatibility limitation. The registry appends that diagnosis instead of retaining the bridge alias as the current cause. The known score difference does not require a bridge or Tank Royale identity-disclosure repair and does not block a preview; accepted alias consistency and unrelated runtime failures remain in scope.

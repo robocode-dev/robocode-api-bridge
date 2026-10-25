@@ -13,7 +13,11 @@ Closing the plan is that same bookkeeping: the change completing the last milest
 
 Every full change proposal names the plan item it serves, or explicitly declares itself plan-less — silence is not an option.
 
+## Current delivery priority
+
+Prepare the installable preview in [the distribution and usage plan](P-002-build-distribution-and-bot-acquisition.md): package (M-145), first-battle guide (M-146), then a recorded preview installation (M-149). [The parity campaign](P-001-bridge-parity-campaign.md) continues with startup failures, crashes, hangs, team operation, and targeted regression work. Another broad score-confirmation batch is not the default next task. Collection-acquisition tooling follows the preview.
+
 <!-- clue:index:start -->
 - [P-001 — Make the bridge's parity claims measurable, then close the gaps it measures](P-001-bridge-parity-campaign.md) · `active` — The campaign, sequenced so the instrument is built before the gaps it finds are closed.
-- [P-002 — Make the bridge buildable, distributable, and easy to point at real robots](P-002-build-distribution-and-bot-acquisition.md) · `draft` — `G-003` asks for an easy path from "I want to run legacy robots on Tank Royale" to "I have them running." This campaign is that path, sequenced so each milestone gives the next one something to build…
+- [P-002 — Make the bridge buildable, distributable, and easy to point at real robots](P-002-build-distribution-and-bot-acquisition.md) · `active` — `G-003` asks for an easy path from "I want to run legacy robots on Tank Royale" to "I have them running." This campaign is that path, sequenced so each milestone gives the next one something to build…
 <!-- clue:index:end -->

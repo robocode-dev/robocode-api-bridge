@@ -1,8 +1,8 @@
 ---
 id: CH-024-proposal
-type: change-proposal
+type: change
 status: open
-links: [P-001, P-002, G-001, G-003]
+links: [P-001, P-002, G-001, G-003, PDR-005, PDR-006]
 title: Prioritize a usable bridge preview before comprehensive parity closure
 ---
 
@@ -26,6 +26,8 @@ A package could pass all mechanical checks and still fail its intended user if t
 
 ## Scope and acceptance
 
-Revise the two active-work plans, record the delivery policy in a process decision, correct obsolete adoption prose, and remove the README's unsupported compatibility claim. No executable acceptance criterion changes, robot jars, runtime behavior, release versions, or publication workflows are part of this plan-only change. No new use-case artifact is needed for this planning revision; the actual installation flow will be established and verified during the distribution work.
+Revise the two active-work plans, record the delivery policy, correct obsolete adoption prose, and remove the README's unsupported compatibility claim. The maintainer additionally clarified that dependence on actual opponent names is a robot limitation: preserve anonymity, help prevent practical failures where the bridge can do so correctly, and retain unexplained difficult cases without calling them repaired. Record that scope in the fidelity goal and a separate classification decision, and append new diagnoses to the two source-supported score cases, Eraser and GeneBot. Preserve all observations and earlier diagnoses. SandboxDT's additional runtime/outcome symptoms remain unresolved.
+
+No executable acceptance criterion, robot jar, runtime behavior, release version, or publication workflow changes. The stable alias and team identity criteria remain intact. No new use-case artifact is needed for this planning revision; the actual installation flow will be established and verified during the distribution work.
 
 The repository has no stated vision. This change proceeds under the existing Classic fidelity goal (G-001), the proposed adoption goal (G-003), and the maintainer's installation-and-documentation direction. The acceptance mechanism is local on main. No branch publication or hosted pull request is requested for this change.

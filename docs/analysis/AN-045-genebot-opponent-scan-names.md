@@ -2,7 +2,7 @@
 id: AN-045
 type: analysis
 status: active
-links: [P-001, CAP-003, CAP-005, CAP-006, ADR-002, AN-015]
+links: [P-001, CAP-003, CAP-005, CAP-006, ADR-002, AN-015, PDR-006]
 title: GeneBot's score gap follows Tank Royale withholding opponent names from scans
 provenance: inferred
 reversal-cost: low
@@ -35,3 +35,7 @@ No bridge code fix is indicated by this evidence. Restoring the Classic scan-nam
 ## M-006 handoff
 
 Keep `teamrumble/sp.Minis.GeneBotUpgrade_1.1.jar` at `CONFIRMED (score)` with the Tank Royale name-visibility diagnosis and the original five-pair observation. Continue in registry order with `teamrumble/tmnr.TMNR_1.01.jar`.
+
+## Current disposition under the anonymity policy
+
+The historical observations and original diagnosis above remain evidence of the configuration that was measured. [The subsequent anonymity policy](../decisions/PDR-006-opponent-identity-dependence-is-a-robot-limitation.md) supersedes the instruction to seek an upstream disclosure of opponent identities. GeneBot's demonstrated name-dependent firing strategy is now classified as a robot compatibility limitation, with an appended registry diagnosis. Its score difference does not block a preview or require exposing hidden names. Stable anonymous tracking, accepted alias formatting, and teammate identity remain bridge obligations.

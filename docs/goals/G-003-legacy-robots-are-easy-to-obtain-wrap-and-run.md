@@ -20,7 +20,7 @@ To go from "here is a directory of classic Robocode robot jars" — or from noth
 
 ## Why it matters
 
-Fidelity work has no audience if nobody can practically reach it. Today, using `robocode-api` and `robots-wrapper` means building from source with per-module hardcoded dependency versions and no shared catalog, no published jars, and a module README that stops at "copy this jar into a `lib` folder you create yourself." A user who cannot get the bridge running cannot benefit from anything `G-001` or `G-002` prove about it.
+Fidelity work has no audience if nobody can practically reach it. A user should be able to obtain a coherent bridge package, follow a guide, and understand a failed launch without becoming a bridge developer. The build already shares dependency versions through a catalog, but that development foundation alone does not establish a complete installation experience. A user who cannot get the bridge running cannot benefit from the fidelity work.
 
 ## What this does not commit to
 

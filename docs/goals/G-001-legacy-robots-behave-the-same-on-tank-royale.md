@@ -32,3 +32,5 @@ That is why this repository's promises are stated as parity against classic Robo
 Preserving classic Robocode's implementation. The bridge reproduces observable behaviour and the API surface robots compiled against; it does not reproduce internals, and it is free to reach the same behaviour by different means.
 
 Running robots the classic engine could not run. A robot that crashed under classic is permitted to crash under the bridge, and a robot that classic sandboxed is expected to be sandboxed here too. Parity cuts both ways.
+
+Recovering opponent identities that Tank Royale intentionally withholds. A strategy depending on the opponent's real package, class, or version may behave differently with an anonymous identity; [the anonymity policy](../decisions/PDR-006-opponent-identity-dependence-is-a-robot-limitation.md) treats that dependence as a robot limitation. Stable event identity, the accepted anonymous-name format, available mapped names, teammate APIs, and unexplained runtime failures remain within the bridge's compatibility obligations.

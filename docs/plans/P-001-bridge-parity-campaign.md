@@ -2,7 +2,7 @@
 id: P-001
 type: plan
 status: active
-links: [G-001]
+links: [G-001, P-002, PDR-005, PDR-006]
 title: Make the bridge's parity claims measurable, then close the gaps it measures
 provenance: inferred
 reversal-cost: high
@@ -18,7 +18,15 @@ The instrument that exists is a sweep that plays every rumble jar against a copy
 
 So the campaign builds the instrument before it closes the gaps. `M-001` comes first not because it is the most valuable milestone but because every milestone after it is guesswork without it.
 
-The milestone order after `M-001` follows the priority order the project had already set for itself, which this plan preserves rather than re-derives.
+## Current delivery priority
+
+The next delivery is the installable preview in [the distribution and usage plan](P-002-build-distribution-and-bot-acquisition.md): assemble the package (M-145), document the first battle (M-146), and verify the candidate installation (M-149). This explicitly takes priority over resuming the next broad parity batch. `clue next` lists unfinished work across active plans; if it offers M-006 first, follow this delivery order rather than automatically continuing the robot list.
+
+The parity campaign stays active, and M-006's exit criterion remains unchanged. During preview work, prioritize reproducible startup failures, crashes, hangs, broken team operation, and regressions in basic robot behavior. Separate subject failures from opponent-pool and harness failures before attributing them to the bridge. Retest repairs against affected cases and the relevant regression checks. A further score-only batch needs a named hypothesis or a concrete release question; reconfirming an already known score gap is not the default next task.
+
+Each difficult case needs a recorded symptom, current evidence, responsible component when known, and a useful next experiment or a documented information boundary. Difficulty alone does not prove a robot defect. Cases with no feasible discriminating experiment can remain unresolved and lower priority without being reported as repaired. The delivery policy is [preview usability before comprehensive parity closure](../decisions/PDR-005-preview-before-comprehensive-parity-closure.md).
+
+Real-opponent-name-dependent strategy is a documented robot limitation under [the opponent-anonymity policy](../decisions/PDR-006-opponent-identity-dependence-is-a-robot-limitation.md). The original measurements remain in the registry, but this cause does not require exposing hidden names or block a preview. Stable identity, accepted anonymous-name formatting, team APIs, and otherwise unexplained runtime failures remain bridge responsibilities.
 
 ## Milestones
 
@@ -30,7 +38,7 @@ The milestone order after `M-001` follows the priority order the project had alr
 | M-004 | file I/O sandboxing | Robot file I/O is confined to the robot's data directory as classic confines it, and the bot that surfaced the defect completes a battle without the access errors it currently produces. | done |
 | M-005 | team robot support | The wrapper produces runnable Tank Royale bot directories for team jars, and the team division is no longer skipped by the harness. | done |
 | M-007 | every peer method is proven to route correctly | Each method on the five `robocode.robotinterfaces.peer` interfaces has a unit test proving which Bot API call it makes and with what arguments, and a reflective coverage check fails the build when a method has none. | done |
-| M-006 | versioned parity campaign across all three divisions | Every discoverable robot jar and team has a pinned, official-parameter parity case against classic Robocode. Every asymmetric outcome, error, hang, and confirmed score gap is diagnosed and retested after its repair; the tracked registry contains no unresolved bridge or Tank Royale discrepancy. | todo |
+| M-006 | versioned parity campaign across all three divisions; preview delivery in P-002 takes priority | Every discoverable robot jar and team has a pinned, official-parameter parity case against classic Robocode. Every asymmetric outcome, error, hang, and confirmed score gap is diagnosed and retested after its repair; the tracked registry contains no unresolved bridge or Tank Royale discrepancy. | todo |
 
 ## Evidence doors
 
