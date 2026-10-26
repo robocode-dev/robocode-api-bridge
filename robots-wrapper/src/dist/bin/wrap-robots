@@ -1,0 +1,7 @@
+#!/bin/sh
+BRIDGE_HOME=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd) || exit 1
+if [ -n "${JAVA_HOME:-}" ]; then BRIDGE_JAVA="$JAVA_HOME/bin/java"; else BRIDGE_JAVA=java; fi
+modules=$("$BRIDGE_JAVA" --list-modules 2>/dev/null) || modules=
+case "$modules" in *jdk.compiler@*) ;; *) echo 'wrap-robots requires a full JDK 11 or newer. Set JAVA_HOME or PATH.' >&2; exit 1 ;; esac
+case "$modules" in *java.net.http@*) ;; *) echo 'wrap-robots requires JDK 11 or newer.' >&2; exit 1 ;; esac
+exec "$BRIDGE_JAVA" -cp "$BRIDGE_HOME/tools/*" PreviewMain "$@"

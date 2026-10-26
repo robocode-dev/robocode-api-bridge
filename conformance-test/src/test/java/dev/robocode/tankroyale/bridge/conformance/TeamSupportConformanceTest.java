@@ -99,9 +99,15 @@ class TeamSupportConformanceTest extends ConformanceTestBase {
             assertFalse(outcome.anyConsoleContains("TeamIsTeammateMismatch:"),
                     () -> "isTeammate rejected a name from getTeammates() on " + engine
                             + " (" + outcome.summary() + ")");
-            assertEquals(TEAM_INSTANCES * 2 * (TEAM_MEMBERS - 1) * rounds,
-                    outcome.countOf(" from conformance.teams.TeamLeader 1.0 ("),
-                    () -> "message events did not expose classic sender names on " + engine
+            // Other payload variants also print sender names; classify these messages so
+            // adding an ordering/batch probe cannot change the expected name count.
+            assertEquals(TEAM_INSTANCES * (TEAM_MEMBERS - 1) * rounds,
+                    outcome.countOf("Message:BROADCAST from conformance.teams.TeamLeader 1.0 ("),
+                    () -> "broadcast events did not expose classic sender names on " + engine
+                            + " (" + outcome.summary() + ")");
+            assertEquals(TEAM_INSTANCES * rounds,
+                    outcome.countOf("Message:DIRECT from conformance.teams.TeamLeader 1.0 ("),
+                    () -> "direct events did not expose classic sender names on " + engine
                             + " (" + outcome.summary() + ")");
         });
     }

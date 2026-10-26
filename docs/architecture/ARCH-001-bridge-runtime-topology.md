@@ -41,6 +41,8 @@ The repository is two modules that never run at the same time.
 
 **`robocode-api` runs inside the battle.** It is the adapter: a library presenting the classic `robocode.*` API to the robot while translating underneath to the Tank Royale Bot API. `ARCH-002` covers why that surface is frozen.
 
+The preview's `wrap-robots` entry point finds an existing collection and copies unchanged jars to a separate managed bot root before invoking that generation step. It installs the packaged libraries and preserves learned data on reimport. The original developer entry point still generates beside caller-staged input jars. [The package design](../capabilities/CAP-009-installable-preview/design.md) describes source discovery, ownership and runtime provenance; the [user guide](../../guide/README.md) is the installation path.
+
 ## The process boundaries, and why they matter
 
 A battle spans three kinds of process: the Tank Royale server, the booter that launches bots, and one JVM per bot. Between the robot's `ahead(100)` and the server's view of that movement lie an adapter translation, a Bot API call, and a WebSocket message.

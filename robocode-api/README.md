@@ -1,39 +1,16 @@
 # Robocode API adapter library
 
-## About the adapter library
+The adapter reproduces the Classic Robocode API used by compiled Java robots and translates calls, state and events to Tank Royale. The generated `robocode-api` jar and a compatible Tank Royale Bot API run inside each bot's JVM.
 
-This is an adapter library for the [Robocode API] of the original Robocode allowing robots developed for the original
-Robocode to run with Robocode Tank Royale.
+Use the [installation, first battle and troubleshooting guide](../guide/README.md) to run existing robots from the preview package. The package supplies these libraries automatically. A JDK is required because generated bots start `Wrapper.java` as source; Classic Robocode itself is not required.
 
-The generated library (`robocode-api-x.y.z.jar`) is a replacement for the original `robocode.jar` library.
-Robocode robot developers can use this library to code against the original Robocode API, but run the robot in Tank
-Royale.
+## Development
 
-The `robocode` and `gl4java` packages should be considered and kept _read only_ as these are taken from the original
-Robocode API sources. The sources for the adapter are kept entirely within the `dev.robocode.tankroyale.bridge` package,
-and can be changed to improve the adapter code.
+The reproduced `robocode.*` surface is frozen: changing a signature breaks already compiled robots. Implementation lives in `dev.robocode.tankroyale.bridge`, with `BotPeer` routing robot operations through the Tank Royale Bot API. Read the [frozen-surface contract](../docs/architecture/ARCH-002-frozen-robocode-api-surface.md) before editing the reproduced API.
 
-The `BotPeer` in this package can be considered as the main class as these implements interfaces from the original
-Robocode making the adapter possible. The `BotPeer` transforms commands and events from the original Robocode API into
-commands and events for the Tank Royale API.
-
-## Build commands
-
-#### Clean build directory:
-
-```shell
-gradle clean
+```powershell
+.\gradlew.bat :robocode-api:test
+.\gradlew.bat :robocode-api:jar
 ```
 
-#### Build/compile artifact:
-
-```shell
-gradle build
-```
-
-The generated library ([Robocode API] bridge) can be found under `/build/libs` named `robocode-api-x.y.z.jar`.
-
-
-[Robocode API]: https://robocode.sourceforge.io/docs/robocode/ "Original Robocode API"
-
-[javadoc]: https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html "Javadoc Home Page"
+The adapter jar appears under `robocode-api/build/libs`. The wrapper module's `previewDist` task packages it with the published runtime and user guide. Compatibility investigation may explicitly select a matched local Bot API/runner build; preview candidates use public dependencies and reject that local override.

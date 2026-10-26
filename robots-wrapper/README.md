@@ -1,55 +1,25 @@
-# Robocode Robots Wrapper
+# Robocode robots wrapper
 
-## About the wrapper
+The wrapper reads Classic robot jars and generates Tank Royale JSON metadata, boot scripts and Java-source entry points. Team jars produce a grouped entry plus the member directories it references.
 
-The Robots Wrapper is used to wrapping existing Robocode robot jar files making it possible to run those inside Robocode
-Tank Royale.
+For normal use, follow the [installation and first-battle guide](../guide/README.md). The preview's `wrap-robots` command discovers existing robot collections, stages unchanged jars into a separate bot root and installs the packaged runtime libraries. It requires a JDK; Classic is not a runtime prerequisite.
 
-The wrapper works by creating a Tank Royale specific bot directory beside the robot jar file containing:
+## Developer entry point
 
-- A JSON configuration file with robot information extracted from the robot jar file.
-- Script files for starting the robot for Tank Royale.
-- A `Wrapper.java` with a main entry for running the robot as an executable that makes use of
-  the [Robocode API adapter library].
+The original entry point remains available for callers that manage their own staging directory:
 
-## Usage
-
-The robots wrapper takes a single argument which is a file path of a directory containing one or more robot jar files
-identical to the `robots` folder inside the `robocode` home directory.
-
-Usage:
-
-```
-java -jar robots-wrapper-x.y.z.jar <robots-dir>
+```text
+java -jar robots-wrapper-0.3.1.jar <robots-directory>
 ```
 
-Example (for Windows):
+This entry point generates beside the staged jars. Its caller supplies a sibling `lib` directory containing the adapter and its compatible Tank Royale Bot API. The packaged command handles that setup for end users.
 
-```
-java -jar robots-wrapper-0.2.0.jar "C:\robocode\robots"
-```
+## Build
 
-### Important note
-
-Note that you need to create a `lib` folder inside the robots directory prior to running the robots wrapper.
-And you need to copy the `robocode-api-x.y.z.jar` library (from the [Robocode API adapter library]) into the `lib`
-directory. The script files in the created bot directories is depending on this library.
-
-## Build commands
-
-#### Clean build directory:
-
-```shell
-gradle clean
+```powershell
+.\gradlew.bat :robots-wrapper:build
+.\gradlew.bat :robots-wrapper:test
+.\gradlew.bat :robots-wrapper:previewDist
 ```
 
-#### Build/compile artifact:
-
-```shell
-gradle build
-```
-
-The generated library (Robots Wrapper) can be found under `/build/libs` named `robots-wrapper-x.y.z.jar`.
-
-
-[Robocode API adapter library]: ../robocode-api "Robocode API adapter library for Tank Royale"
+The combined developer jar appears under `robots-wrapper/build/libs`. The complete preview ZIP and checksum appear under `robots-wrapper/build/distributions`. Packaging requires committed sources and public dependencies; it performs no publishing. The guide covers the release preparation procedure.

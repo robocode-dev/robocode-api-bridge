@@ -42,8 +42,27 @@ public class Main {
     }
 
     static Map<String, Path> processJar(Path jarPath) {
-        Map<String, Path> classToBotDir = new HashMap<>();
         try {
+            return processJarInternal(jarPath, false, 0, new HashSet<>());
+        } catch (Exception ex) {
+            System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
+            return new HashMap<>();
+        }
+    }
+
+    static Map<String, Path> processJarStrict(Path jarPath) throws IOException {
+        Map<String, Path> bots = processJarInternal(jarPath, true, 0, new HashSet<>());
+        if (bots.isEmpty()) {
+            throw new IOException("No robot metadata found in " + jarPath.getFileName());
+        }
+        return bots;
+    }
+
+    private static Map<String, Path> processJarInternal(Path jarPath, boolean strict, int depth, Set<String> archiveClasses) throws IOException {
+        if (depth > 8) {
+            throw new IOException("Nested robot archives exceed eight levels");
+        }
+        Map<String, Path> classToBotDir = new HashMap<>();
             var jarFile = jarPath.toFile();
             // classname -> its bot directory, so a .team entry (processed after every .properties
             // entry) can name each member's already-created directory.
@@ -54,13 +73,33 @@ public class Main {
                     var zipEntry = entries.nextElement();
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".jar")) {
-                        Path nestedJar = stageNestedJar(jarPath, zipFile, zipEntry);
-                        classToBotDir.putAll(processJar(nestedJar));
+                        Path nestedJar;
+                        if (strict) {
+                            byte[] bytes;
+                            try (InputStream input = zipFile.getInputStream(zipEntry)) {
+                                bytes = input.readAllBytes();
+                            }
+                            nestedJar = jarPath.getParent().resolve("nested-" + PreviewFiles.sha256(bytes) + ".jar");
+                            Files.write(nestedJar, bytes);
+                        } else {
+                            nestedJar = stageNestedJar(jarPath, zipFile, zipEntry);
+                        }
+                        classToBotDir.putAll(processJarInternal(nestedJar, strict, depth + 1, archiveClasses));
                     } else if (filename.toLowerCase().endsWith(".properties")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
                         var robotProps = processProperties(inputStream);
                         if (robotProps != null) {
                             resolveDuplicatePropertiesClassName(zipFile, filename, robotProps, classToBotDir);
+                            if (strict) {
+                                PreviewFiles.safeClassName(robotProps.classname);
+                                if (robotProps.version != null) PreviewFiles.safeSegment(robotProps.version);
+                                if (zipFile.getEntry(robotProps.classname.replace('.', '/') + ".class") == null) {
+                                    throw new IOException("Robot class missing from archive: " + robotProps.classname);
+                                }
+                                if (!archiveClasses.add(robotProps.classname)) {
+                                    throw new IOException("Ambiguous robot class across archive tree: " + robotProps.classname);
+                                }
+                            }
                             Path botDir = createBotDir(jarPath, jarFile.getName(), robotProps);
                             classToBotDir.put(robotProps.classname, botDir);
 
@@ -75,13 +114,10 @@ public class Main {
                     var filename = zipEntry.getName();
                     if (filename.toLowerCase().endsWith(".team")) {
                         var inputStream = zipFile.getInputStream(zipEntry);
-                        processTeam(jarPath, filename, inputStream, classToBotDir);
+                        processTeamInternal(jarPath, filename, inputStream, classToBotDir, strict);
                     }
                 }
             }
-        } catch (Exception ex) {
-            System.err.println("IO exception occurred when processing " + jarPath + ": " + ex.getMessage());
-        }
         return classToBotDir;
     }
 
@@ -124,15 +160,22 @@ public class Main {
      * TEAM_ID/TEAM_NAME/TEAM_VERSION when it boots the named member directories.
      */
     static void processTeam(Path jarPath, String teamEntryName, InputStream is, Map<String, Path> classToBotDir) throws IOException {
+        processTeamInternal(jarPath, teamEntryName, is, classToBotDir, false);
+    }
+
+    private static void processTeamInternal(Path jarPath, String teamEntryName, InputStream is,
+                                           Map<String, Path> classToBotDir, boolean strict) throws IOException {
         var props = new Properties();
         props.load(is);
 
         var membersProp = props.getProperty("team.members");
         if (membersProp == null || membersProp.isBlank()) {
+            if (strict) throw new IOException("Team has no members: " + teamEntryName);
             return;
         }
 
         var teamBaseName = toBaseFilename(Path.of(teamEntryName));
+        if (strict) PreviewFiles.safeSegment(teamBaseName);
         List<String> memberDirNames = new ArrayList<>();
         Set<String> usedMemberDirs = new HashSet<>();
         int occurrence = 0;
@@ -147,6 +190,7 @@ public class Main {
 
             Path memberDir = classToBotDir.get(className);
             if (memberDir == null) {
+                if (strict) throw new IOException("Team member missing: " + className + " in " + teamEntryName);
                 System.err.println("Team member has no bot directory (no matching .properties entry): " + className);
                 continue;
             }
@@ -160,6 +204,7 @@ public class Main {
         }
 
         if (memberDirNames.isEmpty()) {
+            if (strict) throw new IOException("Team has no resolvable members: " + teamEntryName);
             System.err.println("Team has no resolvable members: " + teamEntryName);
             return;
         }
@@ -169,6 +214,7 @@ public class Main {
         var teamAuthor = props.getProperty("team.author.name");
 
         var teamDir = jarPath.getParent().resolve(teamBaseName);
+        if (strict && Files.exists(teamDir)) throw new IOException("Conflicting team identity: " + teamBaseName);
         Files.createDirectories(teamDir);
         createTeamJsonFile(teamDir, teamBaseName, teamName, teamVersion, teamAuthor, memberDirNames);
 
@@ -225,7 +271,7 @@ public class Main {
         return copy;
     }
 
-    static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamName, String teamVersion,
+    static void createTeamJsonFile(Path teamDir, String teamBaseName, String teamDescription, String teamVersion,
                                     String teamAuthor, List<String> memberDirNames) throws IOException {
         File file = createOrOverwriteFile(teamDir, teamBaseName + ".json");
         String author = normalizeAuthor(teamAuthor);
@@ -240,7 +286,8 @@ public class Main {
 
         try (var writer = Files.newBufferedWriter(file.toPath(), StandardCharsets.UTF_8)) {
             writer.write("{\n" +
-                    "  \"name\": \"" + escape(replaceIfBlank(teamName, teamBaseName)) + "\",\n" +
+                    "  \"name\": \"" + escape(teamBaseName) + "\",\n" +
+                    "  \"description\": \"" + escape(replaceIfBlank(teamDescription, "")) + "\",\n" +
                     "  \"version\": \"" + escape(replaceIfBlank(teamVersion, "[n/a]")) + "\",\n" +
                     "  \"authors\": [\"" + escape(replaceIfBlank(author, "[n/a]")) + "\"],\n" +
                     "  \"platform\": \"JVM\",\n" +
@@ -369,7 +416,8 @@ public class Main {
 
         String author = robotProps.author;
         if (author == null || author.isBlank()) {
-            author = robotProps.classname.substring(0, robotProps.classname.indexOf('.'));
+            int dot = robotProps.classname.indexOf('.');
+            author = dot < 0 ? robotProps.classname : robotProps.classname.substring(0, dot);
         }
         author = normalizeAuthor(author);
 
@@ -461,9 +509,16 @@ public class Main {
         File file = createOrOverwriteFile(botDir, botDir.getFileName() + fileExt);
 
         try (var writer = new FileWriter(file)) {
-            String javaCommand = "java -cp ." + separator + ".." + separator + "../.." + separator + "../lib/*" + separator + "../" + filename + " " + JAVA_WRAPPER;
+            String classpath = "." + separator + ".." + separator + "../.." + separator + "../lib/*" + separator + "../" + filename;
+            String javaCommand;
             if (fileExt.equalsIgnoreCase(".cmd")) {
-                javaCommand += " >nul"; // to avoid the process to become unresponsive
+                javaCommand = "@echo off\r\nsetlocal DisableDelayedExpansion\r\ncd /d \"%~dp0\"\r\n"
+                        + "set \"BRIDGE_JAVA=java\"\r\nif defined JAVA_HOME set \"BRIDGE_JAVA=%JAVA_HOME%\\bin\\java.exe\"\r\n"
+                        + "\"%BRIDGE_JAVA%\" -cp \"" + classpath + "\" " + JAVA_WRAPPER + " >nul\r\n";
+            } else {
+                javaCommand = "#!/bin/sh\ncd -- \"$(dirname -- \"$0\")\" || exit 1\n"
+                        + "if [ -n \"${JAVA_HOME:-}\" ]; then BRIDGE_JAVA=\"$JAVA_HOME/bin/java\"; else BRIDGE_JAVA=java; fi\n"
+                        + "exec \"$BRIDGE_JAVA\" -cp '" + classpath.replace("'", "'\\''") + "' " + JAVA_WRAPPER + "\n";
             }
             writer.write(javaCommand);
         }

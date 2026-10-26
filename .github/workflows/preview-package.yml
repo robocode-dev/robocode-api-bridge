@@ -1,0 +1,41 @@
+name: preview package
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        runtime: ['11', '25']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: |
+            11
+            25
+      - name: Exercise the unpacked package and generated source launchers
+        run: ./gradlew :robots-wrapper:test -PpreviewTestJavaVersion=${{ matrix.runtime }} --no-daemon
+      - name: Prepare a revision-pinned candidate
+        run: ./gradlew :robots-wrapper:previewDist --no-daemon
+      - name: Retain the candidate and checksums
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-package-java-${{ matrix.runtime }}
+          path: robots-wrapper/build/distributions/
+          if-no-files-found: error
+      - name: Retain test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-tests-java-${{ matrix.runtime }}
+          path: robots-wrapper/build/reports/tests/test/
