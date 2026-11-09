@@ -1,14 +1,4 @@
-## Acceptance brief
-
-<!-- Delete this entire section and every Cliewen-specific section below for simple work. Simple means the accepted contract remains unchanged. -->
-
-<!-- REQUIRED: Replace this comment with a concise, human-facing brief before requesting merge. -->
-
-- Plan item and whether it remains wanted: <!-- REQUIRED -->
-- Added or changed criteria, verbatim scenarios, and advisory scenario-resolution verdicts (`verifies`, `verifies-something-adjacent`, or `undetermined`); a criterion newly or materially declaring `Test-type: Human` is named here — this line is that criterion's proof, not a separate confirmation: <!-- REQUIRED, or none -->
-- What becomes binding on merge (inferred decisions, invalidated or superseded records, and any authorized unaccepted base with the meaning it binds): <!-- REQUIRED, or none -->
-
-> A green build, complete form, or confident agent is not evidence that this outcome is wanted or that the criteria reflect reality. Keep this brief to one screen; split a change rather than hiding material meaning.
+<!-- The form for a tracked Cliewen change. For direct work, which leaves the accepted contract unchanged, delete the Cliewen-specific sections. -->
 
 ## Summary
 
@@ -44,7 +34,7 @@
 - [ ] Consequential decisions are recorded, and active constraints were assessed.
 - [ ] Changed active acceptance criteria satisfy the evidence contract, each by one of these routes:
   - classified positive/negative Go, JVM, or Cucumber evidence at the declared machine proof type, with JVM identity/type/direction attached to the same executable, or an explicit `(single-direction)`;
-  - Human proof named in the acceptance brief;
+  - Human proof recorded in the proposal's `## Human evidence` section (observer, conditions, observation, result, and what was not observed);
   - per-criterion `@draft` for a genuine gap;
   - the legacy one-supported-reference rule.
 - [ ] User-visible impact is described under `[Unreleased]` in `CHANGELOG.md`, or the change has no user-visible impact.
@@ -56,7 +46,7 @@
 
 ## Review boundary
 
-- [ ] The branch started from the current tip of `main` and does not build on unmerged work, or its committed authorized-dependency record and acceptance-brief disclosure name the base, authorization, and binding meaning.
+- [ ] The branch started from the current tip of `main` and does not build on unmerged work, or its committed authorized-dependency record names the base, authorization, and binding meaning.
 - [ ] Every intended edit is committed, the worktree is clean, and the reported verification ran against the current commit.
 - [ ] The branch was updated without force, and this ready pull request's head branch and SHA equal the locally verified branch and `HEAD`.
 - [ ] This pull request existed as a draft from first publication, every working turn that changed anything ended by pushing the branch, and marking it ready was the explicit act binding verification and a clean review pass to the current head.

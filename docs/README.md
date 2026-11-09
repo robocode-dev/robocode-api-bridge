@@ -18,7 +18,7 @@ The red thread `clue validate` walks:
 ```
 G-xxx (goal) → P-xxx/M-xxx (plan/milestone) → CH-xxx (change)
   → CAP-xxx (capability) → AC-xxx (acceptance criterion) → acceptance evidence
-    → classified Go/JVM/Cucumber test reference, or Human acceptance brief
+    → classified Go/JVM/Cucumber test reference, or Human evidence in the change proposal
 ```
 
 Cross-cutting, checked against every proposal: C-xxx (constraints, including verifiable quality bars).
