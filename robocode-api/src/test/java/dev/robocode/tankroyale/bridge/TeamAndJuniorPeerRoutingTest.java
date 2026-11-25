@@ -24,10 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * Acceptance evidence for ROUTE-009 and ROUTE-010 — the {@code ITeamRobotPeer} and
  * {@code IJuniorRobotPeer} surfaces.
  *
- * The team surface routes today even though the wrapper cannot yet produce team bot
- * directories ({@code CAP-006}). That is worth testing now rather than later: when team
- * support does land, these calls are what it will run on, and a routing fault discovered
- * then would look like a fault in the new work.
+ * Transport tests drive the turn-boundary flush directly because RecordingBot does not
+ * run BotImpl.go(). The two-engine blocking-call fixture proves that production turns
+ * invoke this boundary automatically.
  *
  * Robocode addresses teammates by name while Tank Royale routes by numeric id. The bridge uses
  * Tank Royale's name map to preserve classic names and translates names back to ids for directed
@@ -53,7 +52,7 @@ class TeamAndJuniorPeerRoutingTest {
         assertFalse(bot.called("broadcastTeamMessage"),
                 "messages stay queued until the classic turn is submitted");
 
-        peer.execute();
+        peer.flushTeamMessages();
 
         assertEquals("attack", bot.onlyCall("broadcastTeamMessage").args[0],
                 "a single broadcast keeps its original payload and API call");
@@ -67,13 +66,37 @@ class TeamAndJuniorPeerRoutingTest {
         peer.broadcastMessage("attack");
         peer.sendMessage("7", "regroup");
 
-        peer.execute();
+        peer.flushTeamMessages();
 
         List<?> messages = (List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0];
         assertEquals("attack", messages.get(0));
         var routed = (BridgeTeamMessage.RoutedMessage) ((BridgeTeamMessage) messages.get(1)).decode();
         assertEquals(7, routed.getRecipientId());
         assertEquals("regroup", routed.getMessage());
+    }
+
+    @Test
+    void testROUTE009_UnitPositive_RetainsOverflowInOrderForTheNextTurn() throws IOException {
+        int limit = dev.robocode.tankroyale.botapi.Constants.MAX_LOGICAL_TEAM_MESSAGES_PER_TURN;
+        for (int index = 0; index < limit + 2; index++) {
+            peer.broadcastMessage("message-" + index);
+        }
+
+        peer.flushTeamMessages();
+        List<?> first = (List<?>) bot.onlyCall("broadcastTeamMessageBatch").args[0];
+        assertEquals(limit, first.size());
+        assertEquals("message-0", first.get(0));
+        assertEquals("message-" + (limit - 1), first.get(limit - 1));
+
+        bot.clear();
+        peer.flushTeamMessages();
+        assertEquals(List.of("message-" + limit, "message-" + (limit + 1)),
+                bot.onlyCall("broadcastTeamMessageBatch").args[0]);
+
+        bot.clear();
+        peer.flushTeamMessages();
+        assertFalse(bot.called("broadcastTeamMessageBatch"));
+        assertFalse(bot.called("broadcastTeamMessage"));
     }
 
     @Test
@@ -100,7 +123,7 @@ class TeamAndJuniorPeerRoutingTest {
         bot.returning("isTeammate", true);
         peer.sendMessage("7", "regroup");
 
-        peer.execute();
+        peer.flushTeamMessages();
 
         Object[] args = bot.onlyCall("sendTeamMessage").args;
         assertEquals(7, args[0], "Robocode names teammates; Tank Royale numbers them");
@@ -115,7 +138,7 @@ class TeamAndJuniorPeerRoutingTest {
 
         peer.sendMessage(teammateName, "regroup");
 
-        peer.execute();
+        peer.flushTeamMessages();
 
         Object[] args = bot.onlyCall("sendTeamMessage").args;
         assertEquals(7, args[0]);

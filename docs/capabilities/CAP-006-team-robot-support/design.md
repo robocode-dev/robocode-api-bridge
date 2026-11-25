@@ -2,7 +2,7 @@
 id: DES-006
 type: design
 status: active
-links: [CAP-006, ARCH-001, ARCH-002, AN-013, ADR-002, IDR-008]
+links: [CAP-006, ARCH-001, ARCH-002, AN-013, AN-716, ADR-002, IDR-008]
 title: Team robot support — design
 provenance: verified
 ---
@@ -18,6 +18,8 @@ Team behavior runs through both engines, including classic-name parity with the 
 `compat-test` marks `teamrumble` as a grouped division. Classic receives the selected team jar through its normal repository expansion. Tank Royale receives one generated team entry per team instance; the harness duplicates each member directory under an independent name, rewrites the copied entry's `teamMembers`, patches every member boot script, and raises the runner's participant ceiling to the expanded member count. Log collection expands the team entry back to its member directories so errors and console evidence remain attributable to individual processes.
 
 `BotPeer` dispatches Tank Royale `TeamMessageEvent` values through `MessageEventMapper` to the frozen `TeamRobot` callback, so both callback delivery and the existing polling surface expose the same classic `MessageEvent` shape. Simple messages use the Bot API directly; other `Serializable` messages travel in a bridge-owned Java-serialization envelope because the Bot API's Gson cannot reflect into some JDK-owned classes under strong module encapsulation. The conformance harness packages a bridge-owned team fixture against classic's API, runs it on each engine, and returns per-member consoles for one shared expectation.
+
+Outgoing messages stay queued until the connecting `BotImpl.go()` submits the next Tank Royale turn. This shared boundary flushes once for explicit `execute()` and for every internal turn of blocking movement, body/gun/radar turns and waits, including messages created by their event handlers. Flushing only in the classic peer's `execute()` left MyFirstTeam's orders queued indefinitely, as the [blocking-message investigation](../../analysis/AN-716-blocking-movement-retains-team-messages.md) records. Ordered batching, directed recipients and the logical per-turn message bound remain in the existing transport helper; the two-engine blocking-call fixture checks next-turn delivery against Classic.
 
 ## The mapping decision
 

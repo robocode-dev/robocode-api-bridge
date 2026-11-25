@@ -9,7 +9,9 @@
         ".clue/evidence/junit_producer.py",
         "build.gradle.kts",
         "*/build.gradle.kts",
-        "*/src/test/java/**/*.java"
+        "*/src/test/java/**/*.java",
+        "compat-test/conformance-robots/**/*.java",
+        "compat-test/conformance-robots/**/*.team"
       ],
       "command": [
         "python",

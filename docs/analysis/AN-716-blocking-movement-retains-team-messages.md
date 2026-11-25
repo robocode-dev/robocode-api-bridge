@@ -7,6 +7,7 @@ title: Blocking movement retains team messages and leaves MyFirstTeam unarmed
 provenance: inferred
 reversal-cost: low
 reality: contradicted
+carried-by: [DES-006]
 ---
 
 # Blocking movement retains team messages
@@ -58,3 +59,13 @@ The diagnostic intervention adds only logging and an optional `flushTeamMessages
 Implement and verify a turn-boundary repair under the existing delivery criteria. A focused two-engine fixture should broadcast before a blocking movement call and from an event handler while that call remains active, with no explicit `execute()` in the sender's loop; it should assert message receipt and timing rather than an exact nondeterministic score. Inspect blocking turns and other paths that advance Tank Royale turns for the same omission, and preserve the current message ordering, per-turn bounds and recipient rules.
 
 The investigation rejects runner conversion, team-result aggregation and absence of enemy scans as explanations for these captured unarmed battles. It does not establish that every historical zero-score battle had this cause, resolve the separate zero-only ranking behavior, or complete the clean Windows walkthrough required before the preview can be declared ready.
+
+## Repair verification
+
+The subsequent repair moves the existing queue flush from `executeRobotTurn()` to `BotImpl.go()`, which Tank Royale also invokes for every internal turn of blocking calls. The transport helper still owns batching, size splitting, ordering and directed recipients. Removing the old flush avoids draining the queue twice on explicit `execute()` turns. No reproduced `robocode.*` signature changes.
+
+`BlockingTeamMessageConformanceTest.testTEAM002_IntegrationPositive_DeliversAtTheNextTurnDuringBlockingCalls` runs the same two-member team on both engines for five rounds. It checks delivery time and event time equal to send time plus one, sender identity, order and duplicate/missing messages across movement, body/gun/radar turns, waits and explicit execution. It also sends a broadcast and a directed message from a status handler while movement is active. A blocking radar revolution before the measured sequence lets all members subscribe, as in the existing team fixture; this test does not claim to resolve first-turn startup races.
+
+Before the repair, Classic met those timing expectations, while the bridge retained messages sent at times 0 and 5 until time 58 in one captured round. After moving the boundary and stabilizing the fixture's startup, the five-round two-engine test passes without skips. The seven existing team-conformance tests also pass against the published 1.4.0 Bot API/runner pair, and all adapter unit tests pass, including a new ordered-overflow test at the logical message bound. The evidence export now fingerprints the dynamically compiled team/probe Java sources and team descriptors as well as the JUnit tests.
+
+[Two prepared sample-team smoke runs](AN-716-team-message-repair-smoke.json) use the rebuilt production adapter and no diagnostic override classes. They record 109 and 102 observer bullet-fired events respectively, with nonzero bullet-damage scores on both teams in each run. The report pins the adapter source and jar hashes, and confirms the unchanged collection/staged sample jar hashes. These runs confirm that the original sample receives orders and fires after this repair; their scores are not a parity or frequency claim. Preview installation readiness remains separate.

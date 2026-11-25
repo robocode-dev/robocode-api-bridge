@@ -39,6 +39,9 @@ Feature: Team robot support
     # testTEAM002_IntegrationPositive_ExposesClassicNamesAndResolvesThem, and
     # testTEAM002_IntegrationNegative_DirectedMessageIsNotBroadcast prove delivery, full names including
     # duplicate suffixes, name resolution, sender identity, and recipient isolation. Plan door: M-005.
+    # BlockingTeamMessageConformanceTest.testTEAM002_IntegrationPositive_DeliversAtTheNextTurnDuringBlockingCalls
+    # also proves next-turn delivery and ordering before blocking moves, turns and waits, including
+    # a broadcast and directed message sent by a status handler while movement remains active.
 
   @TEAM-003
   Scenario: A droid relies on its teammates rather than on its own radar

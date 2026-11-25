@@ -11,7 +11,9 @@
         ".clue/evidence/aggregate.py",
         ".clue/evidence/junit_producer.py",
         ".clue/evidence/producers.json",
-        "build.gradle.kts"
+        "build.gradle.kts",
+        "compat-test/conformance-robots/**/*.java",
+        "compat-test/conformance-robots/**/*.team"
       ],
       "exclude": [
         "**/.gradle",
@@ -32,11 +34,95 @@
         },
         {
           "path": ".clue/evidence/producers.json",
-          "sha256": "dc52a855f15381ab082d2f53c0e9ab4238bbca906fa502f6ae4182886d2ba1bf"
+          "sha256": "0dbb53dc166cee9cbec264d9b7ecf56ba7c220f6b13e31eb8f9460dbdad87ea3"
         },
         {
           "path": "build.gradle.kts",
           "sha256": "48d3ed845800ce8287bf650176d273727d15df103b7ad2491f6f733d6f9235c9"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/blockingteams/BlockingReceiver.java",
+          "sha256": "58e90e9319d86f2d19d519a88b59c6913df3127e3c037458c0f80397133ae5e1"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/blockingteams/BlockingSender.java",
+          "sha256": "850d1adc0b534a98200b23af5fac58ddd6c210f9192632f9537f2339eebe3723"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/blockingteams/BlockingTeam.team",
+          "sha256": "2ef9b976c0d56295c16ae5c4c99eac5e244133b2db0d5ab87a97903ba9c6fae7"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/BlockingScanProbe.java",
+          "sha256": "d5ccdd9f65bf65ce0c4bfbe4dbb21dd5b7caf971f758ea5a1966b30356a4406d"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/CustomEventRemovalProbe.java",
+          "sha256": "950e5ec746c7c5f20a676566a1f152586a1c0b6892840401a7ac5495b25ca14d"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/DeathEventProbe.java",
+          "sha256": "bf40c2def4e4fbe2af54448407de48766732e2629d8cf81d6250eab37838b3a2"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/EventPriorityProbe.java",
+          "sha256": "64539155dff5bfe6d6ba7b7202b62235d52094c536dee9c36ef2953430c8e422"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/FileQuotaOverwriteProbe.java",
+          "sha256": "f9cc92c622fdd8bd1eefe1b401c8d398d982bb171d4578a23ffc90cbd88697c3"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/FileQuotaProbe.java",
+          "sha256": "b46f0db3baa0b45197e7dedbf1bcad01e949d45c266b28f73b435a4c71fff5a2"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/FileRedirectionProbe.java",
+          "sha256": "ae4f9efbe1aeef124bad054fa73ab299f0803b677baa0a28e866edf8a3c26750"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/FileStreamLimitProbe.java",
+          "sha256": "e49f5df2dfe8c32c8dea5ec75274c4cee3b762d65e0bb6e9862a6d9c38fd5458"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/InitialStatusProbe.java",
+          "sha256": "6ac83b2c76390996ddd00ea5ccb80f184eb73794f42a06dbae7f33053f27ec72"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/MeleeScanProbe.java",
+          "sha256": "94bd8576ede8392687c4587867cf280d08fbf226a38f9f21951fbc9fc382a9e4"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/NoSkippedTurnProbe.java",
+          "sha256": "d19b63fd670a099a65b7be2a15393da4136ef57361fb54a94f4304ba88fd6f7a"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/SkippedTurnProbe.java",
+          "sha256": "86a37f64ba1238b4d44bd97f161a7aace055bb8b7765c883ac760889cb926616"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/probes/TurnBoundaryProbe.java",
+          "sha256": "91f73f7af8b043d8c2b863229ab96e63aad407c61d356e80d0f9ceb855354cbb"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/teams/TeamDroid.java",
+          "sha256": "d351583bda600777e31796002f46b3881f58f08b13ac116632b08e8a74ffb461"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/teams/TeamFixture.team",
+          "sha256": "8ea48f174eb9412cf8d58f8af54fcd2abae23b405a05f72605906db49b812ec9"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/teams/TeamLeader.java",
+          "sha256": "99cf896fdaaaba48327ec65353c0fe401044f114e97f3662f128b270971caf96"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/teams/TeamPayload.java",
+          "sha256": "e986a9e5b3acc2e887e852d58bbb7623b1d9a7fe98e32190cb21868dc201ba07"
+        },
+        {
+          "path": "compat-test/conformance-robots/conformance/teams/TeamRecipient.java",
+          "sha256": "415cbf5b0c74af676d2ba6aaf9079a5776454da9cb41a2346a1135563eae2bf9"
         },
         {
           "path": "conformance-test/build.gradle.kts",
@@ -49,6 +135,10 @@
         {
           "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingScanConformanceTest.java",
           "sha256": "e0fc37f7af129a5b07a644fc5b68a2627b22274ce4b8f7268936e759cf52fafd"
+        },
+        {
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingTeamMessageConformanceTest.java",
+          "sha256": "0f2d003277130ef4a386fb0a584e137f91b8bb89a51b212ebd48161fe1c2766e"
         },
         {
           "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/ConformanceHarness.java",
@@ -208,7 +298,7 @@
         },
         {
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
-          "sha256": "21af614165e30976d85051b5f2ca454d793aa8eaa1368d3d9a599c804e48e609"
+          "sha256": "e1a470dcdbc9cc146ab109bb4cce3db8fb4c3d0c7c5ba0fe08cd1e390c5b193d"
         },
         {
           "path": "robots-wrapper/build.gradle.kts",
@@ -247,6 +337,13 @@
           "id": "EVT-002",
           "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingScanConformanceTest.java",
           "subject": "BlockingScanConformanceTest.testEVT002_IntegrationPositive_PendingScansSurviveBlockingHandler",
+          "type": "Integration",
+          "direction": "positive"
+        },
+        {
+          "id": "TEAM-002",
+          "path": "conformance-test/src/test/java/dev/robocode/tankroyale/bridge/conformance/BlockingTeamMessageConformanceTest.java",
+          "subject": "BlockingTeamMessageConformanceTest.testTEAM002_IntegrationPositive_DeliversAtTheNextTurnDuringBlockingCalls",
           "type": "Integration",
           "direction": "positive"
         },
@@ -1374,6 +1471,13 @@
           "id": "ROUTE-009",
           "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
           "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_ReportsTeammatesAsNames",
+          "type": "Unit",
+          "direction": "positive"
+        },
+        {
+          "id": "ROUTE-009",
+          "path": "robocode-api/src/test/java/dev/robocode/tankroyale/bridge/TeamAndJuniorPeerRoutingTest.java",
+          "subject": "TeamAndJuniorPeerRoutingTest.testROUTE009_UnitPositive_RetainsOverflowInOrderForTheNextTurn",
           "type": "Unit",
           "direction": "positive"
         },

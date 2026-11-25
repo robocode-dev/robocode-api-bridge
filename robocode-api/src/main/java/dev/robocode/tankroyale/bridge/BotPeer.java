@@ -335,12 +335,12 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
     private void executeRobotTurn() {
         log("execute()");
-        flushTeamMessages();
         bot.go();
         dispatchPendingSelfTeamMessages(deliveredTurn);
     }
 
-    private void flushTeamMessages() {
+    /** Turn-boundary transport; package access lets unit tests drive it without a server. */
+    void flushTeamMessages() {
         List<PendingTeamMessage> pending;
         synchronized (pendingTeamMessages) {
             if (pendingTeamMessages.isEmpty()) return;
@@ -1401,6 +1401,14 @@ public final class BotPeer implements ITeamRobotPeer, IJuniorRobotPeer {
 
         BotImpl(BotInfo botInfo) {
             super(botInfo);
+        }
+
+        @Override
+        public void go() {
+            // Blocking Bot API calls advance turns internally. Flush here so messages
+            // queued by the robot or an event handler reach the very next turn too.
+            flushTeamMessages();
+            super.go();
         }
 
         @Override

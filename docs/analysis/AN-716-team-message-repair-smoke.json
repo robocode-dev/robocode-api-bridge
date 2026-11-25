@@ -1,0 +1,387 @@
+{
+  "environment": "prepared; Windows; Temurin 25.0.1+8; same staged sample jar and public runner as AN-716",
+  "base_revision": "e23c29c",
+  "BotPeer_source_sha256": "8c1d5818e0f17a45822a8909fc7f74cee6beb2c94c3a66312415692b477d01b2",
+  "adapter_jar_sha256": "f599f3002a6b2d8aef018d5ef25e862f91339bf928b2c290ae8f20d233281d43",
+  "robot_original_sha256": "53c7888f54b626fec479a4f692fa946245c0c1720206590910f8a3e44569466f",
+  "robot_staged_sha256": "53c7888f54b626fec479a4f692fa946245c0c1720206590910f8a3e44569466f",
+  "method": "Two single-round sample-team smoke runs with rebuilt production adapter, no diagnostic classes in generated classpaths, unchanged relay and observer recording. Not a parity or frequency estimate.",
+  "runs": [
+    {
+      "run": 9,
+      "observer_event_counts": {
+        "ScannedBotEvent": 810,
+        "BulletFiredEvent": 109,
+        "BulletHitBotEvent": 84,
+        "BulletHitWallEvent": 18,
+        "BotHitWallEvent": 1,
+        "BotDeathEvent": 6,
+        "BulletHitBulletEvent": 1
+      },
+      "message_intents_by_bot": {
+        "sampleteam.MyFirstLeader_1.0": 125,
+        "sampleteam.MyFirstLeader_1.0-opponent": 94
+      },
+      "per_bot_results": {
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-3-opponent": {
+          "rank": 5,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 208,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 258,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-opponent": {
+          "rank": 7,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 144,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 194,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstLeader_1.0": {
+          "rank": 4,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 0,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 300,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-4": {
+          "rank": 3,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 147,
+          "bulletKillBonus": 10,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 457,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 1
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-5-opponent": {
+          "rank": 6,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 140,
+          "bulletKillBonus": 21,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 212,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstLeader_1.0-opponent": {
+          "rank": 10,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 0,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 50,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-3": {
+          "rank": 8,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 128,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 178,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0": {
+          "rank": 2,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 172,
+          "bulletKillBonus": 8,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 481,
+          "firstPlaces": 0,
+          "secondPlaces": 1,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-4-opponent": {
+          "rank": 9,
+          "survival": 0,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 128,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 128,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-5": {
+          "rank": 1,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 215,
+          "bulletKillBonus": 7,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 523,
+          "firstPlaces": 1,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        }
+      },
+      "observer_result": {
+        "numberOfRounds": 1,
+        "results": [
+          {
+            "id": 1,
+            "name": "MyFirstTeam",
+            "isTeam": true,
+            "version": "1.0",
+            "rank": 1,
+            "survival": 1050,
+            "lastSurvivorBonus": 200,
+            "bulletDamage": 662,
+            "bulletKillBonus": 26,
+            "ramDamage": 0,
+            "ramKillBonus": 0,
+            "totalScore": 1939,
+            "firstPlaces": 1,
+            "secondPlaces": 1,
+            "thirdPlaces": 1
+          },
+          {
+            "id": 2,
+            "name": "MyFirstTeam-opponent",
+            "isTeam": true,
+            "version": "1.0",
+            "rank": 2,
+            "survival": 200,
+            "lastSurvivorBonus": 0,
+            "bulletDamage": 620,
+            "bulletKillBonus": 21,
+            "ramDamage": 0,
+            "ramKillBonus": 0,
+            "totalScore": 842,
+            "firstPlaces": 0,
+            "secondPlaces": 0,
+            "thirdPlaces": 0
+          }
+        ],
+        "type": "GameEndedEventForObserver"
+      }
+    },
+    {
+      "run": 10,
+      "observer_event_counts": {
+        "ScannedBotEvent": 752,
+        "BulletFiredEvent": 102,
+        "BulletHitBotEvent": 85,
+        "BotHitBotEvent": 2,
+        "BulletHitWallEvent": 7,
+        "BotDeathEvent": 6,
+        "BulletHitBulletEvent": 2
+      },
+      "message_intents_by_bot": {
+        "sampleteam.MyFirstLeader_1.0-opponent": 132,
+        "sampleteam.MyFirstLeader_1.0": 133
+      },
+      "per_bot_results": {
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-5": {
+          "rank": 7,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 96,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 146,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstLeader_1.0": {
+          "rank": 4,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 0,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 300,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-3": {
+          "rank": 1,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 256,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 556,
+          "firstPlaces": 1,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-3-opponent": {
+          "rank": 10,
+          "survival": 0,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 48,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 48,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-4": {
+          "rank": 2,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 217,
+          "bulletKillBonus": 20,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 538,
+          "firstPlaces": 0,
+          "secondPlaces": 1,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-4-opponent": {
+          "rank": 5,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 208,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 258,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0": {
+          "rank": 3,
+          "survival": 250,
+          "lastSurvivorBonus": 50,
+          "bulletDamage": 205,
+          "bulletKillBonus": 25,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 530,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 1
+        },
+        "sampleteam.MyFirstDroid_1.0-opponent": {
+          "rank": 6,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 179,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 230,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstDroid_1.0-MyFirstTeam-member-5-opponent": {
+          "rank": 8,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 96,
+          "bulletKillBonus": 0,
+          "ramDamage": 0,
+          "ramKillBonus": 0,
+          "totalScore": 146,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        },
+        "sampleteam.MyFirstLeader_1.0-opponent": {
+          "rank": 9,
+          "survival": 50,
+          "lastSurvivorBonus": 0,
+          "bulletDamage": 0,
+          "bulletKillBonus": 0,
+          "ramDamage": 1,
+          "ramKillBonus": 0,
+          "totalScore": 51,
+          "firstPlaces": 0,
+          "secondPlaces": 0,
+          "thirdPlaces": 0
+        }
+      },
+      "observer_result": {
+        "numberOfRounds": 1,
+        "results": [
+          {
+            "id": 1,
+            "name": "MyFirstTeam",
+            "isTeam": true,
+            "version": "1.0",
+            "rank": 1,
+            "survival": 1050,
+            "lastSurvivorBonus": 200,
+            "bulletDamage": 774,
+            "bulletKillBonus": 45,
+            "ramDamage": 0,
+            "ramKillBonus": 0,
+            "totalScore": 2070,
+            "firstPlaces": 1,
+            "secondPlaces": 1,
+            "thirdPlaces": 1
+          },
+          {
+            "id": 2,
+            "name": "MyFirstTeam-opponent",
+            "isTeam": true,
+            "version": "1.0",
+            "rank": 2,
+            "survival": 200,
+            "lastSurvivorBonus": 0,
+            "bulletDamage": 531,
+            "bulletKillBonus": 0,
+            "ramDamage": 1,
+            "ramKillBonus": 0,
+            "totalScore": 733,
+            "firstPlaces": 0,
+            "secondPlaces": 0,
+            "thirdPlaces": 0
+          }
+        ],
+        "type": "GameEndedEventForObserver"
+      }
+    }
+  ]
+}
